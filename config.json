@@ -1,0 +1,18 @@
+{
+  "slug": "bash",
+  "language": "Bash",
+  "repository": "https://github.com/exercism/xbash",
+  "active": false,
+  "problems": [
+
+  ],
+  "deprecated": [
+
+  ],
+  "ignored": [
+
+  ],
+  "foregone": [
+
+  ]
+}
