@@ -4,7 +4,7 @@
   "repository": "https://github.com/exercism/xbash",
   "active": false,
   "problems": [
-
+    "hello-world"
   ],
   "deprecated": [
 
