@@ -6,7 +6,7 @@
 }
 
 @test "Long identical strands have hamming distance of zero" {
-  run bash hamming.sh CATSCATS CATSCATS
+  run bash hamming.sh CATGCATG CATGCATG
 
   [ "$status" -eq 0 ]
   [ "$output" -eq 0 ]
