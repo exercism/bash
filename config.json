@@ -2,6 +2,7 @@
   "slug": "bash",
   "language": "Bash",
   "repository": "https://github.com/exercism/xbash",
+  "checklist_issue": 4,
   "active": false,
   "problems": [
     "hello-world",
