@@ -1,5 +1,3 @@
-# Testing
-
 As there isn't much of a bash ecosystem, there also isn't really a de
 facto leader in the bash testing area. For these examples we are using
 [bats](https://github.com/sstephenson/bats). You should be able to
