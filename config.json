@@ -6,7 +6,9 @@
   "active": false,
   "problems": [
     "hello-world",
-    "hamming"
+    "gigasecond",
+    "hamming",
+    "rna-transcription"
   ],
   "deprecated": [
 
