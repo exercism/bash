@@ -1,17 +1,18 @@
 #!/bin/bash
 
-USAGE="Usage: raindrops <number>"
+function usage() {
+	echo "Usage: raindrops <number>" >&2
+	exit 1
+}
 
 # check argument is present
 if [ ! "$#" -eq 1 ]; then
-  echo $USAGE
-  exit 1
+  usage
 fi
 
 # check param is an integer
 if ! [[ $1 =~ ^[0-9]+$ ]]; then
-  echo $USAGE
-  exit 1
+  usage
 fi
 
 output=""
