@@ -1,17 +1,18 @@
 #!/bin/bash
 
-USAGE="Usage: leap.sh <year>"
+function usage() {
+	echo "Usage: leap.sh <year>" >&2
+	exit 1
+}
 
 # check number of params
 if  [ "$#" != 1 ]; then
-	echo $USAGE
-	exit 1
+	usage
 fi
 
 # check param is an integer
 if ! [[ $1 =~ ^[0-9]+$ ]]; then
-	echo $USAGE
-	exit 1
+	usage
 fi
 
 if [ $(($1 % 4)) == 0 ] \
