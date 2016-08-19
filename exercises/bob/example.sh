@@ -10,11 +10,11 @@ if [ "$input" == "" ]; then
   exit 0
 fi
 
-# remove inside space characters (to make later parsing easier)
-input=${input// /}
-
-# remove special characters and numbers (to make later parsing easier)
-input=${input//[\(\)\%\^\!\*\&\$\#\@1-9]/}
+# clean string up(to make later parsing easier)
+input=${input// /}  # remove inside space characters
+input=${input//[1-9]/}  # remove numbers
+input=${input//[\%\^\*\&\$\#\@\\\~]/}  # remove special characters
+input=${input//[\[\]\(\)\{\}\⟨\⟩\:\'\"\`\-\_\.\,\;\!]/}  # remove punctuation signs (leave '?' it indicates a question)
 
 # Is there shouting?
 if [ ${input%%*[^[:upper:]\?]*} ]; then
