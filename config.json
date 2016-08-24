@@ -13,6 +13,43 @@
     "raindrops",
     "bob"
   ],
+  "exercises": [
+    {
+      "slug": "hello-world" ,
+      "difficulty": 1,
+      "topics": []
+    },
+    {
+      "slug": "gigasecond" ,
+      "difficulty": 1,
+      "topics": []
+    },
+    {
+      "slug": "leap" ,
+      "difficulty": 1,
+      "topics": []
+    },
+    {
+      "slug": "hamming" ,
+      "difficulty": 1,
+      "topics": []
+    },
+    {
+      "slug": "rna-transcription" ,
+      "difficulty": 1,
+      "topics": []
+    },
+    {
+      "slug": "raindrops" ,
+      "difficulty": 1,
+      "topics": []
+    },
+    {
+      "slug": "bob" ,
+      "difficulty": 1,
+      "topics": []
+    }
+  ],
   "deprecated": [
 
   ],
