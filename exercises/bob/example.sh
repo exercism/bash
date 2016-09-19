@@ -6,6 +6,7 @@ input="$(printf %b "${1}")"
 
 # Remove space characters
 input="${input//[[:space:]]/}"
+input="${input//$(printf '\u00a0')}"  # [[:space:]] doesn't match \u00a0 on Linux
 
 # Is there silence?
 if [[ "${input}" == "" ]]; then
