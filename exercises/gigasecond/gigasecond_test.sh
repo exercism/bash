@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 @test 'April 25th, 2011' {
   run bash gigasecond.sh '2011-04-25Z'
 
