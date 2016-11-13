@@ -21,4 +21,4 @@ For Red Hat, Scientific Linux, and CentOS 6 or later bats is found in the EPEL r
 sudo yum install bats  
 ```
 
-Run the tests with `bats whatever_test.sh`.  
+Run the tests with `bats whatever_test.sh` or `./whatever_test.sh`.

@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 @test 'Complement of cytosine is guanine' {
   run bash rna_transcription.sh C
 

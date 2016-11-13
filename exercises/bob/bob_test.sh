@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 @test "stating something." {
   run bash bob.sh "Tom-ay-to, tom-aaaah-to."
 

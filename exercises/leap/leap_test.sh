@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 @test "Leap year should return leap year" {
   run ./leap.sh 1996
 

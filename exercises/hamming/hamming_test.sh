@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 @test "Short identical strands have hamming distance of zero" {
   run bash hamming.sh C C
 
