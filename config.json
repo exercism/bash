@@ -39,6 +39,11 @@
       "slug": "bob" ,
       "difficulty": 1,
       "topics": []
+    },
+    {
+      "slug": "anagram" ,
+      "difficulty": 1,
+      "topics": []
     }
   ],
   "deprecated": [
