@@ -6,18 +6,18 @@ if [ "$#" -ne 2 ]; then
 fi
 
 input="$1"
-posibles="$2"
+possibles="$2"
 
 out=""
 
 in_counts="$(echo $input | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
-for posible in $posibles
+for possible in $possibles
 do
-    p_counts="$(echo $posible | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
-    if test "$in_counts" = "$p_counts" -a "$(echo $input | tr '[:upper:]' '[:lower:]')" != "$(echo $posible | tr '[:upper:]' '[:lower:]')"
+    p_counts="$(echo $possible | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
+    if test "$in_counts" = "$p_counts" -a "$(echo $input | tr '[:upper:]' '[:lower:]')" != "$(echo $possible | tr '[:upper:]' '[:lower:]')"
     then
-        out="${out} ${posible}"
+        out="${out} ${possible}"
     fi
 done
 
-echo ${out# } #stip leading spaces
+echo ${out# } #strip leading spaces
