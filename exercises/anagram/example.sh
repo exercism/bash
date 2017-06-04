@@ -10,14 +10,14 @@ posibles="$2"
 
 out=""
 
-in_counts="$(echo $input | fold -w1 | sort | uniq -c)"
+in_counts="$(echo $input | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
 for posible in $posibles
 do
-    p_counts="$(echo $posible | fold -w1 | sort | uniq -c)"
-    if test "$in_counts" = "$p_counts"
+    p_counts="$(echo $posible | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
+    if test "$in_counts" = "$p_counts" -a "$(echo $input | tr '[:upper:]' '[:lower:]')" != "$(echo $posible | tr '[:upper:]' '[:lower:]')"
     then
-        out="${posible} ${out}"
+        out="${out} ${posible}"
     fi
 done
 
-echo ${out% } #stip trailing spaces
+echo ${out# } #stip leading spaces
