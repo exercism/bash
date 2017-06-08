@@ -10,4 +10,16 @@ do
     almost_square_of_sum=$(($almost_square_of_sum + $i))
 done
 square_of_sum=$(($almost_square_of_sum**2))
-echo $(($square_of_sum - $sum_of_squares))
+if [ $# -eq 2 ]
+then
+    if [ $2 == "-s" ]
+    then
+        echo "$sum_of_squares"
+    elif [ $2 == "-S" ]
+    then
+        echo "$square_of_sum"
+    fi
+else
+    echo $(($square_of_sum - $sum_of_squares))
+fi
+

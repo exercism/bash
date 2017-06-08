@@ -23,7 +23,7 @@
 
 # Bonus!  Add flags for individual functions
 @test 'square of sum 1' {
-    skip
+    # skip
     run bash difference_of_squares.sh 1 -S
 
     [ "$status" -eq 0 ]
@@ -31,7 +31,7 @@
 }
 
 @test 'square of sum 5' {
-    skip
+    # skip
     run bash difference_of_squares.sh 5 -S
 
     [ "$status" -eq 0 ]
@@ -39,7 +39,7 @@
 }
 
 @test 'square of sum 100' {
-    skip
+    # skip
     run bash difference_of_squares.sh 100 -S
 
     [ "$status" -eq 0 ]
@@ -47,7 +47,7 @@
 }
 
 @test 'sum of squares 1' {
-    skip
+    # skip
     run bash difference_of_squares.sh 1 -s
 
     [ "$status" -eq 0 ]
@@ -55,7 +55,7 @@
 }
 
 @test 'sum of squares 5' {
-    skip
+    # skip
     run bash difference_of_squares.sh 5 -s
 
     [ "$status" -eq 0 ]
@@ -63,7 +63,7 @@
 }
 
 @test 'sum of squares 100' {
-    skip
+    # skip
     run bash difference_of_squares.sh 100 -s
 
     [ "$status" -eq 0 ]
