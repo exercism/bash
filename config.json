@@ -6,49 +6,67 @@
   "active": false,
   "exercises": [
     {
-      "slug": "hello-world" ,
+      "slug": "hello-world",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "gigasecond" ,
+      "slug": "gigasecond",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "leap" ,
+      "slug": "leap",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "hamming" ,
+      "slug": "hamming",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "rna-transcription" ,
+      "slug": "rna-transcription",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "raindrops" ,
+      "slug": "raindrops",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "bob" ,
+      "slug": "bob",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "slug": "difference-of-squares",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
-      "slug": "anagram" ,
+      "slug": "anagram",
       "difficulty": 1,
-      "topics": []
+      "topics": [
+
+      ]
     }
   ],
   "deprecated": [
