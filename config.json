@@ -66,6 +66,16 @@
       ]
     },
     {
+      "uuid": "51bd6542-408b-4a73-8343-1c4d50db5315",
+      "slug": "word-count",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "9ac0b041-a7aa-4b0c-952a-d38d35e2cd65",
       "slug": "bob",
       "core": false,
