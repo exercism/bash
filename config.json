@@ -141,6 +141,16 @@
         "string_comparison",
         "control_flow_conditionals"
       ]
+    },
+    {
+      "uudi": "b2b4ee35-108f-45ce-b294-c10d332e5579",
+      "slug": "error-handling",
+      "core": true,
+      "difficulty": 1,
+      "topics": [
+        "error_handling",
+        "input_validation"
+      ]
     }
   ],
   "foregone": [
