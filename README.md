@@ -1,6 +1,6 @@
-# xBash
+# Exercism Bash Track
 
-[![Gitter](https://badges.gitter.im/exercism/xbash.svg)](https://gitter.im/exercism/xbash?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/exercism/bash.svg)](https://gitter.im/exercism/bash?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Exercism Exercises in Bash
 
