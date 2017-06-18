@@ -1,7 +1,7 @@
 {
   "slug": "bash",
   "language": "Bash",
-  "repository": "https://github.com/exercism/xbash",
+  "repository": "https://github.com/exercism/bash",
   "checklist_issue": 4,
   "active": false,
   "exercises": [
