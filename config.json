@@ -10,7 +10,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "stdout"
       ]
     },
     {
@@ -20,7 +20,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "dates"
       ]
     },
     {
@@ -30,7 +30,9 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_conditionals",
+        "input_validation",
+        "boolean_logic"
       ]
     },
     {
@@ -40,7 +42,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_loops",
+        "string_comparison"
       ]
     },
     {
@@ -50,7 +53,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_loops",
+        "associative_arrays"
       ]
     },
     {
@@ -60,7 +64,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "input_validation",
+        "control_flow_conditionals"
       ]
     },
     {
@@ -70,7 +75,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_loops",
+        "string_comparison"
       ]
     },
     {
@@ -80,7 +86,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_conditionals"
       ]
     },
     {
@@ -90,7 +96,10 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "string_transformation",
+        "string_comparison"
       ]
     },
     {
@@ -100,7 +109,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_loops",
+        "string_transformation"
       ]
     },
     {
@@ -110,7 +120,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "string_transformation"
       ]
     },
     {
@@ -120,7 +130,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "text_formatting",
+        "control_flow_conditionals"
       ]
     },
     {
@@ -130,7 +141,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "string_comparison",
+        "control_flow_conditionals"
       ]
     }
   ],
