@@ -6,11 +6,10 @@
     {
       "uuid": "4e2533dd-3af5-400b-869d-78140764d533",
       "slug": "hello-world",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
-
+        "stdout"
       ]
     },
     {
@@ -20,57 +19,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
-      ]
-    },
-    {
-      "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a",
-      "slug": "leap",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
-    },
-    {
-      "uuid": "68103f44-b442-48e6-b2b5-09001f73e926",
-      "slug": "hamming",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
-    },
-    {
-      "uuid": "8a62e53e-59c2-42d5-96e5-a0f8f9b5d177",
-      "slug": "rna-transcription",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
-    },
-    {
-      "uuid": "1a9c8d65-43ee-435e-8c55-9a45c14a71fb",
-      "slug": "raindrops",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
-    },
-    {
-      "uuid": "51bd6542-408b-4a73-8343-1c4d50db5315",
-      "slug": "word-count",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
+        "dates"
       ]
     },
     {
@@ -80,57 +29,117 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-
+        "control_flow_conditionals"
+      ]
+    },
+    {
+      "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a",
+      "slug": "leap",
+      "core": true,
+      "difficulty": 1,
+      "topics": [
+        "control_flow_conditionals",
+        "input_validation",
+        "boolean_logic"
+      ]
+    },
+    {
+      "uuid": "1a9c8d65-43ee-435e-8c55-9a45c14a71fb",
+      "slug": "raindrops",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 1,
+      "topics": [
+        "input_validation",
+        "control_flow_conditionals"
       ]
     },
     {
       "uuid": "ca5139b4-8b2f-44ea-8d83-0b8ca7674436",
       "slug": "difference-of-squares",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 1,
       "topics": [
-
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "string_transformation",
+        "string_comparison"
+      ]
+    },
+    {
+      "uuid": "a7e2018a-c454-4fe0-ad35-229304306648",
+      "slug": "pangram",
+      "core": true,
+      "difficulty": 2,
+      "topics": [
+        "string_transformation"
       ]
     },
     {
       "uuid": "33d9eb48-5958-4e98-afc0-8cff89577c86",
       "slug": "anagram",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
       "topics": [
-
+        "control_flow_loops",
+        "string_transformation"
       ]
     },
     {
-      "uuid": "a7e2018a-c454-4fe0-ad35-229304306648",
-      "slug": "pangram",
+      "uuid": "68103f44-b442-48e6-b2b5-09001f73e926",
+      "slug": "hamming",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
       "topics": [
-
+        "control_flow_loops",
+        "string_comparison"
+      ]
+    },
+    {
+      "uuid": "8a62e53e-59c2-42d5-96e5-a0f8f9b5d177",
+      "slug": "rna-transcription",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
+      "topics": [
+        "control_flow_loops",
+        "associative_arrays"
+      ]
+    },
+    {
+      "uuid": "51bd6542-408b-4a73-8343-1c4d50db5315",
+      "slug": "word-count",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
+      "topics": [
+        "control_flow_loops",
+        "string_comparison"
       ]
     },
     {
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe",
       "slug": "two-fer",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
       "topics": [
-
+        "text_formatting",
+        "control_flow_conditionals"
       ]
     },
     {
       "uuid": "9f9a1a49-472f-4a39-aa28-6aa17eeebdc7",
       "slug": "phone-number",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
       "topics": [
-
+        "string_comparison",
+        "control_flow_conditionals"
       ]
     }
   ],
