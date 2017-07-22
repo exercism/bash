@@ -122,6 +122,16 @@
       "topics": [
 
       ]
+    },
+    {
+      "uuid": "9f9a1a49-472f-4a39-aa28-6aa17eeebdc7",
+      "slug": "phone-number",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+
+      ]
     }
   ],
   "foregone": [
