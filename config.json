@@ -14,16 +14,6 @@
       ]
     },
     {
-      "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe",
-      "slug": "two-fer",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
-    },
-    {
       "uuid": "176c1a86-28b1-4848-9f87-bd6ae10db6ba",
       "slug": "gigasecond",
       "core": false,
@@ -116,6 +106,16 @@
     {
       "uuid": "a7e2018a-c454-4fe0-ad35-229304306648",
       "slug": "pangram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+
+      ]
+    },
+    {
+      "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe",
+      "slug": "two-fer",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
