@@ -110,17 +110,6 @@
       ]
     },
     {
-      "uuid": "51bd6542-408b-4a73-8343-1c4d50db5315",
-      "slug": "word-count",
-      "core": false,
-      "unlocked_by": "pangram",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_loops",
-        "string_comparison"
-      ]
-    },
-    {
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe",
       "slug": "two-fer",
       "core": false,
