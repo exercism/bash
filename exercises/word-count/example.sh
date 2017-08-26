@@ -16,6 +16,6 @@ then
 	exit 1;
 fi
 
-echo "$input" | awk -f "${awk_progfile}";
+echo "$input" | tr '[:upper:]' '[:lower:]' | tr '.,:&@$%^!' ' ' | awk -f "${awk_progfile}";
 
 exit $?;
