@@ -121,6 +121,17 @@
       ]
     },
     {
+      "uuid": "28f848c8-56ef-4147-a401-f1617c147b4b",
+      "slug": "nucleotide-count",
+      "core": false,
+      "unlocked-by": null,
+      "difficulty": 2,
+      "topics": [
+        "control_flow_loops",
+        "string_comparison"
+      ]
+    },
+    {
       "uuid": "9f9a1a49-472f-4a39-aa28-6aa17eeebdc7",
       "slug": "phone-number",
       "core": false,
