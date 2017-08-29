@@ -132,6 +132,17 @@
       ]
     },
     {
+      "uuid": "51bd6542-408b-4a73-8343-1c4d50db5315",     
+      "slug": "word-count",       
+      "core": false,      
+      "unlocked_by": "pangram",       
+      "difficulty": 2,        
+      "topics": [     
+        "control_flow_loops",     
+        "string_comparison"       
+      ]       
+    },
+    {
       "uuid": "9f9a1a49-472f-4a39-aa28-6aa17eeebdc7",
       "slug": "phone-number",
       "core": false,
