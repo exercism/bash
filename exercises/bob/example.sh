@@ -11,7 +11,6 @@ set -o pipefail
 # Turn on traces, useful while debugging but commented out by default
 # set -o xtrace
 
-# Set magic variables for current file, directory, os, etc.
 #__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 #__base="$(basename ${__file} .sh)"
@@ -19,7 +18,7 @@ set -o pipefail
 # print argument and exit
 function say() {
   local mesg=${1}
-  echo ${mesg}
+  echo "${mesg}"
   exit 0
 }
 
@@ -33,7 +32,7 @@ input="$(printf %b "${1}")"
 
 # Remove space characters
 input="${input//[[:space:]]/}"
-input="${input//$(printf '\u00a0')}" # [[:space:]] doesn't match \u00a0 on Linux
+#input="${input//$(printf '\u00a0')}" # [[:space:]] doesn't match \u00a0 on Linux
 
 # Is there silence?
 if [[ "${input}" == "" ]]; then
