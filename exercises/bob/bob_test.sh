@@ -183,12 +183,14 @@
   [ "$output" = "Sure." ]
 }
 
-@test "other whitespace" {
-  run bash bob.sh "\n\r \t\u000b\u00a0\u2002"
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Fine. Be that way!" ]
-}
+# This is commented out because it behaves differently on linux and mac
+# see: https://github.com/exercism/bash/pull/28
+#@test "other whitespace" {
+#  run bash bob.sh "\n\r \t\u000b\u00a0\u2002"
+#
+#  [ "$status" -eq 0 ]
+#  [ "$output" = "Fine. Be that way!" ]
+#}
 
 
 @test "non-question ending with whitespace" {
