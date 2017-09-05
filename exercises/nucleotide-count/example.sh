@@ -21,13 +21,13 @@ fi
 
 for i in $(seq 1 ${#input}); do
 	char=${input:i-1:1}
-	if [ $char = "A" ]; then
+	if [ "${char}" = "A" ]; then
 		a=$((a+1))
-	elif [ $char = "C" ]; then
+	elif [ "${char}" = "C" ]; then
 		c=$((c+1))
-	elif [ $char = "G" ]; then
+	elif [ "${char}" = "G" ]; then
 		g=$((g+1))
-	elif [ $char = "T" ]; then
+	elif [ "${char}" = "T" ]; then
 		t=$((t+1))
 	else
 		echo "Invalid nucleotide in strand"
