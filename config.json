@@ -127,7 +127,7 @@
         "control_flow_loops",
         "string_comparison"
       ],
-      "unlocked-by": null,
+      "unlocked-by": "panagram",
       "uuid": "28f848c8-56ef-4147-a401-f1617c147b4b"
     },
     {
