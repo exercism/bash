@@ -122,6 +122,17 @@
     {
       "core": false,
       "difficulty": 2,
+      "slug": "nucleotide-count",
+      "topics": [
+        "control_flow_loops",
+        "string_comparison"
+      ],
+      "unlocked-by": "panagram",
+      "uuid": "28f848c8-56ef-4147-a401-f1617c147b4b"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
       "slug": "word-count",
       "topics": [
         "control_flow_loops",
