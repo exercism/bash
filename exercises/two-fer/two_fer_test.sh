@@ -8,6 +8,7 @@
 }
 
 @test 'When given "Alice" it should have one for Alice!' {
+  skip
   run bash two_fer.sh Alice
 
   [ "$status" -eq 0 ]
@@ -15,6 +16,7 @@
 }
 
 @test 'When given "Bob" it should have one for Bob!' {
+  skip
   run bash two_fer.sh Bob
 
   [ "$status" -eq 0 ]

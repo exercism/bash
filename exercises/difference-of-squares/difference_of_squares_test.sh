@@ -8,6 +8,7 @@
 }
 
 @test 'difference of squares 5' {
+    skip
     run bash difference_of_squares.sh 5
 
     [ "$status" -eq 0 ]
@@ -15,6 +16,7 @@
 }
 
 @test 'difference of squares 100' {
+    skip
     run bash difference_of_squares.sh 100
 
     [ "$status" -eq 0 ]

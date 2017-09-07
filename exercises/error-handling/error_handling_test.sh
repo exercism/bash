@@ -8,6 +8,7 @@
 }
 
 @test "one long argument" {
+    skip
     run bash error_handling.sh "Alice and Bob"
     
     [ "$status" -eq 0 ]
@@ -15,17 +16,20 @@
 }
 
 @test "incorrect arguments" {
+    skip
     run bash error_handling.sh Alice Bob
 
     [ "$status" -ne 0 ]
 }
 
 @test "use errexit" {
+    skip
     source error_handling.sh
     [ echo $SHELLOPTS | grep -q 'errexit' ]
 }
 
 @test "use nounset" {
+    skip
     source error_handling.sh
     [ echo $SHELLOPTS | grep -q 'nounset' ]
 }

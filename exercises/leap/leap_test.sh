@@ -8,6 +8,7 @@
 }
 
 @test 'Non-leap year should return non-leap year' {
+  skip
   run ./leap.sh 1997
 
   [ "$status" -eq 0 ]
@@ -15,6 +16,7 @@
 }
 
 @test 'Non-leap even year should return non-leap year' {
+  skip
   run ./leap.sh 1998
 
   [ "$status" -eq 0 ]
@@ -22,6 +24,7 @@
 }
 
 @test 'Century non-leap year should return non-leap year' {
+  skip
   run ./leap.sh 1900
 
   [ "$status" -eq 0 ]
@@ -29,6 +32,7 @@
 }
 
 @test 'Fourth century should return leap year' {
+  skip
   run ./leap.sh 2400
 
   [ "$status" -eq 0 ]
@@ -36,6 +40,7 @@
 }
 
 @test 'Y2K should return leap year' {
+  skip
   run ./leap.sh 2000
 
   [ "$status" -eq 0 ]
@@ -43,6 +48,7 @@
 }
 
 @test 'No input should return an error' {
+  skip
   run ./leap.sh
 
   [ "$status" -eq 1 ]
@@ -50,6 +56,7 @@
 }
 
 @test 'Too much input should return an error' {
+  skip
   run ./leap.sh 2016 4562 4566
 
   [ "$status" -eq 1 ]
@@ -57,6 +64,7 @@
 }
 
 @test 'Float number input should return an error' {
+  skip
   run ./leap.sh 2016.54
 
   [ "$status" -eq 1 ]
@@ -64,6 +72,7 @@
 }
 
 @test 'Alpha input should return an error' {
+  skip
   run ./leap.sh abcd
 
   [ "$status" -eq 1 ]
