@@ -8,6 +8,10 @@
 }
 
 @test 'June 13th, 1977' {
+  # this is used to skip the test
+  # normally, we skip every test except for the first one
+  # this allows for a person to focus on solving a test at a time
+  # you can comment out or delete the `skip` to run the test when ready
   skip
   run bash gigasecond.sh '1977-06-13Z'
 
