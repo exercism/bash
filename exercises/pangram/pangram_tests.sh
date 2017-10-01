@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "sentence empty" {
+    #skip
     run bash pangram.sh ""
     [ "$status" -eq 1 ]
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test 'difference of squares 1' {
+    #skip
     run bash difference_of_squares.sh 1
 
     [ "$status" -eq 0 ]

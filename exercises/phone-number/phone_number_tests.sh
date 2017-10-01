@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "Cleans the number" {
+  #skip
   run bash phone_number.sh "(223) 456-7890"
   [ "$status" -eq 0 ]
   [ "$output" = "2234567890" ]

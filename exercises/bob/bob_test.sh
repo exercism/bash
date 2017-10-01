@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "stating something." {
+  #skip
   run bash bob.sh "Tom-ay-to, tom-aaaah-to."
 
   [ "$status" -eq 0 ]
@@ -217,6 +218,7 @@
 #  [ "$status" -eq 0 ]
 #  [ "$output" = "Fine. Be that way!" ]
 #}
+
 
 @test "non-question ending with whitespace" {
   skip

@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "Leap year should return leap year" {
+  #skip
   run ./leap.sh 1996
 
   [ "$status" -eq 0 ]

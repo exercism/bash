@@ -3,6 +3,7 @@
 # check non factors
 
 @test "Number 1, not factor of 3, 5 or 7, should output itself: 1." {
+  #skip
   run bash raindrops.sh 1
 
   [ "$status" -eq 0 ]

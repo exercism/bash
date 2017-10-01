@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "When given no name, it should have one for you!" {
+  #skip
   run bash two_fer.sh
 
   [ "$status" -eq 0 ]

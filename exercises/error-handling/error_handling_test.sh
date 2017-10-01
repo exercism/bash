@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "correct arguments" {
+    #skip
     run bash error_handling.sh Alice
     
     [ "$status" -eq 0 ]
