@@ -161,6 +161,18 @@
         "input_validation"
       ],
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
+    },
+    {
+      "core": false,
+      "difficulty": 5,
+      "slug": "atbash-cipher",
+      "topics": [
+        "cryptography",
+        "pattern_matching",
+        "strings"
+      ],
+      "unlocked_by": "hamming",
+      "uuid": "03808072-0228-6580-7a9b-cc709a8a5b8c0e600b9"
     }
   ],
   "foregone": [],
