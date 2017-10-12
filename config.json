@@ -164,15 +164,6 @@
     },
     {
       "core": false,
-      "difficulty": 1,
-      "slug": "acronym",
-      "topics": [
-        "string_transformation",
-        "input_validation"
-      ],
-      "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb"
-    },
-      "core": false,
       "difficulty": 5,
       "slug": "atbash-cipher",
       "topics": [
@@ -182,7 +173,17 @@
       ],
       "unlocked_by": "hamming",
       "uuid": "03808072-0228-6580-7a9b-cc709a8a5b8c0e600b9"
-    }
+    },
+    {
+      "core": false,
+      "difficulty": 1,
+      "slug": "acronym",
+      "topics": [
+        "string_transformation",
+        "input_validation"
+      ],
+      "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb"
+    }    
   ],
   "foregone": [],
   "language": "Bash"
