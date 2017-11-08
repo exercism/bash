@@ -68,6 +68,16 @@
     },
     {
       "core": true,
+      "difficulty": 1,
+      "slug": "error-handling",
+      "topics": [
+        "error_handling",
+        "input_validation"
+      ],
+      "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
+    },
+    {
+      "core": true,
       "difficulty": 2,
       "slug": "pangram",
       "topics": [
@@ -153,14 +163,14 @@
       "uuid": "9f9a1a49-472f-4a39-aa28-6aa17eeebdc7"
     },
     {
-      "core": true,
-      "difficulty": 1,
-      "slug": "error-handling",
+      "core": false,
+      "difficulty": 2,
+      "slug": "triangle",
       "topics": [
-        "error_handling",
+        "control_flow_conditionals",
         "input_validation"
       ],
-      "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
+      "uuid": "a4513a3c-001f-a780-2457-50dd752e16088564ebe"
     },
     {
       "core": false,
