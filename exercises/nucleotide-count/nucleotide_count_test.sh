@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "empty strand" {
+        #skip
 	run ./nucleotide_count.sh ""
 
 	[ "$status" -eq 0 ]
@@ -8,6 +9,7 @@
 }
 
 @test "strand with repeated nucleotide" {
+	skip
 	run ./nucleotide_count.sh "GGGGGGG"
 
 	[ "$status" -eq 0 ]
@@ -15,6 +17,7 @@
 }
 
 @test "strand with multiple nucleotides" {
+	skip
 	run ./nucleotide_count.sh "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
 
 	[ "$status" -eq 0 ]
@@ -22,6 +25,7 @@
 }
 
 @test "strand with invalid nucleotides" {
+	skip
 	run ./nucleotide_count.sh "AGXXACT"
 
 	[ "$status" -eq 1 ]

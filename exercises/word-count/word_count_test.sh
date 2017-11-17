@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 @test "count one word" {
+    #skip
     run ./word_count.sh "word"
 
     [ "$status" -eq 0 ]
@@ -9,6 +10,7 @@
 }
 
 @test "count one of each word" {
+    skip
     run ./word_count.sh "one of each"
 
     [ "$status" -eq 0 ]
@@ -19,6 +21,7 @@
 }
 
 @test "multiple occurrences of a word" {
+    skip
     run ./word_count.sh "one fish two fish red fish blue fish"
 
     [ "$status" -eq 0 ]
@@ -31,6 +34,7 @@
 }
 
 @test "handle cramped lists" {
+    skip
     run ./word_count.sh "one,two,three"
 
     [ "$status" -eq 0 ]
@@ -41,6 +45,7 @@
 }
 
 @test "ignore punctuation" {
+    skip
     run ./word_count.sh "car: carpet as java: javascript!!&@$%^&"
 
    [ "$status" -eq 0 ]
@@ -53,6 +58,7 @@
 }
 
 @test "include numbers" {
+    skip
     run ./word_count.sh "testing, 1, 2 testing"
 
     [ "$status" -eq 0 ]
@@ -63,6 +69,7 @@
 }
 
 @test "normalize case" {
+    skip
     run ./word_count.sh "go Go GO Stop stop"
 
     [ "$status" -eq 0 ]
@@ -72,6 +79,7 @@
 }
 
 @test "handle apostrophes" {
+    skip
     run ./word_count.sh "First: don't laugh. Then: don't cry."
 
     [ "$status" -eq 0 ]
