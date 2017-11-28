@@ -9,10 +9,6 @@
 }
 
 @test "false if any side is unequal" {
-  # this is used to skip the test
-  # normally, we skip every test except for the first one
-  # this allows for a person to focus on solving a test at a time
-  # you can comment out or delete the `skip` to run the test when ready
   skip
   run bash triangle.sh equilateral 2 3 2
 
