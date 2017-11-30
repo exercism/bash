@@ -164,16 +164,6 @@
     },
     {
       "core": false,
-      "difficulty": 2,
-      "slug": "triangle",
-      "topics": [
-        "control_flow_conditionals",
-        "input_validation"
-      ],
-      "uuid": "a4513a3c-001f-a780-2457-50dd752e16088564ebe"
-    },
-    {
-      "core": false,
       "difficulty": 5,
       "slug": "atbash-cipher",
       "topics": [
