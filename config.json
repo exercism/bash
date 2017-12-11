@@ -77,6 +77,17 @@
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
     },
     {
+      "core": false,
+      "difficulty": 2,
+      "slug": "armstrong-numbers",
+      "topics": [
+        "integers",
+        "mathematics"
+      ],
+      "unlocked_by": null,
+      "uuid": "302b7e1a-4cf6-47d4-8048-b675f667fc98"
+    },
+    {
       "core": true,
       "difficulty": 2,
       "slug": "pangram",
