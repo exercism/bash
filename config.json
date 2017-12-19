@@ -12,6 +12,15 @@
       "uuid": "4e2533dd-3af5-400b-869d-78140764d533"
     },
     {
+      "core": true,
+      "difficulty": 1,
+      "slug": "reverse-string",
+      "topics": [
+        "strings"
+      ],
+      "uuid": "2b6d4faa-1909-422a-8eac-1682be3f1b9e"
+    },
+    {
       "core": false,
       "difficulty": 1,
       "slug": "gigasecond",
