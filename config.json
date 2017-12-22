@@ -186,18 +186,6 @@
     },
     {
       "core": false,
-      "difficulty": 5,
-      "slug": "atbash-cipher",
-      "topics": [
-        "cryptography",
-        "pattern_matching",
-        "strings"
-      ],
-      "unlocked_by": "hamming",
-      "uuid": "03808072-0228-6580-7a9b-cc709a8a5b8c0e600b9"
-    },
-    {
-      "core": false,
       "difficulty": 2,
       "slug": "triangle",
       "topics": [
@@ -208,6 +196,18 @@
       ],
       "unlocked_by": "leap",
       "uuid": "496e130a-063a-6380-19dc-179f05534717226bca1"
+    },
+    {
+      "core": false,
+      "difficulty": 5,
+      "slug": "atbash-cipher",
+      "topics": [
+        "cryptography",
+        "pattern_matching",
+        "strings"
+      ],
+      "unlocked_by": "hamming",
+      "uuid": "03808072-0228-6580-7a9b-cc709a8a5b8c0e600b9"
     }
  ],
   "foregone": [],
