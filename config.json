@@ -45,6 +45,17 @@
     {
       "core": false,
       "difficulty": 1,
+      "slug": "acronym",
+      "topics": [
+        "string_transformation",
+        "input_validation"
+      ],
+      "unlocked_by": null,
+      "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb"
+    },
+ {
+      "core": false,
+      "difficulty": 1,
       "slug": "raindrops",
       "topics": [
         "control_flow_conditionals",
@@ -187,7 +198,7 @@
       "unlocked_by": "leap",
       "uuid": "496e130a-063a-6380-19dc-179f05534717226bca1"
     }
-  ],
+ ],
   "foregone": [],
   "language": "Bash"
 }
