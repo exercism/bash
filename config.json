@@ -199,6 +199,19 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "collatz-conjecture",
+      "topics": [
+        "control_flow_conditionals",
+        "input_validation",
+        "integers",
+        "mathematics"
+      ],
+      "unlocked_by": "armstrong-numbers",
+      "uuid": "b4793e6d-f443-41ea-8289-95e18a5dbef4"
+    },
+    {
+      "core": false,
       "difficulty": 5,
       "slug": "atbash-cipher",
       "topics": [
