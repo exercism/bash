@@ -6,7 +6,7 @@ Exercism Exercises in Bash
 
 ## Contributing Guide
 
-Please see the [contributing guide](https://github.com/exercism/bash/blob/master/CONTRIBUTING.md)
+Please see the [contributing guide](https://github.com/exercism/bash/blob/master/CONTRIBUTING.md) for information.
 
 
 ### Bash icon
