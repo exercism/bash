@@ -217,6 +217,20 @@
       ],
       "unlocked_by": "hamming",
       "uuid": "5bff4fe1-6330-4730-b586-dcc5438c02ee"
+    },
+    {
+      "core": false,
+      "difficulty": 6,
+      "slug": "roman-numerals",
+      "topics": [
+        "integers",
+        "logic",
+        "loops",
+        "mathematics",
+        "strings"
+      ],
+      "unlocked_by": "hamming",
+      "uuid": "7cc44e62-d29e-41c3-b4dd-689229e3e25a"
     }
  ],
   "foregone": [],
