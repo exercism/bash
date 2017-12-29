@@ -164,6 +164,19 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "luhn",
+      "topics": [
+        "algorithms",
+        "control_flow_conditionals",
+        "integers",
+        "mathematics"
+      ],
+      "unlocked_by": "difference-of-squares",
+      "uuid": "a3b16d02-2963-445d-9339-7e3002375a71"
+    },
+    {
+      "core": false,
       "difficulty": 5,
       "slug": "atbash-cipher",
       "topics": [
