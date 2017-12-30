@@ -8,7 +8,7 @@ This exercise requires you to handle various errors. Because error handling is r
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats error_handling_test.sh
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
