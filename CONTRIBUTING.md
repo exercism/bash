@@ -61,11 +61,11 @@ Currently, you're interested in all of the `"cases"`.  Each of these is a test c
 Implement each of the test cases (along with any comments or explanations you think are necessary for people who aren't sure of themselves).  When in doubt, check out the other, already implemented exercises for an example.  Here's an example of implementing the test case shown above.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bats
 
 @test 'Say Hi!' {
   run bash hello_world.sh
-  
+
   [ "$status" -eq 0 ]
   [ "$output" = "Hello, World" ]
 }
@@ -75,6 +75,9 @@ Implement each of the test cases (along with any comments or explanations you th
 
 For each test you create, you should use the `description` value for the test case description.  The `property` value is generally used by other languages to specify what the function to be run is called.  Use your best judgement and check out how other exercises handle this.  If there's just one property, you can just test the script as a whole.  If there's multiple properties, consider testing those as either subcommands or flags (e.g. an exercise with an encode and a decode property could be handled by `run bash cyper.sh encode <argument>` or by `run bash cypher.sh -e <argument>`).  You're the one writing the tests, so you decide.  You'll get feedback when you open your pull request anyways, so don't stress too much about it.
 
+For test cases that require the implementation to return `true` or `false` make sure you are requiring the user to output a value, for example "true" or `true`, to the console instead of just relying on the exit status in bash (0 for success, 1-255 for error).
+This will be consistent with the existing exercises and prevent possible issues in the future.
+
 You can check to see if your example script works by running `bats`.
 
 ```bash
@@ -83,7 +86,7 @@ $ bats hello_world_test.sh
 
 ### Implementing an Example Solution
 
-If you've been following along so far, your tests should fail.  Go ahead and implement your solution in the `<your-exercise>.sh` file.  Make sure your file has `#!/bin/bash` at the top.
+If you've been following along so far, your tests should fail.  Go ahead and implement your solution in the `<your-exercise>.sh` file.  Make sure your file has `#!/usr/bin/env bash` ([shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))) at the top.
 
 Keep running your test file against it until your tests all pass.  This process should help ensure that both your tests *and* your example are ship shape!
 
@@ -176,7 +179,7 @@ It's possible to submit an incomplete solution so you can see how others have co
 
 ### Cleaning Up
 
-20. If you've been practicing good version control throughout this process, you may have several commits.  At this point, you're almost ready to submit your pull request, but you should rebase against the most recent upstream master branch.
+If you've been practicing good version control throughout this process, you may have several commits.  At this point, you're almost ready to submit your pull request, but you should rebase against the most recent upstream master branch.
 
 ```bash
 # Assuming you've alread 'git added' and 'git commited'
@@ -188,7 +191,7 @@ $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-21. Now you're ready to sync up with Github and open your pull request!
+Now you're ready to sync up with Github and open your pull request!
 
 ```bash
 $ git push --force-with-lease origin <your-branch-name>
