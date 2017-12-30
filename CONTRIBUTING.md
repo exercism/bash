@@ -93,7 +93,7 @@ Once your tests and example are complete, rename `<your-exercise>.sh` to `exampl
 
 Exercism makes heavy use of configuration files to automate things.  Now that you're done with your solution, you can add your problem to `bash/config.json`.  Check out the [configuration description](https://github.com/exercism/docs/blob/master/language-tracks/configuration/exercises.md) in the Exercism docs for more info on each item.
 
-```
+```javascript
 // config.json
 {
   "exercises": [
