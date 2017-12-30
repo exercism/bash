@@ -10,7 +10,9 @@ In order to run any of the test files (or examples, for that matter), you're goi
 
 ## Porting an Exercise from Another Language
 
-Porting an exercise from another language is easy (ish)!  You can follow this step-by-step guide (specific for this repository) to get it done.
+Porting an exercise from another language is easy (ish)! [Problem specifications](www.github.com/exercism/problem-specifications) for [unimplemented exercises](www.exercism.io/languages/bash/todo) can be used to do this.
+
+The `_template` directory found in `exercism/bash` can be used to port exercises. Once an example submission, full test suite and README.md have been created, you just need to alter `config.json` to include the newly implemented exercise.
 
 ### Initial Setup
 
