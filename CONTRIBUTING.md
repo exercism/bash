@@ -144,7 +144,7 @@ There are two ways to create the README: generate it via the configlet, or manua
 
 #### Using the Configlet
 
-The configlet has a generate command that uses Go templating and pulls from the repository's `config` directory as well as each exercise's `.meta` directory.  Learn more in the [configlet docs](https://github.com/exercism/configlet).  You should just be able to run:
+The configlet has a generate command that uses Go templating and pulls from the repository's `config` directory as well as each exercise's `.meta` directory. For example, any necessary `hints.md` should be put in `.meta` so configlet may pull it in. Learn more in the [configlet docs](https://github.com/exercism/configlet).  You should just be able to run:
 
 ```bash
 $ bin/configlet generate <your-exercise>
