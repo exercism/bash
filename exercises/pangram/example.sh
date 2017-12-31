@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 input=$1
 #delete non-letters then lowercase, count number of unique letters

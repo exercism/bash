@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -eu
 
 if test $# -gt 1
