@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bats
 
 # Test Equilateral
 @test "true if all sides are equal" {
