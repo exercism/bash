@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 set -o errexit   # Stop script on command error
 set -o nounset   # Error out if accessing undefined variable name
 set -o pipefail  # Error out if any step in a pipe errors out

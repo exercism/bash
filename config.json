@@ -12,6 +12,15 @@
       "uuid": "4e2533dd-3af5-400b-869d-78140764d533"
     },
     {
+      "core": true,
+      "difficulty": 1,
+      "slug": "reverse-string",
+      "topics": [
+        "strings"
+      ],
+      "uuid": "2b6d4faa-1909-422a-8eac-1682be3f1b9e"
+    },
+    {
       "core": false,
       "difficulty": 1,
       "slug": "gigasecond",
@@ -45,6 +54,17 @@
     {
       "core": false,
       "difficulty": 1,
+      "slug": "acronym",
+      "topics": [
+        "string_transformation",
+        "input_validation"
+      ],
+      "unlocked_by": null,
+      "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb"
+    },
+ {
+      "core": false,
+      "difficulty": 1,
       "slug": "raindrops",
       "topics": [
         "control_flow_conditionals",
@@ -75,6 +95,17 @@
         "input_validation"
       ],
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "armstrong-numbers",
+      "topics": [
+        "integers",
+        "mathematics"
+      ],
+      "unlocked_by": null,
+      "uuid": "302b7e1a-4cf6-47d4-8048-b675f667fc98"
     },
     {
       "core": true,
@@ -185,22 +216,23 @@
         "strings"
       ],
       "unlocked_by": "hamming",
-      "uuid": "03808072-0228-6580-7a9b-cc709a8a5b8c0e600b9"
+      "uuid": "5bff4fe1-6330-4730-b586-dcc5438c02ee"
     },
     {
       "core": false,
-      "difficulty": 2,
-      "slug": "triangle",
+      "difficulty": 6,
+      "slug": "roman-numerals",
       "topics": [
-        "boolean_logic",
-        "input_validation",
-        "number_comparison",
-        "mathematics"
+        "integers",
+        "logic",
+        "loops",
+        "mathematics",
+        "strings"
       ],
-      "unlocked_by": "leap",
-      "uuid": "496e130a-063a-6380-19dc-179f05534717226bca1"
+      "unlocked_by": "hamming",
+      "uuid": "7cc44e62-d29e-41c3-b4dd-689229e3e25a"
     }
-  ],
+ ],
   "foregone": [],
   "language": "Bash"
 }

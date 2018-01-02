@@ -10,7 +10,9 @@ In order to run any of the test files (or examples, for that matter), you're goi
 
 ## Porting an Exercise from Another Language
 
-Porting an exercise from another language is easy (ish)!  You can follow this step-by-step guide (specific for this repository) to get it done.
+Porting an exercise from another language is easy (ish)! [Problem specifications](www.github.com/exercism/problem-specifications) for [unimplemented exercises](www.exercism.io/languages/bash/todo) can be used to do this.
+
+The `_template` directory found in `exercism/bash` can be used to port exercises. Once an example submission, full test suite and README.md have been created, you just need to alter `config.json` to include the newly implemented exercise.
 
 ### Initial Setup
 
@@ -93,7 +95,7 @@ Once your tests and example are complete, rename `<your-exercise>.sh` to `exampl
 
 Exercism makes heavy use of configuration files to automate things.  Now that you're done with your solution, you can add your problem to `bash/config.json`.  Check out the [configuration description](https://github.com/exercism/docs/blob/master/language-tracks/configuration/exercises.md) in the Exercism docs for more info on each item.
 
-```json
+```javascript
 // config.json
 {
   "exercises": [
@@ -144,7 +146,7 @@ There are two ways to create the README: generate it via the configlet, or manua
 
 #### Using the Configlet
 
-The configlet has a generate command that uses Go templating and pulls from the repository's `config` directory as well as each exercise's `.meta` directory.  Learn more in the [configlet docs](https://github.com/exercism/configlet).  You should just be able to run:
+The configlet has a generate command that uses Go templating and pulls from the repository's `config` directory as well as each exercise's `.meta` directory. For example, any necessary `hints.md` should be put in `.meta` so configlet may pull it in. Learn more in the [configlet docs](https://github.com/exercism/configlet).  You should just be able to run:
 
 ```bash
 $ bin/configlet generate <your-exercise>

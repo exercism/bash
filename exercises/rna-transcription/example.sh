@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 declare -A trans
 trans[G]='C'
 trans[C]='G'

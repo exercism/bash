@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 encode () {
 	clean_string=$(echo "$1" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
