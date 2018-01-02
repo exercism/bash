@@ -61,6 +61,7 @@
   run bash grains.sh 0
 
   [ "$status" -eq 1 ]
+  [ "$output" = "Error: invalid input" ]
 }
 
 @test "Square -1 causes error" {
@@ -68,6 +69,7 @@
   run bash grains.sh -1
 
   [ "$status" -eq 1 ]
+  [ "$output" = "Error: invalid input" ]
 }
 
 @test "Square 65 causes error" {
@@ -75,4 +77,5 @@
   run bash grains.sh 65
 
   [ "$status" -eq 1 ]
+  [ "$output" = "Error: invalid input" ]
 }
