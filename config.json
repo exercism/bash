@@ -52,6 +52,17 @@
       "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a"
     },
     {
+      "core": true,
+      "difficulty": 1,
+      "slug": "grains",
+      "topics": [
+        "control_flow_conditionals",
+        "input_validation",
+        "mathematics"
+      ],
+      "uuid": "c9d36155-10e8-4a75-a732-3c43a68910eb"
+    },
+    {
       "core": false,
       "difficulty": 1,
       "slug": "acronym",
