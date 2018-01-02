@@ -3,7 +3,7 @@
 num=$(echo "$1" | sed 's/[\ ]//g')
 
 if ! [[ 10#$num -ge 0 ]] 2>/dev/null || ! [[ ${#num} -gt 1 ]] ; then
-    echo 1
+    echo "false"
 else
     shift 1
 
@@ -23,6 +23,10 @@ else
         is_odd=$(( ! $is_odd ))
     }
 
-    echo $(( 0 != ( $sum % 10 ) ))
+    if [[ 0 -eq $(( 0 != ( $sum % 10 ) )) ]] ; then
+        echo "true"
+    else
+        echo "false"
+    fi
 
 fi
