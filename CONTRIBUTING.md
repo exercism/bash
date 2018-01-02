@@ -75,8 +75,7 @@ Implement each of the test cases (along with any comments or explanations you th
 
 For each test you create, you should use the `description` value for the test case description.  The `property` value is generally used by other languages to specify what the function to be run is called.  Use your best judgement and check out how other exercises handle this.  If there's just one property, you can just test the script as a whole.  If there's multiple properties, consider testing those as either subcommands or flags (e.g. an exercise with an encode and a decode property could be handled by `run bash cyper.sh encode <argument>` or by `run bash cypher.sh -e <argument>`).  You're the one writing the tests, so you decide.  You'll get feedback when you open your pull request anyways, so don't stress too much about it.
 
-For test cases that require the implementation to return `true` or `false` make sure you are requiring the user to output a value, for example "true" or `true`, to the console instead of just relying on the exit status in bash (0 for success, 1-255 for error).
-This will be consistent with the existing exercises and prevent possible issues in the future.
+For test cases that are expected to return `true` or `false` make sure you are expecting an output value. It is better to return "true" or `true`, to the console instead of just relying on the exit status in bash (0 for success, 1-255 for error). This will be consistent with the existing exercises and prevent possible issues in the future.
 
 You can check to see if your example script works by running `bats`.
 
