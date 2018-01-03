@@ -151,7 +151,7 @@
       "slug": "acronym",
       "topics": [
         "input_validation",
-        "string_transformation"
+        "string_transformation",
         "strings"
       ],
       "unlocked_by": "pangram",
@@ -202,7 +202,7 @@
       "slug": "nucleotide-count",
       "topics": [
         "control_flow_loops",
-        "error_handling"
+        "error_handling",
         "string_comparison"
       ],
       "unlocked-by": "error-handling",
