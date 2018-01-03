@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$1" -gt 0 ]; then
     N=$1
 else
-    echo "Error: invalid input"
+    echo "Error: Only positive numbers are allowed"
     exit 1
 fi
 

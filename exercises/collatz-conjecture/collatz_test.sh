@@ -37,7 +37,7 @@
   run bash collatz.sh 0
 
   [ "$status" -eq 1 ]
-  [ "$output" == "Error: invalid input" ]
+  [ "$output" == "Error: Only positive numbers are allowed" ]
 }
 
 @test "negative value is an error" {
@@ -45,5 +45,5 @@
   run bash collatz.sh -15
 
   [ "$status" -eq 1 ]
-  [ "$output" == "Error: invalid input" ]
+  [ "$output" == "Error: Only positive numbers are allowed" ]
 }

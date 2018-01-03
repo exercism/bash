@@ -196,6 +196,19 @@
     {
       "core": false,
       "difficulty": 2,
+      "slug": "triangle",
+      "topics": [
+        "boolean_logic",
+        "input_validation",
+        "number_comparison",
+        "mathematics"
+      ],
+      "unlocked_by": "leap",
+      "uuid": "0f79f9ab-4a51-468c-88ca-84f0bf7cfc38"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
       "slug": "phone-number",
       "topics": [
         "control_flow_conditionals",
