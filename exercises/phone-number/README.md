@@ -29,7 +29,7 @@ should all produce the output
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats phone_number_tests.sh
 
 ## Source
 

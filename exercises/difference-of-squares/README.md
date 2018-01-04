@@ -14,7 +14,7 @@ natural numbers is 3025 - 385 = 2640.
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats difference_of_squares_test.sh
 
 ## Source
 

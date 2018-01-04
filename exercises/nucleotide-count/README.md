@@ -28,7 +28,7 @@ about that for now.
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats nucleotide_count_test.sh
 
 ## Source
 

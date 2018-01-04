@@ -56,7 +56,7 @@ seconds
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats hello_world_test.sh
 
 ## Source
 

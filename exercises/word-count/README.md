@@ -14,7 +14,7 @@ free: 1
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats word_count_test.sh
 
 ## Source
 

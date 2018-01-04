@@ -20,7 +20,7 @@ each nucleotide with its complement:
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats rna_transcription_test.sh
 
 ## Source
 
