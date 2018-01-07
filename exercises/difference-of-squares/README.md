@@ -12,11 +12,12 @@ Hence the difference between the square of the sum of the first
 ten natural numbers and the sum of the squares of the first ten
 natural numbers is 3025 - 385 = 2640.
 
+
 Run the tests with:
 
-    bats difference_of_squares_test.sh
-
-## Source
+```
+bats difference_of_squares_test.sh
+```## Source
 
 Problem 6 at Project Euler [http://projecteuler.net/problem=6](http://projecteuler.net/problem=6)
 

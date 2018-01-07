@@ -4,9 +4,13 @@
 {{- with .Hints }}
 {{ . }}
 {{ end }}
-{{- with .TrackInsert }}
-{{ . }}
-{{ end }}
+
+Run the tests with:
+
+```
+bats {{ .Spec.SnakeCaseName }}_test.sh
+```
+
 {{- with .Spec.Credits -}}
 ## Source
 

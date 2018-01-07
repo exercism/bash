@@ -35,11 +35,12 @@ The Hamming distance is only defined for sequences of equal length. This means
 that based on the definition, each language could deal with getting sequences
 of equal length differently.
 
+
 Run the tests with:
 
-    bats hamming_test.sh
-
-## Source
+```
+bats hamming_test.sh
+```## Source
 
 The Calculating Point Mutations problem at Rosalind [http://rosalind.info/problems/hamm/](http://rosalind.info/problems/hamm/)
 

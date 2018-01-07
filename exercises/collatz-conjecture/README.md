@@ -1,4 +1,4 @@
-# Collatz Conjecture 
+# Collatz Conjecture
 
 The Collatz Conjecture or 3x+1 problem can be summarized as follows:
 
@@ -26,9 +26,14 @@ Starting with n = 12, the steps would be as follows:
 
 Resulting in 9 steps. So for input n = 12, the return value would be 9.
 
-## Source
 
-An unsolved problem in mathematics named after mathematician Lothar Collatz [Wikipedia](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
+Run the tests with:
+
+```
+bats collatz_conjecture_test.sh
+```## Source
+
+An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

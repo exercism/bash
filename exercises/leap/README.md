@@ -4,7 +4,7 @@ Given a year, report if it is a leap year.
 
 The tricky thing here is that a leap year in the Gregorian calendar occurs:
 
-```plain
+```text
 on every year that is evenly divisible by 4
   except every year that is evenly divisible by 100
     unless the year is also evenly divisible by 400
@@ -26,11 +26,12 @@ phenomenon, go watch [this youtube video][video].
 
 [video]: http://www.youtube.com/watch?v=xX96xng7sAE
 
+
 Run the tests with:
 
-    bats leap_test.sh
-
-## Source
+```
+bats leap_test.sh
+```## Source
 
 JavaRanch Cattle Drive, exercise 3 [http://www.javaranch.com/leap.jsp](http://www.javaranch.com/leap.jsp)
 

@@ -1,4 +1,4 @@
-# Rna Transcription
+# RNA Transcription
 
 Given a DNA strand, return its RNA complement (per RNA transcription).
 
@@ -18,11 +18,12 @@ each nucleotide with its complement:
 * `T` -> `A`
 * `A` -> `U`
 
+
 Run the tests with:
 
-    bats rna_transcription_test.sh
-
-## Source
+```
+bats rna_transcription_test.sh
+```## Source
 
 Rosalind [http://rosalind.info/problems/rna](http://rosalind.info/problems/rna)
 

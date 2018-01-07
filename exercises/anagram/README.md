@@ -6,11 +6,12 @@ Given `"listen"` and a list of candidates like `"enlists" "google"
 "inlets" "banana"` the program should return a list containing
 `"inlets"`.
 
+
 Run the tests with:
 
-    bats anagram_test.sh
-
-## Source
+```
+bats anagram_test.sh
+```## Source
 
 Inspired by the Extreme Startup game [https://github.com/rchatley/extreme_startup](https://github.com/rchatley/extreme_startup)
 
