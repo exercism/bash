@@ -102,6 +102,7 @@ missed the [Getting Set Up] section above.
 
 [test documentation]: https://github.com/exercism/bash/blob/master/docs/TESTS.md
 [Getting Set Up]: #getting-set-up
+
 ### Generating the Tests
 
 Implement each of the test cases (along with any comments or explanations you
