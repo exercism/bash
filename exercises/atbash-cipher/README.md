@@ -31,7 +31,7 @@ things based on word boundaries.
 To run the tests:
 
 ```sh
-$ bats atbash_cipher_tests.sh
+$ bats atbash_cipher_test.sh
 ```
 
 For more detailed info about the Bash track see the [help page](http://exercism.io/languages/bash).

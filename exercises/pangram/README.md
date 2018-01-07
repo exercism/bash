@@ -10,7 +10,7 @@ insensitive. Input will not contain non-ASCII symbols.
 
 Run the tests with:
 
-    bats pangram_tests.sh
+    bats pangram_test.sh
 
 ## Source
 
