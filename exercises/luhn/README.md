@@ -66,7 +66,7 @@ Sum the digits
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats luhn_test.sh
 
 ## Source
 

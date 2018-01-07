@@ -21,31 +21,50 @@ assert() {
   [[ $( echo $1 | bc -l ) -eq 1 ]]
 }
 
+output() {
+  exit_code=$1
+
+  if [ $exit_code -eq 0 ]; then
+    echo "true"
+  else
+    echo "false"
+  fi
+
+  exit $exit_code
+}
+
 valid_triangle() {
   # Takes three sides lengths (numeric) $1, $2, $3
   # If any side is zero, returns false
   assert "$1 == 0" || assert "$2 == 0" || assert "$3 == 0" && return 1
   # If triangle doesn't meet inequality requirement, returns false
   assert "$1 + $2 <= $3" || assert "$1 + $3 <= $2" || assert "$2 + $3 <= $1" && return 1
+
   return 0
 }
 
 if ! valid_triangle $s1 $s2 $s3; then
-  echo "Sides do not meet triangle inequality requirement."
-  echo "Given a <= b <= c and a, b, c != 0, a + b >= c"
-  exit 1
+  # Sides do not meet triangle inequality requirement
+  # Given a <= b <= c and a, b, c != 0, a + b >= c
+  output 1
 fi
 
 equilateral() {
   assert "$1 == $2" && assert "$1 == $3"
+
+  output $?
 }
 
 isosceles() {
   assert "$1 == $2" || assert "$1 == $3" || assert "$2 == $3"
+
+  output $?
 }
-  
+
 scalene() {
   assert "$1 != $2" && assert "$1 != $3" && assert "$2 != $3"
+
+  output $?
 }
 
 # Bash Ternary Operator:
