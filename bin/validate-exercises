@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Validate if tests can run properly and the example implementation
+# is passing the tests for each exercise
+
+set -o errexit
+set -o nounset
+
+root_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/../ && pwd )"
+temp_folder_name="exercises_temp/"
+temp_folder="$root_path/$temp_folder_name"
+
+# Clean up after script on normal or forced exit
+trap "{ rm -rf $temp_folder; }" EXIT
+
+cp exercises $temp_folder -r
+cd $temp_folder
+
+for exercise in *; do
+  cd $exercise
+  echo "Processing $exercise"
+
+  # Replace "-" with "_" to follow bash conventions
+  exercise_name=$(echo "$exercise" | sed -r 's/[-]+/_/g')
+  test_file=${exercise_name}_test.sh
+
+  # Create implementation file from example
+  cp example.sh ${exercise_name}.sh
+
+  # Unskip all the tests
+  sed -i 's/skip/# skip/g' $test_file
+
+  # Run the tests
+  bats $test_file
+
+  cd ../
+done
