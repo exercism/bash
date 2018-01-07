@@ -102,6 +102,7 @@ missed the [Getting Set Up] section above.
 
 [test documentation]: https://github.com/exercism/bash/blob/master/docs/TESTS.md
 [Getting Set Up]: #getting-set-up
+
 ### Generating the Tests
 
 Implement each of the test cases (along with any comments or explanations you
@@ -144,6 +145,15 @@ You can check to see if your example script works by running `bats`.
 ```bash
 $ bats hello_world_test.sh
 ```
+
+#### Bash Style Guide
+
+When creating the tests, the tests should follow the [bash style guide]
+to avoid having an inconsistent style.  The tests are delivered as a
+product, and should be as idiomatic as possible, and this will help
+maintain a certain level of consistency.
+
+[bash style guide]: https://google.github.io/styleguide/shell.xml
 
 ### Implementing an Example Solution
 
