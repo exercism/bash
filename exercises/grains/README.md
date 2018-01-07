@@ -29,9 +29,11 @@ experiment make the code better? Worse? Did you learn anything from it?
 
 Run the tests with:
 
-```
+```bash
 bats grains_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 JavaRanch Cattle Drive, exercise 6 [http://www.javaranch.com/grains.jsp](http://www.javaranch.com/grains.jsp)
 

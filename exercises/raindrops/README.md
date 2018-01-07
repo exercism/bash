@@ -20,9 +20,11 @@ Convert a number to a string, the contents of which depend on the number's facto
 
 Run the tests with:
 
-```
+```bash
 bats raindrops_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 A variation on a famous interview question intended to weed out potential candidates. [http://jumpstartlab.com](http://jumpstartlab.com)
 

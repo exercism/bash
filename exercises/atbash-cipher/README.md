@@ -31,9 +31,11 @@ things based on word boundaries.
 
 Run the tests with:
 
-```
+```bash
 bats atbash_cipher_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 Wikipedia [http://en.wikipedia.org/wiki/Atbash](http://en.wikipedia.org/wiki/Atbash)
 

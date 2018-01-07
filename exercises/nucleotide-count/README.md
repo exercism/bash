@@ -15,9 +15,11 @@ Here is an analogy:
 
 Run the tests with:
 
-```
+```bash
 bats nucleotide_count_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 The Calculating DNA Nucleotides_problem at Rosalind [http://rosalind.info/problems/dna/](http://rosalind.info/problems/dna/)
 

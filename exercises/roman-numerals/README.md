@@ -45,9 +45,11 @@ See also: http://www.novaroma.org/via_romana/numbers.html
 
 Run the tests with:
 
-```
+```bash
 bats roman_numerals_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 The Roman Numeral Kata [http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals](http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals)
 

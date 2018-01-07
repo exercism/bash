@@ -25,9 +25,11 @@ a single line. Feel free to add your own code/tests to check for degenerate tria
 
 Run the tests with:
 
-```
+```bash
 bats triangle_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 The Ruby Koans triangle project, parts 1 & 2 [http://rubykoans.com](http://rubykoans.com)
 

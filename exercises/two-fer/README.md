@@ -15,9 +15,11 @@ If no name is given, the result should be "One for you, one for me."
 
 Run the tests with:
 
-```
+```bash
 bats two_fer_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 This is an exercise to introduce users to basic programming constructs, just after Hello World. [https://en.wikipedia.org/wiki/Two-fer](https://en.wikipedia.org/wiki/Two-fer)
 

@@ -10,9 +10,11 @@ like Portable Network Graphics to its acronym (PNG).
 
 Run the tests with:
 
-```
+```bash
 bats acronym_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 Julien Vanier [https://github.com/monkbroc](https://github.com/monkbroc)
 

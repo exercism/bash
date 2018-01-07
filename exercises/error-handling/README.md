@@ -12,8 +12,10 @@ for your track to see what's exactly required.
 
 Run the tests with:
 
-```
+```bash
 bats error_handling_test.sh
 ```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

@@ -29,9 +29,11 @@ Resulting in 9 steps. So for input n = 12, the return value would be 9.
 
 Run the tests with:
 
-```
+```bash
 bats collatz_conjecture_test.sh
-```## Source
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
 
 An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
 
