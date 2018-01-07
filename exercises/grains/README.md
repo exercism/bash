@@ -26,10 +26,18 @@ are some additional things you could try:
 Then please share your thoughts in a comment on the submission. Did this
 experiment make the code better? Worse? Did you learn anything from it?
 
+
+Run the tests with:
+
+```bash
+bats grains_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
 ## Source
 
-Calculate the number of grains of wheat on a chessboard given that the number on each square doubles. [JavaRanch Cattle Drive, exercise 6](http://www.javaranch.com/grains.jsp) 
+JavaRanch Cattle Drive, exercise 6 [http://www.javaranch.com/grains.jsp](http://www.javaranch.com/grains.jsp)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

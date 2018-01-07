@@ -17,9 +17,14 @@ Convert a number to a string, the contents of which depend on the number's facto
 - 34 has four factors: 1, 2, 17, and 34.
   - In raindrop-speak, this would be "34".
 
+
 Run the tests with:
 
-    bats raindrop_test.sh
+```bash
+bats raindrops_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
 ## Source
 

@@ -16,7 +16,7 @@ into stone tablets).
 
 ```text
  1  => I
- 10  => X
+10  => X
  7  => VII
 ```
 
@@ -42,9 +42,18 @@ In Roman numerals 1990 is MCMXC:
 
 See also: http://www.novaroma.org/via_romana/numbers.html
 
+
+Run the tests with:
+
+```bash
+bats roman_numerals_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
 ## Source
 
-The Roman Numeral Kata. [codingdojo.org](http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals)
+The Roman Numeral Kata [http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals](http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

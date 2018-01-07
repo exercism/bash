@@ -29,7 +29,7 @@ can get the tests to pass on your machine, we are doing great.
 
 ## Installation
 
-As I said above, if you are on a unix-like OS (Mac OS X, Linux, Solaris,
+As mentioned above, if you are on a unix-like OS (Mac OS X, Linux, Solaris,
 etc), you probably already have bash.
 
 ## Testing
@@ -54,9 +54,14 @@ seconds
 ```
 
 
+
 Run the tests with:
 
-    bats hello_world_test.sh
+```bash
+bats hello_world_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
 ## Source
 

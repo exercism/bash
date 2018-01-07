@@ -26,8 +26,3 @@ also important not to over-engineer a solution.
 
 It's important to remember that the goal is to make code as expressive and
 readable as we can.
-
-Run the tests with:
-
-    bats whatever_test.sh
-

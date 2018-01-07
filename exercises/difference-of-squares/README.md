@@ -12,9 +12,14 @@ Hence the difference between the square of the sum of the first
 ten natural numbers and the sum of the squares of the first ten
 natural numbers is 3025 - 385 = 2640.
 
+
 Run the tests with:
 
-    bats difference_of_squares_test.sh
+```bash
+bats difference_of_squares_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
 ## Source
 

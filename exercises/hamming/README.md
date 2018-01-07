@@ -35,9 +35,14 @@ The Hamming distance is only defined for sequences of equal length. This means
 that based on the definition, each language could deal with getting sequences
 of equal length differently.
 
+
 Run the tests with:
 
-    bats hamming_test.sh
+```bash
+bats hamming_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
 ## Source
 

@@ -11,10 +11,18 @@ For example:
 
 Write some code to determine whether a number is an Armstrong number.
 
+
+Run the tests with:
+
+```bash
+bats armstrong_numbers_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
 ## Source
 
-[Wikipedia](https://en.wikipedia.org/wiki/Narcissistic_number)
+Wikipedia [https://en.wikipedia.org/wiki/Narcissistic_number](https://en.wikipedia.org/wiki/Narcissistic_number)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

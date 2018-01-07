@@ -64,13 +64,18 @@ Sum the digits
 
 57 is not evenly divisible by 10, so this number is not valid.
 
+
 Run the tests with:
 
-    bats luhn_test.sh
+```bash
+bats luhn_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
 ## Source
 
-The Luhn Algorithm on Wikipedia [Wikipedia](http://en.wikipedia.org/wiki/Luhn_algorithm)
+The Luhn Algorithm on Wikipedia [http://en.wikipedia.org/wiki/Luhn_algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

@@ -4,10 +4,16 @@
 {{- with .Hints }}
 {{ . }}
 {{ end }}
-{{- with .TrackInsert }}
-{{ . }}
-{{ end }}
-{{- with .Spec.Credits -}}
+
+Run the tests with:
+
+```bash
+bats {{ .Spec.SnakeCaseName }}_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+{{ with .Spec.Credits -}}
 ## Source
 
 {{ . }}

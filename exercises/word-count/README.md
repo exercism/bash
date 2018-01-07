@@ -4,7 +4,7 @@ Given a phrase, count the occurrences of each word in that phrase.
 
 For example for the input `"olly olly in come free"`
 
-```plain
+```text
 olly: 2
 in: 1
 come: 1
@@ -14,7 +14,11 @@ free: 1
 
 Run the tests with:
 
-    bats word_count_test.sh
+```bash
+bats word_count_test.sh
+```
+
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
 ## Source
 
