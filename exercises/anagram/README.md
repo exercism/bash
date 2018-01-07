@@ -13,7 +13,9 @@ Run the tests with:
 bats anagram_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 Inspired by the Extreme Startup game [https://github.com/rchatley/extreme_startup](https://github.com/rchatley/extreme_startup)
 

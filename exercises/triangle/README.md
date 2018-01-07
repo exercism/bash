@@ -29,7 +29,9 @@ Run the tests with:
 bats triangle_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 The Ruby Koans triangle project, parts 1 & 2 [http://rubykoans.com](http://rubykoans.com)
 

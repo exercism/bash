@@ -13,7 +13,9 @@ Run the tests with:
 bats reverse_string_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 Introductory challenge to reverse an input string [https://medium.freecodecamp.org/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb](https://medium.freecodecamp.org/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb)
 

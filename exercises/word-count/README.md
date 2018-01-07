@@ -18,7 +18,9 @@ Run the tests with:
 bats word_count_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour.
 

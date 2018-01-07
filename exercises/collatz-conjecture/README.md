@@ -33,7 +33,9 @@ Run the tests with:
 bats collatz_conjecture_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
 

@@ -13,7 +13,7 @@ bats {{ .Spec.SnakeCaseName }}_test.sh
 
 After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
 
-{{- with .Spec.Credits -}}
+{{ with .Spec.Credits -}}
 ## Source
 
 {{ . }}

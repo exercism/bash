@@ -25,7 +25,9 @@ Run the tests with:
 bats rna_transcription_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 Rosalind [http://rosalind.info/problems/rna](http://rosalind.info/problems/rna)
 

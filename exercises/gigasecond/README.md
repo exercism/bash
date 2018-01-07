@@ -33,11 +33,6 @@ also important not to over-engineer a solution.
 It's important to remember that the goal is to make code as expressive and
 readable as we can.
 
-Run the tests with:
-
-    bats whatever_test.sh
-
-
 
 
 Run the tests with:
@@ -46,7 +41,9 @@ Run the tests with:
 bats gigasecond_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.## Source
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+
+## Source
 
 Chapter 9 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=09](http://pine.fm/LearnToProgram/?Chapter=09)
 
