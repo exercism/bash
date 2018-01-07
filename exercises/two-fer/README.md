@@ -21,7 +21,7 @@ readable as we can.
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats two_fer_test.sh
 
 ## Source
 

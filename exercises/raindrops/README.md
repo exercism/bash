@@ -19,7 +19,7 @@ Convert a number to a string, the contents of which depend on the number's facto
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats raindrop_test.sh
 
 ## Source
 

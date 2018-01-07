@@ -8,7 +8,7 @@ Given `"listen"` and a list of candidates like `"enlists" "google"
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats anagram_tests.sh
 
 ## Source
 

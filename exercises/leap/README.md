@@ -28,7 +28,7 @@ phenomenon, go watch [this youtube video][video].
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats leap_test.sh
 
 ## Source
 

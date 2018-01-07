@@ -8,7 +8,7 @@ Help generate some jargon by writing a program that converts a long name like Po
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats acronym_tests.sh
 
 ## Submitting Exercises
 

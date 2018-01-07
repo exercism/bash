@@ -6,7 +6,7 @@ A gigasecond is 10^9 (1,000,000,000) seconds.
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats gigasecond_test.sh
 
 ## Source
 

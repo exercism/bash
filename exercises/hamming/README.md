@@ -37,7 +37,7 @@ of equal length differently.
 
 Run the tests with:
 
-    bats whatever_test.sh
+    bats hamming_test.sh
 
 ## Source
 
