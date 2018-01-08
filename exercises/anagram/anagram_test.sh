@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-@test "no matches", {
+@test "no matches" {
     #skip
     run bash anagram.sh "diaper" "hello world zombies pants"
     [ "$status" -eq 0 ]
