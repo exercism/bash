@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo $1|rev
+echo $1 | rev
