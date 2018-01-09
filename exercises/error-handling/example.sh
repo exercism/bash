@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-set -eu
+set -o errexit
+set -o nounset
 
-if test $# -gt 1
-then
-    echo "Usage: hello <greetee>"
-    exit 1
+if [ $# -ne 1 ]; then
+  echo "Usage: ./error_handling <greetee>"
+  exit 1
 else
-    echo "Hello, ${1}"
+  echo "Hello, ${1}"
+  exit 0
 fi
