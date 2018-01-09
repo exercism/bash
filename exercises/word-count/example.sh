@@ -1,21 +1,30 @@
 #!/usr/bin/env bash
 
-input="$1";
+input="$1"
 
-if [ ! -n "${input}" ]
+if [[ ! -n "${input}" ]]
 then
 	echo "Usage: $0 <input>"
-	exit;
+	exit
 fi
 
-awk_progfile="${0%sh}awk";
+echo "$input" \
+  | tr '[:upper:]' '[:lower:]' \
+  | tr '.,:&@$%^!' ' ' \
+  | awk -f <(cat - <<-'HEREDOC'
+      {
+        for (field_index = 1; field_index <= NF; field_index++)
+        {
+          result[$field_index]++
+        }
+      }
+      END {
+        for (field_index in result)
+        {
+          printf "%s: %d\n", field_index, result[field_index]
+        }
+      }
+HEREDOC
+)
 
-if [ ! -f "${awk_progfile}" ]
-then
-	echo "Awk program file not found."
-	exit 1;
-fi
-
-echo "$input" | tr '[:upper:]' '[:lower:]' | tr '.,:&@$%^!' ' ' | awk -f "${awk_progfile}";
-
-exit $?;
+exit $?
