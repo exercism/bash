@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 
-function usage() {
+usage() {
 	echo "Usage: leap.sh <year>" >&2
 	exit 1
 }
 
-# check number of params
-if  [ "$#" != 1 ]; then
+# Check number of params
+if  [[ "$#" != 1 ]]; then
 	usage
 fi
 
-# check param is an integer
+# Check if param is an integer
 if ! [[ $1 =~ ^[0-9]+$ ]]; then
 	usage
 fi
 
-if [ $(($1 % 4)) == 0 ] \
-	&& [ $(($1 % 100)) != 0 ] \
-	|| [ $(($1 % 400)) == 0 ]; then
-	echo "This is a leap year."
+if [[ $(($1 % 4)) == 0 ]] \
+	&& [[ $(($1 % 100)) != 0 ]] \
+	|| [[ $(($1 % 400)) == 0 ]]; then
+	echo "true"
 else
-	echo "This is not a leap year."
+	echo "false"
 fi
