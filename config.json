@@ -34,7 +34,7 @@
       "uuid": "2b6d4faa-1909-422a-8eac-1682be3f1b9e"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 1,
       "slug": "two-fer",
       "topics": [
@@ -43,6 +43,7 @@
         "strings",
         "text_formatting"
       ],
+      "unlocked_by": "null",
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe"
     },
     {
@@ -68,7 +69,7 @@
       "uuid": "ca5139b4-8b2f-44ea-8d83-0b8ca7674436"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 2,
       "slug": "error-handling",
       "topics": [
@@ -77,18 +78,8 @@
         "stdout",
         "strings"
       ],
+      "unlocked_by": "null",
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
-    },
-    {
-      "core": false,
-      "difficulty": 2,
-      "slug": "gigasecond",
-      "topics": [
-        "dates",
-        "mathematics"
-      ],
-      "unlocked_by": "armstrong-numbers",
-      "uuid": "176c1a86-28b1-4848-9f87-bd6ae10db6ba"
     },
     {
       "core": true,
@@ -101,7 +92,7 @@
       "uuid": "68103f44-b442-48e6-b2b5-09001f73e926"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 2,
       "slug": "leap",
       "topics": [
@@ -109,6 +100,7 @@
         "control_flow_conditionals",
         "input_validation"
       ],
+      "unlocked_by": "null",
       "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a"
     },
     {
@@ -142,7 +134,7 @@
         "control_flow_loops",
         "error_handling"
       ],
-      "unlocked_by": "error-handling",
+      "unlocked_by": "pangram",
       "uuid": "8a62e53e-59c2-42d5-96e5-a0f8f9b5d177"
     },
     {
@@ -180,7 +172,7 @@
         "strings",
         "stdout"
       ],
-      "unlocked_by": "two-fer",
+      "unlocked_by": "hello-world",
       "uuid": "9ac0b041-a7aa-4b0c-952a-d38d35e2cd65"
     },
     {
@@ -205,7 +197,7 @@
         "error_handling",
         "string_comparison"
       ],
-      "unlocked-by": "error-handling",
+      "unlocked-by": "pangram",
       "uuid": "28f848c8-56ef-4147-a401-f1617c147b4b"
     },
     {
@@ -232,7 +224,7 @@
         "number_comparison",
         "mathematics"
       ],
-      "unlocked_by": "leap",
+      "unlocked_by": "armstrong-numbers",
       "uuid": "0f79f9ab-4a51-468c-88ca-84f0bf7cfc38"
     },
     {
@@ -246,6 +238,17 @@
       ],
       "unlocked_by": "pangram",
       "uuid": "51bd6542-408b-4a73-8343-1c4d50db5315"
+    },
+    {
+      "core": false,
+      "difficulty": 4,
+      "slug": "gigasecond",
+      "topics": [
+        "dates",
+        "mathematics"
+      ],
+      "unlocked_by": "armstrong-numbers",
+      "uuid": "176c1a86-28b1-4848-9f87-bd6ae10db6ba"
     },
     {
       "core": true,
