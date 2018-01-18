@@ -24,13 +24,14 @@
       "uuid": "4e2533dd-3af5-400b-869d-78140764d533"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 1,
       "slug": "reverse-string",
       "topics": [
         "stdout",
         "strings"
       ],
+      "unlocked_by": "hello-world",
       "uuid": "2b6d4faa-1909-422a-8eac-1682be3f1b9e"
     },
     {
@@ -122,7 +123,7 @@
         "input_validation",
         "strings"
       ],
-      "unlocked_by": "reverse-string",
+      "unlocked_by": "hello-world",
       "uuid": "1a9c8d65-43ee-435e-8c55-9a45c14a71fb"
     },
     {
@@ -164,7 +165,7 @@
       "uuid": "33d9eb48-5958-4e98-afc0-8cff89577c86"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 3,
       "slug": "bob",
       "topics": [
@@ -172,7 +173,6 @@
         "strings",
         "stdout"
       ],
-      "unlocked_by": "hello-world",
       "uuid": "9ac0b041-a7aa-4b0c-952a-d38d35e2cd65"
     },
     {
@@ -263,7 +263,7 @@
       "uuid": "a3b16d02-2963-445d-9339-7e3002375a71"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 5,
       "slug": "atbash-cipher",
       "topics": [
@@ -271,7 +271,6 @@
         "pattern_matching",
         "strings"
       ],
-      "unlocked_by": "hamming",
       "uuid": "5bff4fe1-6330-4730-b586-dcc5438c02ee"
     },
     {
