@@ -5,17 +5,6 @@
     {
       "core": true,
       "difficulty": 1,
-      "slug": "grains",
-      "topics": [
-        "control_flow_conditionals",
-        "input_validation",
-        "mathematics"
-      ],
-      "uuid": "c9d36155-10e8-4a75-a732-3c43a68910eb"
-    },
-    {
-      "core": true,
-      "difficulty": 1,
       "slug": "hello-world",
       "topics": [
         "stdout",
@@ -46,6 +35,17 @@
       ],
       "unlocked_by": "null",
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe"
+    },
+    {
+      "core": true,
+      "difficulty": 1,
+      "slug": "grains",
+      "topics": [
+        "control_flow_conditionals",
+        "input_validation",
+        "mathematics"
+      ],
+      "uuid": "c9d36155-10e8-4a75-a732-3c43a68910eb"
     },
     {
       "core": true,
