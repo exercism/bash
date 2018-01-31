@@ -292,7 +292,7 @@ $ git rebase upstream/master
 Now you're ready to sync up with Github and open your pull request!
 
 ```bash
-$ git push --force-with-lease origin <your-branch-name>
+$ git push origin <your-branch-name>
 ```
 
 ![Create pull request](img/create-pr.png)
