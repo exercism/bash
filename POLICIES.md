@@ -1,3 +1,4 @@
+
 # Track Policies
 
 This document:
@@ -15,12 +16,11 @@ Our policies are not set-in-stone. They represent directions chosen at a point i
 
 ## Policy Descriptions
 
-### Bash Style Guide
+### Style Guide
 
-When creating the tests, the tests should follow the [bash style guide]
-to avoid having an inconsistent style.  The tests are delivered as a
-product, and should be as idiomatic as possible, and this will help
-maintain a certain level of consistency.
+When contributing code to this repository, it should follow the [bash style guide]
+to avoid having an inconsistent style.
+This is most import for the tests, since they are delivered as a product, and should be as idiomatic as possible, and this will help maintain a certain level of consistency.
 
 [bash style guide]: https://google.github.io/styleguide/shell.xml
 
