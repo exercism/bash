@@ -15,22 +15,34 @@ Our policies are not set-in-stone. They represent directions chosen at a point i
 
 ## Policy Descriptions
 
-### Standard Bash over POSIX compliance
+### Prefer standard Bash over POSIX compliance
 
-  - Don't enforce POSIX compliance for our internal code, or code submitted as the solution and we allow users to use any utilities as long as the test passes on their system.
-  - Have POSIX compliance as a stretch goal
-  - For the stretch goal that could be a good start for a discussion when users submit their solutions.
+When submitting or updated exercises, POSIX compliance is not required. This applies when discussing sumbissions for the exercises.
+You can make POSIX compliance a stretch goal, and that could be a good start for a discussion with users.
 
 References: [[1](https://github.com/exercism/bash/issues/88)]
 
-### Don't include a exercise file
+### Exercise structure
 
-When you submit an exercise you should only include only the test file and a README.md file.
+For an exercise "exercise", you should provide the following files:
+- `README.md`, which describes the exercise
+- `exercise_test.sh`, which contains the tests for the implementation
+- `example.sh`, an example implementation that passes the tests
+- `.meta/version`, which contains the exercise version from `https://github.com/exercism/problem-specifications/exercises/exercise/canonical-data.json`
 
 References: [[1](https://github.com/exercism/bash/issues/87#event-1446351332)]
 
 ### Exercise Test Structure
 
-We will not use functions for tests unless the problems are complex or require them (ex: https://github.com/exercism/bash/blob/master/exercises/triangle/triangle_test.sh)
+The tests will not enforce using a specific function, unless the problems are complex or requires it (ex: https://github.com/exercism/bash/blob/master/exercises/triangle/triangle_test.sh)
+
+```
+run bash exercise.sh "string"
+```
+
+instead of
+```
+run bash exercise.sh exercise "string"
+```
 
 References: [[1](https://github.com/exercism/bash/issues/150#event-1446340584)]
