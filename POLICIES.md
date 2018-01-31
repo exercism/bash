@@ -15,6 +15,15 @@ Our policies are not set-in-stone. They represent directions chosen at a point i
 
 ## Policy Descriptions
 
+### Bash Style Guide
+
+When creating the tests, the tests should follow the [bash style guide]
+to avoid having an inconsistent style.  The tests are delivered as a
+product, and should be as idiomatic as possible, and this will help
+maintain a certain level of consistency.
+
+[bash style guide]: https://google.github.io/styleguide/shell.xml
+
 ### Prefer standard Bash over POSIX compliance
 
 When submitting or updated exercises, POSIX compliance is not required. This applies when discussing sumbissions for the exercises.

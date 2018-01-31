@@ -146,15 +146,6 @@ You can check to see if your example script works by running `bats`.
 $ bats hello_world_test.sh
 ```
 
-#### Bash Style Guide
-
-When creating the tests, the tests should follow the [bash style guide]
-to avoid having an inconsistent style.  The tests are delivered as a
-product, and should be as idiomatic as possible, and this will help
-maintain a certain level of consistency.
-
-[bash style guide]: https://google.github.io/styleguide/shell.xml
-
 ### Implementing an Example Solution
 
 If you've been following along so far, your tests should fail.  Go ahead and
