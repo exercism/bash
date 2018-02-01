@@ -6,6 +6,10 @@ general purpose instructions.
 
 [docs]: (https://github.com/exercism/docs)
 
+Make sure you read the [policies document] and follow the conventions we agreed upon.
+
+[policies document]: (https://github.com/exercism/bash/blob/master/docs/POLICIES.md)
+
 A great way to get started contributing is [porting an exercise] from another
 track!  It helps you get into the repository, learn your way around, and see
 how things are structured.
@@ -288,7 +292,7 @@ $ git rebase upstream/master
 Now you're ready to sync up with Github and open your pull request!
 
 ```bash
-$ git push --force-with-lease origin <your-branch-name>
+$ git push origin <your-branch-name>
 ```
 
 ![Create pull request](img/create-pr.png)
