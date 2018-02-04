@@ -275,7 +275,7 @@
     },
     {
       "core": false,
-      "difficulty": 6,
+      "difficulty": 4,
       "slug": "roman-numerals",
       "topics": [
         "integers",
