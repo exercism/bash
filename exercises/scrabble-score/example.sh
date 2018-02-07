@@ -8,7 +8,7 @@ declare -A scores=([A]=1 [E]=1 [I]=1 [O]=1 [U]=1 [L]=1 [N]=1 [R]=1 [S]=1 [T]=1
                    [Y]=4 [K]=5 [J]=8 [X]=8 [Q]=10 [Z]=10) 
 
 for letter in $(echo $word | grep -o .); do
-    ((score+=${scores[$letter]}))
+  ((score+=${scores[$letter]}))
 done
 
 echo $score
