@@ -48,6 +48,18 @@
       "uuid": "c9d36155-10e8-4a75-a732-3c43a68910eb"
     },
     {
+      "core": false,
+      "difficulty": 2,
+      "slug": "scrabble-score",
+      "topics": [
+        "integers",
+        "mathematics",
+        "games"
+      ],
+      "unlocked_by": "grains",
+      "uuid": "8ecb5793-2dd8-44be-9188-61e52723cbab"
+    },
+    {
       "core": true,
       "difficulty": 2,
       "slug": "armstrong-numbers",
