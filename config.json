@@ -33,7 +33,7 @@
         "strings",
         "text_formatting"
       ],
-      "unlocked_by": "null",
+      "unlocked_by": null,
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe"
     },
     {
@@ -91,7 +91,7 @@
         "stdout",
         "strings"
       ],
-      "unlocked_by": "null",
+      "unlocked_by": null,
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579"
     },
     {
@@ -113,7 +113,7 @@
         "control_flow_conditionals",
         "input_validation"
       ],
-      "unlocked_by": "null",
+      "unlocked_by": null,
       "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a"
     },
     {
