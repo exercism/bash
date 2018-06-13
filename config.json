@@ -13,7 +13,8 @@
       "topics": [
         "stdout",
         "strings"
-      ]
+      ],
+      "auto_approve": true
     },
     {
       "slug": "reverse-string",
