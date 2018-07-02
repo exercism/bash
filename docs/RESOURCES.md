@@ -1,4 +1,4 @@
-- [Bash man page](http://linux.die.net/man/1/bash)
+- Bash man page: to view it, type `man bash` in a terminal.
 - [Bash Guide](http://mywiki.wooledge.org/BashGuide)
 - [Bash FAQ](http://mywiki.wooledge.org/BashFAQ)
 - [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls)
