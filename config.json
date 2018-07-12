@@ -312,7 +312,7 @@
     },
     {
       "slug": "affine-cipher",
-      "core": "false",
+      "core": false,
       "unlocked_by": "atbash-cipher",
       "difficulty": "6",
       "topics": [
