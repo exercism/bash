@@ -309,6 +309,19 @@
         "mathematics",
         "strings"
       ]
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "6d06c9de-3a0b-49fd-9285-5772fb79f18c",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 6,
+      "topics": [
+        "cryptography",
+        "mathematics",
+        "pattern_matching",
+        "strings"
+      ]
     }
   ]
 }
