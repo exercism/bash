@@ -314,7 +314,7 @@
       "slug": "affine-cipher",
       "core": false,
       "unlocked_by": "atbash-cipher",
-      "difficulty": "6",
+      "difficulty": 6,
       "topics": [
         "cryptography",
         "pattern_matching",
