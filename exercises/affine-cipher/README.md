@@ -13,14 +13,14 @@ because it has many more keys.
 the encryption function is:
 
   E(x) = (ax + b) % m 
-# where x is the letters index from 0 - length of alphabet - 1 
+# where x is the letters' index from 0 - length of alphabet - 1 
 # m is the length of the alphabet - roman alphabet = 26
 # and a and b make the key
 
 the decryption function is:
 
   D(y) = a^-1(y - b) % m
-# where y is the numeric of an encrypted letter, ie. y = E(x)
+# where y is the numeric value of an encrypted letter, ie. y = E(x)
 # it is important to note that a^-1 is the modal multiplicative inverse
 # the modal multiplicative inverse of a only exists is a and m are
 # coprime. 
@@ -29,7 +29,7 @@ To find the MMI of a:
 
   1 = an % m # where n is the modal multiplicative inverse of a mod m
 
-Because automatice decryption fails if a is not coprime to m your 
+Because automatice decryption, fails if a is not coprime to m your 
 program should return status 1 and "Error: a and m must be coprime."
 if they are not.  Otherwise it should encode or decode with the 
 provided key.
@@ -71,6 +71,13 @@ using the pair to translate.  Good luck!
 ## Source
 
 Wikipedia [http://en.wikipedia.org/wiki/Affine_cipher](http://en.wikipedia.org/wiki/Affine_cipher)
+
+## Developement Credits
+
+I, Guy Gastineau, must give credit to the developers of the original
+atbash-cypher problem for this track. Much of the work they did has been
+reused in this problem's README and test.sh file. I thank them and hope they
+appreciate the work I ave put into this.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution 
