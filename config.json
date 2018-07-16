@@ -1,8 +1,7 @@
 {
   "language": "Bash",
-  "active": false,
+  "active": true,
   "blurb": "Bash is a Unix command interpreter, for which plaintext files of commands can be made to create scripts. It's a powerful and concise way of getting stuff done!",
-  "checklist_issue": 4,
   "exercises": [
     {
       "slug": "hello-world",
