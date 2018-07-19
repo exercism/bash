@@ -1,53 +1,45 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Exit on error. Append || true if you expect an error.
-set -o errexit
-# Exit on error inside any functions or subshells.
-set -o errtrace
-# Do not allow use of undefined vars. Use ${VAR:-} to use an undefined VAR
-set -o nounset
-# Catch error even if it's not in after the last pipe.
-set -o pipefail
-# Turn on traces, useful while debugging but commented out by default
-# set -o xtrace
+# Bob answers 'Sure.' if you ask him a question.
+# Bob answers 'Whoa, chill out!' if you yell at him.
+# Bob answers 'Calm down, I know what I'm doing!' if you yell a question at him.
+# Bob answers 'Fine. Be that way!' if you don't really say anything.
+# Bob answers 'Whatever.' to anything else.
 
-#__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-#__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-#__base="$(basename ${__file} .sh)"
+string=$(echo "$1" | tr -d ' ')
+case_check="${string^^}"
+num_only_check="${string//[!0-9,?!@#$%^&*()_+<>:]/}"
 
-# print argument and exit
-function say() {
-  local mesg=${1}
-  echo "${mesg}"
+if [ -z "$string" ] || [ $# == 0 ]; then
+  # If you don't really say anything
+  echo "Fine. Be that way!"
   exit 0
-}
-
-if [[ $# -eq 0 ]]; then
-  say "Fine. Be that way!"
+elif [ "$string" == "$num_only_check" ]; then
+  # for a question with only numbers
+  if [ "${string:${#string}-1:1}" == "?" ]; then
+    echo "Sure."
+    exit 0
+  # Bob says whatever to numbers
+  else
+    echo "Whatever."
+    exit 0
+  fi
+elif [ "$string" == "$case_check" ]; then
+  # If you yell a question at him
+  if [ "${string:${#string}-1:1}" == "?" ]; then
+    echo "Calm down, I know what I'm doing!"
+    exit 0
+  # otherwise it is just yelling
+  else
+    echo "Whoa, chill out!"
+    exit 0
+  fi
+# Bob is down for any questions that aren't yelled at him
+elif [ "${string:${#string}-1:1}" == "?" ]; then
+  echo "Sure."
+  exit 0
+# Bob says whatever to anything else
+else
+  echo "Whatever."
+  exit 0
 fi
-
-# Get what Bob says.
-# %b interprets escapted characters (like '\n' for newline)
-input="$(printf %b "${1}")"
-
-# Remove space characters
-input="${input//[[:space:]]/}"
-#input="${input//$(printf '\u00a0')}" # [[:space:]] doesn't match \u00a0 on Linux
-
-# Is there silence?
-if [[ "${input}" == "" ]]; then
-  say "Fine. Be that way!"
-fi
-
-# Is there shouting (capital letter and no lowercase letters)
-if [[ "$input" == *[[:upper:]]* ]] && [[ "$input" != *[[:lower:]]* ]]; then
-  say "Whoa, chill out!"
-fi
-
-# Is it a question? (last character is a '?')
-if [[ "${input: -1}" == "?" ]]; then
-  say "Sure."
-fi
-
-# Is it a regular statement ?
-echo "Whatever."
