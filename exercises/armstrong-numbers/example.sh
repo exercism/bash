@@ -22,4 +22,4 @@ is_armstrong() {
   fi
 }
 
-"$@"
+is_armstrong "$@"
