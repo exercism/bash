@@ -71,7 +71,7 @@
   run bash bob.sh "WHAT THE HELL WERE YOU THINKING?"
 
   [ "$status" -eq 0 ]
-  [ "$output" = "Whoa, chill out!" ]
+  [ "$output" = "Calm down, I know what I'm doing!" ]
 }
 
 @test "shouting numbers" {
@@ -104,22 +104,6 @@
 
   [ "$status" -eq 0 ]
   [ "$output" = "Whoa, chill out!" ]
-}
-
-@test "shouting with umlauts" {
-  skip
-  run bash bob.sh 'ÜMLÄÜTS!'
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Whoa, chill out!" ]
-}
-
-@test "calmly speaking with umlauts" {
-  skip
-  run bash bob.sh 'ÜMLäÜTS!'
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Whatever." ]
 }
 
 @test "shouting with no exclamation mark" {
@@ -161,7 +145,7 @@
   [ "$output" = "Fine. Be that way!" ]
 }
 
-@test "silence" {
+@test "no input is silence" {
   skip
   run bash bob.sh
 
