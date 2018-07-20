@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 @test "stating something." {
-  #skip
+  ##skip
   run bash bob.sh "Tom-ay-to, tom-aaaah-to."
 
   [ "$status" -eq 0 ]
@@ -9,7 +9,7 @@
 }
 
 @test "shouting" {
-  skip
+  #skip
   run bash bob.sh 'WATCH OUT!'
 
   [ "$status" -eq 0 ]
@@ -17,7 +17,7 @@
 }
 
 @test "shouting gibberish" {
-  skip
+  #skip
   run bash bob.sh 'FCECDFCAAB'
 
   [ "$status" -eq 0 ]
@@ -26,7 +26,7 @@
 
 
 @test "asking a question" {
-  skip
+  #skip
   run bash bob.sh "Does this cryogenic chamber make me look fat?"
 
   [ "$status" -eq 0 ]
@@ -34,7 +34,7 @@
 }
 
 @test "asking a numeric question" {
-  skip
+  #skip
   run bash bob.sh 'You are, what, like 15?'
 
   [ "$status" -eq 0 ]
@@ -42,7 +42,7 @@
 }
 
 @test "asking gibberish" {
-  skip
+  #skip
   run bash bob.sh "fffbbcbeab?"
 
   [ "$status" -eq 0 ]
@@ -51,7 +51,7 @@
 
 
 @test "talking forcefully" {
-  skip
+  #skip
   run bash bob.sh "Let's go make out behind the gym!"
 
   [ "$status" -eq 0 ]
@@ -59,7 +59,7 @@
 }
 
 @test "using accronyms in regular speech" {
-  skip
+  #skip
   run bash bob.sh "It's OK if you don't want to go to the DMV."
 
   [ "$status" -eq 0 ]
@@ -67,15 +67,15 @@
 }
 
 @test "forceful question" {
-  skip
+  #skip
   run bash bob.sh "WHAT THE HELL WERE YOU THINKING?"
 
   [ "$status" -eq 0 ]
-  [ "$output" = "Whoa, chill out!" ]
+  [ "$output" = "Calm down, I know what I'm doing!" ]
 }
 
 @test "shouting numbers" {
-  skip
+  #skip
   run bash bob.sh "1, 2, 3 GO!"
 
   [ "$status" -eq 0 ]
@@ -83,7 +83,7 @@
 }
 
 @test "only numbers" {
-  skip
+  #skip
   run bash bob.sh "1, 2, 3"
 
   [ "$status" -eq 0 ]
@@ -91,7 +91,7 @@
 }
 
 @test "question with only numbers" {
-  skip
+  #skip
   run bash bob.sh '4?'
 
   [ "$status" -eq 0 ]
@@ -99,31 +99,15 @@
 }
 
 @test "shouting with special characters" {
-  skip
+  #skip
   run bash bob.sh 'ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!'
 
   [ "$status" -eq 0 ]
   [ "$output" = "Whoa, chill out!" ]
 }
 
-@test "shouting with umlauts" {
-  skip
-  run bash bob.sh 'ÜMLÄÜTS!'
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Whoa, chill out!" ]
-}
-
-@test "calmly speaking with umlauts" {
-  skip
-  run bash bob.sh 'ÜMLäÜTS!'
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Whatever." ]
-}
-
 @test "shouting with no exclamation mark" {
-  skip
+  #skip
   run bash bob.sh 'I HATE YOU'
 
   [ "$status" -eq 0 ]
@@ -131,7 +115,7 @@
 }
 
 @test "statement containing question mark" {
-  skip
+  #skip
   run bash bob.sh 'Ending with ? means a question.'
 
   [ "$status" -eq 0 ]
@@ -139,14 +123,14 @@
 }
 
 @test "non-letters with question" {
-  skip
+  #skip
   run bash bob.sh ':) ?'
 
   [ "$status" -eq 0 ]
   [ "$output" = "Sure." ]
 }
 @test "prattling on" {
-  skip
+  #skip
   run bash bob.sh 'Wait! Hang on. Are you going to be OK?'
 
   [ "$status" -eq 0 ]
@@ -154,15 +138,15 @@
 }
 
 @test "silence" {
-  skip
+  #skip
   run bash bob.sh ''
 
   [ "$status" -eq 0 ]
   [ "$output" = "Fine. Be that way!" ]
 }
 
-@test "silence" {
-  skip
+@test "no input is silence" {
+  #skip
   run bash bob.sh
 
   [ "$status" -eq 0 ]
@@ -170,7 +154,7 @@
 }
 
 @test "prolonged silence" {
-  skip
+  #skip
   run bash bob.sh "     "
 
   [ "$status" -eq 0 ]
@@ -178,7 +162,7 @@
 }
 
 @test "alternate silence" {
-  skip
+  #skip
   run bash bob.sh "                 "
 
   [ "$status" -eq 0 ]
@@ -186,7 +170,7 @@
 }
 
 @test "multiple line question" {
-  skip
+  #skip
   run bash bob.sh "\nDoes this cryogenic chamber make me look fat?\nno"
 
   [ "$status" -eq 0 ]
@@ -194,7 +178,7 @@
 }
 
 @test "starting with whitespace" {
-  skip
+  #skip
   run bash bob.sh '         hmmmmmmm...'
 
   [ "$status" -eq 0 ]
@@ -202,7 +186,7 @@
 }
 
 @test "ending with whitespace" {
-  skip
+  #skip
   run bash bob.sh 'Okay if like my  spacebar  quite a bit?   '
 
   [ "$status" -eq 0 ]
@@ -212,7 +196,7 @@
 # This is commented out because it behaves differently on linux and mac
 # see: https://github.com/exercism/bash/pull/28
 #@test "other whitespace" {
-#  skip
+#  #skip
 #  run bash bob.sh "\n\r \t\u000b\u00a0\u2002"
 #
 #  [ "$status" -eq 0 ]
@@ -221,7 +205,7 @@
 
 
 @test "non-question ending with whitespace" {
-  skip
+  #skip
   run bash bob.sh 'This is a statement ending with whitespace      '
 
   [ "$status" -eq 0 ]

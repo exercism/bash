@@ -41,7 +41,12 @@ fi
 
 # Is there shouting (capital letter and no lowercase letters)
 if [[ "$input" == *[[:upper:]]* ]] && [[ "$input" != *[[:lower:]]* ]]; then
-  say "Whoa, chill out!"
+# Is the shouting also a question ( all capital letters and a '?' at end)
+  if [[ "${input: -1}" == "?" ]]; then
+    say "Calm down, I know what I'm doing!"
+  else
+    say "Whoa, chill out!"
+  fi
 fi
 
 # Is it a question? (last character is a '?')
