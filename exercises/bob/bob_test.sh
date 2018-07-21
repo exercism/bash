@@ -71,7 +71,7 @@
   run bash bob.sh "WHAT THE HELL WERE YOU THINKING?"
 
   [ "$status" -eq 0 ]
-  [ "$output" = "Whoa, chill out!" ]
+  [ "$output" = "Calm down, I know what I'm doing!" ]
 }
 
 @test "shouting numbers" {
@@ -104,22 +104,6 @@
 
   [ "$status" -eq 0 ]
   [ "$output" = "Whoa, chill out!" ]
-}
-
-@test "shouting with umlauts" {
-  skip
-  run bash bob.sh 'ÜMLÄÜTS!'
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Whoa, chill out!" ]
-}
-
-@test "calmly speaking with umlauts" {
-  skip
-  run bash bob.sh 'ÜMLäÜTS!'
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Whatever." ]
 }
 
 @test "shouting with no exclamation mark" {
@@ -161,7 +145,7 @@
   [ "$output" = "Fine. Be that way!" ]
 }
 
-@test "silence" {
+@test "no input is silence" {
   skip
   run bash bob.sh
 
@@ -208,17 +192,6 @@
   [ "$status" -eq 0 ]
   [ "$output" = "Sure." ]
 }
-
-# This is commented out because it behaves differently on linux and mac
-# see: https://github.com/exercism/bash/pull/28
-#@test "other whitespace" {
-#  skip
-#  run bash bob.sh "\n\r \t\u000b\u00a0\u2002"
-#
-#  [ "$status" -eq 0 ]
-#  [ "$output" = "Fine. Be that way!" ]
-#}
-
 
 @test "non-question ending with whitespace" {
   skip
