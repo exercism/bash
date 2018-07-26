@@ -105,3 +105,9 @@
   [ "$output" == "left and right strands must be of equal length" ]
 }
 
+@test "no input" {
+  skip
+  run bash hamming.sh
+  [ "$status" -eq 1 ]
+  [ "$output" == "Usage: hamming.sh <string1> <string2>" ]
+}
