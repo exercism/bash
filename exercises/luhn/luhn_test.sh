@@ -1,7 +1,5 @@
 #!/usr/bin/env bats
 
-# Version = 1.2.0
-
 @test "single digit strings can not be valid" {
   #skip
   run bash luhn.sh "1"
