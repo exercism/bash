@@ -19,7 +19,7 @@ str1="$1"
 str2="$2"
 
 if [ ${#str1} -ne ${#str2} ]; then
-  echo "The two strands must have the same length." >&2
+  echo "left and right strands must be of equal length" >&2
   exit 1
 fi
 
