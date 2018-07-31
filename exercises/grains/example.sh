@@ -7,7 +7,7 @@ get_grains () {
   printf "%u\n" "$(( 2 ** index ))"
 }
 
-if [[ "$INPUT" == "-A" ]]; then
+if [[ "$INPUT" == "total" ]]; then
 
   for square in {1..64}; do
     sum=$(( sum + $(get_grains "$square")))
