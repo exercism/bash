@@ -70,7 +70,7 @@
   [ "$output" == "Error: invalid input" ]
 }
 
-@test "returns the total number of grains on the board" {
+@test "Returns the total number of grains on the board" {
   skip
   run bash grains.sh -A
   [ "$status" -eq 0 ]
