@@ -82,6 +82,7 @@ do
         # echo "$slug: no canonical data found."
         continue
     fi
+
     ## This `jq` command pulls the version from canonical-data.json for each exercise in this loop
     canonical_data_version=$(jq '.version' $canonical_data_file_path | tr -d "\"")
 
