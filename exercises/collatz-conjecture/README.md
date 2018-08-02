@@ -40,13 +40,14 @@ After the first test(s) pass, continue by commenting out or removing the `skip` 
 An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
 
 
-## POSIX compliance
-On this track full POSIX compliance is not required. Therefore feel free to use any tool you need to complete
-the exercises, like `sed`, `awk`, `date` or even `python`. As long as the solution is portable between systems
-and does not require installing third party applications, it will be accepted.
+## External utilities
+`Bash` is a language to write scripts that works closely with various system utilities,
+like [`sed`](https://www.gnu.org/software/sed/), [`awk`](https://www.gnu.org/software/gawk/), [`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html) and even other programming languages, like [`Python`](https://www.python.org/).
+This track does not restrict the usage of these utilities, and as long as your solution is portable
+between systems and does not require installing third party applications, feel free to use them to solve the exercise.
 
-However, once you have completed and submitted the exercise, take a second look at you solution.
-Maybe the same results could be achieved in pure Bash, without using any external tools?
+For an extra challenge, if you would like to have a better understanding of the language,
+try to re-implement the solution in pure `Bash`, without using any external tools.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
