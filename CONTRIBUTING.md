@@ -148,13 +148,16 @@ You can check to see if your example script works by running `bats`.
 ```bash
 $ bats hello_world_test.sh
 ```
-#### Bash-Track-Test-Generator
+#### Automatic test generator
+
+**Tired of reading JSON by hand everytime an exercise version is updated?**
 
 There is a Ruby and ERB based automated solution for generating tests
 at [guygastineau/bash-track-test-generator](https://github.com/guygastineau/bash-track-test-generator).
 
-Each exercise requires an erb template to generate the test, and there is a
-simple example template provided as a foundation for building new templates.
+This tool automatically rewrites the test for an exercise to keep it
+up to date with the `canonical-data.json` file for the exercise in
+`exercism/problem-spcifications`.
 
 For more information on using this tool please see the README.md [here](https://github.com/guygastineau/bash-track-test-generator/blob/master/README.md).
 
