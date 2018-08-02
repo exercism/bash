@@ -61,6 +61,7 @@ then
     exit 1
 fi
 
+## The following `jq` command seeds an array with slugs from config.json
 track_exercise_slugs=$(jq '.exercises[] | select(has("deprecated") | not) | .slug' $config_file_path | tr -d "\"")
 update_needed_count=0
 
@@ -82,6 +83,7 @@ do
         continue
     fi
 
+    ## This `jq` command pulls the version from canonical-data.json for each exercise in this loop
     canonical_data_version=$(jq '.version' $canonical_data_file_path | tr -d "\"")
 
     track_exercise_version_file_path="$path_to_track/exercises/$slug/.meta/version"
