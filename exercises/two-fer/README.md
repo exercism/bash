@@ -23,7 +23,7 @@ After the first test(s) pass, continue by commenting out or removing the `skip` 
 
 ## Source
 
-This is an exercise to introduce users to basic programming constructs, just after Hello World. [https://en.wikipedia.org/wiki/Two-fer](https://en.wikipedia.org/wiki/Two-fer)
+[https://en.wikipedia.org/wiki/Two-fer](https://en.wikipedia.org/wiki/Two-fer)
 
 
 ## External utilities
