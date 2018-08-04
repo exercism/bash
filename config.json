@@ -7,13 +7,13 @@
       "slug": "hello-world",
       "uuid": "4e2533dd-3af5-400b-869d-78140764d533",
       "core": true,
+      "auto_approve": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "stdout",
         "strings"
-      ],
-      "auto_approve": true
+      ]
     },
     {
       "slug": "reverse-string",
@@ -47,8 +47,7 @@
       "difficulty": 2,
       "topics": [
         "control_flow_conditionals",
-        "input_validation",
-        "mathematics"
+        "input_validation"
       ]
     },
     {
@@ -59,8 +58,7 @@
       "difficulty": 2,
       "topics": [
         "games",
-        "integers",
-        "mathematics"
+        "integers"
       ]
     },
     {
@@ -71,7 +69,7 @@
       "difficulty": 2,
       "topics": [
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -83,7 +81,7 @@
       "topics": [
         "control_flow_conditionals",
         "control_flow_loops",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -205,7 +203,7 @@
         "control_flow_conditionals",
         "input_validation",
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -243,7 +241,6 @@
         "boolean_logic",
         "error_handling",
         "input_validation",
-        "mathematics",
         "number_comparison"
       ]
     },
@@ -266,8 +263,7 @@
       "unlocked_by": "armstrong-numbers",
       "difficulty": 4,
       "topics": [
-        "dates",
-        "mathematics"
+        "dates"
       ]
     },
     {
@@ -279,8 +275,7 @@
       "topics": [
         "algorithms",
         "control_flow_conditionals",
-        "integers",
-        "mathematics"
+        "integers"
       ]
     },
     {
@@ -305,7 +300,6 @@
         "integers",
         "logic",
         "loops",
-        "mathematics",
         "strings"
       ]
     }
