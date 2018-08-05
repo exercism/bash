@@ -109,5 +109,5 @@
   skip
   run bash hamming.sh
   [ "$status" -eq 1 ]
-  [ "$output" == "Usage: hamming.sh <string1> <string2>" ]
+  [ "$output" == "Usage: hamming.sh <strand1> <strand2>" ]
 }
