@@ -35,3 +35,10 @@
   [ "$output" == "CMOS" ]
 }
 
+@test "very long abbreviation" {
+  skip
+  run bash acronym.sh "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+  [ "$status" -eq 0 ]
+  [ "$output" == "ROTFLSHTMDCOALM" ]
+}
+
