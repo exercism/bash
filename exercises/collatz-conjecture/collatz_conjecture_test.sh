@@ -21,7 +21,7 @@
   [ "$output" -eq 9 ]
 }
 
-@test "Large number of even and odd steps" {
+@test "large number of even and odd steps" {
   skip
   run bash collatz_conjecture.sh 1000000
   [ "$status" -eq 0 ]
