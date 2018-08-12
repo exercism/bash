@@ -30,7 +30,7 @@ output() {
     echo "false"
   fi
 
-  exit $exit_code
+  exit 0
 }
 
 valid_triangle() {
