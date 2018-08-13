@@ -93,7 +93,7 @@
 
 @test "shouting with no exclamation mark" {
   skip
-  run bash bob.sh 'I HATE YOU'
+  run bash bob.sh 'I HATE THE DMV'
   [ "$status" -eq 0 ]
   [ "$output" == "Whoa, chill out!" ]
 }
@@ -135,7 +135,7 @@
 
 @test "alternate silence" {
   skip
-  run bash bob.sh '										'
+  run bash bob.sh "\t\t\t\t\t\t\t\t\t\t"
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
@@ -160,8 +160,7 @@
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
-
-# This test might act differently depending on your platform.
+# This test might act differently depending on your platform
 @test "other whitespace" {
   skip
   run bash bob.sh "\n\r \t"
