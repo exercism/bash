@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-@test 'April 25th, 2011' {
+@test 'date only specificaion of time' {
   # this is used to skip the test
   # normally, we skip every test except for the first one
   # (the first one is always commented out)
@@ -13,7 +13,7 @@
   [ "$output" == 'Thu Jan 1 01:46:40 UTC 2043' ]
 }
 
-@test 'June 13th, 1977' {
+@test 'second test for date only specification of time' {
   skip
   run bash gigasecond.sh '1977-06-13Z'
 
@@ -21,7 +21,7 @@
   [ "$output" == 'Thu Feb 19 01:46:40 UTC 2009' ]
 }
 
-@test 'July 19th, 1959' {
+@test 'third test for date only specification of time' {
   skip
   run bash gigasecond.sh '1959-07-19Z'
 
@@ -29,7 +29,7 @@
   [ "$output" == 'Wed Mar 27 01:46:40 UTC 1991' ]
 }
 
-@test 'Time specified' {
+@test 'full time specified' {
   skip
   run bash gigasecond.sh '2015-01-24 22:00:00Z'
 
@@ -37,7 +37,7 @@
   [ "$output" == 'Tue Oct 2 23:46:40 UTC 2046' ]
 }
 
-@test 'Time with day rollover' {
+@test 'full time with day roll-over' {
   skip
   run bash gigasecond.sh '2015-01-24 23:59:59Z'
 
