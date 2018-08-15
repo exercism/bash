@@ -1,9 +1,8 @@
 ---
 language: bash
-sudo: required
+sudo: false
 
 before_script:
-  - bin/ci_setup
   - bin/fetch_configlet
 
 script:
