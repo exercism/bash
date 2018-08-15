@@ -1,6 +1,6 @@
 ---
 language: bash
-sudo: false
+sudo: required
 
 before_script:
   - bin/ci_setup
