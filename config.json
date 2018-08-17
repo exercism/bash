@@ -302,6 +302,18 @@
         "loops",
         "strings"
       ]
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "fd55cf2c-2adf-4d20-85f3-dafcee4f3f1d",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 6,
+      "topics": [
+        "cryptography",
+        "math",
+        "strings"
+      ]
     }
   ]
 }
