@@ -10,16 +10,8 @@ command -v jq >/dev/null 2>&1 || {
   exit 1
 }
 
-num_args=$#
-
-if [ $num_args -eq 0 ]
-then
-  print_usage
-  exit 0
-fi
-
-path_to_track=
-path_to_problem_specifications=
+path_to_track="${1:-./}"
+path_to_problem_specifications="${2:-../problem-specifications}"
 
 while getopts ":t:s:" option
 do
@@ -57,6 +49,7 @@ config_file_path="$path_to_track/config.json"
 if ! [ -f "$config_file_path" ]
 then
   echo "Config file not found at $config_file_path."
+  print_usage
   exit 1
 fi
 
