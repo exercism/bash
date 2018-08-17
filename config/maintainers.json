@@ -40,6 +40,16 @@
       "link_url": null,
       "avatar_url": null,
       "bio": null
+    },
+    {
+      "github_username": "guygastineau",
+      "alumnus": false,
+      "show_on_website": true,
+      "name": "Guy Gastineau",
+      "link_text": null,
+      "link_url": null,
+      "avatar_url": null,
+      "bio": "I really love Linux and Bash!  I think the only reason I use a window manager is for chrome/firefox. Every other open window on my machine is a terminal."
     }
   ]
 }
