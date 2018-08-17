@@ -4,7 +4,7 @@ LOWERCASE_INPUT="${1,,}"
 
 isogram_candidate="${LOWERCASE_INPUT//[![:lower:]]}"
 
-for letter in {a..z}; do # remove aech letter only once
+for letter in {a..z}; do # remove each letter only once
   isogram_candidate="${isogram_candidate/$letter/}"
 done
 
