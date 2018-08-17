@@ -314,6 +314,17 @@
         "math",
         "strings"
       ]
+    },
+    {
+      "slug": "isogram",
+      "uuid": "196a2941-0fdd-41f1-8d2b-0568930e2400",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "strings",
+        "regexp"
+      ]
     }
   ]
 }
