@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
 shellcheck --version
+
+./bin/bats_preprocessor < exercises/bob/bob_test.sh | shellcheck -

@@ -1,6 +1,6 @@
 ---
 language: bash
-sudo: required
+sudo: false
 
 before_script:
   - bin/setup
