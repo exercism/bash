@@ -10,9 +10,6 @@ command -v jq >/dev/null 2>&1 || {
   exit 1
 }
 
-path_to_track="${1:-./}"
-path_to_problem_specifications="${2:-../problem-specifications}"
-
 while getopts ":t:s:" option
 do
   case "$option" in
@@ -30,19 +27,8 @@ do
   esac
 done
 
-if [ -z "$path_to_track" ]
-then
-  echo "Path to track missing."
-  print_usage
-  exit 1
-fi
-
-if [ -z "$path_to_problem_specifications" ]
-then
-  echo "Path to problem specifications missing."
-  print_usage
-  exit 1
-fi
+path_to_track="${path_to_track:-./}"
+path_to_problem_specifications="${path_to_problem_specifications:-../problem-specifications}"
 
 config_file_path="$path_to_track/config.json"
 
