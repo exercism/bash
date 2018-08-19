@@ -1,11 +1,11 @@
 ---
 language: bash
-sudo: false
+sudo: required
 
 before_script:
   - bin/setup
 
 script:
-  - bin/configlet lint .
-  - bin/validate_exercises
+  # - bin/configlet lint .
+  # - bin/validate_exercises
   - bin/shellcheck
