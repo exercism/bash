@@ -30,20 +30,6 @@ done
 path_to_track="${path_to_track:-./}"
 path_to_problem_specifications="${path_to_problem_specifications:-../problem-specifications}"
 
-if [ -z "$path_to_track" ]
-then
-  echo "Path to track missing."
-  print_usage
-  exit 1
-fi
-
-if [ -z "$path_to_problem_specifications" ]
-then
-  echo "Path to problem specifications missing."
-  print_usage
-  exit 1
-fi
-
 config_file_path="$path_to_track/config.json"
 
 if ! [ -f "$config_file_path" ]
