@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 @test 'Single digits are Armstrong numbers' {
   # skip

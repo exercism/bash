@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 # Square the sum of the numbers up to the given number
 @test "square of sum 1" {
