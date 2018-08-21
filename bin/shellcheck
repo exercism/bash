@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-shellcheck --version
+file="$@"
 
-./bin/bats_preprocessor < exercises/bob/bob_test.sh | shellcheck -
+bats_preprocess=./bin/bats_preprocessor
+
+"$bats_preprocess" < "$file" | shellcheck -
+
+exit

@@ -11,13 +11,13 @@ temp_folder_name="exercises_temp/"
 temp_folder="$root_path/$temp_folder_name"
 
 # Clean up after script on normal or forced exit
-trap "{ rm -rf $temp_folder; }" EXIT
+trap '{ rm -rf $temp_folder; }' EXIT
 
-cp exercises $temp_folder -r
-cd $temp_folder
+cp exercises "$temp_folder" -r
+cd "$temp_folder"
 
 for exercise in *; do
-  cd $exercise
+  cd "$exercise"
   echo "Processing $exercise"
 
   # Replace "-" with "_" to follow bash conventions
@@ -25,13 +25,15 @@ for exercise in *; do
   test_file=${exercise_name}_test.sh
 
   # Create implementation file from example
-  cp example.sh ${exercise_name}.sh
+  cp example.sh "${exercise_name}.sh"
 
   # Unskip all the tests
-  sed -i 's/skip/# skip/g' $test_file
+  sed -i 's/skip/# skip/g' "$test_file"
 
   # Run the tests
-  bats $test_file
+  bats "$test_file"
 
-  cd ../
+  "$root_path/bin/shellcheck" "$(pwd)/$test_file"
+
+  cd "$temp_folder"
 done
