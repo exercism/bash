@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 # Test returns true if the triangle is equilateral
 

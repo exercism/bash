@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 @test "Degenerate case with a single 'A' row" {
   #skip

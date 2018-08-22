@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 @test "single digit strings can not be valid" {
   #skip
