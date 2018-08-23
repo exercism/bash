@@ -12,7 +12,7 @@
   skip
   run bash armstrong_numbers.sh 10
 
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 0 ]
   [ "$output" = "false" ]
 }
 
@@ -28,7 +28,7 @@
   skip
   run bash armstrong_numbers.sh 100
 
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 0 ]
   [ "$output" = "false" ]
 }
 
@@ -44,7 +44,7 @@
   skip
   run bash armstrong_numbers.sh 9475
 
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 0 ]
   [ "$output" = "false" ]
 }
 
@@ -60,7 +60,7 @@
   skip
   run bash armstrong_numbers.sh 9926314
 
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 0 ]
   [ "$output" = "false" ]
 }
 
