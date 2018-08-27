@@ -6,7 +6,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 phrase=$(echo "$1" | tr '-' ' ')
-set -f -- junk "$phrase"
+set -f -- junk $phrase
 shift
 for word; do
     initial="$(echo "$word" | head -c 1 | tr '[:lower:]' '[:upper:]')"
