@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Ignores the following rules:
+# This {/} is literal (https://github.com/koalaman/shellcheck/wiki/SC1083)
+# var is referenced but not assigned (https://github.com/koalaman/shellcheck/wiki/SC2154)
+export SHELLCHECK_OPTS="-e SC1083 -e SC2154"
+
+root_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/../ && pwd )"
+bats_preprocess=$root_path/bin/bats_preprocessor
+
+modified_files=$(git diff --name-only HEAD~1 | grep 'bin/\|.sh')
+for file in $modified_files; do
+  "$bats_preprocess" < "$file" | shellcheck -
+done
+
+exit
