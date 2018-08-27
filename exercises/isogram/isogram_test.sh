@@ -72,3 +72,9 @@
   [ "$output" == "false" ]
 }
 
+@test "word with duplicated character in mixed case, lowercase first" {
+  skip
+  run bash isogram.sh "alphAbet"
+  [ "$status" -eq 0 ]
+  [ "$output" == "false" ]
+}
