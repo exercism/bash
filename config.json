@@ -325,6 +325,18 @@
         "strings",
         "regexp"
       ]
+    },
+    {
+      "slug": "diamond",
+      "uuid": "9eef8b1a-12b8-47f7-9169-6d44180bd199",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 4,
+      "topics": [
+        "loops",
+        "strings",
+        "string_transformation"
+      ]
     }
   ]
 }

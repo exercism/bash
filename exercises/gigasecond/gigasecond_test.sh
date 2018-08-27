@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 @test 'date only specificaion of time' {
   # this is used to skip the test
