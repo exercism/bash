@@ -33,9 +33,5 @@ for exercise in *; do
   # Run the tests
   bats "$test_file"
 
-  # TODO: Run only on changed exercises
-  file="$(pwd)/$test_file"
-  "$root_path/bin/shellcheck" "$file"
-
   cd "$temp_folder"
 done
