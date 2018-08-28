@@ -1,44 +1,43 @@
 #!/usr/bin/env bash
 
-@test "basic" {
+@test 'basic' {
   #skip
-  run bash acronym.sh "Portable Network Graphics"
+  run bash acronym.sh 'Portable Network Graphics'
   [ "$status" -eq 0 ]
-  [ "$output" == "PNG" ]
+  [ "$output" == 'PNG' ]
 }
 
-@test "lowercase words" {
+@test 'lowercase words' {
   skip
-  run bash acronym.sh "Ruby on Rails"
+  run bash acronym.sh 'Ruby on Rails'
   [ "$status" -eq 0 ]
-  [ "$output" == "ROR" ]
+  [ "$output" == 'ROR' ]
 }
 
-@test "punctuation" {
+@test 'punctuation' {
   skip
-  run bash acronym.sh "First In, First Out"
+  run bash acronym.sh 'First In, First Out'
   [ "$status" -eq 0 ]
-  [ "$output" == "FIFO" ]
+  [ "$output" == 'FIFO' ]
 }
 
-@test "all caps word" {
+@test 'all caps word' {
   skip
-  run bash acronym.sh "GNU Image Manipulation Program"
+  run bash acronym.sh 'GNU Image Manipulation Program'
   [ "$status" -eq 0 ]
-  [ "$output" == "GIMP" ]
+  [ "$output" == 'GIMP' ]
 }
 
-@test "punctuation without whitespace" {
+@test 'punctuation without whitespace' {
   skip
-  run bash acronym.sh "Complementary metal-oxide semiconductor"
+  run bash acronym.sh 'Complementary metal-oxide semiconductor'
   [ "$status" -eq 0 ]
-  [ "$output" == "CMOS" ]
+  [ "$output" == 'CMOS' ]
 }
 
-@test "very long abbreviation" {
+@test 'very long abbreviation' {
   skip
-  run bash acronym.sh "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+  run bash acronym.sh 'Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me'
   [ "$status" -eq 0 ]
-  [ "$output" == "ROTFLSHTMDCOALM" ]
+  [ "$output" == 'ROTFLSHTMDCOALM' ]
 }
-
