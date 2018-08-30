@@ -337,6 +337,18 @@
         "strings",
         "string_transformation"
       ]
+    },
+    {
+      "slug": "isbn-verifier",
+      "uuid": "0bc40512-38ab-4022-a8dc-5a00f5fbb761",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "integers",
+        "string_transformation"
+      ]
     }
   ]
 }
