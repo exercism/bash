@@ -78,3 +78,10 @@
   [ "$status" -eq 0 ]
   [ "$output" == 'false' ]
 }
+
+@test 'same first and last characters' {
+  skip
+  run bash isogram.sh 'angola'
+  [ "$status" -eq 0 ]
+  [ "$output" == 'false' ]
+}
