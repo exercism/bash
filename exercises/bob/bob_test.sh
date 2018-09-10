@@ -135,14 +135,14 @@
 
 @test "alternate silence" {
   skip
-  run bash bob.sh "\t\t\t\t\t\t\t\t\t\t"
+  run bash bob.sh $'\t\t\t\t\t\t\t\t\t\t'
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
 
 @test "multiple line question" {
   skip
-  run bash bob.sh "\nDoes this cryogenic chamber make me look fat?\nno"
+  run bash bob.sh $'\nDoes this cryogenic chamber make me look fat?\nno'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
@@ -163,7 +163,7 @@
 # This test might act differently depending on your platform
 @test "other whitespace" {
   skip
-  run bash bob.sh "\n\r \t"
+  run bash bob.sh $'\n\r \t'
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
