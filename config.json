@@ -11,7 +11,6 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "stdout",
         "strings"
       ]
     },
@@ -22,7 +21,6 @@
       "unlocked_by": "hello-world",
       "difficulty": 1,
       "topics": [
-        "stdout",
         "strings"
       ]
     },
@@ -34,7 +32,6 @@
       "difficulty": 1,
       "topics": [
         "control_flow_conditionals",
-        "stdout",
         "strings",
         "text_formatting"
       ]
@@ -93,7 +90,6 @@
       "topics": [
         "error_handling",
         "input_validation",
-        "stdout",
         "strings"
       ]
     },
@@ -176,7 +172,6 @@
       "topics": [
         "control_flow_conditionals",
         "control_flow_loops",
-        "stdout",
         "string_transformation",
         "strings"
       ]
@@ -189,7 +184,6 @@
       "difficulty": 3,
       "topics": [
         "control_flow_conditionals",
-        "stdout",
         "strings"
       ]
     },
