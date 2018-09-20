@@ -204,7 +204,7 @@
       "slug": "nucleotide-count",
       "uuid": "28f848c8-56ef-4147-a401-f1617c147b4b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hamming",
       "difficulty": 3,
       "topics": [
         "control_flow_loops",
