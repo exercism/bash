@@ -142,7 +142,7 @@
 
 @test "multiple line question" {
   skip
-  run bash bob.sh $'\nDoes this cryogenic chamber make me look fat?\nno'
+  run bash bob.sh $'\nDoes this cryogenic chamber make me look fat?\nNo'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
