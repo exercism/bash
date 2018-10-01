@@ -119,7 +119,6 @@ example of implementing the test case shown above.
 
 @test 'Say Hi!' {
   run bash hello_world.sh
-
   [ "$status" -eq 0 ]
   [ "$output" = "Hello, World" ]
 }
@@ -149,6 +148,18 @@ You can check to see if your example script works by running `bats`.
 ```bash
 $ bats hello_world_test.sh
 ```
+#### Automatic test generator
+
+**Tired of reading JSON by hand everytime an exercise version is updated?**
+
+There is a Ruby and ERB based automated solution for generating tests
+at [guygastineau/bash-track-test-generator](https://github.com/guygastineau/bash-track-test-generator).
+
+This tool automatically rewrites the test for an exercise to keep it
+up to date with the `canonical-data.json` file for the exercise in
+`exercism/problem-spcifications`.
+
+For more information on using this tool please see the README.md [here](https://github.com/guygastineau/bash-track-test-generator/blob/master/README.md).
 
 ### Implementing an Example Solution
 

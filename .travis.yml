@@ -3,8 +3,8 @@ language: bash
 sudo: false
 
 before_script:
-  - bin/fetch-configlet
+  - bin/fetch_configlet
 
 script:
   - bin/configlet lint .
-  - bin/validate-exercises
+  - bin/validate_exercises

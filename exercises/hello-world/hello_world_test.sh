@@ -1,4 +1,4 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
 @test "Say Hi!" {
   run bash hello_world.sh

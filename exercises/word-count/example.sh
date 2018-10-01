@@ -1,30 +1,27 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-input="$1"
+init_var=$(echo -e "$1" | tr -d '!@$%^&:.')
+preprocessed_var=$(echo "${init_var//[$'\n,']/ }" | tr '[:upper:]' '[:lower:]')
 
-if [[ ! -n "${input}" ]]
-then
-	echo "Usage: $0 <input>"
-	exit
-fi
+read -r -a words <<< "$preprocessed_var"
+declare -a control_map
+declare -A word_count_map
 
-echo "$input" \
-  | tr '[:upper:]' '[:lower:]' \
-  | tr '.,:&@$%^!' ' ' \
-  | awk -f <(cat - <<-'HEREDOC'
-      {
-        for (field_index = 1; field_index <= NF; field_index++)
-        {
-          result[$field_index]++
-        }
-      }
-      END {
-        for (field_index in result)
-        {
-          printf "%s: %d\n", field_index, result[field_index]
-        }
-      }
-HEREDOC
-)
+for el in "${words[@]}"; do
+  el="${el#\'}" el="${el%\'}"
+  if [[ "${control_map[@]}" =~ "$el" ]]; then
+    continue
+  else
+    control_map+=("$el")
+  fi
+done
 
-exit $?
+for word in ${words[@]}; do
+  word="${word#\'}" word="${word%\'}"
+  ((word_count_map['$word']++))
+done
+
+for word in "${control_map[@]}"; do
+  echo "$word: ${word_count_map[$word]}"
+done
+exit 0

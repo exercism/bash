@@ -23,7 +23,7 @@ likely going through bash.
 
 The downside to this is that there isn't much of a development
 ecosystem around bash like there is for other languages, and there are
-multiple verions of bash that can be frustratingly incompatible. Luckily
+multiple versions of bash that can be frustratingly incompatible. Luckily
 we shouldn't hit those differences for these basic examples, and if you
 can get the tests to pass on your machine, we are doing great.
 
@@ -66,6 +66,16 @@ After the first test(s) pass, continue by commenting out or removing the `skip` 
 ## Source
 
 This is an exercise to introduce users to using Exercism [http://en.wikipedia.org/wiki/%22Hello,_world!%22_program](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program)
+
+
+## External utilities
+`Bash` is a language to write scripts that works closely with various system utilities,
+like [`sed`](https://www.gnu.org/software/sed/), [`awk`](https://www.gnu.org/software/gawk/), [`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html) and even other programming languages, like [`Python`](https://www.python.org/).
+This track does not restrict the usage of these utilities, and as long as your solution is portable
+between systems and does not require installing third party applications, feel free to use them to solve the exercise.
+
+For an extra challenge, if you would like to have a better understanding of the language,
+try to re-implement the solution in pure `Bash`, without using any external tools.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

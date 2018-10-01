@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <string1> <string2>" >&2
+  echo "Usage: $0 <strand1> <strand2>" >&2
   exit 1
 fi
 
@@ -19,7 +19,7 @@ str1="$1"
 str2="$2"
 
 if [ ${#str1} -ne ${#str2} ]; then
-  echo "The two strands must have the same length." >&2
+  echo "left and right strands must be of equal length" >&2
   exit 1
 fi
 

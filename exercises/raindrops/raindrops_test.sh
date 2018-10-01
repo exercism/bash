@@ -1,141 +1,128 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
-# check non factors
-
-@test "Number 1, not factor of 3, 5 or 7, should output itself: 1." {
+@test "the sound for 1 is 1" {
   #skip
   run bash raindrops.sh 1
-
   [ "$status" -eq 0 ]
-  [ "$output" = "1" ]
+  [ "$output" == "1" ]
 }
 
-@test "Number 52, not factor of 3, 5 or 7, should output itself: 52." {
-  skip
-  run bash raindrops.sh 52
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "52" ]
-}
-
-@test "Number 21121, not factor of 3, 5 or 7, should output itself: 21121." {
-  skip
-  run bash raindrops.sh 21121
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "21121" ]
-}
-
-# check factor themselves
-
-@test "Number 3, only factor of 3, should output: Pling." {
+@test "the sound for 3 is Pling" {
   skip
   run bash raindrops.sh 3
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Pling" ]
+  [ "$output" == "Pling" ]
 }
 
-@test "Number 5, only factor of 5, should output: Plang." {
+@test "the sound for 5 is Plang" {
   skip
   run bash raindrops.sh 5
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Plang" ]
+  [ "$output" == "Plang" ]
 }
 
-@test "Number 7, only factor of 7, should output: Plong." {
+@test "the sound for 7 is Plong" {
   skip
   run bash raindrops.sh 7
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Plong" ]
+  [ "$output" == "Plong" ]
 }
 
-# check factor with non factors
-
-@test "Number 6, factor of 3 but not 5 or 7, should output: Pling." {
+@test "the sound for 6 is Pling as it has a factor 3" {
   skip
   run bash raindrops.sh 6
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Pling" ]
+  [ "$output" == "Pling" ]
 }
 
-@test "Number 10, factor of 5 but not 3 or 7, should output: Plang." {
+@test "2 to the power 3 does not make a raindrop sound as 3 is the exponent not the base" {
   skip
-  run bash raindrops.sh 10
-
+  run bash raindrops.sh 8
   [ "$status" -eq 0 ]
-  [ "$output" = "Plang" ]
+  [ "$output" == "8" ]
 }
 
-@test "Number 14, factor of 7 but not 3 or 5, should output: Plong." {
-  skip
-  run bash raindrops.sh 14
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "Plong" ]
-}
-
-# check factor with another factor
-
-@test "Number 15, factor of 3 and 5, should output: PlingPlang." {
-  skip
-  run bash raindrops.sh 15
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "PlingPlang" ]
-}
-
-@test "Number 21, factor of 3 and 7, should output: PlingPlong." {
-  skip
-  run bash raindrops.sh 21
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "PlingPlong" ]
-}
-
-@test "Number 35, factor of 5 and 7, should output: PlangPlong." {
-  skip
-  run bash raindrops.sh 35
-
-  [ "$status" -eq 0 ]
-  [ "$output" = "PlangPlong" ]
-}
-
-# check factor with itself
-
-@test "Number 9, factor of 9, should output: Pling (not PlingPling)." {
+@test "the sound for 9 is Pling as it has a factor 3" {
   skip
   run bash raindrops.sh 9
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Pling" ]
+  [ "$output" == "Pling" ]
 }
 
-@test "Number 25, factor of 5, should output: Plang (not PlangPlang)." {
+@test "the sound for 10 is Plang as it has a factor 5" {
+  skip
+  run bash raindrops.sh 10
+  [ "$status" -eq 0 ]
+  [ "$output" == "Plang" ]
+}
+
+@test "the sound for 14 is Plong as it has a factor of 7" {
+  skip
+  run bash raindrops.sh 14
+  [ "$status" -eq 0 ]
+  [ "$output" == "Plong" ]
+}
+
+@test "the sound for 15 is PlingPlang as it has factors 3 and 5" {
+  skip
+  run bash raindrops.sh 15
+  [ "$status" -eq 0 ]
+  [ "$output" == "PlingPlang" ]
+}
+
+@test "the sound for 21 is PlingPlong as it has factors 3 and 7" {
+  skip
+  run bash raindrops.sh 21
+  [ "$status" -eq 0 ]
+  [ "$output" == "PlingPlong" ]
+}
+
+@test "the sound for 25 is Plang as it has a factor 5" {
   skip
   run bash raindrops.sh 25
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Plang" ]
+  [ "$output" == "Plang" ]
 }
 
-@test "Number 49, factor of 7, should output: Plong (not PlongPlong)." {
+@test "the sound for 27 is Pling as it has a factor 3" {
+  skip
+  run bash raindrops.sh 27
+  [ "$status" -eq 0 ]
+  [ "$output" == "Pling" ]
+}
+
+@test "the sound for 35 is PlangPlong as it has factors 5 and 7" {
+  skip
+  run bash raindrops.sh 35
+  [ "$status" -eq 0 ]
+  [ "$output" == "PlangPlong" ]
+}
+
+@test "the sound for 49 is Plong as it has a factor 7" {
   skip
   run bash raindrops.sh 49
-
   [ "$status" -eq 0 ]
-  [ "$output" = "Plong" ]
+  [ "$output" == "Plong" ]
 }
 
-# check all factors
+@test "the sound for 52 is 52" {
+  skip
+  run bash raindrops.sh 52
+  [ "$status" -eq 0 ]
+  [ "$output" == "52" ]
+}
 
-@test "Number 105, factor of 3, 5 and 7, should output: PlingPlangPlong." {
+@test "the sound for 105 is PlingPlangPlong as it has factors 3, 5 and 7" {
   skip
   run bash raindrops.sh 105
-
   [ "$status" -eq 0 ]
-  [ "$output" = "PlingPlangPlong" ]
+  [ "$output" == "PlingPlangPlong" ]
 }
+
+@test "the sound for 3125 is Plang as it has a factor 5" {
+  skip
+  run bash raindrops.sh 3125
+  [ "$status" -eq 0 ]
+  [ "$output" == "Plang" ]
+}
+
