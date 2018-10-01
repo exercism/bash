@@ -7,7 +7,7 @@ likely going through bash.
 
 The downside to this is that there isn't much of a development
 ecosystem around bash like there is for other languages, and there are
-multiple verions of bash that can be frustratingly incompatible. Luckily
+multiple versions of bash that can be frustratingly incompatible. Luckily
 we shouldn't hit those differences for these basic examples, and if you
 can get the tests to pass on your machine, we are doing great.
 

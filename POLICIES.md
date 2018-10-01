@@ -26,7 +26,7 @@ This is most import for the tests, since they are delivered as a product, and sh
 
 ### Prefer standard Bash over POSIX compliance
 
-When submitting or updated exercises, POSIX compliance is not required. This applies when discussing sumbissions for the exercises.
+When submitting or updating exercises, POSIX compliance is not required. This applies when discussing sumbissions for the exercises.
 You can make POSIX compliance a stretch goal, and that could be a good start for a discussion with users.
 
 References: [[1](https://github.com/exercism/bash/issues/88)]

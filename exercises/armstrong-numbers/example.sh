@@ -15,11 +15,11 @@ is_armstrong() {
 
   if [ $sum -eq $number ]; then
     echo "true"
-    exit 0
   else
     echo "false"
-    exit 1
   fi
+
+  exit 0
 }
 
-"$@"
+is_armstrong "$@"

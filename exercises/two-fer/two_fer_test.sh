@@ -1,26 +1,23 @@
-#!/usr/bin/env bats
+#!/usr/bin/env bash
 
-@test "When given no name, it should have one for you!" {
+@test "no name given" {
   #skip
   run bash two_fer.sh
-
   [ "$status" -eq 0 ]
-  [ "$output" = "One for you, one for me." ]
+  [ "$output" == "One for you, one for me." ]
 }
 
-@test 'When given "Alice" it should have one for Alice!' {
+@test "a name given" {
   skip
   run bash two_fer.sh Alice
-
   [ "$status" -eq 0 ]
-  [ "$output" = "One for Alice, one for me." ]
+  [ "$output" == "One for Alice, one for me." ]
 }
 
-@test 'When given "Bob" it should have one for Bob!' {
+@test "another name given" {
   skip
   run bash two_fer.sh Bob
-
   [ "$status" -eq 0 ]
-  [ "$output" = "One for Bob, one for me." ]
+  [ "$output" == "One for Bob, one for me." ]
 }
 

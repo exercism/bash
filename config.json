@@ -1,20 +1,18 @@
 {
   "language": "Bash",
-  "active": false,
+  "active": true,
   "blurb": "Bash is a Unix command interpreter, for which plaintext files of commands can be made to create scripts. It's a powerful and concise way of getting stuff done!",
-  "checklist_issue": 4,
   "exercises": [
     {
       "slug": "hello-world",
       "uuid": "4e2533dd-3af5-400b-869d-78140764d533",
       "core": true,
+      "auto_approve": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "stdout",
         "strings"
-      ],
-      "auto_approve": true
+      ]
     },
     {
       "slug": "reverse-string",
@@ -23,7 +21,6 @@
       "unlocked_by": "hello-world",
       "difficulty": 1,
       "topics": [
-        "stdout",
         "strings"
       ]
     },
@@ -31,11 +28,10 @@
       "slug": "two-fer",
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 1,
       "topics": [
         "control_flow_conditionals",
-        "stdout",
         "strings",
         "text_formatting"
       ]
@@ -48,8 +44,7 @@
       "difficulty": 2,
       "topics": [
         "control_flow_conditionals",
-        "input_validation",
-        "mathematics"
+        "input_validation"
       ]
     },
     {
@@ -60,8 +55,7 @@
       "difficulty": 2,
       "topics": [
         "games",
-        "integers",
-        "mathematics"
+        "integers"
       ]
     },
     {
@@ -72,7 +66,7 @@
       "difficulty": 2,
       "topics": [
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -84,19 +78,18 @@
       "topics": [
         "control_flow_conditionals",
         "control_flow_loops",
-        "mathematics"
+        "math"
       ]
     },
     {
       "slug": "error-handling",
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 2,
       "topics": [
         "error_handling",
         "input_validation",
-        "stdout",
         "strings"
       ]
     },
@@ -115,7 +108,7 @@
       "slug": "leap",
       "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 2,
       "topics": [
         "boolean_logic",
@@ -179,7 +172,6 @@
       "topics": [
         "control_flow_conditionals",
         "control_flow_loops",
-        "stdout",
         "string_transformation",
         "strings"
       ]
@@ -192,7 +184,6 @@
       "difficulty": 3,
       "topics": [
         "control_flow_conditionals",
-        "stdout",
         "strings"
       ]
     },
@@ -206,14 +197,14 @@
         "control_flow_conditionals",
         "input_validation",
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
       "slug": "nucleotide-count",
       "uuid": "28f848c8-56ef-4147-a401-f1617c147b4b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hamming",
       "difficulty": 3,
       "topics": [
         "control_flow_loops",
@@ -244,7 +235,6 @@
         "boolean_logic",
         "error_handling",
         "input_validation",
-        "mathematics",
         "number_comparison"
       ]
     },
@@ -267,8 +257,7 @@
       "unlocked_by": "armstrong-numbers",
       "difficulty": 4,
       "topics": [
-        "dates",
-        "mathematics"
+        "dates"
       ]
     },
     {
@@ -280,8 +269,7 @@
       "topics": [
         "algorithms",
         "control_flow_conditionals",
-        "integers",
-        "mathematics"
+        "integers"
       ]
     },
     {
@@ -306,8 +294,54 @@
         "integers",
         "logic",
         "loops",
-        "mathematics",
         "strings"
+      ]
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "fd55cf2c-2adf-4d20-85f3-dafcee4f3f1d",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 6,
+      "topics": [
+        "cryptography",
+        "math",
+        "strings"
+      ]
+    },
+    {
+      "slug": "isogram",
+      "uuid": "196a2941-0fdd-41f1-8d2b-0568930e2400",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "strings",
+        "regexp"
+      ]
+    },
+    {
+      "slug": "diamond",
+      "uuid": "9eef8b1a-12b8-47f7-9169-6d44180bd199",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 4,
+      "topics": [
+        "loops",
+        "strings",
+        "string_transformation"
+      ]
+    },
+    {
+      "slug": "isbn-verifier",
+      "uuid": "0bc40512-38ab-4022-a8dc-5a00f5fbb761",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "integers",
+        "string_transformation"
       ]
     }
   ]
