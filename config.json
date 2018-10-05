@@ -188,6 +188,21 @@
       ]
     },
     {
+      "slug": "yacht",
+      "uuid": "216e2492-9823-4ccb-a4d8-aed1337fd90e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "equality",
+        "games",
+        "integers",
+        "pattern_matching",
+        "sequences"
+      ]
+    },
+    {
       "slug": "collatz-conjecture",
       "uuid": "b4793e6d-f443-41ea-8289-95e18a5dbef4",
       "core": false,
@@ -316,8 +331,8 @@
       "unlocked_by": "pangram",
       "difficulty": 3,
       "topics": [
-        "strings",
-        "regexp"
+        "regexp",
+        "strings"
       ]
     },
     {
@@ -328,8 +343,8 @@
       "difficulty": 4,
       "topics": [
         "loops",
-        "strings",
-        "string_transformation"
+        "string_transformation",
+        "strings"
       ]
     },
     {
