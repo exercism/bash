@@ -44,7 +44,9 @@
       "difficulty": 2,
       "topics": [
         "control_flow_conditionals",
-        "input_validation"
+        "input_validation",
+        "integers",
+        "math"
       ]
     },
     {
