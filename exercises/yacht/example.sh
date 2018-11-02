@@ -4,11 +4,11 @@ set -o errexit
 set -o nounset
 
 as_lines() {
-  printf "%s\n%s\n%s\n%s\n%s\n" "$1" "$2" "$3" "$4" "$5"
+  printf '%s\n%s\n%s\n%s\n%s\n' "$1" "$2" "$3" "$4" "$5"
 }
 
 as_string() {
-  printf "%s%s%s%s%s\n" "$1" "$2" "$3" "$4" "$5"
+  printf '%s%s%s%s%s\n' "$1" "$2" "$3" "$4" "$5"
 }
 
 count_map() {
@@ -18,14 +18,14 @@ count_map() {
     counts["$x"]=$(( prev + 1 ))
   done
   for (( i=1; i <= 6; i++)) ; do
-    printf "%s\t%s\n" "$i" "${counts[$i]:-0}"
+    printf '%s\t%s\n' "$i" "${counts[$i]:-0}"
   done
 }
 
 _grep() {
   while read x ; do
     if [[ $x == *$1* ]]; then
-      printf "%s\n" "$x"
+      printf '%s\n' "$x"
     fi
   done
 }
@@ -55,18 +55,18 @@ case "$mode" in
   sixes)
     as_lines "$@" | _grep 6 | _sum ;;
 
-  "little straight")
+  little_straight)
     if [ -n "$( as_string "$@" | _grep 1 | _grep 2 | _grep 3 | _grep 4 | _grep 5 )" ]; then
-           printf "30\n"
+           printf '30\n'
          else
-      printf "0\n"
+      printf '0\n'
     fi
     ;;    
-  "big straight")
+  big_straight)
     if [ -n "$( as_string "$@" |  _grep 2 | _grep 3 | _grep 4 | _grep 5 | _grep 6)" ]; then
-           printf "30\n"
+           printf '30\n'
          else
-      printf "0\n"
+      printf '0\n'
     fi
     ;;    
 
@@ -74,39 +74,39 @@ case "$mode" in
     as_lines "$@" | _sum
     ;;
 
-  "full house")
+  full_house)
     COUNT_MAP="$(as_lines "$@" | count_map)"
     if [ -n "$(_grep $'\t2' <<<"$COUNT_MAP")" ] && [ -n "$(_grep $'\t3' <<<"$COUNT_MAP")" ]; then
       as_lines "$@" | _sum
     else
-      printf "0\n"
+      printf '0\n'
     fi
     ;;
 
-  "four of a kind")
+  four_of_a_kind)
     COUNT_MAP="$(as_lines "$@" | count_map)"
     WITH_FOURS="$(_grep $'\t4' <<<"$COUNT_MAP")"
     WITH_FIVES="$(_grep $'\t5' <<<"$COUNT_MAP")"
 
     if [ -z "$WITH_FOURS" ] && [ -z "$WITH_FIVES" ]; then
-      printf "0\n"
+      printf '0\n'
     else
-      printf "%s\n%s\n" "$WITH_FOURS" "$WITH_FIVES" |
+      printf '%s\n%s\n' "$WITH_FOURS" "$WITH_FIVES" |
         while read face_value count ; do
           sum="$((4 * face_value))"
           if [ "$sum" -gt 0 ]; then
-            printf "%s\n" "$sum"
+            printf '%s\n' "$sum"
           fi
         done
     fi
     ;;
-  "yacht")
+  yacht)
     COUNT_MAP="$(as_lines "$@" | count_map)"
 
     if [ -n "$(_grep $'\t5' <<<"$COUNT_MAP")" ]; then
-      printf "50\n"
+      printf '50\n'
     else
-      printf "0\n"
+      printf '0\n'
     fi
     ;;
 
