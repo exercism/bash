@@ -5,7 +5,7 @@ You will soon learn that while most things can be done through a Graphical User 
 The command interpreter typically runs in a text window, where users may input commands (operations may also come from some files, also known as Bash scripts).
 
 More formally, Bash (an acronym for **B**ourne-**a**gain **sh**ell, a pun around the Bourne shell and the term "born-again") is a Unix command interpreter.
-Offering a number of improvements over several other shells (Bash's has some useful functionality in regards to command history, job control and command line editing).
+Offering a number of improvements over several other shells (Bash has some useful functionality in regards to command history, job control and command line editing).
 
 A really good way to think about Bash is the following:
 
