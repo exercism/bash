@@ -15,20 +15,10 @@
       ]
     },
     {
-      "slug": "reverse-string",
-      "uuid": "2b6d4faa-1909-422a-8eac-1682be3f1b9e",
-      "core": false,
-      "unlocked_by": "hello-world",
-      "difficulty": 1,
-      "topics": [
-        "strings"
-      ]
-    },
-    {
       "slug": "two-fer",
       "uuid": "0cfac255-6871-4588-a16b-98f7692bfdbe",
-      "core": false,
-      "unlocked_by": "hello-world",
+      "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "control_flow_conditionals",
@@ -37,60 +27,25 @@
       ]
     },
     {
-      "slug": "grains",
-      "uuid": "c9d36155-10e8-4a75-a732-3c43a68910eb",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "control_flow_conditionals",
-        "input_validation",
-        "integers",
-        "math"
-      ]
-    },
-    {
-      "slug": "scrabble-score",
-      "uuid": "8ecb5793-2dd8-44be-9188-61e52723cbab",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 2,
-      "topics": [
-        "games",
-        "integers"
-      ]
-    },
-    {
-      "slug": "armstrong-numbers",
-      "uuid": "302b7e1a-4cf6-47d4-8048-b675f667fc98",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "integers",
-        "math"
-      ]
-    },
-    {
-      "slug": "difference-of-squares",
-      "uuid": "ca5139b4-8b2f-44ea-8d83-0b8ca7674436",
-      "core": false,
-      "unlocked_by": "armstrong-numbers",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_conditionals",
-        "control_flow_loops",
-        "math"
-      ]
-    },
-    {
       "slug": "error-handling",
       "uuid": "b2b4ee35-108f-45ce-b294-c10d332e5579",
-      "core": false,
-      "unlocked_by": "hello-world",
+      "core": true,
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "error_handling",
+        "input_validation",
+        "strings"
+      ]
+    },
+    {
+      "slug": "raindrops",
+      "uuid": "1a9c8d65-43ee-435e-8c55-9a45c14a71fb",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "control_flow_conditionals",
         "input_validation",
         "strings"
       ]
@@ -107,15 +62,26 @@
       ]
     },
     {
-      "slug": "leap",
-      "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a",
-      "core": false,
-      "unlocked_by": "hello-world",
+      "slug": "acronym",
+      "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "input_validation",
+        "string_transformation",
+        "strings"
+      ]
+    },
+    {
+      "slug": "armstrong-numbers",
+      "uuid": "302b7e1a-4cf6-47d4-8048-b675f667fc98",
+      "core": true,
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "boolean_logic",
-        "control_flow_conditionals",
-        "input_validation"
+        "integers",
+        "math"
       ]
     },
     {
@@ -130,15 +96,72 @@
       ]
     },
     {
-      "slug": "raindrops",
-      "uuid": "1a9c8d65-43ee-435e-8c55-9a45c14a71fb",
-      "core": false,
-      "unlocked_by": "hello-world",
+      "slug": "bob",
+      "uuid": "9ac0b041-a7aa-4b0c-952a-d38d35e2cd65",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "control_flow_conditionals",
+        "strings"
+      ]
+    },
+    {
+      "slug": "scrabble-score",
+      "uuid": "8ecb5793-2dd8-44be-9188-61e52723cbab",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "games",
+        "integers"
+      ]
+    },
+    {
+      "slug": "grains",
+      "uuid": "c9d36155-10e8-4a75-a732-3c43a68910eb",
+      "core": true,
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "control_flow_conditionals",
         "input_validation",
+        "integers",
+        "math"
+      ]
+    },
+    {
+      "slug": "reverse-string",
+      "uuid": "2b6d4faa-1909-422a-8eac-1682be3f1b9e",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 1,
+      "topics": [
         "strings"
+      ]
+    },
+    {
+      "slug": "difference-of-squares",
+      "uuid": "ca5139b4-8b2f-44ea-8d83-0b8ca7674436",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 2,
+      "topics": [
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "math"
+      ]
+    },
+    {
+      "slug": "leap",
+      "uuid": "e24451fd-761d-4d20-81d9-e470486ec44a",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 2,
+      "topics": [
+        "boolean_logic",
+        "control_flow_conditionals",
+        "input_validation"
       ]
     },
     {
@@ -154,18 +177,6 @@
       ]
     },
     {
-      "slug": "acronym",
-      "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb",
-      "core": false,
-      "unlocked_by": "pangram",
-      "difficulty": 3,
-      "topics": [
-        "input_validation",
-        "string_transformation",
-        "strings"
-      ]
-    },
-    {
       "slug": "anagram",
       "uuid": "33d9eb48-5958-4e98-afc0-8cff89577c86",
       "core": false,
@@ -175,17 +186,6 @@
         "control_flow_conditionals",
         "control_flow_loops",
         "string_transformation",
-        "strings"
-      ]
-    },
-    {
-      "slug": "bob",
-      "uuid": "9ac0b041-a7aa-4b0c-952a-d38d35e2cd65",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "control_flow_conditionals",
         "strings"
       ]
     },
