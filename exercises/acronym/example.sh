@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$#" -ne 1 ]; then
-  echo Usage: $0 "'<phrase1>'" >&2
+  echo "Usage: $0 '<phrase1>'" >&2
   exit 1
 fi
 
