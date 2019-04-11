@@ -30,3 +30,11 @@
   [ "$status" -eq 1 ]
   [ "$output" = "Usage: ./error_handling <greetee>" ]
 }
+
+@test "empty argument" {
+  skip
+  run bash error_handling.sh ""
+
+  [ "$status" -eq 0 ]
+  [ "$output" = "Hello, " ]
+}
