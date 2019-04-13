@@ -21,6 +21,7 @@
   run bash error_handling.sh Alice Bob
 
   [ "$status" -ne 0 ]
+  [ "$output" = "Usage: ./error_handling <greetee>" ]
 }
 
 @test "print usage banner with no value given" {
