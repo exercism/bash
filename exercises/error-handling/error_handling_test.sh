@@ -20,7 +20,7 @@
   skip
   run bash error_handling.sh Alice Bob
 
-  [ "$status" -ne 0 ]
+  [ "$status" -eq 1 ]
   [ "$output" = "Usage: ./error_handling <greetee>" ]
 }
 
