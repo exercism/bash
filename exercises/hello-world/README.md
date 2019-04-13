@@ -61,7 +61,7 @@ Run the tests with:
 bats hello_world_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.  There is nothing to skip in the "Hello World" exercise, but keep this in mind for the next and following exercises.
 
 ## Source
 
