@@ -20,7 +20,8 @@
   skip
   run bash error_handling.sh Alice Bob
 
-  [ "$status" -ne 0 ]
+  [ "$status" -eq 1 ]
+  [ "$output" = "Usage: ./error_handling <greetee>" ]
 }
 
 @test "print usage banner with no value given" {
@@ -29,4 +30,12 @@
 
   [ "$status" -eq 1 ]
   [ "$output" = "Usage: ./error_handling <greetee>" ]
+}
+
+@test "empty argument" {
+  skip
+  run bash error_handling.sh ""
+
+  [ "$status" -eq 0 ]
+  [ "$output" = "Hello, " ]
 }
