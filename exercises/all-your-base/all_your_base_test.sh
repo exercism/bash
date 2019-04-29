@@ -91,19 +91,19 @@
 }
 
 @test 'negative_digit' {
-    run bash all_your_base.sh 2 "1, -1, 1, 0, 1, 0" 10
+    run bash all_your_base.sh 2 "1 -1 1 0 1 0" 10
     [ "$status" -gt 0 ]
     [ -n "$output" ]
 }
 
 @test 'invalid_positive_digit' {
-    run bash all_your_base.sh 2 "1, 2, 1, 0, 1, 0" 10
+    run bash all_your_base.sh 2 "1 2 1 0 1 0" 10
     [ "$status" -gt 0 ]
     [ -n "$output" ]
 }
 
 @test 'output_base_is_one' {
-    run bash all_your_base.sh 2 "1, 0, 1, 0, 1, 0" 1
+    run bash all_your_base.sh 2 "1 0 1 0 1 0" 1
     [ "$status" -gt 0 ]
     [ -n "$output" ]
 }
