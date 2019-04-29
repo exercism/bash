@@ -345,6 +345,18 @@
         "integers",
         "string_transformation"
       ]
+    },
+    {
+      "slug": "all-your-base",
+      "uuid": "0f56ab11-be2c-4acd-95c2-71f5a2b1748f",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 4,
+      "topics": [
+        "integers",
+        "math",
+        "transforming"
+      ]
     }
   ]
 }
