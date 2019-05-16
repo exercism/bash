@@ -362,23 +362,11 @@
       "slug": "allergies",
       "uuid": "b572a9d9-859d-43bd-a8e1-8d6f7566b685",
       "core": false,
-      "unlocked_by": "isogram",
+      "unlocked_by": "luhn",
       "difficulty": 2,
       "topics": [
         "bitwise_operations",
         "arrays"
-      ]
-    },
-    {
-      "slug": "beer-song",
-      "uuid": "42b3b8fb-6571-441b-8695-3c7a8c2a0093",
-      "core": false,
-      "unlocked_by": "scrabble-score",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_conditionals",
-        "strings",
-        "text_formatting"
       ]
     }
   ]
