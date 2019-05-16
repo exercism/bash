@@ -27,11 +27,8 @@ for exercise in *; do
   # Create implementation file from example
   cp example.sh ${exercise_name}.sh
 
-  # Unskip all the tests
-  sed -i 's/skip/# skip/g' $test_file
-
   # Run the tests
-  bats $test_file
+  BATS_RUN_SKIPPED=true bats $test_file
 
   cd ../
 done

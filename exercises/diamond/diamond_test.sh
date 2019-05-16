@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 @test "Degenerate case with a single 'A' row" {
-  #skip
+  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   expected="$(cat << EOT
 A
 EOT
@@ -12,7 +12,7 @@ EOT
 }
 
 @test "Degenerate case with no row containing 3 distinct groups of spaces" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   expected="$(cat << EOT
  A 
 B B
@@ -25,7 +25,7 @@ EOT
 }
 
 @test "Smallest non-degenerate case with odd diamond side length" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   expected="$(cat << EOT
   A  
  B B 
@@ -40,7 +40,7 @@ EOT
 }
 
 @test "Smallest non-degenerate case with even diamond side length" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   expected="$(cat << EOT
    A   
   B B  
@@ -57,7 +57,7 @@ EOT
 }
 
 @test "Largest possible diamond" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   expected="$(cat << EOT
                          A                         
                         B B                        
