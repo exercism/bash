@@ -4,8 +4,8 @@
 main() {
     case $# in
         1)  verse "$1" ;;
-        2)  if (( $1 < $2 )); then
-                echo "error: start cannot be less than end" >&2
+        2)  if (( $1 <= $2 )); then
+                echo "Start must be greater than End" >&2
                 exit 1
             fi
             for (( i="$1"; i>="$2"; i-- )); do
@@ -13,7 +13,8 @@ main() {
                 echo ""
             done
             ;;
-        *)  echo "usage: ${0##*/} verse_num" >&2
+        *)  echo "1 or 2 arguments expected" >&2
+            echo "usage: ${0##*/} verse_num" >&2
             echo "   or: ${0##*/} start end" >&2
             exit 2
             ;;
