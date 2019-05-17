@@ -391,7 +391,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
     skip
     run bash beer_song.sh 1 2 3
     [[ $status -ne 0 ]]
-    [[ -n $output == *"1 or 2 arguments expected"* ]]
+    [[ $output == *"1 or 2 arguments expected"* ]]
 }
 
 @test 'wrong_order_arguments' {
