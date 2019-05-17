@@ -357,6 +357,17 @@
         "math",
         "transforming"
       ]
+    },
+    {
+      "slug": "allergies",
+      "uuid": "b572a9d9-859d-43bd-a8e1-8d6f7566b685",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 2,
+      "topics": [
+        "bitwise_operations",
+        "arrays"
+      ]
     }
   ]
 }
