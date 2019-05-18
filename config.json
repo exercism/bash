@@ -379,6 +379,17 @@
         "text_formatting",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "food-chain",
+      "uuid": "4b3e89e5-a1ce-4c67-b23a-b74068885318",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 3,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
     }
   ]
 }
