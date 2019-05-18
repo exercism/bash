@@ -396,7 +396,7 @@
       "uuid": "55c0913c-8d85-4330-868c-bca174d05d87",
       "core": false,
       "unlocked_by": "atbash-cipher",
-      "difficulty": 7,
+      "difficulty": 8,
       "topics": [
         "arrays",
         "control_flow_conditionals",

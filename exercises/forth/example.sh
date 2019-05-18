@@ -24,10 +24,10 @@ die() { echo "$*" >&2; exit 1; }
 #
 main() {
     # Read from stdin
-    while read -r line; do
+    while IFS= read -r line; do
 
-        # Lower-case the line, and allow word-splitting
-        # Store the words in the positional parameters
+        # Lower-case the line, and allow word-splitting.
+        # Use the positional parameters as a work array.
         set -- ${line,,}
 
         # Keep looping until all the positional params
@@ -79,11 +79,11 @@ record_macro() {
     # pop the semicolon
     set -- ${@:1:$#-1}
 
-    [[ $# -eq 0 ]] && die "empty macro definition"
+    (( $# == 0 )) && die "empty macro definition"
 
     # Check any words in definition for macros
     local definition=()
-    for word do
+    for word; do
         if [[ -n ${macros[$word]} ]]; then
             definition+=( ${macros[$word]} )
         else
@@ -99,6 +99,7 @@ need() {
     local -i len=$(stack::len)
     (( n > 0 && len == 0 )) && die "empty stack"
     (( n > 1 && len == 1 )) && die "only one value on the stack"
+    (( n > len ))           && die "not enough values on the stack"
 }
 
 binary_op() {
@@ -110,7 +111,7 @@ binary_op() {
     local a=$(stack::tail)
     stack::pop
     
-    [[ $op == "/" && $b -eq 0 ]] && die "divide by zero"
+    [[ $op == "/" ]] && (( b == 0 )) && die "divide by zero"
     stack::push $(( a $op b ))
 }
 
