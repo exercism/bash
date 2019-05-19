@@ -390,6 +390,20 @@
         "text_formatting",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "forth",
+      "uuid": "9b62eb81-cf89-409e-a2e1-13bb0f411fd7",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 8,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals",
+        "error_handling",
+        "input_validation",
+        "string_comparison"
+      ]
     }
   ]
 }
