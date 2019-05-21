@@ -404,6 +404,28 @@
         "input_validation",
         "string_comparison"
       ]
+    },
+    {
+      "slug": "resistor-color",
+      "uuid": "f0357636-1d1b-4390-8a2e-d82d3b2540ed",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 2,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
+    },
+    {
+      "slug": "resistor-color-duo",
+      "uuid": "56e4993f-6e15-44e4-bf35-a031cd94aa49",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 2,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
     }
   ]
 }
