@@ -437,6 +437,16 @@
         "recursion",
         "text-formatting"
       ]
+    },
+    {
+      "slug": "space-age",
+      "uuid": "10cdf2d7-9bc8-476b-8762-42bb9504ebc5",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 3,
+      "topics": [
+        "math"
+      ]
     }
   ]
 }
