@@ -491,6 +491,18 @@
         "text_formatting",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "change",
+      "uuid": "febc47a2-4ee5-4cd7-be76-30aa105524c3",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 9,
+      "topics": [
+        "arrays",
+        "algorithms",
+        "logic"
+      ]
     }
   ]
 }
