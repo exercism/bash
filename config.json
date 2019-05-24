@@ -415,6 +415,17 @@
         "arrays",
         "control_flow_conditionals"
       ]
+    },
+    {
+      "slug": "binary-search",
+      "uuid": "47ff0fd8-178a-47fd-ab53-382ae1bb4f03",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "math"
+      ]
     }
   ]
 }
