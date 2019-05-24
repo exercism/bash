@@ -591,6 +591,17 @@
         "strings",
         "loops"
       ]
+    },
+    {
+      "slug": "sieve",
+      "uuid": "cb5dfc8a-1e6d-4489-a140-05a000d9f4b9",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
     }
   ]
 }
