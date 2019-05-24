@@ -602,6 +602,17 @@
         "arrays",
         "control_flow_conditionals"
       ]
+    },
+    {
+      "slug": "rotational-cipher",
+      "uuid": "18126ff4-8beb-430a-ab30-ae796f25b499",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 3,
+      "topics": [
+        "string_transformation",
+        "associative_arrays"
+      ]
     }
   ]
 }
