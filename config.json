@@ -426,6 +426,17 @@
         "arrays",
         "math"
       ]
+    },
+    {
+      "slug": "say",
+      "uuid": "1d9a9e4c-7684-4b9e-ac09-18698a6c0545",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 5,
+      "topics": [
+        "recursion",
+        "text-formatting"
+      ]
     }
   ]
 }
