@@ -503,6 +503,18 @@
         "algorithms",
         "logic"
       ]
+    },
+    {
+      "slug": "grep",
+      "uuid": "ce9d39f5-e735-401a-a902-0b9a73fb12c1",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 5,
+      "topics": [
+        "conditionals",
+        "parsing",
+        "regular_expressions"
+      ]
     }
   ]
 }
