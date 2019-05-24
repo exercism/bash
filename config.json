@@ -570,6 +570,16 @@
       "topics": [
         "string_transformation"
       ]
+    },
+    {
+      "slug": "secret-handshake",
+      "uuid": "b1d4064f-c49b-40c1-835a-c5ef70fcb7c1",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 2,
+      "topics": [
+        "bitwise_operations"
+      ]
     }
   ]
 }
