@@ -458,6 +458,17 @@
         "control_flow_loops",
         "strings"
       ]
+    },
+    {
+      "slug": "house",
+      "uuid": "a3440914-aeb5-4490-b63a-a9b078c65552",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 2,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
     }
   ]
 }
