@@ -548,6 +548,18 @@
         "regular_expressions",
         "conditionals"
       ]
+    },
+    {
+      "slug": "prime-factors",
+      "uuid": "37bdc27c-0fc4-4a91-9187-d32563092e1c",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "control_flow_conditionals",
+        "control_flow_loops"
+      ]
     }
   ]
 }
