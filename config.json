@@ -570,6 +570,17 @@
       "topics": [
         "string_transformation"
       ]
+    },
+    {
+      "slug": "scale-generator",
+      "uuid": "32461656-32a5-49d6-9883-83e32e678f6c",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "control_flow_loops"
+      ]
     }
   ]
 }
