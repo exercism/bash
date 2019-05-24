@@ -580,6 +580,17 @@
       "topics": [
         "bitwise_operations"
       ]
+    },
+    {
+      "slug": "series",
+      "uuid": "28a1659e-9be1-4c25-9265-1966f5aeca1d",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 2,
+      "topics": [
+        "strings",
+        "loops"
+      ]
     }
   ]
 }
