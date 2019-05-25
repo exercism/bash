@@ -469,6 +469,17 @@
         "arrays",
         "control_flow_conditionals"
       ]
+    },
+    {
+      "slug": "proverb",
+      "uuid": "25d17e02-f38a-4e94-bebc-929595d7699c",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
     }
   ]
 }
