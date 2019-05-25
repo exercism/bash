@@ -624,6 +624,17 @@
         "math",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "yacht",
+      "uuid": "190295db-c00a-40dc-ba9e-deb971336b09",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 6,
+      "topics": [
+        "math",
+        "conditionals"
+      ]
     }
   ]
 }
