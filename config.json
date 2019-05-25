@@ -447,6 +447,17 @@
       "topics": [
         "math"
       ]
+    },
+    {
+      "slug": "matching-brackets",
+      "uuid": "af8e4953-6eb1-4b7b-a662-ae3f641074eb",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "control_flow_loops",
+        "strings"
+      ]
     }
   ]
 }
