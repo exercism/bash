@@ -480,6 +480,17 @@
         "text_formatting",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "twelve-days",
+      "uuid": "836af7a9-fbc0-4e39-add3-fb7a32b9fc42",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 3,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
     }
   ]
 }
