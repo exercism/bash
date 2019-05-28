@@ -515,6 +515,17 @@
         "parsing",
         "regular_expressions"
       ]
+    },
+    {
+      "slug": "diffie-hellman",
+      "uuid": "14b7ad3a-f3b7-4104-ba4d-3acca25cbb3f",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 5,
+      "topics": [
+        "math",
+        "randomness"
+      ]
     }
   ]
 }
