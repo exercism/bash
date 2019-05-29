@@ -646,6 +646,17 @@
         "math",
         "strings"
       ]
+    },
+    {
+      "slug": "perfect-numbers",
+      "uuid": "fe54a6df-e462-4ae3-9e4d-921c41a710bd",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "conditionals"
+      ]
     }
   ]
 }
