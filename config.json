@@ -657,6 +657,17 @@
         "math",
         "conditionals"
       ]
+    },
+    {
+      "slug": "protein-translation",
+      "uuid": "d3ff0185-bb58-4627-8e3d-3dcb970c0ea2",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "associative_arrays",
+        "control_flow_loops"
+      ]
     }
   ]
 }
