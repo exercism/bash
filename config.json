@@ -679,6 +679,18 @@
         "math",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "pascals-triangle",
+      "uuid": "58b54cab-d641-470c-ad92-e9d361def2ff",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 4,
+      "topics": [
+        "math",
+        "text_formatting",
+        "arrays"
+      ]
     }
   ]
 }
