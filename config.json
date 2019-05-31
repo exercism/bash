@@ -526,6 +526,17 @@
         "math",
         "randomness"
       ]
+    },
+    {
+      "slug": "two-bucket",
+      "uuid": "769ce37b-21c5-4280-8b15-80ba4dac8ba5",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 6,
+      "topics": [
+        "associative_arrays",
+        "control_flow_conditionals"
+      ]
     }
   ]
 }
