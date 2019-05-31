@@ -396,7 +396,7 @@
       "uuid": "9b62eb81-cf89-409e-a2e1-13bb0f411fd7",
       "core": false,
       "unlocked_by": "atbash-cipher",
-      "difficulty": 8,
+      "difficulty": 7,
       "topics": [
         "arrays",
         "control_flow_conditionals",
@@ -497,7 +497,7 @@
       "uuid": "febc47a2-4ee5-4cd7-be76-30aa105524c3",
       "core": false,
       "unlocked_by": "grains",
-      "difficulty": 9,
+      "difficulty": 8,
       "topics": [
         "arrays",
         "algorithms",
@@ -532,7 +532,7 @@
       "uuid": "769ce37b-21c5-4280-8b15-80ba4dac8ba5",
       "core": false,
       "unlocked_by": "hamming",
-      "difficulty": 6,
+      "difficulty": 9,
       "topics": [
         "associative_arrays",
         "control_flow_conditionals"
