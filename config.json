@@ -537,6 +537,17 @@
         "associative_arrays",
         "control_flow_conditionals"
       ]
+    },
+    {
+      "slug": "pig-latin",
+      "uuid": "c9b893ec-5db4-4840-9ca7-e051f01c6760",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 4,
+      "topics": [
+        "regular_expressions",
+        "conditionals"
+      ]
     }
   ]
 }
