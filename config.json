@@ -751,6 +751,18 @@
         "strings",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "simple-cipher",
+      "uuid": "12275e3f-9414-45c1-aab8-8fcb94b4f5b3",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 5,
+      "topics": [
+        "strings",
+        "parsing",
+        "math"
+      ]
     }
   ]
 }
