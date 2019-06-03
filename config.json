@@ -763,6 +763,19 @@
         "parsing",
         "math"
       ]
+    },
+    {
+      "slug": "markdown",
+      "uuid": "df71faec-ec84-4825-84bd-adcedc64d784",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 7,
+      "topics": [
+        "strings",
+        "text_formatting",
+        "control_flow_loops",
+        "control_flow_conditionals"
+      ]
     }
   ]
 }
