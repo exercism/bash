@@ -739,6 +739,18 @@
         "conditionals",
         "loops"
       ]
+    },
+    {
+      "slug": "wordy",
+      "uuid": "5dc02318-124f-401d-98c1-8cf055e8bbb4",
+      "core": false,
+      "unlocked_by": "acronym",
+      "difficulty": 6,
+      "topics": [
+        "parsing",
+        "strings",
+        "control_flow_loops"
+      ]
     }
   ]
 }
