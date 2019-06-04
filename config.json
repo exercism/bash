@@ -560,6 +560,16 @@
         "control_flow_conditionals",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "run-length-encoding",
+      "uuid": "8dd082f5-7e84-4baa-9d7d-147b73b5a9c1",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 5,
+      "topics": [
+        "string_transformation"
+      ]
     }
   ]
 }
