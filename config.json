@@ -833,6 +833,18 @@
         "control_flow_loops",
         "input_validation"
       ]
+    },
+    {
+      "slug": "tournament",
+      "uuid": "3262edc0-ed0d-4956-a812-479680df84d7",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 5,
+      "topics": [
+        "arrays",
+        "sorting",
+        "text_formatting"
+      ]
     }
   ]
 }
