@@ -775,6 +775,18 @@
         "base_conversion",
         "bitwise_operations"
       ]
+    },
+    {
+      "slug": "pythagorean-triplet",
+      "uuid": "b5d3afe4-cc45-4a59-843e-5469f6f5b5ae",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 6,
+      "topics": [
+        "math",
+        "control_flow_conditionals",
+        "control_flow_loops"
+      ]
     }
   ]
 }
