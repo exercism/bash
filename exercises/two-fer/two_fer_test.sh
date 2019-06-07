@@ -21,3 +21,10 @@
   [ "$output" == "One for Bob, one for me." ]
 }
 
+@test "handle arg1 properly" {
+  skip
+  run bash two_fer.sh "John Smith" "Mary Ann"
+  [ "$status" -eq 0 ]
+  [ "$output" == "One for John Smith, one for me." ]
+}
+
