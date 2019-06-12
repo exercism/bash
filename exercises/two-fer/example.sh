@@ -3,7 +3,7 @@
 if [ "$#" -eq 0 ]; then
   person="you"
 else
-  person="$@"
+  person="$1"
 fi
 
 echo "One for $person, one for me."
