@@ -15,9 +15,10 @@ primes=()
 p=2
 while ((p <= limit)); do
     if ${is_prime[p]}; then
+        # add this prime to the list
         primes+=( $p )
-        ((p==2)) && step=$p || step=$((p * 2))
-        for (( i = p * p; i <= limit; i += step )); do
+        # and mark all multiples as not prime
+        for (( i = 2 * p; i <= limit; i += p )); do
             is_prime[i]=false
         done
     fi
