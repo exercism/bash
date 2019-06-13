@@ -613,6 +613,17 @@
         "string_transformation",
         "associative_arrays"
       ]
+    },
+    {
+      "slug": "largest-series-product",
+      "uuid": "cc66e6cd-e766-4cec-8305-a31a5c7a044b",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 2,
+      "topics": [
+        "math",
+        "control_flow_loops"
+      ]
     }
   ]
 }
