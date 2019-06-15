@@ -635,6 +635,17 @@
         "math",
         "conditionals"
       ]
+    },
+    {
+      "slug": "rational-numbers",
+      "uuid": "150e80c3-06c6-40cf-a8cb-03c20f48d269",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 5,
+      "topics": [
+        "math",
+        "strings"
+      ]
     }
   ]
 }
