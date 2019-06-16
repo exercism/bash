@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 @test "zero pieces" {
-    #skip
+    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=""
     run bash proverb.sh
     [[ $status -eq 0 ]]
@@ -9,7 +9,7 @@
 }
 
 @test "one piece" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 And all for the want of a nail.
 END
@@ -20,7 +20,7 @@ END
 }
 
 @test "two pieces" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 For want of a nail the shoe was lost.
 And all for the want of a nail.
@@ -32,7 +32,7 @@ END
 }
 
 @test "three pieces" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 For want of a nail the shoe was lost.
 For want of a shoe the horse was lost.
@@ -46,7 +46,7 @@ END
 
 
 @test "full proverb" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 For want of a nail the shoe was lost.
 For want of a shoe the horse was lost.
@@ -63,7 +63,7 @@ END
 }
 
 @test "four pieces modernized" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 For want of a pin the gun was lost.
 For want of a gun the soldier was lost.

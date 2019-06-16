@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 @test "verse 1" {
-    #skip
+    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="This is the house that Jack built."
     run bash house.sh 1 1
     [[ $status -eq 0 ]]
@@ -9,7 +9,7 @@
 }       
 
 @test "verse 2" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the malt
 that lay in the house that Jack built.
@@ -21,7 +21,7 @@ END
 }
 
 @test "verse 3" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the rat
 that ate the malt
@@ -34,7 +34,7 @@ END
 }
 
 @test "verse 4" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the cat
 that killed the rat
@@ -48,7 +48,7 @@ END
 }
 
 @test "verse 5" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the dog
 that worried the cat
@@ -63,7 +63,7 @@ END
 }
 
 @test "verse 6" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the cow with the crumpled horn
 that tossed the dog
@@ -79,7 +79,7 @@ END
 }
 
 @test "verse 7" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the maiden all forlorn
 that milked the cow with the crumpled horn
@@ -96,7 +96,7 @@ END
 }
 
 @test "verse 8" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the man all tattered and torn
 that kissed the maiden all forlorn
@@ -114,7 +114,7 @@ END
 }
 
 @test "verse 9" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the priest all shaven and shorn
 that married the man all tattered and torn
@@ -133,7 +133,7 @@ END
 }
 
 @test "verse 10" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the rooster that crowed in the morn
 that woke the priest all shaven and shorn
@@ -153,7 +153,7 @@ END
 }
 
 @test "verse 11" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the farmer sowing his corn
 that kept the rooster that crowed in the morn
@@ -174,7 +174,7 @@ END
 }
 
 @test "verse 12" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the horse and the hound and the horn
 that belonged to the farmer sowing his corn
@@ -196,7 +196,7 @@ END
 }
 
 @test "verses 4 to 8" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the cat
 that killed the rat
@@ -240,7 +240,7 @@ END
 }
 
 @test "all verses" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END
 This is the house that Jack built.
 
@@ -340,28 +340,28 @@ END
 
 
 @test "invalid verse 1" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash house.sh 0 12
     [[ $status -ne 0 ]]
     [[ $output == *invalid* ]]
 }
 
 @test "invalid verse 2" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash house.sh 1 -1
     [[ $status -ne 0 ]]
     [[ $output == *invalid* ]]
 }
 
 @test "invalid verse 3" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash house.sh 14 12
     [[ $status -ne 0 ]]
     [[ $output == *invalid* ]]
 }
 
 @test "invalid verse 4" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash house.sh 1 13
     [[ $status -ne 0 ]]
     [[ $output == *invalid* ]]

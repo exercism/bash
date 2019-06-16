@@ -64,14 +64,19 @@ The `grep` command should support multiple flags at once.
 For example, running `grep -l -v "hello" file1.txt file2.txt` should
 print the names of files that do not contain the string "hello".
 
-
 Run the tests with:
 
 ```bash
 bats grep_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats grep_test.sh
+```
 
 ## Source
 

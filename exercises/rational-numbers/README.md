@@ -28,14 +28,19 @@ Your implementation of rational numbers should always be reduced to lowest terms
 
 Assume that the programming language you are using does not have an implementation of rational numbers.
 
-
 Run the tests with:
 
 ```bash
 bats rational_numbers_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats rational_numbers_test.sh
+```
 
 ## Source
 

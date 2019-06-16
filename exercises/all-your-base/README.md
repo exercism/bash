@@ -31,16 +31,19 @@ I think you got the idea!
 
 *Yes. Those three numbers above are exactly the same. Congratulations!*
 
-
 Run the tests with:
 
 ```bash
 bats all_your_base_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
 
+To run all tests, including the ones with `skip` annotations, run:
 
+```bash
+BATS_RUN_SKIPPED=true bats all_your_base_test.sh
+```
 
 ## External utilities
 `Bash` is a language to write scripts that works closely with various system utilities,

@@ -11,15 +11,19 @@ When X is a name or "you".
 If the given name is "Alice", the result should be "One for Alice, one for me."
 If no name is given, the result should be "One for you, one for me."
 
-
-
 Run the tests with:
 
 ```bash
 bats two_fer_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats two_fer_test.sh
+```
 
 ## Source
 
