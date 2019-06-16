@@ -345,6 +345,329 @@
         "integers",
         "string_transformation"
       ]
+    },
+    {
+      "slug": "all-your-base",
+      "uuid": "0f56ab11-be2c-4acd-95c2-71f5a2b1748f",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 4,
+      "topics": [
+        "integers",
+        "math",
+        "transforming"
+      ]
+    },
+    {
+      "slug": "allergies",
+      "uuid": "b572a9d9-859d-43bd-a8e1-8d6f7566b685",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 2,
+      "topics": [
+        "bitwise_operations",
+        "arrays"
+      ]
+    },
+    {
+      "slug": "beer-song",
+      "uuid": "55c0913c-8d85-4330-868c-bca174d05d87",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 3,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
+    },
+    {
+      "slug": "food-chain",
+      "uuid": "4b3e89e5-a1ce-4c67-b23a-b74068885318",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 5,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
+    },
+    {
+      "slug": "forth",
+      "uuid": "9b62eb81-cf89-409e-a2e1-13bb0f411fd7",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 7,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals",
+        "error_handling",
+        "input_validation",
+        "string_comparison"
+      ]
+    },
+    {
+      "slug": "resistor-color-duo",
+      "uuid": "56e4993f-6e15-44e4-bf35-a031cd94aa49",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 2,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
+    },
+    {
+      "slug": "binary-search",
+      "uuid": "47ff0fd8-178a-47fd-ab53-382ae1bb4f03",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "math"
+      ]
+    },
+    {
+      "slug": "say",
+      "uuid": "1d9a9e4c-7684-4b9e-ac09-18698a6c0545",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 5,
+      "topics": [
+        "recursion",
+        "text-formatting"
+      ]
+    },
+    {
+      "slug": "space-age",
+      "uuid": "10cdf2d7-9bc8-476b-8762-42bb9504ebc5",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 3,
+      "topics": [
+        "math"
+      ]
+    },
+    {
+      "slug": "matching-brackets",
+      "uuid": "af8e4953-6eb1-4b7b-a662-ae3f641074eb",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "control_flow_loops",
+        "strings"
+      ]
+    },
+    {
+      "slug": "house",
+      "uuid": "a3440914-aeb5-4490-b63a-a9b078c65552",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 2,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
+    },
+    {
+      "slug": "proverb",
+      "uuid": "25d17e02-f38a-4e94-bebc-929595d7699c",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
+    },
+    {
+      "slug": "twelve-days",
+      "uuid": "836af7a9-fbc0-4e39-add3-fb7a32b9fc42",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 3,
+      "topics": [
+        "text_formatting",
+        "control_flow_loops"
+      ]
+    },
+    {
+      "slug": "change",
+      "uuid": "febc47a2-4ee5-4cd7-be76-30aa105524c3",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 8,
+      "topics": [
+        "arrays",
+        "algorithms",
+        "logic"
+      ]
+    },
+    {
+      "slug": "grep",
+      "uuid": "ce9d39f5-e735-401a-a902-0b9a73fb12c1",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 5,
+      "topics": [
+        "conditionals",
+        "parsing",
+        "regular_expressions"
+      ]
+    },
+    {
+      "slug": "diffie-hellman",
+      "uuid": "14b7ad3a-f3b7-4104-ba4d-3acca25cbb3f",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 5,
+      "topics": [
+        "math",
+        "randomness"
+      ]
+    },
+    {
+      "slug": "two-bucket",
+      "uuid": "769ce37b-21c5-4280-8b15-80ba4dac8ba5",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 9,
+      "topics": [
+        "associative_arrays",
+        "control_flow_conditionals"
+      ]
+    },
+    {
+      "slug": "pig-latin",
+      "uuid": "c9b893ec-5db4-4840-9ca7-e051f01c6760",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 4,
+      "topics": [
+        "regular_expressions",
+        "conditionals"
+      ]
+    },
+    {
+      "slug": "prime-factors",
+      "uuid": "37bdc27c-0fc4-4a91-9187-d32563092e1c",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "control_flow_conditionals",
+        "control_flow_loops"
+      ]
+    },
+    {
+      "slug": "run-length-encoding",
+      "uuid": "8dd082f5-7e84-4baa-9d7d-147b73b5a9c1",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 5,
+      "topics": [
+        "string_transformation"
+      ]
+    },
+    {
+      "slug": "secret-handshake",
+      "uuid": "b1d4064f-c49b-40c1-835a-c5ef70fcb7c1",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 2,
+      "topics": [
+        "bitwise_operations"
+      ]
+    },
+    {
+      "slug": "series",
+      "uuid": "28a1659e-9be1-4c25-9265-1966f5aeca1d",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 2,
+      "topics": [
+        "strings",
+        "loops"
+      ]
+    },
+    {
+      "slug": "sieve",
+      "uuid": "cb5dfc8a-1e6d-4489-a140-05a000d9f4b9",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals"
+      ]
+    },
+    {
+      "slug": "rotational-cipher",
+      "uuid": "18126ff4-8beb-430a-ab30-ae796f25b499",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 3,
+      "topics": [
+        "string_transformation",
+        "associative_arrays"
+      ]
+    },
+    {
+      "slug": "largest-series-product",
+      "uuid": "cc66e6cd-e766-4cec-8305-a31a5c7a044b",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 2,
+      "topics": [
+        "math",
+        "control_flow_loops"
+      ]
+    },
+    {
+      "slug": "yacht",
+      "uuid": "190295db-c00a-40dc-ba9e-deb971336b09",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 6,
+      "topics": [
+        "math",
+        "conditionals"
+      ]
+    },
+    {
+      "slug": "rational-numbers",
+      "uuid": "150e80c3-06c6-40cf-a8cb-03c20f48d269",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 5,
+      "topics": [
+        "math",
+        "strings"
+      ]
+    },
+    {
+      "slug": "perfect-numbers",
+      "uuid": "fe54a6df-e462-4ae3-9e4d-921c41a710bd",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "conditionals"
+      ]
+    },
+    {
+      "slug": "protein-translation",
+      "uuid": "d3ff0185-bb58-4627-8e3d-3dcb970c0ea2",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "associative_arrays",
+        "control_flow_loops"
+      ]
     }
   ]
 }
