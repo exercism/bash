@@ -668,6 +668,17 @@
         "associative_arrays",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "sum-of-multiples",
+      "uuid": "b65fbe4c-58cc-4564-814d-a83134f927fb",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "control_flow_loops"
+      ]
     }
   ]
 }
