@@ -320,14 +320,19 @@ are some additional things you could try:
 Then please share your thoughts in a comment on the submission. Did this
 experiment make the code better? Worse? Did you learn anything from it?
 
-
 Run the tests with:
 
 ```bash
 bats beer_song_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats beer_song_test.sh
+```
 
 ## Source
 

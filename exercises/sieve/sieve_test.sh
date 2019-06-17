@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 @test "no primes under two" {
-    #skip
+    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=()
     run bash sieve.sh 1
     [[ $status -eq 0 ]]
@@ -9,7 +9,7 @@
 }
 
 @test "find first prime" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=(2)
     run bash sieve.sh 2
     [[ $status -eq 0 ]]
@@ -17,7 +17,7 @@
 }
 
 @test "find primes up to 10" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=(2 3 5 7)
     run bash sieve.sh 10
     [[ $status -eq 0 ]]
@@ -25,7 +25,7 @@
 }
 
 @test "limit is prime" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=(2 3 5 7 11 13)
     run bash sieve.sh 13
     [[ $status -eq 0 ]]
@@ -33,7 +33,7 @@
 }
 
 @test "find primes up to 1000" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=(
           2   3   5   7  11  13  17  19  23  29  31  37  41  43
          47  53  59  61  67  71  73  79  83  89  97 101 103 107

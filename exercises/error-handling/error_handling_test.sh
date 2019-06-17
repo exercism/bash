@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 @test "correct arguments" {
-  #skip
+  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash error_handling.sh Alice
 
   [ "$status" -eq 0 ]
@@ -9,7 +9,7 @@
 }
 
 @test "one long argument" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash error_handling.sh "Alice and Bob"
 
   [ "$status" -eq 0 ]
@@ -17,7 +17,7 @@
 }
 
 @test "incorrect arguments" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash error_handling.sh Alice Bob
 
   [ "$status" -eq 1 ]
@@ -25,7 +25,7 @@
 }
 
 @test "print usage banner with no value given" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash error_handling.sh
 
   [ "$status" -eq 1 ]
@@ -33,7 +33,7 @@
 }
 
 @test "empty argument" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash error_handling.sh ""
 
   [ "$status" -eq 0 ]

@@ -16,14 +16,19 @@ that the sum of the coins' value would equal the correct amount of change.
 - Can you ask for negative change?
 - Can you ask for a change value smaller than the smallest coin value?
 
-
 Run the tests with:
 
 ```bash
 bats change_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats change_test.sh
+```
 
 ## Source
 

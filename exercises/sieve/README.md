@@ -29,14 +29,19 @@ correct list of primes. A good first test is to check that you do not use
 division or remainder operations (div, /, mod or % depending on the
 language).
 
-
 Run the tests with:
 
 ```bash
 bats sieve_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats sieve_test.sh
+```
 
 ## Source
 

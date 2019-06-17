@@ -29,14 +29,19 @@ allergens that score 256, 512, 1024, etc.).  Your program should
 ignore those components of the score.  For example, if the allergy
 score is 257, your program should only report the eggs (1) allergy.
 
-
 Run the tests with:
 
 ```bash
 bats allergies_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats allergies_test.sh
+```
 
 ## Source
 

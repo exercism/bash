@@ -29,14 +29,19 @@ You can check this yourself:
 - = 60
 - Success!
 
-
 Run the tests with:
 
 ```bash
 bats prime_factors_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats prime_factors_test.sh
+```
 
 ## Source
 

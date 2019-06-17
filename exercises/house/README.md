@@ -105,14 +105,19 @@ that ate the malt
 that lay in the house that Jack built.
 ```
 
-
 Run the tests with:
 
 ```bash
 bats house_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats house_test.sh
+```
 
 ## Source
 

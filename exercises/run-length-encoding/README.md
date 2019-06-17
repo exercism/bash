@@ -23,14 +23,19 @@ the letters A through Z (either lower or upper case) and whitespace. This way
 data to be encoded will never contain any numbers and numbers inside data to
 be decoded always represent the count for the following character.
 
-
 Run the tests with:
 
 ```bash
 bats run_length_encoding_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats run_length_encoding_test.sh
+```
 
 ## Source
 

@@ -41,14 +41,19 @@ UAA, UAG, UGA         | STOP
 
 Learn more about [protein translation on Wikipedia](http://en.wikipedia.org/wiki/Translation_(biology))
 
-
 Run the tests with:
 
 ```bash
 bats protein_translation_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats protein_translation_test.sh
+```
 
 ## Source
 

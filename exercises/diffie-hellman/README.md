@@ -37,14 +37,19 @@ Bob calculates
 The calculations produce the same result!  Alice and Bob now share
 secret s.
 
-
 Run the tests with:
 
 ```bash
 bats diffie_hellman_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats diffie_hellman_test.sh
+```
 
 ## Source
 

@@ -17,14 +17,19 @@ The Greek mathematician [Nicomachus](https://en.wikipedia.org/wiki/Nicomachus) d
 
 Implement a way to determine whether a given number is **perfect**. Depending on your language track, you may also need to implement a way to determine whether a given number is **abundant** or **deficient**.
 
-
 Run the tests with:
 
 ```bash
 bats perfect_numbers_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats perfect_numbers_test.sh
+```
 
 ## Source
 

@@ -2,7 +2,7 @@
 
 
 @test "single coin change" {
-    #skip
+    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="25"
     coins=(1 5 10 25 100)
     run bash change.sh 25 "${coins[@]}"
@@ -11,7 +11,7 @@
 }
 
 @test "multiple coin change" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="5 10"
     coins=(1 5 10 25 100)
     run bash change.sh 15 "${coins[@]}"
@@ -20,7 +20,7 @@
 }
 
 @test "change with Lilliputian Coins" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="4 4 15"
     coins=(1 4 15 20 50)
     run bash change.sh 23 "${coins[@]}"
@@ -29,7 +29,7 @@
 }
 
 @test "change with Lower Elbonia Coins" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="21 21 21"
     coins=(1 5 10 21 25)
     run bash change.sh 63 "${coins[@]}"
@@ -38,7 +38,7 @@
 }
 
 @test "large target values" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="2 2 5 20 20 50 100 100 100 100 100 100 100 100 100"
     coins=(1 2 5 10 20 50 100)
     run bash change.sh 999 "${coins[@]}"
@@ -47,7 +47,7 @@
 }
 
 @test "possible change without unit coins available" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="2 2 2 5 10"
     coins=(2 5 10 20 50)
     run bash change.sh 21 "${coins[@]}"
@@ -56,7 +56,7 @@
 }
 
 @test "another possible change without unit coins available" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="4 4 4 5 5 5"
     coins=(4 5)
     run bash change.sh 27 "${coins[@]}"
@@ -65,7 +65,7 @@
 }
 
 @test "no coins make 0 change" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=""
     coins=(1 5 10 21 25)
     run bash change.sh 0 "${coins[@]}"
@@ -74,7 +74,7 @@
 }
 
 @test "error testing for change smaller than the smallest of coins" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="can't make target with given coins"
     coins=(5 10)
     run bash change.sh 3 "${coins[@]}"
@@ -83,7 +83,7 @@
 }
 
 @test "error if no combination can add up to target" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="can't make target with given coins"
     coins=(5 10)
     run bash change.sh 94 "${coins[@]}"
@@ -92,7 +92,7 @@
 }
 
 @test "cannot find negative change values" {
-    skip
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="target can't be negative"
     coins=(1 2 5)
     run bash change.sh -5 "${coins[@]}"

@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
 @test 'date only specificaion of time' {
-  # this is used to skip the test
-  # normally, we skip every test except for the first one
-  # (the first one is always commented out)
-  # this allows for a person to focus on solving a test at a time
-  # you can comment out or delete the `skip` to run the test when ready
-  #skip
+  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash gigasecond.sh '2011-04-25Z'
 
   [ "$status" -eq 0 ]
@@ -14,7 +9,7 @@
 }
 
 @test 'second test for date only specification of time' {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash gigasecond.sh '1977-06-13Z'
 
   [ "$status" -eq 0 ]
@@ -22,7 +17,7 @@
 }
 
 @test 'third test for date only specification of time' {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash gigasecond.sh '1959-07-19Z'
 
   [ "$status" -eq 0 ]
@@ -30,7 +25,7 @@
 }
 
 @test 'full time specified' {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash gigasecond.sh '2015-01-24 22:00:00Z'
 
   [ "$status" -eq 0 ]
@@ -38,7 +33,7 @@
 }
 
 @test 'full time with day roll-over' {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash gigasecond.sh '2015-01-24 23:59:59Z'
 
   [ "$status" -eq 0 ]

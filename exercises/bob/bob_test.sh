@@ -1,182 +1,182 @@
 #!/usr/bin/env bash
 
 @test "stating something" {
-  #skip
+  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Tom-ay-to, tom-aaaah-to.'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "shouting" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'WATCH OUT!'
   [ "$status" -eq 0 ]
   [ "$output" == "Whoa, chill out!" ]
 }
 
 @test "shouting gibberish" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'FCECDFCAAB'
   [ "$status" -eq 0 ]
   [ "$output" == "Whoa, chill out!" ]
 }
 
 @test "asking a question" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Does this cryogenic chamber make me look fat?'
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 
 @test "asking a numeric question" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'You are, what, like 15?'
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 
 @test "asking gibberish" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'fffbbcbeab?'
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 
 @test "talking forcefully" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh "Let's go make out behind the gym!"
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "using acronyms in regular speech" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh "It's OK if you don't want to go to the DMV."
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "forceful question" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'WHAT THE HELL WERE YOU THINKING?'
   [ "$status" -eq 0 ]
   [ "$output" == "Calm down, I know what I'm doing!" ]
 }
 
 @test "shouting numbers" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh '1, 2, 3 GO!'
   [ "$status" -eq 0 ]
   [ "$output" == "Whoa, chill out!" ]
 }
 
 @test "no letters" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh '1, 2, 3'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "question with no letters" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh '4?'
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 
 @test "shouting with special characters" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!'
   [ "$status" -eq 0 ]
   [ "$output" == "Whoa, chill out!" ]
 }
 
 @test "shouting with no exclamation mark" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'I HATE THE DMV'
   [ "$status" -eq 0 ]
   [ "$output" == "Whoa, chill out!" ]
 }
 
 @test "statement containing question mark" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Ending with ? means a question.'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "non-letters with question" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh ':) ?'
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 
 @test "prattling on" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Wait! Hang on. Are you going to be OK?'
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 
 @test "silence" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh ''
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
 
 @test "prolonged silence" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh '          '
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
 
 @test "alternate silence" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh $'\t\t\t\t\t\t\t\t\t\t'
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
 
 @test "multiple line question" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh $'\nDoes this cryogenic chamber make me look fat?\nNo'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "starting with whitespace" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh '         hmmmmmmm...'
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "ending with whitespace" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Okay if like my  spacebar  quite a bit?   '
   [ "$status" -eq 0 ]
   [ "$output" == "Sure." ]
 }
 # This test might act differently depending on your platform
 @test "other whitespace" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh $'\n\r \t'
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]
 }
 
 @test "non-question ending with whitespace" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'This is a statement ending with whitespace      '
   [ "$status" -eq 0 ]
   [ "$output" == "Whatever." ]
 }
 
 @test "no input is silence" {
-  skip
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh
   [ "$status" -eq 0 ]
   [ "$output" == "Fine. Be that way!" ]

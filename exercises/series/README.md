@@ -20,14 +20,19 @@ whatever you get.
 Note that these series are only required to occupy *adjacent positions*
 in the input; the digits need not be *numerically consecutive*.
 
-
 Run the tests with:
 
 ```bash
 bats series_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats series_test.sh
+```
 
 ## Source
 

@@ -17,14 +17,19 @@ be able to say that they're 31.69 Earth-years old.
 If you're wondering why Pluto didn't make the cut, go watch [this
 youtube video](http://www.youtube.com/watch?v=Z_2gbGXzFbs).
 
-
 Run the tests with:
 
 ```bash
 bats space_age_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats space_age_test.sh
+```
 
 ## Source
 

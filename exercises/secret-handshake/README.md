@@ -28,14 +28,19 @@ Given the input 19, the function would return the array
 Notice that the addition of 16 (10000 in binary)
 has caused the array to be reversed.
 
-
 Run the tests with:
 
 ```bash
 bats secret_handshake_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats secret_handshake_test.sh
+```
 
 ## Source
 

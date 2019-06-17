@@ -13,14 +13,19 @@ in the input; the digits need not be *numerically consecutive*.
 For the input `'73167176531330624919225119674426574742355349194934'`,
 the largest product for a series of 6 digits is 23520.
 
-
 Run the tests with:
 
 ```bash
 bats largest_series_product_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats largest_series_product_test.sh
+```
 
 ## Source
 

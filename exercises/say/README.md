@@ -62,14 +62,19 @@ Use _and_ (correctly) when spelling out the number in English:
 - 1002 becomes "one thousand and two".
 - 1323 becomes "one thousand three hundred and twenty-three".
 
-
 Run the tests with:
 
 ```bash
 bats say_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the `[[ $BATS_RUN_SKIPPED == true  ]] || skip` annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats say_test.sh
+```
 
 ## Source
 
