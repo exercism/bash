@@ -703,6 +703,18 @@
         "conditionals",
         "variables"
       ]
+    },
+    {
+      "slug": "kindergarten-garden",
+      "uuid": "3c7aa4cb-b4e9-489d-8f45-57a57ff7e5da",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 4,
+      "topics": [
+        "strings",
+        "arrays",
+        "parsing"
+      ]
     }
   ]
 }
