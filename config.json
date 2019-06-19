@@ -691,6 +691,18 @@
         "text_formatting",
         "arrays"
       ]
+    },
+    {
+      "slug": "bowling",
+      "uuid": "0fa5a277-d74d-4012-b1c2-9d4b677cb13d",
+      "core": false,
+      "unlocked_by": "error-handling",
+      "difficulty": 6,
+      "topics": [
+        "error_handling",
+        "conditionals",
+        "variables"
+      ]
     }
   ]
 }
