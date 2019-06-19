@@ -7,7 +7,7 @@ To verify you are running a bash shell, enter the command
 
     echo $BASH_VERSION
 
-This should should output some terse information about the version of
+This should output some terse information about the version of
 bash you are running. If it does not, run the command 
 
     /bin/bash
