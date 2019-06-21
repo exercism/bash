@@ -727,6 +727,18 @@
         "loops",
         "conditionals"
       ]
+    },
+    {
+      "slug": "nth-prime",
+      "uuid": "1717aa8c-c322-4a14-9798-721596b16bef",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 6,
+      "topics": [
+        "math",
+        "conditionals",
+        "loops"
+      ]
     }
   ]
 }
