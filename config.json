@@ -715,6 +715,18 @@
         "arrays",
         "parsing"
       ]
+    },
+    {
+      "slug": "palindrome-products",
+      "uuid": "8086d0a9-9396-4136-9c5f-24ded5c4002b",
+      "core": false,
+      "unlocked_by": "luhn",
+      "difficulty": 6,
+      "topics": [
+        "math",
+        "loops",
+        "conditionals"
+      ]
     }
   ]
 }
