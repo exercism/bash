@@ -26,10 +26,10 @@ main() {
 #
 # Note the leading single quote in the last argument 
 # https://www.gnu.org/software/bash/manual/bash.html#index-printf
-#     Arguments to non-string format specifiers are treated as
-#     C language constants, except [...] if the leading character
-#     is a single or double quote, the value is the ASCII value
-#     of the following character.
+#     Arguments to non-string format specifiers (ed: such as %d)
+#     are treated as C language constants, except [...] if
+#     the leading character is a single or double quote, the
+#     value is the ASCII value of the following character.
 
 ord() {
     printf "%d" "'$1"
