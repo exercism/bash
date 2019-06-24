@@ -6,6 +6,15 @@
 set -o errexit
 set -o nounset
 
+export BATS_RUN_SKIPPED=true    # run all the tests
+
+for tool in mktemp bats; do
+  if ! type -P "$tool" >/dev/null; then
+    echo "Can't find required tool: $tool" >&2
+    exit 1
+  fi
+done
+
 temp_folder=$(mktemp -d) || { echo "cannot make temp dir"; exit 1; }
 
 # Clean up after script on normal or forced exit
@@ -13,7 +22,9 @@ cleanup() { rm -r "$temp_folder"; }
 trap cleanup EXIT
 
 cd "$( dirname "${BASH_SOURCE[0]}" )/.."
-cp -r ./exercises/* "$temp_folder"
+
+# trailing slash: only copy directories
+cp -r ./exercises/*/ "$temp_folder"
 
 cd "$temp_folder"
 for exercise in *; do
@@ -27,7 +38,7 @@ for exercise in *; do
   ln -f example.sh "${exercise_name}.sh"
 
   # Run the tests
-  BATS_RUN_SKIPPED=true bats "${exercise_name}_test.sh"
+  bats "${exercise_name}_test.sh"
 
   cd ../
 done
