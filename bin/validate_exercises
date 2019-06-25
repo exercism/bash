@@ -6,29 +6,39 @@
 set -o errexit
 set -o nounset
 
-root_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/../ && pwd )"
-temp_folder_name="exercises_temp/"
-temp_folder="$root_path/$temp_folder_name"
+export BATS_RUN_SKIPPED=true    # run all the tests
+
+for tool in mktemp bats; do
+  if ! type -P "$tool" >/dev/null; then
+    echo "Can't find required tool: $tool" >&2
+    exit 1
+  fi
+done
+
+temp_folder=$(mktemp -d) || { echo "cannot make temp dir"; exit 1; }
 
 # Clean up after script on normal or forced exit
-trap "{ rm -rf $temp_folder; }" EXIT
+cleanup() { rm -r "$temp_folder"; }
+trap cleanup EXIT
 
-cp exercises $temp_folder -r
-cd $temp_folder
+cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 
+# trailing slash: only copy directories
+cp -r ./exercises/*/ "$temp_folder"
+
+cd "$temp_folder"
 for exercise in *; do
-  cd $exercise
+  cd "$exercise"
   echo "Processing $exercise"
 
   # Replace "-" with "_" to follow bash conventions
-  exercise_name=$(echo "$exercise" | sed -r 's/[-]+/_/g')
-  test_file=${exercise_name}_test.sh
+  exercise_name=${exercise//-/_}
 
   # Create implementation file from example
-  cp example.sh ${exercise_name}.sh
+  ln -f example.sh "${exercise_name}.sh"
 
   # Run the tests
-  BATS_RUN_SKIPPED=true bats $test_file
+  bats "${exercise_name}_test.sh"
 
   cd ../
 done
