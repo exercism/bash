@@ -318,8 +318,8 @@
       "unlocked_by": "pangram",
       "difficulty": 3,
       "topics": [
-        "strings",
-        "regexp"
+        "regexp",
+        "strings"
       ]
     },
     {
@@ -330,8 +330,8 @@
       "difficulty": 4,
       "topics": [
         "loops",
-        "strings",
-        "string_transformation"
+        "string_transformation",
+        "strings"
       ]
     },
     {
@@ -365,8 +365,8 @@
       "unlocked_by": "luhn",
       "difficulty": 2,
       "topics": [
-        "bitwise_operations",
-        "arrays"
+        "arrays",
+        "bitwise_operations"
       ]
     },
     {
@@ -376,8 +376,8 @@
       "unlocked_by": "scrabble-score",
       "difficulty": 3,
       "topics": [
-        "text_formatting",
-        "control_flow_loops"
+        "control_flow_loops",
+        "text_formatting"
       ]
     },
     {
@@ -387,8 +387,8 @@
       "unlocked_by": "scrabble-score",
       "difficulty": 5,
       "topics": [
-        "text_formatting",
-        "control_flow_loops"
+        "control_flow_loops",
+        "text_formatting"
       ]
     },
     {
@@ -435,7 +435,7 @@
       "difficulty": 5,
       "topics": [
         "recursion",
-        "text-formatting"
+        "text_formatting"
       ]
     },
     {
@@ -477,8 +477,8 @@
       "unlocked_by": "two-fer",
       "difficulty": 3,
       "topics": [
-        "text_formatting",
-        "control_flow_loops"
+        "control_flow_loops",
+        "text_formatting"
       ]
     },
     {
@@ -488,8 +488,8 @@
       "unlocked_by": "scrabble-score",
       "difficulty": 3,
       "topics": [
-        "text_formatting",
-        "control_flow_loops"
+        "control_flow_loops",
+        "text_formatting"
       ]
     },
     {
@@ -499,8 +499,8 @@
       "unlocked_by": "grains",
       "difficulty": 8,
       "topics": [
-        "arrays",
         "algorithms",
+        "arrays",
         "logic"
       ]
     },
@@ -545,8 +545,8 @@
       "unlocked_by": "scrabble-score",
       "difficulty": 4,
       "topics": [
-        "regular_expressions",
-        "conditionals"
+        "conditionals",
+        "regular_expressions"
       ]
     },
     {
@@ -556,9 +556,9 @@
       "unlocked_by": "armstrong-numbers",
       "difficulty": 3,
       "topics": [
-        "math",
         "control_flow_conditionals",
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -588,8 +588,8 @@
       "unlocked_by": "grains",
       "difficulty": 2,
       "topics": [
-        "strings",
-        "loops"
+        "loops",
+        "strings"
       ]
     },
     {
@@ -610,8 +610,8 @@
       "unlocked_by": "hamming",
       "difficulty": 3,
       "topics": [
-        "string_transformation",
-        "associative_arrays"
+        "associative_arrays",
+        "string_transformation"
       ]
     },
     {
@@ -621,8 +621,8 @@
       "unlocked_by": "grains",
       "difficulty": 2,
       "topics": [
-        "math",
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -632,8 +632,8 @@
       "unlocked_by": "hamming",
       "difficulty": 6,
       "topics": [
-        "math",
-        "conditionals"
+        "conditionals",
+        "math"
       ]
     },
     {
@@ -654,8 +654,8 @@
       "unlocked_by": "luhn",
       "difficulty": 3,
       "topics": [
-        "math",
-        "conditionals"
+        "conditionals",
+        "math"
       ]
     },
     {
@@ -676,8 +676,8 @@
       "unlocked_by": "luhn",
       "difficulty": 3,
       "topics": [
-        "math",
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -687,9 +687,9 @@
       "unlocked_by": "armstrong-numbers",
       "difficulty": 4,
       "topics": [
+        "arrays",
         "math",
-        "text_formatting",
-        "arrays"
+        "text_formatting"
       ]
     },
     {
@@ -699,8 +699,8 @@
       "unlocked_by": "error-handling",
       "difficulty": 6,
       "topics": [
-        "error_handling",
         "conditionals",
+        "error_handling",
         "variables"
       ]
     },
@@ -711,9 +711,9 @@
       "unlocked_by": "hamming",
       "difficulty": 4,
       "topics": [
-        "strings",
         "arrays",
-        "parsing"
+        "parsing",
+        "strings"
       ]
     },
     {
@@ -723,9 +723,9 @@
       "unlocked_by": "luhn",
       "difficulty": 6,
       "topics": [
-        "math",
+        "conditionals",
         "loops",
-        "conditionals"
+        "math"
       ]
     },
     {
@@ -735,9 +735,9 @@
       "unlocked_by": "luhn",
       "difficulty": 6,
       "topics": [
-        "math",
         "conditionals",
-        "loops"
+        "loops",
+        "math"
       ]
     },
     {
@@ -747,9 +747,9 @@
       "unlocked_by": "acronym",
       "difficulty": 6,
       "topics": [
+        "control_flow_loops",
         "parsing",
-        "strings",
-        "control_flow_loops"
+        "strings"
       ]
     },
     {
