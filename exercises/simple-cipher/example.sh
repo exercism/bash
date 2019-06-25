@@ -61,7 +61,7 @@ generate_key() {
 # the key must contain only lowercase letters
 validate_key() {
     local key=$1
-    if [[ $key == *[^a-z]* ]]; then
+    if [[ $key == *[^[:lower:]]* ]]; then
         echo "invalid key: contains non-lc-letter" >&2
         exit 1
     fi
