@@ -763,6 +763,18 @@
         "parsing",
         "math"
       ]
+    },
+    {
+      "slug": "variable-length-quantity",
+      "uuid": "446fa4f7-e8e1-4f3c-b340-3ba5dec3c759",
+      "core": false,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 7,
+      "topics": [
+        "integers",
+        "base_conversion",
+        "bitwise_operations"
+      ]
     }
   ]
 }
