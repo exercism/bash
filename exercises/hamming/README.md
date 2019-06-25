@@ -1,33 +1,20 @@
 # Hamming
 
-Calculate the Hamming difference between two DNA strands.
+Calculate the Hamming Distance between two DNA strands.
 
-A mutation is simply a mistake that occurs during the creation or
-copying of a nucleic acid, in particular DNA. Because nucleic acids are
-vital to cellular functions, mutations tend to cause a ripple effect
-throughout the cell. Although mutations are technically mistakes, a very
-rare mutation may equip the cell with a beneficial attribute. In fact,
-the macro effects of evolution are attributable by the accumulated
-result of beneficial microscopic mutations over many generations.
+Your body is made up of cells that contain DNA. Those cells regularly wear out and need replacing, which they achieve by dividing into daughter cells. In fact, the average human body experiences about 10 quadrillion cell divisions in a lifetime!
 
-The simplest and most common type of nucleic acid mutation is a point
-mutation, which replaces one base with another at a single nucleotide.
+When cells divide, their DNA replicates too. Sometimes during this process mistakes happen and single pieces of DNA get encoded with the incorrect information. If we compare two strands of DNA and count the differences between them we can see how many mistakes occurred. This is known as the "Hamming Distance".
 
-By counting the number of differences between two homologous DNA strands
-taken from different genomes with a common ancestor, we get a measure of
-the minimum number of point mutations that could have occurred on the
-evolutionary path between the two strands.
-
-This is called the 'Hamming distance'.
-
-It is found by comparing two DNA strands and counting how many of the
-nucleotides are different from their equivalent in the other string.
+We read DNA using the letters C,A,G and T. Two strands might look like this:
 
     GAGCCTACTAACGGGAT
     CATCGTAATGACGGCCT
     ^ ^ ^  ^ ^    ^^
 
-The Hamming distance between these two DNA strands is 7.
+They have 7 differences, and therefore the Hamming Distance is 7.
+
+The Hamming Distance is useful for lots of things in science, not just biology, so it's a nice phrase to be familiar with :)
 
 # Implementation notes
 
@@ -43,7 +30,15 @@ Run the tests with:
 bats hamming_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the
+`[[ $BATS_RUN_SKIPPED == true ]] || skip` 
+annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats hamming_test.sh
+```
 
 ## Source
 
@@ -51,13 +46,25 @@ The Calculating Point Mutations problem at Rosalind [http://rosalind.info/proble
 
 
 ## External utilities
-`Bash` is a language to write scripts that works closely with various system utilities,
-like [`sed`](https://www.gnu.org/software/sed/), [`awk`](https://www.gnu.org/software/gawk/), [`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html) and even other programming languages, like [`Python`](https://www.python.org/).
-This track does not restrict the usage of these utilities, and as long as your solution is portable
-between systems and does not require installing third party applications, feel free to use them to solve the exercise.
+`Bash` is a language to write "scripts" -- programs that can call
+external tools, such as
+[`sed`](https://www.gnu.org/software/sed/),
+[`awk`](https://www.gnu.org/software/gawk/),
+[`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html)
+and even programs written in other programming languages, 
+like [`Python`](https://www.python.org/).
+This track does not restrict the usage of these utilities, and as long
+as your solution is portable between systems and does not require
+installation of third party applications, feel free to use them to solve
+the exercise.
 
-For an extra challenge, if you would like to have a better understanding of the language,
-try to re-implement the solution in pure `Bash`, without using any external tools.
+For an extra challenge, if you would like to have a better understanding
+of the language, try to re-implement the solution in pure `Bash`,
+without using any external tools. Note that there are some types of
+problems that bash cannot solve, such as performing floating point
+arithmetic and manipulating dates: for those, you must call out to an
+external tool.
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+It's possible to submit an incomplete solution so you can see how others
+have completed the exercise.

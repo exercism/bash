@@ -2,30 +2,30 @@
 
 Create an implementation of the affine cipher,
 an ancient encryption system created in the Middle East.
-
+ 
 The affine cipher is a type of monoalphabetic substitution cipher.
 Each character is mapped to its numeric equivalent, encrypted with
 a mathematical function and then converted to the letter relating to
 its new numeric value. Although all monoalphabetic ciphers are weak,
 the affine cypher is much stronger than the atbash cipher,
 because it has many more keys.
-
+ 
 the encryption function is:
-
+ 
   `E(x) = (ax + b) mod m`
   -  where `x` is the letter's index from 0 - length of alphabet - 1
   -  `m` is the length of the alphabet. For the roman alphabet `m == 26`.
   -  and `a` and `b` make the key
-
+ 
 the decryption function is:
-
+ 
   `D(y) = a^-1(y - b) mod m`
   -  where `y` is the numeric value of an encrypted letter, ie. `y = E(x)`
   -  it is important to note that `a^-1` is the modular multiplicative inverse
      of `a mod m`
   -  the modular multiplicative inverse of `a` only exists if `a` and `m` are
      coprime.
-
+ 
 To find the MMI of `a`:
 
   `an mod m = 1`
@@ -38,7 +38,7 @@ Because automatic decryption fails if `a` is not coprime to `m` your
 program should return status 1 and `"Error: a and m must be coprime."`
 if they are not.  Otherwise it should encode or decode with the
 provided key.
-
+ 
 The Caesar (shift) cipher is a simple affine cipher where `a` is 1 and
 `b` as the magnitude results in a static displacement of the letters.
 This is much less secure than a full implementation of the affine cipher.
@@ -48,7 +48,7 @@ size being 5 letters, and punctuation is excluded. This is to make it
 harder to guess things based on word boundaries.
 
 ## Examples
-
+ 
  - Encoding `test` gives `ybty` with the key a=5 b=7
  - Decoding `ybty` gives `test` with the key a=5 b=7
  - Decoding `ybty` gives `lqul` with the wrong key a=11 b=7
@@ -76,7 +76,15 @@ Run the tests with:
 bats affine_cipher_test.sh
 ```
 
-After the first test(s) pass, continue by commenting out or removing the `skip` annotations prepending other tests.
+After the first test(s) pass, continue by commenting out or removing the
+`[[ $BATS_RUN_SKIPPED == true ]] || skip` 
+annotations prepending other tests.
+
+To run all tests, including the ones with `skip` annotations, run:
+
+```bash
+BATS_RUN_SKIPPED=true bats affine_cipher_test.sh
+```
 
 ## Source
 
@@ -84,13 +92,25 @@ Wikipedia [http://en.wikipedia.org/wiki/Affine_cipher](http://en.wikipedia.org/w
 
 
 ## External utilities
-`Bash` is a language to write scripts that works closely with various system utilities,
-like [`sed`](https://www.gnu.org/software/sed/), [`awk`](https://www.gnu.org/software/gawk/), [`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html) and even other programming languages, like [`Python`](https://www.python.org/).
-This track does not restrict the usage of these utilities, and as long as your solution is portable
-between systems and does not require installing third party applications, feel free to use them to solve the exercise.
+`Bash` is a language to write "scripts" -- programs that can call
+external tools, such as
+[`sed`](https://www.gnu.org/software/sed/),
+[`awk`](https://www.gnu.org/software/gawk/),
+[`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html)
+and even programs written in other programming languages, 
+like [`Python`](https://www.python.org/).
+This track does not restrict the usage of these utilities, and as long
+as your solution is portable between systems and does not require
+installation of third party applications, feel free to use them to solve
+the exercise.
 
-For an extra challenge, if you would like to have a better understanding of the language,
-try to re-implement the solution in pure `Bash`, without using any external tools.
+For an extra challenge, if you would like to have a better understanding
+of the language, try to re-implement the solution in pure `Bash`,
+without using any external tools. Note that there are some types of
+problems that bash cannot solve, such as performing floating point
+arithmetic and manipulating dates: for those, you must call out to an
+external tool.
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+It's possible to submit an incomplete solution so you can see how others
+have completed the exercise.
