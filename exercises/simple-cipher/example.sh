@@ -1,5 +1,7 @@
 #!/usr/bin/env bash 
 
+shopt -u nocasematch
+
 main() {
     local key OPTIND OPTARG
 
