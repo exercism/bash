@@ -1,7 +1,19 @@
 # Markdown
 
-Write a [Markdown](https://guides.github.com/features/mastering-markdown/)
-parser that returns the associated HTML for a given string.
+Refactor a Markdown parser.
+
+The markdown exercise is a refactoring exercise. There is code that parses a
+given string with [Markdown
+syntax](https://guides.github.com/features/mastering-markdown/) and returns the
+associated HTML for that string. Even though this code is confusingly written
+and hard to follow, somehow it works and all the tests are passing! Your
+challenge is to re-write this code to make it easier to read and maintain
+while still making sure that all the tests keep passing.
+
+It would be helpful if you made notes of what you did in your refactoring in
+comments so reviewers can see that, but it isn't strictly necessary. The most
+important thing is to make the code better!
+
 
 Run the tests with:
 
@@ -10,7 +22,7 @@ bats markdown_test.sh
 ```
 
 After the first test(s) pass, continue by commenting out or removing the
-`[[ $BATS_RUN_SKIPPED == true ]] || skip`
+`[[ $BATS_RUN_SKIPPED == true ]] || skip` 
 annotations prepending other tests.
 
 To run all tests, including the ones with `skip` annotations, run:
@@ -27,7 +39,7 @@ external tools, such as
 [`sed`](https://www.gnu.org/software/sed/),
 [`awk`](https://www.gnu.org/software/gawk/),
 [`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html)
-and even programs written in other programming languages,
+and even programs written in other programming languages, 
 like [`Python`](https://www.python.org/).
 This track does not restrict the usage of these utilities, and as long
 as your solution is portable between systems and does not require

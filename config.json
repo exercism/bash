@@ -795,10 +795,10 @@
       "unlocked_by": "raindrops",
       "difficulty": 7,
       "topics": [
-        "strings",
-        "text_formatting",
+        "control_flow_conditionals",
         "control_flow_loops",
-        "control_flow_conditionals"
+        "strings",
+        "text_formatting"
       ]
     }
   ]
