@@ -787,6 +787,19 @@
         "control_flow_loops",
         "math"
       ]
+    },
+    {
+      "slug": "markdown",
+      "uuid": "df71faec-ec84-4825-84bd-adcedc64d784",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 7,
+      "topics": [
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "strings",
+        "text_formatting"
+      ]
     }
   ]
 }
