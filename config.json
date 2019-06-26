@@ -759,9 +759,9 @@
       "unlocked_by": "atbash-cipher",
       "difficulty": 5,
       "topics": [
-        "strings",
+        "math",
         "parsing",
-        "math"
+        "strings"
       ]
     },
     {
@@ -771,9 +771,21 @@
       "unlocked_by": "armstrong-numbers",
       "difficulty": 7,
       "topics": [
-        "integers",
         "base_conversion",
-        "bitwise_operations"
+        "bitwise_operations",
+        "integers"
+      ]
+    },
+    {
+      "slug": "pythagorean-triplet",
+      "uuid": "b5d3afe4-cc45-4a59-843e-5469f6f5b5ae",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 6,
+      "topics": [
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "math"
       ]
     }
   ]
