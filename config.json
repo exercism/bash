@@ -800,6 +800,17 @@
         "strings",
         "text_formatting"
       ]
+    },
+    {
+      "slug": "ocr-numbers",
+      "uuid": "a0ecd91d-43f1-4edb-b1ae-137e40d8982e",
+      "core": false,
+      "unlocked_by": "error-handling",
+      "difficulty": 6,
+      "topics": [
+        "input_validation",
+        "string_transformation"
+      ]
     }
   ]
 }
