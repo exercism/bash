@@ -811,6 +811,16 @@
         "input_validation",
         "string_transformation"
       ]
+    },
+    {
+      "slug": "transpose",
+      "uuid": "e38e75a3-5213-42a1-a64d-e2edee9a95b1",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 5,
+      "topics": [
+        "string_transformation"
+      ]
     }
   ]
 }
