@@ -821,6 +821,18 @@
       "topics": [
         "string_transformation"
       ]
+    },
+    {
+      "slug": "robot-simulator",
+      "uuid": "22a017c0-392c-4830-8d10-08a97dc329bc",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 5,
+      "topics": [
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "input_validation"
+      ]
     }
   ]
 }
