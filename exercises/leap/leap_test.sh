@@ -8,6 +8,14 @@
   [ "$output" = 'false' ]
 }
 
+@test 'year divisible by 2, not divisible by 4 in common year' {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash leap.sh 1970
+
+  [ "$status" -eq 0 ]
+  [ "$output" = 'false' ]
+}
+
 @test 'year divisible by 4, not divisible by 100: leap year' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 1996
@@ -30,6 +38,14 @@
 
   [ "$status" -eq 0 ]
   [ "$output" = 'true' ]
+}
+
+@test 'year divisible by 200, not divisible by 400 in common year' {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash leap.sh 1800
+
+  [ "$status" -eq 0 ]
+  [ "$output" = 'false' ]
 }
 
 @test 'No input should return an error' {

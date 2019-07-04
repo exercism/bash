@@ -79,7 +79,7 @@
 
 @test "capital word is not own anagram" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash anagram.sh "BANANA" "Banana"
+  run bash anagram.sh "BANANA" "BANANA Banana banana"
   [ "$status" -eq 0 ]
   [ "$output" == "" ]
 }

@@ -98,3 +98,30 @@
   [ "$output" == "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9" ]
 }
 
+@test "invalid if area code starts with 0 on valid 11-digit number" {
+  [[ $BATS_RUN_SKIPPED == true ]] || skip
+  run bash phone_number.sh "1 (023) 456-7890"
+  [ "$status" -eq 1 ]
+  [ "$output" == "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9" ]
+}
+
+@test "invalid if area code starts with 1 on valid 11-digit number" {
+  [[ $BATS_RUN_SKIPPED == true ]] || skip
+  run bash phone_number.sh "1 (123) 456-7890"
+  [ "$status" -eq 1 ]
+  [ "$output" == "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9" ]
+}
+
+@test "invalid if exchange code starts with 0 on valid 11-digit number" {
+  [[ $BATS_RUN_SKIPPED == true ]] || skip
+  run bash phone_number.sh "1 (223) 056-7890"
+  [ "$status" -eq 1 ]
+  [ "$output" == "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9" ]
+}
+
+@test "invalid if exchange code starts with 1 on valid 11-digit number" {
+  [[ $BATS_RUN_SKIPPED == true ]] || skip
+  run bash phone_number.sh "1 (223) 156-7890"
+  [ "$status" -eq 1 ]
+  [ "$output" == "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9" ]
+}

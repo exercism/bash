@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-add='+1000000000 second'
-start="$@$add"
+input="${1}Z +1000000000 second"
+format="%Y-%m-%dT%H:%M:%S"
 
-finish=$(date --date="$start" -u)
-
-echo $finish
+date --utc --date="$input" "+$format"

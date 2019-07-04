@@ -2,49 +2,49 @@
 
 # Check if the given string is a pangram
 
-@test "sentence empty" {
+@test "empty sentence" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh ""
   [ "$status" -eq 0 ]
   [ "$output" == "false" ]
 }
 
-@test "recognizes a perfect lower case pangram" {
+@test "perfect lower case" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "abcdefghijklmnopqrstuvwxyz"
   [ "$status" -eq 0 ]
   [ "$output" == "true" ]
 }
 
-@test "pangram with only lower case" {
+@test "only lower case" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "the quick brown fox jumps over the lazy dog"
   [ "$status" -eq 0 ]
   [ "$output" == "true" ]
 }
 
-@test "missing character 'x'" {
+@test "missing the letter 'x'" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "a quick movement of the enemy will jeopardize five gunboats"
   [ "$status" -eq 0 ]
   [ "$output" == "false" ]
 }
 
-@test "another missing character, e.g. 'h'" {
+@test "missing the letter 'h'" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "five boxing wizards jump quickly at it"
   [ "$status" -eq 0 ]
   [ "$output" == "false" ]
 }
 
-@test "pangram with underscores" {
+@test "with underscores" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "the_quick_brown_fox_jumps_over_the_lazy_dog"
   [ "$status" -eq 0 ]
   [ "$output" == "true" ]
 }
 
-@test "pangram with numbers" {
+@test "with numbers" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "the 1 quick brown fox jumps over the 2 lazy dogs"
   [ "$status" -eq 0 ]
@@ -58,14 +58,14 @@
   [ "$output" == "false" ]
 }
 
-@test "pangram with mixed case and punctuation" {
+@test "mixed case and punctuation" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "\"Five quacking Zephyrs jolt my wax bed.\""
   [ "$status" -eq 0 ]
   [ "$output" == "true" ]
 }
 
-@test "upper and lower case versions of the same character should not be counted separately" {
+@test "case insensitive" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash pangram.sh "the quick brown fox jumps over with lazy FX"
   [ "$status" -eq 0 ]

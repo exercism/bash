@@ -8,8 +8,10 @@ fi
 phrase=$(echo "$1" | tr '-' ' ')
 set -f -- junk $phrase
 shift
+
+shopt -s extglob
 for word; do
-    initial="$(echo "$word" | head -c 1 | tr '[:lower:]' '[:upper:]')"
+    initial="$(echo "${word##+(_)}" | head -c 1 | tr '[:lower:]' '[:upper:]')"
     acronym+=$initial
 done
 echo "$acronym"

@@ -1,41 +1,43 @@
 #!/usr/bin/env bash
 
+# Ensure your date calculations are done using UTC time zone
+
 @test 'date only specificaion of time' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash gigasecond.sh '2011-04-25Z'
+  run bash gigasecond.sh '2011-04-25'
 
   [ "$status" -eq 0 ]
-  [ "$output" == 'Thu Jan 1 01:46:40 UTC 2043' ]
+  [ "$output" == '2043-01-01T01:46:40' ]
 }
 
 @test 'second test for date only specification of time' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash gigasecond.sh '1977-06-13Z'
+  run bash gigasecond.sh '1977-06-13'
 
   [ "$status" -eq 0 ]
-  [ "$output" == 'Thu Feb 19 01:46:40 UTC 2009' ]
+  [ "$output" == '2009-02-19T01:46:40' ]
 }
 
 @test 'third test for date only specification of time' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash gigasecond.sh '1959-07-19Z'
+  run bash gigasecond.sh '1959-07-19'
 
   [ "$status" -eq 0 ]
-  [ "$output" == 'Wed Mar 27 01:46:40 UTC 1991' ]
+  [ "$output" == '1991-03-27T01:46:40' ]
 }
 
 @test 'full time specified' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash gigasecond.sh '2015-01-24 22:00:00Z'
+  run bash gigasecond.sh '2015-01-24T22:00:00'
 
   [ "$status" -eq 0 ]
-  [ "$output" == 'Tue Oct 2 23:46:40 UTC 2046' ]
+  [ "$output" == '2046-10-02T23:46:40' ]
 }
 
 @test 'full time with day roll-over' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash gigasecond.sh '2015-01-24 23:59:59Z'
+  run bash gigasecond.sh '2015-01-24T23:59:59'
 
   [ "$status" -eq 0 ]
-  [ "$output" == 'Wed Oct 3 01:46:39 UTC 2046' ]
+  [ "$output" == '2046-10-03T01:46:39' ]
 }

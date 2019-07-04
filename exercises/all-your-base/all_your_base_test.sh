@@ -1,146 +1,146 @@
 #!/usr/bin/env bash
 
-@test 'single_bit_to_one_decimal' {
+@test 'single bit to one decimal' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1" 10
     [[ "$status" -eq 0 ]]
     [[ "$output" == "1" ]]
 }
 
-@test 'binary_to_single_decimal' {
+@test 'binary to single decimal' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1 0 1" 10
     [[ "$status" -eq 0 ]]
     [[ "$output" == "5" ]]
 }
 
-@test 'single_decimal_to_binary' {
+@test 'single decimal to binary' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 10 "5" 2
     [[ "$status" -eq 0 ]]
     [[ "$output" == "1 0 1" ]]
 }
 
-@test 'binary_to_multiple_decimal' {
+@test 'binary to multiple decimal' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1 0 1 0 1 0" 10
     [[ "$status" -eq 0 ]]
     [[ "$output" == "4 2" ]]
 }
 
-@test 'decimal_to_binary' {
+@test 'decimal to binary' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 10 "4 2" 2
     [[ "$status" -eq 0 ]]
     [[ "$output" == "1 0 1 0 1 0" ]]
 }
 
-@test 'trinary_to_hexadecimal' {
+@test 'trinary to hexadecimal' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 3 "1 1 2 0" 16
     [[ "$status" -eq 0 ]]
     [[ "$output" == "2 10" ]]
 }
 
-@test 'hexadecimal_to_trinary' {
+@test 'hexadecimal to trinary' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 16 "2 10" 3
     [[ "$status" -eq 0 ]]
     [[ "$output" == "1 1 2 0" ]]
 }
 
-@test '15_bit_integer' {
+@test '15 bit integer' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 97 "3 46 60" 73
     [[ "$status" -eq 0 ]]
     [[ "$output" == "6 10 45" ]]
 }
 
-@test 'empty_list' {
+@test 'empty list' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "" 10
     [[ "$status" -eq 0 ]]
     [[ "$output" == "" ]]
 }
 
-@test 'single_zero' {
+@test 'single zero' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 10 "0" 2
     [[ "$status" -eq 0 ]]
     [[ "$output" == "" ]]
 }
 
-@test 'multiple_zeroes' {
+@test 'multiple zeroes' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 10 "0 0 0" 2
     [[ "$status" -eq 0 ]]
     [[ "$output" == "" ]]
 }
 
-@test 'leading_zeros' {
+@test 'leading zeros' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 7 "0 6 0" 10
     [[ "$status" -eq 0 ]]
     [[ "$output" == "4 2" ]]
 }
 
-@test 'input_base_is_one' {
+@test 'input base is one' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 1 "0" 10
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'input_base_is_zero' {
+@test 'input base is zero' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 0 "" 10
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'input_base_is_negative' {
+@test 'input base is negative' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh -2 "1" 10
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'negative_digit' {
+@test 'negative digit' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1 -1 1 0 1 0" 10
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'invalid_positive_digit' {
+@test 'invalid positive digit' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1 2 1 0 1 0" 10
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'output_base_is_one' {
+@test 'output base is one' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1 0 1 0 1 0" 1
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'output_base_is_zero' {
+@test 'output base is zero' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 10 "7" 0
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'output_base_is_negative' {
+@test 'output base is negative' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1" -7
     [[ "$status" -gt 0 ]]
     [[ -n "$output" ]]
 }
 
-@test 'both_bases_are_negative' {
+@test 'both bases are negative' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh -2 "1" -7
     [[ "$status" -gt 0 ]]

@@ -49,6 +49,20 @@
   [ "$output" == "false" ]
 }
 
+@test "valid number with an even number of digits" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash luhn.sh "095 245 88"
+  [ "$status" -eq 0 ]
+  [ "$output" == "true" ]
+}
+
+@test "valid number with an odd number of spaces" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash luhn.sh "234 567 891 234"
+  [ "$status" -eq 0 ]
+  [ "$output" == "true" ]
+}
+
 @test "valid strings with a non-digit included become invalid" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash luhn.sh "055a 444 285"
@@ -91,7 +105,14 @@
   [ "$output" == "true" ]
 }
 
-@test "strings with non-digits is invalid" {
+@test "using ascii value for non-doubled non-digit isn't allowed" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash luhn.sh "055b 444 285"
+  [ "$status" -eq 0 ]
+  [ "$output" == "false" ]
+}
+
+@test "using ascii value for doubled non-digit isn't allowed" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash luhn.sh ":9"
   [ "$status" -eq 0 ]

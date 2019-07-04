@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-@test "An empty string" {
+@test "an empty string" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh ""
 
@@ -8,7 +8,7 @@
   [ "$output" = "" ]
 }
 
-@test "A word" {
+@test "a word" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "robot"
 
@@ -16,7 +16,7 @@
   [ "$output" = "tobor" ]
 }
 
-@test "A capitalised word" {
+@test "a capitalised word" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "Ramen"
 
@@ -24,7 +24,7 @@
   [ "$output" = "nemaR" ]
 }
 
-@test "A sentence with punctuation" {
+@test "a sentence with punctuation" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "I'm hungry!"
 
@@ -32,10 +32,19 @@
   [ "$output" = "!yrgnuh m'I" ]
 }
 
-@test "A palindrome" {
+@test "a palindrome" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "racecar"
 
   [ "$status" -eq 0 ]
   [ "$output" = "racecar" ]
 }
+
+@test "an even-sized word" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash reverse_string.sh "drawer"
+
+  [ "$status" -eq 0 ]
+  [ "$output" = "reward" ]
+}
+

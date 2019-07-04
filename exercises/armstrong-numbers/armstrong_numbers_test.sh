@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-@test 'Single digits are Armstrong numbers' {
+@test 'Zero is Armstrong numbers' {
   # [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash armstrong_numbers.sh 0
+  [ "$status" -eq 0 ]
+  [ "$output" = "true" ]
+}
+
+@test 'Single digits are Armstrong numbers' {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash armstrong_numbers.sh 5
 
   [ "$status" -eq 0 ]
