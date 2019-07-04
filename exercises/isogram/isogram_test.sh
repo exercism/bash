@@ -58,6 +58,13 @@
   [ "$output" == 'true' ]
 }
 
+@test 'hypothetical word with duplicated character following hyphen' {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash isogram.sh 'thumbscrew-jappingly'
+  [ "$status" -eq 0 ]
+  [ "$output" == 'false' ]
+}
+
 @test 'made-up name that is an isogram' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash isogram.sh 'Emily Jung Schwartzkopf'

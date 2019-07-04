@@ -49,9 +49,30 @@
   [ "$output" == 'left and right strands must be of equal length' ]
 }
 
+@test 'disallow left empty strand' {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash hamming.sh '' 'G'
+  [ "$status" -eq 1 ]
+  [ "$output" == 'left strand must not be empty' ]
+}
+
+@test 'disallow right empty strand' {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash hamming.sh 'G' ''
+  [ "$status" -eq 1 ]
+  [ "$output" == 'right strand must not be empty' ]
+}
+
 @test "no input" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh
+  [ "$status" -eq 1 ]
+  [ "$output" == 'Usage: hamming.sh <string1> <string2>' ]
+}
+
+@test "invalid input" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash hamming.sh 'A'
   [ "$status" -eq 1 ]
   [ "$output" == 'Usage: hamming.sh <string1> <string2>' ]
 }
