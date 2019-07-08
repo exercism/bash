@@ -991,6 +991,17 @@
         "control_flow_loops",
         "strings"
       ]
+    },
+    {
+      "slug": "darts",
+      "uuid": "0b93cd55-8f21-4198-a531-39de5502c02d",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "control_flow_conditionals",
+        "math"
+      ]
     }
   ]
 }
