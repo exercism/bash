@@ -891,6 +891,17 @@
         "control_flow_conditionals",
         "external_commands"
       ]
+    },
+    {
+      "slug": "dnd-character",
+      "uuid": "ca5cf3e4-6298-42a2-9a81-9bd25bc0cba2",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "randomness"
+      ]
     }
   ]
 }
