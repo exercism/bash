@@ -845,6 +845,18 @@
         "sorting",
         "text_formatting"
       ]
+    },
+    {
+      "slug": "spiral-matrix",
+      "uuid": "e8a78d3f-5a0e-4dc7-b1af-c801bdc275d9",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 6,
+      "topics": [
+        "arrays",
+        "control_flow_loops",
+        "text_formatting"
+      ]
     }
   ]
 }
