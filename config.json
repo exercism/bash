@@ -880,6 +880,17 @@
         "strings",
         "transforming"
       ]
+    },
+    {
+      "slug": "meetup",
+      "uuid": "9e7d907d-7b74-4757-ad29-a824a79d8c36",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 6,
+      "topics": [
+        "control_flow_conditionals",
+        "external_commands"
+      ]
     }
   ]
 }
