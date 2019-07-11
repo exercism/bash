@@ -954,6 +954,19 @@
         "input_validation",
         "transformation"
       ]
+    },
+    {
+      "slug": "crypto-square",
+      "uuid": "6892fa27-c275-4601-98e9-8e3a55153033",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 5,
+      "topics": [
+        "arrays",
+        "cryptography",
+        "math",
+        "transformation"
+      ]
     }
   ]
 }
