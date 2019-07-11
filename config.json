@@ -967,6 +967,18 @@
         "math",
         "transformation"
       ]
+    },
+    {
+      "slug": "rectangles",
+      "uuid": "f44efbc1-c1f5-4a26-95d5-2171202338c1",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 8,
+      "topics": [
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "strings"
+      ]
     }
   ]
 }
