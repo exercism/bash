@@ -857,6 +857,17 @@
         "control_flow_loops",
         "text_formatting"
       ]
+    },
+    {
+      "slug": "clock",
+      "uuid": "1b1db53f-1d48-49d7-8492-c7c6cdfbca78",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 3,
+      "topics": [
+        "math",
+        "text_formatting"
+      ]
     }
   ]
 }
