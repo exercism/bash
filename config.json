@@ -868,6 +868,18 @@
         "math",
         "text_formatting"
       ]
+    },
+    {
+      "slug": "sublist",
+      "uuid": "28b7b2d4-8262-4be9-94b4-22f0960047c5",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 2,
+      "topics": [
+        "equality",
+        "strings",
+        "transforming"
+      ]
     }
   ]
 }
