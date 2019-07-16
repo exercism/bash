@@ -35,6 +35,13 @@
   [ "$output" == "gallery regally largely" ]
 }
 
+@test "detects multiple anagrams with different case" {
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    run bash anagram.sh "nose" "Eons ONES"
+    [ "$status" -eq 0 ]
+    [ "$output" == "Eons ONES" ]
+}
+
 @test "does not detect non-anagrams with identical checksum" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash anagram.sh "mass" "last"
@@ -84,3 +91,9 @@
   [ "$output" == "" ]
 }
 
+@test "words other than themselves can be anagrams" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash anagram.sh "LISTEN" "Listen Silent LISTEN"
+  [ "$status" -eq 0 ]
+  [ "$output" == "Silent" ]
+}
