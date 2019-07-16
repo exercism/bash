@@ -38,8 +38,8 @@
 @test "detects multiple anagrams with different case" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash anagram.sh "nose" "Eons ONES"
-    [ "$status" -eq 0 ]
-    [ "$output" == "Eons ONES" ]
+    [[ $status -eq 0 ]]
+    [[ $output == "Eons ONES" ]]
 }
 
 @test "does not detect non-anagrams with identical checksum" {
@@ -94,6 +94,6 @@
 @test "words other than themselves can be anagrams" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash anagram.sh "LISTEN" "Listen Silent LISTEN"
-  [ "$status" -eq 0 ]
-  [ "$output" == "Silent" ]
+  [[ $status -eq 0 ]]
+  [[ $output == "Silent" ]]
 }
