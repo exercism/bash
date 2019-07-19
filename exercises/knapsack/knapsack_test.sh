@@ -24,6 +24,7 @@
 @test "one item: too heavy" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash knapsack.sh 10 100:1
+    [[ $status -eq 0 ]]
     [[ $output -eq 0 ]]
 }
 
