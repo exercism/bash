@@ -122,7 +122,7 @@
 }
 
 
-# generate a character, validate expecte output
+# generate a character, validate expected output
 
 @test "generate a character" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
