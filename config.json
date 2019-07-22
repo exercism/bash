@@ -914,6 +914,18 @@
         "arrays",
         "control_flow_loops"
       ]
+    },
+    {
+      "slug": "queen-attack",
+      "uuid": "text_formatting",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 3,
+      "topics": [
+        "control_flow_conditionals",
+        "error_handling",
+        "input_validation"
+      ]
     }
   ]
 }
