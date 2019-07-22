@@ -4,35 +4,35 @@
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh '' ''
   [[ $status -eq 0 ]]
-  [[ $output -eq 0 ]]
+  [[ $output == "0" ]]
 }
 
 @test 'single letter identical strands' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh 'A' 'A'
   [[ $status -eq 0 ]]
-  [[ $output -eq 0 ]]
+  [[ $output == "0" ]]
 }
 
 @test 'single letter different strands' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh 'G' 'T'
   [[ $status -eq 0 ]]
-  [[ $output -eq 1 ]]
+  [[ $output == "1" ]]
 }
 
 @test 'long identical strands' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh 'GGACTGAAATCTG' 'GGACTGAAATCTG'
   [[ $status -eq 0 ]]
-  [[ $output -eq 0 ]]
+  [[ $output == "0" ]]
 }
 
 @test 'long different strands' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh 'GGACGGATTCTG' 'AGGACGGATTCT'
   [[ $status -eq 0 ]]
-  [[ $output -eq 9 ]]
+  [[ $output == "9" ]]
 }
 
 @test 'disallow first strand longer' {
