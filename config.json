@@ -926,6 +926,20 @@
         "error_handling",
         "input_validation"
       ]
+    },
+    {
+      "slug": "poker",
+      "uuid": "0b3cff88-d756-4365-9c85-3e1464979c4e",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 8,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals",
+        "integers",
+        "sorting",
+        "strings"
+      ]
     }
   ]
 }
