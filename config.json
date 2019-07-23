@@ -940,6 +940,20 @@
         "sorting",
         "strings"
       ]
+    },
+    {
+      "slug": "rail-fence-cipher",
+      "uuid": "651df699-fcee-4cc3-b913-f7c31fbea626",
+      "core": false,
+      "unlocked_by": "acronym",
+      "difficulty": 8,
+      "topics": [
+        "control_flow_conditionals",
+        "control_flow_loops",
+        "cryptography",
+        "input_validation",
+        "transformation"
+      ]
     }
   ]
 }
