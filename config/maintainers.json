@@ -50,6 +50,16 @@
       "link_url": null,
       "avatar_url": null,
       "bio": "I really love Linux and Bash!  I think the only reason I use a window manager is for chrome/firefox. Every other open window on my machine is a terminal."
+    },
+    {
+      "github_username": "glennj",
+      "alumnus": false,
+      "show_on_website": true,
+      "name": "Glenn Jackman",
+      "link_text": null,
+      "link_url": null,
+      "avatar_url": null,
+      "bio": "I've been a command line *nix hacker for over 25 years, very active on Stack Overflow for over 10 years, and am happy to bring my experience to the Exercism community."
     }
   ]
 }
