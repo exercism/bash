@@ -417,6 +417,18 @@
       ]
     },
     {
+      "slug": "resistor-color-trio",
+      "uuid": "bf042009-74cb-4280-aeb2-a567532d35a1",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "arrays",
+        "control_flow_conditionals",
+        "math"
+      ]
+    },
+    {
       "slug": "binary-search",
       "uuid": "47ff0fd8-178a-47fd-ab53-382ae1bb4f03",
       "core": false,
