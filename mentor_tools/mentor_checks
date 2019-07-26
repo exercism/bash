@@ -1,0 +1,133 @@
+#!/usr/bin/env bash
+
+# This tool is meant as an aid to mentors reviewing a
+# student's submission. It will:
+# 1. download the exercise (this should place it in the
+#    "users/" subdirectory of your exercism workspace)
+# 2. run shellcheck on the code, if you have it installed locally
+# 3. check github for the existance of mentor notes.
+# 4. show the code and ask if you want to run the tests
+# 5. launch an interactive bash shell, so you can
+#    play with  the solution
+
+shopt -s extglob
+
+if ! type -p exercism >/dev/null; then
+    echo "Can't find exercism in the PATH" >&2
+    exit 1
+fi
+
+main() {
+    local uuid=$1
+    local workdir slug root
+
+    if [[ -z $uuid ]]; then
+        echo "usage: $0 uuid"
+        echo "downloads the submission, runs tests and shellcheck"
+        exit 1
+    fi
+
+    echo "=== 1 ==="
+    download "$uuid" workdir
+
+    slug=$(basename "$workdir")
+    root=${slug//-/_}
+    cd "$workdir" || exit 2
+
+    echo "=== 2 ==="
+    run_shellcheck "$root.sh"
+
+    echo "=== 3 ==="
+    mentor_notes_link "$slug"
+
+    echo "=== 4 ==="
+    run_tests "$root"
+
+    echo "=== 5 ==="
+    echo "Launching an interactive shell in $PWD"
+    exec bash -i
+}
+
+download() {
+    local uuid=$1
+    local -n dir=$2
+    local -a output
+
+    yn "Download solution from https://exercism.io/mentor/solutions/$uuid" || exit
+
+    readarray -t output < <( exercism download --uuid="$uuid" 2>&1 )
+    printf "%s\n" "${output[@]}"
+    dir=${output[-1]}
+
+    if [[ ! -d $dir ]]; then
+        echo "Odd, could not find the download directory in exercism output"
+        exit 1
+    fi
+}
+
+run_shellcheck() {
+    local file=$1
+    if ! type -p shellcheck >/dev/null; then 
+        echo "You should consider installing shellcheck locally."
+    elif yn "Run shellcheck"; then
+        echo "shellcheck $file"
+        shellcheck "$file" && echo "OK, no warnings"
+    fi
+}
+
+mentor_notes_link() {
+    local slug=$1
+    local notes_url curl_opts http_status
+
+    if ! type -p curl >/dev/null; then
+        echo "Can't find curl in the PATH."
+        return
+    fi
+
+    notes_url="https://raw.githubusercontent.com/exercism/website-copy/master/tracks/bash/exercises/$slug/mentoring.md"
+    curl_opts=( --silent --head --write-out '%{http_code}' )
+    http_status=$( curl "${curl_opts[@]}" "$notes_url" | tail -1 )
+
+    case $http_status in
+        200) echo "Mentor notes exist:"; echo "$notes_url" ;;
+        404) echo "No mentor notes for this exercise" ;;
+        *)   echo "Unexpected query status from github: $http_status" ;;
+    esac
+}
+
+run_tests() {
+    local root=$1
+    cat << END_BATS
+Next step is testing:
+I will not do that  automatically.
+*******************************************
+*** Make sure you're reviewed the code, ***
+*** and that it is non-malicious!       ***
+*******************************************
+END_BATS
+
+    yn "Display the code" || return
+    sed 's/^/#   /' "$root.sh"
+
+    echo "*******************************************"
+    yn -n "OK to run tests" || return
+    BATS_RUN_SKIPPED=true bats "${root}_test.sh"
+}
+
+yn() {
+    local OPTIND yn=Yn def=Y prompt
+    local -u ans
+    while getopts :yn opt; do
+        case $opt in
+            y) yn="Yn"; def=Y ;;
+            n) yn="yN"; def=N ;;
+            *) : ;; # ignored
+        esac
+    done
+    shift $((OPTIND-1))
+    prompt=${1:-"Yes or no"}
+    read -p "$prompt [$yn]? " -e -i "$def" -r ans
+    [[ ${ans#+([[:space:]])} == Y* ]]
+}
+
+main "$@"
