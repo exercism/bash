@@ -106,6 +106,20 @@
   [[ $(wc -l <<<"$output") -eq 6 ]]
 }
 
+@test "substrings from the beginning" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash word_count.sh "Joe can't tell between apple, app and a."
+  [[ $status -eq 0 ]]
+  echo "$output" | grep -qFx "joe: 1"
+  echo "$output" | grep -qFx "can't: 1"
+  echo "$output" | grep -qFx "tell: 1"
+  echo "$output" | grep -qFx "apple: 1"
+  echo "$output" | grep -qFx "app: 1"
+  echo "$output" | grep -qFx "and: 1"
+  echo "$output" | grep -qFx "a: 1"
+  [[ $(wc -l <<<"$output") -eq 8 ]]
+}
+
 @test "multiple spaces not detected as a word" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash word_count.sh " multiple   whitespaces"

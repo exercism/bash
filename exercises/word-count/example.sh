@@ -9,7 +9,7 @@ declare -A word_count_map
 
 for el in "${words[@]}"; do
   el="${el#\'}" el="${el%\'}"
-  if [[ "${control_map[@]}" =~ "$el" ]]; then
+  if [[ " ${control_map[*]} " == *" $el "* ]]; then
     continue
   else
     control_map+=("$el")
