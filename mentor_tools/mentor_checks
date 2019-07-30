@@ -12,11 +12,6 @@
 
 shopt -s extglob
 
-if ! type -p exercism >/dev/null; then
-    echo "Can't find exercism in the PATH" >&2
-    exit 1
-fi
-
 main() {
     local uuid workdir slug root
     local uuid_re='[[:alnum:]]{32}'
@@ -29,15 +24,15 @@ main() {
         echo "usage: $0 <uuid>"
         echo "       $0 exercism download --uuid=<uuid>"
         echo "downloads the submission, runs tests and shellcheck"
-        exit 1
+        exit
     fi
 
     echo "=== 1 ==="
     download "$uuid" workdir
 
-    slug=$(basename "$workdir")
-    root=${slug//-/_}
     cd "$workdir" || exit 2
+    slug=${workdir##*/}
+    root=${slug//-/_}
 
     echo "=== 2 ==="
     run_shellcheck "$root.sh"
@@ -53,20 +48,24 @@ main() {
     exec bash -i
 }
 
+die() { echo "$*" >&2; exit 1; }
+
 download() {
     local uuid=$1
     local -n dir=$2
     local -a output
 
-    yn "Download solution from https://exercism.io/mentor/solutions/$uuid" || exit
+    yn -Y "Download solution from https://exercism.io/mentor/solutions/$uuid" || exit
 
-    readarray -t output < <( exercism download --uuid="$uuid" 2>&1 )
-    printf "%s\n" "${output[@]}"
-    dir=${output[-1]}
+    if ! output=$( exercism download --uuid="$uuid" 2>&1 ); then
+        die "Error: exercism failed: $output"
+    fi
+
+    echo "$output"
+    dir=${output##*$'\n'}       # last line
 
     if [[ ! -d $dir ]]; then
-        echo "Odd, could not find the download directory in exercism output"
-        exit 1
+        die "Error: could not find the download directory in exercism output"
     fi
 }
 
@@ -74,7 +73,7 @@ run_shellcheck() {
     local file=$1
     if ! type -p shellcheck >/dev/null; then 
         echo "You should consider installing shellcheck locally."
-    elif yn "Run shellcheck"; then
+    elif yn -Y "Run shellcheck"; then
         echo "shellcheck $file"
         shellcheck "$file" && echo "OK, no warnings"
     fi
@@ -94,8 +93,8 @@ mentor_notes_link() {
     http_status=$( curl "${curl_opts[@]}" "$notes_url" | tail -1 )
 
     case $http_status in
-        200) echo "Mentor notes exist:"; echo "$notes_url" ;;
-        404) echo "No mentor notes for this exercise" ;;
+        200) echo "Mentor notes: $notes_url" ;;
+        404) echo "No mentor notes for $slug" ;;
         *)   echo "Unexpected query status from github: $http_status" ;;
     esac
 }
@@ -104,28 +103,28 @@ run_tests() {
     local root=$1
     cat << END_BATS
 Next step is testing:
-I will not do that  automatically.
+I will not do that automatically.
 *******************************************
 *** Make sure you're reviewed the code, ***
 *** and that it is non-malicious!       ***
 *******************************************
 END_BATS
 
-    yn "Display the code" || return
+    yn -Y "Display the code" || return
     sed 's/^/#   /' "$root.sh"
 
     echo "*******************************************"
-    yn -n "OK to run tests" || return
+    yn -N "OK to run tests" || return
     BATS_RUN_SKIPPED=true bats "${root}_test.sh"
 }
 
 yn() {
-    local OPTIND yn=Yn def=Y prompt
+    local OPTIND yn=yn def="" prompt
     local -u ans
-    while getopts :yn opt; do
+    while getopts :YN opt; do
         case $opt in
-            y) yn="Yn"; def=Y ;;
-            n) yn="yN"; def=N ;;
+            Y) yn="Yn"; def=Y ;;
+            N) yn="yN"; def=N ;;
             *) : ;; # ignored
         esac
     done
