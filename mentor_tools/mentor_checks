@@ -18,11 +18,16 @@ if ! type -p exercism >/dev/null; then
 fi
 
 main() {
-    local uuid=$1
-    local workdir slug root
+    local uuid workdir slug root
+    local uuid_re='[[:alnum:]]{32}'
 
-    if [[ -z $uuid ]]; then
-        echo "usage: $0 uuid"
+    if  [[ $1 =~ ^($uuid_re)$ ]] ||
+        [[ "$1 $2 $3" =~ "exercism download --uuid="($uuid_re)$ ]]
+    then
+        uuid=${BASH_REMATCH[1]}
+    else
+        echo "usage: $0 <uuid>"
+        echo "       $0 exercism download --uuid=<uuid>"
         echo "downloads the submission, runs tests and shellcheck"
         exit 1
     fi
