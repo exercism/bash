@@ -57,10 +57,7 @@ download() {
 
     yn -Y "Download solution from https://exercism.io/mentor/solutions/$uuid" || exit
 
-    if ! output=$( exercism download --uuid="$uuid" 2>&1 ); then
-        die "Error: exercism failed: $output"
-    fi
-
+    output=$( do_exercism download --uuid="$uuid" ) || exit 1
     echo "$output"
     dir=${output##*$'\n'}       # last line
 
@@ -119,7 +116,7 @@ END_BATS
 }
 
 yn() {
-    [[ $BANTOR_PROMPT_REPLY == "YES_TO_ALL" ]] && return 0
+    [[ $BANTOR_PROMPT_REPLY == "yes to all" ]] && return 0
     local OPTIND yn=yn def="" prompt
     local -u ans
     while getopts :YN opt; do
@@ -135,15 +132,23 @@ yn() {
     [[ ${ans#+([[:space:]])} == Y* ]]
 }
 
-# bantor config: a place to put variables and functions can be used
-# in the environment of the spawned interactive shell (such as
-# BATS_RUN_SKIPPED) - don't forget to `export`
-for rc in "$XDG_CONFIG_HOME/bantorrc" ~/.config/bantorrc ~/.bantorrc; do
-    if [[ -r $rc ]]; then 
-        # shellcheck disable=SC1090
-        . "$rc"
-        break
+# wrapper function around exercism executable
+do_exercism() {
+    if ! exercism "$@" 2>&1; then
+        die "Error: exercism $* failed"
     fi
-done
+}
+
+# bantor config: a place to put variables and functions that can be used 
+# * in this script (such as BANTOR_PROMPT_REPLY)
+# * in the environment of the spawned interactive shell 
+#   (such as BATS_RUN_SKIPPED) - don't forget to `export`
+
+exercism_config=$( do_exercism configure ) || exit 1
+config_dir=$( sed -nE '/^Config dir: +/s///p' <<< "$exercism_config" )
+if [[ -r "$config_dir/bantorrc" ]]; then
+    # shellcheck disable=SC1090
+    . "$config_dir/bantorrc"
+fi
 
 main "$@"
