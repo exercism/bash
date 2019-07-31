@@ -114,11 +114,12 @@ END_BATS
     sed 's/^/#   /' "$root.sh"
 
     echo "*******************************************"
-    yn -N "OK to run tests" || return
+    yn "OK to run tests" || return
     BATS_RUN_SKIPPED=true bats "${root}_test.sh"
 }
 
 yn() {
+    [[ $BANTOR_PROMPT_REPLY == "YES_TO_ALL" ]] && return 0
     local OPTIND yn=yn def="" prompt
     local -u ans
     while getopts :YN opt; do
@@ -133,5 +134,16 @@ yn() {
     read -p "$prompt [$yn]? " -e -i "$def" -r ans
     [[ ${ans#+([[:space:]])} == Y* ]]
 }
+
+# bantor config: a place to put variables and functions can be used
+# in the environment of the spawned interactive shell (such as
+# BATS_RUN_SKIPPED) - don't forget to `export`
+for rc in "$XDG_CONFIG_HOME/bantorrc" ~/.config/bantorrc ~/.bantorrc; do
+    if [[ -r $rc ]]; then 
+        # shellcheck disable=SC1090
+        . "$rc"
+        break
+    fi
+done
 
 main "$@"
