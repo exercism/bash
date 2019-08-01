@@ -1,0 +1,154 @@
+#!/usr/bin/env bash
+
+# This tool is meant as an aid to mentors reviewing a
+# student's submission. It will:
+# 1. download the exercise (this should place it in the
+#    "users/" subdirectory of your exercism workspace)
+# 2. run shellcheck on the code, if you have it installed locally
+# 3. check github for the existance of mentor notes.
+# 4. show the code and ask if you want to run the tests
+# 5. launch an interactive bash shell, so you can
+#    play with  the solution
+
+shopt -s extglob
+
+main() {
+    local uuid workdir slug root
+    local uuid_re='[[:alnum:]]{32}'
+
+    if  [[ $1 =~ ^($uuid_re)$ ]] ||
+        [[ "$1 $2 $3" =~ "exercism download --uuid="($uuid_re)$ ]]
+    then
+        uuid=${BASH_REMATCH[1]}
+    else
+        echo "usage: $0 <uuid>"
+        echo "       $0 exercism download --uuid=<uuid>"
+        echo "downloads the submission, runs tests and shellcheck"
+        exit
+    fi
+
+    echo "=== 1 ==="
+    download "$uuid" workdir
+
+    cd "$workdir" || exit 2
+    slug=${workdir##*/}
+    root=${slug//-/_}
+
+    echo "=== 2 ==="
+    run_shellcheck "$root.sh"
+
+    echo "=== 3 ==="
+    mentor_notes_link "$slug"
+
+    echo "=== 4 ==="
+    run_tests "$root"
+
+    echo "=== 5 ==="
+    echo "Launching an interactive shell in $PWD"
+    exec bash -i
+}
+
+die() { echo "$*" >&2; exit 1; }
+
+download() {
+    local uuid=$1
+    local -n dir=$2
+    local -a output
+
+    yn -Y "Download solution from https://exercism.io/mentor/solutions/$uuid" || exit
+
+    output=$( do_exercism download --uuid="$uuid" ) || exit 1
+    echo "$output"
+    dir=${output##*$'\n'}       # last line
+
+    if [[ ! -d $dir ]]; then
+        die "Error: could not find the download directory in exercism output"
+    fi
+}
+
+run_shellcheck() {
+    local file=$1
+    if ! type -p shellcheck >/dev/null; then 
+        echo "You should consider installing shellcheck locally."
+    elif yn -Y "Run shellcheck"; then
+        echo "shellcheck $file"
+        shellcheck "$file" && echo "OK, no warnings"
+    fi
+}
+
+mentor_notes_link() {
+    local slug=$1
+    local notes_url curl_opts http_status
+
+    if ! type -p curl >/dev/null; then
+        echo "Can't find curl in the PATH."
+        return
+    fi
+
+    notes_url="https://raw.githubusercontent.com/exercism/website-copy/master/tracks/bash/exercises/$slug/mentoring.md"
+    curl_opts=( --silent --head --write-out '%{http_code}' )
+    http_status=$( curl "${curl_opts[@]}" "$notes_url" | tail -1 )
+
+    case $http_status in
+        200) echo "Mentor notes: $notes_url" ;;
+        404) echo "No mentor notes for $slug" ;;
+        *)   echo "Unexpected query status from github: $http_status" ;;
+    esac
+}
+
+run_tests() {
+    local root=$1
+    cat << END_BATS
+Next step is testing:
+I will not do that automatically.
+*******************************************
+*** Make sure you're reviewed the code, ***
+*** and that it is non-malicious!       ***
+*******************************************
+END_BATS
+
+    yn -Y "Display the code" || return
+    sed 's/^/#   /' "$root.sh"
+
+    echo "*******************************************"
+    yn "OK to run tests" || return
+    BATS_RUN_SKIPPED=true bats "${root}_test.sh"
+}
+
+yn() {
+    [[ $BANTOR_PROMPT_REPLY == "yes to all" ]] && return 0
+    local OPTIND yn=yn def="" prompt
+    local -u ans
+    while getopts :YN opt; do
+        case $opt in
+            Y) yn="Yn"; def=Y ;;
+            N) yn="yN"; def=N ;;
+            *) : ;; # ignored
+        esac
+    done
+    shift $((OPTIND-1))
+    prompt=${1:-"Yes or no"}
+    read -p "$prompt [$yn]? " -e -i "$def" -r ans
+    [[ ${ans#+([[:space:]])} == Y* ]]
+}
+
+# wrapper function around exercism executable
+do_exercism() {
+    if ! exercism "$@" 2>&1; then
+        die "Error: exercism $* failed"
+    fi
+}
+
+# bantor config: a place to put variables and functions that can be used 
+# * in this script (such as BANTOR_PROMPT_REPLY)
+# * in the environment of the spawned interactive shell 
+#   (such as BATS_RUN_SKIPPED) - don't forget to `export`
+
+exercism_config=$( do_exercism configure ) || exit 1
+config_dir=$( sed -nE '/^Config dir: +/s///p' <<< "$exercism_config" )
+if [[ -r "$config_dir/bantorrc" ]]; then
+    # shellcheck disable=SC1090
+    . "$config_dir/bantorrc"
+fi
+
+main "$@"
