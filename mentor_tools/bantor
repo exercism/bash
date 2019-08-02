@@ -10,8 +10,12 @@
 # 5. launch an interactive bash shell, so you can
 #    play with  the solution
 
+# External tools used: exercism, tee, sed, cat
+# If available: curl, shellcheck
+
 shopt -s extglob
 
+########################################################################
 main() {
     local uuid workdir slug root
     local uuid_re='[[:alnum:]]{32}'
@@ -34,6 +38,12 @@ main() {
     slug=${workdir##*/}
     root=${slug//-/_}
 
+    # don't start logging until we have a workdir
+    { date
+      echo "solution: https://exercism.io/mentor/solutions/$uuid" 
+    } >"$workdir/bantor.log"
+    log_start "$workdir/bantor.log"
+
     echo "=== 2 ==="
     run_shellcheck "$root.sh"
 
@@ -45,11 +55,57 @@ main() {
 
     echo "=== 5 ==="
     echo "Launching an interactive shell in $PWD"
+    log_stop
     exec bash -i
 }
 
+########################################################################
 die() { echo "$*" >&2; exit 1; }
 
+do_exercism() {
+    if ! exercism "$@" 2>&1; then
+        die "Error: exercism $* failed"
+    fi
+}
+
+log_start() {
+    local logfile=$1
+    # store the current file descriptors 1 and 2
+    exec 8>&1
+    exec 9>&2
+    # tee the output on fd 1 and 2 to logfile.
+    # Due to buffering, stdout and stderr may appear out of order.
+    exec 1> >(tee -a "$logfile")
+    exec 2> >(tee -a "$logfile")
+}
+
+log_stop() {
+    # turn off logging: restore fd 1 and 2
+    exec 1>&8
+    exec 2>&9
+    # close fd 8 and 9
+    exec 8>&-
+    exec 9>&-
+}
+
+yn() {
+    [[ $BANTOR_PROMPT_REPLY == "yes to all" ]] && return 0
+    local OPTIND yn=yn def="" prompt
+    local -u ans
+    while getopts :YN opt; do
+        case $opt in
+            Y) yn="Yn"; def=Y ;;
+            N) yn="yN"; def=N ;;
+            *) : ;; # ignored
+        esac
+    done
+    shift $((OPTIND-1))
+    prompt=${1:-"Yes or no"}
+    read -p "$prompt [$yn]? " -e -i "$def" -r ans
+    [[ ${ans#+([[:space:]])} == Y* ]]
+}
+
+########################################################################
 download() {
     local uuid=$1
     local -n dir=$2
@@ -66,6 +122,7 @@ download() {
     fi
 }
 
+########################################################################
 run_shellcheck() {
     local file=$1
     if ! type -p shellcheck >/dev/null; then 
@@ -76,6 +133,7 @@ run_shellcheck() {
     fi
 }
 
+########################################################################
 mentor_notes_link() {
     local slug=$1
     local notes_url curl_opts http_status
@@ -96,6 +154,7 @@ mentor_notes_link() {
     esac
 }
 
+########################################################################
 run_tests() {
     local root=$1
     cat << END_BATS
@@ -115,30 +174,7 @@ END_BATS
     BATS_RUN_SKIPPED=true bats "${root}_test.sh"
 }
 
-yn() {
-    [[ $BANTOR_PROMPT_REPLY == "yes to all" ]] && return 0
-    local OPTIND yn=yn def="" prompt
-    local -u ans
-    while getopts :YN opt; do
-        case $opt in
-            Y) yn="Yn"; def=Y ;;
-            N) yn="yN"; def=N ;;
-            *) : ;; # ignored
-        esac
-    done
-    shift $((OPTIND-1))
-    prompt=${1:-"Yes or no"}
-    read -p "$prompt [$yn]? " -e -i "$def" -r ans
-    [[ ${ans#+([[:space:]])} == Y* ]]
-}
-
-# wrapper function around exercism executable
-do_exercism() {
-    if ! exercism "$@" 2>&1; then
-        die "Error: exercism $* failed"
-    fi
-}
-
+########################################################################
 # bantor config: a place to put variables and functions that can be used 
 # * in this script (such as BANTOR_PROMPT_REPLY)
 # * in the environment of the spawned interactive shell 
