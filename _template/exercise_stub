@@ -3,19 +3,18 @@
 # This is a stub for exercises on the exercism.io bash track.
 #
 # The following information should help you get started:
-# - Bash is flexible. You may use functions or write a raw script
+# - bash is flexible. You may use functions or write a raw script.
 #
-# - Keep in mind that more complex solutions will benefit greatly
-#   concerning readability when code is compartmentalized into
-#   functions. However, sometimes in bash functions are just overkill.
+# - Complex code can be made easier to read by breaking it up
+#   into functions, however this is sometimes overkill in bash.
 #
-# - If you use functions then you should have a function named main
-#   as the entry point into your script.
+# - If you use functions then the function 'main' should be
+#   the entry point of your script. It should be defined at the
+#   end (as below) or at the beginning, but never between other
+#   functions. For more info about good style in bash visit:
+#   https://google.github.io/styleguide/shell.xml
 #
-#   NB. main may be defined at the end (as below) or at the beginning.
-#       It should not be defined mixed in with other functions!
-#
-#   It's implementation would be like the following:
+#   Example:
 #
 #   # other functions here
 #   .
