@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This stub should help you get started:
-# - Bash is flexible. You may use functions or write a raw script.
+# - Bash is flexible. You may use functions or write a "raw" script.
 #
 # - Complex code can be made easier to read by breaking it up
 #   into functions, however this is sometimes overkill in bash.
