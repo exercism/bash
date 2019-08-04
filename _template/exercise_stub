@@ -1,32 +1,24 @@
 #!/usr/bin/env bash
 
-# This is a stub for exercises on the exercism.io bash track.
-#
-# The following information should help you get started:
+# This stub should help you get started:
 # - bash is flexible. You may use functions or write a raw script.
 #
 # - Complex code can be made easier to read by breaking it up
 #   into functions, however this is sometimes overkill in bash.
 #
-# - If you use functions then the function 'main' should be
-#   the entry point of your script. It should be defined at the
-#   end (as below) or at the beginning, but never between other
-#   functions. For more info about good style in bash visit:
+# - For more info about good style in bash visit:
 #   https://google.github.io/styleguide/shell.xml
 #
 #   Example:
-#
 #   # other functions here
-#   .
-#   .
-#   .
+#   # ...
+#   # ...
 #
 #   main () {
 #   # your main function code here
 #   }
 #
-#   # dont forget to call it at the end
-#   # this calls main with all of the positional arguments
+#   # call main with all of the positional arguments
 #   main "$@"
 #
 # *** REMOVE THIS STUB BEFORE SUBMITTING YOUR SOLUTION FOR MENTORING ***
