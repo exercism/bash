@@ -6,8 +6,8 @@
 # - Complex code can be made easier to read by breaking it up
 #   into functions, however this is sometimes overkill in bash.
 #
-# - For more info about good style in bash visit:
-#   https://google.github.io/styleguide/shell.xml
+# - You can find links about good style and other resources
+#   for Bash in './README.md'. It came with this exercise.
 #
 #   Example:
 #   # other functions here
