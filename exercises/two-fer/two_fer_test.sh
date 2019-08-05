@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# access user code
+source two_fer.sh
+
 @test "no name given" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
 
@@ -16,28 +19,28 @@
   #
   #     $ BATS_RUN_SKIPPED=true bats two_fer_test.sh
 
-  run bash two_fer.sh
+  run two_fer
   [[ $status -eq 0 ]]
   [[ $output == "One for you, one for me." ]]
 }
 
 @test "a name given" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash two_fer.sh Alice
+  run two_fer Alice
   [[ $status -eq 0 ]]
   [[ $output == "One for Alice, one for me." ]]
 }
 
 @test "another name given" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash two_fer.sh Bob
+  run two_fer Bob
   [[ $status -eq 0 ]]
   [[ $output == "One for Bob, one for me." ]]
 }
 
 @test "handle arg1 properly" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash two_fer.sh "John Smith" "Mary Ann"
+  run two_fer "John Smith" "Mary Ann"
   [[ $status -eq 0 ]]
   [[ $output == "One for John Smith, one for me." ]]
 }
