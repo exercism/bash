@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This stub should help you get started:
+# The following comments should help you get started:
 # - Bash is flexible. You may use functions or write a "raw" script.
 #
 # - Complex code can be made easier to read by breaking it up
@@ -21,4 +21,4 @@
 #   # call main with all of the positional arguments
 #   main "$@"
 #
-# *** REMOVE THIS STUB BEFORE SUBMITTING YOUR SOLUTION FOR MENTORING ***
+# *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
