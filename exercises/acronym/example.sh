@@ -5,9 +5,8 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-phrase=$(echo "$1" | tr '-' ' ')
-set -f -- junk $phrase
-shift
+phrase=$(echo "$1" | tr -s '*-' ' ')
+set -f -- $phrase
 
 shopt -s extglob
 for word; do

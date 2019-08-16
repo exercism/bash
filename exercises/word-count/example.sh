@@ -1,6 +1,6 @@
 #!/bin/bash
 
-init_var=$(echo -e "$1" | tr -d '!@$%^&:.')
+init_var=$(echo -e "$1" | tr -d '*!@$%^&:.')
 preprocessed_var=$(echo "${init_var//[$'\n,']/ }" | tr '[:upper:]' '[:lower:]')
 
 read -r -a words <<< "$preprocessed_var"

@@ -139,3 +139,12 @@
   [[ $(wc -l <<< "$output") -eq 3 ]]
 }
 
+@test "contains shell globbing character" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash word_count.sh "two * words"
+  [[ $status -eq 0 ]]
+  echo "$output" | grep -qFx "two: 1"
+  echo "$output" | grep -qFx "words: 1"
+  [[ $(wc -l <<< "$output") -eq 2 ]]
+}
+

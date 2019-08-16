@@ -75,3 +75,27 @@ END
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
 }
+
+@test "items with whitespace" {
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    expected=$(cat <<END
+For want of a rusty nail the horse shoe was lost.
+And all for the want of a rusty nail.
+END
+)
+    run bash proverb.sh "rusty nail" "horse shoe"
+    [[ $status -eq 0 ]]
+    [[ $output == "$expected" ]]
+}
+
+@test "shell globbing character" {
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    expected=$(cat <<END
+For want of a quotes the * was lost.
+And all for the want of a quotes.
+END
+)
+    run bash proverb.sh quotes "*"
+    [[ $status -eq 0 ]]
+    [[ $output == "$expected" ]]
+}

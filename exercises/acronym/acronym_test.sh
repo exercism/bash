@@ -62,3 +62,10 @@
   [[ "$status" -eq 0 ]]
   [[ "$output" == "TRNT" ]]
 }
+
+@test "contains shell globbing character" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash acronym.sh "Two * Words"
+  [[ "$status" -eq 0 ]]
+  [[ "$output" == "TW" ]]
+}
