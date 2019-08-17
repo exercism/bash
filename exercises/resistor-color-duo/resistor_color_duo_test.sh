@@ -32,5 +32,12 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash resistor_color_duo.sh foo
     [[ $status -eq 1 ]]
-    [[ $output == "invalid color" ]]
+    [[ $output == *"invalid color"* ]]
+}
+
+@test "ignore too many colors" {
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    run bash resistor_color_duo.sh green brown orange
+    [[ $status -eq 0 ]]
+    [[ $output == "51" ]]
 }

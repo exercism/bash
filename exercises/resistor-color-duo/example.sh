@@ -18,13 +18,14 @@ code() {
     if [[ -n $code ]]; then
         echo "$code"
     else
-        echo "invalid color" >&2
+        echo "invalid color: $1" >&2
         return 1
     fi
 }
 
+# silently ignore extra colors
 result=""
-for color; do 
+for color in "$1" "$2"; do 
     if code=$(code "$color"); then
         result+="$code"
     else
