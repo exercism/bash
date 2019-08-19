@@ -157,3 +157,11 @@
     [[ $status -eq 0 ]]
     [[ $output == "ickquay astfay unray" ]]
 }
+
+# danger this way lies
+@test "shell globbing" {
+    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    run bash pig_latin.sh "pig*"
+    [[ $status -eq 0 ]]
+    [[ $output == "ig*pay" ]]
+}
