@@ -13,7 +13,6 @@
     expected="1 2"
     run bash series.sh 12 1
     [[ $status -eq 0 ]]
-    IFS=' '
     [[ $output == "$expected" ]]
 }
 
@@ -30,7 +29,6 @@
     expected="91 14 42"
     run bash series.sh 9142 2
     [[ $status -eq 0 ]]
-    IFS=' '
     [[ $output == "$expected" ]]
 }
 
@@ -39,7 +37,6 @@
     expected="777 777 777 777"
     run bash series.sh 777777 3
     [[ $status -eq 0 ]]
-    IFS=' '
     [[ $output == "$expected" ]]
 }
 
@@ -48,7 +45,6 @@
     expected="91849 18493 84939 49390 93904 39042 90424 04243"
     run bash series.sh 918493904243 5
     [[ $status -eq 0 ]]
-    IFS=' '
     [[ $output == "$expected" ]]
 }
 
