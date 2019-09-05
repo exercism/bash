@@ -1,18 +1,13 @@
 #!/usr/bin/env bash
 
 set -o errexit   # Stop script on command error
-set -o nounset   # Error out if accessing undefined variable name
+#set -o nounset   # Error out if accessing undefined variable name
 set -o pipefail  # Error out if any step in a pipe errors out
 
-if [[ $# -ne 4 ]]; then
+usage () {
   echo "Usage: $0 [equilateral | isosceles | scalene] <s1> <s2> <s3>"
   exit 2 # Improper inputs
-fi
-
-triangle_type=$1
-s1=$2
-s2=$3
-s3=$4
+}
 
 assert() {
   # Takes a numerical inequality in a string.
@@ -22,14 +17,7 @@ assert() {
 }
 
 output() {
-  exit_code=$1
-
-  if [ $exit_code -eq 0 ]; then
-    echo "true"
-  else
-    echo "false"
-  fi
-
+  [[ $1 -eq 0 ]] && echo 'true' || echo 'false'
   exit 0
 }
 
@@ -43,34 +31,28 @@ valid_triangle() {
   return 0
 }
 
-if ! valid_triangle $s1 $s2 $s3; then
-  # Sides do not meet triangle inequality requirement
-  # Given a <= b <= c and a, b, c != 0, a + b >= c
-  output 1
-fi
+validate_args () {
+  [[ $# -eq 3 ]] || usage
+  valid_triangle "$@"
+}
 
 equilateral() {
+  validate_args "$@" || output 1
   assert "$1 == $2" && assert "$1 == $3"
 
   output $?
 }
 
 isosceles() {
+  validate_args "$@" || output 1
   assert "$1 == $2" || assert "$1 == $3" || assert "$2 == $3"
 
   output $?
 }
 
 scalene() {
+  validate_args "$@" || output 1
   assert "$1 != $2" && assert "$1 != $3" && assert "$2 != $3"
 
   output $?
 }
-
-# Bash Ternary Operator:
-# (boolean value/calculation) && action if true || action if false
-# Works because of boolean shortcutting.
-# If boolean clause is false, it doesn't evaluate the other side of &&
-# If first thing is false, it evaluates the item after ||,
-# but if first two are true, doesn't bother evaluating last part.
-$triangle_type $s1 $s2 $s3 && exit 0 || exit 1
