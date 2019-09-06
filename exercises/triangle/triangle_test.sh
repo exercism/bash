@@ -85,14 +85,14 @@
 
 @test "second triangle inequality violation" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash triangle.sh isosceles 1 1 3
+  run bash triangle.sh isosceles 1 3 1
   [[ $status -eq 0 ]]
   [[ $output == "false" ]]
 }
 
 @test "third triangle inequality violation" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash triangle.sh isosceles 1 1 3
+  run bash triangle.sh isosceles 3 1 1
   [[ $status -eq 0 ]]
   [[ $output == "false" ]]
 }
