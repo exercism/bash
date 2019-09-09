@@ -36,7 +36,7 @@ This should output some terse information about the version of bash you are runn
 If it does not, you may not have bash installed.
 You should install it using your distributions package manager.
 
-For Windows based Operating Systems, you may need to first install [Cygwin](https://cygwin.com/).
+For Windows based Operating Systems, you may need to first install [Cygwin](https://cygwin.com/) or [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 For Apple OSX:
 * open Finder,
