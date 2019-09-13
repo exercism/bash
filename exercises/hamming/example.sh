@@ -22,11 +22,7 @@ trap __at_exit_cleanup EXIT
 str1="$1"
 str2="$2"
 
-
-[[ -z $str1 && -n $str2 ]] && die "left strand must not be empty"
-[[ -n $str1 && -z $str2 ]] && die "right strand must not be empty"
 (( ${#str1} != ${#str2} )) && die "left and right strands must be of equal length"
-
 
 echo "$str1" | fold -w1 > $file1
 echo "$str2" | fold -w1 > $file2
