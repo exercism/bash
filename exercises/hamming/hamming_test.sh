@@ -53,14 +53,14 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh '' 'G'
   [[ $status -eq 1 ]]
-  [[ $output == 'left strand must not be empty' ]]
+  [[ $output == 'left and right strands must be of equal length' ]]
 }
 
 @test 'disallow right empty strand' {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh 'G' ''
   [[ $status -eq 1 ]]
-  [[ $output == 'right strand must not be empty' ]]
+  [[ $output == 'left and right strands must be of equal length' ]]
 }
 
 @test "no input" {
