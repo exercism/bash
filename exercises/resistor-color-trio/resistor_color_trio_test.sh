@@ -14,6 +14,13 @@
     [[ $output == "680 ohms" ]]
 }
 
+@test "Brown and red and red" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash resistor_color_trio.sh "brown" "red" "red"
+    [[ $status -eq 0 ]]
+    [[ $output == "1200 ohms" ]]
+}
+
 @test "Red and black and red" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_trio.sh "red" "black" "red"
