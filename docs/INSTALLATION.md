@@ -1,9 +1,10 @@
 ## Linux
 
-Bash, as the GNU shell, will be found on any GNU/Linux system. It is usually found on any BSD or Unix based system.
+Bash, as the GNU shell, will be found on any GNU/Linux system. 
+BSD and other UNIX derivatives will likely require installation by the user.
+If you are on BSD, AIX, or a Linux that doesn't come with bash please consult your operating system's resources regarding installation of non-core packages.
 
-In the graphical interface of your choice, look for an application named "Terminal".
-Alternatively, Ctrl+Alt+F2 should take you to a system console (Ctrl+Alt+F1 or F7 to return to your Graphical desktop).
+In the graphical interface of your choice, look for an application named "Terminal": it might be found under an "Administrative/System Tools" section.
 
 To verify the version of Bash available, from the command line or terminal, run:
 
