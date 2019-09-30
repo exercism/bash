@@ -1,6 +1,9 @@
-Bash is usually found on any Linux, BSD, or Unix based systems.
+## Linux
+
+Bash, as the GNU shell, will be found on any GNU/Linux system. It is usually found on any BSD or Unix based system.
+
 In the graphical interface of your choice, look for an application named "Terminal".
-Alternatively, Ctrl+Alt+F2 should take you to a shell login (Ctrl+Alt+F1 or F7 to return to Graphical mode).
+Alternatively, Ctrl+Alt+F2 should take you to a system console (Ctrl+Alt+F1 or F7 to return to your Graphical desktop).
 
 To verify the version of Bash available, from the command line or terminal, run:
 
@@ -32,13 +35,25 @@ This is free software; you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 ```
 
-This should output some terse information about the version of bash you are running.
 If it does not, you may not have bash installed.
 You should install it using your distributions package manager.
 
-For Windows, you may need to install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Alternatively, you can install [Cygwin](https://cygwin.com/).
+## Windows
+
+For Windows 10, you can install [WSL](https://docs.microsoft.com/en-us/windows/wsl/about). 
+This installs a full (well, the non-GUI components) Linux distribution that runs natively in Windows.
+
+Alternatively, you can install:
+
+* [Cygwin](https://cygwin.com/)
+* [git for windows](https://gitforwindows.org/)
+* [MinGW](http://mingw.org/)
+* a full Linux distribution in [a virtual machine](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/)
+
+## MacOS
 
 For Apple OSX:
+
 * open Finder,
 * open your Applications folder,
 * open the Utilities folder,
