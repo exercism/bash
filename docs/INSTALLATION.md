@@ -59,3 +59,18 @@ For Apple OSX:
 * open your Applications folder,
 * open the Utilities folder,
 * finally open the `Terminal` application.
+
+Note that the bash version installed on MacOS is very old, version 3.2. 
+This is due to (i) newer bash versions being licensed under the GPLv3 and (ii) Apple not wanting to be forced to comply with the terms of that license.
+Additionally, Apple has signaled that bash will be going away from MacOS: the default login shell was recently [changed from bash to zsh](https://support.apple.com/en-us/HT208050).
+
+To obtain an up-to-date bash on your Mac:
+
+1. install [Homebrew](https://brew.sh)
+1. in a Terminal, enter: `brew install bash`
+
+This installs an up-to-date bash as (I believe) `/usr/local/bin/bash` (so that the system's default bash is not overwritten -- other tools may rely on /bin/bash). 
+
+If you want the homebrew bash to be launched when you type `bash`, then edit your ~/.bash_profile (or ~/.profile) file to put /usr/local/bin *earlier* than /bin in the PATH:
+
+    PATH=/usr/local/bin:$PATH
