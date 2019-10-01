@@ -51,20 +51,10 @@ Additionally, Apple has signaled that bash will be going away from MacOS: the de
 To obtain an up-to-date bash on your Mac:
 
 1. install [Homebrew](https://brew.sh)
-1. open a Terminal and enter: `brew install bash`
+1. in a Terminal, enter: `brew install bash`
 
 This installs an up-to-date bash as (I believe) `/usr/local/bin/bash` (so that the system's default bash is not overwritten -- other tools may rely on /bin/bash). 
 
-If you want homebrew bash to be your default bash:
+If you want the homebrew bash to be launched when you type `bash`, then edit your ~/.bash_profile (or ~/.profile) file to put /usr/local/bin *earlier* than /bin in the PATH:
 
-1. add to your ~/.bash_profile (or ~/.profile) file:
-
-        [[ ":$PATH:" == *":/usr/local/bin:"* ]] || PATH=/usr/local/bin:$PATH
-
-1. add it to the list of allowed login shells:
-
-        echo /usr/local/bin/bash | sudo tee -a /etc/shells
-
-1. change your login shell:
-
-        chsh -s /usr/local/bin/bash
+    PATH=/usr/local/bin:$PATH
