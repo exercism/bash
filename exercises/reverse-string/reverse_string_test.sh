@@ -48,3 +48,10 @@
   [[ $output = "reward" ]]
 }
 
+@test "avoid globbing" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash reverse_string.sh " a *  b"
+
+  [[ $status -eq 0 ]]
+  [[ $output = "b  * a " ]]
+}
