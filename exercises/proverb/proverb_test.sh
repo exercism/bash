@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # canonical-data version: 1.1.0
+# plus additional track-specific tests
 
 @test "zero pieces" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

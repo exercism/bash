@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # canonical-data version: 1.2.0
+# plus additional track-specific tests
 
 # "ay" is added to words that start with vowels
 
