@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 3.1.0
+# canonical-data version: 3.2.0
 
 # Input parameters are:
 # 1. starting x position
