@@ -276,6 +276,7 @@
     [[ $output == "00:20" ]]
 }
 
+# Omit the "Compare two clocks for equality" tests
 
 # Error conditions
 
