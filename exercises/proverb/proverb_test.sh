@@ -78,6 +78,10 @@ END
     [[ $output == "$expected" ]]
 }
 
+# bash-specific tests: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
 @test "items with whitespace" {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END

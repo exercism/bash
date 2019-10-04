@@ -65,6 +65,10 @@
   [[ "$output" == "TRNT" ]]
 }
 
+# bash-specific test: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
 @test "contains shell globbing character" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash acronym.sh "Two * Words"
