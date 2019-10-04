@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "first day a partridge in a pear tree" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END

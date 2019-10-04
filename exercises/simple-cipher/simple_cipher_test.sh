@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.0.0
+
 # Random key cipher"
 
 @test  "Can generate a random key" {

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.0.0
+
 @test "Orange and orange and black" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_trio.sh "orange" "orange" "black"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "Yacht" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash yacht.sh "yacht" 5 5 5 5 5

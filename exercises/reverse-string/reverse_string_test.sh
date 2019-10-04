@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "an empty string" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh ""

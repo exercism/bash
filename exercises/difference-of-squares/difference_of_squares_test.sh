@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 # Square the sum of the numbers up to the given number
 @test "square of sum 1" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

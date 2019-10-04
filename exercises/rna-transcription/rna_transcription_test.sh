@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.3.0
+
 @test "Empty RNA sequence" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash rna_transcription.sh

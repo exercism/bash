@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.5.0
+
 @test "just a number" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash wordy.sh "What is 5?"

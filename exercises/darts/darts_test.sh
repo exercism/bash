@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.2.0
+
 @test "Missed target" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash darts.sh -9 9

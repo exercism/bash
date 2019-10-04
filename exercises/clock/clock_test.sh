@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.4.0
+
 # usage: clock.sh h m [{+|-} mm]
 # where:
 #       h = an hour value

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.1.0
+
 @test 'first_generic_verse' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.

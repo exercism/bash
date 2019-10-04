@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.7.0
+
 # Check if the given string is an isogram
 
 @test 'empty string' {

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.7.0
+
 @test 'basic' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash acronym.sh 'Portable Network Graphics'

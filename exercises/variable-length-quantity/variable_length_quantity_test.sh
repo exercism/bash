@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 #
 # *** Input and Output numbers are expressed in hexadecimal.
 #

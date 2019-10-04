@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.1.0
+
 
 @test "monteenth of May 2013" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.5.0
+
 @test "no matches" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash anagram.sh "diaper" "hello world zombies pants"

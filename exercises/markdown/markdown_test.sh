@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.4.0
+
 # uses external tool: mktemp
 
 setup()    { export MD_FILE=$( mktemp ); }

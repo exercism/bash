@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.0.0
+
 @test 'no_allergies_means_not_allergic' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash allergies.sh 0 allergic_to peanuts

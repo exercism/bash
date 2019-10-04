@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.4.0
+
 @test "count one word" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash word_count.sh "word"

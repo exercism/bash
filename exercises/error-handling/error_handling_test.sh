@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: <none>
+
 @test "correct arguments" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash error_handling.sh Alice

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "rotate a by 0, same output as input" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="a"

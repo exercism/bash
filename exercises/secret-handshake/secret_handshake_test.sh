@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "wink for 1" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash secret_handshake.sh 1

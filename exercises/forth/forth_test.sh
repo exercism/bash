@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.7.1
+
 # parsing and numbers
 @test numbers_only {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

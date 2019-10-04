@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.1.0
+
 @test "first prime" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash nth_prime.sh 1

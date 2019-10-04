@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 
 @test "finds the smallest palindrome from single digit factors" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip

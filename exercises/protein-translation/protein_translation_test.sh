@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.1.1
+
 # Translate input RNA sequences into proteins
 
 @test "Methionine RNA sequence" {       

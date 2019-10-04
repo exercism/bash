@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.1.0
+
 @test "brown black" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash resistor_color_duo.sh brown black

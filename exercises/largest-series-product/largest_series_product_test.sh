@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 
 @test "finds the largest product if span equals length" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

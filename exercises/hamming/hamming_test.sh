@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.3.0
+
 @test 'empty strands' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash hamming.sh '' ''

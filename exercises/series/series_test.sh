@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.0.0
+
 @test "slices of one from one" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="1"

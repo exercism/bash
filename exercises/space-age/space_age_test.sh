@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "age on Earth" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=31.69

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.6.1
+
 @test "single digit strings can not be valid" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash luhn.sh "1"

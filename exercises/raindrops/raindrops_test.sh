@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.1.0
+
 @test "the sound for 1 is 1" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash raindrops.sh 1

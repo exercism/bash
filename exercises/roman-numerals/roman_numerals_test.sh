@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 @test "1 is a single I" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash roman_numerals.sh 1

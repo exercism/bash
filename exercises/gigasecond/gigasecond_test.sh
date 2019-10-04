@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.0.0
+
 # Ensure your date calculations are done using UTC time zone
 
 @test 'date only specificaion of time' {

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 # "ay" is added to words that start with vowels
 
 @test word_beginning_with_a {

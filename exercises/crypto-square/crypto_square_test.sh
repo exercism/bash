@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 3.2.0
+
 
 @test "empty plaintext results in an empty ciphertext" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip

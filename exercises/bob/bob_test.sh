@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.4.0
+
 @test "stating something" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Tom-ay-to, tom-aaaah-to.'

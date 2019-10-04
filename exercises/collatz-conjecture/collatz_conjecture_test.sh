@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.1
+
 @test "zero steps for one" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash collatz_conjecture.sh 1

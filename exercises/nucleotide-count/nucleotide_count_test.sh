@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.3.0
+
 # count all nucleotides in a strand
 
 @test "empty strand" {

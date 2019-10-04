@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.4.0
+
 @test "Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="moves: 4, goalBucket: one, otherBucket: 5"

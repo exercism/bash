@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 3.1.0
+
 # Input parameters are:
 # 1. starting x position
 # 2. starting y position

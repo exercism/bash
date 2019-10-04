@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.1.0
+
 # "Perfect numbers"
 
 @test "Smallest perfect number is classified correctly" {

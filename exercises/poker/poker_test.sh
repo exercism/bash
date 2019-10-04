@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.1.0
+
 
 @test "single hand always wins" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip

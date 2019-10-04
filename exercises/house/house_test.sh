@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.2.0
+
 @test "verse 1" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="This is the house that Jack built."

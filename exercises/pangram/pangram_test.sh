@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 2.0.0
+
 # Check if the given string is a pangram
 
 @test "empty sentence" {

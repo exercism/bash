@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.0
+
 setup() {
     cat > iliad.txt << END_ILIAD
 Achilles sing, O Goddess! Peleus' son;

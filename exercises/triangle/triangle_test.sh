@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# canonical-data version: 1.2.1
+
 # Test returns true if the triangle is equilateral
 
 @test "all sides are equal, equilateral" {
