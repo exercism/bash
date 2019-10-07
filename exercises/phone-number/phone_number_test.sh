@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.7.0
+# local version: 1.7.0.0
 
 @test "cleans the number" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

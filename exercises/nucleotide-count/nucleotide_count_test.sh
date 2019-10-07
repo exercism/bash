@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.3.0
+# local version: 1.3.0.0
 
 # count all nucleotides in a strand
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 2.0.0
+# local version: 2.0.0.0
 
 # Ensure your date calculations are done using UTC time zone
 

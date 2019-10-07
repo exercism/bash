@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.2.1
+# local version: 1.2.1.0
 
 # Test returns true if the triangle is equilateral
 

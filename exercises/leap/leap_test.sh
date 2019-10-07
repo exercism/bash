@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.6.0
+# local version: 1.6.0.0
 
 @test 'year not divisible by 4: common year' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

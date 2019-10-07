@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.3.0
+# local version: 1.3.0.0
 
 # Note: don't bother checking if the input array is
 # sorted. Just assume that it is.

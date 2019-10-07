@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 2.7.0
+# local version: 2.7.0.0
 
 @test 'valid isbn number' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

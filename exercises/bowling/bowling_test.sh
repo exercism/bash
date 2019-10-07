@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.2.0
+# local version: 1.2.0.0
 
 # The canonical cases call for the implementation of
 # _methods_ `score` and `roll`. That's not feasible for a

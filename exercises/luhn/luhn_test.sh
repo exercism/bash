@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.6.1
+# local version: 1.6.1.0
 
 @test "single digit strings can not be valid" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

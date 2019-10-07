@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.4.0
+# local version: 1.4.0.0
 # plus additional track-specific tests
 
 @test "count one word" {

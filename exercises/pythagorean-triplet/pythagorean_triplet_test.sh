@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.0.0
+# local version: 1.0.0.0
 
 # Output your triplets, comma-separated, one per line.
 

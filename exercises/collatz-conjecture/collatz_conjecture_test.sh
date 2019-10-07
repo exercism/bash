@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.2.1
+# local version: 1.2.1.0
 
 @test "zero steps for one" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

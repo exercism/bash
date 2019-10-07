@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.4.0
+# local version: 1.4.0.0
 
 @test "stating something" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

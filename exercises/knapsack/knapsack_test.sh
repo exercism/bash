@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.0.0
+# local version: 1.0.0.0
 
 # Usage: knapsack.sh max_wt [items ...]
 # where: items look like "weight:value"

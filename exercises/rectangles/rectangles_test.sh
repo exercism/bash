@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.1.0
+# local version: 1.1.0.0
 
 # The rectangles.sh script will read the input from stdin.
 

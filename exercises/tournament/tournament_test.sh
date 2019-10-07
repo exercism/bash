@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.4.0
+# local version: 1.4.0.0
 
 # Your bash program should be able to accept input
 # 1. via standard input, OR

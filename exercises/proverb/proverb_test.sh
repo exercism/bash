@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.1.0
+# local version: 1.1.0.0
 # plus additional track-specific tests
 
 @test "zero pieces" {

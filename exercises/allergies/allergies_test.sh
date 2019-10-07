@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 2.0.0
+# local version: 2.0.0.0
 
 @test 'no_allergies_means_not_allergic' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

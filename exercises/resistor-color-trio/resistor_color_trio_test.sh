@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.0.0
+# local version: 1.0.0.0
 
 @test "Orange and orange and black" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip

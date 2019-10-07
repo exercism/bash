@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.2.0
+# local version: 1.2.0.0
 
 # Square the sum of the numbers up to the given number
 @test "square of sum 1" {

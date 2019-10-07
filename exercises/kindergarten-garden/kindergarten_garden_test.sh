@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.1.1
+# local version: 1.1.1.0
 
 # Note: using ANSI-C Quoting here
 # see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting

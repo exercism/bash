@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 2.3.0
+# local version: 2.3.0.0
 
 @test 'single bit to one decimal' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

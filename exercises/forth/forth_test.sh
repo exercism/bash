@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.7.1
+# local version: 1.7.1.0
 
 # parsing and numbers
 @test numbers_only {

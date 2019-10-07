@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 2.4.0
+# local version: 2.4.0.0
 #
 # * The canonical "Compare two clocks for equality" tests
 #   have not been included: for bash they will simply be 

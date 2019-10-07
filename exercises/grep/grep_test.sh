@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# canonical-data version: 1.2.0
+# local version: 1.2.0.0
 
 setup() {
     cat > iliad.txt << END_ILIAD
