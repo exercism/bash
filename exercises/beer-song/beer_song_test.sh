@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: 2.1.0.0
+# local version: 2.1.0.1
 
 @test 'first_generic_verse' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
@@ -381,6 +381,8 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
 }
+
+# bash-specific tests: Input validation
 
 @test 'no_arguments' {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip

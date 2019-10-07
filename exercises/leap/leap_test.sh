@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# local version: 1.6.0.0
+# local version: 1.6.0.1
+# bash-specific test: Input validation
 
 @test 'year not divisible by 4: common year' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

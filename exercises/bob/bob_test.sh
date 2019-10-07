@@ -183,4 +183,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "Fine. Be that way!" ]]
 }
-

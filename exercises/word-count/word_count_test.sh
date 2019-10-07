@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: 1.4.0.0
-# plus additional track-specific tests
+# local version: 1.4.0.1
 
 @test "count one word" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

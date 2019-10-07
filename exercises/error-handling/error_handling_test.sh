@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: <none>.0
+# local version: <none>
 
 @test "correct arguments" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: 1.7.0.0
-# plus additional track-specific tests
+# local version: 1.7.0.1
 
 @test 'basic' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

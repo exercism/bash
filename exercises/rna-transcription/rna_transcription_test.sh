@@ -64,4 +64,3 @@
   [[ $status -eq 1 ]]
   [[ $output == "Invalid nucleotide detected." ]]
 }
-

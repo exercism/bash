@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# local version: 1.2.0.0
+# local version: 1.2.0.1
+# bash-specific test: Input validation
 
 
 @test "finds the smallest palindrome from single digit factors" {

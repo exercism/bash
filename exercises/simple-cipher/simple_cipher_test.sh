@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# local version: 2.0.0.0
+# local version: 2.0.0.1
+# bash-specific test: Input validation, lower-casing
 
 # Random key cipher"
 

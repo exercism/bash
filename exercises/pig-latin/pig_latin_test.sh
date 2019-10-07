@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: 1.2.0.0
-# plus additional track-specific tests
+# local version: 1.2.0.1
 
 # "ay" is added to words that start with vowels
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# local version: 1.0.0.0
+# local version: 1.0.0.1
+# additional tests for invalid color
 
 @test "Orange and orange and black" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip

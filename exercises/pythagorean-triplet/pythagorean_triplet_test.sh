@@ -39,6 +39,9 @@
     [[ $output == "" ]]
 }
 
+# Note: using ANSI-C Quoting here
+# see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
+
 @test "returns all matching triplets" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash pythagorean_triplet.sh 90

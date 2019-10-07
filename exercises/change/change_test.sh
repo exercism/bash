@@ -101,4 +101,3 @@
     [[ $status -ne 0 ]]
     [[ $output == *"$expected"* ]]
 }
-

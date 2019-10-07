@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# local version: 3.2.0.0
+# local version: 3.2.0.1
+# bash-specific test: Input validation
 
 # Input parameters are:
 # 1. starting x position

@@ -43,4 +43,3 @@
   [[ $status -eq 1 ]]
   [[ $output == "Error: Only positive numbers are allowed" ]]
 }
-

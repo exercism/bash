@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# local version: 2.3.0.0
+# local version: 2.3.0.1
+# 
+# bash-specific test: Input validation
 
 @test 'empty strands' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip

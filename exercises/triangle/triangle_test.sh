@@ -146,4 +146,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "true" ]]
 }
-

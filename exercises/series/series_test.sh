@@ -81,4 +81,3 @@
     [[ $status -eq 1 ]]
     [[ $output == *"$expected"* ]]
 }
-      
