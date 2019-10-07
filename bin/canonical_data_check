@@ -82,9 +82,11 @@ do
   fi
 
   test_file="$path_to_track/exercises/$slug/${slug//-/_}_test.sh"
-  test_file_version=$( awk '/# canonical-data version: / {print $NF}' "$test_file" )
+  test_file_version=$( awk '/# local version: / {print $NF}' "$test_file" )
 
-  if [ "$track_data_version" != "$test_file_version" ]
+  # the test file version number must include the .meta
+  # version number as a prefix
+  if [[ $test_file_version != "$track_data_version"* ]]
   then
     update_needed_count=$((update_needed_count + 1))
     echo "$slug: mismatch between meta version ($track_data_version) and test file ($test_file_version)."
