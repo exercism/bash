@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 @test "first day a partridge in a pear tree" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=$(cat <<END

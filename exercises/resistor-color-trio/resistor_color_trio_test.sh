@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# local version: 1.0.0.1
+# additional tests for invalid color
+
 @test "Orange and orange and black" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_trio.sh "orange" "orange" "black"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 # usage: dnd_character.sh modifier n
 # -> output expected modifier
 

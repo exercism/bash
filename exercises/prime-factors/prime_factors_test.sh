@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 @test "no factors" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=""

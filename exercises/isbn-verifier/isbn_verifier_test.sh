@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.7.0.0
+
 @test 'valid isbn number' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash isbn_verifier.sh '3-598-21508-8'
@@ -118,4 +120,3 @@
   [[ $status -eq 0 ]]
   [[ $output == 'false' ]]
 }
-

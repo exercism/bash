@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.4.0.0
+
 # uses external tool: mktemp
 
 setup()    { export MD_FILE=$( mktemp ); }

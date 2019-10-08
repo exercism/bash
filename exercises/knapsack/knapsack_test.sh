@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# local version: 1.0.0.1
+# bash-specific test: Input validation
+
 # Usage: knapsack.sh max_wt [items ...]
 # where: items look like "weight:value"
 # example:

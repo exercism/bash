@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.5.0.0
+
 
 @test "zero rows" {
     #[[ $BATS_RUN_SKIPPED == true ]] || skip

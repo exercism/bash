@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.7.0.1
+
 @test 'basic' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash acronym.sh 'Portable Network Graphics'
@@ -62,6 +64,10 @@
   [[ "$status" -eq 0 ]]
   [[ "$output" == "TRNT" ]]
 }
+
+# bash-specific test: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "contains shell globbing character" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip

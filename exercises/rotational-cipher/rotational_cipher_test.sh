@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 @test "rotate a by 0, same output as input" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="a"

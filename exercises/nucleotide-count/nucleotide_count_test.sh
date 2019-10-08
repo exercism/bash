@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.3.0.0
+
 # count all nucleotides in a strand
 
 @test "empty strand" {

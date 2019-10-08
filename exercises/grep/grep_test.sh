@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 setup() {
     cat > iliad.txt << END_ILIAD
 Achilles sing, O Goddess! Peleus' son;

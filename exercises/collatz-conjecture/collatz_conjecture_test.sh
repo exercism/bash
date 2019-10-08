@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.1.0
+
 @test "zero steps for one" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash collatz_conjecture.sh 1
@@ -41,4 +43,3 @@
   [[ $status -eq 1 ]]
   [[ $output == "Error: Only positive numbers are allowed" ]]
 }
-

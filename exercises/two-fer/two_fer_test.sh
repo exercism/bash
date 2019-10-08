@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.1
+
 @test "no name given" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
 
@@ -35,10 +37,20 @@
   [[ $output == "One for Bob, one for me." ]]
 }
 
-@test "handle arg1 properly" {
+# bash-specific test: Focus the student's attention on the effects of
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
+@test "handle arg with spaces" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash two_fer.sh "John Smith" "Mary Ann"
   [[ $status -eq 0 ]]
   [[ $output == "One for John Smith, one for me." ]]
 }
 
+@test "handle arg with glob char" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash two_fer.sh "*"
+  [[ $status -eq 0 ]]
+  [[ $output == "One for *, one for me." ]]
+}

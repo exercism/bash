@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.7.0.0
+
 # Check if the given string is an isogram
 
 @test 'empty string' {

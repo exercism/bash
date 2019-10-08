@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.4.0.1
+
 @test "count one word" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash word_count.sh "word"
@@ -139,6 +141,10 @@
   [[ $(wc -l <<< "$output") -eq 3 ]]
 }
 
+# bash-specific test: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
 @test "contains shell globbing character" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash word_count.sh "two * words"
@@ -147,4 +153,3 @@
   echo "$output" | grep -qFx "words: 1"
   [[ $(wc -l <<< "$output") -eq 2 ]]
 }
-

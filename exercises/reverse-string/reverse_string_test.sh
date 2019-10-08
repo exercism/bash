@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.1
+
 @test "an empty string" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh ""
@@ -47,6 +49,10 @@
   [[ $status -eq 0 ]]
   [[ $output = "reward" ]]
 }
+
+# bash-specific test: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "avoid globbing" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip

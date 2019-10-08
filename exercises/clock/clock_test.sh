@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
-# usage: clock.sh h m [{+|-} mm]
+# local version: 2.4.0.1
+#
+# * The canonical "Compare two clocks for equality" tests
+#   have not been included: for bash they will simply be 
+#   string equality tests, so no added value.
+#
+# * Some extra tests have been added to detect invalid arguments.
+
+
+# usage: clock.sh h m [{+|-} delta]
 # where:
 #       h = an hour value
 #       m = a minute value
@@ -8,10 +17,6 @@
 #       a time delta (in minutes) to apply to the initial clock value
 #
 # The clock script will output the clock value in %H:%M format
-#
-# The canonical data for this exercise contains loads of
-# equality tests. These are omitted here as they will boil
-# down to simple string equality tests.
 
 
 # Create a new clock with an initial time
@@ -275,7 +280,8 @@
 }
 
 
-# Error conditions
+# Error conditions: We expect non-zero exit status, and
+# some error message to be output (your choice for wording).
 
 @test "no args" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.0.0.0
+
 @test "slices of one from one" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="1"
@@ -79,4 +81,3 @@
     [[ $status -eq 1 ]]
     [[ $output == *"$expected"* ]]
 }
-      

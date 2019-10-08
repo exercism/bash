@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 
 @test "finds the largest product if span equals length" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.1.0
+
 # Translate input RNA sequences into proteins
 
 @test "Methionine RNA sequence" {       

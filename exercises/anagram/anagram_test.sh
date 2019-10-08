@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.5.0.0
+
 @test "no matches" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash anagram.sh "diaper" "hello world zombies pants"

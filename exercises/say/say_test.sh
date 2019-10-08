@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 @test zero {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash say.sh 0

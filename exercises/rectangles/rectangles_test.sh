@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 # The rectangles.sh script will read the input from stdin.
 
 @test "no rows" {

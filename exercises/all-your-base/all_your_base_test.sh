@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.3.0.0
+
 @test 'single bit to one decimal' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash all_your_base.sh 2 "1" 10

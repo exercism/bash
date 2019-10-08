@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 #
 # *** Input and Output numbers are expressed in hexadecimal.
 #

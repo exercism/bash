@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.3.0.0
+
 # Test creation of Queens with invalid positions
 
 @test "queen must have positive row" {

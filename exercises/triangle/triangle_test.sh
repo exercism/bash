@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.1.0
+
 # Test returns true if the triangle is equilateral
 
 @test "all sides are equal, equilateral" {
@@ -144,4 +146,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "true" ]]
 }
-

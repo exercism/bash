@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.0.0.0
+
 # encode
 
  @test "encode yes" {

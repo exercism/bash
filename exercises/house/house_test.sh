@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# local version: 2.2.0.1
+# bash-specific test: Input validation
+
 @test "verse 1" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="This is the house that Jack built."
@@ -366,4 +369,3 @@ END
     [[ $status -ne 0 ]]
     [[ $output == *invalid* ]]
 }
-

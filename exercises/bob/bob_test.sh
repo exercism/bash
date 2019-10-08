@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.4.0.0
+
 @test "stating something" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash bob.sh 'Tom-ay-to, tom-aaaah-to.'
@@ -181,4 +183,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "Fine. Be that way!" ]]
 }
-

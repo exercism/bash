@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 # The canonical cases call for the implementation of
 # _methods_ `score` and `roll`. That's not feasible for a
 # shell script. We'll just pass in all the individual rolls

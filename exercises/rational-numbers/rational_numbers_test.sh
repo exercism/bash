@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 # Addition
 
 @test "Add two positive rational numbers" {
@@ -294,4 +296,3 @@
     [[ $status -eq 0 ]]
     [[ $output ==  "0/1" ]]
 }
-

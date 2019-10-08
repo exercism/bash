@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.3.0.0
+
 # Note: don't bother checking if the input array is
 # sorted. Just assume that it is.
 
@@ -103,4 +105,3 @@
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
 }
-

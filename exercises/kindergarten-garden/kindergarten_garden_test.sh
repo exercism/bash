@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.1.0
+
 # Note: using ANSI-C Quoting here
 # see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
 

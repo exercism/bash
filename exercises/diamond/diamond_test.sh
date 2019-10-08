@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 @test "Degenerate case with a single 'A' row" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   expected="$(cat << EOT

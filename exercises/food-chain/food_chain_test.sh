@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.1.0.0
+
 @test 'fly' {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="I know an old lady who swallowed a fly.

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.0.0.0
+
 # Output your triplets, comma-separated, one per line.
 
 
@@ -36,6 +38,9 @@
     [[ $status -eq 0 ]]
     [[ $output == "" ]]
 }
+
+# Note: using ANSI-C Quoting here
+# see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
 
 @test "returns all matching triplets" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip

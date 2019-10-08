@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.0
+
 @test "1" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash grains.sh 1
@@ -76,4 +78,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "18446744073709551615" ]]
 }
-

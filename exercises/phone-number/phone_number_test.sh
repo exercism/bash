@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.7.0.0
+
 @test "cleans the number" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash phone_number.sh "(223) 456-7890"

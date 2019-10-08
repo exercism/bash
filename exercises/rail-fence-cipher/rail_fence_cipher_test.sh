@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.1
+
 # Encoding
 
 @test "empty text" {

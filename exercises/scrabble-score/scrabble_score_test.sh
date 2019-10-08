@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 @test 'lowercase letter' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'a'

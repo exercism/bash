@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 # Lists are ordered and sequential: do not sort or reorder them.
 # Lists are given in JSON format.
 

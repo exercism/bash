@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.0.0.0
+
 @test "private key is in range" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     for i in 5 7 11 13 17 19 23 29 31 27 41 43 47; do

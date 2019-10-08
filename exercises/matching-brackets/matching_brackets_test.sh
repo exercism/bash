@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.0.0.0
+
 
 @test "paired square brackets" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

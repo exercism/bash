@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.4.0.0
+
 # Your bash program should be able to accept input
 # 1. via standard input, OR
 # 2. as a filename given on the cmd line.

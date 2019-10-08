@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.2.0.1
+
 @test "Missed target" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash darts.sh -9 9
@@ -90,6 +92,8 @@
     [[ $status -eq 0 ]]
     [[ $output == 5 ]]
 }
+
+# bash-specific test: Input validation
 
 @test "invalid args: no args" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip

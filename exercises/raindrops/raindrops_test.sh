@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 @test "the sound for 1 is 1" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash raindrops.sh 1
@@ -125,4 +127,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "Plang" ]]
 }
-

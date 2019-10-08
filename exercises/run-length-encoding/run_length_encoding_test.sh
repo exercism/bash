@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 # run-length encode a string
 
 @test "encode empty string" {

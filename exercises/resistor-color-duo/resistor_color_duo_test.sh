@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# local version: 2.1.0.1
+# add test for invalid color
+
 @test "brown black" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash resistor_color_duo.sh brown black

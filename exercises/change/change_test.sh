@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.3.0.0
+
 
 @test "single coin change" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
@@ -99,4 +101,3 @@
     [[ $status -ne 0 ]]
     [[ $output == *"$expected"* ]]
 }
-

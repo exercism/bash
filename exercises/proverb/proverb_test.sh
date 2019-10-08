@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.1
+
 @test "zero pieces" {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=""
@@ -75,6 +77,10 @@ END
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
 }
+
+# bash-specific tests: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "items with whitespace" {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip

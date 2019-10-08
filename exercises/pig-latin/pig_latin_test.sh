@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.2.0.1
+
 # "ay" is added to words that start with vowels
 
 @test word_beginning_with_a {
@@ -158,7 +160,10 @@
     [[ $output == "ickquay astfay unray" ]]
 }
 
-# danger this way lies
+# bash-specific test: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
 @test "shell globbing" {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash pig_latin.sh "pig*"

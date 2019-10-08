@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.1.0.0
+
 @test "empty spiral" {
     #[[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash spiral_matrix.sh 0

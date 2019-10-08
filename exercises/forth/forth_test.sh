@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 1.7.1.0
+
 # parsing and numbers
 @test numbers_only {
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip

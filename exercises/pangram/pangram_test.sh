@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# local version: 2.0.0.0
+
 # Check if the given string is a pangram
 
 @test "empty sentence" {
@@ -71,4 +73,3 @@
   [[ $status -eq 0 ]]
   [[ $output == "false" ]]
 }
-
