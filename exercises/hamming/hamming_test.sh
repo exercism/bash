@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# local version: 2.3.0.1
+# local version: 2.3.0.2
 # 
-# bash-specific test: Input validation
+# bash-specific test: Input validation, proper quoting
 
 @test 'empty strands' {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
@@ -79,4 +79,15 @@
   run bash hamming.sh 'A'
   [[ $status -eq 1 ]]
   [[ $output == 'Usage: hamming.sh <string1> <string2>' ]]
+}
+
+# Within [[...]] the == operator is a _pattern matching_ operator.
+# To test for string equality, the right-hand side must be
+# quoted to prevent interpretation as a glob-style pattern.
+
+@test "expose subtle '[[ $x == $y ]]' bug" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash hamming.sh 'AAA' 'A?A'
+  [[ $status -eq 0 ]]
+  [[ $output == "1" ]]
 }
