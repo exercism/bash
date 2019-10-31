@@ -14,7 +14,6 @@
 @test "private key is random" {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     # may fail due to randomness
-    local -A keys=()
     local -i n=10 p=32000
     for i in $(seq $n); do
         run bash diffie_hellman.sh privateKey $p
