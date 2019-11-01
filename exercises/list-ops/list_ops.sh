@@ -73,6 +73,6 @@ list::reverse () {
     local -n __result=$2
     local -i size=${#__list[@]}
     for (( i = 0; i < size; i++ )); do
-        __result[size - 1 - i]=${__list[i]}
+        __result[i]=${__list[-1 - i]}
     done
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly EXERCISE_VERSION=2.4.0
+# local version: 2.4.0.0
 
 if [[ ${BASH_VERSINFO[0]} -lt 4 ]]; then
     echo "This exercise requires at least bash version 4" >&2
