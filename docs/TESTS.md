@@ -29,7 +29,7 @@ $ cd bats
 $ ./install.sh $HOME
 ```
 If you discover an error like `cp: cannot create symbolic link '/c/Users/XXX/bin/bats': No such file or directory`,
-you have to copy the `bin/bats` symbolic link to `/c/Users/XXX/bin/bats` manually.
+you have to copy the `bin/bats/libexec/` folder content to `/c/Users/XXX/bin/` manually.
 
 ---
 
