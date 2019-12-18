@@ -36,7 +36,7 @@ done
         inside_a_list=no
     fi
 
-            n=`expr "$line" : "#\+"`
+            n=`expr "$line" : "#\{1,\}"`
             if [ $n -gt 0 ]; then
 
         while [[ $line == *_*?_* ]]; do
