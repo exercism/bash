@@ -1,0 +1,51 @@
+{
+  "solution_files": [
+    "change.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"single coin change\"",
+      "cmd": "bash change.sh 25 \"${coins[@]}\""
+    },
+    {
+      "name": "\"multiple coin change\"",
+      "cmd": "bash change.sh 15 \"${coins[@]}\""
+    },
+    {
+      "name": "\"change with Lilliputian Coins\"",
+      "cmd": "bash change.sh 23 \"${coins[@]}\""
+    },
+    {
+      "name": "\"change with Lower Elbonia Coins\"",
+      "cmd": "bash change.sh 63 \"${coins[@]}\""
+    },
+    {
+      "name": "\"large target values\"",
+      "cmd": "bash change.sh 999 \"${coins[@]}\""
+    },
+    {
+      "name": "\"possible change without unit coins available\"",
+      "cmd": "bash change.sh 21 \"${coins[@]}\""
+    },
+    {
+      "name": "\"another possible change without unit coins available\"",
+      "cmd": "bash change.sh 27 \"${coins[@]}\""
+    },
+    {
+      "name": "\"no coins make 0 change\"",
+      "cmd": "bash change.sh 0 \"${coins[@]}\""
+    },
+    {
+      "name": "\"error testing for change smaller than the smallest of coins\"",
+      "cmd": "bash change.sh 3 \"${coins[@]}\""
+    },
+    {
+      "name": "\"error if no combination can add up to target\"",
+      "cmd": "bash change.sh 94 \"${coins[@]}\""
+    },
+    {
+      "name": "\"cannot find negative change values\"",
+      "cmd": "bash change.sh -5 \"${coins[@]}\""
+    }
+  ]
+}

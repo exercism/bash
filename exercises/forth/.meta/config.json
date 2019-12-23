@@ -1,0 +1,199 @@
+{
+  "solution_files": [
+    "forth.sh"
+  ],
+  "tests": [
+    {
+      "name": "numbers_only",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "addition_ok",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "addition_no_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "addition_one_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "subtraction_ok",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "subtraction_no_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "subtraction_one_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "multiplication_ok",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "multiplication_no_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "multiplication_one_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "division_ok",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "division_int_result",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "division_no_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "division_one_args",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "division_by_zero",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "add_and_subtract",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "multiply_and_divide",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "dup_1",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "dup_2",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "dup_empty",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "drop_1",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "drop_2",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "drop_empty",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "swap_1",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "swap_2",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "swap_empty",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "swap_1arg",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "over_1",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "over_2",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "over_empty",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "over_1arg",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_with_builtin",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_maintain_order",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_can_override_macro",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_can_override_builtin",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_can_override_operator",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_expand_in_macro_definition",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_empty_definition",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_expand_in_macro_redefinition",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_cannot_redefine_numbers",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_undefined",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "macro_missing_semicolon",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "case_dup",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "case_drop",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "case_swap",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "case_over",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "case_macro_names",
+      "cmd": "bash forth.sh <<END"
+    },
+    {
+      "name": "case_macro_definitions",
+      "cmd": "bash forth.sh <<END"
+    }
+  ]
+}

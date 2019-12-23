@@ -1,0 +1,59 @@
+{
+  "solution_files": [
+    "palindrome_products.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"finds the smallest palindrome from single digit factors\"",
+      "cmd": "bash palindrome_products.sh smallest 1 9"
+    },
+    {
+      "name": "\"finds the largest palindrome from single digit factors\"",
+      "cmd": "bash palindrome_products.sh largest 1 9"
+    },
+    {
+      "name": "\"find the smallest palindrome from double digit factors\"",
+      "cmd": "bash palindrome_products.sh smallest 10 99"
+    },
+    {
+      "name": "\"find the largest palindrome from double digit factors\"",
+      "cmd": "bash palindrome_products.sh largest 10 99"
+    },
+    {
+      "name": "\"find smallest palindrome from triple digit factors\"",
+      "cmd": "bash palindrome_products.sh smallest 100 999"
+    },
+    {
+      "name": "\"find the largest palindrome from triple digit factors\"",
+      "cmd": "bash palindrome_products.sh largest 100 999"
+    },
+    {
+      "name": "\"find smallest palindrome from four digit factors\"",
+      "cmd": "bash palindrome_products.sh smallest 1000 9999"
+    },
+    {
+      "name": "\"find the largest palindrome from four digit factors\"",
+      "cmd": "bash palindrome_products.sh largest 1000 9999"
+    },
+    {
+      "name": "\"empty result for smallest if no palindrome in the range\"",
+      "cmd": "bash palindrome_products.sh smallest 1002 1003"
+    },
+    {
+      "name": "\"empty result for largest if no palindrome in the range\"",
+      "cmd": "bash palindrome_products.sh largest 15 15"
+    },
+    {
+      "name": "\"error result for smallest if min is more than max\"",
+      "cmd": "bash palindrome_products.sh smallest 10000 1"
+    },
+    {
+      "name": "\"error result for largest if min is more than max\"",
+      "cmd": "bash palindrome_products.sh largest 2 1"
+    },
+    {
+      "name": "\"error result for first param\"",
+      "cmd": "bash palindrome_products.sh foo 2 3"
+    }
+  ]
+}

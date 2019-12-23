@@ -1,0 +1,387 @@
+{
+  "solution_files": [
+    "meetup.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"monteenth of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 teenth Monday"
+    },
+    {
+      "name": "\"monteenth of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 teenth Monday"
+    },
+    {
+      "name": "\"monteenth of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 teenth Monday"
+    },
+    {
+      "name": "\"tuesteenth of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 teenth Tuesday"
+    },
+    {
+      "name": "\"tuesteenth of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 teenth Tuesday"
+    },
+    {
+      "name": "\"tuesteenth of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 teenth Tuesday"
+    },
+    {
+      "name": "\"wednesteenth of January 2013\"",
+      "cmd": "bash meetup.sh 2013 1 teenth Wednesday"
+    },
+    {
+      "name": "\"wednesteenth of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 teenth Wednesday"
+    },
+    {
+      "name": "\"wednesteenth of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 teenth Wednesday"
+    },
+    {
+      "name": "\"thursteenth of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 teenth Thursday"
+    },
+    {
+      "name": "\"thursteenth of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 teenth Thursday"
+    },
+    {
+      "name": "\"thursteenth of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 teenth Thursday"
+    },
+    {
+      "name": "\"friteenth of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 teenth Friday"
+    },
+    {
+      "name": "\"friteenth of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 teenth Friday"
+    },
+    {
+      "name": "\"friteenth of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 teenth Friday"
+    },
+    {
+      "name": "\"saturteenth of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 teenth Saturday"
+    },
+    {
+      "name": "\"saturteenth of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 teenth Saturday"
+    },
+    {
+      "name": "\"saturteenth of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 teenth Saturday"
+    },
+    {
+      "name": "\"sunteenth of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 teenth Sunday"
+    },
+    {
+      "name": "\"sunteenth of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 teenth Sunday"
+    },
+    {
+      "name": "\"sunteenth of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 teenth Sunday"
+    },
+    {
+      "name": "\"first Monday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 first Monday"
+    },
+    {
+      "name": "\"first Monday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 first Monday"
+    },
+    {
+      "name": "\"first Tuesday of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 first Tuesday"
+    },
+    {
+      "name": "\"first Tuesday of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 first Tuesday"
+    },
+    {
+      "name": "\"first Wednesday of July 2013\"",
+      "cmd": "bash meetup.sh 2013 7 first Wednesday"
+    },
+    {
+      "name": "\"first Wednesday of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 first Wednesday"
+    },
+    {
+      "name": "\"first Thursday of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 first Thursday"
+    },
+    {
+      "name": "\"first Thursday of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 first Thursday"
+    },
+    {
+      "name": "\"first Friday of November 2013\"",
+      "cmd": "bash meetup.sh 2013 11 first Friday"
+    },
+    {
+      "name": "\"first Friday of December 2013\"",
+      "cmd": "bash meetup.sh 2013 12 first Friday"
+    },
+    {
+      "name": "\"first Saturday of January 2013\"",
+      "cmd": "bash meetup.sh 2013 1 first Saturday"
+    },
+    {
+      "name": "\"first Saturday of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 first Saturday"
+    },
+    {
+      "name": "\"first Sunday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 first Sunday"
+    },
+    {
+      "name": "\"first Sunday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 first Sunday"
+    },
+    {
+      "name": "\"second Monday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 second Monday"
+    },
+    {
+      "name": "\"second Monday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 second Monday"
+    },
+    {
+      "name": "\"second Tuesday of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 second Tuesday"
+    },
+    {
+      "name": "\"second Tuesday of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 second Tuesday"
+    },
+    {
+      "name": "\"second Wednesday of July 2013\"",
+      "cmd": "bash meetup.sh 2013 7 second Wednesday"
+    },
+    {
+      "name": "\"second Wednesday of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 second Wednesday"
+    },
+    {
+      "name": "\"second Thursday of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 second Thursday"
+    },
+    {
+      "name": "\"second Thursday of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 second Thursday"
+    },
+    {
+      "name": "\"second Friday of November 2013\"",
+      "cmd": "bash meetup.sh 2013 11 second Friday"
+    },
+    {
+      "name": "\"second Friday of December 2013\"",
+      "cmd": "bash meetup.sh 2013 12 second Friday"
+    },
+    {
+      "name": "\"second Saturday of January 2013\"",
+      "cmd": "bash meetup.sh 2013 1 second Saturday"
+    },
+    {
+      "name": "\"second Saturday of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 second Saturday"
+    },
+    {
+      "name": "\"second Sunday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 second Sunday"
+    },
+    {
+      "name": "\"second Sunday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 second Sunday"
+    },
+    {
+      "name": "\"third Monday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 third Monday"
+    },
+    {
+      "name": "\"third Monday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 third Monday"
+    },
+    {
+      "name": "\"third Tuesday of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 third Tuesday"
+    },
+    {
+      "name": "\"third Tuesday of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 third Tuesday"
+    },
+    {
+      "name": "\"third Wednesday of July 2013\"",
+      "cmd": "bash meetup.sh 2013 7 third Wednesday"
+    },
+    {
+      "name": "\"third Wednesday of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 third Wednesday"
+    },
+    {
+      "name": "\"third Thursday of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 third Thursday"
+    },
+    {
+      "name": "\"third Thursday of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 third Thursday"
+    },
+    {
+      "name": "\"third Friday of November 2013\"",
+      "cmd": "bash meetup.sh 2013 11 third Friday"
+    },
+    {
+      "name": "\"third Friday of December 2013\"",
+      "cmd": "bash meetup.sh 2013 12 third Friday"
+    },
+    {
+      "name": "\"third Saturday of January 2013\"",
+      "cmd": "bash meetup.sh 2013 1 third Saturday"
+    },
+    {
+      "name": "\"third Saturday of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 third Saturday"
+    },
+    {
+      "name": "\"third Sunday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 third Sunday"
+    },
+    {
+      "name": "\"third Sunday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 third Sunday"
+    },
+    {
+      "name": "\"fourth Monday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 fourth Monday"
+    },
+    {
+      "name": "\"fourth Monday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 fourth Monday"
+    },
+    {
+      "name": "\"fourth Tuesday of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 fourth Tuesday"
+    },
+    {
+      "name": "\"fourth Tuesday of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 fourth Tuesday"
+    },
+    {
+      "name": "\"fourth Wednesday of July 2013\"",
+      "cmd": "bash meetup.sh 2013 7 fourth Wednesday"
+    },
+    {
+      "name": "\"fourth Wednesday of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 fourth Wednesday"
+    },
+    {
+      "name": "\"fourth Thursday of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 fourth Thursday"
+    },
+    {
+      "name": "\"fourth Thursday of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 fourth Thursday"
+    },
+    {
+      "name": "\"fourth Friday of November 2013\"",
+      "cmd": "bash meetup.sh 2013 11 fourth Friday"
+    },
+    {
+      "name": "\"fourth Friday of December 2013\"",
+      "cmd": "bash meetup.sh 2013 12 fourth Friday"
+    },
+    {
+      "name": "\"fourth Saturday of January 2013\"",
+      "cmd": "bash meetup.sh 2013 1 fourth Saturday"
+    },
+    {
+      "name": "\"fourth Saturday of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 fourth Saturday"
+    },
+    {
+      "name": "\"fourth Sunday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 fourth Sunday"
+    },
+    {
+      "name": "\"fourth Sunday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 fourth Sunday"
+    },
+    {
+      "name": "\"last Monday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 last Monday"
+    },
+    {
+      "name": "\"last Monday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 last Monday"
+    },
+    {
+      "name": "\"last Tuesday of May 2013\"",
+      "cmd": "bash meetup.sh 2013 5 last Tuesday"
+    },
+    {
+      "name": "\"last Tuesday of June 2013\"",
+      "cmd": "bash meetup.sh 2013 6 last Tuesday"
+    },
+    {
+      "name": "\"last Wednesday of July 2013\"",
+      "cmd": "bash meetup.sh 2013 7 last Wednesday"
+    },
+    {
+      "name": "\"last Wednesday of August 2013\"",
+      "cmd": "bash meetup.sh 2013 8 last Wednesday"
+    },
+    {
+      "name": "\"last Thursday of September 2013\"",
+      "cmd": "bash meetup.sh 2013 9 last Thursday"
+    },
+    {
+      "name": "\"last Thursday of October 2013\"",
+      "cmd": "bash meetup.sh 2013 10 last Thursday"
+    },
+    {
+      "name": "\"last Friday of November 2013\"",
+      "cmd": "bash meetup.sh 2013 11 last Friday"
+    },
+    {
+      "name": "\"last Friday of December 2013\"",
+      "cmd": "bash meetup.sh 2013 12 last Friday"
+    },
+    {
+      "name": "\"last Saturday of January 2013\"",
+      "cmd": "bash meetup.sh 2013 1 last Saturday"
+    },
+    {
+      "name": "\"last Saturday of February 2013\"",
+      "cmd": "bash meetup.sh 2013 2 last Saturday"
+    },
+    {
+      "name": "\"last Sunday of March 2013\"",
+      "cmd": "bash meetup.sh 2013 3 last Sunday"
+    },
+    {
+      "name": "\"last Sunday of April 2013\"",
+      "cmd": "bash meetup.sh 2013 4 last Sunday"
+    },
+    {
+      "name": "\"last Wednesday of February 2012\"",
+      "cmd": "bash meetup.sh 2012 2 last Wednesday"
+    },
+    {
+      "name": "\"last Wednesday of December 2014\"",
+      "cmd": "bash meetup.sh 2014 12 last Wednesday"
+    },
+    {
+      "name": "\"last Sunday of February 2015\"",
+      "cmd": "bash meetup.sh 2015 2 last Sunday"
+    },
+    {
+      "name": "\"first Friday of December 2012\"",
+      "cmd": "bash meetup.sh 2012 12 first Friday"
+    }
+  ]
+}

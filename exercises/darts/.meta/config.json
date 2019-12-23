@@ -1,0 +1,75 @@
+{
+  "solution_files": [
+    "darts.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"Missed target\"",
+      "cmd": "bash darts.sh -9 9"
+    },
+    {
+      "name": "\"On the outer circle\"",
+      "cmd": "bash darts.sh 0 10"
+    },
+    {
+      "name": "\"On the middle circle\"",
+      "cmd": "bash darts.sh -5 0"
+    },
+    {
+      "name": "\"On the inner circle\"",
+      "cmd": "bash darts.sh 0 -1"
+    },
+    {
+      "name": "\"Exactly on centre\"",
+      "cmd": "bash darts.sh 0 0"
+    },
+    {
+      "name": "\"Near the centre\"",
+      "cmd": "bash darts.sh -0.1 -0.1"
+    },
+    {
+      "name": "\"Just within the inner circle\"",
+      "cmd": "bash darts.sh 0.7 0.7"
+    },
+    {
+      "name": "\"Just outside the inner circle\"",
+      "cmd": "bash darts.sh 0.8 -0.8"
+    },
+    {
+      "name": "\"Just within the middle circle\"",
+      "cmd": "bash darts.sh -3.5 3.5"
+    },
+    {
+      "name": "\"Just outside the middle circle\"",
+      "cmd": "bash darts.sh -3.6 -3.6"
+    },
+    {
+      "name": "\"Just within the outer circle\"",
+      "cmd": "bash darts.sh -7.0 7.0"
+    },
+    {
+      "name": "\"Just outside the outer circle\"",
+      "cmd": "bash darts.sh 7.1 -7.1"
+    },
+    {
+      "name": "\"Asymmetric position between the inner and middle circles\"",
+      "cmd": "bash darts.sh 0.5 -4"
+    },
+    {
+      "name": "\"invalid args: no args\"",
+      "cmd": "bash darts.sh"
+    },
+    {
+      "name": "\"invalid args: only 1 arg\"",
+      "cmd": "bash darts.sh 10"
+    },
+    {
+      "name": "\"invalid args: first arg non-numeric\"",
+      "cmd": "bash darts.sh foo 10"
+    },
+    {
+      "name": "\"invalid args: second arg non-numeric\"",
+      "cmd": "bash darts.sh 10 bar"
+    }
+  ]
+}

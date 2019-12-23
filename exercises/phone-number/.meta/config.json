@@ -1,0 +1,79 @@
+{
+  "solution_files": [
+    "phone_number.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"cleans the number\"",
+      "cmd": "bash phone_number.sh \"(223) 456-7890\""
+    },
+    {
+      "name": "\"cleans numbers with dots\"",
+      "cmd": "bash phone_number.sh \"223.456.7890\""
+    },
+    {
+      "name": "\"cleans numbers with multiple spaces\"",
+      "cmd": "bash phone_number.sh \"223 456 7890 \""
+    },
+    {
+      "name": "\"invalid when 9 digits\"",
+      "cmd": "bash phone_number.sh \"123456789\""
+    },
+    {
+      "name": "\"invalid when 11 digits does not start with a 1\"",
+      "cmd": "bash phone_number.sh \"22234567890\""
+    },
+    {
+      "name": "\"valid when 11 digits and starting with 1\"",
+      "cmd": "bash phone_number.sh \"12234567890\""
+    },
+    {
+      "name": "\"valid when 11 digits and starting with 1 even with punctuation\"",
+      "cmd": "bash phone_number.sh \"+1 (223) 456-7890\""
+    },
+    {
+      "name": "\"invalid when more than 11 digits\"",
+      "cmd": "bash phone_number.sh \"321234567890\""
+    },
+    {
+      "name": "\"invalid with letters\"",
+      "cmd": "bash phone_number.sh \"123-abc-7890\""
+    },
+    {
+      "name": "\"invalid with punctuations\"",
+      "cmd": "bash phone_number.sh \"123-@:!-7890\""
+    },
+    {
+      "name": "\"invalid if area code starts with 0\"",
+      "cmd": "bash phone_number.sh \"(023) 456-7890\""
+    },
+    {
+      "name": "\"invalid if area code starts with 1\"",
+      "cmd": "bash phone_number.sh \"(123) 456-7890\""
+    },
+    {
+      "name": "\"invalid if exchange code starts with 0\"",
+      "cmd": "bash phone_number.sh \"(223) 056-7890\""
+    },
+    {
+      "name": "\"invalid if exchange code starts with 1\"",
+      "cmd": "bash phone_number.sh \"(223) 156-7890\""
+    },
+    {
+      "name": "\"invalid if area code starts with 0 on valid 11-digit number\"",
+      "cmd": "bash phone_number.sh \"1 (023) 456-7890\""
+    },
+    {
+      "name": "\"invalid if area code starts with 1 on valid 11-digit number\"",
+      "cmd": "bash phone_number.sh \"1 (123) 456-7890\""
+    },
+    {
+      "name": "\"invalid if exchange code starts with 0 on valid 11-digit number\"",
+      "cmd": "bash phone_number.sh \"1 (223) 056-7890\""
+    },
+    {
+      "name": "\"invalid if exchange code starts with 1 on valid 11-digit number\"",
+      "cmd": "bash phone_number.sh \"1 (223) 156-7890\""
+    }
+  ]
+}

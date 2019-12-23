@@ -1,0 +1,95 @@
+{
+  "solution_files": [
+    "pig_latin.sh"
+  ],
+  "tests": [
+    {
+      "name": "word_beginning_with_a",
+      "cmd": "bash pig_latin.sh apple"
+    },
+    {
+      "name": "word_beginning_with_e",
+      "cmd": "bash pig_latin.sh ear"
+    },
+    {
+      "name": "word_beginning_with_i",
+      "cmd": "bash pig_latin.sh igloo"
+    },
+    {
+      "name": "word_beginning_with_o",
+      "cmd": "bash pig_latin.sh object"
+    },
+    {
+      "name": "word_beginning_with_u",
+      "cmd": "bash pig_latin.sh under"
+    },
+    {
+      "name": "word_beginning_with_equ",
+      "cmd": "bash pig_latin.sh equal"
+    },
+    {
+      "name": "word_beginning_with_p",
+      "cmd": "bash pig_latin.sh pig"
+    },
+    {
+      "name": "word_beginning_with_k",
+      "cmd": "bash pig_latin.sh koala"
+    },
+    {
+      "name": "word_beginning_with_x",
+      "cmd": "bash pig_latin.sh xenon"
+    },
+    {
+      "name": "word_beginning_with_q_no_u",
+      "cmd": "bash pig_latin.sh qat"
+    },
+    {
+      "name": "word_beginning_with_ch",
+      "cmd": "bash pig_latin.sh chair"
+    },
+    {
+      "name": "word_beginning_with_squ",
+      "cmd": "bash pig_latin.sh square"
+    },
+    {
+      "name": "word_beginning_with_th",
+      "cmd": "bash pig_latin.sh therapy"
+    },
+    {
+      "name": "word_beginning_with_thr",
+      "cmd": "bash pig_latin.sh thrush"
+    },
+    {
+      "name": "word_beginning_with_sch",
+      "cmd": "bash pig_latin.sh school"
+    },
+    {
+      "name": "word_beginning_with_yt",
+      "cmd": "bash pig_latin.sh yttria"
+    },
+    {
+      "name": "word_beginning_with_xr",
+      "cmd": "bash pig_latin.sh xray"
+    },
+    {
+      "name": "word_beginning_with_y",
+      "cmd": "bash pig_latin.sh yellow"
+    },
+    {
+      "name": "word_rhythm",
+      "cmd": "bash pig_latin.sh rhythm"
+    },
+    {
+      "name": "word_my",
+      "cmd": "bash pig_latin.sh my"
+    },
+    {
+      "name": "a_whole_phrase",
+      "cmd": "bash pig_latin.sh quick fast run"
+    },
+    {
+      "name": "\"shell globbing\"",
+      "cmd": "bash pig_latin.sh \"pig*\""
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "solution_files": [
+    "hello_world.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"Say Hi!\"",
+      "cmd": "bash hello_world.sh"
+    }
+  ]
+}

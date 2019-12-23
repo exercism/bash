@@ -1,0 +1,83 @@
+{
+  "solution_files": [
+    "triangle.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"all sides are equal, equilateral\"",
+      "cmd": "bash triangle.sh equilateral 2 2 2"
+    },
+    {
+      "name": "\"any side is unequal\"",
+      "cmd": "bash triangle.sh equilateral 2 3 2"
+    },
+    {
+      "name": "\"no sides are equal, equilateral\"",
+      "cmd": "bash triangle.sh equilateral 5 4 6"
+    },
+    {
+      "name": "\"all zero sides is not a triangle\"",
+      "cmd": "bash triangle.sh equilateral 0 0 0"
+    },
+    {
+      "name": "\"sides may be floats, equilateral\"",
+      "cmd": "bash triangle.sh equilateral 0.5 0.5 0.5"
+    },
+    {
+      "name": "\"last two sides are equal\"",
+      "cmd": "bash triangle.sh isosceles 3 4 4"
+    },
+    {
+      "name": "\"first two sides are equal\"",
+      "cmd": "bash triangle.sh isosceles 4 4 3"
+    },
+    {
+      "name": "\"first and last sides are equal\"",
+      "cmd": "bash triangle.sh isosceles 4 3 4"
+    },
+    {
+      "name": "\"equilateral triangles are also isosceles\"",
+      "cmd": "bash triangle.sh isosceles 4 4 4"
+    },
+    {
+      "name": "\"no sides are equal, isosceles\"",
+      "cmd": "bash triangle.sh isosceles 2 3 4"
+    },
+    {
+      "name": "\"first triangle inequality violation\"",
+      "cmd": "bash triangle.sh isosceles 1 1 3"
+    },
+    {
+      "name": "\"second triangle inequality violation\"",
+      "cmd": "bash triangle.sh isosceles 1 3 1"
+    },
+    {
+      "name": "\"third triangle inequality violation\"",
+      "cmd": "bash triangle.sh isosceles 3 1 1"
+    },
+    {
+      "name": "\"sides may be floats, isosceles\"",
+      "cmd": "bash triangle.sh isosceles 0.5 0.4 0.5"
+    },
+    {
+      "name": "\"no sides are equal, scalene\"",
+      "cmd": "bash triangle.sh scalene 5 4 6"
+    },
+    {
+      "name": "\"all sides are equal, scalene\"",
+      "cmd": "bash triangle.sh scalene 4 4 4"
+    },
+    {
+      "name": "\"two sides are equal\"",
+      "cmd": "bash triangle.sh scalene 4 4 3"
+    },
+    {
+      "name": "\"may not violate triangle inequality\"",
+      "cmd": "bash triangle.sh scalene 7 3 2"
+    },
+    {
+      "name": "\"sides may be floats, scalene\"",
+      "cmd": "bash triangle.sh scalene 0.5 0.4 0.6"
+    }
+  ]
+}

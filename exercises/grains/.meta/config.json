@@ -1,0 +1,51 @@
+{
+  "solution_files": [
+    "grains.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"1\"",
+      "cmd": "bash grains.sh 1"
+    },
+    {
+      "name": "\"2\"",
+      "cmd": "bash grains.sh 2"
+    },
+    {
+      "name": "\"3\"",
+      "cmd": "bash grains.sh 3"
+    },
+    {
+      "name": "\"4\"",
+      "cmd": "bash grains.sh 4"
+    },
+    {
+      "name": "\"16\"",
+      "cmd": "bash grains.sh 16"
+    },
+    {
+      "name": "\"32\"",
+      "cmd": "bash grains.sh 32"
+    },
+    {
+      "name": "\"64\"",
+      "cmd": "bash grains.sh 64"
+    },
+    {
+      "name": "\"square 0 raises an exception\"",
+      "cmd": "bash grains.sh 0"
+    },
+    {
+      "name": "\"negative square raises an exception\"",
+      "cmd": "bash grains.sh -1"
+    },
+    {
+      "name": "\"square greater than 64 raises an exception\"",
+      "cmd": "bash grains.sh 65"
+    },
+    {
+      "name": "\"returns the total number of grains on the board\"",
+      "cmd": "bash grains.sh total"
+    }
+  ]
+}

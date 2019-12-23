@@ -1,0 +1,51 @@
+{
+  "solution_files": [
+    "tournament.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"just the header if no input\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"a win is three points, a loss is zero points\"",
+      "cmd": "bash tournament.sh \"$INPUT_FILE\""
+    },
+    {
+      "name": "\"a win can also be expressed as a loss\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"a different team can win\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"a draw is one point each\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"There can be more than one match\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"There can be more than one winner\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"There can be more than two teams\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"typical input\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    },
+    {
+      "name": "\"incomplete competition (not all pairs have played)\"",
+      "cmd": "bash tournament.sh \"$INPUT_FILE\""
+    },
+    {
+      "name": "\"ties broken alphabetically\"",
+      "cmd": "bash tournament.sh <<< \"$input\""
+    }
+  ]
+}

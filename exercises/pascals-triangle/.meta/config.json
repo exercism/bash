@@ -1,0 +1,43 @@
+{
+  "solution_files": [
+    "pascals_triangle.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"zero rows\"",
+      "cmd": "bash pascals_triangle.sh 0"
+    },
+    {
+      "name": "\"single row\"",
+      "cmd": "bash pascals_triangle.sh 1"
+    },
+    {
+      "name": "\"two rows\"",
+      "cmd": "bash pascals_triangle.sh 2"
+    },
+    {
+      "name": "\"three rows\"",
+      "cmd": "bash pascals_triangle.sh 3"
+    },
+    {
+      "name": "\"four rows\"",
+      "cmd": "bash pascals_triangle.sh 4"
+    },
+    {
+      "name": "\"five rows\"",
+      "cmd": "bash pascals_triangle.sh 5"
+    },
+    {
+      "name": "\"six rows\"",
+      "cmd": "bash pascals_triangle.sh 6"
+    },
+    {
+      "name": "\"ten rows\"",
+      "cmd": "bash pascals_triangle.sh 10"
+    },
+    {
+      "name": "\"21 rows\"",
+      "cmd": "bash pascals_triangle.sh 21"
+    }
+  ]
+}

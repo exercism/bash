@@ -1,0 +1,111 @@
+{
+  "solution_files": [
+    "bob.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"stating something\"",
+      "cmd": "bash bob.sh 'Tom-ay-to, tom-aaaah-to.'"
+    },
+    {
+      "name": "\"shouting\"",
+      "cmd": "bash bob.sh 'WATCH OUT!'"
+    },
+    {
+      "name": "\"shouting gibberish\"",
+      "cmd": "bash bob.sh 'FCECDFCAAB'"
+    },
+    {
+      "name": "\"asking a question\"",
+      "cmd": "bash bob.sh 'Does this cryogenic chamber make me look fat?'"
+    },
+    {
+      "name": "\"asking a numeric question\"",
+      "cmd": "bash bob.sh 'You are, what, like 15?'"
+    },
+    {
+      "name": "\"asking gibberish\"",
+      "cmd": "bash bob.sh 'fffbbcbeab?'"
+    },
+    {
+      "name": "\"talking forcefully\"",
+      "cmd": "bash bob.sh \"Let's go make out behind the gym!\""
+    },
+    {
+      "name": "\"using acronyms in regular speech\"",
+      "cmd": "bash bob.sh \"It's OK if you don't want to go to the DMV.\""
+    },
+    {
+      "name": "\"forceful question\"",
+      "cmd": "bash bob.sh 'WHAT THE HELL WERE YOU THINKING?'"
+    },
+    {
+      "name": "\"shouting numbers\"",
+      "cmd": "bash bob.sh '1, 2, 3 GO!'"
+    },
+    {
+      "name": "\"no letters\"",
+      "cmd": "bash bob.sh '1, 2, 3'"
+    },
+    {
+      "name": "\"question with no letters\"",
+      "cmd": "bash bob.sh '4?'"
+    },
+    {
+      "name": "\"shouting with special characters\"",
+      "cmd": "bash bob.sh 'ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!'"
+    },
+    {
+      "name": "\"shouting with no exclamation mark\"",
+      "cmd": "bash bob.sh 'I HATE THE DMV'"
+    },
+    {
+      "name": "\"statement containing question mark\"",
+      "cmd": "bash bob.sh 'Ending with ? means a question.'"
+    },
+    {
+      "name": "\"non-letters with question\"",
+      "cmd": "bash bob.sh ':) ?'"
+    },
+    {
+      "name": "\"prattling on\"",
+      "cmd": "bash bob.sh 'Wait! Hang on. Are you going to be OK?'"
+    },
+    {
+      "name": "\"silence\"",
+      "cmd": "bash bob.sh ''"
+    },
+    {
+      "name": "\"prolonged silence\"",
+      "cmd": "bash bob.sh ' '"
+    },
+    {
+      "name": "\"alternate silence\"",
+      "cmd": "bash bob.sh $'\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t'"
+    },
+    {
+      "name": "\"multiple line question\"",
+      "cmd": "bash bob.sh $'\\nDoes this cryogenic chamber make me look fat?\\nNo'"
+    },
+    {
+      "name": "\"starting with whitespace\"",
+      "cmd": "bash bob.sh ' hmmmmmmm...'"
+    },
+    {
+      "name": "\"ending with whitespace\"",
+      "cmd": "bash bob.sh 'Okay if like my spacebar quite a bit? '"
+    },
+    {
+      "name": "\"other whitespace\"",
+      "cmd": "bash bob.sh $'\\n\\r \\t'"
+    },
+    {
+      "name": "\"non-question ending with whitespace\"",
+      "cmd": "bash bob.sh 'This is a statement ending with whitespace '"
+    },
+    {
+      "name": "\"no input is silence\"",
+      "cmd": "bash bob.sh"
+    }
+  ]
+}

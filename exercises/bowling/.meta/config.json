@@ -1,0 +1,127 @@
+{
+  "solution_files": [
+    "bowling.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"should be able to score a game with all zeros\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"should be able to score a game with no strikes or spares\"",
+      "cmd": "bash bowling.sh 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6"
+    },
+    {
+      "name": "\"a spare followed by zeros is worth ten points\"",
+      "cmd": "bash bowling.sh 6 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"points scored in the roll after a spare are counted twice\"",
+      "cmd": "bash bowling.sh 6 4 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"consecutive spares each get a one roll bonus\"",
+      "cmd": "bash bowling.sh 5 5 3 7 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"a spare in the last frame gets a one roll bonus that is counted once\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 3 7"
+    },
+    {
+      "name": "\"a strike earns ten points in a frame with a single roll\"",
+      "cmd": "bash bowling.sh 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"points scored in the two rolls after a strike are counted twice as a bonus\"",
+      "cmd": "bash bowling.sh 10 5 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"consecutive strikes each get the two roll bonus\"",
+      "cmd": "bash bowling.sh 10 10 10 5 3 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"a strike in the last frame gets a two roll bonus that is counted once\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 7 1"
+    },
+    {
+      "name": "\"rolling a spare with the two roll bonus does not get a bonus roll\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 7 3"
+    },
+    {
+      "name": "\"strikes with the two roll bonus do not get bonus rolls\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 10 10"
+    },
+    {
+      "name": "\"a strike with the one roll bonus after a spare in the last frame does not get a bonus\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 3 10"
+    },
+    {
+      "name": "\"all strikes is a perfect game\"",
+      "cmd": "bash bowling.sh 10 10 10 10 10 10 10 10 10 10 10 10"
+    },
+    {
+      "name": "\"rolls cannot score negative points\"",
+      "cmd": "bash bowling.sh -1"
+    },
+    {
+      "name": "\"a roll cannot score more than 10 points\"",
+      "cmd": "bash bowling.sh 11"
+    },
+    {
+      "name": "\"two rolls in a frame cannot score more than 10 points\"",
+      "cmd": "bash bowling.sh 5 6"
+    },
+    {
+      "name": "\"bonus roll after a strike in the last frame cannot score more than 10 points\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 11"
+    },
+    {
+      "name": "\"two bonus rolls after a strike in the last frame cannot score more than 10 points\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 5 6"
+    },
+    {
+      "name": "\"two bonus rolls after a strike in the last frame can score more than 10 points if one is a strike\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 10 6"
+    },
+    {
+      "name": "\"the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 6 10"
+    },
+    {
+      "name": "\"second bonus roll after a strike in the last frame cannot score more than 10 points\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 10 11"
+    },
+    {
+      "name": "\"an unstarted game cannot be scored\"",
+      "cmd": "bash bowling.sh"
+    },
+    {
+      "name": "\"an incomplete game cannot be scored\"",
+      "cmd": "bash bowling.sh 0 0"
+    },
+    {
+      "name": "\"cannot roll if game already has ten frames\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "name": "\"bonus rolls for a strike in the last frame must be rolled before score can be calculated\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10"
+    },
+    {
+      "name": "\"both bonus rolls for a strike in the last frame must be rolled before score can be calculated\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 10"
+    },
+    {
+      "name": "\"bonus roll for a spare in the last frame must be rolled before score can be calculated\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 3"
+    },
+    {
+      "name": "\"cannot roll after bonus roll for spare\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 3 2 2"
+    },
+    {
+      "name": "\"cannot roll after bonus rolls for strike\"",
+      "cmd": "bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 3 2 2"
+    }
+  ]
+}

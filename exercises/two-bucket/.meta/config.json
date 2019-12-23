@@ -1,0 +1,39 @@
+{
+  "solution_files": [
+    "two_bucket.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one\"",
+      "cmd": "bash two_bucket.sh 3 5 1 \"one\""
+    },
+    {
+      "name": "\"Measure using bucket one of size 3 and bucket two of size 5 - start with bucket two\"",
+      "cmd": "bash two_bucket.sh 3 5 1 \"two\""
+    },
+    {
+      "name": "\"Measure using bucket one of size 7 and bucket two of size 11 - start with bucket one\"",
+      "cmd": "bash two_bucket.sh 7 11 2 \"one\""
+    },
+    {
+      "name": "\"Measure using bucket one of size 7 and bucket two of size 11 - start with bucket two\"",
+      "cmd": "bash two_bucket.sh 7 11 2 \"two\""
+    },
+    {
+      "name": "\"Measure one step using bucket one of size 1 and bucket two of size 3 - start with bucket two\"",
+      "cmd": "bash two_bucket.sh 1 3 3 \"two\""
+    },
+    {
+      "name": "\"Measure using bucket one of size 2 and bucket two of size 3 - start with bucket one and end with bucket two\"",
+      "cmd": "bash two_bucket.sh 2 3 3 \"one\""
+    },
+    {
+      "name": "\"goal is too big for the buckets\"",
+      "cmd": "bash two_bucket.sh 1 2 3 \"one\""
+    },
+    {
+      "name": "\"cannot satisfy the goal\"",
+      "cmd": "bash two_bucket.sh 6 8 3 \"one\""
+    }
+  ]
+}

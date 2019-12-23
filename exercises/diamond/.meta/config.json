@@ -1,0 +1,27 @@
+{
+  "solution_files": [
+    "diamond.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"Degenerate case with a single 'A' row\"",
+      "cmd": "bash diamond.sh A"
+    },
+    {
+      "name": "\"Degenerate case with no row containing 3 distinct groups of spaces\"",
+      "cmd": "bash diamond.sh B"
+    },
+    {
+      "name": "\"Smallest non-degenerate case with odd diamond side length\"",
+      "cmd": "bash diamond.sh C"
+    },
+    {
+      "name": "\"Smallest non-degenerate case with even diamond side length\"",
+      "cmd": "bash diamond.sh D"
+    },
+    {
+      "name": "\"Largest possible diamond\"",
+      "cmd": "bash diamond.sh Z"
+    }
+  ]
+}

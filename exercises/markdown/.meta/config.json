@@ -1,0 +1,63 @@
+{
+  "solution_files": [
+    "markdown.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"parses normal text as a paragraph\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"parsing italics\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"parsing multiple italics\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"parsing bold text\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"mixed normal, italics and bold text\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"with h1 header level\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"with h2 header level\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"with h6 header level\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"unordered lists\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"With a little bit of everything\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"with markdown symbols in the header text that should not be interpreted\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"with markdown symbols in the list item text that should not be interpreted\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"with markdown symbols in the paragraph text that should not be interpreted\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    },
+    {
+      "name": "\"unordered lists close properly with preceding and following lines\"",
+      "cmd": "bash markdown.sh \"$MD_FILE\""
+    }
+  ]
+}

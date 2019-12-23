@@ -1,0 +1,51 @@
+{
+  "solution_files": [
+    "binary_search.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"finds a value in an array with one element\"",
+      "cmd": "bash binary_search.sh 6 \"${input[@]}\""
+    },
+    {
+      "name": "\"finds a value in the middle of an array\"",
+      "cmd": "bash binary_search.sh 6 \"${input[@]}\""
+    },
+    {
+      "name": "\"finds a value at the beginning of an array\"",
+      "cmd": "bash binary_search.sh 1 \"${input[@]}\""
+    },
+    {
+      "name": "\"finds a value at the end of an array\"",
+      "cmd": "bash binary_search.sh 11 \"${input[@]}\""
+    },
+    {
+      "name": "\"finds a value in an array of odd length\"",
+      "cmd": "bash binary_search.sh 144 \"${input[@]}\""
+    },
+    {
+      "name": "\"finds a value in an array of even length\"",
+      "cmd": "bash binary_search.sh 21 \"${input[@]}\""
+    },
+    {
+      "name": "\"identifies that a value is not included in the array\"",
+      "cmd": "bash binary_search.sh 7 \"${input[@]}\""
+    },
+    {
+      "name": "\"a value smaller than the array's smallest value is not found\"",
+      "cmd": "bash binary_search.sh 0 \"${input[@]}\""
+    },
+    {
+      "name": "\"a value larger than the array's largest value is not found\"",
+      "cmd": "bash binary_search.sh 13 \"${input[@]}\""
+    },
+    {
+      "name": "\"nothing is found in an empty array\"",
+      "cmd": "bash binary_search.sh 1 \"${input[@]}\""
+    },
+    {
+      "name": "\"nothing is found when the left and right bounds cross\"",
+      "cmd": "bash binary_search.sh 0 \"${input[@]}\""
+    }
+  ]
+}

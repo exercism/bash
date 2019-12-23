@@ -1,0 +1,79 @@
+{
+  "solution_files": [
+    "house.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"verse 1\"",
+      "cmd": "bash house.sh 1 1"
+    },
+    {
+      "name": "\"verse 2\"",
+      "cmd": "bash house.sh 2 2"
+    },
+    {
+      "name": "\"verse 3\"",
+      "cmd": "bash house.sh 3 3"
+    },
+    {
+      "name": "\"verse 4\"",
+      "cmd": "bash house.sh 4 4"
+    },
+    {
+      "name": "\"verse 5\"",
+      "cmd": "bash house.sh 5 5"
+    },
+    {
+      "name": "\"verse 6\"",
+      "cmd": "bash house.sh 6 6"
+    },
+    {
+      "name": "\"verse 7\"",
+      "cmd": "bash house.sh 7 7"
+    },
+    {
+      "name": "\"verse 8\"",
+      "cmd": "bash house.sh 8 8"
+    },
+    {
+      "name": "\"verse 9\"",
+      "cmd": "bash house.sh 9 9"
+    },
+    {
+      "name": "\"verse 10\"",
+      "cmd": "bash house.sh 10 10"
+    },
+    {
+      "name": "\"verse 11\"",
+      "cmd": "bash house.sh 11 11"
+    },
+    {
+      "name": "\"verse 12\"",
+      "cmd": "bash house.sh 12 12"
+    },
+    {
+      "name": "\"verses 4 to 8\"",
+      "cmd": "bash house.sh 4 8"
+    },
+    {
+      "name": "\"all verses\"",
+      "cmd": "bash house.sh 1 12"
+    },
+    {
+      "name": "\"invalid verse 1\"",
+      "cmd": "bash house.sh 0 12"
+    },
+    {
+      "name": "\"invalid verse 2\"",
+      "cmd": "bash house.sh 1 -1"
+    },
+    {
+      "name": "\"invalid verse 3\"",
+      "cmd": "bash house.sh 14 12"
+    },
+    {
+      "name": "\"invalid verse 4\"",
+      "cmd": "bash house.sh 1 13"
+    }
+  ]
+}

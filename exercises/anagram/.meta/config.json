@@ -1,0 +1,63 @@
+{
+  "solution_files": [
+    "anagram.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"no matches\"",
+      "cmd": "bash anagram.sh \"diaper\" \"hello world zombies pants\""
+    },
+    {
+      "name": "\"detects two anagrams\"",
+      "cmd": "bash anagram.sh \"master\" \"stream pigeon maters\""
+    },
+    {
+      "name": "\"does not detect anagram subsets\"",
+      "cmd": "bash anagram.sh \"good\" \"dog goody\""
+    },
+    {
+      "name": "\"detects anagram\"",
+      "cmd": "bash anagram.sh \"listen\" \"enlists google inlets banana\""
+    },
+    {
+      "name": "\"detects three anagrams\"",
+      "cmd": "bash anagram.sh \"allergy\" \"gallery ballerina regally clergy largely leading\""
+    },
+    {
+      "name": "\"detects multiple anagrams with different case\"",
+      "cmd": "bash anagram.sh \"nose\" \"Eons ONES\""
+    },
+    {
+      "name": "\"does not detect non-anagrams with identical checksum\"",
+      "cmd": "bash anagram.sh \"mass\" \"last\""
+    },
+    {
+      "name": "\"detects anagrams case-insensitively\"",
+      "cmd": "bash anagram.sh \"Orchestra\" \"cashregister Carthorse radishes\""
+    },
+    {
+      "name": "\"detects anagrams using case-insensitive subject\"",
+      "cmd": "bash anagram.sh \"Orchestra\" \"cashregister carthorse radishes\""
+    },
+    {
+      "name": "\"detects anagrams using case-insensitive possible matches\"",
+      "cmd": "bash anagram.sh \"orchestra\" \"cashregister Carthorse radishes\""
+    },
+    {
+      "name": "\"does not detect a anagram if the original word is repeated\"",
+      "cmd": "bash anagram.sh \"go\" \"go Go GO\""
+    },
+    {
+      "name": "\"anagrams must use all letters exactly once\"",
+      "cmd": "bash anagram.sh \"tapper\" \"patter\""
+    },
+    {
+      "name": "\"capital word is not own anagram\"",
+      "cmd": "bash anagram.sh \"BANANA\" \"BANANA Banana banana\""
+    },
+    {
+      "name": "\"words other than themselves can be anagrams\"",
+      "cmd": "bash anagram.sh \"LISTEN\" \"Listen Silent LISTEN\""
+    }
+  ]
+}

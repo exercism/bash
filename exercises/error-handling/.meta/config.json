@@ -1,0 +1,27 @@
+{
+  "solution_files": [
+    "error_handling.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"correct arguments\"",
+      "cmd": "bash error_handling.sh Alice"
+    },
+    {
+      "name": "\"one long argument\"",
+      "cmd": "bash error_handling.sh \"Alice and Bob\""
+    },
+    {
+      "name": "\"incorrect arguments\"",
+      "cmd": "bash error_handling.sh Alice Bob"
+    },
+    {
+      "name": "\"print usage banner with no value given\"",
+      "cmd": "bash error_handling.sh"
+    },
+    {
+      "name": "\"empty argument\"",
+      "cmd": "bash error_handling.sh \"\""
+    }
+  ]
+}

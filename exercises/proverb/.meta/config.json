@@ -1,0 +1,39 @@
+{
+  "solution_files": [
+    "proverb.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"zero pieces\"",
+      "cmd": "bash proverb.sh"
+    },
+    {
+      "name": "\"one piece\"",
+      "cmd": "bash proverb.sh nail"
+    },
+    {
+      "name": "\"two pieces\"",
+      "cmd": "bash proverb.sh nail shoe"
+    },
+    {
+      "name": "\"three pieces\"",
+      "cmd": "bash proverb.sh nail shoe horse"
+    },
+    {
+      "name": "\"full proverb\"",
+      "cmd": "bash proverb.sh nail shoe horse rider message battle kingdom"
+    },
+    {
+      "name": "\"four pieces modernized\"",
+      "cmd": "bash proverb.sh pin gun soldier battle"
+    },
+    {
+      "name": "\"items with whitespace\"",
+      "cmd": "bash proverb.sh \"rusty nail\" \"horse shoe\""
+    },
+    {
+      "name": "\"shell globbing character\"",
+      "cmd": "bash proverb.sh quotes \"*\""
+    }
+  ]
+}

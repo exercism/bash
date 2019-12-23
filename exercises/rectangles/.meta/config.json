@@ -1,0 +1,67 @@
+{
+  "solution_files": [
+    "rectangles.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"no rows\"",
+      "cmd": "bash rectangles.sh"
+    },
+    {
+      "name": "\"no columns\"",
+      "cmd": "bash rectangles.sh <<<\"\""
+    },
+    {
+      "name": "\"no rectangles\"",
+      "cmd": "bash rectangles.sh <<<\" \""
+    },
+    {
+      "name": "\"one rectangle\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"two rectangles without shared parts\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"five rectangles with shared parts\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"rectangle of height 1 is counted\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"rectangle of width 1 is counted\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"1x1 square is counted\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"only complete rectangles are counted\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"rectangles can be of different sizes\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"corner is required for a rectangle to be complete\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"large input with many rectangles\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"nested rectangles\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    },
+    {
+      "name": "\"side by side rectangles\"",
+      "cmd": "bash rectangles.sh <<INPUT"
+    }
+  ]
+}

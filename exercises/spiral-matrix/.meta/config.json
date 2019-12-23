@@ -1,0 +1,31 @@
+{
+  "solution_files": [
+    "spiral_matrix.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"empty spiral\"",
+      "cmd": "bash spiral_matrix.sh 0"
+    },
+    {
+      "name": "\"trivial spiral\"",
+      "cmd": "bash spiral_matrix.sh 1"
+    },
+    {
+      "name": "\"spiral of size 2\"",
+      "cmd": "bash spiral_matrix.sh 2"
+    },
+    {
+      "name": "\"spiral of size 3\"",
+      "cmd": "bash spiral_matrix.sh 3"
+    },
+    {
+      "name": "\"spiral of size 4\"",
+      "cmd": "bash spiral_matrix.sh 4"
+    },
+    {
+      "name": "\"spiral of size 5\"",
+      "cmd": "bash spiral_matrix.sh 5"
+    }
+  ]
+}

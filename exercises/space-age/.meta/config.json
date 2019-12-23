@@ -1,0 +1,43 @@
+{
+  "solution_files": [
+    "space_age.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"age on Earth\"",
+      "cmd": "bash space_age.sh \"Earth\" 1000000000"
+    },
+    {
+      "name": "\"age on Mercury\"",
+      "cmd": "bash space_age.sh \"Mercury\" 2134835688"
+    },
+    {
+      "name": "\"age on Venus\"",
+      "cmd": "bash space_age.sh \"Venus\" 189839836"
+    },
+    {
+      "name": "\"age on Mars\"",
+      "cmd": "bash space_age.sh \"Mars\" 2129871239"
+    },
+    {
+      "name": "\"age on Jupiter\"",
+      "cmd": "bash space_age.sh \"Jupiter\" 901876382"
+    },
+    {
+      "name": "\"age on Saturn\"",
+      "cmd": "bash space_age.sh \"Saturn\" 2000000000"
+    },
+    {
+      "name": "\"age on Uranus\"",
+      "cmd": "bash space_age.sh \"Uranus\" 1210123456"
+    },
+    {
+      "name": "\"age on Neptune\"",
+      "cmd": "bash space_age.sh \"Neptune\" 1821023456"
+    },
+    {
+      "name": "\"not a planet\"",
+      "cmd": "bash space_age.sh \"Pluto\" 1821023456"
+    }
+  ]
+}

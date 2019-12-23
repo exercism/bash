@@ -1,0 +1,83 @@
+{
+  "solution_files": [
+    "roman_numerals.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"1 is a single I\"",
+      "cmd": "bash roman_numerals.sh 1"
+    },
+    {
+      "name": "\"2 is two I's\"",
+      "cmd": "bash roman_numerals.sh 2"
+    },
+    {
+      "name": "\"3 is three I's\"",
+      "cmd": "bash roman_numerals.sh 3"
+    },
+    {
+      "name": "\"4, being 5 - 1, is IV\"",
+      "cmd": "bash roman_numerals.sh 4"
+    },
+    {
+      "name": "\"5 is a single V\"",
+      "cmd": "bash roman_numerals.sh 5"
+    },
+    {
+      "name": "\"6, being 5 + 1, is VI\"",
+      "cmd": "bash roman_numerals.sh 6"
+    },
+    {
+      "name": "\"9, being 10 - 1, is IX\"",
+      "cmd": "bash roman_numerals.sh 9"
+    },
+    {
+      "name": "\"20 is two X's\"",
+      "cmd": "bash roman_numerals.sh 27"
+    },
+    {
+      "name": "\"48 is not 50 - 2 but rather 40 + 8\"",
+      "cmd": "bash roman_numerals.sh 48"
+    },
+    {
+      "name": "\"49 is not 40 + 5 + 4 but rather 50 - 10 + 10 - 1\"",
+      "cmd": "bash roman_numerals.sh 49"
+    },
+    {
+      "name": "\"50 is a single L\"",
+      "cmd": "bash roman_numerals.sh 59"
+    },
+    {
+      "name": "\"90, being 100 - 10, is XC\"",
+      "cmd": "bash roman_numerals.sh 93"
+    },
+    {
+      "name": "\"100 is a single C\"",
+      "cmd": "bash roman_numerals.sh 141"
+    },
+    {
+      "name": "\"60, being 50 + 10, is LX\"",
+      "cmd": "bash roman_numerals.sh 163"
+    },
+    {
+      "name": "\"400, being 500 - 100, is CD\"",
+      "cmd": "bash roman_numerals.sh 402"
+    },
+    {
+      "name": "\"500 is a single D\"",
+      "cmd": "bash roman_numerals.sh 575"
+    },
+    {
+      "name": "\"900, being 1000 - 100, is CM\"",
+      "cmd": "bash roman_numerals.sh 911"
+    },
+    {
+      "name": "\"1000 is a single M\"",
+      "cmd": "bash roman_numerals.sh 1024"
+    },
+    {
+      "name": "\"3000 is three M's\"",
+      "cmd": "bash roman_numerals.sh 3000"
+    }
+  ]
+}

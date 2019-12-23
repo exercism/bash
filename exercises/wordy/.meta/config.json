@@ -1,0 +1,107 @@
+{
+  "solution_files": [
+    "wordy.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"just a number\"",
+      "cmd": "bash wordy.sh \"What is 5?\""
+    },
+    {
+      "name": "\"addition\"",
+      "cmd": "bash wordy.sh \"What is 1 plus 1?\""
+    },
+    {
+      "name": "\"more addition\"",
+      "cmd": "bash wordy.sh \"What is 53 plus 2?\""
+    },
+    {
+      "name": "\"addition with negative numbers\"",
+      "cmd": "bash wordy.sh \"What is -1 plus -10?\""
+    },
+    {
+      "name": "\"large addition\"",
+      "cmd": "bash wordy.sh \"What is 123 plus 45678?\""
+    },
+    {
+      "name": "\"subtraction\"",
+      "cmd": "bash wordy.sh \"What is 4 minus -12?\""
+    },
+    {
+      "name": "\"multiplication\"",
+      "cmd": "bash wordy.sh \"What is -3 multiplied by 25?\""
+    },
+    {
+      "name": "\"division\"",
+      "cmd": "bash wordy.sh \"What is 33 divided by -3?\""
+    },
+    {
+      "name": "\"multiple additions\"",
+      "cmd": "bash wordy.sh \"What is 1 plus 1 plus 1?\""
+    },
+    {
+      "name": "\"addition and subtraction\"",
+      "cmd": "bash wordy.sh \"What is 1 plus 5 minus -2?\""
+    },
+    {
+      "name": "\"multiple subtraction\"",
+      "cmd": "bash wordy.sh \"What is 20 minus 4 minus 13?\""
+    },
+    {
+      "name": "\"subtraction then addition\"",
+      "cmd": "bash wordy.sh \"What is 17 minus 6 plus 3?\""
+    },
+    {
+      "name": "\"multiple multiplication\"",
+      "cmd": "bash wordy.sh \"What is 2 multiplied by -2 multiplied by 3?\""
+    },
+    {
+      "name": "\"addition and multiplication\"",
+      "cmd": "bash wordy.sh \"What is -3 plus 7 multiplied by -2?\""
+    },
+    {
+      "name": "\"multiple division\"",
+      "cmd": "bash wordy.sh \"What is -12 divided by 2 divided by -3?\""
+    },
+    {
+      "name": "\"strict left to right, ignores typical order of operations\"",
+      "cmd": "bash wordy.sh \"What is 2 plus 3 multiplied by 4?\""
+    },
+    {
+      "name": "\"unknown operation\"",
+      "cmd": "bash wordy.sh \"What is 52 cubed?\""
+    },
+    {
+      "name": "\"Non math question\"",
+      "cmd": "bash wordy.sh \"Who is the President of the United States?\""
+    },
+    {
+      "name": "\"reject problem with no operands\"",
+      "cmd": "bash wordy.sh \"What is plus?\""
+    },
+    {
+      "name": "\"reject problem missing an operand\"",
+      "cmd": "bash wordy.sh \"What is 1 plus?\""
+    },
+    {
+      "name": "\"reject problem with no operands or operators\"",
+      "cmd": "bash wordy.sh \"What is?\""
+    },
+    {
+      "name": "\"reject two operations in a row\"",
+      "cmd": "bash wordy.sh \"What is 1 plus plus 2?\""
+    },
+    {
+      "name": "\"reject two numbers in a row\"",
+      "cmd": "bash wordy.sh \"What is 1 plus 2 1?\""
+    },
+    {
+      "name": "\"reject postfix notation\"",
+      "cmd": "bash wordy.sh \"What is 1 2 plus?\""
+    },
+    {
+      "name": "\"reject prefix notation\"",
+      "cmd": "bash wordy.sh \"What is plus 1 2?\""
+    }
+  ]
+}

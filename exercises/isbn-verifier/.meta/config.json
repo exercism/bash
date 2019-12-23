@@ -1,0 +1,75 @@
+{
+  "solution_files": [
+    "isbn_verifier.sh"
+  ],
+  "tests": [
+    {
+      "name": "'valid isbn number'",
+      "cmd": "bash isbn_verifier.sh '3-598-21508-8'"
+    },
+    {
+      "name": "'invalid isbn check digit'",
+      "cmd": "bash isbn_verifier.sh '3-598-21508-9'"
+    },
+    {
+      "name": "'valid isbn number with a check digit of 10'",
+      "cmd": "bash isbn_verifier.sh '3-598-21507-X'"
+    },
+    {
+      "name": "'check digit is a character other than X'",
+      "cmd": "bash isbn_verifier.sh '3-598-21507-A'"
+    },
+    {
+      "name": "'invalid character in isbn'",
+      "cmd": "bash isbn_verifier.sh '3-598-P1581-X'"
+    },
+    {
+      "name": "'X is only valid as a check digit'",
+      "cmd": "bash isbn_verifier.sh '3-598-2X507-9'"
+    },
+    {
+      "name": "'valid isbn without separating dashes'",
+      "cmd": "bash isbn_verifier.sh '3598215088'"
+    },
+    {
+      "name": "'isbn without separating dashes and X as check digit'",
+      "cmd": "bash isbn_verifier.sh '359821507X'"
+    },
+    {
+      "name": "'isbn without check digit and dashes'",
+      "cmd": "bash isbn_verifier.sh '359821507'"
+    },
+    {
+      "name": "'too long isbn and no dashes'",
+      "cmd": "bash isbn_verifier.sh '3598215078X'"
+    },
+    {
+      "name": "'too short isbn'",
+      "cmd": "bash isbn_verifier.sh '00'"
+    },
+    {
+      "name": "'isbn without check digit'",
+      "cmd": "bash isbn_verifier.sh '3-598-21507'"
+    },
+    {
+      "name": "'check digit of X should not be used for 0'",
+      "cmd": "bash isbn_verifier.sh '3-598-21515-X'"
+    },
+    {
+      "name": "'empty isbn'",
+      "cmd": "bash isbn_verifier.sh ''"
+    },
+    {
+      "name": "'input is 9 characters'",
+      "cmd": "bash isbn_verifier.sh '134456729'"
+    },
+    {
+      "name": "'invalid characters are not ignored'",
+      "cmd": "bash isbn_verifier.sh '3132P34035'"
+    },
+    {
+      "name": "'input is too long but contains a valid isbn'",
+      "cmd": "bash isbn_verifier.sh '98245726788'"
+    }
+  ]
+}

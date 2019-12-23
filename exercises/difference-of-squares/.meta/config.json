@@ -1,0 +1,43 @@
+{
+  "solution_files": [
+    "difference_of_squares.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"square of sum 1\"",
+      "cmd": "bash difference_of_squares.sh square_of_sum 1"
+    },
+    {
+      "name": "\"square of sum 5\"",
+      "cmd": "bash difference_of_squares.sh square_of_sum 5"
+    },
+    {
+      "name": "\"square of sum 100\"",
+      "cmd": "bash difference_of_squares.sh square_of_sum 100"
+    },
+    {
+      "name": "\"sum of squares 1\"",
+      "cmd": "bash difference_of_squares.sh sum_of_squares 1"
+    },
+    {
+      "name": "\"sum of squares 5\"",
+      "cmd": "bash difference_of_squares.sh sum_of_squares 5"
+    },
+    {
+      "name": "\"sum of squares 100\"",
+      "cmd": "bash difference_of_squares.sh sum_of_squares 100"
+    },
+    {
+      "name": "\"difference of squares 1\"",
+      "cmd": "bash difference_of_squares.sh difference 1"
+    },
+    {
+      "name": "\"difference of squares 5\"",
+      "cmd": "bash difference_of_squares.sh difference 5"
+    },
+    {
+      "name": "\"difference of squares 100\"",
+      "cmd": "bash difference_of_squares.sh difference 100"
+    }
+  ]
+}

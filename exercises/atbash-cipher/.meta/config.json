@@ -1,0 +1,63 @@
+{
+  "solution_files": [
+    "atbash_cipher.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"encode yes\"",
+      "cmd": "bash atbash_cipher.sh encode \"yes\""
+    },
+    {
+      "name": "\"encode no\"",
+      "cmd": "bash atbash_cipher.sh encode \"no\""
+    },
+    {
+      "name": "\"encode OMG\"",
+      "cmd": "bash atbash_cipher.sh encode \"OMG\""
+    },
+    {
+      "name": "\"encode spaces\"",
+      "cmd": "bash atbash_cipher.sh encode \"O M G\""
+    },
+    {
+      "name": "\"encode mindblowingly\"",
+      "cmd": "bash atbash_cipher.sh encode \"mindblowingly\""
+    },
+    {
+      "name": "\"encode numbers\"",
+      "cmd": "bash atbash_cipher.sh encode \"Testing,1 2 3, testing.\""
+    },
+    {
+      "name": "\"encode deep thought\"",
+      "cmd": "bash atbash_cipher.sh encode \"Truth is fiction.\""
+    },
+    {
+      "name": "\"encode all the letters\"",
+      "cmd": "bash atbash_cipher.sh encode \"The quick brown fox jumps over the lazy dog.\""
+    },
+    {
+      "name": "\"decode exercism\"",
+      "cmd": "bash atbash_cipher.sh decode \"vcvix rhn\""
+    },
+    {
+      "name": "\"decode a sentence\"",
+      "cmd": "bash atbash_cipher.sh decode \"zmlyh gzxov rhlug vmzhg vkkrm thglm v\""
+    },
+    {
+      "name": "\"decode numbers\"",
+      "cmd": "bash atbash_cipher.sh decode \"gvhgr mt123 gvhgr mt\""
+    },
+    {
+      "name": "\"decode all the letters\"",
+      "cmd": "bash atbash_cipher.sh decode \"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt\""
+    },
+    {
+      "name": "\"decode with too many spaces\"",
+      "cmd": "bash atbash_cipher.sh decode \"vc vix r hn\""
+    },
+    {
+      "name": "\"decode with no spaces\"",
+      "cmd": "bash atbash_cipher.sh decode \"zmlyhgzxovrhlugvmzhgvkkrmthglmv\""
+    }
+  ]
+}

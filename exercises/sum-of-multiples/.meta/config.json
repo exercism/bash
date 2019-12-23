@@ -1,0 +1,71 @@
+{
+  "solution_files": [
+    "sum_of_multiples.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"no multiples within limit\"",
+      "cmd": "bash sum_of_multiples.sh 1 3 5"
+    },
+    {
+      "name": "\"one factor has multiples within limit\"",
+      "cmd": "bash sum_of_multiples.sh 4 3 5"
+    },
+    {
+      "name": "\"more than one multiple within limit\"",
+      "cmd": "bash sum_of_multiples.sh 7 3"
+    },
+    {
+      "name": "\"more than one factor with multiples within limit\"",
+      "cmd": "bash sum_of_multiples.sh 10 3 5"
+    },
+    {
+      "name": "\"each multiple is only counted once\"",
+      "cmd": "bash sum_of_multiples.sh 100 3 5"
+    },
+    {
+      "name": "\"a much larger limit\"",
+      "cmd": "bash sum_of_multiples.sh 1000 3 5"
+    },
+    {
+      "name": "\"three factors\"",
+      "cmd": "bash sum_of_multiples.sh 20 7 13 17"
+    },
+    {
+      "name": "\"factors not relatively prime\"",
+      "cmd": "bash sum_of_multiples.sh 15 4 6"
+    },
+    {
+      "name": "\"some pairs of factors relatively prime and some not\"",
+      "cmd": "bash sum_of_multiples.sh 150 5 6 8"
+    },
+    {
+      "name": "\"one factor is a multiple of another\"",
+      "cmd": "bash sum_of_multiples.sh 51 5 25"
+    },
+    {
+      "name": "\"much larger factors\"",
+      "cmd": "bash sum_of_multiples.sh 10000 43 47"
+    },
+    {
+      "name": "\"all numbers are multiples of 1\"",
+      "cmd": "bash sum_of_multiples.sh 100 1"
+    },
+    {
+      "name": "\"no factors means an empty sum\"",
+      "cmd": "bash sum_of_multiples.sh 10000"
+    },
+    {
+      "name": "\"the only multiple of 0 is 0\"",
+      "cmd": "bash sum_of_multiples.sh 1 0"
+    },
+    {
+      "name": "\"the factor 0 does not affect the sum of multiples of other factors\"",
+      "cmd": "bash sum_of_multiples.sh 4 3 0"
+    },
+    {
+      "name": "\"solutions using include-exclude must extend to cardinality greater than 3\"",
+      "cmd": "bash sum_of_multiples.sh 10000 2 3 5 7 11"
+    }
+  ]
+}

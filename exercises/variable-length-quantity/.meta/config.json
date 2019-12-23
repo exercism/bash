@@ -1,0 +1,115 @@
+{
+  "solution_files": [
+    "variable_length_quantity.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"zero\"",
+      "cmd": "bash variable_length_quantity.sh encode 00"
+    },
+    {
+      "name": "\"arbitrary single byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 40"
+    },
+    {
+      "name": "\"largest single byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 7F"
+    },
+    {
+      "name": "\"smallest double byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 80"
+    },
+    {
+      "name": "\"arbitrary double byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 2000"
+    },
+    {
+      "name": "\"largest double byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 3FFF"
+    },
+    {
+      "name": "\"smallest triple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 4000"
+    },
+    {
+      "name": "\"arbitrary triple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 100000"
+    },
+    {
+      "name": "\"largest triple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 1FFFFF"
+    },
+    {
+      "name": "\"smallest quadruple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 200000"
+    },
+    {
+      "name": "\"arbitrary quadruple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 8000000"
+    },
+    {
+      "name": "\"largest quadruple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode FFFFFFF"
+    },
+    {
+      "name": "\"smallest quintuple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode 10000000"
+    },
+    {
+      "name": "\"arbitrary quintuple byte\"",
+      "cmd": "bash variable_length_quantity.sh encode FF000000"
+    },
+    {
+      "name": "\"maximum 32-bit integer input\"",
+      "cmd": "bash variable_length_quantity.sh encode FFFFFFFF"
+    },
+    {
+      "name": "\"two single-byte values\"",
+      "cmd": "bash variable_length_quantity.sh encode 40 7F"
+    },
+    {
+      "name": "\"two multi-byte values\"",
+      "cmd": "bash variable_length_quantity.sh encode 4000 123456"
+    },
+    {
+      "name": "\"many multi-byte values\"",
+      "cmd": "bash variable_length_quantity.sh encode 2000 123456 FFFFFFF 00 3FFF 4000"
+    },
+    {
+      "name": "\"one byte\"",
+      "cmd": "bash variable_length_quantity.sh decode 7F"
+    },
+    {
+      "name": "\"two bytes\"",
+      "cmd": "bash variable_length_quantity.sh decode C0 00"
+    },
+    {
+      "name": "\"three bytes\"",
+      "cmd": "bash variable_length_quantity.sh decode FF FF 7F"
+    },
+    {
+      "name": "\"four bytes\"",
+      "cmd": "bash variable_length_quantity.sh decode 81 80 80 00"
+    },
+    {
+      "name": "\"maximum 32-bit integer\"",
+      "cmd": "bash variable_length_quantity.sh decode 8F FF FF FF 7F"
+    },
+    {
+      "name": "\"multiple values\"",
+      "cmd": "bash variable_length_quantity.sh decode C0 00 C8 E8 56 FF FF FF 7F 00 FF 7F 81 80 00"
+    },
+    {
+      "name": "\"incomplete sequence causes error\"",
+      "cmd": "bash variable_length_quantity.sh decode FF"
+    },
+    {
+      "name": "\"incomplete sequence causes error, even if value is zero\"",
+      "cmd": "bash variable_length_quantity.sh decode 80"
+    },
+    {
+      "name": "\"invalid subcommand\"",
+      "cmd": "bash variable_length_quantity.sh hello 80"
+    }
+  ]
+}

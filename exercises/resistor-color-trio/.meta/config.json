@@ -1,0 +1,63 @@
+{
+  "solution_files": [
+    "resistor_color_trio.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"Orange and orange and black\"",
+      "cmd": "bash resistor_color_trio.sh \"orange\" \"orange\" \"black\""
+    },
+    {
+      "name": "\"Blue and grey and brown\"",
+      "cmd": "bash resistor_color_trio.sh \"blue\" \"grey\" \"brown\""
+    },
+    {
+      "name": "\"Brown and red and red\"",
+      "cmd": "bash resistor_color_trio.sh \"brown\" \"red\" \"red\""
+    },
+    {
+      "name": "\"Red and black and red\"",
+      "cmd": "bash resistor_color_trio.sh \"red\" \"black\" \"red\""
+    },
+    {
+      "name": "\"Green and brown and orange\"",
+      "cmd": "bash resistor_color_trio.sh \"green\" \"brown\" \"orange\""
+    },
+    {
+      "name": "\"Yellow and violet and yellow\"",
+      "cmd": "bash resistor_color_trio.sh \"yellow\" \"violet\" \"yellow\""
+    },
+    {
+      "name": "\"Blue and violet and grey\"",
+      "cmd": "bash resistor_color_trio.sh \"blue\" \"violet\" \"grey\""
+    },
+    {
+      "name": "\"Minimum possible value\"",
+      "cmd": "bash resistor_color_trio.sh \"black\" \"black\" \"black\""
+    },
+    {
+      "name": "\"Maximum possible value\"",
+      "cmd": "bash resistor_color_trio.sh \"white\" \"white\" \"white\""
+    },
+    {
+      "name": "\"Invalid first color\"",
+      "cmd": "bash resistor_color_trio.sh \"foo\" \"white\" \"white\""
+    },
+    {
+      "name": "\"Invalid second color\"",
+      "cmd": "bash resistor_color_trio.sh \"white\" \"bar\" \"white\""
+    },
+    {
+      "name": "\"Invalid third color\"",
+      "cmd": "bash resistor_color_trio.sh \"white\" \"white\" \"baz\""
+    },
+    {
+      "name": "\"First two colors make an invalid octal number\"",
+      "cmd": "bash resistor_color_trio.sh \"black\" \"grey\" \"black\""
+    },
+    {
+      "name": "\"Ignore extra colors\"",
+      "cmd": "bash resistor_color_trio.sh \"blue\" \"green\" \"yellow\" \"orange\""
+    }
+  ]
+}

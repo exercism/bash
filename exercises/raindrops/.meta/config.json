@@ -1,0 +1,79 @@
+{
+  "solution_files": [
+    "raindrops.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"the sound for 1 is 1\"",
+      "cmd": "bash raindrops.sh 1"
+    },
+    {
+      "name": "\"the sound for 3 is Pling\"",
+      "cmd": "bash raindrops.sh 3"
+    },
+    {
+      "name": "\"the sound for 5 is Plang\"",
+      "cmd": "bash raindrops.sh 5"
+    },
+    {
+      "name": "\"the sound for 7 is Plong\"",
+      "cmd": "bash raindrops.sh 7"
+    },
+    {
+      "name": "\"the sound for 6 is Pling as it has a factor 3\"",
+      "cmd": "bash raindrops.sh 6"
+    },
+    {
+      "name": "\"2 to the power 3 does not make a raindrop sound as 3 is the exponent not the base\"",
+      "cmd": "bash raindrops.sh 8"
+    },
+    {
+      "name": "\"the sound for 9 is Pling as it has a factor 3\"",
+      "cmd": "bash raindrops.sh 9"
+    },
+    {
+      "name": "\"the sound for 10 is Plang as it has a factor 5\"",
+      "cmd": "bash raindrops.sh 10"
+    },
+    {
+      "name": "\"the sound for 14 is Plong as it has a factor of 7\"",
+      "cmd": "bash raindrops.sh 14"
+    },
+    {
+      "name": "\"the sound for 15 is PlingPlang as it has factors 3 and 5\"",
+      "cmd": "bash raindrops.sh 15"
+    },
+    {
+      "name": "\"the sound for 21 is PlingPlong as it has factors 3 and 7\"",
+      "cmd": "bash raindrops.sh 21"
+    },
+    {
+      "name": "\"the sound for 25 is Plang as it has a factor 5\"",
+      "cmd": "bash raindrops.sh 25"
+    },
+    {
+      "name": "\"the sound for 27 is Pling as it has a factor 3\"",
+      "cmd": "bash raindrops.sh 27"
+    },
+    {
+      "name": "\"the sound for 35 is PlangPlong as it has factors 5 and 7\"",
+      "cmd": "bash raindrops.sh 35"
+    },
+    {
+      "name": "\"the sound for 49 is Plong as it has a factor 7\"",
+      "cmd": "bash raindrops.sh 49"
+    },
+    {
+      "name": "\"the sound for 52 is 52\"",
+      "cmd": "bash raindrops.sh 52"
+    },
+    {
+      "name": "\"the sound for 105 is PlingPlangPlong as it has factors 3, 5 and 7\"",
+      "cmd": "bash raindrops.sh 105"
+    },
+    {
+      "name": "\"the sound for 3125 is Plang as it has a factor 5\"",
+      "cmd": "bash raindrops.sh 3125"
+    }
+  ]
+}

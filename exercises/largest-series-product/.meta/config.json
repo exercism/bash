@@ -1,0 +1,67 @@
+{
+  "solution_files": [
+    "largest_series_product.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"finds the largest product if span equals length\"",
+      "cmd": "bash largest_series_product.sh 29 2"
+    },
+    {
+      "name": "\"can find the largest product of 2 with numbers in order\"",
+      "cmd": "bash largest_series_product.sh 0123456789 2"
+    },
+    {
+      "name": "\"can find the largest product of 2\"",
+      "cmd": "bash largest_series_product.sh 576802143 2"
+    },
+    {
+      "name": "\"can find the largest product of 3 with numbers in order\"",
+      "cmd": "bash largest_series_product.sh 0123456789 3"
+    },
+    {
+      "name": "\"can find the largest product of 3\"",
+      "cmd": "bash largest_series_product.sh 1027839564 3"
+    },
+    {
+      "name": "\"can find the largest product of 5 with numbers in order\"",
+      "cmd": "bash largest_series_product.sh 0123456789 5"
+    },
+    {
+      "name": "\"can get the largest product of a big number\"",
+      "cmd": "bash largest_series_product.sh 73167176531330624919225119674426574742355349194934 6"
+    },
+    {
+      "name": "\"reports zero if the only digits are zero\"",
+      "cmd": "bash largest_series_product.sh 0000 2"
+    },
+    {
+      "name": "\"reports zero if all spans include zero\"",
+      "cmd": "bash largest_series_product.sh 99099 3"
+    },
+    {
+      "name": "\"reports 1 for empty string and empty product (0 span)\"",
+      "cmd": "bash largest_series_product.sh 0"
+    },
+    {
+      "name": "\"reports 1 for nonempty string and empty product (0 span)\"",
+      "cmd": "bash largest_series_product.sh 123 0"
+    },
+    {
+      "name": "\"rejects span longer than string length\"",
+      "cmd": "bash largest_series_product.sh 123 4"
+    },
+    {
+      "name": "\"rejects empty string and nonzero span\"",
+      "cmd": "bash largest_series_product.sh \"\" 1"
+    },
+    {
+      "name": "\"rejects invalid character in digits\"",
+      "cmd": "bash largest_series_product.sh 1234a5 2"
+    },
+    {
+      "name": "\"rejects negative span\"",
+      "cmd": "bash largest_series_product.sh 12345 -1"
+    }
+  ]
+}

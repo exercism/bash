@@ -1,0 +1,43 @@
+{
+  "solution_files": [
+    "rna_transcription.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"Empty RNA sequence\"",
+      "cmd": "bash rna_transcription.sh"
+    },
+    {
+      "name": "\"RNA complement of cytosine is guanine\"",
+      "cmd": "bash rna_transcription.sh C"
+    },
+    {
+      "name": "\"RNA complement of guanine is cytosine\"",
+      "cmd": "bash rna_transcription.sh G"
+    },
+    {
+      "name": "\"RNA complement of thymine is adenine\"",
+      "cmd": "bash rna_transcription.sh T"
+    },
+    {
+      "name": "\"RNA complement of adenine is uracil\"",
+      "cmd": "bash rna_transcription.sh A"
+    },
+    {
+      "name": "\"RNA complement\"",
+      "cmd": "bash rna_transcription.sh ACGTGGTCTTAA"
+    },
+    {
+      "name": "\"Handles invalid character\"",
+      "cmd": "bash rna_transcription.sh ACGTXCTTA"
+    },
+    {
+      "name": "\"Handles completely invalid string\"",
+      "cmd": "bash rna_transcription.sh XXXX"
+    },
+    {
+      "name": "\"Handles partially invalid string\"",
+      "cmd": "bash rna_transcription.sh ACGTXCTTAA"
+    }
+  ]
+}

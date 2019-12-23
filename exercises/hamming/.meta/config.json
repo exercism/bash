@@ -1,0 +1,55 @@
+{
+  "solution_files": [
+    "hamming.sh"
+  ],
+  "tests": [
+    {
+      "name": "'empty strands'",
+      "cmd": "bash hamming.sh '' ''"
+    },
+    {
+      "name": "'single letter identical strands'",
+      "cmd": "bash hamming.sh 'A' 'A'"
+    },
+    {
+      "name": "'single letter different strands'",
+      "cmd": "bash hamming.sh 'G' 'T'"
+    },
+    {
+      "name": "'long identical strands'",
+      "cmd": "bash hamming.sh 'GGACTGAAATCTG' 'GGACTGAAATCTG'"
+    },
+    {
+      "name": "'long different strands'",
+      "cmd": "bash hamming.sh 'GGACGGATTCTG' 'AGGACGGATTCT'"
+    },
+    {
+      "name": "'disallow first strand longer'",
+      "cmd": "bash hamming.sh 'AATG' 'AAA'"
+    },
+    {
+      "name": "'disallow second strand longer'",
+      "cmd": "bash hamming.sh 'ATA' 'AGTG'"
+    },
+    {
+      "name": "'disallow left empty strand'",
+      "cmd": "bash hamming.sh '' 'G'"
+    },
+    {
+      "name": "'disallow right empty strand'",
+      "cmd": "bash hamming.sh 'G' ''"
+    },
+    {
+      "name": "\"no input\"",
+      "cmd": "bash hamming.sh"
+    },
+    {
+      "name": "\"invalid input\"",
+      "cmd": "bash hamming.sh 'A'"
+    },
+    {
+      "name": "\"expose subtle '[[ \\$x == \\$y ]]' bug\"",
+      "cmd": "bash hamming.sh 'AAA' 'A?A'"
+    }
+  ]
+}

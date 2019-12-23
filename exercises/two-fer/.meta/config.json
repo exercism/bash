@@ -1,0 +1,27 @@
+{
+  "solution_files": [
+    "two_fer.sh"
+  ],
+  "tests": [
+    {
+      "name": "\"no name given\"",
+      "cmd": "bash two_fer.sh"
+    },
+    {
+      "name": "\"a name given\"",
+      "cmd": "bash two_fer.sh Alice"
+    },
+    {
+      "name": "\"another name given\"",
+      "cmd": "bash two_fer.sh Bob"
+    },
+    {
+      "name": "\"handle arg with spaces\"",
+      "cmd": "bash two_fer.sh \"John Smith\" \"Mary Ann\""
+    },
+    {
+      "name": "\"handle arg with glob char\"",
+      "cmd": "bash two_fer.sh \"*\""
+    }
+  ]
+}
