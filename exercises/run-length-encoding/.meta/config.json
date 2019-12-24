@@ -1,0 +1,59 @@
+{
+  "solution_files": [
+    "run_length_encoding.sh"
+  ],
+  "tests": [
+    {
+      "name": "encode empty string",
+      "cmd": "bash run_length_encoding.sh encode \"\""
+    },
+    {
+      "name": "encode single characters only are encoded without count",
+      "cmd": "bash run_length_encoding.sh encode \"XYZ\""
+    },
+    {
+      "name": "encode string with no single characters",
+      "cmd": "bash run_length_encoding.sh encode \"AABBBCCCC\""
+    },
+    {
+      "name": "encode single characters mixed with repeated characters",
+      "cmd": "bash run_length_encoding.sh encode \"WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB\""
+    },
+    {
+      "name": "encode multiple whitespace mixed in string",
+      "cmd": "bash run_length_encoding.sh encode \" hsqq qww \""
+    },
+    {
+      "name": "encode lowercase characters",
+      "cmd": "bash run_length_encoding.sh encode \"aabbbcccc\""
+    },
+    {
+      "name": "decode empty string",
+      "cmd": "bash run_length_encoding.sh decode \"\""
+    },
+    {
+      "name": "single characters only",
+      "cmd": "bash run_length_encoding.sh decode \"XYZ\""
+    },
+    {
+      "name": "decode string with no single characters",
+      "cmd": "bash run_length_encoding.sh decode \"2A3B4C\""
+    },
+    {
+      "name": "decode single characters with repeated characters",
+      "cmd": "bash run_length_encoding.sh decode \"12WB12W3B24WB\""
+    },
+    {
+      "name": "decode multiple whitespace mixed in string",
+      "cmd": "bash run_length_encoding.sh decode \"2 hs2q q2w2 \""
+    },
+    {
+      "name": "decode lower case string",
+      "cmd": "bash run_length_encoding.sh decode \"2a3b4c\""
+    },
+    {
+      "name": "encode followed by decode gives original string",
+      "cmd": "bash run_length_encoding.sh encode \"zzz ZZ zZ\""
+    }
+  ]
+}

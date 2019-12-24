@@ -20,47 +20,47 @@
       "cmd": "bash say.sh 20"
     },
     {
-      "name": "\"twenty-two\"",
+      "name": "twenty-two",
       "cmd": "bash say.sh 22"
     },
     {
-      "name": "\"one hundred\"",
+      "name": "one hundred",
       "cmd": "bash say.sh 100"
     },
     {
-      "name": "\"one hundred twenty-three\"",
+      "name": "one hundred twenty-three",
       "cmd": "bash say.sh 123"
     },
     {
-      "name": "\"one thousand\"",
+      "name": "one thousand",
       "cmd": "bash say.sh 1000"
     },
     {
-      "name": "\"one thousand two hundred thirty-four\"",
+      "name": "one thousand two hundred thirty-four",
       "cmd": "bash say.sh 1234"
     },
     {
-      "name": "\"one million\"",
+      "name": "one million",
       "cmd": "bash say.sh 1000000"
     },
     {
-      "name": "\"one million two thousand three hundred forty-five\"",
+      "name": "one million two thousand three hundred forty-five",
       "cmd": "bash say.sh 1002345"
     },
     {
-      "name": "\"one billion\"",
+      "name": "one billion",
       "cmd": "bash say.sh 1000000000"
     },
     {
-      "name": "\"a big number\"",
+      "name": "a big number",
       "cmd": "bash say.sh 987654321123"
     },
     {
-      "name": "\"numbers below zero are out of range\"",
+      "name": "numbers below zero are out of range",
       "cmd": "bash say.sh -1"
     },
     {
-      "name": "\"numbers above 999,999,999,999 are out of range\"",
+      "name": "numbers above 999,999,999,999 are out of range",
       "cmd": "bash say.sh 1000000000000"
     }
   ]

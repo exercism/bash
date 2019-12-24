@@ -4,7 +4,7 @@
   ],
   "tests": [
     {
-      "name": "\"Say Hi!\"",
+      "name": "Say Hi!",
       "cmd": "bash hello_world.sh"
     }
   ]

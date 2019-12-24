@@ -4,71 +4,71 @@
   ],
   "tests": [
     {
-      "name": "\"empty lists\"",
+      "name": "empty lists",
       "cmd": "bash sublist.sh \"[]\" \"[]\""
     },
     {
-      "name": "\"empty list within non empty list\"",
+      "name": "empty list within non empty list",
       "cmd": "bash sublist.sh \"[]\" \"[1, 2, 3]\""
     },
     {
-      "name": "\"non empty list contains empty list\"",
+      "name": "non empty list contains empty list",
       "cmd": "bash sublist.sh \"[1, 2, 3]\" \"[]\""
     },
     {
-      "name": "\"list equals itself\"",
+      "name": "list equals itself",
       "cmd": "bash sublist.sh \"[1, 2, 3]\" \"[1, 2, 3]\""
     },
     {
-      "name": "\"different lists\"",
+      "name": "different lists",
       "cmd": "bash sublist.sh \"[1, 2, 3]\" \"[2, 3, 4]\""
     },
     {
-      "name": "\"false start\"",
+      "name": "false start",
       "cmd": "bash sublist.sh \"[1, 2, 5]\" \"[0, 1, 2, 3, 1, 2, 5, 6]\""
     },
     {
-      "name": "\"consecutive\"",
+      "name": "consecutive",
       "cmd": "bash sublist.sh \"[1, 1, 2]\" \"[0, 1, 1, 1, 2, 1, 2]\""
     },
     {
-      "name": "\"sublist at start\"",
+      "name": "sublist at start",
       "cmd": "bash sublist.sh \"[0, 1, 2]\" \"[0, 1, 2, 3, 4, 5]\""
     },
     {
-      "name": "\"sublist in middle\"",
+      "name": "sublist in middle",
       "cmd": "bash sublist.sh \"[2, 3, 4]\" \"[0, 1, 2, 3, 4, 5]\""
     },
     {
-      "name": "\"sublist at end\"",
+      "name": "sublist at end",
       "cmd": "bash sublist.sh \"[3, 4, 5]\" \"[0, 1, 2, 3, 4, 5]\""
     },
     {
-      "name": "\"at start of superlist\"",
+      "name": "at start of superlist",
       "cmd": "bash sublist.sh \"[0, 1, 2, 3, 4, 5]\" \"[0, 1, 2]\""
     },
     {
-      "name": "\"in middle of superlist\"",
+      "name": "in middle of superlist",
       "cmd": "bash sublist.sh \"[0, 1, 2, 3, 4, 5]\" \"[2, 3]\""
     },
     {
-      "name": "\"at end of superlist\"",
+      "name": "at end of superlist",
       "cmd": "bash sublist.sh \"[0, 1, 2, 3, 4, 5]\" \"[3, 4, 5]\""
     },
     {
-      "name": "\"first list missing element from second list\"",
+      "name": "first list missing element from second list",
       "cmd": "bash sublist.sh \"[1, 3]\" \"[1, 2, 3]\""
     },
     {
-      "name": "\"second list missing element from first list\"",
+      "name": "second list missing element from first list",
       "cmd": "bash sublist.sh \"[1, 2, 3]\" \"[1, 3]\""
     },
     {
-      "name": "\"order matters to a list\"",
+      "name": "order matters to a list",
       "cmd": "bash sublist.sh \"[1, 2, 3]\" \"[3, 2, 1]\""
     },
     {
-      "name": "\"same digits but different numbers\"",
+      "name": "same digits but different numbers",
       "cmd": "bash sublist.sh \"[1, 0, 1]\" \"[10, 1]\""
     }
   ]

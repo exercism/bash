@@ -4,43 +4,43 @@
   ],
   "tests": [
     {
-      "name": "\"rotate a by 0, same output as input\"",
+      "name": "rotate a by 0, same output as input",
       "cmd": "bash rotational_cipher.sh \"a\" 0"
     },
     {
-      "name": "\"rotate a by 1\"",
+      "name": "rotate a by 1",
       "cmd": "bash rotational_cipher.sh \"a\" 1"
     },
     {
-      "name": "\"rotate a by 26, same output as input\"",
+      "name": "rotate a by 26, same output as input",
       "cmd": "bash rotational_cipher.sh \"a\" 26"
     },
     {
-      "name": "\"rotate m by 13\"",
+      "name": "rotate m by 13",
       "cmd": "bash rotational_cipher.sh \"m\" 13"
     },
     {
-      "name": "\"rotate n by 13 with wrap around alphabet\"",
+      "name": "rotate n by 13 with wrap around alphabet",
       "cmd": "bash rotational_cipher.sh \"n\" 13"
     },
     {
-      "name": "\"rotate capital letters\"",
+      "name": "rotate capital letters",
       "cmd": "bash rotational_cipher.sh \"OMG\" 5"
     },
     {
-      "name": "\"rotate spaces\"",
+      "name": "rotate spaces",
       "cmd": "bash rotational_cipher.sh \"O M G\" 5"
     },
     {
-      "name": "\"rotate numbers\"",
+      "name": "rotate numbers",
       "cmd": "bash rotational_cipher.sh \"Testing 1 2 3 testing\" 4"
     },
     {
-      "name": "\"rotate punctuation\"",
+      "name": "rotate punctuation",
       "cmd": "bash rotational_cipher.sh \"Let's eat, Grandma!\" 21"
     },
     {
-      "name": "\"rotate all letters\"",
+      "name": "rotate all letters",
       "cmd": "bash rotational_cipher.sh \"The quick brown fox jumps over the lazy dog.\" 13"
     }
   ]

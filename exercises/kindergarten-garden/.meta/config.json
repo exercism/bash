@@ -1,0 +1,43 @@
+{
+  "solution_files": [
+    "kindergarten_garden.sh"
+  ],
+  "tests": [
+    {
+      "name": "garden with single student",
+      "cmd": "bash kindergarten_garden.sh $'RC\\nGG' \"Alice\""
+    },
+    {
+      "name": "different garden with single student",
+      "cmd": "bash kindergarten_garden.sh $'VC\\nRC' \"Alice\""
+    },
+    {
+      "name": "garden with two students",
+      "cmd": "bash kindergarten_garden.sh $'VVCG\\nVVRC' \"Bob\""
+    },
+    {
+      "name": "three students, second student's garden",
+      "cmd": "bash kindergarten_garden.sh $'VVCCGG\\nVVCCGG' \"Bob\""
+    },
+    {
+      "name": "three students, third student's garden",
+      "cmd": "bash kindergarten_garden.sh $'VVCCGG\\nVVCCGG' \"Charlie\""
+    },
+    {
+      "name": "first student's garden",
+      "cmd": "bash kindergarten_garden.sh $'VRCGVVRVCGGCCGVRGCVCGCGV\\nVRCCCGCRRGVCGCRVVCVGCGCV' \"Alice\""
+    },
+    {
+      "name": "second student's garden",
+      "cmd": "bash kindergarten_garden.sh $'VRCGVVRVCGGCCGVRGCVCGCGV\\nVRCCCGCRRGVCGCRVVCVGCGCV' \"Bob\""
+    },
+    {
+      "name": "second to last student's garden",
+      "cmd": "bash kindergarten_garden.sh $'VRCGVVRVCGGCCGVRGCVCGCGV\\nVRCCCGCRRGVCGCRVVCVGCGCV' \"Kincaid\""
+    },
+    {
+      "name": "last student's garden",
+      "cmd": "bash kindergarten_garden.sh $'VRCGVVRVCGGCCGVRGCVCGCGV\\nVRCCCGCRRGVCGCRVVCVGCGCV' \"Larry\""
+    }
+  ]
+}

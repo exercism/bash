@@ -1,0 +1,59 @@
+{
+  "solution_files": [
+    "rail_fence_cipher.sh"
+  ],
+  "tests": [
+    {
+      "name": "empty text",
+      "cmd": "bash rail_fence_cipher.sh -e 2 \"\""
+    },
+    {
+      "name": "encode with two rails",
+      "cmd": "bash rail_fence_cipher.sh -e 2 \"XOXOXOXOXOXOXOXOXO\""
+    },
+    {
+      "name": "encode with three rails",
+      "cmd": "bash rail_fence_cipher.sh -e 3 \"WEAREDISCOVEREDFLEEATONCE\""
+    },
+    {
+      "name": "encode with ending in the middle",
+      "cmd": "bash rail_fence_cipher.sh -e 4 \"EXERCISES\""
+    },
+    {
+      "name": "encode with more rails than text",
+      "cmd": "bash rail_fence_cipher.sh -e 10 \"hello\""
+    },
+    {
+      "name": "decode with three rails",
+      "cmd": "bash rail_fence_cipher.sh -d 3 \"TEITELHDVLSNHDTISEIIEA\""
+    },
+    {
+      "name": "decode with five rails",
+      "cmd": "bash rail_fence_cipher.sh -d 5 \"EIEXMSMESAORIWSCE\""
+    },
+    {
+      "name": "decode with six rails",
+      "cmd": "bash rail_fence_cipher.sh -d 6 \"133714114238148966225439541018335470986172518171757571896261\""
+    },
+    {
+      "name": "decode with more rails than text",
+      "cmd": "bash rail_fence_cipher.sh -d 10 \"hello\""
+    },
+    {
+      "name": "decode the encoded text yields the original",
+      "cmd": "bash rail_fence_cipher.sh -e $rails \"$plaintext\""
+    },
+    {
+      "name": "no options",
+      "cmd": "bash rail_fence_cipher.sh"
+    },
+    {
+      "name": "zero rails",
+      "cmd": "bash rail_fence_cipher.sh -e 0 abc"
+    },
+    {
+      "name": "negative rails",
+      "cmd": "bash rail_fence_cipher.sh -d -2 abc"
+    }
+  ]
+}

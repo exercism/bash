@@ -4,47 +4,47 @@
   ],
   "tests": [
     {
-      "name": "\"wink for 1\"",
+      "name": "wink for 1",
       "cmd": "bash secret_handshake.sh 1"
     },
     {
-      "name": "\"double blink for 10\"",
+      "name": "double blink for 10",
       "cmd": "bash secret_handshake.sh 2"
     },
     {
-      "name": "\"close your eyes for 100\"",
+      "name": "close your eyes for 100",
       "cmd": "bash secret_handshake.sh 4"
     },
     {
-      "name": "\"jump for 1000\"",
+      "name": "jump for 1000",
       "cmd": "bash secret_handshake.sh 8"
     },
     {
-      "name": "\"combine two actions\"",
+      "name": "combine two actions",
       "cmd": "bash secret_handshake.sh 3"
     },
     {
-      "name": "\"all possible actions\"",
+      "name": "all possible actions",
       "cmd": "bash secret_handshake.sh 15"
     },
     {
-      "name": "\"do nothing for zero\"",
+      "name": "do nothing for zero",
       "cmd": "bash secret_handshake.sh 0"
     },
     {
-      "name": "\"reversing no actions still gives no actions\"",
+      "name": "reversing no actions still gives no actions",
       "cmd": "bash secret_handshake.sh 16"
     },
     {
-      "name": "\"reversing one action gives the same action\"",
+      "name": "reversing one action gives the same action",
       "cmd": "bash secret_handshake.sh 24"
     },
     {
-      "name": "\"reverse two actions\"",
+      "name": "reverse two actions",
       "cmd": "bash secret_handshake.sh 19"
     },
     {
-      "name": "\"reverse all possible actions\"",
+      "name": "reverse all possible actions",
       "cmd": "bash secret_handshake.sh 31"
     }
   ]

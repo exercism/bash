@@ -4,43 +4,43 @@
   ],
   "tests": [
     {
-      "name": "\"empty sentence\"",
+      "name": "empty sentence",
       "cmd": "bash pangram.sh \"\""
     },
     {
-      "name": "\"perfect lower case\"",
+      "name": "perfect lower case",
       "cmd": "bash pangram.sh \"abcdefghijklmnopqrstuvwxyz\""
     },
     {
-      "name": "\"only lower case\"",
+      "name": "only lower case",
       "cmd": "bash pangram.sh \"the quick brown fox jumps over the lazy dog\""
     },
     {
-      "name": "\"missing the letter 'x'\"",
+      "name": "missing the letter 'x'",
       "cmd": "bash pangram.sh \"a quick movement of the enemy will jeopardize five gunboats\""
     },
     {
-      "name": "\"missing the letter 'h'\"",
+      "name": "missing the letter 'h'",
       "cmd": "bash pangram.sh \"five boxing wizards jump quickly at it\""
     },
     {
-      "name": "\"with underscores\"",
+      "name": "with underscores",
       "cmd": "bash pangram.sh \"the_quick_brown_fox_jumps_over_the_lazy_dog\""
     },
     {
-      "name": "\"with numbers\"",
+      "name": "with numbers",
       "cmd": "bash pangram.sh \"the 1 quick brown fox jumps over the 2 lazy dogs\""
     },
     {
-      "name": "\"missing letters replaced by numbers\"",
+      "name": "missing letters replaced by numbers",
       "cmd": "bash pangram.sh \"7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog\""
     },
     {
-      "name": "\"mixed case and punctuation\"",
+      "name": "mixed case and punctuation",
       "cmd": "bash pangram.sh \"\\\"Five quacking Zephyrs jolt my wax bed.\\\"\""
     },
     {
-      "name": "\"case insensitive\"",
+      "name": "case insensitive",
       "cmd": "bash pangram.sh \"the quick brown fox jumps over with lazy FX\""
     }
   ]

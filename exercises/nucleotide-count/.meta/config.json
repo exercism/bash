@@ -4,23 +4,23 @@
   ],
   "tests": [
     {
-      "name": "\"empty strand\"",
+      "name": "empty strand",
       "cmd": "bash nucleotide_count.sh \"\""
     },
     {
-      "name": "\"can count one nucleotide in single-character input\"",
+      "name": "can count one nucleotide in single-character input",
       "cmd": "bash nucleotide_count.sh \"G\""
     },
     {
-      "name": "\"strand with repeated nucleotide\"",
+      "name": "strand with repeated nucleotide",
       "cmd": "bash nucleotide_count.sh \"GGGGGGG\""
     },
     {
-      "name": "\"strand with multiple nucleotides\"",
+      "name": "strand with multiple nucleotides",
       "cmd": "bash nucleotide_count.sh \"AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC\""
     },
     {
-      "name": "\"strand with invalid nucleotides\"",
+      "name": "strand with invalid nucleotides",
       "cmd": "bash nucleotide_count.sh \"AGXXACT\""
     }
   ]

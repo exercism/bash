@@ -4,27 +4,27 @@
   ],
   "tests": [
     {
-      "name": "\"zero steps for one\"",
+      "name": "zero steps for one",
       "cmd": "bash collatz_conjecture.sh 1"
     },
     {
-      "name": "\"divide if even\"",
+      "name": "divide if even",
       "cmd": "bash collatz_conjecture.sh 16"
     },
     {
-      "name": "\"even and odd steps\"",
+      "name": "even and odd steps",
       "cmd": "bash collatz_conjecture.sh 12"
     },
     {
-      "name": "\"large number of even and odd steps\"",
+      "name": "large number of even and odd steps",
       "cmd": "bash collatz_conjecture.sh 1000000"
     },
     {
-      "name": "\"zero is an error\"",
+      "name": "zero is an error",
       "cmd": "bash collatz_conjecture.sh 0"
     },
     {
-      "name": "\"negative value is an error\"",
+      "name": "negative value is an error",
       "cmd": "bash collatz_conjecture.sh -15"
     }
   ]

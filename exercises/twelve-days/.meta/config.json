@@ -4,63 +4,63 @@
   ],
   "tests": [
     {
-      "name": "\"first day a partridge in a pear tree\"",
+      "name": "first day a partridge in a pear tree",
       "cmd": "bash twelve_days.sh 1 1"
     },
     {
-      "name": "\"second day two turtle doves\"",
+      "name": "second day two turtle doves",
       "cmd": "bash twelve_days.sh 2 2"
     },
     {
-      "name": "\"third day three french hens\"",
+      "name": "third day three french hens",
       "cmd": "bash twelve_days.sh 3 3"
     },
     {
-      "name": "\"fourth day four calling birds\"",
+      "name": "fourth day four calling birds",
       "cmd": "bash twelve_days.sh 4 4"
     },
     {
-      "name": "\"fifth day five gold rings\"",
+      "name": "fifth day five gold rings",
       "cmd": "bash twelve_days.sh 5 5"
     },
     {
-      "name": "\"sixth day six geese-a-laying\"",
+      "name": "sixth day six geese-a-laying",
       "cmd": "bash twelve_days.sh 6 6"
     },
     {
-      "name": "\"seventh day seven swans-a-swimming\"",
+      "name": "seventh day seven swans-a-swimming",
       "cmd": "bash twelve_days.sh 7 7"
     },
     {
-      "name": "\"eighth day eight maids-a-milking\"",
+      "name": "eighth day eight maids-a-milking",
       "cmd": "bash twelve_days.sh 8 8"
     },
     {
-      "name": "\"ninth day nine ladies dancing\"",
+      "name": "ninth day nine ladies dancing",
       "cmd": "bash twelve_days.sh 9 9"
     },
     {
-      "name": "\"tenth day ten lords-a-leaping\"",
+      "name": "tenth day ten lords-a-leaping",
       "cmd": "bash twelve_days.sh 10 10"
     },
     {
-      "name": "\"eleventh day eleven pipers piping\"",
+      "name": "eleventh day eleven pipers piping",
       "cmd": "bash twelve_days.sh 11 11"
     },
     {
-      "name": "\"twelfth day twelve drummers drumming\"",
+      "name": "twelfth day twelve drummers drumming",
       "cmd": "bash twelve_days.sh 12 12"
     },
     {
-      "name": "\"recites first three verses of the song\"",
+      "name": "recites first three verses of the song",
       "cmd": "bash twelve_days.sh 1 3"
     },
     {
-      "name": "\"recites three verses from the middle of the song\"",
+      "name": "recites three verses from the middle of the song",
       "cmd": "bash twelve_days.sh 4 6"
     },
     {
-      "name": "\"recites the whole song\"",
+      "name": "recites the whole song",
       "cmd": "bash twelve_days.sh 1 12"
     }
   ]

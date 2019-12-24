@@ -4,71 +4,71 @@
   ],
   "tests": [
     {
-      "name": "\"single digit strings can not be valid\"",
+      "name": "single digit strings can not be valid",
       "cmd": "bash luhn.sh \"1\""
     },
     {
-      "name": "\"a single zero is invalid\"",
+      "name": "a single zero is invalid",
       "cmd": "bash luhn.sh \"0\""
     },
     {
-      "name": "\"a simple valid SIN that remains valid if reversed\"",
+      "name": "a simple valid SIN that remains valid if reversed",
       "cmd": "bash luhn.sh \"059\""
     },
     {
-      "name": "\"a simple valid SIN that becomes invalid if reversed\"",
+      "name": "a simple valid SIN that becomes invalid if reversed",
       "cmd": "bash luhn.sh \"59\""
     },
     {
-      "name": "\"a valid Canadian SIN\"",
+      "name": "a valid Canadian SIN",
       "cmd": "bash luhn.sh \"055 444 285\""
     },
     {
-      "name": "\"invalid Canadian SIN\"",
+      "name": "invalid Canadian SIN",
       "cmd": "bash luhn.sh \"055 444 286\""
     },
     {
-      "name": "\"invalid credit card\"",
+      "name": "invalid credit card",
       "cmd": "bash luhn.sh \"8273 1232 7352 0569\""
     },
     {
-      "name": "\"valid number with an even number of digits\"",
+      "name": "valid number with an even number of digits",
       "cmd": "bash luhn.sh \"095 245 88\""
     },
     {
-      "name": "\"valid number with an odd number of spaces\"",
+      "name": "valid number with an odd number of spaces",
       "cmd": "bash luhn.sh \"234 567 891 234\""
     },
     {
-      "name": "\"valid strings with a non-digit included become invalid\"",
+      "name": "valid strings with a non-digit included become invalid",
       "cmd": "bash luhn.sh \"055a 444 285\""
     },
     {
-      "name": "\"valid strings with punctuation included become invalid\"",
+      "name": "valid strings with punctuation included become invalid",
       "cmd": "bash luhn.sh \"055-444-285\""
     },
     {
-      "name": "\"valid strings with symbols included become invalid\"",
+      "name": "valid strings with symbols included become invalid",
       "cmd": "bash luhn.sh \"055Â£ 444$ 285\""
     },
     {
-      "name": "\"single zero with space is invalid\"",
+      "name": "single zero with space is invalid",
       "cmd": "bash luhn.sh \" 0\""
     },
     {
-      "name": "\"more than a single zero is valid\"",
+      "name": "more than a single zero is valid",
       "cmd": "bash luhn.sh \"0000 0\""
     },
     {
-      "name": "\"input digit 9 is correctly converted to output digit 9\"",
+      "name": "input digit 9 is correctly converted to output digit 9",
       "cmd": "bash luhn.sh \"091\""
     },
     {
-      "name": "\"using ascii value for non-doubled non-digit isn't allowed\"",
+      "name": "using ascii value for non-doubled non-digit isn't allowed",
       "cmd": "bash luhn.sh \"055b 444 285\""
     },
     {
-      "name": "\"using ascii value for doubled non-digit isn't allowed\"",
+      "name": "using ascii value for doubled non-digit isn't allowed",
       "cmd": "bash luhn.sh \":9\""
     }
   ]

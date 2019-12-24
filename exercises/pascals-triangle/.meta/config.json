@@ -4,39 +4,39 @@
   ],
   "tests": [
     {
-      "name": "\"zero rows\"",
+      "name": "zero rows",
       "cmd": "bash pascals_triangle.sh 0"
     },
     {
-      "name": "\"single row\"",
+      "name": "single row",
       "cmd": "bash pascals_triangle.sh 1"
     },
     {
-      "name": "\"two rows\"",
+      "name": "two rows",
       "cmd": "bash pascals_triangle.sh 2"
     },
     {
-      "name": "\"three rows\"",
+      "name": "three rows",
       "cmd": "bash pascals_triangle.sh 3"
     },
     {
-      "name": "\"four rows\"",
+      "name": "four rows",
       "cmd": "bash pascals_triangle.sh 4"
     },
     {
-      "name": "\"five rows\"",
+      "name": "five rows",
       "cmd": "bash pascals_triangle.sh 5"
     },
     {
-      "name": "\"six rows\"",
+      "name": "six rows",
       "cmd": "bash pascals_triangle.sh 6"
     },
     {
-      "name": "\"ten rows\"",
+      "name": "ten rows",
       "cmd": "bash pascals_triangle.sh 10"
     },
     {
-      "name": "\"21 rows\"",
+      "name": "21 rows",
       "cmd": "bash pascals_triangle.sh 21"
     }
   ]

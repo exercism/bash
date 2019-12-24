@@ -1,0 +1,51 @@
+{
+  "solution_files": [
+    "scrabble_score.sh"
+  ],
+  "tests": [
+    {
+      "name": "lowercase letter",
+      "cmd": "bash scrabble_score.sh 'a'"
+    },
+    {
+      "name": "uppercase letter",
+      "cmd": "bash scrabble_score.sh 'A'"
+    },
+    {
+      "name": "valuable letter",
+      "cmd": "bash scrabble_score.sh 'f'"
+    },
+    {
+      "name": "short word",
+      "cmd": "bash scrabble_score.sh 'at'"
+    },
+    {
+      "name": "short, valuable word",
+      "cmd": "bash scrabble_score.sh 'zoo'"
+    },
+    {
+      "name": "medium word",
+      "cmd": "bash scrabble_score.sh 'street'"
+    },
+    {
+      "name": "medium, valuable word",
+      "cmd": "bash scrabble_score.sh 'quirky'"
+    },
+    {
+      "name": "long, mixed-case word",
+      "cmd": "bash scrabble_score.sh 'OxyphenButazone'"
+    },
+    {
+      "name": "english-like word",
+      "cmd": "bash scrabble_score.sh 'pinata'"
+    },
+    {
+      "name": "empty input",
+      "cmd": "bash scrabble_score.sh ''"
+    },
+    {
+      "name": "entire alphabet available",
+      "cmd": "bash scrabble_score.sh 'abcdefghijklmnopqrstuvwxyz'"
+    }
+  ]
+}

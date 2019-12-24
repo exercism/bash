@@ -4,47 +4,47 @@
   ],
   "tests": [
     {
-      "name": "'first_generic_verse'",
+      "name": "first_generic_verse",
       "cmd": "bash beer_song.sh 99"
     },
     {
-      "name": "'3rd_last_generic_verse'",
+      "name": "3rd_last_generic_verse",
       "cmd": "bash beer_song.sh 3"
     },
     {
-      "name": "'2nd_last_generic_verse'",
+      "name": "2nd_last_generic_verse",
       "cmd": "bash beer_song.sh 2"
     },
     {
-      "name": "'penultimate_verse'",
+      "name": "penultimate_verse",
       "cmd": "bash beer_song.sh 1"
     },
     {
-      "name": "'verse_with_zero_bottles'",
+      "name": "verse_with_zero_bottles",
       "cmd": "bash beer_song.sh 0"
     },
     {
-      "name": "'first_two_verses'",
+      "name": "first_two_verses",
       "cmd": "bash beer_song.sh 99 98"
     },
     {
-      "name": "'last_three_verses'",
+      "name": "last_three_verses",
       "cmd": "bash beer_song.sh 2 0"
     },
     {
-      "name": "'all_verses'",
+      "name": "all_verses",
       "cmd": "bash beer_song.sh 99 0"
     },
     {
-      "name": "'no_arguments'",
+      "name": "no_arguments",
       "cmd": "bash beer_song.sh"
     },
     {
-      "name": "'too_many_arguments'",
+      "name": "too_many_arguments",
       "cmd": "bash beer_song.sh 1 2 3"
     },
     {
-      "name": "'wrong_order_arguments'",
+      "name": "wrong_order_arguments",
       "cmd": "bash beer_song.sh 1 2"
     }
   ]

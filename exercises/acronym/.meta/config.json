@@ -4,43 +4,43 @@
   ],
   "tests": [
     {
-      "name": "'basic'",
+      "name": "basic",
       "cmd": "bash acronym.sh 'Portable Network Graphics'"
     },
     {
-      "name": "'lowercase words'",
+      "name": "lowercase words",
       "cmd": "bash acronym.sh 'Ruby on Rails'"
     },
     {
-      "name": "'punctuation'",
+      "name": "punctuation",
       "cmd": "bash acronym.sh 'First In, First Out'"
     },
     {
-      "name": "'all caps word'",
+      "name": "all caps word",
       "cmd": "bash acronym.sh 'GNU Image Manipulation Program'"
     },
     {
-      "name": "'punctuation without whitespace'",
+      "name": "punctuation without whitespace",
       "cmd": "bash acronym.sh 'Complementary metal-oxide semiconductor'"
     },
     {
-      "name": "'very long abbreviation'",
+      "name": "very long abbreviation",
       "cmd": "bash acronym.sh 'Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me'"
     },
     {
-      "name": "\"consecutive delimiters\"",
+      "name": "consecutive delimiters",
       "cmd": "bash acronym.sh \"Something - I made up from thin air\""
     },
     {
-      "name": "\"apostrophes\"",
+      "name": "apostrophes",
       "cmd": "bash acronym.sh \"Halley's Comet\""
     },
     {
-      "name": "\"underscore emphasis\"",
+      "name": "underscore emphasis",
       "cmd": "bash acronym.sh \"The Road __Not__ Taken\""
     },
     {
-      "name": "\"contains shell globbing character\"",
+      "name": "contains shell globbing character",
       "cmd": "bash acronym.sh \"Two * Words\""
     }
   ]

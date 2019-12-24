@@ -4,87 +4,87 @@
   ],
   "tests": [
     {
-      "name": "\"Robots are created with a position and direction\"",
+      "name": "Robots are created with a position and direction",
       "cmd": "bash robot_simulator.sh 0 0 north"
     },
     {
-      "name": "\"Robots are created with a default position and direction\"",
+      "name": "Robots are created with a default position and direction",
       "cmd": "bash robot_simulator.sh"
     },
     {
-      "name": "\"Negative positions are allowed\"",
+      "name": "Negative positions are allowed",
       "cmd": "bash robot_simulator.sh -1 -1 south"
     },
     {
-      "name": "\"changes the direction from north to east\"",
+      "name": "changes the direction from north to east",
       "cmd": "bash robot_simulator.sh 0 0 north R"
     },
     {
-      "name": "\"changes the direction from east to south\"",
+      "name": "changes the direction from east to south",
       "cmd": "bash robot_simulator.sh 0 0 east R"
     },
     {
-      "name": "\"changes the direction from south to west\"",
+      "name": "changes the direction from south to west",
       "cmd": "bash robot_simulator.sh 0 0 south R"
     },
     {
-      "name": "\"changes the direction from west to north\"",
+      "name": "changes the direction from west to north",
       "cmd": "bash robot_simulator.sh 0 0 west R"
     },
     {
-      "name": "\"changes the direction from north to west\"",
+      "name": "changes the direction from north to west",
       "cmd": "bash robot_simulator.sh 0 0 north L"
     },
     {
-      "name": "\"changes the direction from west to south\"",
+      "name": "changes the direction from west to south",
       "cmd": "bash robot_simulator.sh 0 0 west L"
     },
     {
-      "name": "\"changes the direction from south to east\"",
+      "name": "changes the direction from south to east",
       "cmd": "bash robot_simulator.sh 0 0 south L"
     },
     {
-      "name": "\"changes the direction from east to north\"",
+      "name": "changes the direction from east to north",
       "cmd": "bash robot_simulator.sh 0 0 east L"
     },
     {
-      "name": "\"increases the y coordinate one when facing north\"",
+      "name": "increases the y coordinate one when facing north",
       "cmd": "bash robot_simulator.sh 0 0 north A"
     },
     {
-      "name": "\"decreases the y coordinate by one when facing south\"",
+      "name": "decreases the y coordinate by one when facing south",
       "cmd": "bash robot_simulator.sh 0 0 south A"
     },
     {
-      "name": "\"increases the x coordinate by one when facing east\"",
+      "name": "increases the x coordinate by one when facing east",
       "cmd": "bash robot_simulator.sh 0 0 east A"
     },
     {
-      "name": "\"decreases the x coordinate by one when facing west\"",
+      "name": "decreases the x coordinate by one when facing west",
       "cmd": "bash robot_simulator.sh 0 0 west A"
     },
     {
-      "name": "\"instructions to move east and north from README\"",
+      "name": "instructions to move east and north from README",
       "cmd": "bash robot_simulator.sh 7 3 north RAALAL"
     },
     {
-      "name": "\"instructions to move west and north\"",
+      "name": "instructions to move west and north",
       "cmd": "bash robot_simulator.sh 0 0 north LAAARALA"
     },
     {
-      "name": "\"instructions to move west and south\"",
+      "name": "instructions to move west and south",
       "cmd": "bash robot_simulator.sh 2 -7 east RRAAAAALA"
     },
     {
-      "name": "\"instructions to move east and north\"",
+      "name": "instructions to move east and north",
       "cmd": "bash robot_simulator.sh 8 4 south LAAARRRALLLL"
     },
     {
-      "name": "\"invalid direction\"",
+      "name": "invalid direction",
       "cmd": "bash robot_simulator.sh 0 0 foo"
     },
     {
-      "name": "\"invalid instructions\"",
+      "name": "invalid instructions",
       "cmd": "bash robot_simulator.sh 0 0 north LRAX"
     }
   ]

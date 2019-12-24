@@ -4,31 +4,31 @@
   ],
   "tests": [
     {
-      "name": "\"an empty string\"",
+      "name": "an empty string",
       "cmd": "bash reverse_string.sh \"\""
     },
     {
-      "name": "\"a word\"",
+      "name": "a word",
       "cmd": "bash reverse_string.sh \"robot\""
     },
     {
-      "name": "\"a capitalised word\"",
+      "name": "a capitalised word",
       "cmd": "bash reverse_string.sh \"Ramen\""
     },
     {
-      "name": "\"a sentence with punctuation\"",
+      "name": "a sentence with punctuation",
       "cmd": "bash reverse_string.sh \"I'm hungry!\""
     },
     {
-      "name": "\"a palindrome\"",
+      "name": "a palindrome",
       "cmd": "bash reverse_string.sh \"racecar\""
     },
     {
-      "name": "\"an even-sized word\"",
+      "name": "an even-sized word",
       "cmd": "bash reverse_string.sh \"drawer\""
     },
     {
-      "name": "\"avoid globbing\"",
+      "name": "avoid globbing",
       "cmd": "bash reverse_string.sh \" a * b\""
     }
   ]

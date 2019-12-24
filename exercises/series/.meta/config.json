@@ -4,43 +4,43 @@
   ],
   "tests": [
     {
-      "name": "\"slices of one from one\"",
+      "name": "slices of one from one",
       "cmd": "bash series.sh 1 1"
     },
     {
-      "name": "\"slices of one from two\"",
+      "name": "slices of one from two",
       "cmd": "bash series.sh 12 1"
     },
     {
-      "name": "\"slices of two\"",
+      "name": "slices of two",
       "cmd": "bash series.sh 35 2"
     },
     {
-      "name": "\"slices of two overlap\"",
+      "name": "slices of two overlap",
       "cmd": "bash series.sh 9142 2"
     },
     {
-      "name": "\"slices can include duplicates\"",
+      "name": "slices can include duplicates",
       "cmd": "bash series.sh 777777 3"
     },
     {
-      "name": "\"slices of a long series\"",
+      "name": "slices of a long series",
       "cmd": "bash series.sh 918493904243 5"
     },
     {
-      "name": "\"slice length is too large\"",
+      "name": "slice length is too large",
       "cmd": "bash series.sh 12345 6"
     },
     {
-      "name": "\"slice length cannot be zero\"",
+      "name": "slice length cannot be zero",
       "cmd": "bash series.sh 12345 0"
     },
     {
-      "name": "\"slice length cannot be negative\"",
+      "name": "slice length cannot be negative",
       "cmd": "bash series.sh 123 -1"
     },
     {
-      "name": "\"empty series is invalid\"",
+      "name": "empty series is invalid",
       "cmd": "bash series.sh \"\" 1"
     }
   ]

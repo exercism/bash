@@ -4,55 +4,55 @@
   ],
   "tests": [
     {
-      "name": "\"Smallest perfect number is classified correctly\"",
+      "name": "Smallest perfect number is classified correctly",
       "cmd": "bash perfect_numbers.sh 6"
     },
     {
-      "name": "\"Medium perfect number is classified correctly\"",
+      "name": "Medium perfect number is classified correctly",
       "cmd": "bash perfect_numbers.sh 28"
     },
     {
-      "name": "\"Large perfect number is classified correctly\"",
+      "name": "Large perfect number is classified correctly",
       "cmd": "bash perfect_numbers.sh 33550336"
     },
     {
-      "name": "\"Smallest abundant number is classified correctly\"",
+      "name": "Smallest abundant number is classified correctly",
       "cmd": "bash perfect_numbers.sh 12"
     },
     {
-      "name": "\"Medium abundant number is classified correctly\"",
+      "name": "Medium abundant number is classified correctly",
       "cmd": "bash perfect_numbers.sh 30"
     },
     {
-      "name": "\"Large abundant number is classified correctly\"",
+      "name": "Large abundant number is classified correctly",
       "cmd": "bash perfect_numbers.sh 33550335"
     },
     {
-      "name": "\"Smallest prime deficient number is classified correctly\"",
+      "name": "Smallest prime deficient number is classified correctly",
       "cmd": "bash perfect_numbers.sh 2"
     },
     {
-      "name": "\"Smallest non-prime deficient number is classified correctly\"",
+      "name": "Smallest non-prime deficient number is classified correctly",
       "cmd": "bash perfect_numbers.sh 4"
     },
     {
-      "name": "\"Medium deficient number is classified correctly\"",
+      "name": "Medium deficient number is classified correctly",
       "cmd": "bash perfect_numbers.sh 32"
     },
     {
-      "name": "\"Large deficient number is classified correctly\"",
+      "name": "Large deficient number is classified correctly",
       "cmd": "bash perfect_numbers.sh 33550337"
     },
     {
-      "name": "\"Edge case (no factors other than itself) is classified correctly\"",
+      "name": "Edge case (no factors other than itself) is classified correctly",
       "cmd": "bash perfect_numbers.sh 1"
     },
     {
-      "name": "\"Zero is rejected (not a natural number)\"",
+      "name": "Zero is rejected (not a natural number)",
       "cmd": "bash perfect_numbers.sh 0"
     },
     {
-      "name": "\"Negative integer is rejected (not a natural number)\"",
+      "name": "Negative integer is rejected (not a natural number)",
       "cmd": "bash perfect_numbers.sh -1"
     }
   ]

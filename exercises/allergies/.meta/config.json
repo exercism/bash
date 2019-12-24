@@ -1,0 +1,59 @@
+{
+  "solution_files": [
+    "allergies.sh"
+  ],
+  "tests": [
+    {
+      "name": "no_allergies_means_not_allergic",
+      "cmd": "bash allergies.sh 0 allergic_to peanuts"
+    },
+    {
+      "name": "is_allergic_to_eggs",
+      "cmd": "bash allergies.sh 1 allergic_to eggs"
+    },
+    {
+      "name": "allergic_to_eggs_in_addition_to_other_stuff",
+      "cmd": "bash allergies.sh 5 allergic_to eggs"
+    },
+    {
+      "name": "allergic_to_strawberries_but_not_peanuts",
+      "cmd": "bash allergies.sh 9 allergic_to eggs"
+    },
+    {
+      "name": "no_allergies_at_all",
+      "cmd": "bash allergies.sh 0 list"
+    },
+    {
+      "name": "allergic_to_just_eggs",
+      "cmd": "bash allergies.sh 1 list"
+    },
+    {
+      "name": "allergic_to_just_peanuts",
+      "cmd": "bash allergies.sh 2 list"
+    },
+    {
+      "name": "allergic_to_just_strawberries",
+      "cmd": "bash allergies.sh 8 list"
+    },
+    {
+      "name": "allergic_to_eggs_and_peanuts",
+      "cmd": "bash allergies.sh 3 list"
+    },
+    {
+      "name": "allergic_to_more_than_eggs_but_not_peanuts",
+      "cmd": "bash allergies.sh 5 list"
+    },
+    {
+      "name": "allergic_to_lots_of_stuff",
+      "cmd": "bash allergies.sh 248 list"
+    },
+    {
+      "name": "allergic_to_everything",
+      "cmd": "bash allergies.sh 255 list"
+    },
+    {
+      "name": "ignore_non_allergen_score_parts",
+      "cmd": "bash allergies.sh 509 list"
+    }
+  ]
+}

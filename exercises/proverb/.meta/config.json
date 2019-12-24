@@ -4,35 +4,35 @@
   ],
   "tests": [
     {
-      "name": "\"zero pieces\"",
+      "name": "zero pieces",
       "cmd": "bash proverb.sh"
     },
     {
-      "name": "\"one piece\"",
+      "name": "one piece",
       "cmd": "bash proverb.sh nail"
     },
     {
-      "name": "\"two pieces\"",
+      "name": "two pieces",
       "cmd": "bash proverb.sh nail shoe"
     },
     {
-      "name": "\"three pieces\"",
+      "name": "three pieces",
       "cmd": "bash proverb.sh nail shoe horse"
     },
     {
-      "name": "\"full proverb\"",
+      "name": "full proverb",
       "cmd": "bash proverb.sh nail shoe horse rider message battle kingdom"
     },
     {
-      "name": "\"four pieces modernized\"",
+      "name": "four pieces modernized",
       "cmd": "bash proverb.sh pin gun soldier battle"
     },
     {
-      "name": "\"items with whitespace\"",
+      "name": "items with whitespace",
       "cmd": "bash proverb.sh \"rusty nail\" \"horse shoe\""
     },
     {
-      "name": "\"shell globbing character\"",
+      "name": "shell globbing character",
       "cmd": "bash proverb.sh quotes \"*\""
     }
   ]

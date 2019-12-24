@@ -1,0 +1,79 @@
+{
+  "solution_files": [
+    "dnd_character.sh"
+  ],
+  "tests": [
+    {
+      "name": "ability modifier for score 3 is -4",
+      "cmd": "bash dnd_character.sh modifier 3"
+    },
+    {
+      "name": "ability modifier for score 4 is -3",
+      "cmd": "bash dnd_character.sh modifier 4"
+    },
+    {
+      "name": "ability modifier for score 5 is -3",
+      "cmd": "bash dnd_character.sh modifier 5"
+    },
+    {
+      "name": "ability modifier for score 6 is -2",
+      "cmd": "bash dnd_character.sh modifier 6"
+    },
+    {
+      "name": "ability modifier for score 7 is -2",
+      "cmd": "bash dnd_character.sh modifier 7"
+    },
+    {
+      "name": "ability modifier for score 8 is -1",
+      "cmd": "bash dnd_character.sh modifier 8"
+    },
+    {
+      "name": "ability modifier for score 9 is -1",
+      "cmd": "bash dnd_character.sh modifier 9"
+    },
+    {
+      "name": "ability modifier for score 10 is 0",
+      "cmd": "bash dnd_character.sh modifier 10"
+    },
+    {
+      "name": "ability modifier for score 11 is 0",
+      "cmd": "bash dnd_character.sh modifier 11"
+    },
+    {
+      "name": "ability modifier for score 12 is +1",
+      "cmd": "bash dnd_character.sh modifier 12"
+    },
+    {
+      "name": "ability modifier for score 13 is +1",
+      "cmd": "bash dnd_character.sh modifier 13"
+    },
+    {
+      "name": "ability modifier for score 14 is +2",
+      "cmd": "bash dnd_character.sh modifier 14"
+    },
+    {
+      "name": "ability modifier for score 15 is +2",
+      "cmd": "bash dnd_character.sh modifier 15"
+    },
+    {
+      "name": "ability modifier for score 16 is +3",
+      "cmd": "bash dnd_character.sh modifier 16"
+    },
+    {
+      "name": "ability modifier for score 17 is +3",
+      "cmd": "bash dnd_character.sh modifier 17"
+    },
+    {
+      "name": "ability modifier for score 18 is +4",
+      "cmd": "bash dnd_character.sh modifier 18"
+    },
+    {
+      "name": "generate a character",
+      "cmd": "bash dnd_character.sh generate"
+    },
+    {
+      "name": "validate ability and hitpoint range",
+      "cmd": "< <( run bash dnd_character.sh generate )"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "solution_files": [
+    "simple_cipher.sh"
+  ],
+  "tests": [
+    {
+      "name": "Can generate a random key",
+      "cmd": "bash simple_cipher.sh key"
+    },
+    {
+      "name": "Can encode random",
+      "cmd": "bash simple_cipher.sh key"
+    },
+    {
+      "name": "Can decode random",
+      "cmd": "bash simple_cipher.sh key"
+    },
+    {
+      "name": "Is reversible random",
+      "cmd": "bash simple_cipher.sh key"
+    },
+    {
+      "name": "Can encode",
+      "cmd": "bash simple_cipher.sh -k \"$key\" encode \"$txt\""
+    },
+    {
+      "name": "Can decode",
+      "cmd": "bash simple_cipher.sh -k \"$key\" decode \"$txt\""
+    },
+    {
+      "name": "Is reversible",
+      "cmd": "bash simple_cipher.sh -k \"$key\" encode \"$txt\""
+    },
+    {
+      "name": "Can double shift encode",
+      "cmd": "bash simple_cipher.sh -k \"$key\" encode \"$txt\""
+    },
+    {
+      "name": "Can wrap on encode",
+      "cmd": "bash simple_cipher.sh -k \"$key\" encode \"$txt\""
+    },
+    {
+      "name": "Can wrap on decode",
+      "cmd": "bash simple_cipher.sh -k \"$key\" decode \"$txt\""
+    },
+    {
+      "name": "Can encode messages longer than the key",
+      "cmd": "bash simple_cipher.sh -k \"$key\" encode \"$txt\""
+    },
+    {
+      "name": "Can decode messages longer than the key",
+      "cmd": "bash simple_cipher.sh -k \"$key\" decode \"$txt\""
+    },
+    {
+      "name": "plaintext is lowercased",
+      "cmd": "bash simple_cipher.sh -k b encode FOOBAR"
+    },
+    {
+      "name": "ciphertext is lowercased",
+      "cmd": "bash simple_cipher.sh -k b decode GPPCBS"
+    },
+    {
+      "name": "key must be lowercase",
+      "cmd": "bash simple_cipher.sh -k ABC encode foo"
+    },
+    {
+      "name": "key must be letters",
+      "cmd": "bash simple_cipher.sh -k 123 encode foo"
+    }
+  ]
+}

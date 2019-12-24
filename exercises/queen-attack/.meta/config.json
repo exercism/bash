@@ -4,51 +4,51 @@
   ],
   "tests": [
     {
-      "name": "\"queen must have positive row\"",
+      "name": "queen must have positive row",
       "cmd": "bash queen_attack.sh -w -2,2 -b 7,7"
     },
     {
-      "name": "\"queen must have row on board\"",
+      "name": "queen must have row on board",
       "cmd": "bash queen_attack.sh -w 8,4 -b 7,7"
     },
     {
-      "name": "\"queen must have positive column\"",
+      "name": "queen must have positive column",
       "cmd": "bash queen_attack.sh -w 2,-2 -b 7,7"
     },
     {
-      "name": "\"queen must have column on board\"",
+      "name": "queen must have column on board",
       "cmd": "bash queen_attack.sh -w 4,8 -b 7,7"
     },
     {
-      "name": "\"same position\"",
+      "name": "same position",
       "cmd": "bash queen_attack.sh -w 7,7 -b 7,7"
     },
     {
-      "name": "\"can not attack\"",
+      "name": "can not attack",
       "cmd": "bash queen_attack.sh -w 2,4 -b 6,6"
     },
     {
-      "name": "\"can attack on same row\"",
+      "name": "can attack on same row",
       "cmd": "bash queen_attack.sh -w 2,4 -b 2,6"
     },
     {
-      "name": "\"can attack on same column\"",
+      "name": "can attack on same column",
       "cmd": "bash queen_attack.sh -w 4,5 -b 2,5"
     },
     {
-      "name": "\"can attack on first diagonal\"",
+      "name": "can attack on first diagonal",
       "cmd": "bash queen_attack.sh -w 2,2 -b 0,4"
     },
     {
-      "name": "\"can attack on second diagonal\"",
+      "name": "can attack on second diagonal",
       "cmd": "bash queen_attack.sh -w 2,2 -b 3,1"
     },
     {
-      "name": "\"can attack on third diagonal\"",
+      "name": "can attack on third diagonal",
       "cmd": "bash queen_attack.sh -w 2,2 -b 1,1"
     },
     {
-      "name": "\"can attack on fourth diagonal\"",
+      "name": "can attack on fourth diagonal",
       "cmd": "bash queen_attack.sh -w 1,7 -b 0,6"
     }
   ]

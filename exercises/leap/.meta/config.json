@@ -4,55 +4,55 @@
   ],
   "tests": [
     {
-      "name": "'year not divisible by 4: common year'",
+      "name": "year not divisible by 4: common year",
       "cmd": "bash leap.sh 2015"
     },
     {
-      "name": "'year divisible by 2, not divisible by 4 in common year'",
+      "name": "year divisible by 2, not divisible by 4 in common year",
       "cmd": "bash leap.sh 1970"
     },
     {
-      "name": "'year divisible by 4, not divisible by 100: leap year'",
+      "name": "year divisible by 4, not divisible by 100: leap year",
       "cmd": "bash leap.sh 1996"
     },
     {
-      "name": "'year divisible by 4 and 5 is still a leap year'",
+      "name": "year divisible by 4 and 5 is still a leap year",
       "cmd": "bash leap.sh 1960"
     },
     {
-      "name": "'year divisible by 100, not divisible by 400: common year'",
+      "name": "year divisible by 100, not divisible by 400: common year",
       "cmd": "bash leap.sh 2100"
     },
     {
-      "name": "'year divisible by 100 but not by 3 is still not a leap year'",
+      "name": "year divisible by 100 but not by 3 is still not a leap year",
       "cmd": "bash leap.sh 1900"
     },
     {
-      "name": "'year divisible by 400: leap year'",
+      "name": "year divisible by 400: leap year",
       "cmd": "bash leap.sh 2000"
     },
     {
-      "name": "'year divisible by 400 but not by 125 is still a leap year'",
+      "name": "year divisible by 400 but not by 125 is still a leap year",
       "cmd": "bash leap.sh 2400"
     },
     {
-      "name": "'year divisible by 200, not divisible by 400 in common year'",
+      "name": "year divisible by 200, not divisible by 400 in common year",
       "cmd": "bash leap.sh 1800"
     },
     {
-      "name": "'No input should return an error'",
+      "name": "No input should return an error",
       "cmd": "bash leap.sh"
     },
     {
-      "name": "'Too many arguments should return an error'",
+      "name": "Too many arguments should return an error",
       "cmd": "bash leap.sh 2016 4562 4566"
     },
     {
-      "name": "'Float number input should return an error'",
+      "name": "Float number input should return an error",
       "cmd": "bash leap.sh 2016.54"
     },
     {
-      "name": "'Alpha input should return an error'",
+      "name": "Alpha input should return an error",
       "cmd": "bash leap.sh 'abcd'"
     }
   ]

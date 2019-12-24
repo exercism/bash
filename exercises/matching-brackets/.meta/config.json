@@ -4,71 +4,71 @@
   ],
   "tests": [
     {
-      "name": "\"paired square brackets\"",
+      "name": "paired square brackets",
       "cmd": "bash matching_brackets.sh \"[]\""
     },
     {
-      "name": "\"empty string\"",
+      "name": "empty string",
       "cmd": "bash matching_brackets.sh \"\""
     },
     {
-      "name": "\"unpaired brackets\"",
+      "name": "unpaired brackets",
       "cmd": "bash matching_brackets.sh \"[[\""
     },
     {
-      "name": "\"wrong ordered brackets\"",
+      "name": "wrong ordered brackets",
       "cmd": "bash matching_brackets.sh \"}{\""
     },
     {
-      "name": "\"wrong closing bracket\"",
+      "name": "wrong closing bracket",
       "cmd": "bash matching_brackets.sh \"{]\""
     },
     {
-      "name": "\"paired with whitespace\"",
+      "name": "paired with whitespace",
       "cmd": "bash matching_brackets.sh \"{ }\""
     },
     {
-      "name": "\"partially paired brackets\"",
+      "name": "partially paired brackets",
       "cmd": "bash matching_brackets.sh \"{[])\""
     },
     {
-      "name": "\"simple nested brackets\"",
+      "name": "simple nested brackets",
       "cmd": "bash matching_brackets.sh \"{[]}\""
     },
     {
-      "name": "\"several paired brackets\"",
+      "name": "several paired brackets",
       "cmd": "bash matching_brackets.sh \"{}[]\""
     },
     {
-      "name": "\"paired and nested brackets\"",
+      "name": "paired and nested brackets",
       "cmd": "bash matching_brackets.sh \"([{}({}[])])\""
     },
     {
-      "name": "\"unopened closing brackets\"",
+      "name": "unopened closing brackets",
       "cmd": "bash matching_brackets.sh \"{[)][]}\""
     },
     {
-      "name": "\"unpaired and nested brackets\"",
+      "name": "unpaired and nested brackets",
       "cmd": "bash matching_brackets.sh \"([{])\""
     },
     {
-      "name": "\"paired and wrong nested brackets\"",
+      "name": "paired and wrong nested brackets",
       "cmd": "bash matching_brackets.sh \"[({]})\""
     },
     {
-      "name": "\"paired and incomplete brackets\"",
+      "name": "paired and incomplete brackets",
       "cmd": "bash matching_brackets.sh \"{}[\""
     },
     {
-      "name": "\"too many closing brackets\"",
+      "name": "too many closing brackets",
       "cmd": "bash matching_brackets.sh \"[]]\""
     },
     {
-      "name": "\"math expression\"",
+      "name": "math expression",
       "cmd": "bash matching_brackets.sh \"(((185 + 223.85) * 15) - 543)/2\""
     },
     {
-      "name": "\"complex latex expression\"",
+      "name": "complex latex expression",
       "cmd": "bash matching_brackets.sh \"\\\\left(\\\\begin{array}{cc} \\\\frac{1}{3} & x\\\\\\\\ \\\\mathrm{e}^{x} &... x^2 \\\\end{array}\\\\right)\""
     }
   ]

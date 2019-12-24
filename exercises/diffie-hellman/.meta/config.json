@@ -1,0 +1,27 @@
+{
+  "solution_files": [
+    "diffie_hellman.sh"
+  ],
+  "tests": [
+    {
+      "name": "private key is in range",
+      "cmd": "bash diffie_hellman.sh privateKey $i"
+    },
+    {
+      "name": "private key is random",
+      "cmd": "bash diffie_hellman.sh privateKey $p"
+    },
+    {
+      "name": "can calculate public key using private key",
+      "cmd": "bash diffie_hellman.sh publicKey $p $g $private"
+    },
+    {
+      "name": "can calculate secret key using other's public key",
+      "cmd": "bash diffie_hellman.sh secret $p $public $private"
+    },
+    {
+      "name": "key exchange",
+      "cmd": "bash diffie_hellman.sh privateKey $p"
+    }
+  ]
+}

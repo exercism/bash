@@ -4,27 +4,27 @@
   ],
   "tests": [
     {
-      "name": "\"triplets whose sum is 12\"",
+      "name": "triplets whose sum is 12",
       "cmd": "bash pythagorean_triplet.sh 12"
     },
     {
-      "name": "\"triplets whose sum is 108\"",
+      "name": "triplets whose sum is 108",
       "cmd": "bash pythagorean_triplet.sh 108"
     },
     {
-      "name": "\"triplets whose sum is 1000\"",
+      "name": "triplets whose sum is 1000",
       "cmd": "bash pythagorean_triplet.sh 1000"
     },
     {
-      "name": "\"no matching triplets for 1001\"",
+      "name": "no matching triplets for 1001",
       "cmd": "bash pythagorean_triplet.sh 1001"
     },
     {
-      "name": "\"returns all matching triplets\"",
+      "name": "returns all matching triplets",
       "cmd": "bash pythagorean_triplet.sh 90"
     },
     {
-      "name": "\"several matching triplets\"",
+      "name": "several matching triplets",
       "cmd": "bash pythagorean_triplet.sh 840"
     }
   ]

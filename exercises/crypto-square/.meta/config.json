@@ -4,31 +4,31 @@
   ],
   "tests": [
     {
-      "name": "\"empty plaintext results in an empty ciphertext\"",
+      "name": "empty plaintext results in an empty ciphertext",
       "cmd": "bash crypto_square.sh \"\""
     },
     {
-      "name": "\"Lowercase\"",
+      "name": "Lowercase",
       "cmd": "bash crypto_square.sh \"A\""
     },
     {
-      "name": "\"Remove spaces\"",
+      "name": "Remove spaces",
       "cmd": "bash crypto_square.sh \" b \""
     },
     {
-      "name": "\"Remove punctuation\"",
+      "name": "Remove punctuation",
       "cmd": "bash crypto_square.sh \"@1,%!\""
     },
     {
-      "name": "\"9 character plaintext results in 3 chunks of 3 characters\"",
+      "name": "9 character plaintext results in 3 chunks of 3 characters",
       "cmd": "bash crypto_square.sh \"This is fun!\""
     },
     {
-      "name": "\"8 character plaintext results in 3 chunks, the last one with a trailing space\"",
+      "name": "8 character plaintext results in 3 chunks, the last one with a trailing space",
       "cmd": "bash crypto_square.sh \"Chill out.\""
     },
     {
-      "name": "\"54 character plaintext results in 7 chunks, the last two with trailing spaces\"",
+      "name": "54 character plaintext results in 7 chunks, the last two with trailing spaces",
       "cmd": "bash crypto_square.sh \"If man was meant to stay on the ground, god would have given us roots.\""
     }
   ]

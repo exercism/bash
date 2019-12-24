@@ -1,0 +1,51 @@
+{
+  "solution_files": [
+    "transpose.sh"
+  ],
+  "tests": [
+    {
+      "name": "empty string",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "two characters in a row",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "two characters in a column",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "simple",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "single line",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "first line longer than second line",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "second line longer than first line",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "mixed line length",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "square",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "rectangle",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    },
+    {
+      "name": "triangle",
+      "cmd": "bash transpose.sh <<< \"$input\""
+    }
+  ]
+}

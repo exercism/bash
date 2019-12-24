@@ -4,159 +4,159 @@
   ],
   "tests": [
     {
-      "name": "\"Add two positive rational numbers\"",
+      "name": "Add two positive rational numbers",
       "cmd": "bash rational_numbers.sh \"+\" \"1/2\" \"2/3\""
     },
     {
-      "name": "\"Add a positive rational number and a negative rational number\"",
+      "name": "Add a positive rational number and a negative rational number",
       "cmd": "bash rational_numbers.sh \"+\" \"1/2\" \"-2/3\""
     },
     {
-      "name": "\"Add two negative rational numbers\"",
+      "name": "Add two negative rational numbers",
       "cmd": "bash rational_numbers.sh \"+\" \"-1/2\" \"-2/3\""
     },
     {
-      "name": "\"Add a rational number to its additive inverse\"",
+      "name": "Add a rational number to its additive inverse",
       "cmd": "bash rational_numbers.sh \"+\" \"1/2\" \"-1/2\""
     },
     {
-      "name": "\"Subtract two positive rational numbers\"",
+      "name": "Subtract two positive rational numbers",
       "cmd": "bash rational_numbers.sh \"-\" \"1/2\" \"2/3\""
     },
     {
-      "name": "\"Subtract a positive rational number and a negative rational number\"",
+      "name": "Subtract a positive rational number and a negative rational number",
       "cmd": "bash rational_numbers.sh \"-\" \"1/2\" \"-2/3\""
     },
     {
-      "name": "\"Subtract two negative rational numbers\"",
+      "name": "Subtract two negative rational numbers",
       "cmd": "bash rational_numbers.sh \"-\" \"-1/2\" \"-2/3\""
     },
     {
-      "name": "\"Subtract a rational number from itself\"",
+      "name": "Subtract a rational number from itself",
       "cmd": "bash rational_numbers.sh \"-\" \"1/2\" \"1/2\""
     },
     {
-      "name": "\"Multiply two positive rational numbers\"",
+      "name": "Multiply two positive rational numbers",
       "cmd": "bash rational_numbers.sh \"*\" \"1/2\" \"2/3\""
     },
     {
-      "name": "\"Multiply a negative rational number by a positive rational number\"",
+      "name": "Multiply a negative rational number by a positive rational number",
       "cmd": "bash rational_numbers.sh \"*\" \"-1/2\" \"2/3\""
     },
     {
-      "name": "\"Multiply two negative rational numbers\"",
+      "name": "Multiply two negative rational numbers",
       "cmd": "bash rational_numbers.sh \"*\" \"-1/2\" \"-2/3\""
     },
     {
-      "name": "\"Multiply a rational number by its reciprocal\"",
+      "name": "Multiply a rational number by its reciprocal",
       "cmd": "bash rational_numbers.sh \"*\" \"1/2\" \"2/1\""
     },
     {
-      "name": "\"Multiply a rational number by 1\"",
+      "name": "Multiply a rational number by 1",
       "cmd": "bash rational_numbers.sh \"*\" \"1/2\" \"1/1\""
     },
     {
-      "name": "\"Multiply a rational number by 0\"",
+      "name": "Multiply a rational number by 0",
       "cmd": "bash rational_numbers.sh \"*\" \"1/2\" \"0/1\""
     },
     {
-      "name": "\"Divide two positive rational numbers\"",
+      "name": "Divide two positive rational numbers",
       "cmd": "bash rational_numbers.sh \"/\" \"1/2\" \"2/3\""
     },
     {
-      "name": "\"Divide a positive rational number by a negative rational number\"",
+      "name": "Divide a positive rational number by a negative rational number",
       "cmd": "bash rational_numbers.sh \"/\" \"1/2\" \"-2/3\""
     },
     {
-      "name": "\"Divide two negative rational numbers\"",
+      "name": "Divide two negative rational numbers",
       "cmd": "bash rational_numbers.sh \"/\" \"-1/2\" \"-2/3\""
     },
     {
-      "name": "\"Divide a rational number by 1\"",
+      "name": "Divide a rational number by 1",
       "cmd": "bash rational_numbers.sh \"/\" \"1/2\" \"1/1\""
     },
     {
-      "name": "\"Absolute value of a positive rational number\"",
+      "name": "Absolute value of a positive rational number",
       "cmd": "bash rational_numbers.sh \"abs\" \"1/2\""
     },
     {
-      "name": "\"Absolute value of a positive rational number with negative numerator and denominator\"",
+      "name": "Absolute value of a positive rational number with negative numerator and denominator",
       "cmd": "bash rational_numbers.sh \"abs\" \"-1/-2\""
     },
     {
-      "name": "\"Absolute value of a negative rational number\"",
+      "name": "Absolute value of a negative rational number",
       "cmd": "bash rational_numbers.sh \"abs\" \"-1/2\""
     },
     {
-      "name": "\"Absolute value of a negative rational number with negative denominator\"",
+      "name": "Absolute value of a negative rational number with negative denominator",
       "cmd": "bash rational_numbers.sh \"abs\" \"1/-2\""
     },
     {
-      "name": "\"Absolute value of zero\"",
+      "name": "Absolute value of zero",
       "cmd": "bash rational_numbers.sh \"abs\" \"0/1\""
     },
     {
-      "name": "\"Raise a positive rational number to a positive integer power\"",
+      "name": "Raise a positive rational number to a positive integer power",
       "cmd": "bash rational_numbers.sh \"pow\" \"1/2\" 3"
     },
     {
-      "name": "\"Raise a negative rational number to a positive integer power\"",
+      "name": "Raise a negative rational number to a positive integer power",
       "cmd": "bash rational_numbers.sh \"pow\" \"-1/2\" 3"
     },
     {
-      "name": "\"Raise zero to an integer power\"",
+      "name": "Raise zero to an integer power",
       "cmd": "bash rational_numbers.sh \"pow\" \"0/1\" 5"
     },
     {
-      "name": "\"Raise one to an integer power\"",
+      "name": "Raise one to an integer power",
       "cmd": "bash rational_numbers.sh \"pow\" \"1/1\" 4"
     },
     {
-      "name": "\"Raise a positive rational number to the power of zero\"",
+      "name": "Raise a positive rational number to the power of zero",
       "cmd": "bash rational_numbers.sh \"pow\" \"1/2\" 0"
     },
     {
-      "name": "\"Raise a negative rational number to the power of zero\"",
+      "name": "Raise a negative rational number to the power of zero",
       "cmd": "bash rational_numbers.sh \"pow\" \"-1/2\" 0"
     },
     {
-      "name": "\"Raise a real number to a positive rational number\"",
+      "name": "Raise a real number to a positive rational number",
       "cmd": "bash rational_numbers.sh \"rpow\" 8 \"4/3\""
     },
     {
-      "name": "\"Raise a real number to a negative rational number\"",
+      "name": "Raise a real number to a negative rational number",
       "cmd": "bash rational_numbers.sh \"rpow\" 9 \"-1/2\""
     },
     {
-      "name": "\"Raise a real number to a zero rational number\"",
+      "name": "Raise a real number to a zero rational number",
       "cmd": "bash rational_numbers.sh \"rpow\" 2 \"0/1\""
     },
     {
-      "name": "\"Reduce a positive rational number to lowest terms\"",
+      "name": "Reduce a positive rational number to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"2/4\""
     },
     {
-      "name": "\"Reduce a negative rational number to lowest terms\"",
+      "name": "Reduce a negative rational number to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"-4/6\""
     },
     {
-      "name": "\"Reduce a rational number with a negative denominator to lowest terms\"",
+      "name": "Reduce a rational number with a negative denominator to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"3/-9\""
     },
     {
-      "name": "\"Reduce zero to lowest terms\"",
+      "name": "Reduce zero to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"0/6\""
     },
     {
-      "name": "\"Reduce an integer to lowest terms\"",
+      "name": "Reduce an integer to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"-14/7\""
     },
     {
-      "name": "\"Reduce one to lowest terms\"",
+      "name": "Reduce one to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"13/13\""
     },
     {
-      "name": "\"Reduce zero to lowest terms\"",
+      "name": "Reduce zero to lowest terms",
       "cmd": "bash rational_numbers.sh \"reduce\" \"0/13\""
     }
   ]

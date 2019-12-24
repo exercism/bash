@@ -4,27 +4,27 @@
   ],
   "tests": [
     {
-      "name": "\"brown black\"",
+      "name": "brown black",
       "cmd": "bash resistor_color_duo.sh brown black"
     },
     {
-      "name": "\"blue grey\"",
+      "name": "blue grey",
       "cmd": "bash resistor_color_duo.sh blue grey"
     },
     {
-      "name": "\"yellow violet\"",
+      "name": "yellow violet",
       "cmd": "bash resistor_color_duo.sh yellow violet"
     },
     {
-      "name": "\"orange orange\"",
+      "name": "orange orange",
       "cmd": "bash resistor_color_duo.sh orange orange"
     },
     {
-      "name": "\"invalid color\"",
+      "name": "invalid color",
       "cmd": "bash resistor_color_duo.sh foo"
     },
     {
-      "name": "\"ignore too many colors\"",
+      "name": "ignore too many colors",
       "cmd": "bash resistor_color_duo.sh green brown orange"
     }
   ]

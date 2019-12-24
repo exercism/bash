@@ -4,171 +4,171 @@
   ],
   "tests": [
     {
-      "name": "\"on the hour\"",
+      "name": "on the hour",
       "cmd": "bash clock.sh 8 0"
     },
     {
-      "name": "\"past the hour\"",
+      "name": "past the hour",
       "cmd": "bash clock.sh 11 9"
     },
     {
-      "name": "\"midnight is zero hours\"",
+      "name": "midnight is zero hours",
       "cmd": "bash clock.sh 24 0"
     },
     {
-      "name": "\"hour rolls over\"",
+      "name": "hour rolls over",
       "cmd": "bash clock.sh 25 0"
     },
     {
-      "name": "\"hour rolls over continuously\"",
+      "name": "hour rolls over continuously",
       "cmd": "bash clock.sh 100 0"
     },
     {
-      "name": "\"sixty minutes is next hour\"",
+      "name": "sixty minutes is next hour",
       "cmd": "bash clock.sh 1 60"
     },
     {
-      "name": "\"minutes roll over\"",
+      "name": "minutes roll over",
       "cmd": "bash clock.sh 0 160"
     },
     {
-      "name": "\"minutes roll over continuously\"",
+      "name": "minutes roll over continuously",
       "cmd": "bash clock.sh 0 1723"
     },
     {
-      "name": "\"hour and minutes roll over\"",
+      "name": "hour and minutes roll over",
       "cmd": "bash clock.sh 25 160"
     },
     {
-      "name": "\"hour and minutes roll over continuously\"",
+      "name": "hour and minutes roll over continuously",
       "cmd": "bash clock.sh 201 3001"
     },
     {
-      "name": "\"hour and minutes roll over to exactly midnight\"",
+      "name": "hour and minutes roll over to exactly midnight",
       "cmd": "bash clock.sh 72 8640"
     },
     {
-      "name": "\"negative hour\"",
+      "name": "negative hour",
       "cmd": "bash clock.sh -1 15"
     },
     {
-      "name": "\"negative hour rolls over\"",
+      "name": "negative hour rolls over",
       "cmd": "bash clock.sh -25 0"
     },
     {
-      "name": "\"negative hour rolls over continuously\"",
+      "name": "negative hour rolls over continuously",
       "cmd": "bash clock.sh -91 0"
     },
     {
-      "name": "\"negative minutes\"",
+      "name": "negative minutes",
       "cmd": "bash clock.sh 1 -40"
     },
     {
-      "name": "\"negative minutes roll over\"",
+      "name": "negative minutes roll over",
       "cmd": "bash clock.sh 1 -160"
     },
     {
-      "name": "\"negative minutes roll over continuously\"",
+      "name": "negative minutes roll over continuously",
       "cmd": "bash clock.sh 1 -4820"
     },
     {
-      "name": "\"negative sixty minutes is previous hour\"",
+      "name": "negative sixty minutes is previous hour",
       "cmd": "bash clock.sh 2 -60"
     },
     {
-      "name": "\"negative hour and minutes both roll over\"",
+      "name": "negative hour and minutes both roll over",
       "cmd": "bash clock.sh -25 -160"
     },
     {
-      "name": "\"negative hour and minutes both roll over continuously\"",
+      "name": "negative hour and minutes both roll over continuously",
       "cmd": "bash clock.sh -121 -5810"
     },
     {
-      "name": "\"add minutes\"",
+      "name": "add minutes",
       "cmd": "bash clock.sh 10 0 + 3"
     },
     {
-      "name": "\"add no minutes\"",
+      "name": "add no minutes",
       "cmd": "bash clock.sh 6 41 + 0"
     },
     {
-      "name": "\"add to next hour\"",
+      "name": "add to next hour",
       "cmd": "bash clock.sh 0 45 + 40"
     },
     {
-      "name": "\"add more than one hour\"",
+      "name": "add more than one hour",
       "cmd": "bash clock.sh 10 0 + 61"
     },
     {
-      "name": "\"add more than two hours with carry\"",
+      "name": "add more than two hours with carry",
       "cmd": "bash clock.sh 0 45 + 160"
     },
     {
-      "name": "\"add across midnight\"",
+      "name": "add across midnight",
       "cmd": "bash clock.sh 23 59 + 2"
     },
     {
-      "name": "\"add more than one day (1500 min = 25 hrs)\"",
+      "name": "add more than one day (1500 min = 25 hrs)",
       "cmd": "bash clock.sh 5 32 + 1500"
     },
     {
-      "name": "\"add more than two days\"",
+      "name": "add more than two days",
       "cmd": "bash clock.sh 1 1 + 3500"
     },
     {
-      "name": "\"subtract minutes\"",
+      "name": "subtract minutes",
       "cmd": "bash clock.sh 10 3 - 3"
     },
     {
-      "name": "\"subtract to previous hour\"",
+      "name": "subtract to previous hour",
       "cmd": "bash clock.sh 10 3 - 30"
     },
     {
-      "name": "\"subtract more than an hour\"",
+      "name": "subtract more than an hour",
       "cmd": "bash clock.sh 10 3 - 70"
     },
     {
-      "name": "\"subtract across midnight\"",
+      "name": "subtract across midnight",
       "cmd": "bash clock.sh 0 3 - 4"
     },
     {
-      "name": "\"subtract more than two hours\"",
+      "name": "subtract more than two hours",
       "cmd": "bash clock.sh 0 0 - 160"
     },
     {
-      "name": "\"subtract more than two hours with borrow\"",
+      "name": "subtract more than two hours with borrow",
       "cmd": "bash clock.sh 6 15 - 160"
     },
     {
-      "name": "\"subtract more than one day (1500 min = 25 hrs)\"",
+      "name": "subtract more than one day (1500 min = 25 hrs)",
       "cmd": "bash clock.sh 5 32 - 1500"
     },
     {
-      "name": "\"subtract more than two days\"",
+      "name": "subtract more than two days",
       "cmd": "bash clock.sh 2 20 - 3000"
     },
     {
-      "name": "\"no args\"",
+      "name": "no args",
       "cmd": "bash clock.sh"
     },
     {
-      "name": "\"too many args\"",
+      "name": "too many args",
       "cmd": "bash clock.sh 1 2 3 4 5"
     },
     {
-      "name": "\"three args\"",
+      "name": "three args",
       "cmd": "bash clock.sh 1 2 +"
     },
     {
-      "name": "\"invalid delta\"",
+      "name": "invalid delta",
       "cmd": "bash clock.sh 1 2 / 3"
     },
     {
-      "name": "\"non-numeric args are errors\"",
+      "name": "non-numeric args are errors",
       "cmd": "bash clock.sh foo bar"
     },
     {
-      "name": "\"non-numeric delta errors\"",
+      "name": "non-numeric delta errors",
       "cmd": "bash clock.sh 1 2 - 3delta"
     }
   ]

@@ -4,23 +4,23 @@
   ],
   "tests": [
     {
-      "name": "'date only specificaion of time'",
+      "name": "date only specificaion of time",
       "cmd": "bash gigasecond.sh '2011-04-25'"
     },
     {
-      "name": "'second test for date only specification of time'",
+      "name": "second test for date only specification of time",
       "cmd": "bash gigasecond.sh '1977-06-13'"
     },
     {
-      "name": "'third test for date only specification of time'",
+      "name": "third test for date only specification of time",
       "cmd": "bash gigasecond.sh '1959-07-19'"
     },
     {
-      "name": "'full time specified'",
+      "name": "full time specified",
       "cmd": "bash gigasecond.sh '2015-01-24T22:00:00'"
     },
     {
-      "name": "'full time with day roll-over'",
+      "name": "full time with day roll-over",
       "cmd": "bash gigasecond.sh '2015-01-24T23:59:59'"
     }
   ]

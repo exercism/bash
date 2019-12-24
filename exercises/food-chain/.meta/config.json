@@ -4,55 +4,55 @@
   ],
   "tests": [
     {
-      "name": "'fly'",
+      "name": "fly",
       "cmd": "bash food_chain.sh 1 1"
     },
     {
-      "name": "'spider'",
+      "name": "spider",
       "cmd": "bash food_chain.sh 2 2"
     },
     {
-      "name": "'bird'",
+      "name": "bird",
       "cmd": "bash food_chain.sh 3 3"
     },
     {
-      "name": "'cat'",
+      "name": "cat",
       "cmd": "bash food_chain.sh 4 4"
     },
     {
-      "name": "'dog'",
+      "name": "dog",
       "cmd": "bash food_chain.sh 5 5"
     },
     {
-      "name": "'goat'",
+      "name": "goat",
       "cmd": "bash food_chain.sh 6 6"
     },
     {
-      "name": "'cow'",
+      "name": "cow",
       "cmd": "bash food_chain.sh 7 7"
     },
     {
-      "name": "'horse'",
+      "name": "horse",
       "cmd": "bash food_chain.sh 8 8"
     },
     {
-      "name": "'multiple_verses'",
+      "name": "multiple_verses",
       "cmd": "bash food_chain.sh 1 3"
     },
     {
-      "name": "'full_song'",
+      "name": "full_song",
       "cmd": "bash food_chain.sh 1 8"
     },
     {
-      "name": "'no_arguments'",
+      "name": "no_arguments",
       "cmd": "bash food_chain.sh"
     },
     {
-      "name": "'too_many_arguments'",
+      "name": "too_many_arguments",
       "cmd": "bash food_chain.sh 1 2 3"
     },
     {
-      "name": "'wrong_order_arguments'",
+      "name": "wrong_order_arguments",
       "cmd": "bash food_chain.sh 8 1"
     }
   ]

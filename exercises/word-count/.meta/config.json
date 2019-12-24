@@ -4,59 +4,59 @@
   ],
   "tests": [
     {
-      "name": "\"count one word\"",
+      "name": "count one word",
       "cmd": "bash word_count.sh \"word\""
     },
     {
-      "name": "\"count one of each word\"",
+      "name": "count one of each word",
       "cmd": "bash word_count.sh \"one of each\""
     },
     {
-      "name": "\"multiple occurrences of a word\"",
+      "name": "multiple occurrences of a word",
       "cmd": "bash word_count.sh \"one fish two fish red fish blue fish\""
     },
     {
-      "name": "\"handles cramped lists\"",
+      "name": "handles cramped lists",
       "cmd": "bash word_count.sh \"one,two,three\""
     },
     {
-      "name": "\"handles expanded lists\"",
+      "name": "handles expanded lists",
       "cmd": "bash word_count.sh \"one,\\ntwo,\\nthree\""
     },
     {
-      "name": "\"ignore punctuation\"",
+      "name": "ignore punctuation",
       "cmd": "bash word_count.sh \"car: carpet as java: javascript!!&@$%^&\""
     },
     {
-      "name": "\"include numbers\"",
+      "name": "include numbers",
       "cmd": "bash word_count.sh \"testing, 1, 2 testing\""
     },
     {
-      "name": "\"normalize case\"",
+      "name": "normalize case",
       "cmd": "bash word_count.sh \"go Go GO Stop stop\""
     },
     {
-      "name": "\"with apostrophes\"",
+      "name": "with apostrophes",
       "cmd": "bash word_count.sh \"First: don't laugh. Then: don't cry.\""
     },
     {
-      "name": "\"with quotations\"",
+      "name": "with quotations",
       "cmd": "bash word_count.sh \"Joe can't tell between 'large' and large.\""
     },
     {
-      "name": "\"substrings from the beginning\"",
+      "name": "substrings from the beginning",
       "cmd": "bash word_count.sh \"Joe can't tell between apple, app and a.\""
     },
     {
-      "name": "\"multiple spaces not detected as a word\"",
+      "name": "multiple spaces not detected as a word",
       "cmd": "bash word_count.sh \" multiple whitespaces\""
     },
     {
-      "name": "\"alternating word separators are not detected as a word\"",
+      "name": "alternating word separators are not detected as a word",
       "cmd": "bash word_count.sh $',\\n,one,\\n ,two \\n \\'three\\''"
     },
     {
-      "name": "\"contains shell globbing character\"",
+      "name": "contains shell globbing character",
       "cmd": "bash word_count.sh \"two * words\""
     }
   ]

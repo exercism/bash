@@ -4,31 +4,31 @@
   ],
   "tests": [
     {
-      "name": "\"no factors\"",
+      "name": "no factors",
       "cmd": "bash prime_factors.sh 1"
     },
     {
-      "name": "\"prime number\"",
+      "name": "prime number",
       "cmd": "bash prime_factors.sh 2"
     },
     {
-      "name": "\"square of a prime\"",
+      "name": "square of a prime",
       "cmd": "bash prime_factors.sh 9"
     },
     {
-      "name": "\"cube of a prime\"",
+      "name": "cube of a prime",
       "cmd": "bash prime_factors.sh 8"
     },
     {
-      "name": "\"product of primes and non-primes\"",
+      "name": "product of primes and non-primes",
       "cmd": "bash prime_factors.sh 12"
     },
     {
-      "name": "\"product of primes\"",
+      "name": "product of primes",
       "cmd": "bash prime_factors.sh 901255"
     },
     {
-      "name": "\"factors include a large prime\"",
+      "name": "factors include a large prime",
       "cmd": "bash prime_factors.sh 93819012551"
     }
   ]

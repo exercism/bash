@@ -4,23 +4,23 @@
   ],
   "tests": [
     {
-      "name": "\"no name given\"",
-      "cmd": "bash two_fer.sh"
+      "name": "no name given",
+      "cmd": "line to run the test when you are ready."
     },
     {
-      "name": "\"a name given\"",
+      "name": "a name given",
       "cmd": "bash two_fer.sh Alice"
     },
     {
-      "name": "\"another name given\"",
+      "name": "another name given",
       "cmd": "bash two_fer.sh Bob"
     },
     {
-      "name": "\"handle arg with spaces\"",
+      "name": "handle arg with spaces",
       "cmd": "bash two_fer.sh \"John Smith\" \"Mary Ann\""
     },
     {
-      "name": "\"handle arg with glob char\"",
+      "name": "handle arg with glob char",
       "cmd": "bash two_fer.sh \"*\""
     }
   ]

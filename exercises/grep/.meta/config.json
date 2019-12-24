@@ -1,0 +1,107 @@
+{
+  "solution_files": [
+    "grep.sh"
+  ],
+  "tests": [
+    {
+      "name": "One file, one match, no flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, one match, print line numbers flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, one match, case-insensitive flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, one match, print file names flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, one match, match entire lines flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, one match, multiple flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, several matches, no flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, several matches, print line numbers flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, several matches, match entire lines flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, several matches, case-insensitive flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, several matches, inverted flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, no matches, various flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, one match, file flag takes precedence over line flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "One file, several matches, inverted and match entire lines flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, one match, no flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, several matches, no flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, several matches, print line numbers flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, one match, print file names flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, several matches, case-insensitive flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, several matches, inverted flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, one match, match entire lines flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, one match, multiple flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, no matches, various flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, several matches, file flag takes precedence over line number flag",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    },
+    {
+      "name": "Multiple files, several matches, inverted and match entire lines flags",
+      "cmd": "bash grep.sh \"${flags[@]}\" \"$pattern\" \"${files[@]}\""
+    }
+  ]
+}

@@ -4,31 +4,31 @@
   ],
   "tests": [
     {
-      "name": "\"first prime\"",
+      "name": "first prime",
       "cmd": "bash nth_prime.sh 1"
     },
     {
-      "name": "\"second prime\"",
+      "name": "second prime",
       "cmd": "bash nth_prime.sh 2"
     },
     {
-      "name": "\"sixth prime\"",
+      "name": "sixth prime",
       "cmd": "bash nth_prime.sh 6"
     },
     {
-      "name": "\"hundredth prime\"",
+      "name": "hundredth prime",
       "cmd": "bash nth_prime.sh 100"
     },
     {
-      "name": "\"big prime\"",
+      "name": "big prime",
       "cmd": "bash nth_prime.sh 10001"
     },
     {
-      "name": "\"there is no zeroth prime\"",
+      "name": "there is no zeroth prime",
       "cmd": "bash nth_prime.sh 0"
     },
     {
-      "name": "\"there is no negativeth prime\"",
+      "name": "there is no negativeth prime",
       "cmd": "bash nth_prime.sh -2"
     }
   ]

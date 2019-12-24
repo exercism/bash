@@ -4,87 +4,87 @@
   ],
   "tests": [
     {
-      "name": "'single bit to one decimal'",
+      "name": "single bit to one decimal",
       "cmd": "bash all_your_base.sh 2 \"1\" 10"
     },
     {
-      "name": "'binary to single decimal'",
+      "name": "binary to single decimal",
       "cmd": "bash all_your_base.sh 2 \"1 0 1\" 10"
     },
     {
-      "name": "'single decimal to binary'",
+      "name": "single decimal to binary",
       "cmd": "bash all_your_base.sh 10 \"5\" 2"
     },
     {
-      "name": "'binary to multiple decimal'",
+      "name": "binary to multiple decimal",
       "cmd": "bash all_your_base.sh 2 \"1 0 1 0 1 0\" 10"
     },
     {
-      "name": "'decimal to binary'",
+      "name": "decimal to binary",
       "cmd": "bash all_your_base.sh 10 \"4 2\" 2"
     },
     {
-      "name": "'trinary to hexadecimal'",
+      "name": "trinary to hexadecimal",
       "cmd": "bash all_your_base.sh 3 \"1 1 2 0\" 16"
     },
     {
-      "name": "'hexadecimal to trinary'",
+      "name": "hexadecimal to trinary",
       "cmd": "bash all_your_base.sh 16 \"2 10\" 3"
     },
     {
-      "name": "'15 bit integer'",
+      "name": "15 bit integer",
       "cmd": "bash all_your_base.sh 97 \"3 46 60\" 73"
     },
     {
-      "name": "'empty list'",
+      "name": "empty list",
       "cmd": "bash all_your_base.sh 2 \"\" 10"
     },
     {
-      "name": "'single zero'",
+      "name": "single zero",
       "cmd": "bash all_your_base.sh 10 \"0\" 2"
     },
     {
-      "name": "'multiple zeroes'",
+      "name": "multiple zeroes",
       "cmd": "bash all_your_base.sh 10 \"0 0 0\" 2"
     },
     {
-      "name": "'leading zeros'",
+      "name": "leading zeros",
       "cmd": "bash all_your_base.sh 7 \"0 6 0\" 10"
     },
     {
-      "name": "'input base is one'",
+      "name": "input base is one",
       "cmd": "bash all_your_base.sh 1 \"0\" 10"
     },
     {
-      "name": "'input base is zero'",
+      "name": "input base is zero",
       "cmd": "bash all_your_base.sh 0 \"\" 10"
     },
     {
-      "name": "'input base is negative'",
+      "name": "input base is negative",
       "cmd": "bash all_your_base.sh -2 \"1\" 10"
     },
     {
-      "name": "'negative digit'",
+      "name": "negative digit",
       "cmd": "bash all_your_base.sh 2 \"1 -1 1 0 1 0\" 10"
     },
     {
-      "name": "'invalid positive digit'",
+      "name": "invalid positive digit",
       "cmd": "bash all_your_base.sh 2 \"1 2 1 0 1 0\" 10"
     },
     {
-      "name": "'output base is one'",
+      "name": "output base is one",
       "cmd": "bash all_your_base.sh 2 \"1 0 1 0 1 0\" 1"
     },
     {
-      "name": "'output base is zero'",
+      "name": "output base is zero",
       "cmd": "bash all_your_base.sh 10 \"7\" 0"
     },
     {
-      "name": "'output base is negative'",
+      "name": "output base is negative",
       "cmd": "bash all_your_base.sh 2 \"1\" -7"
     },
     {
-      "name": "'both bases are negative'",
+      "name": "both bases are negative",
       "cmd": "bash all_your_base.sh -2 \"1\" -7"
     }
   ]

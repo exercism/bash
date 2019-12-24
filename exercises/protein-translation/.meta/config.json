@@ -4,99 +4,99 @@
   ],
   "tests": [
     {
-      "name": "\"Methionine RNA sequence\"",
+      "name": "Methionine RNA sequence",
       "cmd": "bash protein_translation.sh \"AUG\""
     },
     {
-      "name": "\"Phenylalanine RNA sequence 1\"",
+      "name": "Phenylalanine RNA sequence 1",
       "cmd": "bash protein_translation.sh \"UUU\""
     },
     {
-      "name": "\"Phenylalanine RNA sequence 2\"",
+      "name": "Phenylalanine RNA sequence 2",
       "cmd": "bash protein_translation.sh \"UUC\""
     },
     {
-      "name": "\"Leucine RNA sequence 1\"",
+      "name": "Leucine RNA sequence 1",
       "cmd": "bash protein_translation.sh \"UUA\""
     },
     {
-      "name": "\"Leucine RNA sequence 2\"",
+      "name": "Leucine RNA sequence 2",
       "cmd": "bash protein_translation.sh \"UUG\""
     },
     {
-      "name": "\"Serine RNA sequence 1\"",
+      "name": "Serine RNA sequence 1",
       "cmd": "bash protein_translation.sh \"UCU\""
     },
     {
-      "name": "\"Serine RNA sequence 2\"",
+      "name": "Serine RNA sequence 2",
       "cmd": "bash protein_translation.sh \"UCC\""
     },
     {
-      "name": "\"Serine RNA sequence 3\"",
+      "name": "Serine RNA sequence 3",
       "cmd": "bash protein_translation.sh \"UCA\""
     },
     {
-      "name": "\"Serine RNA sequence 4\"",
+      "name": "Serine RNA sequence 4",
       "cmd": "bash protein_translation.sh \"UCG\""
     },
     {
-      "name": "\"Tyrosine RNA sequence 1\"",
+      "name": "Tyrosine RNA sequence 1",
       "cmd": "bash protein_translation.sh \"UAU\""
     },
     {
-      "name": "\"Tyrosine RNA sequence 2\"",
+      "name": "Tyrosine RNA sequence 2",
       "cmd": "bash protein_translation.sh \"UAC\""
     },
     {
-      "name": "\"Cysteine RNA sequence 1\"",
+      "name": "Cysteine RNA sequence 1",
       "cmd": "bash protein_translation.sh \"UGU\""
     },
     {
-      "name": "\"Cysteine RNA sequence 2\"",
+      "name": "Cysteine RNA sequence 2",
       "cmd": "bash protein_translation.sh \"UGC\""
     },
     {
-      "name": "\"Tryptophan RNA sequence\"",
+      "name": "Tryptophan RNA sequence",
       "cmd": "bash protein_translation.sh \"UGG\""
     },
     {
-      "name": "\"STOP codon RNA sequence 1\"",
+      "name": "STOP codon RNA sequence 1",
       "cmd": "bash protein_translation.sh \"UAA\""
     },
     {
-      "name": "\"STOP codon RNA sequence 2\"",
+      "name": "STOP codon RNA sequence 2",
       "cmd": "bash protein_translation.sh \"UAG\""
     },
     {
-      "name": "\"STOP codon RNA sequence 3\"",
+      "name": "STOP codon RNA sequence 3",
       "cmd": "bash protein_translation.sh \"UGA\""
     },
     {
-      "name": "\"Translate RNA strand into correct protein list\"",
+      "name": "Translate RNA strand into correct protein list",
       "cmd": "bash protein_translation.sh \"AUGUUUUGG\""
     },
     {
-      "name": "\"Translation stops if STOP codon at beginning of sequence\"",
+      "name": "Translation stops if STOP codon at beginning of sequence",
       "cmd": "bash protein_translation.sh \"UAGUGG\""
     },
     {
-      "name": "\"Translation stops if STOP codon at end of two-codon sequence\"",
+      "name": "Translation stops if STOP codon at end of two-codon sequence",
       "cmd": "bash protein_translation.sh \"UGGUAG\""
     },
     {
-      "name": "\"Translation stops if STOP codon at end of three-codon sequence\"",
+      "name": "Translation stops if STOP codon at end of three-codon sequence",
       "cmd": "bash protein_translation.sh \"AUGUUUUAA\""
     },
     {
-      "name": "\"Translation stops if STOP codon in middle of three-codon sequence\"",
+      "name": "Translation stops if STOP codon in middle of three-codon sequence",
       "cmd": "bash protein_translation.sh \"UGGUAGUGG\""
     },
     {
-      "name": "\"Translation stops if STOP codon in middle of six-codon sequence\"",
+      "name": "Translation stops if STOP codon in middle of six-codon sequence",
       "cmd": "bash protein_translation.sh \"UGGUGUUAUUAAUGGUUU\""
     },
     {
-      "name": "\"Error case\"",
+      "name": "Error case",
       "cmd": "bash protein_translation.sh \"UGG---AUG\""
     }
   ]

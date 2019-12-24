@@ -4,23 +4,23 @@
   ],
   "tests": [
     {
-      "name": "\"no primes under two\"",
+      "name": "no primes under two",
       "cmd": "bash sieve.sh 1"
     },
     {
-      "name": "\"find first prime\"",
+      "name": "find first prime",
       "cmd": "bash sieve.sh 2"
     },
     {
-      "name": "\"find primes up to 10\"",
+      "name": "find primes up to 10",
       "cmd": "bash sieve.sh 10"
     },
     {
-      "name": "\"limit is prime\"",
+      "name": "limit is prime",
       "cmd": "bash sieve.sh 13"
     },
     {
-      "name": "\"find primes up to 1000\"",
+      "name": "find primes up to 1000",
       "cmd": "bash sieve.sh 1000"
     }
   ]
