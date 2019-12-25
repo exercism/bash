@@ -9,71 +9,71 @@
     },
     {
       "name": "Recognizes 0",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 1",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Unreadable but correctly sized inputs return ?",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Input with a number of lines that is not a multiple of four raises an error",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Input with a number of columns that is not a multiple of three raises an error",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 110101100",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Garbled numbers in a string are replaced with ?",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 2",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 3",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 4",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 5",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 6",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 7",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 8",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes 9",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Recognizes string of decimal numbers",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     },
     {
       "name": "Numbers separated by empty lines are recognized. Lines are joined by commas.",
-      "cmd": "bash ocr_numbers.sh << INPUT"
+      "cmd": "bash ocr_numbers.sh"
     }
   ]
 }
