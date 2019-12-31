@@ -28,8 +28,7 @@ $ git clone https://github.com/sstephenson/bats.git
 $ cd bats
 $ ./install.sh $HOME
 ```
-If you discover an error like `cp: cannot create symbolic link '/c/Users/XXX/bin/bats': No such file or directory`,
-you have to copy the `bin/bats/libexec/` folder content to `/c/Users/XXX/bin/` manually.
+If you discover an error like `cp: cannot create symbolic link '${HOME}/bin/bats': No such file or directory`, you have to copy the `bin/bats/libexec/` folder content to `${HOME}/bin/` manually.
 
 ---
 
