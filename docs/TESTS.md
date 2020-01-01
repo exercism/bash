@@ -24,11 +24,11 @@ sudo yum install bats
 
 ### For Windows (MINGW64/Cygwin)
 ```
-$ git clone https://github.com/sstephenson/bats.git
+$ git clone https://github.com/bats-core/bats-core.git
 $ cd bats
 $ ./install.sh $HOME
 ```
-If you discover an error like `cp: cannot create symbolic link '${HOME}/bin/bats': No such file or directory`, you have to copy the `bin/bats/libexec/` folder content to `${HOME}/bin/` manually.
+Note: When you are using the outdated `https://github.com/sstephenson/bats.git` and you discover an error like `cp: cannot create symbolic link '${HOME}/bin/bats': No such file or directory`, you have to copy the `bin/bats/libexec/` folder content to `${HOME}/bin/` manually.
 
 ---
 
