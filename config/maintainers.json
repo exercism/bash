@@ -60,6 +60,16 @@
       "link_url": null,
       "avatar_url": null,
       "bio": "I've been a command line *nix hacker for over 25 years, very active on Stack Overflow for over 10 years, and am happy to bring my experience to the Exercism community."
+    },
+    {
+      "github_username": "bkhl",
+      "alumnus": false,
+      "show_on_website": false,
+      "name": "Björn Lindström",
+      "link_text": "Elektrubadur",
+      "link_url": "https://elektrubadur.se/",
+      "avatar_url": null,
+      "bio": "I've used various Unixes on the desktop for around 20 years, and now work as a systems engineer, mainly with Linux systems. Along the way I've picked up bit of shell script."
     }
   ]
 }
