@@ -1,9 +1,8 @@
 As there isn't much of a bash ecosystem, there also isn't really a defacto
 leader in the bash testing area. For these examples we are using
-[bats](https://github.com/bats-core/bats-core) (this repo was forked from
-[the original bats](https://github.com/sstephenson/bats) which has
-stagnated).  You should be able to install it from your favorite package
-manager, on OS X with homebrew this would look something like this:
+[bats](https://github.com/bats-core/bats-core). You should be able to
+install it from your favorite package manager, on OS X with
+[Homebrew](https://brew.sh/) this would look something like this:
 
 ```
 $ brew install bats-core
