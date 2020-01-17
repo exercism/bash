@@ -14,14 +14,20 @@ $ brew install bats-core
 🍺  /usr/local/Cellar/bats-core/1.1.0: 13 files, 55KB, built in 4 seconds
 ```
 
-### For Ubuntu 15.10 or later  
+### For Linux
+The implementation of `bats` we use is not conveniently packaged. The best way to install it is from source: if you want to install it under `/usr/local` then
+```bash
+git clone https://github.com/bats-core/bats-core
+cd bats-core/
+sudo ./install.sh /usr/local
 ```
-sudo apt-get install bats  
+Following that, assuming `/usr/local/bin` is in your $PATH, you can now do:
 ```
-
-### For Red Hat, Scientific Linux, and CentOS 6 or later bats is found in the EPEL repository.  
-```
-sudo yum install bats  
+$ bats
+Error: Must specify at least one <test>
+Usage: bats [-cr] [-f <regex>] [-j <jobs>] [-p | -t] <test>...
+       bats [-h | -v]
+...
 ```
 
 ### For Windows (MINGW64/Cygwin)
