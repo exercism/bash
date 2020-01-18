@@ -15,7 +15,18 @@ $ brew install bats-core
 ```
 
 ### For Linux
-The implementation of `bats` we use is not conveniently packaged. The best way to install it is from source: if you want to install it under `/usr/local` then
+
+#### Fedora 30 and newer
+
+`bats` is packaged for Fedora 30 and newer, you can install it with
+
+```bash
+sudo dnf install bats
+```
+
+#### Other Linux
+
+For other Linux distributions the implementation of `bats` we use is not conveniently packaged. The best way to install it is from source: if you want to install it under `/usr/local` then
 ```bash
 git clone https://github.com/bats-core/bats-core
 cd bats-core/
