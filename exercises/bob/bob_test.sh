@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: 1.4.0.0
+# local version: 1.6.0.0
 
 @test "stating something" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
@@ -46,21 +46,21 @@
 
 @test "talking forcefully" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash bob.sh "Let's go make out behind the gym!"
+  run bash bob.sh "Hi there!"
   [[ $status -eq 0 ]]
   [[ $output == "Whatever." ]]
 }
 
 @test "using acronyms in regular speech" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash bob.sh "It's OK if you don't want to go to the DMV."
+  run bash bob.sh "It's OK if you don't want to go work for NASA."
   [[ $status -eq 0 ]]
   [[ $output == "Whatever." ]]
 }
 
 @test "forceful question" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash bob.sh 'WHAT THE HELL WERE YOU THINKING?'
+  run bash bob.sh "WHAT'S GOING ON?"
   [[ $status -eq 0 ]]
   [[ $output == "Calm down, I know what I'm doing!" ]]
 }
@@ -95,7 +95,7 @@
 
 @test "shouting with no exclamation mark" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
-  run bash bob.sh 'I HATE THE DMV'
+  run bash bob.sh 'I HATE THE DENTIST'
   [[ $status -eq 0 ]]
   [[ $output == "Whoa, chill out!" ]]
 }
