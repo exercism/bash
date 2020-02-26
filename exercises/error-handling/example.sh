@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o nounset
-
-if [ $# -ne 1 ]; then
-  echo "Usage: ./error_handling <greetee>"
+if (( $# != 1 )); then
+  echo "Usage: $0 <person>" >&2
   exit 1
-else
-  echo "Hello, ${1}"
-  exit 0
 fi
+
+echo "Hello, $1"
