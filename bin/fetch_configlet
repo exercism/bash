@@ -33,11 +33,31 @@ esac
 VERSION="$(get_version)"
 URL="${RELEASES}/download/${VERSION}/configlet-${OS}-${ARCH}.${EXT}"
 
+fetch_archive() {
+    local file_info=$1
+    for i in {0..4}; do
+        sleep $i
+        curl -s --location "$URL" -o "$localfile"
+        if file "$localfile" 2>&1 | grep -q "$file_info"; then
+            # fetched successfully
+            return 0
+        fi
+    done
+    echo "Cannot fetch $URL" >&2
+    return 1
+}
+
 case "$EXT" in
     (*zip)
-        curl -s --location "$URL" -o bin/latest-configlet.zip
-        unzip bin/latest-configlet.zip -d bin/
-        rm bin/latest-configlet.zip
+        localfile=bin/latest-configlet.zip
+        fetch_archive "Zip archive data"
+        unzip "$localfile" -d bin/
         ;;
-    (*) curl -s --location "$URL" | tar xz -C bin/ ;;
+    (*)
+        localfile=bin/latest-configlet.tgz
+        fetch_archive "gzip compressed data"
+        tar xzf "$localfile" -C bin/
+        ;;
 esac
+
+rm -f "$localfile"
