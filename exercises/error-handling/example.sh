@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if (( $# != 1 )); then
-  echo "Usage: $0 <greetee>" >&2
+  echo "Usage: $0 <person>" >&2
   exit 1
 fi
 

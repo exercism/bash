@@ -23,7 +23,7 @@
   run bash error_handling.sh Alice Bob
 
   [[ $status -eq 1 ]]
-  [[ $output = "Usage: error_handling.sh <greetee>" ]]
+  [[ $output = "Usage: error_handling.sh <person>" ]]
 }
 
 @test "print usage banner with no value given" {
@@ -31,7 +31,7 @@
   run bash error_handling.sh
 
   [[ $status -eq 1 ]]
-  [[ $output = "Usage: error_handling.sh <greetee>" ]]
+  [[ $output = "Usage: error_handling.sh <person>" ]]
 }
 
 @test "empty argument" {
