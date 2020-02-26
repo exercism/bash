@@ -35,9 +35,9 @@ URL="${RELEASES}/download/${VERSION}/configlet-${OS}-${ARCH}.${EXT}"
 
 fetch_archive() {
     local file_info=$1
-    for i in {0..4}; do
-        sleep $i
-        curl -s --location "$URL" -o "$localfile"
+    for delay in {0..4}; do
+        sleep "$delay"
+        curl --silent --location "$URL" -o "$localfile"
         if file "$localfile" 2>&1 | grep -q "$file_info"; then
             # fetched successfully
             return 0
