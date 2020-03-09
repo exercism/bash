@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# local version: 1.6.1.0
+# local version: 1.7.0.0
 
 @test "single digit strings can not be valid" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
@@ -47,6 +47,13 @@
 @test "invalid credit card" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash luhn.sh "8273 1232 7352 0569"
+  [[ $status -eq 0 ]]
+  [[ $output == "false" ]]
+}
+
+@test  "invalid long number with an even remainder" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash luhn.sh "1 2345 6789 1234 5678 9012"
   [[ $status -eq 0 ]]
   [[ $output == "false" ]]
 }
