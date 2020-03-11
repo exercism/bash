@@ -6,7 +6,7 @@ readonly RELEASES='https://github.com/exercism/configlet/releases'
 
 get_version () {
     curl --silent --head ${RELEASES}/latest  |
-        awk -v FS=/ '/Location:/{print $NF}' | tr -d '\r'
+    awk -v FS=/ -v RS='\r\n' 'tolower($1) ~ /location:/ {print $NF}'
 }
 
 case "$(uname)" in
@@ -32,6 +32,7 @@ esac
 
 VERSION="$(get_version)"
 URL="${RELEASES}/download/${VERSION}/configlet-${OS}-${ARCH}.${EXT}"
+localfile=bin/latest-configlet.${EXT}
 
 fetch_archive() {
     local file_info=$1
@@ -48,13 +49,11 @@ fetch_archive() {
 }
 
 case "$EXT" in
-    (*zip)
-        localfile=bin/latest-configlet.zip
+    zip)
         fetch_archive "Zip archive data"
         unzip "$localfile" -d bin/
         ;;
-    (*)
-        localfile=bin/latest-configlet.tgz
+    tgz)
         fetch_archive "gzip compressed data"
         tar xzf "$localfile" -C bin/
         ;;
