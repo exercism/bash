@@ -7,7 +7,7 @@
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 1 1
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
  
@@ -18,7 +18,7 @@ It wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 2 2
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -30,7 +30,7 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 3 3
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -43,7 +43,7 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 4 4
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -57,7 +57,7 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 5 5
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -72,7 +72,7 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 6 6
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -88,7 +88,7 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 7 7
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -97,7 +97,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     expected="I know an old lady who swallowed a horse.
 She's dead, of course!"
     run bash food_chain.sh 8 8
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -117,7 +117,7 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 1 3
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -174,7 +174,7 @@ I don't know why she swallowed the fly. Perhaps she'll die.
 I know an old lady who swallowed a horse.
 She's dead, of course!"
     run bash food_chain.sh 1 8
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 

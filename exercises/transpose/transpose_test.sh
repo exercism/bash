@@ -10,7 +10,7 @@
     input=""
     expected=""
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -19,7 +19,7 @@
     input="A1"
     expected=$'A\n1'
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -28,7 +28,7 @@
     input=$'A\n1'
     expected="A1"
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -37,7 +37,7 @@
     input=$'ABC\n123'
     expected=$'A1\nB2\nC3'
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -46,7 +46,7 @@
     input="Single line."
     expected=$'S\ni\nn\ng\nl\ne\n \nl\ni\nn\ne\n.'
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -77,7 +77,7 @@ e.
 END
 )
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -108,7 +108,7 @@ en
 END
 )
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -142,7 +142,7 @@ e
 END
 )
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -151,7 +151,7 @@ END
     input=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
     expected=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -160,7 +160,7 @@ END
     input=$'FRACTURE\nOUTLINED\nBLOOMING\nSEPTETTE'
     expected=$'FOBS\nRULE\nATOP\nCLOT\nTIME\nUNIT\nRENT\nEDGE'
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -169,6 +169,6 @@ END
     input=$'T\nEE\nAAA\nSSSS\nEEEEE\nRRRRRR'
     expected=$'TEASER\n EASER\n  ASER\n   SER\n    ER\n     R'
     run bash transpose.sh <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

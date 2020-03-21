@@ -10,7 +10,7 @@
     expected=0
     input=(6)
     run bash binary_search.sh 6 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -19,7 +19,7 @@
     expected=3
     input=(1 3 4 6 8 9 11)
     run bash binary_search.sh 6 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -28,7 +28,7 @@
     expected=0
     input=(1 3 4 6 8 9 11)
     run bash binary_search.sh 1 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -37,7 +37,7 @@
     expected=6
     input=(1 3 4 6 8 9 11)
     run bash binary_search.sh 11 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -46,7 +46,7 @@
     expected=9
     input=(1 3 5 8 13 21 34 55 89 144 233 377 634)
     run bash binary_search.sh 144 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -55,7 +55,7 @@
     expected=5
     input=(1 3 5 8 13 21 34 55 89 144 233 377)
     run bash binary_search.sh 21 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -66,7 +66,7 @@
     expected="-1"
     input=(1 3 4 6 8 9 11)
     run bash binary_search.sh 7 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -75,7 +75,7 @@
     expected="-1"
     input=(1 3 4 6 8 9 11)
     run bash binary_search.sh 0 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -84,7 +84,7 @@
     expected="-1"
     input=(1 3 4 6 8 9 11)
     run bash binary_search.sh 13 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -93,7 +93,7 @@
     expected="-1"
     input=()
     run bash binary_search.sh 1 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -102,6 +102,6 @@
     expected="-1"
     input=(1 2)
     run bash binary_search.sh 0 "${input[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

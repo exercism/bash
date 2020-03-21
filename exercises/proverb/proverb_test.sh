@@ -6,7 +6,7 @@
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=""
     run bash proverb.sh
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -17,7 +17,7 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -29,7 +29,7 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail shoe
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -42,7 +42,7 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail shoe horse
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -60,7 +60,7 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail shoe horse rider message battle kingdom
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -74,7 +74,7 @@ And all for the want of a pin.
 END
 )
     run bash proverb.sh pin gun soldier battle
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -90,7 +90,7 @@ And all for the want of a rusty nail.
 END
 )
     run bash proverb.sh "rusty nail" "horse shoe"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -102,6 +102,6 @@ And all for the want of a quotes.
 END
 )
     run bash proverb.sh quotes "*"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

@@ -7,7 +7,7 @@
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="This is the house that Jack built."
     run bash house.sh 1 1
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }       
 
@@ -19,7 +19,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 2 2
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -32,7 +32,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 3 3
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -46,7 +46,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 4 4
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -61,7 +61,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 5 5
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -77,7 +77,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 6 6
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -94,7 +94,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 7 7
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -112,7 +112,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 8 8
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -131,7 +131,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 9 9
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -151,7 +151,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 10 10
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -172,7 +172,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 11 11
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -194,7 +194,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 12 12
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -238,7 +238,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 4 8
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -337,7 +337,7 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 1 12
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 

@@ -24,7 +24,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -43,7 +43,7 @@ EXPECTED
 )
 
     run bash tournament.sh "$INPUT_FILE"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -63,7 +63,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -83,7 +83,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -103,7 +103,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -124,7 +124,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -145,7 +145,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -168,7 +168,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -195,7 +195,7 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -219,7 +219,7 @@ EXPECTED
 )
 
     run bash tournament.sh "$INPUT_FILE"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -246,6 +246,6 @@ EXPECTED
 )
 
     run bash tournament.sh  <<< "$input"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

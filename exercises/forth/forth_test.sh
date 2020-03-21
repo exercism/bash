@@ -8,7 +8,7 @@
     run bash forth.sh <<END
 1 2 3 4 5
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 2 3 4 5" ]]
 }
 
@@ -18,7 +18,7 @@ END
     run bash forth.sh <<END
 1 2 +
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "3" ]]
 }
 
@@ -46,7 +46,7 @@ END
     run bash forth.sh <<END
 3 4 -
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "-1" ]]
 }
 
@@ -74,7 +74,7 @@ END
     run bash forth.sh <<END
 2 4 *
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "8" ]]
 }
 
@@ -102,7 +102,7 @@ END
     run bash forth.sh <<END
 12 4 /
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "3" ]]
 }
 
@@ -111,7 +111,7 @@ END
     run bash forth.sh <<END
 15 4 /
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "3" ]]
 }
 
@@ -148,7 +148,7 @@ END
     run bash forth.sh <<END
 1 2 + 4 -
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "-1" ]]
 }
 @test multiply_and_divide {
@@ -156,7 +156,7 @@ END
     run bash forth.sh <<END
 2 4 * 3 /
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "2" ]]
 }
 
@@ -166,7 +166,7 @@ END
     run bash forth.sh <<END
 42 dup
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "42 42" ]]
 }
 
@@ -175,7 +175,7 @@ END
     run bash forth.sh <<END
 1 2 dup
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 2 2" ]]
 }
 
@@ -194,7 +194,7 @@ END
     run bash forth.sh <<END
 42 drop
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "" ]]
 }
 
@@ -203,7 +203,7 @@ END
     run bash forth.sh <<END
 1 2 drop
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1" ]]
 }
 
@@ -222,7 +222,7 @@ END
     run bash forth.sh <<END
 1 2 swap
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "2 1" ]]
 }
 
@@ -231,7 +231,7 @@ END
     run bash forth.sh <<END
 1 2 3 swap
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 3 2" ]]
 }
 
@@ -259,7 +259,7 @@ END
     run bash forth.sh <<END
 1 2 over
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 2 1" ]]
 }
 
@@ -268,7 +268,7 @@ END
     run bash forth.sh <<END
 1 2 3 over
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 2 3 2" ]]
 }
 
@@ -297,7 +297,7 @@ END
 : dup-twice dup dup ;
 1 dup-twice
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 1 1" ]]
 }
 
@@ -307,7 +307,7 @@ END
 : countup 1 2 3 ;
 countup
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 2 3" ]]
 }
 
@@ -318,7 +318,7 @@ END
 : foo swap ;
 1 2 foo
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "2 1" ]]
 }
 
@@ -328,7 +328,7 @@ END
 : swap dup ;
 1 swap
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 1" ]]
 }
 
@@ -338,7 +338,7 @@ END
 : + * ;
 3 4 +
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "12" ]]
 }
 
@@ -350,7 +350,7 @@ END
 : foo 6 ;
 bar foo
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "5 6" ]]
 }
 
@@ -370,7 +370,7 @@ END
 : foo foo 1 + ;
 foo
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "11" ]]
 }
 
@@ -409,7 +409,7 @@ END
     run bash forth.sh <<END
 1 DUP Dup dup
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 1 1 1" ]]
 }
 
@@ -418,7 +418,7 @@ END
     run bash forth.sh <<END
 1 2 3 4 DROP DrOp drop
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1" ]]
 }
 
@@ -427,7 +427,7 @@ END
     run bash forth.sh <<END
 1 2 SWAP 3 Swap 4 swap
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "2 3 4 1" ]]
 }
 
@@ -436,7 +436,7 @@ END
     run bash forth.sh <<END
 1 2 OVER Over over
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 2 1 2 1" ]]
 }
 
@@ -446,7 +446,7 @@ END
 : foo dup ;
 1 FOO Foo foo
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 1 1 1" ]]
 }
 
@@ -456,6 +456,6 @@ END
 : SWAP DUP Dup dup ;
 1 swap
 END
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1 1 1 1" ]]
 }

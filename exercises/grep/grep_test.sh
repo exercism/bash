@@ -48,7 +48,7 @@ teardown() {
     flags=()
     files=(iliad.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -59,7 +59,7 @@ teardown() {
     flags=(-n)
     files=(paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -70,7 +70,7 @@ teardown() {
     flags=(-i)
     files=(paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -81,7 +81,7 @@ teardown() {
     flags=(-l)
     files=(paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -92,7 +92,7 @@ teardown() {
     flags=(-x)
     files=(paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -103,7 +103,7 @@ teardown() {
     flags=(-n -i -x)
     files=(iliad.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -116,7 +116,7 @@ The worst that may befall me in this case,"
     flags=()
     files=(midsummer-night.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -129,7 +129,7 @@ The worst that may befall me in this case,"
     flags=(-n)
     files=(midsummer-night.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -141,7 +141,7 @@ The worst that may befall me in this case,"
     flags=(-x)        
     files=(midsummer-night.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -153,7 +153,7 @@ The noble Chief Achilles from the son"
     flags=(-i)        
     files=(iliad.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -168,7 +168,7 @@ That Shepherd, who first taught the chosen Seed"
     flags=(-v)        
     files=(paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -179,7 +179,7 @@ That Shepherd, who first taught the chosen Seed"
     flags=(-n -l -x -i)
     files=(iliad.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -190,7 +190,7 @@ That Shepherd, who first taught the chosen Seed"
     flags=(-n -l)
     files=(iliad.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -208,7 +208,7 @@ Of Atreus, Agamemnon, King of men."
     flags=(-x -v)
     files=(iliad.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -221,7 +221,7 @@ Of Atreus, Agamemnon, King of men."
     flags=()
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -234,7 +234,7 @@ midsummer-night.txt:The worst that may befall me in this case,"
     flags=()
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -248,7 +248,7 @@ paradise-lost.txt:6:Sing Heav'nly Muse, that on the secret top"
     flags=(-n)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -260,7 +260,7 @@ paradise-lost.txt"
     flags=(-l)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -280,7 +280,7 @@ paradise-lost.txt:Sing Heav'nly Muse, that on the secret top"
     flags=(-i)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -293,7 +293,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     flags=(-v)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -304,7 +304,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     flags=(-x)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -315,7 +315,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     flags=(-n -i -x)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -326,7 +326,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     flags=(-n -l -i -x)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -338,7 +338,7 @@ paradise-lost.txt"
     flags=(-n -l)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -371,6 +371,6 @@ paradise-lost.txt:That Shepherd, who first taught the chosen Seed"
     flags=(-x -v)
     files=(iliad.txt midsummer-night.txt paradise-lost.txt)
     run bash grep.sh "${flags[@]}" "$pattern" "${files[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

@@ -7,7 +7,7 @@
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 29 2
     expected=18
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -15,7 +15,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 0123456789 2
     expected=72
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -23,7 +23,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 576802143 2
     expected=48
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -31,7 +31,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 0123456789 3
     expected=504
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -39,7 +39,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 1027839564 3
     expected=270
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -47,7 +47,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 0123456789 5
     expected=15120
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -55,7 +55,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 73167176531330624919225119674426574742355349194934 6
     expected=23520
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -63,7 +63,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 0000 2
     expected=0
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -71,7 +71,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 99099 3
     expected=0
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -92,7 +92,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 0
     expected=1
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -103,7 +103,7 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash largest_series_product.sh 123 0
     expected=1
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
