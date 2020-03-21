@@ -6,5 +6,5 @@
   run bash hello_world.sh
 
   (( status == 0 ))
-  [[ $output = "Hello, World!" ]]
+  [[ $output == "Hello, World!" ]]
 }
