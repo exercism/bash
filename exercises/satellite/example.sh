@@ -11,26 +11,27 @@ buildTree() {
 
     if (( ${#preorder[@]} == 0 )); then
         echo "{}"
-    else
-        local root=${preorder[0]}
-        local idx
-        idx=$( indexOf "$root" "${inorder[@]}" )
-        (( idx == -1 )) && die "should not happen"
-
-        local leftInorder=(  "${inorder[@]: 0 : $idx}" )
-        local rightInorder=( "${inorder[@]: $idx+1}" )
-
-        local leftPreorder=(  "${preorder[@]: 1 : $idx}" )
-        local rightPreorder=( "${preorder[@]: $idx+1}" )
-
-        # I hate hardcoding the name of a recursive function
-        local func=${FUNCNAME[0]}
-
-        printf '{"v": "%s", "l": %s, "r": %s}' \
-            "$root" \
-            "$( "$func" "${leftPreorder[*]}" "${leftInorder[*]}" )" \
-            "$( "$func" "${rightPreorder[*]}" "${rightInorder[*]}" )"
+        return
     fi
+
+    local root=${preorder[0]}
+    local idx
+    idx=$( indexOf "$root" "${inorder[@]}" )
+    (( idx == -1 )) && die "should not happen"
+
+    local leftInorder=(  "${inorder[@]: 0 : $idx}" )
+    local rightInorder=( "${inorder[@]: $idx+1}" )
+
+    local leftPreorder=(  "${preorder[@]: 1 : $idx}" )
+    local rightPreorder=( "${preorder[@]: $idx+1}" )
+
+    # I hate hardcoding the name of a recursive function
+    local func=${FUNCNAME[0]}
+
+    printf '{"v": "%s", "l": %s, "r": %s}' \
+        "$root" \
+        "$( "$func" "${leftPreorder[*]}" "${leftInorder[*]}" )" \
+        "$( "$func" "${rightPreorder[*]}" "${rightInorder[*]}" )"
 }
 
 validate() {
@@ -56,10 +57,11 @@ validate() {
 indexOf() {
     local needle=$1
     local haystack=( "${@:2}" )
+    local i
 
     for (( i=0; i < ${#haystack[@]}; i++ )); do
         if [[ $needle == "${haystack[i]}" ]]; then
-            echo $i
+            echo "$i"
             return
         fi
     done
