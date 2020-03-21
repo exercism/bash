@@ -1002,6 +1002,22 @@
         "control_flow_conditionals",
         "math"
       ]
+    },
+    {
+      "slug": "satellite",
+      "uuid": "5d5aada3-5a09-42a6-a288-38f3ecfd1c04",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 7,
+      "topics": [
+        "algorithms",
+        "arrays",
+        "input_validation",
+        "parsing",
+        "recursion",
+        "strings",
+        "transforming"
+      ]
     }
   ]
 }
