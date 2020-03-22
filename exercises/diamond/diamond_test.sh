@@ -9,7 +9,7 @@ A
 EOT
 )"
   run bash diamond.sh A
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "$expected" ]]
 }
 
@@ -22,7 +22,7 @@ B B
 EOT
 )"
   run bash diamond.sh B
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "$expected" ]]
 }
 
@@ -37,7 +37,7 @@ C   C
 EOT
 )"
   run bash diamond.sh C
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "$expected" ]]
 }
 
@@ -54,7 +54,7 @@ D     D
 EOT
 )"
   run bash diamond.sh D
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "$expected" ]]
 }
 
@@ -115,7 +115,7 @@ Z                                                 Z
 EOT
 )"
   run bash diamond.sh Z
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "$expected" ]]
 }
 

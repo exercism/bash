@@ -6,7 +6,7 @@
 @test "No input" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "" ]]
 }
 
@@ -18,7 +18,7 @@
 |_|
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "0" ]]
 }
 
@@ -30,7 +30,7 @@ INPUT
   |
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1" ]]
 }
 
@@ -42,7 +42,7 @@ INPUT
   |
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "?" ]]
 }
 
@@ -53,7 +53,7 @@ INPUT
 | |
    
 INPUT
-    [[ $status -eq 1 ]]
+    (( status == 1 ))
     [[ $output == "Number of input lines is not a multiple of four" ]]
 }
 
@@ -65,7 +65,7 @@ INPUT
    |
     
 INPUT
-    [[ $status -eq 1 ]]
+    (( status == 1 ))
     [[ $output == "Number of input columns is not a multiple of three" ]]
 }
 
@@ -77,7 +77,7 @@ INPUT
   |  ||_|  ||_|  |  ||_||_|
                            
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "110101100" ]]
 }
 
@@ -89,7 +89,7 @@ INPUT
   |  | _|  ||_|  |  ||_||_|
                            
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "11?10?1?0" ]]
 }
 
@@ -101,7 +101,7 @@ INPUT
 |_ 
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "2" ]]
 }
 
@@ -113,7 +113,7 @@ INPUT
  _|
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "3" ]]
 }
 
@@ -125,7 +125,7 @@ INPUT
   |
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "4" ]]
 }
 
@@ -137,7 +137,7 @@ INPUT
  _|
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "5" ]]
 }
 
@@ -149,7 +149,7 @@ INPUT
 |_|
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "6" ]]
 }
 
@@ -161,7 +161,7 @@ INPUT
   |
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "7" ]]
 }
 
@@ -173,7 +173,7 @@ INPUT
 |_|
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "8" ]]
 }
 
@@ -185,7 +185,7 @@ INPUT
  _|
    
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "9" ]]
 }
 
@@ -197,7 +197,7 @@ INPUT
   ||_  _|  | _||_|  ||_| _||_|
                               
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "1234567890" ]]
 }
 
@@ -217,6 +217,6 @@ INPUT
   ||_| _|
          
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "123,456,789" ]]
 }

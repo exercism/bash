@@ -9,7 +9,7 @@ On the first day of Christmas my true love gave to me: a Partridge in a Pear Tre
 END
 )
     run bash twelve_days.sh 1 1
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -20,7 +20,7 @@ On the second day of Christmas my true love gave to me: two Turtle Doves, and a 
 END
 )
     run bash twelve_days.sh 2 2
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -31,7 +31,7 @@ On the third day of Christmas my true love gave to me: three French Hens, two Tu
 END
 )
     run bash twelve_days.sh 3 3
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -42,7 +42,7 @@ On the fourth day of Christmas my true love gave to me: four Calling Birds, thre
 END
 )
     run bash twelve_days.sh 4 4
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -53,7 +53,7 @@ On the fifth day of Christmas my true love gave to me: five Gold Rings, four Cal
 END
 )
     run bash twelve_days.sh 5 5
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -64,7 +64,7 @@ On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five 
 END
 )
     run bash twelve_days.sh 6 6
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -75,7 +75,7 @@ On the seventh day of Christmas my true love gave to me: seven Swans-a-Swimming,
 END
 )
     run bash twelve_days.sh 7 7
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -86,7 +86,7 @@ On the eighth day of Christmas my true love gave to me: eight Maids-a-Milking, s
 END
 )
     run bash twelve_days.sh 8 8
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -97,7 +97,7 @@ On the ninth day of Christmas my true love gave to me: nine Ladies Dancing, eigh
 END
 )
     run bash twelve_days.sh 9 9
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -108,7 +108,7 @@ On the tenth day of Christmas my true love gave to me: ten Lords-a-Leaping, nine
 END
 )
     run bash twelve_days.sh 10 10
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -119,7 +119,7 @@ On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, 
 END
 )
     run bash twelve_days.sh 11 11
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -130,7 +130,7 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
 END
 )
     run bash twelve_days.sh 12 12
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
     }
 
@@ -143,7 +143,7 @@ On the third day of Christmas my true love gave to me: three French Hens, two Tu
 END
 )
     run bash twelve_days.sh 1 3
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -156,7 +156,7 @@ On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five 
 END
 )
     run bash twelve_days.sh 4 6
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -178,6 +178,6 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
 END
 )
     run bash twelve_days.sh 1 12
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

@@ -7,7 +7,7 @@
     #[[ $BATS_RUN_SKIPPED == true ]] || skip
     expected=""
     run bash pascals_triangle.sh 0
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -18,7 +18,7 @@
 END
 )
     run bash pascals_triangle.sh 1
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -30,7 +30,7 @@ END
 END
 )
     run bash pascals_triangle.sh 2
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -43,7 +43,7 @@ END
 END
 )
     run bash pascals_triangle.sh 3
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -57,7 +57,7 @@ END
 END
 )
     run bash pascals_triangle.sh 4
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -72,7 +72,7 @@ END
 END
 )
     run bash pascals_triangle.sh 5
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -88,7 +88,7 @@ END
 END
 )
     run bash pascals_triangle.sh 6
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -108,7 +108,7 @@ END
 END
 )
     run bash pascals_triangle.sh 10
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -139,6 +139,6 @@ END
 END
 )
     run bash pascals_triangle.sh 21
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }

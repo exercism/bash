@@ -6,7 +6,7 @@
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'a'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "1" ]]
 }
 
@@ -14,7 +14,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'A'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "1" ]]
 }
 
@@ -22,7 +22,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'f'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "4" ]]
 }
 
@@ -30,7 +30,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'at'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "2" ]]
 }
 
@@ -38,7 +38,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'zoo'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "12" ]]
 }
 
@@ -46,7 +46,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'street'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "6" ]]
 }
 
@@ -54,7 +54,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'quirky'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "22" ]]
 }
 
@@ -62,7 +62,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'OxyphenButazone'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "41" ]]
 }
 
@@ -70,7 +70,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'pinata'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "8" ]]
 }
 
@@ -78,7 +78,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh ''
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "0" ]]
 }
 
@@ -86,6 +86,6 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash scrabble_score.sh 'abcdefghijklmnopqrstuvwxyz'
   
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output == "87" ]]
 }

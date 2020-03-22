@@ -7,7 +7,7 @@
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 2015
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'false' ]]
 }
 
@@ -15,7 +15,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 1970
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'false' ]]
 }
 
@@ -23,7 +23,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 1996
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'true' ]]
 }
 
@@ -31,7 +31,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 1960
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'true' ]]
 }
 
@@ -39,7 +39,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 2100
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'false' ]]
 }
 
@@ -47,7 +47,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 1900
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'false' ]]
 }
 
@@ -55,7 +55,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 2000
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'true' ]]
 }
 
@@ -63,7 +63,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 2400
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'true' ]]
 }
 
@@ -71,7 +71,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 1800
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = 'false' ]]
 }
 
@@ -79,7 +79,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh
 
-  [[ $status -eq 1 ]]
+  (( status == 1 ))
   [[ $output = 'Usage: leap.sh <year>' ]]
 }
 
@@ -87,7 +87,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 2016 4562 4566
 
-  [[ $status -eq 1 ]]
+  (( status == 1 ))
   [[ $output = 'Usage: leap.sh <year>' ]]
 }
 
@@ -95,7 +95,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 2016.54
 
-  [[ $status -eq 1 ]]
+  (( status == 1 ))
   [[ $output = 'Usage: leap.sh <year>' ]]
 }
 
@@ -103,6 +103,6 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash leap.sh 'abcd'
 
-  [[ $status -eq 1 ]]
+  (( status == 1 ))
   [[ $output = 'Usage: leap.sh <year>' ]]
 }

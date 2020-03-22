@@ -7,21 +7,21 @@
 @test "no rows" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash rectangles.sh
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 0 ]]
 }
 
 @test "no columns" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash rectangles.sh <<<""
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 0 ]]
 }
 
 @test "no rectangles" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash rectangles.sh <<<" "
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 0 ]]
 }
 
@@ -32,7 +32,7 @@
 | |
 +-+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 1 ]]
 }
 
@@ -45,7 +45,7 @@ INPUT
 | |  
 +-+  
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 2 ]]
 }
 
@@ -58,7 +58,7 @@ INPUT
 | | |
 +-+-+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 5 ]]
 }
 
@@ -68,7 +68,7 @@ INPUT
 +--+
 +--+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 1 ]]
 }
 
@@ -79,7 +79,7 @@ INPUT
 ||
 ++
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 1 ]]
 }
 
@@ -89,7 +89,7 @@ INPUT
 ++
 ++
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 1 ]]
 }
 
@@ -102,7 +102,7 @@ INPUT
 | | -
 +-+-+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 1 ]]
 }
 
@@ -115,7 +115,7 @@ INPUT
 |   |       |
 +---+-------+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 3 ]]
 }
 
@@ -128,7 +128,7 @@ INPUT
 |   |       |
 +---+-------+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 2 ]]
 }
 
@@ -144,7 +144,7 @@ INPUT
 +------+  | |
           +-+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 60 ]]
 }
 
@@ -157,7 +157,7 @@ INPUT
 |      +-+  |
 +-----------+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 2 ]]
 }
 
@@ -170,6 +170,6 @@ INPUT
          |  |
          +--+
 INPUT
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == 2 ]]
 }

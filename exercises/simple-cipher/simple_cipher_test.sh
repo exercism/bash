@@ -8,49 +8,49 @@
 @test  "Can generate a random key" {
     #[[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh key
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     key=$output
-    [[ ${#key} -ge 100 ]]     # at least 100 chars
+    (( ${#key} >= 100 ))     # at least 100 chars
     [[ $key != [^[:lower:]] ]]    # only lowercase letters
 }
 
 @test  "Can encode random" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh key
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     key=$output
     plaintext="aaaaaaaaaa"
     run bash simple_cipher.sh -k "$key" encode "$plaintext"
-    [[ $status -eq 0 ]]
-    [[ ${#output} -eq 10 ]]
+    (( status == 0 ))
+    (( ${#output} == 10 ))
     [[ $output == "${key:0:10}" ]]
 }
 
 @test  "Can decode random" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh key
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     key=$output
     plaintext="aaaaaaaaaa"
     run bash simple_cipher.sh -k "$key" decode "${key:0:10}"
-    [[ $status -eq 0 ]]
-    [[ ${#output} -eq 10 ]]
+    (( status == 0 ))
+    (( ${#output} == 10 ))
     [[ $output == "$plaintext" ]]
 }
 
 @test "Is reversible random" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh key
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     key=$output
 
     plaintext="abcdefghij"
     run bash simple_cipher.sh -k "$key" encode "$plaintext"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     encoded=$output
 
     run bash simple_cipher.sh -k "$key" decode "$encoded"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$plaintext" ]]
 }
 
@@ -61,7 +61,7 @@
     key=abcdefghij
     txt=aaaaaaaaaa
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$key" ]]
 }
 
@@ -71,7 +71,7 @@
     txt=abcdefghij
     exp=aaaaaaaaaa
     run bash simple_cipher.sh -k "$key" decode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
@@ -81,10 +81,10 @@
     txt=abcdefghij
     exp=abcdefghij
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     encoded=$output
     run bash simple_cipher.sh -k "$key" decode "$encoded"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
@@ -94,7 +94,7 @@
     txt=iamapandabear
     exp=qayaeaagaciai
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
@@ -104,7 +104,7 @@
     txt=zzzzzzzzzz
     exp=zabcdefghi
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
@@ -114,7 +114,7 @@
     txt=zabcdefghi
     exp=zzzzzzzzzz
     run bash simple_cipher.sh -k "$key" decode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
@@ -124,7 +124,7 @@
     txt=iamapandabear
     exp=iboaqcnecbfcr
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
@@ -134,21 +134,21 @@
     txt=iboaqcnecbfcr
     exp=iamapandabear
     run bash simple_cipher.sh -k "$key" decode "$txt"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$exp" ]]
 }
 
 @test "plaintext is lowercased" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh -k b encode FOOBAR
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "gppcbs" ]]
 }
 
 @test "ciphertext is lowercased" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh -k b decode GPPCBS
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "foobar" ]]
 }
 
@@ -157,13 +157,13 @@
 @test "key must be lowercase" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh -k ABC encode foo
-    [[ $status -eq 1 ]]
+    (( status == 1 ))
     [[ $output == *"invalid key"* ]]
 }
 
 @test "key must be letters" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash simple_cipher.sh -k 123 encode foo
-    [[ $status -eq 1 ]]
+    (( status == 1 ))
     [[ $output == *"invalid key"* ]]
 }

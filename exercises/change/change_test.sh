@@ -8,7 +8,7 @@
     expected="25"
     coins=(1 5 10 25 100)
     run bash change.sh 25 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -17,7 +17,7 @@
     expected="5 10"
     coins=(1 5 10 25 100)
     run bash change.sh 15 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -26,7 +26,7 @@
     expected="4 4 15"
     coins=(1 4 15 20 50)
     run bash change.sh 23 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -35,7 +35,7 @@
     expected="21 21 21"
     coins=(1 5 10 21 25)
     run bash change.sh 63 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -44,7 +44,7 @@
     expected="2 2 5 20 20 50 100 100 100 100 100 100 100 100 100"
     coins=(1 2 5 10 20 50 100)
     run bash change.sh 999 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -53,7 +53,7 @@
     expected="2 2 2 5 10"
     coins=(2 5 10 20 50)
     run bash change.sh 21 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -62,7 +62,7 @@
     expected="4 4 4 5 5 5"
     coins=(4 5)
     run bash change.sh 27 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 
@@ -71,7 +71,7 @@
     expected=""
     coins=(1 5 10 21 25)
     run bash change.sh 0 "${coins[@]}"
-    [[ $status -eq 0 ]]
+    (( status == 0 ))
     [[ $output == "$expected" ]]
 }
 

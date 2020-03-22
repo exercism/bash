@@ -6,7 +6,7 @@
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh ""
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "" ]]
 }
 
@@ -14,7 +14,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "robot"
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "tobor" ]]
 }
 
@@ -22,7 +22,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "Ramen"
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "nemaR" ]]
 }
 
@@ -30,7 +30,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "I'm hungry!"
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "!yrgnuh m'I" ]]
 }
 
@@ -38,7 +38,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "racecar"
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "racecar" ]]
 }
 
@@ -46,7 +46,7 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh "drawer"
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "reward" ]]
 }
 
@@ -58,6 +58,6 @@
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash reverse_string.sh " a *  b"
 
-  [[ $status -eq 0 ]]
+  (( status == 0 ))
   [[ $output = "b  * a " ]]
 }
