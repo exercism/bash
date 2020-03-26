@@ -3,14 +3,14 @@
 # local version: 1.2.0.1
 
 @test "no name given" {
-  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
   # The above line controls whether to skip the test.
   # Normally, we skip every test except for the first one
   # (the first one is always commented out).  This allows for
   # a person to focus on solving a test at a time: you can
   # comment out or delete the
-  # `[[ $BATS_RUN_SKIPPED == true  ]] || skip`
+  # `[[ $BATS_RUN_SKIPPED == "true" ]] || skip`
   # line to run the test when you are ready.
   #
   # You can also run all the tests by setting the
@@ -24,14 +24,14 @@
 }
 
 @test "a name given" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh Alice
   (( status == 0 ))
   [[ $output == "One for Alice, one for me." ]]
 }
 
 @test "another name given" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh Bob
   (( status == 0 ))
   [[ $output == "One for Bob, one for me." ]]
@@ -42,14 +42,14 @@
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "handle arg with spaces" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh "John Smith" "Mary Ann"
   (( status == 0 ))
   [[ $output == "One for John Smith, one for me." ]]
 }
 
 @test "handle arg with glob char" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh "*"
   (( status == 0 ))
   [[ $output == "One for *, one for me." ]]

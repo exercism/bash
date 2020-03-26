@@ -3,7 +3,7 @@
 # local version: 2.1.0.1
 
 @test 'first_generic_verse' {
-    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall."
     run bash beer_song.sh 99
@@ -12,7 +12,7 @@ Take one down and pass it around, 98 bottles of beer on the wall."
 }
 
 @test '3rd_last_generic_verse' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3 bottles of beer on the wall, 3 bottles of beer.
 Take one down and pass it around, 2 bottles of beer on the wall."
     run bash beer_song.sh 3
@@ -21,7 +21,7 @@ Take one down and pass it around, 2 bottles of beer on the wall."
 }
 
 @test '2nd_last_generic_verse' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall."
     run bash beer_song.sh 2
@@ -30,7 +30,7 @@ Take one down and pass it around, 1 bottle of beer on the wall."
 }
 
 @test 'penultimate_verse' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall."
     run bash beer_song.sh 1
@@ -39,7 +39,7 @@ Take it down and pass it around, no more bottles of beer on the wall."
 }
 
 @test 'verse_with_zero_bottles' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall."
     run bash beer_song.sh 0
@@ -48,7 +48,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
 }
 
 @test 'first_two_verses' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
 
@@ -60,7 +60,7 @@ Take one down and pass it around, 97 bottles of beer on the wall."
 }
 
 @test 'last_three_verses' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
         expected="2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
 
@@ -76,7 +76,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
 }
 
 @test 'all_verses' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
 
@@ -385,21 +385,21 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
 # bash-specific tests: Input validation
 
 @test 'no_arguments' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash beer_song.sh
     [[ $status -ne 0 ]]
     [[ $output == *"1 or 2 arguments expected"* ]]
 }
 
 @test 'too_many_arguments' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash beer_song.sh 1 2 3
     [[ $status -ne 0 ]]
     [[ $output == *"1 or 2 arguments expected"* ]]
 }
 
 @test 'wrong_order_arguments' {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash beer_song.sh 1 2
     [[ $status -ne 0 ]]
     [[ $output == "Start must be greater than End" ]]

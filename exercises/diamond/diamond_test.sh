@@ -3,7 +3,7 @@
 # local version: 1.1.0.0
 
 @test "Degenerate case with a single 'A' row" {
-  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   expected="$(cat << EOT
 A
 EOT
@@ -14,7 +14,7 @@ EOT
 }
 
 @test "Degenerate case with no row containing 3 distinct groups of spaces" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   expected="$(cat << EOT
  A 
 B B
@@ -27,7 +27,7 @@ EOT
 }
 
 @test "Smallest non-degenerate case with odd diamond side length" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   expected="$(cat << EOT
   A  
  B B 
@@ -42,7 +42,7 @@ EOT
 }
 
 @test "Smallest non-degenerate case with even diamond side length" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   expected="$(cat << EOT
    A   
   B B  
@@ -59,7 +59,7 @@ EOT
 }
 
 @test "Largest possible diamond" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   expected="$(cat << EOT
                          A                         
                         B B                        

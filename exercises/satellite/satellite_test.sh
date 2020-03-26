@@ -1,14 +1,14 @@
 #!/usr/bin/env bats
 
 @test "Empty tree" {
-  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "" ""
   (( status == 0 ))
   [[ $output = "{}" ]]
 }
 
 @test "Tree with one item" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "a" "a"
   (( status == 0 ))
   expected='{"v": "a", "l": {}, "r": {}}'
@@ -16,7 +16,7 @@
 }
 
 @test "Tree with many items" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "a i x f r" "i a f x r"
   (( status == 0 ))
 
@@ -35,7 +35,7 @@ END_JSON
 }
 
 @test "Reject traversals of different length" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "a b" "b a r"
   (( status == 1 ))
   shopt -s nocasematch
@@ -43,7 +43,7 @@ END_JSON
 }
 
 @test "Reject inconsistent traversals of same length" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "a b c" "x y z"
   (( status == 1 ))
   shopt -s nocasematch
@@ -51,7 +51,7 @@ END_JSON
 }
 
 @test "Reject traversals with repeated elements" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "a b a" "b a a"
   (( status == 1 ))
   shopt -s nocasematch

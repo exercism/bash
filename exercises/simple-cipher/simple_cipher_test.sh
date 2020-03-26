@@ -6,7 +6,7 @@
 # Random key cipher"
 
 @test  "Can generate a random key" {
-    #[[ $BATS_RUN_SKIPPED == true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     (( status == 0 ))
     key=$output
@@ -15,7 +15,7 @@
 }
 
 @test  "Can encode random" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     (( status == 0 ))
     key=$output
@@ -27,7 +27,7 @@
 }
 
 @test  "Can decode random" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     (( status == 0 ))
     key=$output
@@ -39,7 +39,7 @@
 }
 
 @test "Is reversible random" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     (( status == 0 ))
     key=$output
@@ -57,7 +57,7 @@
 # Substitution cipher
 
 @test  "Can encode" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=aaaaaaaaaa
     run bash simple_cipher.sh -k "$key" encode "$txt"
@@ -66,7 +66,7 @@
 }
 
 @test  "Can decode" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=abcdefghij
     exp=aaaaaaaaaa
@@ -76,7 +76,7 @@
 }
 
 @test  "Is reversible" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=abcdefghij
     exp=abcdefghij
@@ -89,7 +89,7 @@
 }
 
 @test  "Can double shift encode" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=iamapandabear
     txt=iamapandabear
     exp=qayaeaagaciai
@@ -99,7 +99,7 @@
 }
 
 @test  "Can wrap on encode"  {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=zzzzzzzzzz
     exp=zabcdefghi
@@ -109,7 +109,7 @@
 }
 
 @test  "Can wrap on decode" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=zabcdefghi
     exp=zzzzzzzzzz
@@ -119,7 +119,7 @@
 }
 
 @test  "Can encode messages longer than the key" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abc
     txt=iamapandabear
     exp=iboaqcnecbfcr
@@ -129,7 +129,7 @@
 }
 
 @test  "Can decode messages longer than the key" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abc
     txt=iboaqcnecbfcr
     exp=iamapandabear
@@ -139,14 +139,14 @@
 }
 
 @test "plaintext is lowercased" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k b encode FOOBAR
     (( status == 0 ))
     [[ $output == "gppcbs" ]]
 }
 
 @test "ciphertext is lowercased" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k b decode GPPCBS
     (( status == 0 ))
     [[ $output == "foobar" ]]
@@ -155,14 +155,14 @@
 # errors
 
 @test "key must be lowercase" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k ABC encode foo
     (( status == 1 ))
     [[ $output == *"invalid key"* ]]
 }
 
 @test "key must be letters" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k 123 encode foo
     (( status == 1 ))
     [[ $output == *"invalid key"* ]]

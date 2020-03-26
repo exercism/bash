@@ -3,7 +3,7 @@
 # local version: 1.2.0.0
 
 @test "first day a partridge in a pear tree" {
-    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
 END
@@ -14,7 +14,7 @@ END
 }
 
 @test "second day two turtle doves" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -25,7 +25,7 @@ END
     }
 
 @test "third day three french hens" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the third day of Christmas my true love gave to me: three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -36,7 +36,7 @@ END
     }
 
 @test "fourth day four calling birds" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the fourth day of Christmas my true love gave to me: four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -47,7 +47,7 @@ END
     }
 
 @test "fifth day five gold rings" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the fifth day of Christmas my true love gave to me: five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -58,7 +58,7 @@ END
     }
 
 @test "sixth day six geese-a-laying" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -69,7 +69,7 @@ END
     }
 
 @test "seventh day seven swans-a-swimming" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the seventh day of Christmas my true love gave to me: seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -80,7 +80,7 @@ END
     }
 
 @test "eighth day eight maids-a-milking" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the eighth day of Christmas my true love gave to me: eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -91,7 +91,7 @@ END
     }
 
 @test "ninth day nine ladies dancing" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the ninth day of Christmas my true love gave to me: nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -102,7 +102,7 @@ END
     }
 
 @test "tenth day ten lords-a-leaping" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the tenth day of Christmas my true love gave to me: ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -113,7 +113,7 @@ END
     }
 
 @test "eleventh day eleven pipers piping" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -124,7 +124,7 @@ END
     }
 
 @test "twelfth day twelve drummers drumming" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the twelfth day of Christmas my true love gave to me: twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 END
@@ -135,7 +135,7 @@ END
     }
 
 @test "recites first three verses of the song" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
 On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.
@@ -148,7 +148,7 @@ END
 }
 
 @test "recites three verses from the middle of the song" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the fourth day of Christmas my true love gave to me: four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 On the fifth day of Christmas my true love gave to me: five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -161,7 +161,7 @@ END
 }
 
 @test "recites the whole song" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
 On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.

@@ -3,7 +3,7 @@
 # local version: 0.0.1
 
 @test "correct arguments" {
-  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice
 
   (( status == 0 ))
@@ -11,7 +11,7 @@
 }
 
 @test "one long argument" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh "Alice and Bob"
 
   (( status == 0 ))
@@ -19,7 +19,7 @@
 }
 
 @test "incorrect arguments" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice Bob
 
   (( status == 1 ))
@@ -27,7 +27,7 @@
 }
 
 @test "print usage banner with no value given" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh
 
   (( status == 1 ))
@@ -35,7 +35,7 @@
 }
 
 @test "empty argument" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh ""
 
   (( status == 0 ))

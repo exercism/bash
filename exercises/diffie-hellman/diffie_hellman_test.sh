@@ -3,7 +3,7 @@
 # local version: 1.0.0.0
 
 @test "private key is in range" {
-    #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     for i in 5 7 11 13 17 19 23 29 31 27 41 43 47; do
         run bash diffie_hellman.sh privateKey $i
         (( status == 0 ))
@@ -12,7 +12,7 @@
 }
 
 @test "private key is random" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # may fail due to randomness
     local -i n=10 p=32000
     for i in $(seq $n); do
@@ -24,7 +24,7 @@
 }
 
 @test "can calculate public key using private key" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="8"
     local -i p=23 g=5 private=6
     run bash diffie_hellman.sh publicKey $p $g $private
@@ -33,7 +33,7 @@
 }
 
 @test "can calculate secret key using other's public key" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2"
     local -i p=23 public=19 private=6
     run bash diffie_hellman.sh secret $p $public $private
@@ -42,7 +42,7 @@
 }
 
 @test "key exchange" {
-    [[ $BATS_RUN_SKIPPED == true  ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local -i i p=23 g=5
     local -i alicePublic alicePrivate secret1
     local -i bobPublic bobPrivate secret2

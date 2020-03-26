@@ -12,7 +12,7 @@ setup()    { export INPUT_FILE=$( mktemp ); }
 teardown() { rm -f "$INPUT_FILE"; }
 
 @test "just the header if no input" {
-    #[[ $BATS_RUN_SKIPPED == true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 INPUT
@@ -29,7 +29,7 @@ EXPECTED
 }
 
 @test "a win is three points, a loss is zero points" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     cat <<INPUT >"$INPUT_FILE"
 Allegoric Alaskans;Blithering Badgers;win
@@ -48,7 +48,7 @@ EXPECTED
 }
 
 @test "a win can also be expressed as a loss" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Blithering Badgers;Allegoric Alaskans;loss
@@ -68,7 +68,7 @@ EXPECTED
 }
 
 @test "a different team can win" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Blithering Badgers;Allegoric Alaskans;win
@@ -88,7 +88,7 @@ EXPECTED
 }
 
 @test "a draw is one point each" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Allegoric Alaskans;Blithering Badgers;draw
@@ -108,7 +108,7 @@ EXPECTED
 }
 
 @test "There can be more than one match" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Allegoric Alaskans;Blithering Badgers;win
@@ -129,7 +129,7 @@ EXPECTED
 }
 
 @test "There can be more than one winner" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Allegoric Alaskans;Blithering Badgers;loss
@@ -150,7 +150,7 @@ EXPECTED
 }
 
 @test "There can be more than two teams" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Allegoric Alaskans;Blithering Badgers;win
@@ -173,7 +173,7 @@ EXPECTED
 }
 
 @test "typical input" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Allegoric Alaskans;Blithering Badgers;win
@@ -200,7 +200,7 @@ EXPECTED
 }
 
 @test "incomplete competition (not all pairs have played)" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     cat <<INPUT > "$INPUT_FILE"
 Allegoric Alaskans;Blithering Badgers;loss
@@ -224,7 +224,7 @@ EXPECTED
 }
 
 @test "ties broken alphabetically" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 Courageous Californians;Devastating Donkeys;win
