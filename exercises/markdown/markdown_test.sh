@@ -9,7 +9,7 @@ teardown() { rm -f "$MD_FILE"; }
 
 
 @test "parses normal text as a paragraph" {
-    #[[ $BATS_RUN_SKIPPED == true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 This will be a  paragraph
 END
@@ -19,7 +19,7 @@ END
 }
 
 @test "parsing italics" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 _This will be italic_
 END
@@ -29,7 +29,7 @@ END
 }
 
 @test "parsing multiple italics" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 This _will_ be italic and this _won't_ be.
 END
@@ -39,7 +39,7 @@ END
 }
 
 @test "parsing bold text" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 __This will be bold__
 END
@@ -49,7 +49,7 @@ END
 }
 
 @test "mixed normal, italics and bold text" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 This will _be_ __mixed__
 END
@@ -59,7 +59,7 @@ END
 }
 
 @test "with h1 header level" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 # This will be an h1
 END
@@ -69,7 +69,7 @@ END
 }
 
 @test "with h2 header level" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 ## This  will be an h2
 END
@@ -79,7 +79,7 @@ END
 }
 
 @test "with h6 header level" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 ###### This will be an h6
 END
@@ -89,7 +89,7 @@ END
 }
 
 @test "unordered lists" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
       cat <<END >"$MD_FILE"
 * Item 1
 * Item 2
@@ -100,7 +100,7 @@ END
 }
 
 @test "With a little bit of everything" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
       cat <<END >"$MD_FILE"
 # Header!
 * __Bold Item__
@@ -112,7 +112,7 @@ END
 }
 
 @test "with markdown symbols in the header text that should not be interpreted" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 # This is a header with # and * in the text
 END
@@ -122,7 +122,7 @@ END
 }
 
 @test "with markdown symbols in the list item text that should not be interpreted" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END >"$MD_FILE"
 * Item 1 with a # in the text
 * Item 2 with * in the text
@@ -133,7 +133,7 @@ END
 }
 
 @test "with markdown symbols in the paragraph text that should not be interpreted" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 This is a paragraph with # and * in the text
 END
@@ -143,7 +143,7 @@ END
 }
 
 @test "unordered lists close properly with preceding and following lines" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END >"$MD_FILE"
 # Start a list
 * Item 1

@@ -6,7 +6,7 @@
 # see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
 
 @test "empty string" {
-    #[[ $BATS_RUN_SKIPPED == true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=""
     expected=""
     run bash transpose.sh <<< "$input"
@@ -15,7 +15,7 @@
 }
 
 @test "two characters in a row" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input="A1"
     expected=$'A\n1'
     run bash transpose.sh <<< "$input"
@@ -24,7 +24,7 @@
 }
 
 @test "two characters in a column" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$'A\n1'
     expected="A1"
     run bash transpose.sh <<< "$input"
@@ -33,7 +33,7 @@
 }
 
 @test "simple" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$'ABC\n123'
     expected=$'A1\nB2\nC3'
     run bash transpose.sh <<< "$input"
@@ -42,7 +42,7 @@
 }
 
 @test "single line" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input="Single line."
     expected=$'S\ni\nn\ng\nl\ne\n \nl\ni\nn\ne\n.'
     run bash transpose.sh <<< "$input"
@@ -51,7 +51,7 @@
 }
 
 @test "first line longer than second line" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$( cat <<END
 The fourth line.
 The fifth line.
@@ -82,7 +82,7 @@ END
 }
 
 @test "second line longer than first line" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$( cat <<END
 The first line.
 The second line.
@@ -113,7 +113,7 @@ END
 }
 
 @test "mixed line length" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$( cat << END
 The longest line.
 A long line.
@@ -147,7 +147,7 @@ END
 }
 
 @test "square" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
     expected=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
     run bash transpose.sh <<< "$input"
@@ -156,7 +156,7 @@ END
 }
 
 @test "rectangle" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$'FRACTURE\nOUTLINED\nBLOOMING\nSEPTETTE'
     expected=$'FOBS\nRULE\nATOP\nCLOT\nTIME\nUNIT\nRENT\nEDGE'
     run bash transpose.sh <<< "$input"
@@ -165,7 +165,7 @@ END
 }
 
 @test "triangle" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$'T\nEE\nAAA\nSSSS\nEEEEE\nRRRRRR'
     expected=$'TEASER\n EASER\n  ASER\n   SER\n    ER\n     R'
     run bash transpose.sh <<< "$input"

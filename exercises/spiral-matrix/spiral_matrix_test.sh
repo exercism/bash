@@ -3,7 +3,7 @@
 # local version: 1.1.0.0
 
 @test "empty spiral" {
-    #[[ $BATS_RUN_SKIPPED == true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 0
     expected=""
     (( status == 0 ))
@@ -11,7 +11,7 @@
 }
 
 @test "trivial spiral" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 1
     expected="1"
     (( status == 0 ))
@@ -19,7 +19,7 @@
 }
 
 @test "spiral of size 2" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 2
     expected=$'1 2\n4 3'
     (( status == 0 ))
@@ -27,7 +27,7 @@
 }
 
 @test "spiral of size 3" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 3
     expected=$'1 2 3\n8 9 4\n7 6 5'
     (( status == 0 ))
@@ -35,7 +35,7 @@
 }
 
 @test "spiral of size 4" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 4
     expected="1 2 3 4
 12 13 14 5
@@ -46,7 +46,7 @@
 }
 
 @test "spiral of size 5" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 5
     expected="1 2 3 4 5
 16 17 18 19 6

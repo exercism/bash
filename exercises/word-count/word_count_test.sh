@@ -3,7 +3,7 @@
 # local version: 1.4.0.1
 
 @test "count one word" {
-  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "word"
   (( status == 0 ))
   echo "$output" | grep -qFx "word: 1"
@@ -11,7 +11,7 @@
 }
 
 @test "count one of each word" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "one of each"
   (( status == 0 ))
   echo "$output" | grep -qFx "one: 1"
@@ -21,7 +21,7 @@
 }
 
 @test "multiple occurrences of a word" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "one fish two fish red fish blue fish"
   (( status == 0 ))
   echo "$output" | grep -qFx "one: 1"
@@ -33,7 +33,7 @@
 }
 
 @test "handles cramped lists" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "one,two,three"
   (( status == 0 ))
   echo "$output" | grep -qFx "one: 1"
@@ -43,7 +43,7 @@
 }
 
 @test "handles expanded lists" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "one,\ntwo,\nthree"
   (( status == 0 ))
   echo "$output" | grep -qFx "one: 1"
@@ -53,7 +53,7 @@
 }
 
 @test "ignore punctuation" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "car: carpet as java: javascript!!&@$%^&"
   (( status == 0 ))
   echo "$output" | grep -qFx "car: 1"
@@ -65,7 +65,7 @@
 }
 
 @test "include numbers" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "testing, 1, 2 testing"
   (( status == 0 ))
   echo "$output" | grep -qFx "testing: 2"
@@ -75,7 +75,7 @@
 }
 
 @test "normalize case" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "go Go GO Stop stop"
   (( status == 0 ))
   echo "$output" | grep -qFx "go: 3"
@@ -84,7 +84,7 @@
 }
 
 @test "with apostrophes" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "First: don't laugh. Then: don't cry."
   (( status == 0 ))
   echo "$output" | grep -qFx "first: 1"
@@ -96,7 +96,7 @@
 }
 
 @test "with quotations" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "Joe can't tell between 'large' and large."
   (( status == 0 ))
   echo "$output" | grep -qFx "joe: 1"
@@ -109,7 +109,7 @@
 }
 
 @test "substrings from the beginning" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "Joe can't tell between apple, app and a."
   (( status == 0 ))
   echo "$output" | grep -qFx "joe: 1"
@@ -123,7 +123,7 @@
 }
 
 @test "multiple spaces not detected as a word" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh " multiple   whitespaces"
   (( status == 0 ))
   echo "$output" | grep -qFx "multiple: 1"
@@ -132,7 +132,7 @@
 }
 
 @test "alternating word separators are not detected as a word" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh $',\n,one,\n ,two \n \'three\''
   (( status == 0 ))
   echo "$output" | grep -qFx "one: 1"
@@ -146,7 +146,7 @@
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "contains shell globbing character" {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "two * words"
   (( status == 0 ))
   echo "$output" | grep -qFx "two: 1"

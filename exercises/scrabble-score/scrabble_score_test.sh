@@ -3,7 +3,7 @@
 # local version: 1.1.0.0
 
 @test 'lowercase letter' {
-  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'a'
   
   (( status == 0 ))
@@ -11,7 +11,7 @@
 }
 
 @test 'uppercase letter' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'A'
   
   (( status == 0 ))
@@ -19,7 +19,7 @@
 }
 
 @test 'valuable letter' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'f'
   
   (( status == 0 ))
@@ -27,7 +27,7 @@
 }
 
 @test 'short word' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'at'
   
   (( status == 0 ))
@@ -35,7 +35,7 @@
 }
 
 @test 'short, valuable word' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'zoo'
   
   (( status == 0 ))
@@ -43,7 +43,7 @@
 }
 
 @test 'medium word' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'street'
   
   (( status == 0 ))
@@ -51,7 +51,7 @@
 }
 
 @test 'medium, valuable word' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'quirky'
   
   (( status == 0 ))
@@ -59,7 +59,7 @@
 }
 
 @test 'long, mixed-case word' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'OxyphenButazone'
   
   (( status == 0 ))
@@ -67,7 +67,7 @@
 }
 
 @test 'english-like word' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'pinata'
   
   (( status == 0 ))
@@ -75,7 +75,7 @@
 }
 
 @test 'empty input' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh ''
   
   (( status == 0 ))
@@ -83,7 +83,7 @@
 }
 
 @test 'entire alphabet available' {
-  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash scrabble_score.sh 'abcdefghijklmnopqrstuvwxyz'
   
   (( status == 0 ))
