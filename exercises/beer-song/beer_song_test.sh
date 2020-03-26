@@ -402,5 +402,5 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash beer_song.sh 1 2
     [[ $status -ne 0 ]]
-    [[ $output = "Start must be greater than End" ]]
+    [[ $output == "Start must be greater than End" ]]
 }

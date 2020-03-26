@@ -196,5 +196,5 @@ She's dead, of course!"
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     run bash food_chain.sh 8 1
     [[ $status -ne 0 ]]
-    [[ $output = *"Start must be less than or equal to End"* ]]
+    [[ $output == *"Start must be less than or equal to End"* ]]
 }

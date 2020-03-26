@@ -5,7 +5,7 @@
 
 
 @test "finds the smallest palindrome from single digit factors" {
-    #[[ $BATS_RUN_SKIPPED = true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh smallest 1 9
     (( status == 0 ))
     [[ $output == "1:"* ]]      # starts with the palindrome
@@ -13,7 +13,7 @@
 }
 
 @test "finds the largest palindrome from single digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh largest 1 9
     (( status == 0 ))
     [[ $output == "9:"* ]]      # starts with the palindrome
@@ -22,7 +22,7 @@
 }
 
 @test "find the smallest palindrome from double digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh smallest 10 99
     (( status == 0 ))
     [[ $output == "121:"* ]]      # starts with the palindrome
@@ -30,7 +30,7 @@
 }
 
 @test "find the largest palindrome from double digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh largest 10 99
     (( status == 0 ))
     [[ $output == "9009:"* ]]     # starts with the palindrome
@@ -38,7 +38,7 @@
 }
 
 @test "find smallest palindrome from triple digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh smallest 100 999
     (( status == 0 ))
     [[ $output == "10201:"* ]]      # starts with the palindrome
@@ -46,7 +46,7 @@
 }
 
 @test "find the largest palindrome from triple digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh largest 100 999
     (( status == 0 ))
     [[ $output == "906609:"* ]]     # starts with the palindrome
@@ -54,7 +54,7 @@
 }
 
 @test "find smallest palindrome from four digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh smallest 1000 9999
     (( status == 0 ))
     [[ $output == "1002001:"* ]]      # starts with the palindrome
@@ -62,7 +62,7 @@
 }
 
 @test "find the largest palindrome from four digit factors" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh largest 1000 9999
     (( status == 0 ))
     [[ $output == "99000099:"* ]]     # starts with the palindrome
@@ -70,35 +70,35 @@
 }
 
 @test "empty result for smallest if no palindrome in the range" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh smallest 1002 1003
     (( status == 0 ))
     [[ $output == "" ]]
 }
 
 @test "empty result for largest if no palindrome in the range" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh largest 15 15
     (( status == 0 ))
     [[ $output == "" ]]
 }
 
 @test "error result for smallest if min is more than max" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh smallest 10000 1
     (( status == 1 ))
     [[ $output == *"min must be <= max"* ]]
 }
 
 @test "error result for largest if min is more than max" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh largest 2 1
     (( status == 1 ))
     [[ $output == *"min must be <= max"* ]]
 }
 
 @test "error result for first param" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash palindrome_products.sh foo 2 3
     (( status == 1 ))
     [[ $output == *"first arg should be 'smallest' or 'largest'"* ]]

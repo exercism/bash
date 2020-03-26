@@ -4,14 +4,14 @@
 
 
 @test "No input" {
-    #[[ $BATS_RUN_SKIPPED = true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh
     (( status == 0 ))
     [[ $output == "" ]]
 }
 
 @test "Recognizes 0" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 | |
@@ -23,7 +23,7 @@ INPUT
 }
 
 @test "Recognizes 1" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
    
   |
@@ -35,7 +35,7 @@ INPUT
 }
 
 @test "Unreadable but correctly sized inputs return ?" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
    
   _
@@ -47,7 +47,7 @@ INPUT
 }
 
 @test "Input with a number of lines that is not a multiple of four raises an error" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 | |
@@ -58,7 +58,7 @@ INPUT
 }
 
 @test "Input with a number of columns that is not a multiple of three raises an error" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
     
    |
@@ -70,7 +70,7 @@ INPUT
 }
 
 @test "Recognizes 110101100" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
        _     _        _  _ 
   |  || |  || |  |  || || |
@@ -82,7 +82,7 @@ INPUT
 }
 
 @test "Garbled numbers in a string are replaced with ?" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
        _     _           _ 
   |  || |  || |     || || |
@@ -94,7 +94,7 @@ INPUT
 }
 
 @test "Recognizes 2" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
  _|
@@ -106,7 +106,7 @@ INPUT
 }
 
 @test "Recognizes 3" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
  _|
@@ -118,7 +118,7 @@ INPUT
 }
 
 @test "Recognizes 4" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
    
 |_|
@@ -130,7 +130,7 @@ INPUT
 }
 
 @test "Recognizes 5" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 |_ 
@@ -142,7 +142,7 @@ INPUT
 }
 
 @test "Recognizes 6" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 |_ 
@@ -154,7 +154,7 @@ INPUT
 }
 
 @test "Recognizes 7" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
   |
@@ -166,7 +166,7 @@ INPUT
 }
 
 @test "Recognizes 8" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 |_|
@@ -178,7 +178,7 @@ INPUT
 }
 
 @test "Recognizes 9" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 |_|
@@ -190,7 +190,7 @@ INPUT
 }
 
 @test "Recognizes string of decimal numbers" {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
     _  _     _  _  _  _  _  _ 
   | _| _||_||_ |_   ||_||_|| |
@@ -202,7 +202,7 @@ INPUT
 }
 
 @test "Numbers separated by empty lines are recognized. Lines are joined by commas." {
-    [[ $BATS_RUN_SKIPPED = true ]] || skip
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
     run bash ocr_numbers.sh << INPUT
     _  _ 
   | _| _|
