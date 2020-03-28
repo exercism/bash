@@ -40,7 +40,7 @@ main() {
 
     # don't start logging until we have a workdir
     { date
-      echo "solution: https://exercism.io/mentor/solutions/$uuid" 
+      echo "solution: https://exercism.io/mentor/solutions/$uuid"
     } >"$workdir/bantor.log"
     log_start "$workdir/bantor.log"
 
@@ -125,7 +125,7 @@ download() {
 ########################################################################
 run_shellcheck() {
     local file=$1
-    if ! type -p shellcheck >/dev/null; then 
+    if ! type -p shellcheck >/dev/null; then
         echo "You should consider installing shellcheck locally."
     elif yn -Y "Run shellcheck"; then
         echo "shellcheck $file"
@@ -167,17 +167,23 @@ I will not do that automatically.
 END_BATS
 
     yn -Y "Display the code" || return
-    sed 's/^/#   /' "$root.sh"
+    displayCode "$root.sh"
 
     echo "*******************************************"
     yn "OK to run tests" || return
     BATS_RUN_SKIPPED=true bats "${root}_test.sh"
 }
 
+# Default function to display the code.
+# Can be overridden in the config file if you want a different output.
+displayCode() {
+    cat -n "$1"
+}
+
 ########################################################################
-# bantor config: a place to put variables and functions that can be used 
+# bantor config: a place to put variables and functions that can be used
 # * in this script (such as BANTOR_PROMPT_REPLY)
-# * in the environment of the spawned interactive shell 
+# * in the environment of the spawned interactive shell
 #   (such as BATS_RUN_SKIPPED) - don't forget to `export`
 
 exercism_config=$( do_exercism configure ) || exit 1
