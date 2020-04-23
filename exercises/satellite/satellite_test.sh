@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+# local version: 2.0.0.0
+
 @test "Empty tree" {
   #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash satellite.sh "" ""
