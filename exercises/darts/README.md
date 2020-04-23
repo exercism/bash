@@ -16,7 +16,11 @@ The outer circle has a radius of 10 units (This is equivalent to the total radiu
 
 Write a function that given a point in the target (defined by its `real` cartesian coordinates `x` and `y`), returns the correct amount earned by a dart landing in that point.
 
-This particular exercise, since it deals with floating point arithmetic, is natural to rely on external tools (see below). As an extra challenging challenge, find a way to implement this with plain bash.
+This particular exercise, since it deals with floating point arithmetic, is
+natural to rely on external tools (see below). As an extra challenging
+challenge, find a way to implement this with plain bash.
+
+
 
 Run the tests with:
 
