@@ -50,11 +50,11 @@ fetch_archive() {
 
 case "$EXT" in
     zip)
-        fetch_archive "Zip archive data"
+        fetch_archive "Zip archive data" || exit 1
         unzip "$localfile" -d bin/
         ;;
     tgz)
-        fetch_archive "gzip compressed data"
+        fetch_archive "gzip compressed data" || exit 1
         tar xzf "$localfile" -C bin/
         ;;
 esac
