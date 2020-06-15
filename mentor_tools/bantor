@@ -20,9 +20,7 @@ main() {
     local uuid workdir slug root
     local uuid_re='[[:alnum:]]{32}'
 
-    if  [[ $1 =~ ^($uuid_re)$ ]] ||
-        [[ "$1 $2 $3" =~ "exercism download --uuid="($uuid_re)$ ]]
-    then
+    if [[ "$*" =~ ($uuid_re) ]]; then
         uuid=${BASH_REMATCH[1]}
     else
         echo "usage: $0 <uuid>"
