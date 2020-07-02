@@ -65,6 +65,13 @@
   [[ "$output" == "TRNT" ]]
 }
 
+@test "apostrophes around word" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash acronym.sh "I filled my notebook with quotes from 'Harry Potter'"
+  (( status == 0 ))
+  [[ "$output" == "IFMNWQFHP" ]]
+}
+
 # bash-specific test: Focus the student's attention on the effects of 
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
