@@ -5,7 +5,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-phrase=$(echo "$1" | tr -s '*-' ' ')
+phrase=$(echo "$1" | tr -s '*-' ' ' | tr -d "'")
 set -f -- $phrase
 
 shopt -s extglob
