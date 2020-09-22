@@ -6,7 +6,7 @@
   #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice
 
-  (( status == 0 ))
+  (( status == 0 )) &&
   [[ $output == "Hello, Alice" ]]
 }
 
@@ -14,7 +14,7 @@
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh "Alice and Bob"
 
-  (( status == 0 ))
+  (( status == 0 )) &&
   [[ $output == "Hello, Alice and Bob" ]]
 }
 
@@ -22,7 +22,7 @@
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice Bob
 
-  (( status == 1 ))
+  (( status == 1 )) &&
   [[ $output == "Usage: error_handling.sh <person>" ]]
 }
 
@@ -30,7 +30,7 @@
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh
 
-  (( status == 1 ))
+  (( status == 1 )) &&
   [[ $output == "Usage: error_handling.sh <person>" ]]
 }
 
@@ -38,6 +38,6 @@
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh ""
 
-  (( status == 0 ))
+  (( status == 0 )) &&
   [[ $output == "Hello, " ]]
 }
