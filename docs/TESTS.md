@@ -1,10 +1,32 @@
 As there isn't much of a bash ecosystem, there also isn't really a defacto
 leader in the bash testing area. For these examples we are using
-[bats](https://github.com/bats-core/bats-core). You should be able to
-install it from your favorite package manager, on OS X with
-[Homebrew](https://brew.sh/) this would look something like this:
+[bats](https://github.com/bats-core/bats-core). 
+
+Run the tests for the hypothetical "whatever" exercise like this:
+```bash
+cd /path/to/your/exercise_workspace/bash/whatever
+bats whatever_test.sh
+```
+
+### Legacy `bats`
+
+`bats-core` was forked from [the original `bats`
+implementation](https://github.com/sstephenson/bats).  The sstephenson/bats
+was quite buggy and had been abandoned. Ownership was handed over in 2017: 
+[sstephenson/bats#150 (comment)](https://github.com/sstephenson/bats/issues/150#issuecomment-323845404)
+
+If you have the original sstephenson/bats installed (check with `bats -v`
+reporting a version number less than 1.0), then you should switch to
+bats-core: otherwise you may find yourself [experiencing unexplained test
+failures](https://github.com/exercism/bash/pull/445).
+
+## Installing `bats`
+
+You should be able to install it from your favorite package manager:
 
 ### For Mac (brew)
+On OS X
+with [Homebrew](https://brew.sh/) this would look something like this:
 ```
 $ brew install bats-core
 ==> Downloading https://github.com/bats-core/bats-core/archive/v1.1.0.tar.gz
@@ -13,6 +35,9 @@ $ brew install bats-core
 ==> ./install.sh /usr/local/Cellar/bats-core/1.1.0
 🍺  /usr/local/Cellar/bats-core/1.1.0: 13 files, 55KB, built in 4 seconds
 ```
+
+* The legacy `bats` package also exists in the homebrew ecosystem. Do not
+install that by mistake, install `bats-core`.
 
 ### For Linux
 
@@ -48,7 +73,3 @@ $ cd bats
 $ ./install.sh $HOME
 ```
 Note: When you are using the outdated `https://github.com/sstephenson/bats.git` and you discover an error like `cp: cannot create symbolic link '${HOME}/bin/bats': No such file or directory`, you have to copy the `bin/bats/libexec/` folder content to `${HOME}/bin/` manually.
-
----
-
-Run the tests with `bats whatever_test.sh` or `./whatever_test.sh`.
