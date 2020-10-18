@@ -1018,6 +1018,17 @@
         "strings",
         "transforming"
       ]
+    },
+    {
+      "slug": "square-root",
+      "uuid": "a6394dea-9d98-4435-ac43-a950686b56d2",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 3,
+      "topics": [
+        "algorithms",
+        "math"
+      ]
     }
   ]
 }
