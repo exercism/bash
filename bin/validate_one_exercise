@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# For one exercise, 
+# Validate if tests can run properly and the example implementation
+# is passing the tests
+#
+# The directory of the exercise to be tested is passed as $1
+
+set -o errexit
+set -o nounset
+
+export BATS_RUN_SKIPPED=true    # run all the tests
+
+cd "$1" || {
+    echo "Cannot cd to $1" >&2
+    exit 1
+}
+
+exercise=${1##*/}
+echo "Processing $exercise"
+
+# Replace "-" with "_" to follow bash conventions
+exercise_name=${exercise//-/_}
+
+cleanup() {
+    git checkout "${exercise_name}.sh"
+}
+trap cleanup EXIT
+
+# Create implementation file from example
+cp example.sh "${exercise_name}.sh"
+
+# Run the tests
+bats "${exercise_name}_test.sh"
