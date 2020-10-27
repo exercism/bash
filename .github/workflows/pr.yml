@@ -1,0 +1,24 @@
+# Run tests for bash or markdown files modified in this PR.
+
+name: bash / pr
+
+on: pull_request
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+      - name: Install bats-core
+        run: npm install -g bats
+
+      - name: Run tests for changed/added exercises
+        run: |
+          PULL_REQUEST_URL=$(jq -r ".pull_request.url" "$GITHUB_EVENT_PATH")
+          curl --silent --url $"${PULL_REQUEST_URL}/files" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | \
+            jq -c '.[] | select(.status == "added" or .status == "modified") | select(.filename | match("\\.(md|sh)$")) | .filename' | \
+            xargs -r bash .github/scripts/pr
