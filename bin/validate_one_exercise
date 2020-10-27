@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 #
-# For one exercise, 
-# Validate if tests can run properly and the example implementation
-# is passing the tests
-#
+# For a given exercise, validate the tests.
 # The directory of the exercise to be tested is passed as $1
 
 set -o errexit
@@ -16,7 +13,9 @@ cd "$1" || {
     exit 1
 }
 
-exercise=${1##*/}
+exercise=${1%/}            # strip a trailing slash, if there is one
+exercise=${exercise##*/}   # remove any leading path
+
 echo "Processing $exercise"
 
 # Replace "-" with "_" to follow bash conventions
