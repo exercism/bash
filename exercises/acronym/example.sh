@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#
 
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 '<phrase1>'" >&2
@@ -9,7 +10,7 @@ phrase=$(echo "$1" | tr -s '*-' ' ')
 set -f -- $phrase
 
 shopt -s extglob
-for word; do
+for word in "$@"; do
     initial="$(echo "${word##+(_)}" | head -c 1 | tr '[:lower:]' '[:upper:]')"
     acronym+=$initial
 done
