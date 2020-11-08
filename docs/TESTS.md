@@ -73,3 +73,8 @@ $ cd bats
 $ ./install.sh $HOME
 ```
 Note: When you are using the outdated `https://github.com/sstephenson/bats.git` and you discover an error like `cp: cannot create symbolic link '${HOME}/bin/bats': No such file or directory`, you have to copy the `bin/bats/libexec/` folder content to `${HOME}/bin/` manually.
+
+There are reports that [newer bats versions don't behave well on MinGW bash](https://github.com/bats-core/bats-core/issues/256) -- before you run the install script, you might want to:
+```
+$ git checkout v1.1.0
+```
