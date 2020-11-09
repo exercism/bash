@@ -16,6 +16,10 @@ status=0
 
 for file; do
     dir=$(dirname "$file")
+
+    # this file is NOT under the exercises dir: nothing to test
+    [[ $dir == */exercises/* ]] || continue
+
     if [[ ! -v seen["$dir"] ]]; then
         seen["$dir"]=1
         bin/validate_one_exercise "$dir" || status=1
