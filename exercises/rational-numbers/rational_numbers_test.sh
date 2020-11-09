@@ -289,10 +289,3 @@
     (( status == 0 ))
     [[ $output ==  "1/1" ]]
 }
-
-@test "Reduce zero to lowest terms" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "reduce" "0/13"
-    (( status == 0 ))
-    [[ $output ==  "0/1" ]]
-}
