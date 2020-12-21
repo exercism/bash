@@ -52,17 +52,24 @@
     [[ $output == "$expected" ]]
 }
 
-# error cases
-@test "goal is too big for the buckets" {
+@test "Not possible to reach the goal" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash two_bucket.sh 1 2 3 "one"
-    [[ $status -ne 0 ]]
+    run bash two_bucket.sh 6 15 5 "one"
+    (( status == 1 ))
     [[ $output == *"invalid goal"* ]]
 }
 
-@test "cannot satisfy the goal" {
+@test "With the same buckets but a different goal, then it is possible" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash two_bucket.sh 6 8 3 "one"
-    [[ $status -ne 0 ]]
+    expected="moves: 10, goalBucket: two, otherBucket: 0"
+    run bash two_bucket.sh 6 15 9 "one"
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+
+@test "Goal larger than both buckets is impossible" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash two_bucket.sh 5 7 8 "one"
+    (( status == 1 ))
     [[ $output == *"invalid goal"* ]]
 }
