@@ -50,7 +50,7 @@
 
 @test "handle arg with glob char" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "*"
+  run bash two_fer.sh "* "
   (( status == 0 ))
-  [[ $output == "One for *, one for me." ]]
+  [[ $output == "One for * , one for me." ]]
 }
