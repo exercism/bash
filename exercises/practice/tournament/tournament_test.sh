@@ -8,7 +8,11 @@
 
 # uses external tool: mktemp
 
-setup()    { export INPUT_FILE=$( mktemp ); }
+setup() { 
+    export INPUT_FILE HAS_TTY
+    INPUT_FILE=$( mktemp ) 
+    [[ -t 0 ]] && HAS_TTY=1 || HAS_TTY=0
+}
 teardown() { rm -f "$INPUT_FILE"; }
 
 @test "just the header if no input" {
@@ -30,6 +34,8 @@ EXPECTED
 
 @test "a win is three points, a loss is zero points" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # ignore this test in CI
+    (( HAS_TTY )) || skip
 
     cat <<INPUT >"$INPUT_FILE"
 Allegoric Alaskans;Blithering Badgers;win
@@ -201,6 +207,8 @@ EXPECTED
 
 @test "incomplete competition (not all pairs have played)" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # ignore this test in CI
+    (( HAS_TTY )) || skip
 
     cat <<INPUT > "$INPUT_FILE"
 Allegoric Alaskans;Blithering Badgers;loss
