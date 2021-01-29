@@ -7,7 +7,7 @@ fi
 
 # Due to inherent bash limitations around word splitting and globbing,
 # functions that are intended to *return a list* are instead required to
-# receive an nameref parameter, the name of an array variable that will be
+# receive a nameref parameter, the name of an array variable that will be
 # populated in the list function.
 # See the filter, map and reverse functions.
 
