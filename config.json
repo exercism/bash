@@ -1,5 +1,6 @@
 {
   "language": "Bash",
+  "slug": "bash",
   "active": true,
   "status": {
     "concept_exercises": false,
