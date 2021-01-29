@@ -13,23 +13,32 @@ setup() { source list_ops.sh; }
 
 @test "append empty lists" {
     #[[ $BATS_RUN_SKIPPED == true ]] || skip
-    l1=()
-    l2=()
-    list::append l1 "${l2[@]}"
-    (( ${#l1[@]} == 0 ))
-    [[ "${l1[*]}" == "" ]]
+    list1=()
+    list2=()
+    list::append list1 "${list2[@]}"
+    (( ${#list1[@]} == 0 ))
+    [[ "${list1[*]}" == "" ]]
 }
 
 @test "append list to empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
-    l1=()
-    l2=(1 2 3 4)
-    list::append l1 "${l2[@]}"
-    (( ${#l1[@]} == 4 ))
-    [[ "${l1[*]}" == "1 2 3 4" ]]
+    list1=()
+    list2=(1 2 3 4)
+    list::append list1 "${list2[@]}"
+    (( ${#list1[@]} == 4 ))
+    [[ "${list1[*]}" == "1 2 3 4" ]]
 }
 
-@test "append non-empty list to list" {
+@test "append empty list to list" {
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    list1=(1 2 3 4)
+    list2=()
+    list::append list1 "${list2[@]}"
+    (( ${#list1[@]} == 4 ))
+    [[ "${list1[*]}" == "1 2 3 4" ]]
+}
+
+@test "append non-empty lists" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
         l1=(1 2)
         l2=(2 3 4 5)
@@ -94,7 +103,10 @@ setup() { source list_ops.sh; }
 @test "foldl empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=()
-    mult () { echo $(( $1 * $2 )); }
+    mult () {
+        local acc=$1 elem=$2
+        echo $(( elem * acc ))
+    }
     result=$(list::foldl mult 2 list)
     [[ $result == "2" ]]
 }
@@ -102,23 +114,35 @@ setup() { source list_ops.sh; }
 @test "foldl direction independent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=(1 2 3 4)
-    add () { echo $(( $1 + $2 )); }
+    add () {
+        local acc=$1 elem=$2
+        echo $(( elem + acc ))
+    }
     result=$(list::foldl add 5 list)
     [[ $result == "15" ]]
 }
 
 @test "foldl direction dependent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
-    list=(2 5)
-    div () { echo $(( $1 / $2 )); }
-    result=$(list::foldl div 5 list)
-    [[ $result == "0" ]]
+    list=(1 2 3 4)
+    # For this test, we need a div function that performs
+    # floating point arithmetic to preserve fractions.
+    div () {
+        local acc=$1 elem=$2
+        echo "$elem / $acc" | bc -l
+    }
+    answer=$(list::foldl div 24 list)
+    result=$(printf '%.1f' "$answer")
+    [[ $result == "64.0" ]]
 }
 
 @test "foldl not just numbers" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=(H e l l o " " W o r l d "!")
-    concat () { echo "$1$2"; }
+    concat () {
+        local acc=$1 elem=$2
+        echo "${acc}${elem}"
+    }
     result=$(list::foldl concat "" list)
     [[ $result == 'Hello World!' ]]
 }
@@ -128,7 +152,10 @@ setup() { source list_ops.sh; }
 @test "foldr empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=()
-    mult () { echo $(( $1 * $2 )); }
+    mult () {
+        local elem=$1 acc=$2
+        echo $(( elem * acc ))
+    }
     result=$(list::foldr mult 2 list)
     [[ $result == "2" ]]
 }
@@ -136,23 +163,33 @@ setup() { source list_ops.sh; }
 @test "foldr direction independent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=(1 2 3 4)
-    add () { echo $(( $1 + $2 )); }
+    add () {
+        local elem=$1 acc=$2
+        echo $(( elem + acc ))
+    }
     result=$(list::foldr add 5 list)
     [[ $result == "15" ]]
 }
 
 @test "foldr direction dependent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
-    list=(2 5)
-    div () { echo $(( $1 / $2 )); }
-    result=$(list::foldr div 5 list)
-    [[ $result == "2" ]]
+    list=(1 2 3 4)
+    div () {
+        local elem=$1 acc=$2
+        echo "$elem / $acc" | bc -l
+    }
+    answer=$(list::foldr div 24 list)
+    result=$(printf '%.1f' "$answer")
+    [[ $result == "9.0" ]]
 }
 
 @test "foldr not just numbers" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=(H e l l o " " W o r l d "!")
-    concat () { echo "$1$2"; }
+    concat () {
+        local elem=$1 acc=$2
+        echo "${elem}${acc}"
+    }
     result=$(list::foldr concat "" list)
     [[ $result == 'Hello World!' ]]
 }
@@ -175,4 +212,13 @@ setup() { source list_ops.sh; }
     list::reverse list result
     (( ${#result[@]} == ${#list[@]} ))
     [[ "${result[*]}" == "7 5 3 1" ]]
+}
+
+@test "reverse with special characters" {
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    list=("R*" "l*")
+    result=()
+    list::reverse list result
+    (( ${#result[@]} == ${#list[@]} ))
+    [[ "${result[*]}" == "l* R*" ]]
 }

@@ -1144,6 +1144,21 @@
           "strings",
           "transforming"
         ]
+      },
+      {
+        "slug": "list-ops",
+        "name": "List Operations",
+        "uuid": "3ce05308-2637-4f85-8e88-51739778605c",
+        "prerequisites": [],
+        "difficulty": 7,
+        "topics": [
+          "algorithms",
+          "arrays",
+          "conditionals",
+          "filtering",
+          "loops",
+          "variables"
+        ]
       }
     ]
   },
