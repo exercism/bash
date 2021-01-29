@@ -10,6 +10,10 @@
   },
   "blurb": "Bash is a Unix command interpreter, for which plaintext files of commands can be made to create scripts. It's a powerful and concise way of getting stuff done!",
   "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 4
+  },
   "exercises": [
     {
       "slug": "hello-world",
