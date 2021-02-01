@@ -8,7 +8,7 @@ set -o nounset
 
 cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 
-for exercise in exercises/*; do
+for exercise in exercises/*/*; do
     bin/validate_one_exercise "$exercise"
     echo
 done
