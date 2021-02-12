@@ -183,3 +183,18 @@
   (( status == 0 ))
   [[ $output == "Fine. Be that way!" ]]
 }
+
+# bash-specific tests
+@test "yelling a filename expansion" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash bob.sh '*READ* !'
+  (( status == 0 ))
+  [[ $output == "Whoa, chill out!" ]]
+}
+
+@test "asking a filename expansion" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash bob.sh 'bob???'
+  (( status == 0 ))
+  [[ $output == "Sure." ]]
+}
