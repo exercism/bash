@@ -1,3 +1,5 @@
+# Installation
+
 ## Linux
 
 Bash, as the GNU shell, will be found on any GNU/Linux system. 

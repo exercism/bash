@@ -1,3 +1,5 @@
+# Tests
+
 As there isn't much of a bash ecosystem, there also isn't really a defacto
 leader in the bash testing area. For these examples we are using
 [bats](https://github.com/bats-core/bats-core). 
