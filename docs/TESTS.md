@@ -10,7 +10,7 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever_test.sh
 ```
 
-### Legacy `bats`
+## Legacy `bats`
 
 `bats-core` was forked from [the original `bats`
 implementation](https://github.com/sstephenson/bats).  The sstephenson/bats
