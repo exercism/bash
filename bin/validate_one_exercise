@@ -8,18 +8,20 @@ set -o nounset
 
 export BATS_RUN_SKIPPED=true    # run all the tests
 
-cd "$1" || {
-    echo "Cannot cd to $1" >&2
-    exit 1
-}
+die() { echo "$*" >&2; exit 1; }
 
-exercise=${1%/}            # strip a trailing slash, if there is one
-exercise=${exercise##*/}   # remove any leading path
+cd "$1" || die "Cannot cd to $1"
+
+exercise=${1%/}                 # strip a trailing slash, if there is one
+exercise=${exercise##*/}        # remove any leading path
+exercise_name=${exercise//-/_}  # replace "-" with "_" to follow convention
+solution="./.meta/example.sh"
+
+[[ -f ${exercise_name}.sh      ]] || die "Missing stub file for $exercise"
+[[ -f ${exercise_name}_test.sh ]] || die "Missing tests file for $exercise"
+[[ -f ${solution}              ]] || die "Missing solution file for $exercise"
 
 echo "Processing $exercise"
-
-# Replace "-" with "_" to follow bash conventions
-exercise_name=${exercise//-/_}
 
 cleanup() {
     git checkout "${exercise_name}.sh"
@@ -27,7 +29,7 @@ cleanup() {
 trap cleanup EXIT
 
 # Create implementation file from example
-cp example.sh "${exercise_name}.sh"
+cp "${solution}" "${exercise_name}.sh"
 
 # Run the tests
 bats "${exercise_name}_test.sh"
