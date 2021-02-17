@@ -16,16 +16,16 @@
   },
   "files": {
     "solution": [
-      "path/to/%{kebab_slug}.ext"
+      "./%{snake_slug}.sh"
     ],
     "test": [
-      "path/to/%{kebab_slug}.ext"
+      "./%{snake_slug}_test.sh"
     ],
     "example": [
-      "path/to/%{kebab_slug}.ext"
+      ".meta/example.sh"
     ],
     "exemplar": [
-      "path/to/%{kebab_slug}.ext"
+      ".meta/exemplar.sh"
     ]
   },
   "exercises": {
