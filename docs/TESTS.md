@@ -1,3 +1,5 @@
+# Tests
+
 As there isn't much of a bash ecosystem, there also isn't really a defacto
 leader in the bash testing area. For these examples we are using
 [bats](https://github.com/bats-core/bats-core). 
@@ -8,7 +10,7 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever_test.sh
 ```
 
-### Legacy `bats`
+## Legacy `bats`
 
 `bats-core` was forked from [the original `bats`
 implementation](https://github.com/sstephenson/bats).  The sstephenson/bats

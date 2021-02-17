@@ -1,3 +1,5 @@
+# About
+
 Bash is the language that you will learn to love!
 
 Many of your everyday computer tasks can be done using the concise scripts

@@ -1,3 +1,5 @@
+# Resources
+
 - Bash man page: to view it, type `man bash` in a terminal.
 - [Bash Guide](http://mywiki.wooledge.org/BashGuide)
 - [Bash FAQ](http://mywiki.wooledge.org/BashFAQ)

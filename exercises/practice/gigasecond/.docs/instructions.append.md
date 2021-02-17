@@ -1,4 +1,4 @@
-## Test-Driven Development
+# Test-Driven Development
 
 As programmers mature, they eventually want to test their code.
 
@@ -11,7 +11,7 @@ the problem.
 It will also provide you with a safety net to explore other solutions without
 breaking the functionality.
 
-### A typical TDD workflow on Exercism:
+## A typical TDD workflow on Exercism:
 
 1. Run the test file and pick one test that's failing.
 2. Write some code to fix the test you picked.
@@ -19,7 +19,7 @@ breaking the functionality.
 4. Repeat from step 1.
 5. Submit your solution (`exercism submit /path/to/file`)
 
-## Instructions
+# Instructions
 
 Submissions are encouraged to be general, within reason. Having said that, it's
 also important not to over-engineer a solution.
