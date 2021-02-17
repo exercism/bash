@@ -14,6 +14,20 @@
     "indent_style": "space",
     "indent_size": 4
   },
+  "files": {
+    "solution": [
+      "./%{snake_slug}.sh"
+    ],
+    "test": [
+      "./%{snake_slug}_test.sh"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ],
+    "exemplar": [
+      ".meta/exemplar.sh"
+    ]
+  },
   "exercises": {
     "concept": [],
     "practice": [
