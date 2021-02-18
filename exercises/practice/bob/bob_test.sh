@@ -23,6 +23,13 @@
   [[ $output == "Whoa, chill out!" ]]
 }
 
+@test "shouted single letter" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash bob.sh 'A!'
+  (( status == 0 ))
+  [[ $output == "Whoa, chill out!" ]]
+}
+
 @test "asking a question" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash bob.sh 'Does this cryogenic chamber make me look fat?'
