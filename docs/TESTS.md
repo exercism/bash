@@ -10,21 +10,15 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever_test.sh
 ```
 
-## Legacy `bats`
+## Installing `bats` and addons
 
-`bats-core` was forked from [the original `bats`
-implementation](https://github.com/sstephenson/bats).  The sstephenson/bats
-was quite buggy and had been abandoned. Ownership was handed over in 2017: 
-[sstephenson/bats#150 (comment)](https://github.com/sstephenson/bats/issues/150#issuecomment-323845404)
-
-If you have the original sstephenson/bats installed (check with `bats -v`
-reporting a version number less than 1.0), then you should switch to
-bats-core: otherwise you may find yourself [experiencing unexplained test
-failures](https://github.com/exercism/bash/pull/445).
-
-## Installing `bats`
-
+[`bats-core`][bats-core] is a bash unit testing framework. 
+These test suites also use the [`bats-support`][bats-support] and [`bats-assert`][bats-assert] addons.
 You should be able to install it from your favorite package manager:
+
+[bats-core]: https://bats-core.readthedocs.io/en/latest/index.html
+[bats-support]: https://github.com/bats-core/bats-support
+[bats-assert]: https://github.com/bats-core/bats-assert
 
 ### For Mac (brew)
 On OS X
@@ -36,6 +30,13 @@ $ brew install bats-core
 ######################################################################## 100.0%
 ==> ./install.sh /usr/local/Cellar/bats-core/1.1.0
 🍺  /usr/local/Cellar/bats-core/1.1.0: 13 files, 55KB, built in 4 seconds
+
+
+$ brew tap kaos/shell
+...
+$ brew install bats-support
+...
+$ brew install bats-assert
 ```
 
 * The legacy `bats` package also exists in the homebrew ecosystem. Do not
@@ -58,13 +59,16 @@ For other Linux distributions the implementation of `bats` we use is not conveni
 git clone https://github.com/bats-core/bats-core
 cd bats-core/
 sudo ./install.sh /usr/local
+
+cd ..
+git clone https://github.com/bats-core/bats-support
+git clone https://github.com/bats-core/bats-assert
+export BATS_ADDON_DIR=$PWD
 ```
 Following that, assuming `/usr/local/bin` is in your $PATH, you can now do:
 ```
-$ bats
-Error: Must specify at least one <test>
-Usage: bats [-cr] [-f <regex>] [-j <jobs>] [-p | -t] <test>...
-       bats [-h | -v]
+$ cd [exercism-workdir]/bash/hello-world
+$ bats hello_world_test.sh
 ...
 ```
 
@@ -80,3 +84,15 @@ There are reports that [newer bats versions don't behave well on MinGW bash](htt
 ```
 $ git checkout v1.1.0
 ```
+
+## Legacy `bats`
+
+`bats-core` was forked from [the original `bats`
+implementation](https://github.com/sstephenson/bats).  The sstephenson/bats
+was quite buggy and had been abandoned. Ownership was handed over in 2017: 
+[sstephenson/bats#150 (comment)](https://github.com/sstephenson/bats/issues/150#issuecomment-323845404)
+
+If you have the original sstephenson/bats installed (check with `bats -v`
+reporting a version number less than 1.0), then you should switch to
+bats-core: otherwise you may find yourself [experiencing unexplained test
+failures](https://github.com/exercism/bash/pull/445).
