@@ -25,7 +25,7 @@ install it from your favorite package manager, on OS X with homebrew
 this would look something like this:
 
 ```
-$ brew install bats
+$ brew install bats-core
 ==> Downloading
 https://github.com/bats-core/bats-core/archive/v1.2.0.tar.gz
 ==> Downloading from
