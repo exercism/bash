@@ -1149,5 +1149,13 @@
   },
   "concepts": [],
   "key_features": [],
-  "tags": []
+  "tags": [
+    "used_for/scripts",
+    "paradigm/procedural",
+    "execution_mode/interpreted",
+    "typing/weak",
+    "platform/linux",
+    "platform/mac",
+    "platform/windows"
+  ]
 }
