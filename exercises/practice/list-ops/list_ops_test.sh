@@ -7,7 +7,7 @@ if (( BASH_VERSINFO[0] < 4 )); then
     exit 4
 fi
 
-# append entries to a list and return the new list
+## append entries to a list and return the new list
 
 setup() { source list_ops.sh; }
 
@@ -47,10 +47,10 @@ setup() { source list_ops.sh; }
         [[ "${l1[*]}" == "1 2 2 3 4 5" ]]
 }
 
-# concatenate a list of lists
+## concatenate a list of lists
 # N/A: bash arrays are strictly one-dimensional
 
-# filter list returning only values that satisfy the filter function
+## filter list returning only values that satisfy the filter function
 
 @test "filter empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
@@ -72,11 +72,11 @@ setup() { source list_ops.sh; }
     [[ "${result[*]}" == "1 3 5" ]]
 }
 
-# returns the length of a list
+## returns the length of a list
 # N/A: bash array length syntax covers it: ${#ary[@]}
 
-# map: a list of elements whose values equal the list value transformed by
-# the mapping function
+## map: a list of elements whose values equal the list value
+## transformed by the mapping function
 
 @test "map empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
@@ -98,7 +98,7 @@ setup() { source list_ops.sh; }
     [[ "${result[*]}" == "2 4 6 8" ]]
 }
 
-# folds (reduces) the given list from the left with a function
+## folds (reduces) the given list from the left with a function
 
 @test "foldl empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
@@ -136,6 +136,7 @@ setup() { source list_ops.sh; }
     [[ $result == "64.0" ]]
 }
 
+# track-specific test
 @test "foldl not just numbers" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=(H e l l o " " W o r l d "!")
@@ -147,7 +148,8 @@ setup() { source list_ops.sh; }
     [[ $result == 'Hello World!' ]]
 }
 
-# folds (reduces) the given list from the right with a function
+## folds (reduces) the given list from the right with a function
+# Note the order of the arguments to the given functions!
 
 @test "foldr empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
@@ -183,18 +185,19 @@ setup() { source list_ops.sh; }
     [[ $result == "9.0" ]]
 }
 
+# track-specific test
 @test "foldr not just numbers" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
     list=(H e l l o " " W o r l d "!")
     concat () {
         local elem=$1 acc=$2
-        echo "${elem}${acc}"
+        echo "${acc}${elem}"
     }
     result=$(list::foldr concat "" list)
-    [[ $result == 'Hello World!' ]]
+    [[ $result == '!dlroW olleH' ]]
 }
 
-# reverse the elements of the list
+## reverse the elements of the list
 
 @test "reverse empty list" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
