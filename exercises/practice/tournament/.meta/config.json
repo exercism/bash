@@ -2,8 +2,14 @@
   "blurb": "Tally the results of a small football competition.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "tournament.sh"
+    ],
+    "test": [
+      "tournament_test.sh"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
   }
 }

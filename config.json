@@ -16,10 +16,10 @@
   },
   "files": {
     "solution": [
-      "./%{snake_slug}.sh"
+      "%{snake_slug}.sh"
     ],
     "test": [
-      "./%{snake_slug}_test.sh"
+      "%{snake_slug}_test.sh"
     ],
     "example": [
       ".meta/example.sh"

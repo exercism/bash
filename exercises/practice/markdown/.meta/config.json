@@ -2,8 +2,14 @@
   "blurb": "Refactor a Markdown parser",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "markdown.sh"
+    ],
+    "test": [
+      "markdown_test.sh"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
   }
 }
