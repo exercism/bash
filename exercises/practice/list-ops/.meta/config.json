@@ -1,0 +1,8 @@
+{
+  "authors": [],
+  "files": {
+    "solution": ["list_ops.sh"],
+    "test": ["list_ops_test.sh"],
+    "example": [".meta/example.sh"]
+  }
+}

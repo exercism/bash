@@ -4,25 +4,23 @@
 # From that, extract the list of exercise directories, and
 # test there.
 
-minorVer=$(IFS="."; echo "${BASH_VERSINFO[*]:0:2}")
-
-if [[ $minorVer < "4.3" ]]; then
-    echo "[Failure] This script requires bash version 4.3+" >&2
-    exit 1
+if ((BASH_VERSINFO[0] < 4)); then
+    echo "[Failure] This script requires bash version 4+" >&2
+    exit 4
 fi
+shopt -s extglob
 
 declare -A seen=()
+declare -a dirs
 status=0
 
 for file; do
-    dir=$(dirname "$file")
-
-    # this file is NOT under the exercises dir: nothing to test
-    [[ $dir == */exercises/* ]] || continue
-
-    if [[ ! -v seen["$dir"] ]]; then
-        seen["$dir"]=1
-        bin/validate_one_exercise "$dir" || status=1
+    if [[ $file =~ ^exercises/(practice|concept)/[^/]+ ]]; then 
+        dir=${BASH_REMATCH[0]}
+        if [[ -z ${seen[$dir]} ]]; then
+            bin/validate_one_exercise "$dir" || status=1
+            seen["$dir"]=yes
+        fi
     fi
 done
 
