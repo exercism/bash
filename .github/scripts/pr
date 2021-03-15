@@ -16,7 +16,7 @@ for file; do
     dir=$(dirname "$file")
 
     # this file is NOT under the exercises dir: nothing to test
-    [[ $dir == */exercises/* ]] || continue
+    [[ $dir == exercises/* ]] || continue
 
     dir=${dir%/.meta}       # for instance the example file
 
