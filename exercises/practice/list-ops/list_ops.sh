@@ -4,8 +4,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
     echo "This library of functions should be sourced into another script" >&2
     exit 4
 fi
-if (( BASH_VERSINFO[0] < 4 )); then
-    echo "This library requires at least bash version 4" >&2
+bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
+if (( bash_version < 43 )); then
+    echo "This library requires at least bash version 4.3" >&2
     return 4
 fi
 

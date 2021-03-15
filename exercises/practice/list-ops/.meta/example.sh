@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-if (( BASH_VERSINFO[0] < 4 )); then
-    echo "This library requires at least bash version 4" >&2
+bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
+if (( bash_version < 43 )); then
+    echo "This library requires at least bash version 4.3" >&2
     return 4
 fi
 

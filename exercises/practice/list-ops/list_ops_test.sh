@@ -2,8 +2,9 @@
 
 # local version: 2.4.0.0
 
-if (( BASH_VERSINFO[0] < 4 )); then
-    echo "This exercise requires at least bash version 4" >&2
+bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
+if (( bash_version < 43 )); then
+    echo "This exercise requires at least bash version 4.3" >&2
     exit 4
 fi
 
