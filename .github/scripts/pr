@@ -4,11 +4,9 @@
 # From that, extract the list of exercise directories, and
 # test there.
 
-minorVer=$(IFS="."; echo "${BASH_VERSINFO[*]:0:2}")
-
-if [[ $minorVer < "4.3" ]]; then
-    echo "[Failure] This script requires bash version 4.3+" >&2
-    exit 1
+if ((BASH_VERSINFO[0] < 4)); then
+    echo "[Failure] This script requires bash version 4+" >&2
+    exit 4
 fi
 
 declare -A seen=()
@@ -20,8 +18,10 @@ for file; do
     # this file is NOT under the exercises dir: nothing to test
     [[ $dir == */exercises/* ]] || continue
 
-    if [[ ! -v seen["$dir"] ]]; then
-        seen["$dir"]=1
+    dir=${dir%/.meta}       # for instance the example file
+
+    if [[ -z ${seen[$dir]} ]]; then
+        seen["$dir"]=yes
         bin/validate_one_exercise "$dir" || status=1
     fi
 done
