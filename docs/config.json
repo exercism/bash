@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "df55c0f8-32ae-4add-9270-9a293468fc73",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing Bash locally",
+      "blurb": "Learn how to install Bash locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "ea5da29f-167b-4149-af75-a487836e8ed9",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn Bash",
+      "blurb": "An overview of how to get started from scratch with Bash"
+    },
+    {
+      "uuid": "17f477ff-1f9b-4ecc-954d-d84277c95841",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the Bash track",
+      "blurb": "Learn how to test your Bash exercises on Exercism"
+    },
+    {
+      "uuid": "c74e1d25-18f1-4212-a10c-05303a962b1c",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful Bash resources",
+      "blurb": "A collection of useful resources to help you master Bash"
+    }
+  ]
+}
