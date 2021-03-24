@@ -1,6 +1,8 @@
 {
   "blurb": "Given a natural radicand, return its square root.",
-  "authors": [],
+  "authors": [
+    "glennj"
+  ],
   "files": {
     "solution": [
       "square_root.sh"

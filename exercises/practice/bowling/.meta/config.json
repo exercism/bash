@@ -1,6 +1,13 @@
 {
   "blurb": "Score a bowling game",
-  "authors": [],
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "guygastineau",
+    "IsaacG",
+    "kotp"
+  ],
   "files": {
     "solution": [
       "bowling.sh"

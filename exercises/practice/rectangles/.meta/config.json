@@ -1,6 +1,12 @@
 {
   "blurb": "Count the rectangles in an ASCII diagram.",
-  "authors": [],
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "guygastineau",
+    "IsaacG"
+  ],
   "files": {
     "solution": [
       "rectangles.sh"

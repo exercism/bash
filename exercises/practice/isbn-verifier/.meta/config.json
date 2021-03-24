@@ -1,6 +1,14 @@
 {
   "blurb": "Check if a given string is a valid ISBN-10 number.",
-  "authors": [],
+  "authors": [
+    "guygastineau"
+  ],
+  "contributors": [
+    "bkhl",
+    "glennj",
+    "IsaacG",
+    "kotp"
+  ],
   "files": {
     "solution": [
       "isbn_verifier.sh"
