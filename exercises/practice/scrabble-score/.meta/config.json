@@ -1,6 +1,17 @@
 {
   "blurb": "Given a word, compute the Scrabble score for that word.",
-  "authors": [],
+  "authors": [
+    "edwin0258"
+  ],
+  "contributors": [
+    "bkhl",
+    "budmc29",
+    "glennj",
+    "guygastineau",
+    "IsaacG",
+    "kotp",
+    "ZapAnton"
+  ],
   "files": {
     "solution": [
       "scrabble_score.sh"

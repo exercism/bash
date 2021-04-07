@@ -1,6 +1,21 @@
 {
   "blurb": "Given a year, report if it is a leap year.",
-  "authors": [],
+  "authors": [
+    "kenden"
+  ],
+  "contributors": [
+    "bkhl",
+    "budmc29",
+    "glennj",
+    "guygastineau",
+    "IsaacG",
+    "kotp",
+    "kytrinyx",
+    "platinumthinker",
+    "sjwarner-bp",
+    "Smarticles101",
+    "ZapAnton"
+  ],
   "files": {
     "solution": [
       "leap.sh"

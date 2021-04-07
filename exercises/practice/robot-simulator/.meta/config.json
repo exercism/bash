@@ -1,6 +1,12 @@
 {
   "blurb": "Write a robot simulator.",
-  "authors": [],
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "guygastineau",
+    "IsaacG"
+  ],
   "files": {
     "solution": [
       "robot_simulator.sh"

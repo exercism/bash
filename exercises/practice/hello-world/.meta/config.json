@@ -1,6 +1,25 @@
 {
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
   "authors": [],
+  "contributors": [
+    "adelcambre",
+    "bkhl",
+    "budmc29",
+    "coreygo",
+    "glennj",
+    "guygastineau",
+    "IsaacG",
+    "kenden",
+    "kotp",
+    "kytrinyx",
+    "MattLewin",
+    "platinumthinker",
+    "quartzinquartz",
+    "rootulp",
+    "sjwarner-bp",
+    "Smarticles101",
+    "ZapAnton"
+  ],
   "files": {
     "solution": [
       "hello_world.sh"

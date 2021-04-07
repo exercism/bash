@@ -1,6 +1,19 @@
 {
   "blurb": "Convert a long phrase to its acronym",
-  "authors": [],
+  "authors": [
+    "netserf"
+  ],
+  "contributors": [
+    "bkhl",
+    "budmc29",
+    "glennj",
+    "guygastineau",
+    "IsaacG",
+    "kotp",
+    "lemoncurry",
+    "sjwarner-bp",
+    "ZapAnton"
+  ],
   "files": {
     "solution": [
       "acronym.sh"

@@ -1,6 +1,22 @@
 {
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
-  "authors": [],
+  "authors": [
+    "kenden"
+  ],
+  "contributors": [
+    "bkhl",
+    "budmc29",
+    "glennj",
+    "guygastineau",
+    "IsaacG",
+    "kotp",
+    "kytrinyx",
+    "platinumthinker",
+    "rpalo",
+    "sjwarner-bp",
+    "Smarticles101",
+    "ZapAnton"
+  ],
   "files": {
     "solution": [
       "bob.sh"

@@ -1,6 +1,13 @@
 {
   "blurb": "Given a number, find the sum of all the multiples of particular numbers up to but not including that number.",
-  "authors": [],
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "guygastineau",
+    "IsaacG",
+    "kotp"
+  ],
   "files": {
     "solution": [
       "sum_of_multiples.sh"
