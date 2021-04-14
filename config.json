@@ -1149,6 +1149,7 @@
         "slug": "list-ops",
         "name": "List Operations",
         "uuid": "3ce05308-2637-4f85-8e88-51739778605c",
+        "practices": [],
         "prerequisites": [],
         "difficulty": 7,
         "topics": [

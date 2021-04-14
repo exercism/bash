@@ -1,6 +1,10 @@
 {
+  "blurb": "Implement basic list operations.",
   "authors": [
     "glennj"
+  ],
+  "contributors": [
+    "kotp"
   ],
   "files": {
     "solution": [
