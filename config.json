@@ -96,7 +96,7 @@
       {
         "slug": "acronym",
         "name": "Acronym",
-        "uuid": "5812c10a-aee1-11e7-add7-ef139384f6eb",
+        "uuid": "601ec92f-8e98-499a-ae3d-66494f38139c",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3,
@@ -814,7 +814,7 @@
       {
         "slug": "queen-attack",
         "name": "Queen Attack",
-        "uuid": "text_formatting",
+        "uuid": "82a49adb-c2d7-4919-9d0e-4cc3ee996382",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3,
@@ -1001,7 +1001,7 @@
       {
         "slug": "knapsack",
         "name": "Knapsack",
-        "uuid": "ac179b77-98a5-4daf-9773-3d68b6cd8548",
+        "uuid": "41919408-97e3-4cc7-bc20-f5eb5d47eb99",
         "practices": [],
         "prerequisites": [],
         "difficulty": 8,
