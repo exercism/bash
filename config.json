@@ -13,7 +13,7 @@
   "online_editor": {
     "indent_style": "space",
     "indent_size": 4,
-    "ace_editor_language": "bash",
+    "ace_editor_language": "sh",
     "highlightjs_language": "bash"
   },
   "files": {
