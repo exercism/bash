@@ -5,4 +5,4 @@ cd "$(dirname "$0")"/.. || die "cannot cd"
 
 bin/fetch_configlet || die "cannot fetch configlet"
 bin/configlet lint || die "resolve config.json problems first"
-bin/configlet sync --check || die "resolve tests.toml problems first"
+bin/configlet sync --check "$@"
