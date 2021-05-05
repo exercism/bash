@@ -14,8 +14,9 @@ stack::tail() { echo ${stack[-1]}; }
 stack::pop()  { stack=( ${stack[@]:0:$(stack::len)-1} ); }
 stack::push() { stack+=( $* ); }
 
-# True if the first argument consists of digits only
-is_number() { [[ $1 == +([0-9]) ]]; }
+# True if the first argument consists of only
+# an optional sign and digits
+is_number() { [[ $1 == ?([+-])+([0-9]) ]]; }
 
 die() { echo "$*" >&2; exit 1; }
 
