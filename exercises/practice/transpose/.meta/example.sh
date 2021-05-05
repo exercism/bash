@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# this solution requires bash 4.3+ for use of namerefs
+
 if [[ -t 0 ]]; then
     # no redirected input
     exit
