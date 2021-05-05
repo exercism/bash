@@ -2,9 +2,17 @@
 
 # local version: 1.3.0.0
 
+@test "change for 1 cent" {
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="1"
+    coins=(1 5 10 25)
+    run bash change.sh 1 "${coins[@]}"
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
 
 @test "single coin change" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="25"
     coins=(1 5 10 25 100)
     run bash change.sh 25 "${coins[@]}"

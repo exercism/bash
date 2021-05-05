@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# this requires bash 4.3+ for the use of namerefs
+
 main() {
     local -i amount=$1; shift
     local -a denonimations=( "$@" )
