@@ -1,8 +1,8 @@
 #!/bin/bash
 
-num=$(echo "$1" | sed 's/[\ ]//g')
+num=${1// /}
 
-if ! [[ 10#$num -ge 0 ]] 2>/dev/null || ! [[ ${#num} -gt 1 ]] ; then
+if [[ $num =~ [^[:digit:]] ]] || [[ ${#num} -le 1 ]] ; then
     echo "false"
 else
     shift 1
