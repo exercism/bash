@@ -172,3 +172,29 @@ END
     (( status == 0 ))
     [[ $output == "$expected" ]]
 }
+
+@test "jagged triangle" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    input=$(cat <<END
+11
+2
+3333
+444
+555555
+66666
+END
+)
+    expected=$(cat <<END
+123456
+1 3456
+  3456
+  3 56
+    56
+    5
+END
+)
+    run bash transpose.sh <<< "$input"
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+

@@ -18,6 +18,14 @@
     [[ $output == "$expected" ]]
 }
 
+@test "another prime number" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="3"
+    run bash prime_factors.sh 3
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+
 @test "square of a prime" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3 3"
@@ -26,10 +34,42 @@
     [[ $output == "$expected" ]]
 }
 
+@test "product of first prime" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="2 2"
+    run bash prime_factors.sh 4
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+
 @test "cube of a prime" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 2 2"
     run bash prime_factors.sh 8
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+
+@test "product of second prime" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="3 3 3"
+    run bash prime_factors.sh 27
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+
+@test "product of third prime" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="5 5 5 5"
+    run bash prime_factors.sh 625
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
+
+@test "product of first and second primes" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="2 3"
+    run bash prime_factors.sh 6
     (( status == 0 ))
     [[ $output == "$expected" ]]
 }

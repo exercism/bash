@@ -11,9 +11,9 @@
 
 @test "detects two anagrams" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash anagram.sh "master" "stream pigeon maters"
+  run bash anagram.sh "solemn" "lemons cherry melons"
   (( status == 0 ))
-  [[ $output == "stream maters" ]]
+  [[ $output == "lemons melons" ]]
 }
 
 @test "does not detect anagram subsets" {

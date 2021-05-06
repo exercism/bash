@@ -127,3 +127,10 @@
   (( status == 0 ))
   [[ $output == "false" ]]
 }
+
+@test "non-numeric, non-space char in the middle with a sum that's divisible by 10 isn't allowed" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash luhn.sh "59%59"
+  (( status == 0 ))
+  [[ $output == "false" ]]
+}

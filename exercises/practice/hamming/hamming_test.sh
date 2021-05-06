@@ -43,28 +43,28 @@
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh 'AATG' 'AAA'
   (( status == 1 ))
-  [[ $output == "left and right strands must be of equal length" ]]
+  [[ $output == *"strands must be of equal length"* ]]
 }
 
 @test 'disallow second strand longer' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh 'ATA' 'AGTG'
   (( status == 1 ))
-  [[ $output == "left and right strands must be of equal length" ]]
+  [[ $output == *"strands must be of equal length"* ]]
 }
 
 @test 'disallow left empty strand' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh '' 'G'
   (( status == 1 ))
-  [[ $output == "left and right strands must be of equal length" ]]
+  [[ $output == *"strands must be of equal length"* ]]
 }
 
 @test 'disallow right empty strand' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh 'G' ''
   (( status == 1 ))
-  [[ $output == "left and right strands must be of equal length" ]]
+  [[ $output == *"strands must be of equal length"* ]]
 }
 
 @test "no input" {

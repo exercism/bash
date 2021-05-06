@@ -374,10 +374,19 @@ END
     [[ $output == "11" ]]
 }
 
-@test macro_cannot_redefine_numbers {
+@test macro_cannot_redefine_non_negative_numbers {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash forth.sh <<END
 : 1 2 ;
+END
+    [[ $status -ne 0 ]]
+    [[ $output == *"illegal operation"* ]]
+}
+
+@test macro_cannot_redefine_negative_numbers {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash forth.sh <<END
+: -1 2 ;
 END
     [[ $status -ne 0 ]]
     [[ $output == *"illegal operation"* ]]

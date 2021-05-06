@@ -94,3 +94,10 @@
   (( status == 0 ))
   [[ $output == "false" ]]
 }
+
+@test 'word with duplicated character and with two hyphens' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash isogram.sh 'up-to-date'
+  (( status == 0 ))
+  [[ $output == "false" ]]
+}
