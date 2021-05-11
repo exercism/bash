@@ -257,3 +257,27 @@ EXPECTED
     (( status == 0 ))
     [[ $output == "$expected" ]]
 }
+
+@test "ensure points sorted numerically" {
+
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    input=$( cat <<INPUT
+Devastating Donkeys;Blithering Badgers;win
+Devastating Donkeys;Blithering Badgers;win
+Devastating Donkeys;Blithering Badgers;win
+Devastating Donkeys;Blithering Badgers;win
+Blithering Badgers;Devastating Donkeys;win
+INPUT
+)
+    expected=$( cat <<EXPECTED
+Team                           | MP |  W |  D |  L |  P
+Devastating Donkeys            |  5 |  4 |  0 |  1 | 12
+Blithering Badgers             |  5 |  1 |  0 |  4 |  3
+EXPECTED
+)
+
+    run bash tournament.sh  <<< "$input"
+    (( status == 0 ))
+    [[ $output == "$expected" ]]
+}
