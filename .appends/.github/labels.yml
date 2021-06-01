@@ -1,0 +1,84 @@
+- name: "bug"
+  description: ""
+  color: "fc2929"
+
+- name: "ci"
+  description: ""
+  color: "80edce"
+
+- name: "dependencies"
+  description: "Pull requests that update a dependency file"
+  color: "0366d6"
+
+- name: "discussion"
+  description: ""
+  color: "3fc9db"
+
+- name: "documentation"
+  description: ""
+  color: "e01d68"
+
+- name: "duplicate"
+  description: ""
+  color: "cccccc"
+
+- name: "enhancement"
+  description: ""
+  color: "84b6eb"
+
+- name: "epic"
+  description: ""
+  color: "f74cad"
+
+- name: "exercise peripherals"
+  description: "things that accompany the tests"
+  color: "006b75"
+
+- name: "first-timers only"
+  description: ""
+  color: "159818"
+
+- name: "good first patch"
+  description: ""
+  color: "159818"
+
+- name: "help wanted"
+  description: ""
+  color: "159818"
+
+- name: "invalid"
+  description: ""
+  color: "e6e6e6"
+
+- name: "launch"
+  description: ""
+  color: "5a06ad"
+
+- name: "nextercism"
+  description: ""
+  color: "ea799f"
+
+- name: "pinned"
+  description: ""
+  color: "006b75"
+
+- name: "question"
+  description: ""
+  color: "cc317c"
+
+- name: "security"
+  description: ""
+  color: "fbca04"
+
+- name: "test-fix"
+  description: ""
+  color: "9e2c1f"
+
+- name: "v3-migration 🤖"
+  description: "Preparing for Exercism v3"
+  color: "E99695"
+
+- name: "wontfix"
+  description: ""
+  color: "ffffff"
+
