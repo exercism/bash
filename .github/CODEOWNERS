@@ -4,5 +4,5 @@ config/maintainers.json @exercism/maintainers-admin
 # Code owners
 .github/CODEOWNERS      @exercism/maintainers-admin
 
-# Changes to `fetch_configlet` should be made in the `exercism/configlet` repo
-bin/fetch_configlet     @exercism/maintainers-admin
+# Changes to `fetch-configlet` should be made in the `exercism/configlet` repo
+bin/fetch-configlet     @exercism/maintainers-admin
