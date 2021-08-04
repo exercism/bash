@@ -12,7 +12,7 @@ jobs:
       - name: Checkout PR
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2.3.0
+      - uses: actions/setup-node@v2.3.1
       - name: Install bats-core
         run: sudo npm install -g bats
 
