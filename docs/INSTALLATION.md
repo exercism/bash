@@ -39,7 +39,7 @@ There is NO WARRANTY, to the extent permitted by law.
 ```
 
 If it does not, you may not have bash installed.
-You should install it using your distributions package manager.
+You should install it using your distribution's package manager.
 
 ## Windows
 

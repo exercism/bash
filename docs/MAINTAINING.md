@@ -23,9 +23,7 @@ As a maintainer, you have write access to several repositories.  "write access" 
 
 ## Maintainer Guides
 
-- **[docs/maintaining-a-track/README.md](https://github.com/exercism/docs/blob/master/maintaining-a-track/README.md)**
-- [docs/contributing-to-language-tracks/README.md](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md)
-- [docs/you-can-help/review-pull-requests.md](https://github.com/exercism/docs/blob/master/you-can-help/review-pull-requests.md)
+- **[Maintainers](https://github.com/exercism/docs/blob/main/community/maintainers.md)**
 
 ## Miscellaneous
 
