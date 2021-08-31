@@ -27,5 +27,5 @@ the exercise.
 For an extra challenge, if you would like to have a better understanding of
 the language, try to re-implement the solution in pure bash, without using
 any external tools. There are some types of problems that bash cannot solve,
-such as performing floating point arithmetic and manipulating dates: for
-those, you must call out to an external tool.
+such as floating point arithmetic and manipulating dates: for those, you
+must call out to an external tool.

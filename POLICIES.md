@@ -36,18 +36,12 @@ References: [[1](https://github.com/exercism/bash/issues/88)]
 
 ### Exercise structure
 
-For an exercise "exercise", you should provide the following files:
-
-- `README.md`, which describes the exercise
-- `exercise_test.sh`, which contains the tests for the implementation
-- `example.sh`, an example implementation that passes the tests
-- `.meta/version`, which contains the exercise version from `https://github.com/exercism/problem-specifications/exercises/exercise/canonical-data.json`
-
-References: [[1](https://github.com/exercism/bash/issues/87#event-1446351332)]
+Please see the [Practice Exercises](https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md)
+document, which thoroughly discusses the structure of an exercise.
 
 ### Exercise Test Structure
 
-The tests will not enforce using a specific function, unless the problems are complex or requires it (ex: https://github.com/exercism/bash/blob/master/exercises/triangle/triangle_test.sh)
+The tests will not enforce using a specific function, unless the problems are complex or requires it (ex: https://github.com/exercism/bash/blob/main/exercises/practice/list-ops/list_ops_test.sh)
 
 ```
 run bash exercise.sh "string"

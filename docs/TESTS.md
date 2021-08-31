@@ -10,19 +10,7 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever_test.sh
 ```
 
-## Legacy `bats`
-
-`bats-core` was forked from [the original `bats`
-implementation](https://github.com/sstephenson/bats).  The sstephenson/bats
-was quite buggy and had been abandoned. Ownership was handed over in 2017: 
-[sstephenson/bats#150 (comment)](https://github.com/sstephenson/bats/issues/150#issuecomment-323845404)
-
-If you have the original sstephenson/bats installed (check with `bats -v`
-reporting a version number less than 1.0), then you should switch to
-bats-core: otherwise you may find yourself [experiencing unexplained test
-failures](https://github.com/exercism/bash/pull/445).
-
-## Installing `bats`
+## Installing `bats-core`
 
 You should be able to install it from your favorite package manager:
 
@@ -38,8 +26,8 @@ $ brew install bats-core
 🍺  /usr/local/Cellar/bats-core/1.1.0: 13 files, 55KB, built in 4 seconds
 ```
 
-* The legacy `bats` package also exists in the homebrew ecosystem. Do not
-install that by mistake, install `bats-core`.
+* The legacy `bats` package also exists in the homebrew ecosystem. _Do not
+install that by mistake_: <u>install `bats-core`</u>.
 
 ### For Linux
 
@@ -80,3 +68,15 @@ There are reports that [newer bats versions don't behave well on MinGW bash](htt
 ```
 $ git checkout v1.1.0
 ```
+
+## Legacy `bats`
+
+`bats-core` was forked from [the original `bats`
+implementation](https://github.com/sstephenson/bats).  The sstephenson/bats
+was quite buggy and had been abandoned. Ownership was handed over in 2017: 
+[sstephenson/bats#150 (comment)](https://github.com/sstephenson/bats/issues/150#issuecomment-323845404)
+
+If you have the original sstephenson/bats installed (check with `bats -v`
+reporting a version number less than 1.0), then you should switch to
+bats-core: otherwise you may find yourself [experiencing unexplained test
+failures](https://github.com/exercism/bash/pull/445).
