@@ -2,13 +2,13 @@
 
 Please see the central Exercism contributing documents:
 
-* [Being a Good Exercism Community Member](https://github.com/exercism/docs/tree/main/community/good-member#being-a-good-exercism-community-member)
-* [Community](https://github.com/exercism/docs/tree/main/community)
-* [Contributing to Exercism](https://github.com/exercism/docs/tree/main/building)
-* [Building / Tracks](https://github.com/exercism/docs/tree/main/building/tracks)
+* [Being a Good Community Member](https://exercism.org/docs/community/being-a-good-community-member)
+* [Community](https://exercism.org/docs/community)
+* [Contributing to Exercism](https://exercism.org/docs/building)
+* [Building / Tracks](https://exercism.org/docs/building/tracks)
 
 There are a lot of great resources for contributing to Exercism in general
 already.  Check out the [docs] repository for a larger overview and some more
 general purpose instructions.
 
-[docs]: (https://github.com/exercism/docs)
+[docs]: (https://exercism.org/docs)

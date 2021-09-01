@@ -23,7 +23,7 @@ As a maintainer, you have write access to several repositories.  "write access" 
 
 ## Maintainer Guides
 
-- **[Maintainers](https://github.com/exercism/docs/blob/main/community/maintainers.md)**
+- **[Maintainers](https://exercism.org/docs/community/maintainers)**
 
 ## Miscellaneous
 

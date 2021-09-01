@@ -36,7 +36,7 @@ References: [[1](https://github.com/exercism/bash/issues/88)]
 
 ### Exercise structure
 
-Please see the [Practice Exercises](https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md)
+Please see the [Practice Exercises](https://exercism.org/docs/building/tracks/practice-exercises)
 document, which thoroughly discusses the structure of an exercise.
 
 ### Exercise Test Structure
