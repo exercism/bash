@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source ./bats-extra.bash
+load bats-extra.bash
 
 # local version: 1.1.0.0
 
