@@ -10,6 +10,12 @@ bats hello_world_test.sh
 See the [Testing on the Bash track](/docs/tracks/bash/tests) page for
 instructions to install `bats` for your system.
 
+## Help for assert functions
+
+The tests use functions from the
+[bats-assert](https://github.com/bats-core/bats-assert) library. 
+Help for the various `assert*` functions can be found there.
+
 ## Skipped tests
 
 Solving an exercise means making all its tests pass. By default, only one
