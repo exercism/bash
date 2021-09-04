@@ -30,7 +30,7 @@ sub() {
     local -A r2
     parse $2 r2
     (( r2[numerator] *= -1 ))
-    add $1 $(reduced "${r2[@]}")
+    add $1 $(reduced ${r2[numerator]} ${r2[denominator]})
 }
 
 mul() {
