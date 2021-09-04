@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.5.0.0
 
@@ -7,8 +8,8 @@
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash pascals_triangle.sh 0
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "single row" {
@@ -18,8 +19,8 @@
 END
 )
     run bash pascals_triangle.sh 1
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "two rows" {
@@ -30,8 +31,8 @@ END
 END
 )
     run bash pascals_triangle.sh 2
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "three rows" {
@@ -43,8 +44,8 @@ END
 END
 )
     run bash pascals_triangle.sh 3
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "four rows" {
@@ -57,8 +58,8 @@ END
 END
 )
     run bash pascals_triangle.sh 4
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "five rows" {
@@ -72,8 +73,8 @@ END
 END
 )
     run bash pascals_triangle.sh 5
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "six rows" {
@@ -88,8 +89,8 @@ END
 END
 )
     run bash pascals_triangle.sh 6
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "ten rows" {
@@ -108,8 +109,8 @@ END
 END
 )
     run bash pascals_triangle.sh 10
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "21 rows" {
@@ -139,6 +140,6 @@ END
 END
 )
     run bash pascals_triangle.sh 21
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.1.0.0
 
@@ -9,8 +10,8 @@ A
 EOT
 )"
   run bash diamond.sh A
-  (( status == 0 ))
-  [[ $output == "$expected" ]]
+  assert_success
+  assert_output "$expected"
 }
 
 @test "Degenerate case with no row containing 3 distinct groups of spaces" {
@@ -22,8 +23,8 @@ B B
 EOT
 )"
   run bash diamond.sh B
-  (( status == 0 ))
-  [[ $output == "$expected" ]]
+  assert_success
+  assert_output "$expected"
 }
 
 @test "Smallest non-degenerate case with odd diamond side length" {
@@ -37,8 +38,8 @@ C   C
 EOT
 )"
   run bash diamond.sh C
-  (( status == 0 ))
-  [[ $output == "$expected" ]]
+  assert_success
+  assert_output "$expected"
 }
 
 @test "Smallest non-degenerate case with even diamond side length" {
@@ -54,8 +55,8 @@ D     D
 EOT
 )"
   run bash diamond.sh D
-  (( status == 0 ))
-  [[ $output == "$expected" ]]
+  assert_success
+  assert_output "$expected"
 }
 
 @test "Largest possible diamond" {
@@ -115,7 +116,7 @@ Z                                                 Z
 EOT
 )"
   run bash diamond.sh Z
-  (( status == 0 ))
-  [[ $output == "$expected" ]]
+  assert_success
+  assert_output "$expected"
 }
 

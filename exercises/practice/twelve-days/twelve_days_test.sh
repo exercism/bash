@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.2.0.0
 
@@ -9,8 +10,8 @@ On the first day of Christmas my true love gave to me: a Partridge in a Pear Tre
 END
 )
     run bash twelve_days.sh 1 1
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "second day two turtle doves" {
@@ -20,8 +21,8 @@ On the second day of Christmas my true love gave to me: two Turtle Doves, and a 
 END
 )
     run bash twelve_days.sh 2 2
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "third day three french hens" {
@@ -31,8 +32,8 @@ On the third day of Christmas my true love gave to me: three French Hens, two Tu
 END
 )
     run bash twelve_days.sh 3 3
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "fourth day four calling birds" {
@@ -42,8 +43,8 @@ On the fourth day of Christmas my true love gave to me: four Calling Birds, thre
 END
 )
     run bash twelve_days.sh 4 4
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "fifth day five gold rings" {
@@ -53,8 +54,8 @@ On the fifth day of Christmas my true love gave to me: five Gold Rings, four Cal
 END
 )
     run bash twelve_days.sh 5 5
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "sixth day six geese-a-laying" {
@@ -64,8 +65,8 @@ On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five 
 END
 )
     run bash twelve_days.sh 6 6
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "seventh day seven swans-a-swimming" {
@@ -75,8 +76,8 @@ On the seventh day of Christmas my true love gave to me: seven Swans-a-Swimming,
 END
 )
     run bash twelve_days.sh 7 7
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "eighth day eight maids-a-milking" {
@@ -86,8 +87,8 @@ On the eighth day of Christmas my true love gave to me: eight Maids-a-Milking, s
 END
 )
     run bash twelve_days.sh 8 8
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "ninth day nine ladies dancing" {
@@ -97,8 +98,8 @@ On the ninth day of Christmas my true love gave to me: nine Ladies Dancing, eigh
 END
 )
     run bash twelve_days.sh 9 9
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "tenth day ten lords-a-leaping" {
@@ -108,8 +109,8 @@ On the tenth day of Christmas my true love gave to me: ten Lords-a-Leaping, nine
 END
 )
     run bash twelve_days.sh 10 10
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "eleventh day eleven pipers piping" {
@@ -119,8 +120,8 @@ On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, 
 END
 )
     run bash twelve_days.sh 11 11
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "twelfth day twelve drummers drumming" {
@@ -130,8 +131,8 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
 END
 )
     run bash twelve_days.sh 12 12
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
     }
 
 @test "recites first three verses of the song" {
@@ -143,8 +144,8 @@ On the third day of Christmas my true love gave to me: three French Hens, two Tu
 END
 )
     run bash twelve_days.sh 1 3
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "recites three verses from the middle of the song" {
@@ -156,8 +157,8 @@ On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five 
 END
 )
     run bash twelve_days.sh 4 6
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "recites the whole song" {
@@ -178,6 +179,6 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
 END
 )
     run bash twelve_days.sh 1 12
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }

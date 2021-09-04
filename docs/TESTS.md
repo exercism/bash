@@ -10,6 +10,10 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever_test.sh
 ```
 
+For help on the meaning of the various `assert*` commands in the
+tests, refer to the documentation for the
+[bats-assert](https://github.com/bats-core/bats-assert) library.
+
 ## Installing `bats-core`
 
 You should be able to install it from your favorite package manager:

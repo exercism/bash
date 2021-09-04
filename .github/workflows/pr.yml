@@ -17,8 +17,13 @@ jobs:
         run: sudo npm install -g bats
 
       - name: Run tests for changed/added exercises
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PULL_REQUEST_URL=$(jq -r ".pull_request.url" "$GITHUB_EVENT_PATH")
-          curl --silent --url $"${PULL_REQUEST_URL}/files" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | \
-            jq -c '.[] | select(.status == "added" or .status == "modified") | select(.filename | match("\\.(md|sh)$")) | .filename' | \
-            xargs -r bash .github/scripts/pr
+          pr_endpoint=$(jq -r '"repos/\(.repository.full_name)/pulls/\(.pull_request.number)"' "$GITHUB_EVENT_PATH")
+          gh api "$pr_endpoint/files" --paginate --jq '
+            .[] | 
+              select(.status == "added" or .status == "modified") |
+              select(.filename | match("\\.(md|sh|bash)$")) |
+              .filename
+          ' | xargs -r bash .github/scripts/pr

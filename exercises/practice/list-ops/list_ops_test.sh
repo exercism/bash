@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 2.4.0.0
 
@@ -17,8 +18,8 @@ setup() { source list_ops.sh; }
     list1=()
     list2=()
     list::append list1 "${list2[@]}"
-    (( ${#list1[@]} == 0 ))
-    [[ "${list1[*]}" == "" ]]
+    assert_equal "${#list1[@]}" 0
+    assert_equal "${list1[*]}" ""
 }
 
 @test "append list to empty list" {
@@ -26,8 +27,8 @@ setup() { source list_ops.sh; }
     list1=()
     list2=(1 2 3 4)
     list::append list1 "${list2[@]}"
-    (( ${#list1[@]} == 4 ))
-    [[ "${list1[*]}" == "1 2 3 4" ]]
+    assert_equal "${#list1[@]}" 4
+    assert_equal "${list1[*]}" "1 2 3 4"
 }
 
 @test "append empty list to list" {
@@ -35,17 +36,17 @@ setup() { source list_ops.sh; }
     list1=(1 2 3 4)
     list2=()
     list::append list1 "${list2[@]}"
-    (( ${#list1[@]} == 4 ))
-    [[ "${list1[*]}" == "1 2 3 4" ]]
+    assert_equal "${#list1[@]}" 4
+    assert_equal "${list1[*]}" "1 2 3 4"
 }
 
 @test "append non-empty lists" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
-        l1=(1 2)
-        l2=(2 3 4 5)
-        list::append l1 "${l2[@]}"
-        (( ${#l1[@]} == 6 ))
-        [[ "${l1[*]}" == "1 2 2 3 4 5" ]]
+    l1=(1 2)
+    l2=(2 3 4 5)
+    list::append l1 "${l2[@]}"
+    assert_equal "${#l1[@]}" 6
+    assert_equal "${l1[*]}" "1 2 2 3 4 5"
 }
 
 ## concatenate a list of lists
@@ -59,8 +60,8 @@ setup() { source list_ops.sh; }
     result=()
     isOdd () { (( $1 % 2 == 1 )); }
     list::filter isOdd list result
-    (( ${#result[@]} == 0 ))
-    [[ "${result[*]}" == "" ]]
+    assert_equal "${#result[@]}" 0
+    assert_equal "${result[*]}" ""
 }
 
 @test "filter non-empty list" {
@@ -69,8 +70,8 @@ setup() { source list_ops.sh; }
     result=()
     isOdd () { (( $1 % 2 == 1 )); }
     list::filter isOdd list result
-    (( ${#result[@]} == 3 ))
-    [[ "${result[*]}" == "1 3 5" ]]
+    assert_equal "${#result[@]}" 3
+    assert_equal "${result[*]}" "1 3 5"
 }
 
 ## returns the length of a list
@@ -85,8 +86,8 @@ setup() { source list_ops.sh; }
     result=()
     incr () { echo $(( $1 + 1 )); }
     list::map incr list result
-    (( ${#result[@]} == ${#list[@]} ))
-    [[ "${result[*]}" == "" ]]
+    assert_equal "${#result[@]}" ${#list[@]}
+    assert_equal "${result[*]}" ""
 }
 
 @test "map non-empty list" {
@@ -95,8 +96,8 @@ setup() { source list_ops.sh; }
     result=()
     incr () { echo $(( $1 + 1 )); }
     list::map incr list result
-    (( ${#result[@]} == ${#list[@]} ))
-    [[ "${result[*]}" == "2 4 6 8" ]]
+    assert_equal "${#result[@]}" ${#list[@]}
+    assert_equal "${result[*]}" "2 4 6 8"
 }
 
 ## folds (reduces) the given list from the left with a function
@@ -109,7 +110,7 @@ setup() { source list_ops.sh; }
         echo $(( elem * acc ))
     }
     result=$(list::foldl mult 2 list)
-    [[ $result == "2" ]]
+    assert_equal "$result" "2"
 }
 
 @test "foldl direction independent function applied to non-empty list" {
@@ -120,7 +121,7 @@ setup() { source list_ops.sh; }
         echo $(( elem + acc ))
     }
     result=$(list::foldl add 5 list)
-    [[ $result == "15" ]]
+    assert_equal "$result" "15"
 }
 
 @test "foldl direction dependent function applied to non-empty list" {
@@ -134,7 +135,7 @@ setup() { source list_ops.sh; }
     }
     answer=$(list::foldl div 24 list)
     result=$(printf '%.1f' "$answer")
-    [[ $result == "64.0" ]]
+    assert_equal "$result" "64.0"
 }
 
 # track-specific test
@@ -146,7 +147,7 @@ setup() { source list_ops.sh; }
         echo "${acc}${elem}"
     }
     result=$(list::foldl concat "" list)
-    [[ $result == 'Hello World!' ]]
+    assert_equal "$result" 'Hello World!'
 }
 
 ## folds (reduces) the given list from the right with a function
@@ -160,7 +161,7 @@ setup() { source list_ops.sh; }
         echo $(( elem * acc ))
     }
     result=$(list::foldr mult 2 list)
-    [[ $result == "2" ]]
+    assert_equal "$result" "2"
 }
 
 @test "foldr direction independent function applied to non-empty list" {
@@ -171,7 +172,7 @@ setup() { source list_ops.sh; }
         echo $(( elem + acc ))
     }
     result=$(list::foldr add 5 list)
-    [[ $result == "15" ]]
+    assert_equal "$result" "15"
 }
 
 @test "foldr direction dependent function applied to non-empty list" {
@@ -183,7 +184,7 @@ setup() { source list_ops.sh; }
     }
     answer=$(list::foldr div 24 list)
     result=$(printf '%.1f' "$answer")
-    [[ $result == "9.0" ]]
+    assert_equal "$result" "9.0"
 }
 
 # track-specific test
@@ -195,7 +196,7 @@ setup() { source list_ops.sh; }
         echo "${acc}${elem}"
     }
     result=$(list::foldr concat "" list)
-    [[ $result == '!dlroW olleH' ]]
+    assert_equal "$result" '!dlroW olleH'
 }
 
 ## reverse the elements of the list
@@ -205,8 +206,8 @@ setup() { source list_ops.sh; }
     list=()
     result=()
     list::reverse list result
-    (( ${#result[@]} == ${#list[@]} ))
-    [[ "${result[*]}" == "" ]]
+    assert_equal "${#result[@]}" ${#list[@]}
+    assert_equal "${result[*]}" ""
 }
 
 @test "reverse non-empty list" {
@@ -214,8 +215,8 @@ setup() { source list_ops.sh; }
     list=(1 3 5 7)
     result=()
     list::reverse list result
-    (( ${#result[@]} == ${#list[@]} ))
-    [[ "${result[*]}" == "7 5 3 1" ]]
+    assert_equal "${#result[@]}" ${#list[@]}
+    assert_equal "${result[*]}" "7 5 3 1"
 }
 
 @test "reverse with special characters" {
@@ -223,6 +224,6 @@ setup() { source list_ops.sh; }
     list=("R*" "l*")
     result=()
     list::reverse list result
-    (( ${#result[@]} == ${#list[@]} ))
-    [[ "${result[*]}" == "l* R*" ]]
+    assert_equal "${#result[@]}" ${#list[@]}
+    assert_equal "${result[*]}" "l* R*"
 }

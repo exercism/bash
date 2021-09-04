@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.7.1.0
 
@@ -8,8 +9,8 @@
     run bash forth.sh <<END
 1 2 3 4 5
 END
-    (( status == 0 ))
-    [[ $output == "1 2 3 4 5" ]]
+    assert_success
+    assert_output "1 2 3 4 5"
 }
 
 # addition
@@ -18,8 +19,8 @@ END
     run bash forth.sh <<END
 1 2 +
 END
-    (( status == 0 ))
-    [[ $output == "3" ]]
+    assert_success
+    assert_output "3"
 }
 
 @test addition_no_args {
@@ -27,8 +28,8 @@ END
     run bash forth.sh <<END
 +
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 @test addition_one_args {
@@ -36,8 +37,8 @@ END
     run bash forth.sh <<END
 1 +
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"only one value on the stack"* ]]
+    assert_failure
+    assert_output --partial "only one value on the stack"
 }
 
 # subtraction
@@ -46,8 +47,8 @@ END
     run bash forth.sh <<END
 3 4 -
 END
-    (( status == 0 ))
-    [[ $output == "-1" ]]
+    assert_success
+    assert_output "-1"
 }
 
 @test subtraction_no_args {
@@ -55,8 +56,8 @@ END
     run bash forth.sh <<END
 -
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 @test subtraction_one_args {
@@ -64,8 +65,8 @@ END
     run bash forth.sh <<END
 1 -
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"only one value on the stack"* ]]
+    assert_failure
+    assert_output --partial "only one value on the stack"
 }
 
 # multiplication
@@ -74,8 +75,8 @@ END
     run bash forth.sh <<END
 2 4 *
 END
-    (( status == 0 ))
-    [[ $output == "8" ]]
+    assert_success
+    assert_output "8"
 }
 
 @test multiplication_no_args {
@@ -83,8 +84,8 @@ END
     run bash forth.sh <<END
 *
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 @test multiplication_one_args {
@@ -92,8 +93,8 @@ END
     run bash forth.sh <<END
 1 *
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"only one value on the stack"* ]]
+    assert_failure
+    assert_output --partial "only one value on the stack"
 }
 
 # division
@@ -102,8 +103,8 @@ END
     run bash forth.sh <<END
 12 4 /
 END
-    (( status == 0 ))
-    [[ $output == "3" ]]
+    assert_success
+    assert_output "3"
 }
 
 @test division_int_result {
@@ -111,8 +112,8 @@ END
     run bash forth.sh <<END
 15 4 /
 END
-    (( status == 0 ))
-    [[ $output == "3" ]]
+    assert_success
+    assert_output "3"
 }
 
 @test division_no_args {
@@ -120,8 +121,8 @@ END
     run bash forth.sh <<END
 /
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 @test division_one_args {
@@ -129,8 +130,8 @@ END
     run bash forth.sh <<END
 1 /
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"only one value on the stack"* ]]
+    assert_failure
+    assert_output --partial "only one value on the stack"
 }
 
 @test division_by_zero {
@@ -138,8 +139,8 @@ END
     run bash forth.sh <<END
 2 0 /
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"divide by zero"* ]]
+    assert_failure
+    assert_output --partial "divide by zero"
 }
 
 # combined arithmetic
@@ -148,16 +149,16 @@ END
     run bash forth.sh <<END
 1 2 + 4 -
 END
-    (( status == 0 ))
-    [[ $output == "-1" ]]
+    assert_success
+    assert_output "-1"
 }
 @test multiply_and_divide {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash forth.sh <<END
 2 4 * 3 /
 END
-    (( status == 0 ))
-    [[ $output == "2" ]]
+    assert_success
+    assert_output "2"
 }
 
 # dup
@@ -166,8 +167,8 @@ END
     run bash forth.sh <<END
 42 dup
 END
-    (( status == 0 ))
-    [[ $output == "42 42" ]]
+    assert_success
+    assert_output "42 42"
 }
 
 @test dup_2 {
@@ -175,8 +176,8 @@ END
     run bash forth.sh <<END
 1 2 dup
 END
-    (( status == 0 ))
-    [[ $output == "1 2 2" ]]
+    assert_success
+    assert_output "1 2 2"
 }
 
 @test dup_empty {
@@ -184,8 +185,8 @@ END
     run bash forth.sh <<END
 dup
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 # drop
@@ -194,8 +195,8 @@ END
     run bash forth.sh <<END
 42 drop
 END
-    (( status == 0 ))
-    [[ $output == "" ]]
+    assert_success
+    assert_output ""
 }
 
 @test drop_2 {
@@ -203,8 +204,8 @@ END
     run bash forth.sh <<END
 1 2 drop
 END
-    (( status == 0 ))
-    [[ $output == "1" ]]
+    assert_success
+    assert_output "1"
 }
 
 @test drop_empty {
@@ -212,8 +213,8 @@ END
     run bash forth.sh <<END
 drop
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 # swap
@@ -222,8 +223,8 @@ END
     run bash forth.sh <<END
 1 2 swap
 END
-    (( status == 0 ))
-    [[ $output == "2 1" ]]
+    assert_success
+    assert_output "2 1"
 }
 
 @test swap_2 {
@@ -231,8 +232,8 @@ END
     run bash forth.sh <<END
 1 2 3 swap
 END
-    (( status == 0 ))
-    [[ $output == "1 3 2" ]]
+    assert_success
+    assert_output "1 3 2"
 }
 
 @test swap_empty {
@@ -240,8 +241,8 @@ END
     run bash forth.sh <<END
 swap
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 @test swap_1arg {
@@ -249,8 +250,8 @@ END
     run bash forth.sh <<END
 1 swap
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"only one value on the stack"* ]]
+    assert_failure
+    assert_output --partial "only one value on the stack"
 }
 
 # over
@@ -259,8 +260,8 @@ END
     run bash forth.sh <<END
 1 2 over
 END
-    (( status == 0 ))
-    [[ $output == "1 2 1" ]]
+    assert_success
+    assert_output "1 2 1"
 }
 
 @test over_2 {
@@ -268,8 +269,8 @@ END
     run bash forth.sh <<END
 1 2 3 over
 END
-    (( status == 0 ))
-    [[ $output == "1 2 3 2" ]]
+    assert_success
+    assert_output "1 2 3 2"
 }
 
 @test over_empty {
@@ -277,8 +278,8 @@ END
     run bash forth.sh <<END
 over
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty stack"* ]]
+    assert_failure
+    assert_output --partial "empty stack"
 }
 
 @test over_1arg {
@@ -286,8 +287,8 @@ END
     run bash forth.sh <<END
 1 over
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"only one value on the stack"* ]]
+    assert_failure
+    assert_output --partial "only one value on the stack"
 }
 
 # user-defined words
@@ -297,8 +298,8 @@ END
 : dup-twice dup dup ;
 1 dup-twice
 END
-    (( status == 0 ))
-    [[ $output == "1 1 1" ]]
+    assert_success
+    assert_output "1 1 1"
 }
 
 @test macro_maintain_order {
@@ -307,8 +308,8 @@ END
 : countup 1 2 3 ;
 countup
 END
-    (( status == 0 ))
-    [[ $output == "1 2 3" ]]
+    assert_success
+    assert_output "1 2 3"
 }
 
 @test macro_can_override_macro {
@@ -318,8 +319,8 @@ END
 : foo swap ;
 1 2 foo
 END
-    (( status == 0 ))
-    [[ $output == "2 1" ]]
+    assert_success
+    assert_output "2 1"
 }
 
 @test macro_can_override_builtin {
@@ -328,8 +329,8 @@ END
 : swap dup ;
 1 swap
 END
-    (( status == 0 ))
-    [[ $output == "1 1" ]]
+    assert_success
+    assert_output "1 1"
 }
 
 @test macro_can_override_operator {
@@ -338,8 +339,8 @@ END
 : + * ;
 3 4 +
 END
-    (( status == 0 ))
-    [[ $output == "12" ]]
+    assert_success
+    assert_output "12"
 }
 
 @test macro_expand_in_macro_definition {
@@ -350,8 +351,8 @@ END
 : foo 6 ;
 bar foo
 END
-    (( status == 0 ))
-    [[ $output == "5 6" ]]
+    assert_success
+    assert_output "5 6"
 }
 
 @test macro_empty_definition {
@@ -359,8 +360,8 @@ END
     run bash forth.sh <<END
 : foo ;
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"empty macro definition"* ]]
+    assert_failure
+    assert_output --partial "empty macro definition"
 }
 
 @test macro_expand_in_macro_redefinition {
@@ -370,8 +371,8 @@ END
 : foo foo 1 + ;
 foo
 END
-    (( status == 0 ))
-    [[ $output == "11" ]]
+    assert_success
+    assert_output "11"
 }
 
 @test macro_cannot_redefine_non_negative_numbers {
@@ -379,8 +380,8 @@ END
     run bash forth.sh <<END
 : 1 2 ;
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"illegal operation"* ]]
+    assert_failure
+    assert_output --partial "illegal operation"
 }
 
 @test macro_cannot_redefine_negative_numbers {
@@ -388,8 +389,8 @@ END
     run bash forth.sh <<END
 : -1 2 ;
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"illegal operation"* ]]
+    assert_failure
+    assert_output --partial "illegal operation"
 }
 
 @test macro_undefined {
@@ -397,8 +398,8 @@ END
     run bash forth.sh <<END
 foo
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"undefined operation"* ]]
+    assert_failure
+    assert_output --partial "undefined operation"
 }
 
 @test macro_missing_semicolon {
@@ -407,8 +408,8 @@ END
 : foo 1
 foo
 END
-    [[ $status -ne 0 ]]
-    [[ $output == *"macro not terminated with semicolon"* ]]
+    assert_failure
+    assert_output --partial "macro not terminated with semicolon"
 }
 
 
@@ -418,8 +419,8 @@ END
     run bash forth.sh <<END
 1 DUP Dup dup
 END
-    (( status == 0 ))
-    [[ $output == "1 1 1 1" ]]
+    assert_success
+    assert_output "1 1 1 1"
 }
 
 @test case_drop {
@@ -427,8 +428,8 @@ END
     run bash forth.sh <<END
 1 2 3 4 DROP DrOp drop
 END
-    (( status == 0 ))
-    [[ $output == "1" ]]
+    assert_success
+    assert_output "1"
 }
 
 @test case_swap {
@@ -436,8 +437,8 @@ END
     run bash forth.sh <<END
 1 2 SWAP 3 Swap 4 swap
 END
-    (( status == 0 ))
-    [[ $output == "2 3 4 1" ]]
+    assert_success
+    assert_output "2 3 4 1"
 }
 
 @test case_over {
@@ -445,8 +446,8 @@ END
     run bash forth.sh <<END
 1 2 OVER Over over
 END
-    (( status == 0 ))
-    [[ $output == "1 2 1 2 1" ]]
+    assert_success
+    assert_output "1 2 1 2 1"
 }
 
 @test case_macro_names {
@@ -455,8 +456,8 @@ END
 : foo dup ;
 1 FOO Foo foo
 END
-    (( status == 0 ))
-    [[ $output == "1 1 1 1" ]]
+    assert_success
+    assert_output "1 1 1 1"
 }
 
 @test case_macro_definitions {
@@ -465,6 +466,6 @@ END
 : SWAP DUP Dup dup ;
 1 swap
 END
-    (( status == 0 ))
-    [[ $output == "1 1 1 1" ]]
+    assert_success
+    assert_output "1 1 1 1"
 }

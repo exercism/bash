@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.2.0.1
 
@@ -19,22 +20,22 @@
   #     $ BATS_RUN_SKIPPED=true bats two_fer_test.sh
 
   run bash two_fer.sh
-  (( status == 0 ))
-  [[ $output == "One for you, one for me." ]]
+  assert_success
+  assert_output "One for you, one for me."
 }
 
 @test "a name given" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh Alice
-  (( status == 0 ))
-  [[ $output == "One for Alice, one for me." ]]
+  assert_success
+  assert_output "One for Alice, one for me."
 }
 
 @test "another name given" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh Bob
-  (( status == 0 ))
-  [[ $output == "One for Bob, one for me." ]]
+  assert_success
+  assert_output "One for Bob, one for me."
 }
 
 # bash-specific test: Focus the student's attention on the effects of
@@ -44,13 +45,13 @@
 @test "handle arg with spaces" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh "John Smith" "Mary Ann"
-  (( status == 0 ))
-  [[ $output == "One for John Smith, one for me." ]]
+  assert_success
+  assert_output "One for John Smith, one for me."
 }
 
 @test "handle arg with glob char" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash two_fer.sh "* "
-  (( status == 0 ))
-  [[ $output == "One for * , one for me." ]]
+  assert_success
+  assert_output "One for * , one for me."
 }

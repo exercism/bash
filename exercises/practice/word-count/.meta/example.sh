@@ -18,7 +18,9 @@ done
 
 for word in ${words[@]}; do
   word="${word#\'}" word="${word%\'}"
-  ((word_count_map['$word']++))
+  # this breaks in bash 5.1 :(
+  #((word_count_map['$word']++))
+  word_count_map[$word]=$(( ${word_count_map[$word]} + 1 ))
 done
 
 for word in "${control_map[@]}"; do

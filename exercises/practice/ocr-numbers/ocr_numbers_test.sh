@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.2.0.0
 
@@ -6,8 +7,8 @@
 @test "No input" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash ocr_numbers.sh
-    (( status == 0 ))
-    [[ $output == "" ]]
+    assert_success
+    assert_output ""
 }
 
 @test "Recognizes 0" {
@@ -18,8 +19,8 @@
 |_|
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "0" ]]
+    assert_success
+    assert_output "0"
 }
 
 @test "Recognizes 1" {
@@ -30,8 +31,8 @@ INPUT
   |
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "1" ]]
+    assert_success
+    assert_output "1"
 }
 
 @test "Unreadable but correctly sized inputs return ?" {
@@ -42,8 +43,8 @@ INPUT
   |
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "?" ]]
+    assert_success
+    assert_output "?"
 }
 
 @test "Input with a number of lines that is not a multiple of four raises an error" {
@@ -53,8 +54,8 @@ INPUT
 | |
    
 INPUT
-    (( status == 1 ))
-    [[ $output == "Number of input lines is not a multiple of four" ]]
+    assert_failure
+    assert_output "Number of input lines is not a multiple of four"
 }
 
 @test "Input with a number of columns that is not a multiple of three raises an error" {
@@ -65,8 +66,8 @@ INPUT
    |
     
 INPUT
-    (( status == 1 ))
-    [[ $output == "Number of input columns is not a multiple of three" ]]
+    assert_failure
+    assert_output "Number of input columns is not a multiple of three"
 }
 
 @test "Recognizes 110101100" {
@@ -77,8 +78,8 @@ INPUT
   |  ||_|  ||_|  |  ||_||_|
                            
 INPUT
-    (( status == 0 ))
-    [[ $output == "110101100" ]]
+    assert_success
+    assert_output "110101100"
 }
 
 @test "Garbled numbers in a string are replaced with ?" {
@@ -89,8 +90,8 @@ INPUT
   |  | _|  ||_|  |  ||_||_|
                            
 INPUT
-    (( status == 0 ))
-    [[ $output == "11?10?1?0" ]]
+    assert_success
+    assert_output "11?10?1?0"
 }
 
 @test "Recognizes 2" {
@@ -101,8 +102,8 @@ INPUT
 |_ 
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "2" ]]
+    assert_success
+    assert_output "2"
 }
 
 @test "Recognizes 3" {
@@ -113,8 +114,8 @@ INPUT
  _|
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "3" ]]
+    assert_success
+    assert_output "3"
 }
 
 @test "Recognizes 4" {
@@ -125,8 +126,8 @@ INPUT
   |
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "4" ]]
+    assert_success
+    assert_output "4"
 }
 
 @test "Recognizes 5" {
@@ -137,8 +138,8 @@ INPUT
  _|
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "5" ]]
+    assert_success
+    assert_output "5"
 }
 
 @test "Recognizes 6" {
@@ -149,8 +150,8 @@ INPUT
 |_|
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "6" ]]
+    assert_success
+    assert_output "6"
 }
 
 @test "Recognizes 7" {
@@ -161,8 +162,8 @@ INPUT
   |
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "7" ]]
+    assert_success
+    assert_output "7"
 }
 
 @test "Recognizes 8" {
@@ -173,8 +174,8 @@ INPUT
 |_|
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "8" ]]
+    assert_success
+    assert_output "8"
 }
 
 @test "Recognizes 9" {
@@ -185,8 +186,8 @@ INPUT
  _|
    
 INPUT
-    (( status == 0 ))
-    [[ $output == "9" ]]
+    assert_success
+    assert_output "9"
 }
 
 @test "Recognizes string of decimal numbers" {
@@ -197,8 +198,8 @@ INPUT
   ||_  _|  | _||_|  ||_| _||_|
                               
 INPUT
-    (( status == 0 ))
-    [[ $output == "1234567890" ]]
+    assert_success
+    assert_output "1234567890"
 }
 
 @test "Numbers separated by empty lines are recognized. Lines are joined by commas." {
@@ -217,6 +218,6 @@ INPUT
   ||_| _|
          
 INPUT
-    (( status == 0 ))
-    [[ $output == "123,456,789" ]]
+    assert_success
+    assert_output "123,456,789"
 }
