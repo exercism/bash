@@ -17,6 +17,8 @@ jobs:
         run: sudo npm install -g bats
 
       - name: Run tests for changed/added exercises
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pr_endpoint=$(jq -r '"repos/\(.repository.full_name)/pulls/\(.pull_request.number)"' "$GITHUB_EVENT_PATH")
           gh api "$pr_endpoint/files" --paginate --jq '
