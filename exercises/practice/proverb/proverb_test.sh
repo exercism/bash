@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.1.0.1
 
@@ -6,8 +7,8 @@
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash proverb.sh
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "one piece" {
@@ -17,8 +18,8 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "two pieces" {
@@ -29,8 +30,8 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail shoe
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "three pieces" {
@@ -42,8 +43,8 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail shoe horse
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 
@@ -60,8 +61,8 @@ And all for the want of a nail.
 END
 )
     run bash proverb.sh nail shoe horse rider message battle kingdom
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "four pieces modernized" {
@@ -74,8 +75,8 @@ And all for the want of a pin.
 END
 )
     run bash proverb.sh pin gun soldier battle
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 # bash-specific tests: Focus the student's attention on the effects of 
@@ -90,8 +91,8 @@ And all for the want of a rusty nail.
 END
 )
     run bash proverb.sh "rusty nail" "horse shoe"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "shell globbing character" {
@@ -102,6 +103,6 @@ And all for the want of a quotes.
 END
 )
     run bash proverb.sh quotes "*"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 2.2.0.1
 # bash-specific test: Input validation
@@ -7,8 +8,8 @@
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="This is the house that Jack built."
     run bash house.sh 1 1
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }       
 
 @test "verse 2" {
@@ -19,8 +20,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 2 2
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 3" {
@@ -32,8 +33,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 3 3
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 4" {
@@ -46,8 +47,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 4 4
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 5" {
@@ -61,8 +62,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 5 5
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 6" {
@@ -77,8 +78,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 6 6
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 7" {
@@ -94,8 +95,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 7 7
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 8" {
@@ -112,8 +113,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 8 8
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 9" {
@@ -131,8 +132,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 9 9
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 10" {
@@ -151,8 +152,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 10 10
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 11" {
@@ -172,8 +173,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 11 11
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verse 12" {
@@ -194,8 +195,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 12 12
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "verses 4 to 8" {
@@ -238,8 +239,8 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 4 8
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "all verses" {
@@ -337,35 +338,35 @@ that lay in the house that Jack built.
 END
 )
     run bash house.sh 1 12
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 
 @test "invalid verse 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash house.sh 0 12
-    [[ $status -ne 0 ]]
-    [[ $output == *"invalid"* ]]
+    assert_failure
+    assert_output --partial "invalid"
 }
 
 @test "invalid verse 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash house.sh 1 -1
-    [[ $status -ne 0 ]]
-    [[ $output == *"invalid"* ]]
+    assert_failure
+    assert_output --partial "invalid"
 }
 
 @test "invalid verse 3" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash house.sh 14 12
-    [[ $status -ne 0 ]]
-    [[ $output == *"invalid"* ]]
+    assert_failure
+    assert_output --partial "invalid"
 }
 
 @test "invalid verse 4" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash house.sh 1 13
-    [[ $status -ne 0 ]]
-    [[ $output == *"invalid"* ]]
+    assert_failure
+    assert_output --partial "invalid"
 }

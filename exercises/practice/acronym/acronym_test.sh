@@ -1,68 +1,69 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.7.0.1
 
 @test 'basic' {
   #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh 'Portable Network Graphics'
-  (( status == 0 ))
-  [[ "$output" == 'PNG' ]]
+  assert_success
+  assert_output 'PNG'
 }
 
 @test 'lowercase words' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh 'Ruby on Rails'
-  (( status == 0 ))
-  [[ "$output" == 'ROR' ]]
+  assert_success
+  assert_output 'ROR'
 }
 
 @test 'punctuation' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh 'First In, First Out'
-  (( status == 0 ))
-  [[ "$output" == 'FIFO' ]]
+  assert_success
+  assert_output 'FIFO'
 }
 
 @test 'all caps word' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh 'GNU Image Manipulation Program'
-  (( status == 0 ))
-  [[ "$output" == 'GIMP' ]]
+  assert_success
+  assert_output 'GIMP'
 }
 
 @test 'punctuation without whitespace' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh 'Complementary metal-oxide semiconductor'
-  (( status == 0 ))
-  [[ "$output" == 'CMOS' ]]
+  assert_success
+  assert_output 'CMOS'
 }
 
 @test 'very long abbreviation' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh 'Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me'
-  (( status == 0 ))
-  [[ "$output" == 'ROTFLSHTMDCOALM' ]]
+  assert_success
+  assert_output 'ROTFLSHTMDCOALM'
 }
 
 @test "consecutive delimiters" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh "Something - I made up from thin air"
-  (( status == 0 ))
-  [[ "$output" == "SIMUFTA" ]]
+  assert_success
+  assert_output "SIMUFTA"
 }
 
 @test "apostrophes" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh "Halley's Comet"
-  (( status == 0 ))
-  [[ "$output" == "HC" ]]
+  assert_success
+  assert_output "HC"
 }
 
 @test "underscore emphasis" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh "The Road __Not__ Taken"
-  (( status == 0 ))
-  [[ "$output" == "TRNT" ]]
+  assert_success
+  assert_output "TRNT"
 }
 
 # bash-specific test: Focus the student's attention on the effects of 
@@ -72,6 +73,6 @@
 @test "contains shell globbing character" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash acronym.sh "Two * Words"
-  (( status == 0 ))
-  [[ "$output" == "TW" ]]
+  assert_success
+  assert_output "TW"
 }

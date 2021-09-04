@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.2.0.1
 
@@ -6,48 +7,48 @@
   #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh ""
 
-  (( status == 0 ))
-  [[ $output == "" ]]
+  assert_success
+  assert_output ""
 }
 
 @test "a word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "robot"
 
-  (( status == 0 ))
-  [[ $output == "tobor" ]]
+  assert_success
+  assert_output "tobor"
 }
 
 @test "a capitalised word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "Ramen"
 
-  (( status == 0 ))
-  [[ $output == "nemaR" ]]
+  assert_success
+  assert_output "nemaR"
 }
 
 @test "a sentence with punctuation" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "I'm hungry!"
 
-  (( status == 0 ))
-  [[ $output == "!yrgnuh m'I" ]]
+  assert_success
+  assert_output "!yrgnuh m'I"
 }
 
 @test "a palindrome" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "racecar"
 
-  (( status == 0 ))
-  [[ $output == "racecar" ]]
+  assert_success
+  assert_output "racecar"
 }
 
 @test "an even-sized word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "drawer"
 
-  (( status == 0 ))
-  [[ $output == "reward" ]]
+  assert_success
+  assert_output "reward"
 }
 
 # bash-specific test: Focus the student's attention on the effects of 
@@ -58,6 +59,6 @@
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh " a *  b"
 
-  (( status == 0 ))
-  [[ $output == "b  * a " ]]
+  assert_success
+  assert_output "b  * a "
 }

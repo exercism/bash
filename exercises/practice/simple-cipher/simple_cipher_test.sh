@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 2.0.0.1
 # bash-specific test: Input validation, lower-casing
@@ -8,50 +9,50 @@
 @test  "Can generate a random key" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
-    (( status == 0 ))
+    assert_success
     key=$output
-    (( ${#key} >= 100 ))     # at least 100 chars
+    assert [ "${#key}" -ge 100 ]     # at least 100 chars
     [[ $key != [^[:lower:]] ]]    # only lowercase letters
 }
 
 @test  "Can encode random" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
-    (( status == 0 ))
+    assert_success
     key=$output
     plaintext="aaaaaaaaaa"
     run bash simple_cipher.sh -k "$key" encode "$plaintext"
-    (( status == 0 ))
-    (( ${#output} == 10 ))
-    [[ $output == "${key:0:10}" ]]
+    assert_success
+    assert_equal "${#output}" 10
+    assert_output "${key:0:10}"
 }
 
 @test  "Can decode random" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
-    (( status == 0 ))
+    assert_success
     key=$output
     plaintext="aaaaaaaaaa"
     run bash simple_cipher.sh -k "$key" decode "${key:0:10}"
-    (( status == 0 ))
-    (( ${#output} == 10 ))
-    [[ $output == "$plaintext" ]]
+    assert_success
+    assert_equal "${#output}" 10
+    assert_output "$plaintext"
 }
 
 @test "Is reversible random" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
-    (( status == 0 ))
+    assert_success
     key=$output
 
     plaintext="abcdefghij"
     run bash simple_cipher.sh -k "$key" encode "$plaintext"
-    (( status == 0 ))
+    assert_success
     encoded=$output
 
     run bash simple_cipher.sh -k "$key" decode "$encoded"
-    (( status == 0 ))
-    [[ $output == "$plaintext" ]]
+    assert_success
+    assert_output "$plaintext"
 }
 
 # Substitution cipher
@@ -61,8 +62,8 @@
     key=abcdefghij
     txt=aaaaaaaaaa
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    (( status == 0 ))
-    [[ $output == "$key" ]]
+    assert_success
+    assert_output "$key"
 }
 
 @test  "Can decode" {
@@ -71,8 +72,8 @@
     txt=abcdefghij
     exp=aaaaaaaaaa
     run bash simple_cipher.sh -k "$key" decode "$txt"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test  "Is reversible" {
@@ -81,11 +82,11 @@
     txt=abcdefghij
     exp=abcdefghij
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    (( status == 0 ))
+    assert_success
     encoded=$output
     run bash simple_cipher.sh -k "$key" decode "$encoded"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test  "Can double shift encode" {
@@ -94,8 +95,8 @@
     txt=iamapandabear
     exp=qayaeaagaciai
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test  "Can wrap on encode"  {
@@ -104,8 +105,8 @@
     txt=zzzzzzzzzz
     exp=zabcdefghi
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test  "Can wrap on decode" {
@@ -114,8 +115,8 @@
     txt=zabcdefghi
     exp=zzzzzzzzzz
     run bash simple_cipher.sh -k "$key" decode "$txt"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test  "Can encode messages longer than the key" {
@@ -124,8 +125,8 @@
     txt=iamapandabear
     exp=iboaqcnecbfcr
     run bash simple_cipher.sh -k "$key" encode "$txt"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test  "Can decode messages longer than the key" {
@@ -134,22 +135,22 @@
     txt=iboaqcnecbfcr
     exp=iamapandabear
     run bash simple_cipher.sh -k "$key" decode "$txt"
-    (( status == 0 ))
-    [[ $output == "$exp" ]]
+    assert_success
+    assert_output "$exp"
 }
 
 @test "plaintext is lowercased" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k b encode FOOBAR
-    (( status == 0 ))
-    [[ $output == "gppcbs" ]]
+    assert_success
+    assert_output "gppcbs"
 }
 
 @test "ciphertext is lowercased" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k b decode GPPCBS
-    (( status == 0 ))
-    [[ $output == "foobar" ]]
+    assert_success
+    assert_output "foobar"
 }
 
 # errors
@@ -157,13 +158,13 @@
 @test "key must be lowercase" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k ABC encode foo
-    (( status == 1 ))
-    [[ $output == *"invalid key"* ]]
+    assert_failure
+    assert_output --partial "invalid key"
 }
 
 @test "key must be letters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k 123 encode foo
-    (( status == 1 ))
-    [[ $output == *"invalid key"* ]]
+    assert_failure
+    assert_output --partial "invalid key"
 }

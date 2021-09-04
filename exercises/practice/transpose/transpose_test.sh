@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 1.1.0.0
 
@@ -10,8 +11,8 @@
     input=""
     expected=""
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "two characters in a row" {
@@ -19,8 +20,8 @@
     input="A1"
     expected=$'A\n1'
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "two characters in a column" {
@@ -28,8 +29,8 @@
     input=$'A\n1'
     expected="A1"
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "simple" {
@@ -37,8 +38,8 @@
     input=$'ABC\n123'
     expected=$'A1\nB2\nC3'
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "single line" {
@@ -46,8 +47,8 @@
     input="Single line."
     expected=$'S\ni\nn\ng\nl\ne\n \nl\ni\nn\ne\n.'
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "first line longer than second line" {
@@ -77,8 +78,8 @@ e.
 END
 )
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "second line longer than first line" {
@@ -108,8 +109,8 @@ en
 END
 )
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "mixed line length" {
@@ -142,8 +143,8 @@ e
 END
 )
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "square" {
@@ -151,8 +152,8 @@ END
     input=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
     expected=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "rectangle" {
@@ -160,8 +161,8 @@ END
     input=$'FRACTURE\nOUTLINED\nBLOOMING\nSEPTETTE'
     expected=$'FOBS\nRULE\nATOP\nCLOT\nTIME\nUNIT\nRENT\nEDGE'
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "triangle" {
@@ -169,8 +170,8 @@ END
     input=$'T\nEE\nAAA\nSSSS\nEEEEE\nRRRRRR'
     expected=$'TEASER\n EASER\n  ASER\n   SER\n    ER\n     R'
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test "jagged triangle" {
@@ -194,7 +195,7 @@ END
 END
 )
     run bash transpose.sh <<< "$input"
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 

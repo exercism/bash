@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+load bats-extra.bash
 
 # local version: 2.1.0.0
 
@@ -7,8 +8,8 @@
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 1 1
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
  
 @test 'spider' {
@@ -18,8 +19,8 @@ It wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 2 2
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'bird' {
@@ -30,8 +31,8 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 3 3
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'cat' {
@@ -43,8 +44,8 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 4 4
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'dog' {
@@ -57,8 +58,8 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 5 5
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'goat' {
@@ -72,8 +73,8 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 6 6
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'cow' {
@@ -88,8 +89,8 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 7 7
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'horse' {
@@ -97,8 +98,8 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     expected="I know an old lady who swallowed a horse.
 She's dead, of course!"
     run bash food_chain.sh 8 8
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'multiple_verses' {
@@ -117,8 +118,8 @@ She swallowed the bird to catch the spider that wriggled and jiggled and tickled
 She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 1 3
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'full_song' {
@@ -174,27 +175,27 @@ I don't know why she swallowed the fly. Perhaps she'll die.
 I know an old lady who swallowed a horse.
 She's dead, of course!"
     run bash food_chain.sh 1 8
-    (( status == 0 ))
-    [[ $output == "$expected" ]]
+    assert_success
+    assert_output "$expected"
 }
 
 @test 'no_arguments' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash food_chain.sh
-    [[ $status -ne 0 ]]
-    [[ $output == *"2 arguments expected"* ]]
+    assert_failure
+    assert_output --partial "2 arguments expected"
 }
 
 @test 'too_many_arguments' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash food_chain.sh 1 2 3
-    [[ $status -ne 0 ]]
-    [[ $output == *"2 arguments expected"* ]]
+    assert_failure
+    assert_output --partial "2 arguments expected"
 }
 
 @test 'wrong_order_arguments' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash food_chain.sh 8 1
-    [[ $status -ne 0 ]]
-    [[ $output == *"Start must be less than or equal to End"* ]]
+    assert_failure
+    assert_output --partial "Start must be less than or equal to End"
 }
