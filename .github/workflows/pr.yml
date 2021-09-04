@@ -24,6 +24,6 @@ jobs:
           gh api "$pr_endpoint/files" --paginate --jq '
             .[] | 
               select(.status == "added" or .status == "modified") |
-              select(.filename | match("\\.(md|sh)$")) |
+              select(.filename | match("\\.(md|sh|bash)$")) |
               .filename
           ' | xargs -r bash .github/scripts/pr
