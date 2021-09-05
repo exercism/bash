@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-load bats-extra.bash
+load bats-extra
 
 # local version: 1.0.0.2
 # additional tests for: invalid color, invalid octal number, too many colors
