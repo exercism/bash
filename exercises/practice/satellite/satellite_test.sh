@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-load bats-extra.bash
+load bats-extra
 
 # local version: 2.0.0.0
 

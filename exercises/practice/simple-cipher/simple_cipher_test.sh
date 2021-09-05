@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-load bats-extra.bash
+load bats-extra
 
 # local version: 2.0.0.1
 # bash-specific test: Input validation, lower-casing

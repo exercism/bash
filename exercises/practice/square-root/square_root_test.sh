@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-load bats-extra.bash
+load bats-extra
 
 @test "root of 1" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
