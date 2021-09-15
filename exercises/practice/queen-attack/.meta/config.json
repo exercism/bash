@@ -12,7 +12,7 @@
       "queen_attack.sh"
     ],
     "test": [
-      "queen_attack_test.sh"
+      "queen_attack.bats"
     ],
     "example": [
       ".meta/example.sh"

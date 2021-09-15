@@ -13,7 +13,7 @@
       "sum_of_multiples.sh"
     ],
     "test": [
-      "sum_of_multiples_test.sh"
+      "sum_of_multiples.bats"
     ],
     "example": [
       ".meta/example.sh"

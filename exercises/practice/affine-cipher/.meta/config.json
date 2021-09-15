@@ -15,7 +15,7 @@
       "affine_cipher.sh"
     ],
     "test": [
-      "affine_cipher_test.sh"
+      "affine_cipher.bats"
     ],
     "example": [
       ".meta/example.sh"

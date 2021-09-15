@@ -22,7 +22,7 @@
       "hamming.sh"
     ],
     "test": [
-      "hamming_test.sh"
+      "hamming.bats"
     ],
     "example": [
       ".meta/example.sh"

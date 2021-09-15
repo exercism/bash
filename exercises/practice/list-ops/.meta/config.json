@@ -11,7 +11,7 @@
       "list_ops.sh"
     ],
     "test": [
-      "list_ops_test.sh"
+      "list_ops.bats"
     ],
     "example": [
       ".meta/example.sh"

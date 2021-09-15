@@ -18,7 +18,7 @@
       "atbash_cipher.sh"
     ],
     "test": [
-      "atbash_cipher_test.sh"
+      "atbash_cipher.bats"
     ],
     "example": [
       ".meta/example.sh"

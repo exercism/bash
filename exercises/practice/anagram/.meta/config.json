@@ -19,7 +19,7 @@
       "anagram.sh"
     ],
     "test": [
-      "anagram_test.sh"
+      "anagram.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -17,7 +17,7 @@
       "roman_numerals.sh"
     ],
     "test": [
-      "roman_numerals_test.sh"
+      "roman_numerals.bats"
     ],
     "example": [
       ".meta/example.sh"

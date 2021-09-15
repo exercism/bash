@@ -12,7 +12,7 @@
       "tournament.sh"
     ],
     "test": [
-      "tournament_test.sh"
+      "tournament.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -13,7 +13,7 @@
       "resistor_color_trio.sh"
     ],
     "test": [
-      "resistor_color_trio_test.sh"
+      "resistor_color_trio.bats"
     ],
     "example": [
       ".meta/example.sh"

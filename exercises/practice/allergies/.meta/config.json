@@ -14,7 +14,7 @@
       "allergies.sh"
     ],
     "test": [
-      "allergies_test.sh"
+      "allergies.bats"
     ],
     "example": [
       ".meta/example.sh"

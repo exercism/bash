@@ -14,7 +14,7 @@
       "forth.sh"
     ],
     "test": [
-      "forth_test.sh"
+      "forth.bats"
     ],
     "example": [
       ".meta/example.sh"

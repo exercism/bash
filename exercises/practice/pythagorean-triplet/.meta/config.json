@@ -12,7 +12,7 @@
       "pythagorean_triplet.sh"
     ],
     "test": [
-      "pythagorean_triplet_test.sh"
+      "pythagorean_triplet.bats"
     ],
     "example": [
       ".meta/example.sh"

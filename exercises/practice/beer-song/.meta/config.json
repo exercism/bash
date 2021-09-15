@@ -14,7 +14,7 @@
       "beer_song.sh"
     ],
     "test": [
-      "beer_song_test.sh"
+      "beer_song.bats"
     ],
     "example": [
       ".meta/example.sh"

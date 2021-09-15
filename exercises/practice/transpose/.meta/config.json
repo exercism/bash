@@ -12,7 +12,7 @@
       "transpose.sh"
     ],
     "test": [
-      "transpose_test.sh"
+      "transpose.bats"
     ],
     "example": [
       ".meta/example.sh"

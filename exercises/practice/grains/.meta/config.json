@@ -17,7 +17,7 @@
       "grains.sh"
     ],
     "test": [
-      "grains_test.sh"
+      "grains.bats"
     ],
     "example": [
       ".meta/example.sh"

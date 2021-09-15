@@ -3,7 +3,7 @@
 Each exercise contains a test file.
 Run the tests using the `bats` program.
 ```bash
-bats hello_world_test.sh
+bats hello_world.bats
 ```
 
 `bats` will need to be installed. 

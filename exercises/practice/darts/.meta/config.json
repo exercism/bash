@@ -12,7 +12,7 @@
       "darts.sh"
     ],
     "test": [
-      "darts_test.sh"
+      "darts.bats"
     ],
     "example": [
       ".meta/example.sh"

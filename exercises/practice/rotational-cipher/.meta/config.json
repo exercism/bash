@@ -14,7 +14,7 @@
       "rotational_cipher.sh"
     ],
     "test": [
-      "rotational_cipher_test.sh"
+      "rotational_cipher.bats"
     ],
     "example": [
       ".meta/example.sh"

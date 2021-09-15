@@ -12,7 +12,7 @@
       "meetup.sh"
     ],
     "test": [
-      "meetup_test.sh"
+      "meetup.bats"
     ],
     "example": [
       ".meta/example.sh"

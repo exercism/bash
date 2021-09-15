@@ -17,7 +17,7 @@
       "scrabble_score.sh"
     ],
     "test": [
-      "scrabble_score_test.sh"
+      "scrabble_score.bats"
     ],
     "example": [
       ".meta/example.sh"

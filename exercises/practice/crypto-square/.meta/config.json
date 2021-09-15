@@ -12,7 +12,7 @@
       "crypto_square.sh"
     ],
     "test": [
-      "crypto_square_test.sh"
+      "crypto_square.bats"
     ],
     "example": [
       ".meta/example.sh"

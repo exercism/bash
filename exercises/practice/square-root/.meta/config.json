@@ -8,7 +8,7 @@
       "square_root.sh"
     ],
     "test": [
-      "square_root_test.sh"
+      "square_root.bats"
     ],
     "example": [
       ".meta/example.sh"

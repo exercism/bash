@@ -14,7 +14,7 @@
       "twelve_days.sh"
     ],
     "test": [
-      "twelve_days_test.sh"
+      "twelve_days.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -13,7 +13,7 @@
       "pascals_triangle.sh"
     ],
     "test": [
-      "pascals_triangle_test.sh"
+      "pascals_triangle.bats"
     ],
     "example": [
       ".meta/example.sh"

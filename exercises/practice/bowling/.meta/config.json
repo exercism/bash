@@ -13,7 +13,7 @@
       "bowling.sh"
     ],
     "test": [
-      "bowling_test.sh"
+      "bowling.bats"
     ],
     "example": [
       ".meta/example.sh"

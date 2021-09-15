@@ -12,7 +12,7 @@
       "rectangles.sh"
     ],
     "test": [
-      "rectangles_test.sh"
+      "rectangles.bats"
     ],
     "example": [
       ".meta/example.sh"

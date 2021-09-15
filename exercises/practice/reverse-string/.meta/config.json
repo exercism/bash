@@ -17,7 +17,7 @@
       "reverse_string.sh"
     ],
     "test": [
-      "reverse_string_test.sh"
+      "reverse_string.bats"
     ],
     "example": [
       ".meta/example.sh"

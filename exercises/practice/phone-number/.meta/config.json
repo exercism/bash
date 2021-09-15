@@ -20,7 +20,7 @@
       "phone_number.sh"
     ],
     "test": [
-      "phone_number_test.sh"
+      "phone_number.bats"
     ],
     "example": [
       ".meta/example.sh"

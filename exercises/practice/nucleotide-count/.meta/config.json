@@ -18,7 +18,7 @@
       "nucleotide_count.sh"
     ],
     "test": [
-      "nucleotide_count_test.sh"
+      "nucleotide_count.bats"
     ],
     "example": [
       ".meta/example.sh"

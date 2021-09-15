@@ -169,7 +169,7 @@ END_BATS
 
     echo "*******************************************"
     yn "OK to run tests" || return
-    BATS_RUN_SKIPPED=true bats "${root}_test.sh"
+    BATS_RUN_SKIPPED=true bats "${root}.bats"
 }
 
 # Default function to display the code.

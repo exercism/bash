@@ -14,7 +14,7 @@
       "perfect_numbers.sh"
     ],
     "test": [
-      "perfect_numbers_test.sh"
+      "perfect_numbers.bats"
     ],
     "example": [
       ".meta/example.sh"

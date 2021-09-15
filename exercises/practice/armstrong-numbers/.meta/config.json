@@ -18,7 +18,7 @@
       "armstrong_numbers.sh"
     ],
     "test": [
-      "armstrong_numbers_test.sh"
+      "armstrong_numbers.bats"
     ],
     "example": [
       ".meta/example.sh"

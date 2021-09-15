@@ -14,7 +14,7 @@
       "sieve.sh"
     ],
     "test": [
-      "sieve_test.sh"
+      "sieve.bats"
     ],
     "example": [
       ".meta/example.sh"

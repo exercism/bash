@@ -20,7 +20,7 @@
       "triangle.sh"
     ],
     "test": [
-      "triangle_test.sh"
+      "triangle.bats"
     ],
     "example": [
       ".meta/example.sh"

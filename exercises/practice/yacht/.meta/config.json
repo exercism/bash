@@ -14,7 +14,7 @@
       "yacht.sh"
     ],
     "test": [
-      "yacht_test.sh"
+      "yacht.bats"
     ],
     "example": [
       ".meta/example.sh"

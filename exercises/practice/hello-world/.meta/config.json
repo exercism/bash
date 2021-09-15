@@ -25,7 +25,7 @@
       "hello_world.sh"
     ],
     "test": [
-      "hello_world_test.sh"
+      "hello_world.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -12,7 +12,7 @@
       "ocr_numbers.sh"
     ],
     "test": [
-      "ocr_numbers_test.sh"
+      "ocr_numbers.bats"
     ],
     "example": [
       ".meta/example.sh"

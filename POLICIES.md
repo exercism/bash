@@ -41,7 +41,7 @@ document, which thoroughly discusses the structure of an exercise.
 
 ### Exercise Test Structure
 
-The tests will not enforce using a specific function, unless the problems are complex or requires it (ex: https://github.com/exercism/bash/blob/main/exercises/practice/list-ops/list_ops_test.sh)
+The tests will not enforce using a specific function, unless the problems are complex or requires it (ex: https://github.com/exercism/bash/blob/main/exercises/practice/list-ops/list_ops.bats)
 
 ```
 run bash exercise.sh "string"

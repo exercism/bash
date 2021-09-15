@@ -22,7 +22,7 @@
       "bob.sh"
     ],
     "test": [
-      "bob_test.sh"
+      "bob.bats"
     ],
     "example": [
       ".meta/example.sh"

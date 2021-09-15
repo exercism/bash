@@ -12,7 +12,7 @@
       "knapsack.sh"
     ],
     "test": [
-      "knapsack_test.sh"
+      "knapsack.bats"
     ],
     "example": [
       ".meta/example.sh"

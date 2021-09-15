@@ -21,7 +21,7 @@
       "leap.sh"
     ],
     "test": [
-      "leap_test.sh"
+      "leap.bats"
     ],
     "example": [
       ".meta/example.sh"

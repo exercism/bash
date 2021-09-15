@@ -14,7 +14,7 @@
       "prime_factors.sh"
     ],
     "test": [
-      "prime_factors_test.sh"
+      "prime_factors.bats"
     ],
     "example": [
       ".meta/example.sh"

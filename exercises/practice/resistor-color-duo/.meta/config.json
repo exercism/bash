@@ -14,7 +14,7 @@
       "resistor_color_duo.sh"
     ],
     "test": [
-      "resistor_color_duo_test.sh"
+      "resistor_color_duo.bats"
     ],
     "example": [
       ".meta/example.sh"

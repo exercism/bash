@@ -14,7 +14,7 @@
       "rational_numbers.sh"
     ],
     "test": [
-      "rational_numbers_test.sh"
+      "rational_numbers.bats"
     ],
     "example": [
       ".meta/example.sh"

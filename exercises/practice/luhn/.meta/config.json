@@ -17,7 +17,7 @@
       "luhn.sh"
     ],
     "test": [
-      "luhn_test.sh"
+      "luhn.bats"
     ],
     "example": [
       ".meta/example.sh"

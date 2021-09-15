@@ -12,7 +12,7 @@
       "nth_prime.sh"
     ],
     "test": [
-      "nth_prime_test.sh"
+      "nth_prime.bats"
     ],
     "example": [
       ".meta/example.sh"
