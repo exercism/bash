@@ -13,7 +13,7 @@
       "kindergarten_garden.sh"
     ],
     "test": [
-      "kindergarten_garden_test.sh"
+      "kindergarten_garden.bats"
     ],
     "example": [
       ".meta/example.sh"

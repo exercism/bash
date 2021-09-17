@@ -7,7 +7,7 @@ leader in the bash testing area. For these examples we are using
 Run the tests for the hypothetical "whatever" exercise like this:
 ```bash
 cd /path/to/your/exercise_workspace/bash/whatever
-bats whatever_test.sh
+bats whatever.bats
 ```
 
 For help on the meaning of the various `assert*` commands in the

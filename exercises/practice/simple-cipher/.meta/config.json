@@ -12,7 +12,7 @@
       "simple_cipher.sh"
     ],
     "test": [
-      "simple_cipher_test.sh"
+      "simple_cipher.bats"
     ],
     "example": [
       ".meta/example.sh"

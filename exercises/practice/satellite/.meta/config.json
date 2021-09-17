@@ -11,7 +11,7 @@
       "satellite.sh"
     ],
     "test": [
-      "satellite_test.sh"
+      "satellite.bats"
     ],
     "example": [
       ".meta/example.sh"

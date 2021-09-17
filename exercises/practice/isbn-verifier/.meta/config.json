@@ -14,7 +14,7 @@
       "isbn_verifier.sh"
     ],
     "test": [
-      "isbn_verifier_test.sh"
+      "isbn_verifier.bats"
     ],
     "example": [
       ".meta/example.sh"

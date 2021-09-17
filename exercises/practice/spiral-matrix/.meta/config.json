@@ -12,7 +12,7 @@
       "spiral_matrix.sh"
     ],
     "test": [
-      "spiral_matrix_test.sh"
+      "spiral_matrix.bats"
     ],
     "example": [
       ".meta/example.sh"

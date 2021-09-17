@@ -81,7 +81,7 @@ do
     echo "$slug: needs update (v$track_data_version -> v$canonical_data_version)."
   fi
 
-  test_file="$path_to_track/exercises/$slug/${slug//-/_}_test.sh"
+  test_file="$path_to_track/exercises/$slug/${slug//-/_}.bats"
   test_file_version=$( awk '/# local version: / {print $NF}' "$test_file" )
 
   # the test file version number must include the .meta

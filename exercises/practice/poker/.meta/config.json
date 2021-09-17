@@ -12,7 +12,7 @@
       "poker.sh"
     ],
     "test": [
-      "poker_test.sh"
+      "poker.bats"
     ],
     "example": [
       ".meta/example.sh"

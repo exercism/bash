@@ -12,7 +12,7 @@
       "clock.sh"
     ],
     "test": [
-      "clock_test.sh"
+      "clock.bats"
     ],
     "example": [
       ".meta/example.sh"

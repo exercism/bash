@@ -14,7 +14,7 @@
       "secret_handshake.sh"
     ],
     "test": [
-      "secret_handshake_test.sh"
+      "secret_handshake.bats"
     ],
     "example": [
       ".meta/example.sh"

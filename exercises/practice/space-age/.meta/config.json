@@ -14,7 +14,7 @@
       "space_age.sh"
     ],
     "test": [
-      "space_age_test.sh"
+      "space_age.bats"
     ],
     "example": [
       ".meta/example.sh"

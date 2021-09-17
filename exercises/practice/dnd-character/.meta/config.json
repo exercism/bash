@@ -12,7 +12,7 @@
       "dnd_character.sh"
     ],
     "test": [
-      "dnd_character_test.sh"
+      "dnd_character.bats"
     ],
     "example": [
       ".meta/example.sh"

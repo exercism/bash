@@ -14,7 +14,7 @@
       "largest_series_product.sh"
     ],
     "test": [
-      "largest_series_product_test.sh"
+      "largest_series_product.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -13,7 +13,7 @@
       "palindrome_products.sh"
     ],
     "test": [
-      "palindrome_products_test.sh"
+      "palindrome_products.bats"
     ],
     "example": [
       ".meta/example.sh"

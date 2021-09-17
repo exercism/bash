@@ -14,7 +14,7 @@
       "proverb.sh"
     ],
     "test": [
-      "proverb_test.sh"
+      "proverb.bats"
     ],
     "example": [
       ".meta/example.sh"

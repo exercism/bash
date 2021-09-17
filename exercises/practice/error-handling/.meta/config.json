@@ -21,7 +21,7 @@
       "error_handling.sh"
     ],
     "test": [
-      "error_handling_test.sh"
+      "error_handling.bats"
     ],
     "example": [
       ".meta/example.sh"

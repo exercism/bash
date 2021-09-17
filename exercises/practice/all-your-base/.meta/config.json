@@ -14,7 +14,7 @@
       "all_your_base.sh"
     ],
     "test": [
-      "all_your_base_test.sh"
+      "all_your_base.bats"
     ],
     "example": [
       ".meta/example.sh"

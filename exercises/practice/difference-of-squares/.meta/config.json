@@ -20,7 +20,7 @@
       "difference_of_squares.sh"
     ],
     "test": [
-      "difference_of_squares_test.sh"
+      "difference_of_squares.bats"
     ],
     "example": [
       ".meta/example.sh"

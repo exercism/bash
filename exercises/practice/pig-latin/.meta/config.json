@@ -14,7 +14,7 @@
       "pig_latin.sh"
     ],
     "test": [
-      "pig_latin_test.sh"
+      "pig_latin.bats"
     ],
     "example": [
       ".meta/example.sh"

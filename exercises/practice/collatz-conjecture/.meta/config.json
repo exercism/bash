@@ -17,7 +17,7 @@
       "collatz_conjecture.sh"
     ],
     "test": [
-      "collatz_conjecture_test.sh"
+      "collatz_conjecture.bats"
     ],
     "example": [
       ".meta/example.sh"

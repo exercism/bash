@@ -19,7 +19,7 @@
       "acronym.sh"
     ],
     "test": [
-      "acronym_test.sh"
+      "acronym.bats"
     ],
     "example": [
       ".meta/example.sh"

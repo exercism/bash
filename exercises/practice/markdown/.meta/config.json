@@ -12,7 +12,7 @@
       "markdown.sh"
     ],
     "test": [
-      "markdown_test.sh"
+      "markdown.bats"
     ],
     "example": [
       ".meta/example.sh"

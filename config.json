@@ -23,7 +23,7 @@
       "%{snake_slug}.sh"
     ],
     "test": [
-      "%{snake_slug}_test.sh"
+      "%{snake_slug}.bats"
     ],
     "example": [
       ".meta/example.sh"

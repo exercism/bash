@@ -21,7 +21,7 @@
       "word_count.sh"
     ],
     "test": [
-      "word_count_test.sh"
+      "word_count.bats"
     ],
     "example": [
       ".meta/example.sh"

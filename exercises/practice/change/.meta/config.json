@@ -14,7 +14,7 @@
       "change.sh"
     ],
     "test": [
-      "change_test.sh"
+      "change.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -12,7 +12,7 @@
       "sublist.sh"
     ],
     "test": [
-      "sublist_test.sh"
+      "sublist.bats"
     ],
     "example": [
       ".meta/example.sh"

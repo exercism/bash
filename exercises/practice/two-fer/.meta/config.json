@@ -20,7 +20,7 @@
       "two_fer.sh"
     ],
     "test": [
-      "two_fer_test.sh"
+      "two_fer.bats"
     ],
     "example": [
       ".meta/example.sh"

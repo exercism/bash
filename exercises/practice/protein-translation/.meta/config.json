@@ -14,7 +14,7 @@
       "protein_translation.sh"
     ],
     "test": [
-      "protein_translation_test.sh"
+      "protein_translation.bats"
     ],
     "example": [
       ".meta/example.sh"

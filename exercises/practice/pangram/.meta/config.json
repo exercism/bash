@@ -19,7 +19,7 @@
       "pangram.sh"
     ],
     "test": [
-      "pangram_test.sh"
+      "pangram.bats"
     ],
     "example": [
       ".meta/example.sh"

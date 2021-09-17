@@ -14,7 +14,7 @@
       "run_length_encoding.sh"
     ],
     "test": [
-      "run_length_encoding_test.sh"
+      "run_length_encoding.bats"
     ],
     "example": [
       ".meta/example.sh"

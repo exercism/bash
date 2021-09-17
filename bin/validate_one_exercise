@@ -18,7 +18,7 @@ exercise_name=${exercise//-/_}  # replace "-" with "_" to follow convention
 solution="./.meta/example.sh"
 
 [[ -f ${exercise_name}.sh      ]] || die "Missing stub file for $exercise"
-[[ -f ${exercise_name}_test.sh ]] || die "Missing tests file for $exercise"
+[[ -f ${exercise_name}.bats    ]] || die "Missing tests file for $exercise"
 [[ -f ${solution}              ]] || die "Missing solution file for $exercise"
 
 echo "Processing $exercise"
@@ -32,4 +32,4 @@ trap cleanup EXIT
 cp "${solution}" "${exercise_name}.sh"
 
 # Run the tests
-bats "${exercise_name}_test.sh"
+bats "${exercise_name}.bats"

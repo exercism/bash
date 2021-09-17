@@ -12,7 +12,7 @@
       "variable_length_quantity.sh"
     ],
     "test": [
-      "variable_length_quantity_test.sh"
+      "variable_length_quantity.bats"
     ],
     "example": [
       ".meta/example.sh"

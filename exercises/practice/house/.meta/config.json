@@ -14,7 +14,7 @@
       "house.sh"
     ],
     "test": [
-      "house_test.sh"
+      "house.bats"
     ],
     "example": [
       ".meta/example.sh"

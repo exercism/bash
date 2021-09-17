@@ -21,7 +21,7 @@
       "rna_transcription.sh"
     ],
     "test": [
-      "rna_transcription_test.sh"
+      "rna_transcription.bats"
     ],
     "example": [
       ".meta/example.sh"

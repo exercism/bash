@@ -15,7 +15,7 @@
       "diamond.sh"
     ],
     "test": [
-      "diamond_test.sh"
+      "diamond.bats"
     ],
     "example": [
       ".meta/example.sh"

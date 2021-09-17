@@ -21,7 +21,7 @@
       "raindrops.sh"
     ],
     "test": [
-      "raindrops_test.sh"
+      "raindrops.bats"
     ],
     "example": [
       ".meta/example.sh"

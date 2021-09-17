@@ -14,7 +14,7 @@
       "say.sh"
     ],
     "test": [
-      "say_test.sh"
+      "say.bats"
     ],
     "example": [
       ".meta/example.sh"

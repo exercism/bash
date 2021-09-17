@@ -14,7 +14,7 @@
       "matching_brackets.sh"
     ],
     "test": [
-      "matching_brackets_test.sh"
+      "matching_brackets.bats"
     ],
     "example": [
       ".meta/example.sh"

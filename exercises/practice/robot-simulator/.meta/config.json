@@ -12,7 +12,7 @@
       "robot_simulator.sh"
     ],
     "test": [
-      "robot_simulator_test.sh"
+      "robot_simulator.bats"
     ],
     "example": [
       ".meta/example.sh"

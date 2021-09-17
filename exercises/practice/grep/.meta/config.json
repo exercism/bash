@@ -14,7 +14,7 @@
       "grep.sh"
     ],
     "test": [
-      "grep_test.sh"
+      "grep.bats"
     ],
     "example": [
       ".meta/example.sh"

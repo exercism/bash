@@ -21,7 +21,7 @@
       "gigasecond.sh"
     ],
     "test": [
-      "gigasecond_test.sh"
+      "gigasecond.bats"
     ],
     "example": [
       ".meta/example.sh"

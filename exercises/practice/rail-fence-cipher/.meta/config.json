@@ -12,7 +12,7 @@
       "rail_fence_cipher.sh"
     ],
     "test": [
-      "rail_fence_cipher_test.sh"
+      "rail_fence_cipher.bats"
     ],
     "example": [
       ".meta/example.sh"

@@ -14,7 +14,7 @@
       "series.sh"
     ],
     "test": [
-      "series_test.sh"
+      "series.bats"
     ],
     "example": [
       ".meta/example.sh"

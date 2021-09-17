@@ -14,7 +14,7 @@
       "two_bucket.sh"
     ],
     "test": [
-      "two_bucket_test.sh"
+      "two_bucket.bats"
     ],
     "example": [
       ".meta/example.sh"

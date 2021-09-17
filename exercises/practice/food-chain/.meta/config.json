@@ -14,7 +14,7 @@
       "food_chain.sh"
     ],
     "test": [
-      "food_chain_test.sh"
+      "food_chain.bats"
     ],
     "example": [
       ".meta/example.sh"

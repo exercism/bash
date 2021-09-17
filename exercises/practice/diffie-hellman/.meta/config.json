@@ -14,7 +14,7 @@
       "diffie_hellman.sh"
     ],
     "test": [
-      "diffie_hellman_test.sh"
+      "diffie_hellman.bats"
     ],
     "example": [
       ".meta/example.sh"

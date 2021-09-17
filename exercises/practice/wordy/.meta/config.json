@@ -12,7 +12,7 @@
       "wordy.sh"
     ],
     "test": [
-      "wordy_test.sh"
+      "wordy.bats"
     ],
     "example": [
       ".meta/example.sh"

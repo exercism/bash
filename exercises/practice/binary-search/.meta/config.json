@@ -14,7 +14,7 @@
       "binary_search.sh"
     ],
     "test": [
-      "binary_search_test.sh"
+      "binary_search.bats"
     ],
     "example": [
       ".meta/example.sh"
