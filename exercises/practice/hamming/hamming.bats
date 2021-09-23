@@ -58,14 +58,14 @@ load bats-extra
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh '' 'G'
   assert_failure
-  assert_output --partial "strands must be of equal length"
+  assert_output --partial "strands must not be empty"
 }
 
 @test 'disallow right empty strand' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh 'G' ''
   assert_failure
-  assert_output --partial "strands must be of equal length"
+  assert_output --partial "strands must not be empty"
 }
 
 @test "no input" {
