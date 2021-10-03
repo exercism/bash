@@ -12,9 +12,8 @@ jobs:
       - name: Checkout PR
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2.4.1
       - name: Install bats-core
-        run: sudo npm install -g bats
+        run: sudo apt update && sudo apt -y install bats
 
       - name: Run tests for changed/added exercises
         env:
