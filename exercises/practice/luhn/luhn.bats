@@ -115,6 +115,13 @@ load bats-extra
   assert_output "true"
 }
 
+@test "valid luhn with an odd number of digits and non zero first digit" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash luhn.sh "109"
+  assert_success
+  assert_output "true"
+}
+
 @test "using ascii value for non-doubled non-digit isn't allowed" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash luhn.sh "055b 444 285"
