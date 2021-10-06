@@ -6,7 +6,7 @@
     "concept_exercises": false,
     "test_runner": true,
     "representer": false,
-    "analyzer": false
+    "analyzer": true
   },
   "blurb": "Bash is a Unix command interpreter, for which plaintext files of commands can be made to create scripts. It's a powerful and concise way of getting stuff done!",
   "version": 3,
