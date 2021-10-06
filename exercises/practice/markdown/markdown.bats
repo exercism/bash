@@ -79,6 +79,36 @@ END
     assert_output "<h2>This  will be an h2</h2>"
 }
 
+@test "with h3 header level" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    cat <<END > "$MD_FILE"
+### This  will be an h3
+END
+    run bash markdown.sh "$MD_FILE"
+    assert_success
+    assert_output "<h3>This  will be an h3</h3>"
+}
+
+@test "with h4 header level" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    cat <<END > "$MD_FILE"
+#### This  will be an h4
+END
+    run bash markdown.sh "$MD_FILE"
+    assert_success
+    assert_output "<h4>This  will be an h4</h4>"
+}
+
+@test "with h5 header level" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    cat <<END > "$MD_FILE"
+##### This  will be an h5
+END
+    run bash markdown.sh "$MD_FILE"
+    assert_success
+    assert_output "<h5>This  will be an h5</h5>"
+}
+
 @test "with h6 header level" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
@@ -87,6 +117,16 @@ END
     run bash markdown.sh "$MD_FILE"
     assert_success
     assert_output "<h6>This will be an h6</h6>"
+}
+
+@test "with h7 header level" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    cat <<END > "$MD_FILE"
+####### This will not be an h7
+END
+    run bash markdown.sh "$MD_FILE"
+    assert_success
+    assert_output "<p>####### This will not be an h7</p>"
 }
 
 @test "unordered lists" {

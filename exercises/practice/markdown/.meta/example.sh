@@ -48,7 +48,7 @@ main() {
 
             # Check for a heading
 
-            if [[ $line =~ ^("#"+)" "(.*) ]]; then
+            if [[ $line =~ ^("#"{1,6})" "(.*) ]]; then
                 n=${#BASH_REMATCH[1]}
                 html+=$(printf "<h%d>%s</h%d>" $n "${BASH_REMATCH[2]}" $n)
 
