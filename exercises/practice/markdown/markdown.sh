@@ -37,7 +37,7 @@ done
     fi
 
             n=`expr "$line" : "#\{1,\}"`
-            if [ $n -gt 0 ]; then
+            if [ $n -gt 0 -a 7 -gt $n ]; then
 
         while [[ $line == *_*?_* ]]; do
             s=${line#*_}
