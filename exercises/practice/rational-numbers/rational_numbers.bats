@@ -256,6 +256,13 @@ load bats-extra
     assert_output  "1/2"
 }
 
+@test "Reduce places the minus sign on the numerator" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rational_numbers.sh "reduce" "3/-4"
+    assert_success
+    assert_output  "-3/4"
+}
+
 @test "Reduce a negative rational number to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "-4/6"

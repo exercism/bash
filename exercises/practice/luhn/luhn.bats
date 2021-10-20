@@ -115,6 +115,13 @@ load bats-extra
   assert_output "true"
 }
 
+@test "very long input is valid" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash luhn.sh "9999999999 9999999999 9999999999 9999999999"
+  assert_success
+  assert_output "true"
+}
+
 @test "valid luhn with an odd number of digits and non zero first digit" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash luhn.sh "109"
