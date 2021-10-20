@@ -25,6 +25,13 @@ load bats-extra
     assert_output "47"
 }
 
+@test "white red" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash resistor_color_duo.sh white red
+    assert_success
+    assert_output "92"
+}
+
 @test "orange orange" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_duo.sh orange orange
