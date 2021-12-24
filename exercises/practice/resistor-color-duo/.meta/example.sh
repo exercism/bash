@@ -32,4 +32,4 @@ for color in "$1" "$2"; do
         exit 1
     fi
 done
-echo "$result"
+echo "${result#0}"
