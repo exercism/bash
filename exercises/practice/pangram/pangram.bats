@@ -68,9 +68,9 @@ load bats-extra
   assert_output "true"
 }
 
-@test "case insensitive" {
+@test "a-m and A-M are 26 different characters but not a pangram" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash pangram.sh "the quick brown fox jumps over with lazy FX"
+  run bash pangram.sh "abcdefghijklm ABCDEFGHIJKLM"
   assert_success
   assert_output "false"
 }
