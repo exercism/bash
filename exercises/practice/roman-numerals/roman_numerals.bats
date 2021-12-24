@@ -135,3 +135,40 @@ load bats-extra
   assert_success
   assert_output "MMM"
 }
+
+# testing numbers with all roman numerals below a threshold
+
+@test "16 is XVI" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 16
+  assert_success
+  assert_output "XVI"
+}
+
+@test "66 is LXVI" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 66
+  assert_success
+  assert_output "LXVI"
+}
+
+@test "166 is CLXVI" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 166
+  assert_success
+  assert_output "CLXVI"
+}
+
+@test "666 is DCLXVI" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 666
+  assert_success
+  assert_output "DCLXVI"
+}
+
+@test "1666 is MDCLXVI" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 1666
+  assert_success
+  assert_output "MDCLXVI"
+}
