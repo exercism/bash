@@ -112,6 +112,13 @@ load bats-extra
     assert_output "unequal"
 }
 
+@test "first list missing additional digits from second list" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash sublist.sh "[1, 2]" "[1, 22]"
+    assert_success
+    assert_output "unequal"
+}
+
 @test "order matters to a list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 3]" "[3, 2, 1]"
