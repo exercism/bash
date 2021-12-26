@@ -109,6 +109,20 @@ load bats-extra
     assert_output "false"
 }
 
+@test "early unexpected brackets" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash matching_brackets.sh ")()"
+    assert_success 
+    assert_output "false"
+}
+
+@test "early mismatched brackets" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash matching_brackets.sh "{)()"
+    assert_success 
+    assert_output "false"
+}
+
 @test "math expression" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "(((185 + 223.85) * 15) - 543)/2"

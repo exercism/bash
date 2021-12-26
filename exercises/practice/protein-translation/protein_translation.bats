@@ -1,12 +1,16 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.1.0
-
 # Translate input RNA sequences into proteins
+@test "Empty RNA sequence results in no proteins" {
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh ""
+    assert_success
+    assert_output ""
+}
 
 @test "Methionine RNA sequence" {       
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "AUG"
     assert_success
     assert_output "Methionine"
@@ -124,6 +128,20 @@ load bats-extra
     assert_output ""
 }
 
+@test "Sequence of two protein codons translates into proteins" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "UUUUUU"
+    assert_success
+    assert_output "Phenylalanine Phenylalanine"
+}
+
+@test "Sequence of two different protein codons translates into proteins" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "UUAUUG"
+    assert_success
+    assert_output "Leucine Leucine"
+}
+
 @test "Translate RNA strand into correct protein list" {        
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "AUGUUUUGG"
@@ -171,4 +189,32 @@ load bats-extra
     run bash protein_translation.sh "UGG---AUG"
     assert_failure
     assert_output "Invalid codon"
+}
+
+@test "Non-existing codon can't translate" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "AAA"
+    assert_failure
+    assert_output "Invalid codon"
+}
+
+@test "Unknown amino acids, not part of a codon, can't translate" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "XYZ"
+    assert_failure
+    assert_output "Invalid codon"
+}
+
+@test "Incomplete RNA sequence can't translate" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "AUGU"
+    assert_failure
+    assert_output "Invalid codon"
+}
+
+@test "Incomplete RNA sequence can translate if valid until a STOP codon" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "UUCUUCUAAUGGU"
+    assert_success
+    assert_output "Phenylalanine Phenylalanine"
 }
