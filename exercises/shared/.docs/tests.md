@@ -7,7 +7,7 @@ bats hello_world.bats
 ```
 
 `bats` will need to be installed.
-See the [Testing on the Bash track](/docs/tracks/bash/tests) page for
+See the [Testing on the Bash track](https://exercism.org/docs/tracks/bash/tests) page for
 instructions to install `bats` for your system.
 
 ## Help for assert functions
