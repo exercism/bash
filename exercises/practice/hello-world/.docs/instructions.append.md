@@ -13,7 +13,7 @@ can get the tests to pass on your machine, we are doing great.
 
 ## Installation
 
-As mentioned above, if you are on a unix-like OS (Mac OS X, Linux, Solaris,
+As mentioned above, if you are on a unix-like OS (macOS, Linux, Solaris,
 etc), you probably already have bash.
 
 ## Testing
@@ -21,7 +21,7 @@ etc), you probably already have bash.
 As there isn't much of a bash ecosystem, there also isn't really a de
 facto leader in the bash testing area. For these examples we are using
 [bats](https://github.com/bats-core/bats-core). You should be able to
-install it from your favorite package manager, on OS X with homebrew
+install it from your favorite package manager, on macOS with [homebrew](https://brew.sh/)
 this would look something like this:
 
 ```
