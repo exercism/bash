@@ -6,13 +6,13 @@ The rest of this document talks about working locally.
 
 ## Exercism CLI
 
-You'll need the `exercism` command-line tool to download and submit exerices.
-See [the documentation for it][exercism-cli].
+You will need the `exercism` command-line tool to download and submit exercises.
+See [the exercism cli documentation][exercism-cli].
 
-### Wrapper function for exercism tool
+### Wrapper function for the exercism tool
 
 One annoying aspect of the default exercism tool is that, after you download an exercise, you have to change directory manually.
-This wrapper function handles that for you: store this in your `~/.bashrc`.
+This wrapper function handles that for you; store this in your `~/.bashrc`.
 ```bash
 exercism () {
     local out
@@ -24,7 +24,7 @@ exercism () {
 }
 ```
 Note that cannot be a shell _script_, it must be a shell _function_.
-Otherwise the effect of `cd` cannot be executed in your current interactive shell.
+Shell scripts are executed in a child process and cannot effect the environment (like the current working directory) of your current shell.
 
 ## Testing locally
 
@@ -70,7 +70,8 @@ sudo dnf install bats
 #### Other Linux
 
 For other Linux distributions the implementation of `bats` we use is not conveniently packaged.
-The best way to install it is from source: if you want to install it under `/usr/local` then
+The best way to install it is from source.
+If you want to install it under `/usr/local` then
 ```bash
 git clone https://github.com/bats-core/bats-core
 cd bats-core/
@@ -101,10 +102,10 @@ $ git checkout v1.1.0
 ## Legacy `bats`
 
 `bats-core` was forked from [the original `bats` implementation][sstephenson-bats].
-The sstephenson/bats was quite buggy and had been abandoned.
+The `sstephenson/bats` project was quite buggy and had been abandoned.
 Ownership was handed over in 2017: [sstephenson/bats#150 (comment)][bats-fork].
 
-If you have the original sstephenson/bats installed (check with `bats -v` reporting a version number less than 1.0), then you should switch to bats-core: otherwise you may find yourself [experiencing unexplained test failures][legacy-failures].
+If you have the original sstephenson/bats installed (check with `bats -v` reporting a version number less than 1.0), then you should switch to bats-core; otherwise you may find yourself [experiencing unexplained test failures][legacy-failures].
 
 
 [exercism-cli]: https://exercism.org/docs/using/solving-exercises/working-locally
