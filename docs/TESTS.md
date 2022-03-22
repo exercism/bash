@@ -44,7 +44,7 @@ For help on the meaning of the various `assert*` commands in the tests, refer to
 You should be able to install it from your favorite package manager:
 
 ### For Mac (brew)
-On OS X with [Homebrew][homebrew] this would look something like this:
+On macOS with [Homebrew][homebrew] this would look something like this:
 ```
 $ brew install bats-core
 ==> Downloading https://github.com/bats-core/bats-core/archive/v1.1.0.tar.gz
