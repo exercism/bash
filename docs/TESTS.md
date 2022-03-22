@@ -9,10 +9,10 @@ The rest of this document talks about working locally.
 You'll need the `exercism` command-line tool to download and submit exerices.
 See [the documentation for it][exercism-cli].
 
-### bash wrapper for exercism tool
+### Wrapper function for exercism tool
 
 One annoying aspect of the default exercism tool is that, after you download an exercise, you have to change directory manually.
-This bash function handles that for you: store this in your `~/.bashrc`.
+This wrapper function handles that for you: store this in your `~/.bashrc`.
 ```bash
 exercism () {
     local out
