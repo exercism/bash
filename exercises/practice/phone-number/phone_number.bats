@@ -61,14 +61,14 @@ load bats-extra
 
 @test "invalid with letters" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash phone_number.sh "123-abc-7890"
+  run bash phone_number.sh "523-abc-7890"
   assert_failure
   assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
 @test "invalid with punctuations" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash phone_number.sh "123-@:!-7890"
+  run bash phone_number.sh "523-@:!-7890"
   assert_failure
   assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
