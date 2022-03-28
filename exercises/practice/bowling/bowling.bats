@@ -93,6 +93,13 @@ load bats-extra
     assert_output "30"
 }
 
+@test "last two strikes followed by only last bonus with non strike points" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 10 0 1
+    assert_success
+    assert_output "31"
+}
+
 @test "a strike with the one roll bonus after a spare in the last frame does not get a bonus" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 3 10
