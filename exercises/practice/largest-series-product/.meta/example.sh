@@ -9,7 +9,7 @@ nondig="*[^[:digit:]]*"   # contains a non-digit
 
 [[ $series == $nondig ]]  && die "input must only contain digits"       # pattern is unquoted
 (( span > ${#series} ))   && die "span must be smaller than string length"
-(( span < 0 ))            && die "span must be greater than zero"
+(( span < 0 ))            && die "span must not be negative"
 
 declare -i max=0
 declare -i product
