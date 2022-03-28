@@ -115,6 +115,13 @@ load bats-extra
   assert_output "false"
 }
 
+@test 'invalid characters are not ignored before checking length' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash isbn_verifier.sh '3598P215088'
+  assert_success
+  assert_output "false"
+}
+
 @test 'input is too long but contains a valid isbn' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isbn_verifier.sh '98245726788'
