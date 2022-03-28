@@ -149,6 +149,13 @@ load bats-extra
     assert_output  "1/2"
 }
 
+@test "Absolute value of a rational number is reduced to lowest terms" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rational_numbers.sh "abs" "2/4"
+    assert_success
+    assert_output  "1/2"
+}
+
 @test "Absolute value of a positive rational number with negative numerator and denominator" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "abs" "-1/-2"
@@ -192,6 +199,27 @@ load bats-extra
     run bash rational_numbers.sh "pow" "-1/2" 3
     assert_success
     assert_output "-1/8"
+}
+
+@test "Raise a positive rational number to a negative integer power" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rational_numbers.sh "pow" "3/5" -2
+    assert_success
+    assert_output "25/9"
+}
+
+@test "Raise a negative rational number to an even negative integer power" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rational_numbers.sh "pow" "-3/5" -2
+    assert_success
+    assert_output "25/9"
+}
+
+@test "Raise a negative rational number to an odd negative integer power" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rational_numbers.sh "pow" "-3/5" -3
+    assert_success
+    assert_output "-125/27"
 }
 
 @test "Raise zero to an integer power" {
