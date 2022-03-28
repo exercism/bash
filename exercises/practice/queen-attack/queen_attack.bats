@@ -91,3 +91,10 @@ load bats-extra
     assert_success 
     assert_output "true"
 }
+
+@test "cannot attack if falling diagonals are only the same when reflected across the longest falling diagonal" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash queen_attack.sh -w 4,1 -b 2,5
+    assert_success 
+    assert_output "false"
+}
