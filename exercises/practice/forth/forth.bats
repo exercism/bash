@@ -13,6 +13,15 @@ END
     assert_output "1 2 3 4 5"
 }
 
+@test "pushes negative numbers onto the stack" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash forth.sh <<END
+-1 -2 -3 -4 -5
+END
+    assert_success
+    assert_output "-1 -2 -3 -4 -5"
+}
+
 # addition
 @test addition_ok {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
