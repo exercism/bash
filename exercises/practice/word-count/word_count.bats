@@ -86,14 +86,17 @@ load bats-extra
 
 @test "with apostrophes" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash word_count.sh "First: don't laugh. Then: don't cry."
+  run bash word_count.sh "'First: don't laugh. Then: don't cry. You're getting it.'"
   assert_success
   assert_line "first: 1"
   assert_line "don't: 2"
   assert_line "laugh: 1"
   assert_line "then: 1"
   assert_line "cry: 1"
-  assert_equal "${#lines[@]}" 5
+  assert_line "you're: 1"
+  assert_line "getting: 1"
+  assert_line "it: 1"
+  assert_equal "${#lines[@]}" 8
 }
 
 @test "with quotations" {
