@@ -137,7 +137,7 @@ load bats-extra
 @test "rejects negative span" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash largest_series_product.sh 12345 -1
-    expected="span must be greater than zero"
+    expected="span must not be negative"
     assert_failure
     assert_output --partial "$expected"
 }
