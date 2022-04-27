@@ -405,3 +405,17 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
     assert_failure
     assert_output "Start must be greater than End"
 }
+
+@test 'negative_start' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash beer_song.sh -1
+    assert_failure
+    assert_output "Start must be positive"
+}
+
+@test 'negative_end' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash beer_song.sh 99 -1
+    assert_failure
+    assert_output "End must be positive"
+}
