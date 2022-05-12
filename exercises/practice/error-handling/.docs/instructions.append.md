@@ -1,6 +1,6 @@
 # Dummy header
 
-## Bash-pecific instructions
+## Bash-specific instructions
 
 The goal of this exercise is to consider the number of arguments passed to your program.
 If there is exactly one argument, print a greeting message.
