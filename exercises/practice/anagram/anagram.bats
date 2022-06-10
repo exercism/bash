@@ -87,16 +87,30 @@ load bats-extra
   refute_output
 }
 
-@test "capital word is not own anagram" {
+@test "words are not anagrams of themselves" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash anagram.sh "BANANA" "BANANA Banana banana"
+  run bash anagram.sh "BANANA" "BANANA"
+  assert_success
+  refute_output
+}
+
+@test "words are not anagrams of themselves even if letter case is partially different" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash anagram.sh "BANANA" "Banana"
+  assert_success
+  refute_output
+}
+
+@test "words are not anagrams of themselves even if letter case is completely different" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash anagram.sh "BANANA" "banana"
   assert_success
   refute_output
 }
 
 @test "words other than themselves can be anagrams" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash anagram.sh "LISTEN" "Listen Silent LISTEN"
+  run bash anagram.sh "LISTEN" "LISTEN Silent"
   assert_success
   assert_output "Silent"
 }
