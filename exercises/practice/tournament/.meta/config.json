@@ -1,5 +1,4 @@
 {
-  "blurb": "Tally the results of a small football competition.",
   "authors": [
     "glennj"
   ],
@@ -17,5 +16,6 @@
     "example": [
       ".meta/example.sh"
     ]
-  }
+  },
+  "blurb": "Tally the results of a small football competition."
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement basic list operations.",
   "authors": [
     "glennj"
   ],
@@ -16,5 +15,6 @@
     "example": [
       ".meta/example.sh"
     ]
-  }
+  },
+  "blurb": "Implement basic list operations."
 }

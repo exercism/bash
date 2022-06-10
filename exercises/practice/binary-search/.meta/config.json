@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a binary search algorithm.",
   "authors": [
     "glennj"
   ],
@@ -20,6 +19,7 @@
       ".meta/example.sh"
     ]
   },
+  "blurb": "Implement a binary search algorithm.",
   "source": "Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/Binary_search_algorithm"
 }
