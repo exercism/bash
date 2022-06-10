@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement various kinds of error handling and resource management.",
   "authors": [
     "jaggededgedjustice"
   ],
@@ -26,5 +25,6 @@
     "example": [
       ".meta/example.sh"
     ]
-  }
+  },
+  "blurb": "Implement various kinds of error handling and resource management."
 }

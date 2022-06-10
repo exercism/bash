@@ -1,5 +1,4 @@
 {
-  "blurb": "Refactor a Markdown parser.",
   "authors": [
     "glennj"
   ],
@@ -17,5 +16,6 @@
     "example": [
       ".meta/example.sh"
     ]
-  }
+  },
+  "blurb": "Refactor a Markdown parser."
 }

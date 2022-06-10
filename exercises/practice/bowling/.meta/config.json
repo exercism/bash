@@ -1,5 +1,4 @@
 {
-  "blurb": "Score a bowling game.",
   "authors": [
     "glennj"
   ],
@@ -19,6 +18,7 @@
       ".meta/example.sh"
     ]
   },
+  "blurb": "Score a bowling game.",
   "source": "The Bowling Game Kata from UncleBob",
   "source_url": "http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata"
 }
