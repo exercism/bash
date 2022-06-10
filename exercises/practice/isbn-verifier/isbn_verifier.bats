@@ -31,6 +31,13 @@ load bats-extra
   assert_output "false"
 }
 
+@test 'invalid check digit in isbn is not treated as zero' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash isbn_verifier.sh '4-598-21507-B'
+  assert_success
+  assert_output "false"
+}
+
 @test 'invalid character in isbn' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isbn_verifier.sh '3-598-P1581-X'

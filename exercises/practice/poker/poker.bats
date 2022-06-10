@@ -85,6 +85,22 @@ load bats-extra
     assert_equal "${#lines[@]}" "1"
 }
 
+@test "both hands have two pairs that add to the same value, win goes to highest pair" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "6S 6H 3S 3H AS" "7H 7S 2H 2S AC"
+    assert_success
+    assert_line "7H 7S 2H 2S AC"
+    assert_equal "${#lines[@]}" "1"
+}
+
+@test "two pairs first ranked by largest pair" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "5C 2S 5S 4H 4C" "6S 2S 6H 7C 2C"
+    assert_success
+    assert_line "6S 2S 6H 7C 2C"
+    assert_equal "${#lines[@]}" "1"
+}
+
 @test "three of a kind beats two pair" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash poker.sh "2S 8H 2H 8D JH" "4S 5H 4C 8S 4H" 
