@@ -6,30 +6,45 @@
 set -o errexit
 set -o nounset
 
-export BATS_RUN_SKIPPED=true    # run all the tests
-
 die() { echo "$*" >&2; exit 1; }
 
 cd "$1" || die "Cannot cd to $1"
 
+config=./.meta/config.json
+[[ -f ${config} ]] || die "no $config file: you're in the wrong directory"
+
 exercise=${1%/}                 # strip a trailing slash, if there is one
 exercise=${exercise##*/}        # remove any leading path
-exercise_name=${exercise//-/_}  # replace "-" with "_" to follow convention
-solution="./.meta/example.sh"
 
-[[ -f ${exercise_name}.sh      ]] || die "Missing stub file for $exercise"
-[[ -f ${exercise_name}.bats    ]] || die "Missing tests file for $exercise"
-[[ -f ${solution}              ]] || die "Missing solution file for $exercise"
+stub=$(jq -r '.files.solution[0]' "$config")
+[[ -f ${stub} ]] || die "Missing stub file for $exercise"
+
+tests=$(jq -r '.files.test[0]' "$config")
+[[ -f ${tests} ]] || die "Missing tests file for $exercise"
+
+solution=$(jq -r '.files.example[0]' "$config")
+[[ -f ${solution} ]] || die "Missing solution file for $exercise"
+
+# Ensure each exercise has the expected number of commented-out skip lines
+case ${exercise} in
+    hello-world)         expected=0 ;;
+    pythagorean-triplet) expected=2 ;;
+    *)                   expected=1 ;;
+esac
+# a PCRE: the `\Q...\E` defines a literal segment
+skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
+num_skip_comments=$(grep -cP "${skip_re}" "${tests}") || true
+(( num_skip_comments == expected )) || die "There should be exactly $expected commented skip directive in ${tests}"
 
 echo "Processing $exercise"
 
 cleanup() {
-    git checkout "${exercise_name}.sh"
+    git checkout "${stub}"
 }
 trap cleanup EXIT
 
 # Create implementation file from example
-cp "${solution}" "${exercise_name}.sh"
+cp "${solution}" "${stub}"
 
 # Run the tests
-bats "${exercise_name}.bats"
+BATS_RUN_SKIPPED=true bats "${tests}"
