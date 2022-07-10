@@ -94,6 +94,21 @@ INPUT
     assert_output "1"
 }
 
+@test "rectangles must have four sides" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rectangles.sh <<INPUT
++-+ +-+
+| | | |
++-+-+-+
+  | |  
++-+-+-+
+| | | |
++-+ +-+
+INPUT
+    assert_success
+    assert_output "5"
+}
+
 @test "only complete rectangles are counted" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
