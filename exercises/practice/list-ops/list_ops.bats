@@ -14,7 +14,7 @@ fi
 setup() { source list_ops.sh; }
 
 @test "append empty lists" {
-    #[[ $BATS_RUN_SKIPPED == true ]] || skip
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list1=()
     list2=()
     list::append list1 "${list2[@]}"
@@ -23,7 +23,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "append list to empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list1=()
     list2=(1 2 3 4)
     list::append list1 "${list2[@]}"
@@ -32,7 +32,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "append empty list to list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list1=(1 2 3 4)
     list2=()
     list::append list1 "${list2[@]}"
@@ -41,7 +41,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "append non-empty lists" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     l1=(1 2)
     l2=(2 3 4 5)
     list::append l1 "${l2[@]}"
@@ -55,7 +55,7 @@ setup() { source list_ops.sh; }
 ## filter list returning only values that satisfy the filter function
 
 @test "filter empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=()
     result=()
     isOdd () { (( $1 % 2 == 1 )); }
@@ -65,7 +65,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "filter non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 2 3 4 5)
     result=()
     isOdd () { (( $1 % 2 == 1 )); }
@@ -81,7 +81,7 @@ setup() { source list_ops.sh; }
 ## transformed by the mapping function
 
 @test "map empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=()
     result=()
     incr () { echo $(( $1 + 1 )); }
@@ -91,7 +91,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "map non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 3 5 7)
     result=()
     incr () { echo $(( $1 + 1 )); }
@@ -103,7 +103,7 @@ setup() { source list_ops.sh; }
 ## folds (reduces) the given list from the left with a function
 
 @test "foldl empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=()
     mult () {
         local acc=$1 elem=$2
@@ -114,7 +114,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "foldl direction independent function applied to non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 2 3 4)
     add () {
         local acc=$1 elem=$2
@@ -125,7 +125,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "foldl direction dependent function applied to non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 2 3 4)
     # For this test, we need a div function that performs
     # floating point arithmetic to preserve fractions.
@@ -140,7 +140,7 @@ setup() { source list_ops.sh; }
 
 # track-specific test
 @test "foldl not just numbers" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(H e l l o " " W o r l d "!")
     concat () {
         local acc=$1 elem=$2
@@ -154,7 +154,7 @@ setup() { source list_ops.sh; }
 # Note the order of the arguments to the given functions!
 
 @test "foldr empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=()
     mult () {
         local elem=$1 acc=$2
@@ -165,7 +165,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "foldr direction independent function applied to non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 2 3 4)
     add () {
         local elem=$1 acc=$2
@@ -176,7 +176,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "foldr direction dependent function applied to non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 2 3 4)
     div () {
         local elem=$1 acc=$2
@@ -189,7 +189,7 @@ setup() { source list_ops.sh; }
 
 # track-specific test
 @test "foldr not just numbers" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(H e l l o " " W o r l d "!")
     concat () {
         local elem=$1 acc=$2
@@ -202,7 +202,7 @@ setup() { source list_ops.sh; }
 ## reverse the elements of the list
 
 @test "reverse empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=()
     result=()
     list::reverse list result
@@ -211,7 +211,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "reverse non-empty list" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=(1 3 5 7)
     result=()
     list::reverse list result
@@ -220,7 +220,7 @@ setup() { source list_ops.sh; }
 }
 
 @test "reverse with special characters" {
-    [[ $BATS_RUN_SKIPPED == true ]] || skip
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     list=("R*" "l*")
     result=()
     list::reverse list result
