@@ -62,3 +62,12 @@ load bats-extra
   assert_success
   assert_output "b  * a "
 }
+
+# The program should reverse the entire input, not each line individually
+@test "treats a newline like any other character" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash reverse_string.sh $'Hello,\nWorld!'
+
+  assert_success
+  assert_output $'!dlroW\n,olleH'
+}
