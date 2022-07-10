@@ -13,6 +13,7 @@ See [the exercism cli documentation][exercism-cli].
 
 One annoying aspect of the default exercism tool is that, after you download an exercise, you have to change directory manually.
 This wrapper function handles that for you; store this in your `~/.bashrc`.
+
 ```bash
 exercism () {
     local out
@@ -23,6 +24,7 @@ exercism () {
     fi
 }
 ```
+
 Note that cannot be a shell _script_, it must be a shell _function_.
 Shell scripts are executed in a child process and cannot effect the environment (like the current working directory) of your current shell.
 
@@ -31,6 +33,7 @@ Shell scripts are executed in a child process and cannot effect the environment 
 For testing on the bash track, we are using [bats][bats].
 
 Run the tests for the hypothetical "whatever" exercise like this:
+
 ```bash
 cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever.bats
@@ -43,6 +46,7 @@ You should be able to install it from your favorite package manager:
 ### For Mac (brew)
 
 On macOS with [Homebrew][homebrew] this would look something like this:
+
 ```
 $ brew install bats-core
 ==> Downloading https://github.com/bats-core/bats-core/archive/v1.1.0.tar.gz
@@ -70,13 +74,16 @@ sudo dnf install bats
 For other Linux distributions the implementation of `bats` we use may not be conveniently packaged.
 The best way to install it is from source.
 If you want to install it under `/usr/local` then
+
 ```bash
 git clone https://github.com/bats-core/bats-core
 cd bats-core/
 sudo ./install.sh /usr/local
 ```
+
 Following that, assuming `/usr/local/bin` is in your $PATH, you can now do:
-```
+
+```bash
 $ bats
 Error: Must specify at least one <test>
 Usage: bats [-cr] [-f <regex>] [-j <jobs>] [-p | -t] <test>...
@@ -91,9 +98,11 @@ $ git clone https://github.com/bats-core/bats-core.git
 $ cd bats
 $ ./install.sh $HOME
 ```
+
 Note: When you are using the outdated `https://github.com/sstephenson/bats.git` and you discover an error like `cp: cannot create symbolic link '${HOME}/bin/bats': No such file or directory`, you have to copy the `bin/bats/libexec/` folder content to `${HOME}/bin/` manually.
 
 There are reports that [newer bats versions don't behave well on MinGW bash][mingw-issues] -- before you run the install script, you might want to:
+
 ```
 $ git checkout v1.1.0
 ```
@@ -117,17 +126,21 @@ annotations prepending other tests.
 
 To run all tests, including the ones with `skip` annotations, you can set an environment variable `BATS_RUN_SKIPPED` to the value `true`. 
 One way to set this just for the duration of running bats is:
+
 ```bash
 BATS_RUN_SKIPPED=true bats exercise_name.bats
 ```
 
 It can be convenient to use a wrapper function to save on typing:
+
 ```bash
 bats() {
     BATS_RUN_SKIPPED=true command bats *.bats
 }
 ```
+
 Then run tests with just:
+
 ```bash
 bats
 ```
