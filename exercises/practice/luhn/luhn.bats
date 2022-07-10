@@ -59,6 +59,13 @@ load bats-extra
   assert_output "false"
 }
 
+@test  "invalid long number with a remainder divisible by 5" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash luhn.sh "1 2345 6789 1234 5678 9013"
+  assert_success
+  assert_output "false"
+}
+
 @test "valid number with an even number of digits" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash luhn.sh "095 245 88"
