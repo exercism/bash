@@ -28,8 +28,7 @@ Shell scripts are executed in a child process and cannot effect the environment 
 
 ## Testing locally
 
-As there isn't much of a bash ecosystem, there also isn't really a defacto leader in the bash testing area.
-For these examples we are using [bats][bats].
+For testing on the bash track, we are using [bats][bats].
 
 Run the tests for the hypothetical "whatever" exercise like this:
 ```bash
@@ -37,13 +36,12 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever.bats
 ```
 
-For help on the meaning of the various `assert*` commands in the tests, refer to the documentation for the [bats-assert][bats-assert] library.
-
 ## Installing `bats-core`
 
 You should be able to install it from your favorite package manager:
 
 ### For Mac (brew)
+
 On macOS with [Homebrew][homebrew] this would look something like this:
 ```
 $ brew install bats-core
@@ -69,7 +67,7 @@ sudo dnf install bats
 
 #### Other Linux
 
-For other Linux distributions the implementation of `bats` we use is not conveniently packaged.
+For other Linux distributions the implementation of `bats` we use may not be conveniently packaged.
 The best way to install it is from source.
 If you want to install it under `/usr/local` then
 ```bash
@@ -87,6 +85,7 @@ Usage: bats [-cr] [-f <regex>] [-j <jobs>] [-p | -t] <test>...
 ```
 
 ### For Windows (MINGW64/Cygwin)
+
 ```
 $ git clone https://github.com/bats-core/bats-core.git
 $ cd bats
@@ -97,6 +96,40 @@ Note: When you are using the outdated `https://github.com/sstephenson/bats.git` 
 There are reports that [newer bats versions don't behave well on MinGW bash][mingw-issues] -- before you run the install script, you might want to:
 ```
 $ git checkout v1.1.0
+```
+
+## bats-assert
+
+For help on the meaning of the various `assert*` commands in the tests, refer to the documentation for the [bats-assert][bats-assert] library.
+
+## Skipped tests
+
+Solving an exercise means making all its tests pass.
+By default, only one test (the first one) is executed when you run the tests.
+This is intentional, as it allows you to focus on just making that one test pass.
+Once it passes, you can enable the next test by commenting out or removing the
+
+    [[ $BATS_RUN_SKIPPED == true ]] || skip
+
+annotations prepending other tests.
+
+### Overriding skips
+
+To run all tests, including the ones with `skip` annotations, you can set an environment variable `BATS_RUN_SKIPPED` to the value `true`. 
+One way to set this just for the duration of running bats is:
+```bash
+BATS_RUN_SKIPPED=true bats exercise_name.bats
+```
+
+It can be convenient to use a wrapper function to save on typing:
+```bash
+bats() {
+    BATS_RUN_SKIPPED=true command bats *.bats
+}
+```
+Then run tests with just:
+```bash
+bats
 ```
 
 ## Legacy `bats`

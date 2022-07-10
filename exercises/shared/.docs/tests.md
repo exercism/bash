@@ -27,7 +27,20 @@ Once it passes, you can enable the next test by commenting out or removing the
 
 annotations prepending other tests.
 
+## Overriding skips
+
 To run all tests, including the ones with `skip` annotations, you can run:
 ```bash
 BATS_RUN_SKIPPED=true bats exercise_name.bats
+```
+
+It can be convenient to use a wrapper function to save on typing:
+```bash
+bats() {
+    BATS_RUN_SKIPPED=true command bats *.bats
+}
+```
+Then run tests with just:
+```bash
+bats
 ```
