@@ -131,34 +131,39 @@ load bats-extra
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh generate
     assert_success
-    assert_line --regexp '^strength [[:digit:]]+$'
-    assert_line --regexp '^dexterity [[:digit:]]+$'
-    assert_line --regexp '^constitution [[:digit:]]+$'
-    assert_line --regexp '^intelligence [[:digit:]]+$'
-    assert_line --regexp '^wisdom [[:digit:]]+$'
-    assert_line --regexp '^charisma [[:digit:]]+$'
-    assert_line --regexp '^hitpoints [[:digit:]]+$'
-    # and no other output
-    assert_equal "$(echo "$output" | wc -l)" 7
+    # these don't have to appear in any particular order
+    assert_line --regexp '^strength [[:digit:]]{1,2}$'
+    assert_line --regexp '^dexterity [[:digit:]]{1,2}$'
+    assert_line --regexp '^constitution [[:digit:]]{1,2}$'
+    assert_line --regexp '^intelligence [[:digit:]]{1,2}$'
+    assert_line --regexp '^wisdom [[:digit:]]{1,2}$'
+    assert_line --regexp '^charisma [[:digit:]]{1,2}$'
+    assert_line --regexp '^hitpoints [[:digit:]]{1,2}$'
+    # no other output: `run` populates the `lines` array
+    assert_equal ${#lines[@]} 7
 }
 
 
 # Usage: between $val $low $high
-# Value is between low (inclusive) and high (exclusive).
+# Value is between low (inclusive) and high (inclusive).
 between() { 
-    (( $2 <= $1 && $1 < $3 ))
+    (( $2 <= $1 && $1 <= $3 ))
 }
 
-# random ability is within range"
-@test "validate ability and hitpoint range" {
+# random ability is within range
+@test "validate ability range and hitpoint value" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     for i in {1..50}; do
         while read c v; do
             if [[ $c == "hitpoints" ]]; then
-                assert between "$v" 6 15
+                hits=$v
             else
-                assert between "$v" 3 19
+                assert between "$v" 3 18
+                [[ $c == "constitution" ]] && const=$v
             fi
-        done < <( run bash dnd_character.sh generate )
+        done < <(bash dnd_character.sh generate)
+
+        const_mod=$(bash dnd_character.sh modifier "$const")
+        assert_equal $((10 + const_mod)) "$hits"
     done
 }

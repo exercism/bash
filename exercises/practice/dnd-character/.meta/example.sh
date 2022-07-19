@@ -32,7 +32,7 @@ generate() {
     local a c hp
     for c in "${characteristics[@]}"; do
         a=$(ability)
-        printf "%s %d\n" "$c" "$(ability)"
+        printf "%s %d\n" "$c" "$a"
         [[ $c == constitution ]] && hp=$(( 10 + $(modifier $a) ))
     done
     echo "hitpoints $hp"
