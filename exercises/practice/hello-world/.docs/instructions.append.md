@@ -1,4 +1,6 @@
-# Welcome to Bash!
+# Dummy header
+
+## Welcome to Bash!
 
 Unlike many other languages here, bash is a bit of a special snowflake.
 If you are on a Mac or other unix-y platform, you almost definitely
@@ -11,10 +13,10 @@ multiple versions of bash that can be frustratingly incompatible. Luckily
 we shouldn't hit those differences for these basic examples, and if you
 can get the tests to pass on your machine, we are doing great.
 
-## Installation
+### Installation
 
 Please follow [these instructions](https://exercism.org/docs/tracks/bash/installation) to install `bash` on your system.
 
-## Testing
+### Testing
 
 Please follow [these instructions](https://exercism.org/docs/tracks/bash/tests) to learn more about testing with `bash`.

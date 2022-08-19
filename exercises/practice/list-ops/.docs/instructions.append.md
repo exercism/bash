@@ -1,10 +1,12 @@
-# Library of Functions
+# Dummy header
+
+## Library of Functions
 
 This is the first exercise we've seen where the solution we're writing
 is not a "main" script. We're writing a library to be "source"d into
 other scripts that will invoke our functions.
 
-## Bash namerefs
+### Bash namerefs
 
 This exercise requires the use of `nameref` variables. This requires a bash
 version of at least 4.0. If you're using the default bash on MacOS, you'll

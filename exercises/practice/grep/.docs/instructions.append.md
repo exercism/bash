@@ -1,4 +1,6 @@
-# To `grep` or not to `grep`, that is the question
+# Dummy header
+
+## To `grep` or not to `grep`, that is the question
 
 Although this exercise can be trivially solved by simply passing the
 arguments to `grep`, implement this exercise using bash only.  The aim 
