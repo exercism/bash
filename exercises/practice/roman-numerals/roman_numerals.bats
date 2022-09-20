@@ -136,6 +136,20 @@ load bats-extra
   assert_output "MMM"
 }
 
+@test "3001 is three MMMI" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 3001
+  assert_success
+  assert_output "MMMI"
+}
+
+@test "3999 is three MMMCMXCIX" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 3999
+  assert_success
+  assert_output "MMMCMXCIX"
+}
+
 # testing numbers with all roman numerals below a threshold
 
 @test "16 is XVI" {
