@@ -59,6 +59,14 @@ load bats-extra
     assert_output --partial "$expected"
 }
 
+@test "slice length is way too large" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="slice length cannot be greater than series length"
+    run bash series.sh 12345 42
+    assert_failure
+    assert_output --partial "$expected"
+}
+
 @test "slice length cannot be zero" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="slice length cannot be zero"
