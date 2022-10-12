@@ -38,6 +38,19 @@ load bats-extra
     assert_output "twenty-two"
 }
 
+@test thirty {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash say.sh 30
+    assert_success
+    assert_output "thirty"
+}
+@test "ninety-nine" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash say.sh 99
+    assert_success
+    assert_output "ninety-nine"
+}
+
 @test "one hundred" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 100
@@ -50,6 +63,20 @@ load bats-extra
     run bash say.sh 123
     assert_success
     assert_output "one hundred twenty-three"
+}
+
+@test "two hundred" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash say.sh 200
+    assert_success
+    assert_output "two hundred"
+}
+
+@test "nine hundred ninety-nine" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash say.sh 999
+    assert_success
+    assert_output "nine hundred ninety-nine"
 }
 
 @test "one thousand" {
