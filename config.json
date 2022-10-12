@@ -359,7 +359,7 @@
       },
       {
         "slug": "ocr-numbers",
-        "name": "Ocr Numbers",
+        "name": "OCR Numbers",
         "uuid": "a0ecd91d-43f1-4edb-b1ae-137e40d8982e",
         "practices": [],
         "prerequisites": [],
@@ -485,7 +485,7 @@
       },
       {
         "slug": "run-length-encoding",
-        "name": "Run Length Encoding",
+        "name": "Run-Length Encoding",
         "uuid": "8dd082f5-7e84-4baa-9d7d-147b73b5a9c1",
         "practices": [],
         "prerequisites": [],
@@ -574,7 +574,7 @@
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "ca5139b4-8b2f-44ea-8d83-0b8ca7674436",
         "practices": [],
         "prerequisites": [],
@@ -638,7 +638,7 @@
       },
       {
         "slug": "isbn-verifier",
-        "name": "Isbn Verifier",
+        "name": "ISBN Verifier",
         "uuid": "0bc40512-38ab-4022-a8dc-5a00f5fbb761",
         "practices": [],
         "prerequisites": [],
@@ -651,7 +651,7 @@
       },
       {
         "slug": "pascals-triangle",
-        "name": "Pascals Triangle",
+        "name": "Pascal's Triangle",
         "uuid": "58b54cab-d641-470c-ad92-e9d361def2ff",
         "practices": [],
         "prerequisites": [],
@@ -664,7 +664,7 @@
       },
       {
         "slug": "diffie-hellman",
-        "name": "Diffie Hellman",
+        "name": "Diffie-Hellman",
         "uuid": "14b7ad3a-f3b7-4104-ba4d-3acca25cbb3f",
         "practices": [],
         "prerequisites": [],
@@ -701,7 +701,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "8a62e53e-59c2-42d5-96e5-a0f8f9b5d177",
         "practices": [],
         "prerequisites": [],
@@ -1041,7 +1041,7 @@
       },
       {
         "slug": "sum-of-multiples",
-        "name": "Sum Of Multiples",
+        "name": "Sum of Multiples",
         "uuid": "b65fbe4c-58cc-4564-814d-a83134f927fb",
         "practices": [],
         "prerequisites": [],
@@ -1151,7 +1151,7 @@
       },
       {
         "slug": "list-ops",
-        "name": "List Operations",
+        "name": "List Ops",
         "uuid": "3ce05308-2637-4f85-8e88-51739778605c",
         "practices": [],
         "prerequisites": [],
