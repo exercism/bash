@@ -145,6 +145,15 @@ load bats-extra
   assert_equal "${#lines[@]}" 3
 }
 
+@test "quotation for word with apostrophe" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash word_count.sh "can, can't, 'can't'"
+  assert_success
+  assert_line "can: 1"
+  assert_line "can't: 2"
+  assert_equal "${#lines[@]}" 2
+}
+
 # bash-specific test: Focus the student's attention on the effects of 
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
