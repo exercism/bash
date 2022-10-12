@@ -149,6 +149,15 @@ load bats-extra
     assert_equal "${#lines[@]}" "1"
 }
 
+@test "aces cannot be in the middle of a straight (Q K A 2 3)" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "2C 3D 7H 5H 2S" "QS KH AC 2D 3S"
+    assert_success
+    assert_line "2C 3D 7H 5H 2S"
+    assert_equal "${#lines[@]}" "1"
+}
+
+
 @test "both hands with a straight, tie goes to highest ranked card" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash poker.sh "4S 6C 7S 8D 5H" "5S 7H 8S 9D 6H" 
@@ -237,10 +246,42 @@ load bats-extra
     assert_equal "${#lines[@]}" "1"
 }
 
+@test "aces can end a straight flush (10 J Q K A)" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "KC AH AS AD AC" "10C JC QC KC AC"
+    assert_success
+    assert_line "10C JC QC KC AC"
+    assert_equal "${#lines[@]}" "1"
+}
+
+@test "aces can start a straight flush (A 2 3 4 5)" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "KS AH AS AD AC" "4H AH 3H 2H 5H"
+    assert_success
+    assert_line "4H AH 3H 2H 5H"
+    assert_equal "${#lines[@]}" "1"
+}
+
+@test "aces cannot be in the middle of a straight flush (Q K A 2 3)" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "2C AC QC 10C KC" "QH KH AH 2H 3H"
+    assert_success
+    assert_line "2C AC QC 10C KC"
+    assert_equal "${#lines[@]}" "1"
+}
+
 @test "both hands have straight flush, tie goes to highest-ranked card" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash poker.sh "4H 6H 7H 8H 5H" "5S 7S 8S 9S 6S" 
     assert_success
     assert_line "5S 7S 8S 9S 6S"
+    assert_equal "${#lines[@]}" "1"
+}
+
+@test "even though an ace is usually high, a 5-high straight flush is the lowest-scoring straight flush" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "2H 3H 4H 5H 6H" "4D AD 3D 2D 5D"
+    assert_success
+    assert_line "2H 3H 4H 5H 6H"
     assert_equal "${#lines[@]}" "1"
 }
