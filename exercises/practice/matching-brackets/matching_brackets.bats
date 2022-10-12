@@ -95,6 +95,13 @@ load bats-extra
     assert_output "false"
 }
 
+@test "paired and wrong nested brackets but innermost are correct" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash matching_brackets.sh "[({}])"
+    assert_success 
+    assert_output "false"
+}
+
 @test "paired and incomplete brackets" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{}["
