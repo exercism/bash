@@ -11,6 +11,13 @@ load bats-extra
     assert_output ""
 }
 
+@test "normalization results in empty plaintext" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash crypto_square.sh "... --- ..."
+    assert_success
+    assert_output ""
+}
+
 @test "Lowercase" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "A"
