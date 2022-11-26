@@ -45,7 +45,7 @@ It is more flexible than `echo` and is safer for handling arbitrary inputs.
 However, when using `printf`, one does need to remember to append a newline!
 
 ```bash
-printf 'One for %s, one for me.' "${1-you}"
+printf 'One for %s, one for me.\n' "${1-you}"
 ```
 
 ## Empty strings
@@ -85,7 +85,5 @@ When using the `[` command, it is crucial that variable expansions be quoted.
 [ "$#" -eq 0 ] && name=you || name="$1"
 printf 'One for %s, one for me.\n' "${name}"
 ```
-
-## References
 
 [default-value]: https://wiki.bash-hackers.org/syntax/pe#use_a_default_value
