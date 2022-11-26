@@ -77,8 +77,6 @@ When writing bash scripts, the built-in [`((`][arithmetic] and [`[[`][conditiona
 They are faster as they are built-ins (and not commands).
 Additionally, variables inside `[[...]]` can be unquoted: bash does not perform word splitting or filename expansion inside the conditional construct.
 
-[conditional]: https://wiki.bash-hackers.org/syntax/ccmd/conditional_expression
-[arithmetic]: https://wiki.bash-hackers.org/syntax/ccmd/arithmetic_eval
 When using the `[` command, it is crucial that variable expansions be quoted.
 
 ```bash
@@ -86,4 +84,6 @@ When using the `[` command, it is crucial that variable expansions be quoted.
 printf 'One for %s, one for me.\n' "${name}"
 ```
 
+[arithmetic]: https://wiki.bash-hackers.org/syntax/ccmd/arithmetic_eval
+[conditional]: https://wiki.bash-hackers.org/syntax/ccmd/conditional_expression
 [default-value]: https://wiki.bash-hackers.org/syntax/pe#use_a_default_value
