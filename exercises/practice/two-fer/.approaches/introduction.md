@@ -30,7 +30,7 @@ echo "One for ${name}, one for me."
 ## Shorthand testing
 
 For simple conditionals, the `if` syntax is not needed.
-This is similary to the ternary operator in some ways.
+This is similar to the ternary operator in some ways.
 
 ```bash
 (( $# == 0 )) && name=you || name="$1"
@@ -45,10 +45,10 @@ It is more flexible than `echo` and is safer for handling arbitrary inputs.
 However, when using `printf`, one does need to remember to append a newline!
 
 ```bash
-printf 'One for %s, one for me." "${1-you}"
+printf 'One for %s, one for me.' "${1-you}"
 ```
 
-# Empty strings
+## Empty strings
 
 This exercise does not specify how an empty string should be handled; an empty string as an argument may be used as the name value or the default value may be used.
 
@@ -60,25 +60,30 @@ The empty string can be replaced with the default value, using tests or paramete
 
 ```bash
 [[ -z "$1" ]] && name=you || name="$1"
-printf 'One for %s, one for me." "${name}"
+printf 'One for %s, one for me.\n' "${name}"
 ```
 
 Paramter expansions also support testing for "unset or null" by adding a `:` to the syntax; without the `:`, only an unset variable is replaced with the default value.
 
 ```bash
-printf 'One for %s, one for me." "${1:-you}"
+printf 'One for %s, one for me.\n' "${1:-you}"
 ```
 
 ## POSIX tests
 
 The arithmetic test, `((` and the string test, `[[` are bashisms and not POSIX sh.
-The POSIX test is then `[` command.
-When writing bash scripts, the built-in `((` and `[[` should be prefered; they are faster as they are built-ins (and not commands) and bash does not perform word splitting on them.
+The POSIX test is the `[` command.
+When writing bash scripts, the built-in [`((`][arithmetic] and [`[[`][conditional] should be prefered.
+They are faster as they are built-ins (and not commands).
+Additionally, variables inside `[[...]]` can be unquoted: bash does not perform word splitting or filename expansion inside the conditional construct.
+
+[conditional]: https://wiki.bash-hackers.org/syntax/ccmd/conditional_expression
+[arithmetic]: https://wiki.bash-hackers.org/syntax/ccmd/arithmetic_eval
 When using the `[` command, it is crucial that variable expansions be quoted.
 
 ```bash
 [ "$#" -eq 0 ] && name=you || name="$1"
-printf 'One for %s, one for me." "${name}"
+printf 'One for %s, one for me.\n' "${name}"
 ```
 
 ## References
