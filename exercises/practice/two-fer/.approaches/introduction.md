@@ -56,14 +56,14 @@ On the one hand, the empty string may not be a valid name and the default "you" 
 On the other hand, maybe the empty string is intended.
 Additionally, the input `" "` is generally accepted as a valid input.
 
-The empty string can be replaced with the default value, using tests or parameter expansiions.
+The empty string can be replaced with the default value, using tests or parameter expansions.
 
 ```bash
 [[ -z "$1" ]] && name=you || name="$1"
 printf 'One for %s, one for me.\n' "${name}"
 ```
 
-Paramter expansions also support testing for "unset or null" by adding a `:` to the syntax; without the `:`, only an unset variable is replaced with the default value.
+Parameter expansions also support testing for "unset or null" by adding a `:` to the syntax; without the `:`, only an unset variable is replaced with the default value.
 
 ```bash
 printf 'One for %s, one for me.\n' "${1:-you}"
