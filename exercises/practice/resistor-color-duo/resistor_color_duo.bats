@@ -46,6 +46,20 @@ load bats-extra
     assert_output --partial "invalid color"
 }
 
+@test "one valid color and one invalid color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash resistor_color_duo.sh blue foo
+    assert_failure
+    assert_output --partial "invalid color"
+}
+
+@test "one invalid color and one valid color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash resistor_color_duo.sh foo blue
+    assert_failure
+    assert_output --partial "invalid color"
+}
+
 @test "ignore too many colors" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_duo.sh green brown orange
