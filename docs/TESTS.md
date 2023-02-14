@@ -95,7 +95,7 @@ Usage: bats [-cr] [-f <regex>] [-j <jobs>] [-p | -t] <test>...
 
 ```
 $ git clone https://github.com/bats-core/bats-core.git
-$ cd bats
+$ cd bats-core
 $ ./install.sh $HOME
 ```
 
