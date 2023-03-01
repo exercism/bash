@@ -18,7 +18,7 @@ epoch=1234567890
 printf '%(%Y-%m-%d %H:%M:%S)T\n' "$epoch"
 # ==> 2009-02-13 18:31:30
 
-# Even in different timezones
+# bash uses the `TZ` environment variable for the timezone.
 
 TZ=Asia/Kolkata printf '%(%Y-%m-%d %H:%M:%S)T\n' "$epoch"
 # ==> 2009-02-14 05:01:30
