@@ -6,7 +6,7 @@
 This exercise requires you to call out to an external utility.
 
 * The GNU `date` command's `-d` option can parse [a wide variety of formats][gnu-date].
-* If you're on a Mac, the [BSD `date` command][bsd-date] and its `-f` option.
+* For Mac users, see the [BSD `date` command][bsd-date] and its `-f` option.
 * Perl is widely available, and it's [`Time::Piece` module][time-piece] is suitable.
 
 bash can **format** dates though.
