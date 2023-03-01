@@ -3,7 +3,7 @@
 ## How to solve with bash
 
 `bash` does not have any builtin ways to **parse** datetime strings.
-This exercise requires you to call out to some external utility.
+This exercise requires you to call out to an external utility.
 
 * The GNU `date` command's `-d` option can parse [a wide variety of formats][gnu-date].
 * If you're on a Mac, the [BSD `date` command][bsd-date] and its `-f` option.
