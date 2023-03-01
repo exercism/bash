@@ -7,7 +7,7 @@ This exercise requires you to call out to an external utility.
 
 * The GNU `date` command's `-d` option can parse [a wide variety of formats][gnu-date].
 * For Mac users, see the [BSD `date` command][bsd-date] and its `-f` option.
-* Perl is widely available, and it's [`Time::Piece` module][time-piece] is suitable.
+* Perl is widely available, and its [`Time::Piece` module][time-piece] is can be used to parse timestamps.
 
 bash can **format** dates though.
 Given an integer time value (an epoch time value), [the `printf` `%()T` formatter][bash-printf] can be given a "strftime"-style format string.
