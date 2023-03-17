@@ -104,3 +104,11 @@ load bats-extra
     assert_failure
     assert_output --partial "first arg should be 'smallest' or 'largest'"
 }
+
+@test "smallest product does not use the smallest factor" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash palindrome_products.sh smallest 3215 4000
+    assert_success
+    assert_output --regexp "^10988901:"     # starts with the palindrome
+    assert_output --partial "[3297, 3333]"  # contains the factors
+}
