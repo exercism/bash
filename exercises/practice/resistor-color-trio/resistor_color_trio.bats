@@ -48,9 +48,9 @@ load bats-extra
 
 @test "Blue and violet and grey" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash resistor_color_trio.sh "blue" "violet" "grey"
+    run bash resistor_color_trio.sh "blue" "violet" "blue"
     assert_success
-    assert_output "6700 megaohms"
+    assert_output "67 megaohms"
 }
 
 @test "Minimum possible value" {
