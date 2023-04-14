@@ -9,7 +9,6 @@ does have a fairly steep learning curve.
 
 * Additional guides, information, and examples can be found at 
     * [Greg's Wiki](http://mywiki.wooledge.org/BashGuide),
-    * the [Bash Hackers Wiki](https://wiki.bash-hackers.org),
     * the [bash tag info page](https://stackoverflow.com/tags/bash/info) on
       Stack Overflow,
     * and expanding on the man page, the [GNU Bash Manual](http://gnu.org/s/bash/manual)
