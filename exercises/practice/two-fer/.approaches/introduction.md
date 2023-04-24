@@ -6,7 +6,7 @@ This exercise requires formatting a string with an optional name argument and a 
 
 ## Default Value Parameter Expansion
 
-The most idiomatic approach is to make use of the [default value paramter expansion][default-value].
+The most idiomatic approach is to make use of the [default value parameter expansion][default-value].
 
 ```bash
 echo "One for ${1-you}, one for me."
@@ -73,7 +73,7 @@ printf 'One for %s, one for me.\n' "${1:-you}"
 
 The arithmetic test, `((` and the string test, `[[` are bashisms and not POSIX sh.
 The POSIX test is the `[` command.
-When writing bash scripts, the built-in [`((`][arithmetic] and [`[[`][conditional] should be prefered.
+When writing bash scripts, the built-in [`((`][arithmetic] and [`[[`][conditional] should be preferred.
 They are faster as they are built-ins (and not commands).
 Additionally, variables inside `[[...]]` can be unquoted: bash does not perform word splitting or filename expansion inside the conditional construct.
 
