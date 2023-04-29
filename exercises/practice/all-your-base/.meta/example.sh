@@ -21,6 +21,11 @@ main() {
         decimal=$(( from_base * decimal + digit ))
     done
 
+    if (( $decimal == 0 )); then
+        echo 0
+        return 0
+    fi
+
     digits=()
     while (( decimal > 0 )); do
         digit=$(( decimal % to_base ))
