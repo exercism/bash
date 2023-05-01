@@ -63,7 +63,7 @@ load bats-extra
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "" 10
     assert_success
-    assert_output ""
+    assert_output "0"
 }
 
 @test 'single zero' {
