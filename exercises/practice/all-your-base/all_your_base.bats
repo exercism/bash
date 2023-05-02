@@ -63,21 +63,21 @@ load bats-extra
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "" 10
     assert_success
-    assert_output ""
+    assert_output "0"
 }
 
 @test 'single zero' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "0" 2
     assert_success
-    assert_output ""
+    assert_output "0"
 }
 
 @test 'multiple zeroes' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "0 0 0" 2
     assert_success
-    assert_output ""
+    assert_output "0"
 }
 
 @test 'leading zeros' {
