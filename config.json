@@ -16,7 +16,7 @@
     "highlightjs_language": "bash"
   },
   "test_runner": {
-    "average_run_time": 2.0
+    "average_run_time": 2
   },
   "files": {
     "solution": [
@@ -1168,7 +1168,38 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Automation",
+      "content": "Bash scripts are excellent for automating repetitive tasks and workflows. They can be used to automate system administration tasks, batch processing of files, backups, data manipulation, and more.",
+      "icon": "fast"
+    },
+    {
+      "title": "System Administration",
+      "content": "Bash is widely used for system administration on Unix-like operating systems. It allows administrators to write scripts for configuring and managing servers, monitoring system resources, handling log files, managing user accounts, and performing system maintenance tasks.",
+      "icon": "widely-used"
+    },
+    {
+      "title": "Command-line Utilities",
+      "content": "Bash scripts can be used to create command-line utilities or wrappers around existing command-line tools. These scripts can combine multiple commands, add additional functionality, and provide a user-friendly interface for performing complex operations.",
+      "icon": "embeddable"
+    },
+    {
+      "title": "Deployment and Configuration Management",
+      "content": "Bash scripting plays a significant role in deploying applications and managing configurations. It can be used to write deployment scripts that automate the setup and configuration of software applications on servers or cloud environments.",
+      "icon": "general-purpose"
+    },
+    {
+      "title": "Data Processing and Manipulation",
+      "content": "Bash provides powerful string manipulation capabilities, command execution, and integration with other command-line tools. This makes it useful for processing and manipulating data, such as parsing log files, extracting information from structured or unstructured data, and performing text processing tasks.",
+      "icon": "powerful"
+    },
+    {
+      "title": "Task Scheduling",
+      "content": "Bash scripts can be used with scheduling tools like cron to automate tasks at specific intervals. This allows for the automation of periodic tasks, such as generating reports, performing backups, or running maintenance scripts.",
+      "icon": "tooling"
+    }
+  ],
   "tags": [
     "used_for/scripts",
     "paradigm/procedural",
