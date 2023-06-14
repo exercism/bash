@@ -16,7 +16,7 @@
     "highlightjs_language": "bash"
   },
   "test_runner": {
-    "average_run_time": 2
+    "average_run_time": 2.0
   },
   "files": {
     "solution": [
