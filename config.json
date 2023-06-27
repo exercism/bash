@@ -1195,8 +1195,8 @@
       "icon": "powerful"
     },
     {
-      "title": "Task Scheduling",
-      "content": "Bash scripts can be used with scheduling tools like cron to automate tasks at specific intervals.",
+      "title": "Glue Code",
+      "content": "Bash pipelines enable seamless data flow between commands, chaining them together effortlessly.",
       "icon": "tooling"
     }
   ],
