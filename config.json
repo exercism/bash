@@ -1168,7 +1168,38 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Automation",
+      "content": "Bash scripts are excellent for automating repetitive tasks and workflows.",
+      "icon": "fast"
+    },
+    {
+      "title": "System Administration",
+      "content": "Widely used for system administration on Unix-like operating systems.",
+      "icon": "widely-used"
+    },
+    {
+      "title": "Command-line Utilities",
+      "content": "Bash scripts can be used to create cli utilities or wrappers around existing cli tools.",
+      "icon": "embeddable"
+    },
+    {
+      "title": "Deployment",
+      "content": "Bash scripting plays a significant role in deploying applications and managing configurations.",
+      "icon": "general-purpose"
+    },
+    {
+      "title": "Data Processing",
+      "content": "Bash provides powerful string manipulation capabilities and integration with other cli tools.",
+      "icon": "powerful"
+    },
+    {
+      "title": "Glue Code",
+      "content": "Bash pipelines enable seamless data flow between commands, chaining them together effortlessly.",
+      "icon": "tooling"
+    }
+  ],
   "tags": [
     "used_for/scripts",
     "paradigm/procedural",
