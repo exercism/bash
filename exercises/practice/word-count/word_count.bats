@@ -45,7 +45,7 @@ load bats-extra
 
 @test "handles expanded lists" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash word_count.sh "one,\ntwo,\nthree"
+  run bash word_count.sh $'one,\ntwo,\nthree'
   assert_success
   assert_line "one: 1"
   assert_line "two: 1"
