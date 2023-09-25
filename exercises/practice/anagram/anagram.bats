@@ -75,7 +75,7 @@ load bats-extra
 
 @test "does not detect a anagram if the original word is repeated" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash anagram.sh "go" "go Go GO"
+  run bash anagram.sh "go" "goGoGO"
   assert_success
   refute_output
 }
