@@ -1,9 +1,17 @@
 {
-  "authors": ["glennj"],
+  "authors": [
+    "glennj"
+  ],
   "files": {
-    "solution": ["pop_count.sh"],
-    "test": ["pop_count.bats"],
-    "example": [".meta/example.sh"]
+    "solution": [
+      "pop_count.sh"
+    ],
+    "test": [
+      "pop_count.bats"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
   },
   "blurb": "Count the 1 bits in a number",
   "source": "Christian Willner, Eric Willigers",
