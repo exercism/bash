@@ -1,0 +1,11 @@
+{
+  "authors": ["glennj"],
+  "files": {
+    "solution": ["pop_count.sh"],
+    "test": ["pop_count.bats"],
+    "example": [".meta/example.sh"]
+  },
+  "blurb": "Count the 1 bits in a number",
+  "source": "Christian Willner, Eric Willigers",
+  "source_url": "https://forum.exercism.org/t/new-exercise-suggestion-pop-count/7632/5"
+}
