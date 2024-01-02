@@ -53,6 +53,14 @@ load bats-extra
     assert_equal "${#lines[@]}" "1"
 }
 
+@test "both hands have the same pairs, high card wins" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "4H 4S AH JC 3D" "4C 4D AS 5D 6C"
+    assert_success
+    assert_line "4H 4S AH JC 3D"
+    assert_equal "${#lines[@]}" "1"
+}
+
 @test "two pairs beats one pair" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash poker.sh "2S 8H 6S 8D JH" "4S 5H 4C 8C 5C" 
@@ -119,7 +127,7 @@ load bats-extra
 
 @test "with multiple decks, two players can have same three of a kind, ties go to highest remaining cards" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash poker.sh "4S AH AS 7C AD" "4S AH AS 8C AD" 
+    run bash poker.sh "5S AH AS 7C AD" "4S AH AS 8C AD"
     assert_success
     assert_line "4S AH AS 8C AD"
     assert_equal "${#lines[@]}" "1"
@@ -184,9 +192,9 @@ load bats-extra
 
 @test "both hands have a flush, tie goes to high card, down to the last one if necessary" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash poker.sh "4H 7H 8H 9H 6H" "2S 4S 5S 6S 7S" 
+    run bash poker.sh "2H 7H 8H 9H 6H" "3S 5S 6S 7S 8S"
     assert_success
-    assert_line "4H 7H 8H 9H 6H"
+    assert_line "2H 7H 8H 9H 6H"
     assert_equal "${#lines[@]}" "1"
 }
 
@@ -283,5 +291,13 @@ load bats-extra
     run bash poker.sh "2H 3H 4H 5H 6H" "4D AD 3D 2D 5D"
     assert_success
     assert_line "2H 3H 4H 5H 6H"
+    assert_equal "${#lines[@]}" "1"
+}
+
+@test "winning high card hand also has the lowest card" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash poker.sh "2S 5H 6S 8D 7H" "3S 4D 6D 8C 7S"
+    assert_success
+    assert_line "2S 5H 6S 8D 7H"
     assert_equal "${#lines[@]}" "1"
 }
