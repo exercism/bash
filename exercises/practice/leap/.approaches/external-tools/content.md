@@ -54,7 +54,7 @@ bash: 08: value too great for base (error token is "08")
 
 Bash treats numbers starting with zero as octal, and `8` is not a valid octal digit.
 
-Workarounds include using `%_d` or `%-d` to avoid the leading zero, or specify base-10 in the arithmetic 
+Workarounds include using `%_d` or `%-d` to avoid the leading zero, or specify base-10 in the arithmetic.
 
 ```bash
 next_day=$(( 10#$day + 1 ))
