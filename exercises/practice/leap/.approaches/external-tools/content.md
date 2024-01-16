@@ -31,7 +31,7 @@ From a performance perspective, it takes more work (than builtin addition) to:
 * connecting the standard I/O channels
 * waiting for the process to complete, capturing the exit status.
 
-Particularly inside of a loop, you want to be careful about invoking external tools.
+Particularly inside of a loop, be careful about invoking external tools as the cost can add up.
 Over-reliance on external tools can take a job from completing in seconds to completing in minutes (or worse).
 
 ~~~~exercism/caution
