@@ -47,5 +47,22 @@ The result of the arithmetic expression `year % 400 == 0` will be `1` if true an
 The value is negated to correspond to the shell's return statuses: `0` is "success" and `1` is "failure.
 Then the function can be used as a "Boolean condition" in the `if` statement.
 
+The function's `return` statements can be written as
+
+```bash
+(( year % 400 != 0 ))
+# or even
+(( year % 400 ))
+```
+
+Without an explicit `return`, the function returns with the status of the last command executed.
+The `((` construct will be the last command.
+
+~~~~exercism/note
+It is unfortunate that the meaning of the shell's exit status (`0` is success) is opposite to the arithmetic meaning of zero (failure, the condition is not met).
+In the author's opinion, the cognitive dissonance of negating the condition reduces readability, but using `year % 400 != 0`, is worse.
+I prefer the more explicit version with the `return` statement and the explicit conversion of the arithmetic result to a return status.
+~~~~
+
 [ternary-operator]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Arithmetic
 [remainder-operator]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Arithmetic

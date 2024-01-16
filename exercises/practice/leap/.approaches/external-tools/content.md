@@ -27,9 +27,9 @@ Working with external tools like this is what shells were built to do.
 
 From a performance perspective, it takes more work (than builtin addition) to:
 
-* spawn a child process (including copying the environment)
-* connecting the standard I/O channels
-* waiting for the process to complete, capturing the exit status.
+* copy the environment and spawn a child process
+* connect the standard I/O channels
+* wait for the process to complete and capture the exit status.
 
 Particularly inside of a loop, be careful about invoking external tools as the cost can add up.
 Over-reliance on external tools can take a job from completing in seconds to completing in minutes (or worse).
@@ -54,7 +54,7 @@ bash: 08: value too great for base (error token is "08")
 
 Bash treats numbers starting with zero as octal, and `8` is not a valid octal digit.
 
-Workarounds include using `%_d` or `%-d` to avoid the leading zero, or specify base-10 in the arithmetic.
+Workarounds include using `%_d` or `%-d` to avoid the leading zero, or specify base-10 in the arithmetic (the `$` is required in this case).
 
 ```bash
 next_day=$(( 10#$day + 1 ))

@@ -28,7 +28,7 @@
       "uuid": "c28ae2d8-9f8a-4359-b687-229b42573eef",
       "slug": "external-tools",
       "title": "External tools",
-      "blurb": "Use external tools to do DateTime addition.",
+      "blurb": "Use external tools to do date addition.",
       "authors": [
         "glennj"
       ]
