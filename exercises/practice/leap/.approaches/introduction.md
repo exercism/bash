@@ -50,7 +50,7 @@ Add a day to February 28th for the year and see if the new day is the 29th. For 
 
 ## Which approach to use?
 
-- The chain of boolean expressions should be the most efficient, as it proceeds from the most likely to least likely conditions.
+- The chain of Boolean expressions should be the most efficient, as it proceeds from the most likely to least likely conditions.
 It has a maximum of three checks.
 It is the most efficient approach when testing a year that is not evenly divisible by `100` and is not a leap year, since the most likely outcome is eliminated first.
 - The ternary operator has a maximum of only two checks, but it starts from a less likely condition.
