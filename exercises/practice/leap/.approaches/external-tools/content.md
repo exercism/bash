@@ -1,7 +1,6 @@
 # External Tools
 
-Calling external tools is a natural way to solve problems in bash:
-call out to a specialized tool, capture the output, and process it.
+Calling external tools is a natural way to solve problems in bash: call out to a specialized tool, capture the output, and process it.
 
 Using GNU `date` to find the date of the day after February 28:
 
