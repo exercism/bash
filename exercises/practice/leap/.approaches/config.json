@@ -19,7 +19,7 @@
       "uuid": "8a562c42-3c04-4833-8322-bc0323539954",
       "slug": "ternary-operator",
       "title": "Ternary operator",
-      "blurb": "Use a ternary operator of boolean expressions.",
+      "blurb": "Use a ternary operator of Boolean expressions.",
       "authors": [
         "glennj"
       ]
