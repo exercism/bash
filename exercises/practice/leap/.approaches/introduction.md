@@ -6,7 +6,7 @@ You can use a chain of Boolean expressions to test the conditions.
 ## General guidance
 
 The key to solving Leap is to know if the year is evenly divisible by `4`, `100` and `400`.
-For determining that, you will use the [modulo operator][modulo-operator].
+To determine that, you will use the [modulo operator][modulo-operator].
 
 ## Approach: Arithmetic expression: chain of Boolean expressions
 
