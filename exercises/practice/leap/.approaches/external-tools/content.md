@@ -28,7 +28,7 @@ Working with external tools like this is really what shells were built to do.
 From a performance perspective, it takes more work (than builtin addition) to:
 
 * spawn a child process (including copying the environment)
-* connecting the standart I/O channels
+* connecting the standard I/O channels
 * waiting for the process to complete, capturing the exit status.
 
 Particularly inside of a loop, you want to be careful about invoking external tools.
