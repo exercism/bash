@@ -36,7 +36,7 @@ For more information, check the [Ternary operator approach][approach-ternary-ope
 
 ## Approach: External tools
 
-bash is naturally a "glue" language, making external tools easy to use.
+Bash is naturally a "glue" language, making external tools easy to use.
 Calling out to a tool that can manipulate dates would be another approach to take.
 GNU `date` is an appropriate tool for this problem.
 
