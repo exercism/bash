@@ -37,7 +37,7 @@ If the result is zero, the return status is `1` ("false").
 
 Inside an arithmetic expression, variables can be used without the dollar sign.
 
-See [Conditional Constructs][conditional-constructs] in the bash manual.
+See [the Conditional Constructs section][conditional-constructs] in the Bash manual.
 
 [conditional-constructs]: https://www.gnu.org/software/bash/manual/bash.html#Conditional-Constructs
 
