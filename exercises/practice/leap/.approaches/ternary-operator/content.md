@@ -24,7 +24,7 @@ If the year is _not_ evenly divisible by `100`, then the expression is `false`, 
 | 2000 |           true |                 true |    not evaluated |         true |
 | 1900 |           true |                false |    not evaluated |        false |
 
-Although it uses a maximum of only two checks, the ternary operator tests an outlier condition first, making it less efficient than another approach that would first test if the year is evenly divisible by `4`, which is more likely than the year being evenly divisible by `100`.
+Although it uses a maximum of two checks, the ternary operator tests an outlier condition first, making it less efficient than another approach that would first test if the year is evenly divisible by `4`, which is more likely than the year being evenly divisible by `100`.
 
 ## Refactoring for readability
 
