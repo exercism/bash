@@ -23,7 +23,7 @@ Or, more concise but less readable:
     || echo false
 ```
 
-Working with external tools like this is really what shells were built to do.
+Working with external tools like this is what shells were built to do.
 
 From a performance perspective, it takes more work (than builtin addition) to:
 
