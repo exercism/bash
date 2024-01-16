@@ -1,7 +1,7 @@
 # Introduction
 
 There are various idiomatic approaches to solve Leap.
-You can use a chain of boolean expressions to test the conditions.
+You can use a chain of Boolean expressions to test the conditions.
 
 ## General guidance
 
