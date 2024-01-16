@@ -1,0 +1,6 @@
+year=$1
+if (( year % 100 == 0 ? year % 400 == 0 : year % 4 == 0 )); then
+    echo true
+else
+    echo false
+fi 
