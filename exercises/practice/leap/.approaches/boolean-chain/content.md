@@ -24,7 +24,7 @@ logical AND `&&` has a higher precedence than logical OR `||`.
 | 1900 |           true |                false |            false |        false |
 
 By situationally skipping some of the tests, we can efficiently calculate the result with fewer operations.
-Although in an interpreted language like bash, that is less crucial than it might be in another language.
+Although in an interpreted language like Bash, that is less crucial than it might be in another language.
 
 ~~~~exercism/note
 The `if` command takes a _list of commands_ to use as the boolean conditions:
