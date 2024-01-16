@@ -13,7 +13,7 @@
       "uuid": "4e53dfc9-2662-4671-bb00-b2d927569070",
       "slug": "boolean-chain",
       "title": "Boolean chain",
-      "blurb": "Use a chain of boolean expressions.",
+      "blurb": "Use a chain of Boolean expressions.",
       "authors": [
         "glennj"
       ]
