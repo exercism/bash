@@ -7,7 +7,7 @@ Using GNU `date` to find the date of the day after February 28:
 ```bash
 year=$1
 next_day=$(date -d "$year-02-28 + 1 day" '+%d')
-if [[ $next_day == "29" ]]; then
+if [[ $next_day == 29 ]]; then
     echo true
 else
     echo false
@@ -17,7 +17,7 @@ fi
 Or, more concise but less readable:
 
 ```bash
-[[ $(date -d "$1-02-28 + 1 day" '+%d') == "29" ]] \
+[[ $(date -d "$1-02-28 + 1 day" '+%d') == 29 ]] \
     && echo true \
     || echo false
 ```

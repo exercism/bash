@@ -45,7 +45,7 @@ is_leap "$1" && echo true || echo false
 
 The result of the arithmetic expression `year % 400 == 0` will be `1` if true and `0` if false.
 The value is negated to correspond to the shell's return statuses: `0` is "success" and `1` is "failure.
-Then the function can be used as a "Boolean condition" in the `if` statement.
+Then the function can be used to branch between the "true" and "false" output.
 
 The function's `return` statements can be written as
 
