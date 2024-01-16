@@ -32,7 +32,7 @@ From a performance perspective, it takes more work (than builtin addition) to:
 * waiting for the process to complete, capturing the exit status.
 
 Particularly inside of a loop, you want to be careful about invoking external tools.
-over-reliance on external tools can take a job from completing in seconds to completing in minutes (or worse).
+Over-reliance on external tools can take a job from completing in seconds to completing in minutes (or worse).
 
 ~~~~exercism/caution
 Take care about using parts of dates in shell arithmetic.
