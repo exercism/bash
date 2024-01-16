@@ -46,7 +46,8 @@ next_day=$(date -d "$year-02-28 + 1 day" '+%d')
 [[ $next_day == "29" ]] && echo true || echo false
 ```
 
-Add a day to February 28th for the year and see if the new day is the 29th. For more information, see the [external tools approach][approach-external-tools].
+Add a day to February 28th for the year and see if the new day is the 29th.
+For more information, see the [external tools approach][approach-external-tools].
 
 ## Which approach to use?
 
