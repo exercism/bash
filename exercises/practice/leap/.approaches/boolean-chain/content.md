@@ -28,8 +28,8 @@ Although in an interpreted language like Bash, that is less crucial than it migh
 
 ~~~~exercism/note
 The `if` command takes a _list of commands_ to use as the boolean conditions:
-if the command list exits with a zero return status, the "true" branch is followed;
-any other return status folls the "false" branch.
+if the command list exits with a zero return status, the "true" branch is taken;
+any other return status takes the "false" branch.
 
 The double parentheses is is a builtin construct that can be used as a command.
 It is known as the arithmetic conditional construct.
