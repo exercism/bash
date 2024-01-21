@@ -84,7 +84,7 @@ What are we doing there?
         More exactly, characters in `$IFS` are removed from the start and end of the text that `read` captures.
         By default, IFS contains space, tab and newline.
         Our goal is to read each character of the string, including whitespace.
-        That empty assignment assigns the empty string to IFS _only for the duration of the `read` command_ so that whitespace characters are not treated specially.
+        The empty assignment assigns the empty string to IFS _only for the duration of the `read` command_ so that whitespace characters are not treated specially.
     - `-d ""`: Normally, `read` will read up to a newline and stop there.
         We typically use a while-read loop to read lines from a file.
         But here, we want every character in the string including newlines.
