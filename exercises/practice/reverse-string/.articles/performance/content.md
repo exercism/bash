@@ -79,7 +79,7 @@ What are we doing there?
 - `< <(printf "%s" "%string)` is redirecting (`<`) a [process substitution][process-subst] (`<(...)`).
     We could use a [here-string][here-string] (`<<< "$string"`), but that appends a newline.
     Using `printf` outputs the string without adding a trailing newline.
-- `IFS= read -d "" -r -n 1 char` OK there's a lot going on there with this [`read` command][read]:
+- `IFS= read -d "" -r -n 1 char`: There's a lot going on there with this [`read` command][read].
     - `IFS=`: Normally, `read` will trim leading and trailing whitespace.
         More exactly, characters in `$IFS` are removed from the start and end of the text that `read` captures.
         By default, IFS contains space, tab and newline.

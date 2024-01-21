@@ -21,7 +21,7 @@ eerht
 There are other ways to do this, but none are a simple as `rev`.
 
 ```bash
-echo "$string" | grep -o . | tac | paste -s -d ''
-echo "$string" | perl -lne 'print scalar reverse'
+grep -o . <<< "$string" | tac | paste -s -d ''
+perl -lne 'print scalar reverse' <<< "$string"
 # etc
 ```
