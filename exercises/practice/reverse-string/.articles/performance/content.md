@@ -29,7 +29,7 @@ sys     0m0.000s
 ```
 
 If we can loop backwards, we don't even need to save the length to a variable.
-We even get a tiny improvement since bash does not need to access the variable contents for each iteration.
+We get a tiny improvement since bash does not need to access the variable contents for each iteration.
 
 ```bash
 $ time for ((i = ${#string} - 1; i >= 0; i--)); do true; done
