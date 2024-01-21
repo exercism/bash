@@ -1,0 +1,13 @@
+{
+  "articles": [
+    {
+      "uuid": "b8011164-e0fb-4fc3-ba8d-1b8a67f4ee4a",
+      "slug": "performance",
+      "title": "Performance considerations",
+      "blurb": "Compare the performances of the various reverse-string approaches.",
+      "authors": [
+        "glennj"
+      ]
+    }
+  ]
+}

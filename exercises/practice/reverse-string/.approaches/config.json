@@ -1,0 +1,28 @@
+{
+  "introduction": {
+    "authors": [
+      "glennj"
+    ],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "351af57f-efd4-4a8b-967b-e635428937da",
+      "slug": "external-tools",
+      "title": "External tools",
+      "blurb": "Use external tools to reverse a string.",
+      "authors": [
+        "glennj"
+      ]
+    },
+    {
+      "uuid": "4363f61c-5caa-4b52-abe9-30ae671817fc",
+      "slug": "loops",
+      "title": "Looping",
+      "blurb": "Loop over the indices of the string.",
+      "authors": [
+        "glennj"
+      ]
+    }
+  ]
+}
