@@ -37,7 +37,7 @@ For more details, go to the [Looping approach][app-loop].
 ## Which approach to use?
 
 Calling out to `rev` makes this exercise extremely trivial.
-In a work environment, it's exactly the approach to take.
+In a production environment, it's exactly the right approach to take.
 
 If you're interested in learning about bash loops and parameter expansion, experimenting with the loop approach is more interesting.
 
