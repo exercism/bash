@@ -28,7 +28,7 @@ user    0m0.159s
 sys     0m0.000s
 ```
 
-If we can loop backwards, don't even need the variable.
+If we can loop backwards, we don't even need to save the length to a variable.
 We even get a tiny improvement since bash does not need to access the variable contents for each iteration.
 
 ```bash
