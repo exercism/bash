@@ -1,7 +1,8 @@
 # Performance
 
 We usually don't care that much about performance with shell scripts.
-But when we can avoid doing something we know is slow, especially if this slow thing is done repeatedly inside a loop, avoid it.
+When we know something is slow, we can avoid it.
+This matters much more when the operation is done inside loop.
 
 ## String length is slow
 
