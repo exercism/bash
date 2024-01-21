@@ -41,7 +41,7 @@ sys     0m0.000s
 
 ## Substrings can be slow
 
-Whether we go backwards or forwards, we are still having to extract the character at the given index.
+Whether we go backwards or forwards, we still have to extract the character at the given index.
 Re-using our 32,767 character string:
 
 ```bash
