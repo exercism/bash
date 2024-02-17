@@ -33,7 +33,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -1172,10 +1171,17 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
+      },
+      {
+        "slug": "circular-buffer",
+        "name": "Circular Buffer",
+        "uuid": "c423440e-d374-462e-baa9-e81dcbc085f3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
       }
     ]
   },
-  "concepts": [],
   "key_features": [
     {
       "title": "Automation",
@@ -1209,12 +1215,12 @@
     }
   ],
   "tags": [
-    "used_for/scripts",
-    "paradigm/procedural",
     "execution_mode/interpreted",
-    "typing/weak",
+    "paradigm/procedural",
     "platform/linux",
     "platform/mac",
-    "platform/windows"
+    "platform/windows",
+    "typing/weak",
+    "used_for/scripts"
   ]
 }
