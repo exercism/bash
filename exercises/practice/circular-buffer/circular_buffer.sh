@@ -39,16 +39,10 @@ buffer::read() {
 }
 
 # Write a new value into the buffer.
-# Return a failure status if the buffer is full, otherwise return success.
+# Accept the `-f` option to force write ("overwrite").
+# Return a failure status if the buffer is full and `-f` is not given,
+# otherwise return success.
 buffer::write() {
-    local name=$1 item=$2
-    echo "Implement me" >&2
-    exit 1
-}
-
-# Write a new value into the buffer.
-# If the buffer is full, overwrite the oldest element.
-buffer::overwrite() {
     local name=$1 item=$2
     echo "Implement me" >&2
     exit 1
