@@ -190,7 +190,7 @@ setup() { source circular_buffer.sh; }
     buffer::write buff 1        && result=ok || result=fail
     assert_equal "$result" ok
 
-    buffer::overwrite buff 2    && result=ok || result=fail
+    buffer::write -f buff 2     && result=ok || result=fail
     assert_equal "$result" ok
 
     buffer::read buff value     && result=ok || result=fail
@@ -213,7 +213,7 @@ setup() { source circular_buffer.sh; }
     buffer::write buff 2        && result=ok || result=fail
     assert_equal "$result" ok
 
-    buffer::overwrite buff 3    && result=ok || result=fail
+    buffer::write -f buff 3     && result=ok || result=fail
     assert_equal "$result" ok
 
     buffer::read buff value     && result=ok || result=fail
@@ -244,7 +244,7 @@ setup() { source circular_buffer.sh; }
 
     buffer::write buff 4        && result=ok || result=fail
     assert_equal "$result" ok
-    buffer::overwrite buff 5    && result=ok || result=fail
+    buffer::write -f buff 5     && result=ok || result=fail
     assert_equal "$result" ok
 
     buffer::read buff value     && result=ok || result=fail
@@ -272,9 +272,9 @@ setup() { source circular_buffer.sh; }
     assert_equal "$result" ok
     buffer::write buff 2        && result=ok || result=fail
     assert_equal "$result" ok
-    buffer::overwrite buff 3    && result=ok || result=fail
+    buffer::write -f buff 3     && result=ok || result=fail
     assert_equal "$result" ok
-    buffer::overwrite buff 4    && result=ok || result=fail
+    buffer::write -f buff 4     && result=ok || result=fail
     assert_equal "$result" ok
 
     buffer::read buff value     && result=ok || result=fail

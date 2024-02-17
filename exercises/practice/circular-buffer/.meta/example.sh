@@ -67,9 +67,27 @@ buffer::read() {
 }
 
 buffer::write() {
+    local overwrite=false
+    # To use `getopts` in a function, these vars must be local.
+    local OPTIND OPTARG
+    while getopts :f opt; do
+        case $opt in
+            f) overwrite=true ;;
+            '?') return 2 ;;
+        esac
+    done
+    shift $((OPTIND - 1))
+
     local name=$1 item=$2
     if buffer::is_full "$name"; then
-        return 1
+        if $overwrite; then 
+            # Read to free up a cell.
+            # shellcheck disable=SC2034
+            local tmp
+            buffer::read "$name" tmp
+        else
+            return 1
+        fi
     fi
 
     local idx=${_buffer_data[write,$name]}
@@ -81,14 +99,4 @@ buffer::write() {
 buffer::incr_pointer() {
     local name=$1 p=$2
     _buffer_data[$p,$name]=$(( (_buffer_data[$p,$name] + 1) % _buffer_data[size,$name] ))
-}
-
-buffer::overwrite() {
-    local name=$1 item=$2
-    if buffer::is_full "$name"; then
-        # shellcheck disable=SC2034
-        local tmp
-        buffer::read "$name" tmp
-    fi
-    buffer::write "$name" "$item"
 }
