@@ -33,7 +33,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -1173,9 +1172,44 @@
         "prerequisites": [],
         "difficulty": 3
       }
+    ],
+    "foregone": [
+      "alphametics",
+      "bank-account",
+      "binary-search-tree",
+      "book-store",
+      "circular-buffer",
+      "complex-numbers",
+      "connect",
+      "custom-set",
+      "dominoes",
+      "dot-dsl",
+      "etl",
+      "flatten-array",
+      "go-counting",
+      "grade-school",
+      "high-scores",
+      "killer-sudoku-helper",
+      "ledger",
+      "lens-person",
+      "linked-list",
+      "matrix",
+      "micro-blog",
+      "paasio",
+      "parallel-letter-frequency",
+      "pov",
+      "react",
+      "rest-api",
+      "saddle-points",
+      "sgf-parsing",
+      "simple-linked-list",
+      "strain",
+      "tree-building",
+      "word-search",
+      "zebra-puzzle",
+      "zipper"
     ]
   },
-  "concepts": [],
   "key_features": [
     {
       "title": "Automation",
@@ -1209,12 +1243,12 @@
     }
   ],
   "tags": [
-    "used_for/scripts",
-    "paradigm/procedural",
     "execution_mode/interpreted",
-    "typing/weak",
+    "paradigm/procedural",
     "platform/linux",
     "platform/mac",
-    "platform/windows"
+    "platform/windows",
+    "typing/weak",
+    "used_for/scripts"
   ]
 }
