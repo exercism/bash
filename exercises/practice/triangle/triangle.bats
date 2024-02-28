@@ -153,6 +153,13 @@ load bats-extra
   assert_output "false"
 }
 
+@test "test not against lexicographical sorting" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash triangle.sh scalene 10 3 2
+  assert_success
+  assert_output "false"
+}
+
 # Bonus: deal with floats
 
 @test "sides may be floats, scalene" {
