@@ -84,6 +84,15 @@ load bats-extra
     assert_output "$expected"
 }
 
+@test "a greedy approach is not optimal" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="10 10"
+    coins=(1 10 11)
+    run bash change.sh 20 "${coins[@]}"
+    assert_success
+    assert_output "$expected"
+}
+
 @test "error testing for change smaller than the smallest of coins" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="can't make target with given coins"
