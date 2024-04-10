@@ -186,3 +186,10 @@ load bats-extra
   assert_success
   assert_output "MDCLXVI"
 }
+
+@test "3888 is MMMDCCCLXXXVIII" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash roman_numerals.sh 3888
+  assert_success
+  assert_output "MMMDCCCLXXXVIII"
+}
