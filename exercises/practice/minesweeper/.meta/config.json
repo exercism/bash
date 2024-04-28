@@ -1,0 +1,15 @@
+{
+  "authors": [],
+  "files": {
+    "solution": [
+      "minesweeper.sh"
+    ],
+    "test": [
+      "minesweeper.bats"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
+  },
+  "blurb": "Add the numbers to a minesweeper board."
+}
