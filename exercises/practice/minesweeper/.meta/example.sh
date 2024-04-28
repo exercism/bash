@@ -8,7 +8,7 @@ width=${#1}
 parse_input() {
     local rownum=0 row col index char
     for row in "$@"; do
-        for ((col=0; col < "${#row}"; col++)); do
+        for ((col = 0; col < "${#row}"; col++)); do
             index="${rownum},${col}"
             char=${row:col:1}
             board[$index]=$char
@@ -34,9 +34,9 @@ count() {
 
 create_output() {
     local row output col
-    for ((row=0; row < height; row++)); do
+    for ((row = 0; row < height; row++)); do
         output=""
-        for ((col=0; col < width; col++)); do
+        for ((col = 0; col < width; col++)); do
             if [[ ${board[$row,$col]} == "*" ]]; then
                 output+="*"
             else
