@@ -184,6 +184,13 @@ load bats-extra
     assert_output "Tryptophan Cysteine Tyrosine"
 }
 
+@test "Sequence of two non-STOP codons does not translate to a STOP codon" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash protein_translation.sh "AUGAUG"
+    assert_success
+    assert_output "Methionine Methionine"
+}
+
 @test "Error case" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGG---AUG"
