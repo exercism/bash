@@ -4,11 +4,10 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
 
 1. Basic syntax: commands and arguments
 
-    - a cautionary note: this syllabus will be about _programming_ in bash, not about _using it as an interactive shell_.
     - separated by whitespace
     - commands can be external, builtin, keywords, functions, aliases
     - arguments can contain whitespace if quoted
-    - a cautionary note: `[` is a builtin command, so needs space before its arguments
+    - a cautionary note: `[` is a command, and it needs space before its arguments
         - "We will see much more about `[` in later lessons."
     - scripts, shebang, no aliases
     - positional parameters

@@ -1,5 +1,9 @@
 {
-  "authors": ["glennj"],
-  "contributors": [],
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "IsaacG"
+  ],
   "blurb": "Types of commands; argument splitting; writing scripts."
 }

@@ -1,10 +1,10 @@
 # Introduction
 
-Before we start, what is the bash track on Exercism about?
-It is about learning to write programs using bash.
-The particular emphasis is using only bash to solve problems, but there are no restrictions on calling out to external tools.
+Before we start, what is the Bash track on Exercism about?
+It is about learning to write programs using Bash.
+The emphasis is on using only Bash to solve problems, although there are no restrictions on calling out to external tools.
 
-It is not about how to use bash as an interactive shell.
+It is not about how to use Bash as an interactive shell.
 You won't learn about how to customize your prompt, how to configure your command history, or other interactive-only features.
 
 On with the lesson!
@@ -28,33 +28,37 @@ $ ls              # List files again, and this time outputs: 'a', 'b', and 'c'.
 a  b  c
 ```
 
-The command `ls` prints out the names of the files in the current directory.
+The command `ls` lists the names of the files in the current directory.
 The first time we run the list command we get no output, because there are no files yet.
 
-The `#` character at the start of a word indicates a _comment_.
-Any words following the comment are ignored by the shell, meant only for reading.
-If we run these examples in our own shell, we don't have to type the comments; but even if we do, the command will still work.
+The `#` character starts a _comment_.
+Any words following the comment comment are ignored by the shell; the comment is meant only for reading.
+If we run these examples in our own shell, we don't have to type the comments; if we do include the comments, Bash will ignore them.
 
-`touch` is an application that changes the Last Modified time of a file.
-If the filename that it is given does not exist yet, it creates a file of that name as a new and empty file.
+`touch` is an application that changes the Last Modified time (and last accessed time) of a file.
+If the filename given to `touch` does not exist yet, `touch` creates a new empty file with that name.
 In this example, we passed three arguments: `a`, `b` and `c`.
 `touch` creates a file for each argument.
 `ls` shows us that three files have been created.
 
 ```bash
+# Note: It is always a good idea to run `ls` before `rm`
+# to make sure you know what you are deleting.
+
 $ rm *            # Remove all files in the current directory.
+                  # Make sure you run this in a test directory or you can lose files!
 $ ls              # List files in the current directory (no output, no files).
 $ touch a   b c   # Create files 'a', 'b' and 'c'.
 $ ls              # List files again; this time the outputs: 'a', 'b' and 'c'.
 a  b  c
 ```
 
-`rm` is an application that removes all the files that it was given.
+`rm` is an application that removes the files given to it.
 `*` is a [glob][glob].
-It basically means all and in this case means all files in the current directory.
+This "wildcard" pattern matches all files in the current directory.
 We will talk more about globs later.
 
-Now, did we notice that there are several spaces between `a` and `b`, and only one between `b` and `c`?
+Did you notice that there are several spaces between `a` and `b`, and only one between `b` and `c`?
 Also, notice that the files that were created by touch are no different than the first time.
 The amount of whitespace between arguments does not matter!
 This is important to know.
@@ -69,10 +73,13 @@ This is a test.
 
 `echo` is a command that prints its arguments to standard output (which in our case is the terminal).
 In this example, we provide the `echo` command with four arguments: 'This', 'is', 'a', and 'test.'.
-`echo` takes these arguments, and prints them out one by one with a space in between.
+`echo` takes these arguments, and prints them out one by one with a space in between each argument.
 In the second case, the exact same thing happens.
 The extra spaces make no difference.
-If we want the extra whitespace, we need to pass the sentence as one single argument.
+Bash splits the command into five words: the `echo` command and the four arguments.
+`echo` does not know how spaces were originally between the words.
+
+If we want to print the extra whitespace, we need to pass the sentence as one single argument.
 We can do this by using [quotes][Quotes]:
 
 ```bash
@@ -81,8 +88,8 @@ This    is    a    test.
 ```
 
 Quotes group everything inside them into a _single argument_.
-The argument is: '`This    is    a    test.`' ... specifically spaced.
-Note that the quotes are not part of the argument — Bash removes them before handing the argument to echo.
+The argument is '`This    is    a    test.`' including those specific space characters.
+Note that the quotes are not part of the argument — Bash removes them before handing that single argument to `echo`.
 `echo` prints this single argument out just like it always does.
 
 Be very careful to avoid the following:
@@ -101,7 +108,7 @@ The secret voice in your head.mp3             # But your file 'secret' is now go
 ```
 
 We need to make sure we quote filenames properly.
-If we don't, we'll end up deleting the wrong things!
+If we don't, we may delete something we wanted to keep1
 `rm` takes filenames as arguments.
 If our filenames have spaces and we do not quote them, Bash thinks each word is a separate argument.
 Bash hands each argument to `rm` separately.
@@ -125,10 +132,11 @@ $ [-f file]
 bash: [-f: command not found
 ```
 
-This is intended to test for the existence of a file named "file".
+This is intended to test for the existence of a file named `file`.
 It's reasonable to assume that whitespace around `[` and `]` doesn't matter, but `[` is actually a command, and it requires its last argument to be `]`.
 (We will cover the `[` command in more detail later.) 
-Therefore, we must separate `[` from `-f` and `]` from `file,.` otherwise Bash will think we are trying to execute a command named `[-f` with a single argument `file]`.
+Therefore, we must separate `[` from `-f` and `]` from `file`.
+Otherwise Bash will think we are trying to execute a command named `[-f` with a single argument `file]`.
 The correct command separates all arguments with whitespace:
 
 ```bash
@@ -323,7 +331,8 @@ With this method, instead of calling Bash manually, we can execute the script as
 
 ```bash
 $ chmod +x myscript  # Mark the file as executable.
-$ ./myscript         # Now, myscript can be executed directly instead of having to pass it to bash.
+$ ./myscript         # Now, myscript can be executed directly
+                     # instead of having to specify bash.
 ```
 
 When we run the command this way, the operating system (OS) uses the `#!` line to determine what interpreter to use.
