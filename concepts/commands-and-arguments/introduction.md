@@ -1,13 +1,17 @@
 # Introduction
 
-Before we start, what is the Bash track on Exercism about?
-It is about learning to write programs using Bash.
-The emphasis is on using only Bash to solve problems, although there are no restrictions on calling out to external tools.
+## Shells
 
-It is not about how to use Bash as an interactive shell.
-You won't learn about how to customize your prompt, how to configure your command history, or other interactive-only features.
+TODO: what is a shell? what is bash?
 
-On with the lesson!
+TODO Before we start, what is the Bash track on Exercism about?
+TODO It is about learning to write programs using Bash.
+TODO The emphasis is on using only Bash to solve problems, although there are no restrictions on calling out to external tools.
+
+TODO It is not about how to use Bash as an interactive shell.
+TODO You won't learn about how to customize your prompt, how to configure your command history, or other interactive-only features.
+
+TODO On with the lesson!
 
 ## Bash Fundamentals: Commands and Arguments
 
@@ -22,7 +26,7 @@ All the remaining words become _arguments_ to that command (options, filenames, 
 Assume we're in an empty directory... (to try these commands, create an empty directory called `test` and enter that directory by running: `mkdir test; cd test`):
 
 ```bash
-$ ls              # List files in the current directory (no output, no files).
+$ ls              # List files in the current directory (no files so no output).
 $ touch a b c     # Create files 'a', 'b', and 'c'.
 $ ls              # List files again, and this time outputs: 'a', 'b', and 'c'.
 a  b  c
@@ -88,7 +92,7 @@ This    is    a    test.
 ```
 
 Quotes group everything inside them into a _single argument_.
-The argument is '`This    is    a    test.`' including those specific space characters.
+The argument is `This    is    a    test.` including those specific space characters.
 Note that the quotes are not part of the argument — Bash removes them before handing that single argument to `echo`.
 `echo` prints this single argument out just like it always does.
 
@@ -145,7 +149,7 @@ $ [ -f file ]
 
 (We see a lot of people who are confused by this behavior; they think that they can omit the whitespace between `[` and its arguments, so we need to present this particular example early.)
 
-And, if our filename contains whitespace or other special characters, it should also be quoted:
+If our filename contains whitespace or other special characters, it should also be quoted:
 
 ```bash
 $ [ -f "my file" ]
@@ -153,13 +157,13 @@ $ [ -f "my file" ]
 
 ## Review:
 
-_Arguments_: These are additional words specified after the command ('`ls -l foo`' executes ls with two arguments).
+_Arguments_: These are additional words specified after the command ('`ls -l foo`' executes `ls` with two arguments).
 
 _Quotes_: The two forms of quotes, single and double (`'` and `"`), are used to group words and can protect special characters.
 The difference between `'` and `"` will be discussed later.
 
 Tip — **Always** quote sentences or strings that belong together, even if it's not absolutely necessary.
-This developed practice will reduce the risk of human error in the scripts. (e.g. quoting a sentence of an `echo` command).
+Developing this practice will reduce the risk of human error in the scripts. (e.g. quoting a sentence of an `echo` command).
 
 ## Strings
 
@@ -167,18 +171,19 @@ The term _string_ refers to a sequence of characters which is treated as a singl
 The term is used loosely throughout this guide, as well as in almost every other programming language.
 
 In Bash programming, almost _everything_ is a string.
-When we type a command, the command's name is a string and each argument is a string; variable names are strings, and the contents of variables are strings as well; a filename is a string, and most files contain strings.
+When we type a command, the command's name is a string and each argument is a string.
+Variable names are strings, and the contents of variables are strings as well.
+A filename is a string, and most files contain strings.
 They're everywhere!
 
-An entire command can also be considered a string.
-This is not normally a useful point of view, but it illustrates the fact that parts of strings can sometimes be considered strings in their own right.
-A string which is part of a larger string is called a substring.
+A string is made up of a bunch of smaller substrings.
+An entire command can be considered a single string, with each component of the command being a substring.
 
 Strings do not have any intrinsic meaning.
 Their meaning is defined by how and where they are used.
 
 Let's try another example.
-With the editor, write a shopping list and save it with the filename "list", and use `cat` to print it:
+In your editor, write a shopping list and save it to a file named `list`, then use `cat` to print it:
 
 ```bash
 $ cat list
@@ -189,12 +194,13 @@ milk (skim, not whole)
 
 We typed a command: `cat list`.
 The shell reads this command as a string, and then divides it into the substrings `cat` and `list`.
-As far as the shell is concerned, `list` has no meaning, it's just a string with four characters in it.
-`cat` receives the argument `list`, which is a string of a filename.
+As far as Bash is concerned, `cat` and `list` (initially) have no meaning, they are just strings.
+Bash gives `cat` meaning due to it being the first word in the command.
+Bash looks for an alias or function or builtin or keyword or executable named `cat`, and executes it with the argument `list`.
 The string `list` has become meaningful because of how it was used.
 
 The file happens to contain some text, which we see on our terminal.
-The entire file content — taken as a whole — is a string, but that string is not meaningful.
+The entire file content, taken as a whole, is a string, and that string is not meaningful to Bash.
 However, if we divide the file into _lines_ (and therefore treat each line as a separate string), then we see each individual _line_ has meaning.
 
 We can divide the final line into words, but these words are not meaningful by themselves.
@@ -202,21 +208,23 @@ We can't buy "(skim" at the store, and we might get the wrong kind of "milk".
 Dividing the lines into words is not a useful thing to do in this example.
 But the shell doesn't know any of this — only we do!
 
-So, when we are dealing with commands, data, and variables — all of which are just strings to the shell — we have all the responsibility.
+When we are dealing with commands, data, and variables — all of which are just strings to the shell — we have all the responsibility.
 We need to be sure everything that needs to be separated is separated properly, and everything that needs to stay together stays together properly.
 We'll touch on these concepts repeatedly as we continue.
 
 ## Types of commands
 
 Bash understands several different types of commands: aliases, functions, builtins, keywords, and executables.
+These are all _commands_, and they all act in a very similar manner.
 
-Aliases are only enabled in interactive shells, not shell scripts.
+Aliases are only enabled by default in interactive shells, not shell scripts.
 We won't cover them here.
 
 ### Functions
 
 A function contains shell commands, and acts very much like a small script; they can even take arguments and create local variables.
-When a function is called, the commands in it are executed. Functions will be covered in depth later.
+When a function is called, the commands in it are executed.
+Functions will be covered in depth later.
 
 ### Builtins
 
@@ -229,30 +237,31 @@ Keywords are like builtins, with the main difference being that keywords are act
 For example, `[` is a Bash builtin, while `[[` is a Bash keyword; they are both used to test for a variety of conditions.
 Here we try to use them to compare the words "a" and "b" lexicographically:
 
-
 ```bash
 $ [ a < b ]
 -bash: b: No such file or directory
 $ [[ a < b ]]
 ```
 
-The first example returns an error because, as usual, Bash treats `<` as a file redirection operator and attempts to redirect the nonexistent file `b` to the command `[ a ]`.
+The first example returns an error because, using regular command parsing, Bash treats `<` as a file redirection operator and attempts to redirect the nonexistent file `b` to the command `[ a ]`.
 The second example works because Bash parses words between `[[` and `]]` using different rules that don't use `<` for redirection.
 
 ### Executables
 
 The last kind of command that can be executed by Bash is an _executable_.
+These are executable files (programs) on your computer's filesystem which you can run.
 (Executables may also be called _external commands_ or _applications_.)
-Executables are commonly invoked by typing only their name.
-This can be done because a pre-defined variable makes known to Bash a list of common, executable, file paths.
+Executables are commonly invoked by typing only their name; the complete path to the file is typically not needed.
+This can be done because Bash uses a pre-defined variable which helps it find the location of common executable files.
 This variable is called `PATH`.
 It is a set of directory names separated by colons (e.g. `/usr/bin:/bin`). 
 When a command is specified (e.g. `myprogram`, or `ls`) without a file path (and it isn't an alias, function, builtin or keyword), Bash searches through the directories in `PATH`.
-The search over the directories is done in order, from left to right, to see whether they contain an executable with the given name.
+The directories are searched in order, from left to right, to see whether they contain an executable with the given name.
 
-If the executable is outside a known path... the executables file path will need to be defined. For an executable in the current directory, use `./myprogram`; if it's in the directory `/opt/somedirectory`, use `/opt/somedirectory/myprogram`.
+If the executable is outside a known path, the executable's file path will need to be specified.
+For the `myprogram` executable in the current directory, use `./myprogram`; if it's in the directory `/opt/somedirectory`, use `/opt/somedirectory/myprogram`.
 
-Tip — The `type` command can be used to get a description of the command type:
+Tip — The `type` command can be used to get detalis about the command:
 
 ```bash
 $ type rm
@@ -263,16 +272,16 @@ cd is a shell builtin
 
 ## Scripts
 
-A _script_ is basically a sequence of commands in a file.
+A _script_ is a sequence of commands stored in a file.
 Bash reads the file and processes the commands in order.
 It moves on to the next command only when the current one has ended.
-(The exception being if a command has been specified to run asynchronously, in the background. Don't worry too much about this case yet — we'll learn about how that works later on.)
+The exception being if a command has been specified to run asynchronously (in the background).
+Don't worry too much about this case yet — we'll learn about how that works later on.
 
-Virtually any example that exists on the command line in this guide can also be used in a script.
+Any command line example in this guide can also be used in a script.
 
 Making a script is easy.
 Begin by making a new file, and put this on the first line:
-
 
 ```bash
 #!/bin/bash
@@ -297,24 +306,21 @@ For a more detailed explanation of this technique and how it differs from plain 
 
 Please do not be fooled by scripts or examples on the Internet that use `/bin/sh` as the interpreter.
 **`sh` is not `bash`!**
-Bash itself is a "sh-compatible" shell (meaning that it can run most 'sh' scripts and carries much of the same syntax) however, the opposite is not true; some features of Bash will break or cause unexpected behavior in `sh`.
-
-<!--
-
-Also, please refrain from giving scripts a .sh extension. 
-It serves no purpose, and it's completely misleading (since it's going to be a bash script, not an sh script).
-
--->
+Bash itself is a "sh-compatible" shell, meaning that it can run most `sh` scripts and carries much of the same syntax.
+However, the opposite is not true; some features of Bash will break or cause unexpected behavior in `sh`.
+In fact, there is no single `sh` shell.
+There are many shell implementations which support POSIX-sh syntax.
+Depending on your OS, when you run `sh` you might actually be executing Bash, ash, dash or some other shell.
 
 ~~~~exercism/caution
 It is perfectly fine to use Windows to write scripts.
 Avoid, however, using Notepad.
 "Microsoft Notepad" can only make files with DOS-style line-endings.
-DOS-style line-endings end with two characters: a Carriage Return (ASCII CR; 0xD) and a Line Feed (ASCII LF; 0xA) character.
+DOS-style line-endings end with two characters: a Carriage Return (ASCII CR; 0xD; `\r`) and a Line Feed (ASCII LF; 0xA; `\n`) character.
 Bash understands line-endings with only Line Feed characters.
 As a result, the Carriage Return character will cause an unexpected surprise if one doesn't know it's there (very weird error messages).
-If at all possible, use a more capable editor like Vim, Emacs, kate, GEdit... 
-If one doesn't, the carriage returns will need to be removed from the scripts before running them.
+If you don't know it is there, it can be very difficult to detect: it is usually invisible in the editor.
+If at all possible, use a more capable editor like Vim, Emacs, kate, GEdit, Notepad++... 
 ~~~~
 
 Once the script file has been created, it can be executed by doing:
@@ -324,10 +330,10 @@ $ bash myscript
 ```
 
 In this example, we execute the _command_ `bash` and tell it to read the script that we gave as an _argument_.
-When we do it like this, the `#!` line is just a _comment_, Bash does not do anything at all with it.
+When we do it like this, the `#!` line is just a _comment_.
 
 Alternatively, we can give our scripts executable permissions.
-With this method, instead of calling Bash manually, we can execute the script as an application:
+With this method we can execute the script like any other executable instead of calling Bash manually:
 
 ```bash
 $ chmod +x myscript  # Mark the file as executable.
@@ -335,7 +341,7 @@ $ ./myscript         # Now, myscript can be executed directly
                      # instead of having to specify bash.
 ```
 
-When we run the command this way, the operating system (OS) uses the `#!` line to determine what interpreter to use.
+When we run the command this way, the operating system (OS) uses the `#!` line to determine which interpreter to use to run your script.
 
 
 ## Credit
