@@ -112,14 +112,14 @@ The secret voice in your head.mp3             # But your file 'secret' is now go
 ```
 
 We need to make sure we quote filenames properly.
-If we don't, we may delete something we wanted to keep1
+If we don't, we may delete something we wanted to keep!
 `rm` takes filenames as arguments.
 If our filenames have spaces and we do not quote them, Bash thinks each word is a separate argument.
 Bash hands each argument to `rm` separately.
 Like individually wrapped slices of processed cheese, `rm` treats each argument as a separate file.
 
 In the above example, `rm` tried to delete a file for each word in the filename of the song, rather than keeping the filename intact.
-That caused our file secret to be deleted, and our song to remain behind!
+That caused our file "secret" to be deleted, and our song to remain behind!
 
 This is what we should have done:
 
@@ -157,7 +157,7 @@ $ [ -f "my file" ]
 
 ## Review:
 
-_Arguments_: These are additional words specified after the command ('`ls -l foo`' executes `ls` with two arguments).
+_Arguments_: These are additional words specified after the command (`ls -l foo` executes `ls` with two arguments).
 
 _Quotes_: The two forms of quotes, single and double (`'` and `"`), are used to group words and can protect special characters.
 The difference between `'` and `"` will be discussed later.
@@ -196,8 +196,7 @@ We typed a command: `cat list`.
 The shell reads this command as a string, and then divides it into the substrings `cat` and `list`.
 As far as Bash is concerned, `cat` and `list` (initially) have no meaning, they are just strings.
 Bash gives `cat` meaning due to it being the first word in the command.
-Bash looks for an alias or function or builtin or keyword or executable named `cat`, and executes it with the argument `list`.
-The string `list` has become meaningful because of how it was used.
+Bash looks for a command named `cat`, and executes it with the argument `list`.
 
 The file happens to contain some text, which we see on our terminal.
 The entire file content, taken as a whole, is a string, and that string is not meaningful to Bash.
