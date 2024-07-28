@@ -2,16 +2,32 @@
 
 ## Shells
 
-TODO: what is a shell? what is bash?
+A _shell_ is a program that allows you to enter commands for interacting with the operating system.
+Shells can be graphical: your desktop environment that you use with a mouse or trackpad is a shell.
+We will focus on command-line interfaces, where you type commands and the results are (usually) printed on your terminal.
 
-TODO Before we start, what is the Bash track on Exercism about?
-TODO It is about learning to write programs using Bash.
-TODO The emphasis is on using only Bash to solve problems, although there are no restrictions on calling out to external tools.
+There are many different command-line shells.
+Windows offers **cmd** and **powershell**.
+Mac and Linux offer "Unix shells", of which there are many.
+The default shell for Mac is **zsh**.
+**csh** is a legacy shell with C-like syntax.
 
-TODO It is not about how to use Bash as an interactive shell.
-TODO You won't learn about how to customize your prompt, how to configure your command history, or other interactive-only features.
+One of the very earliest shells is the Bourne shell, **sh**.
+In time, this was the basis for the standardized POSIX shell.
+Many shells are based on the POSIX shell, some providing additional interactive or programming functionality.
 
-TODO On with the lesson!
+**Bash** is based on the POSIX shell.
+It is the default shell on most Linux systems.
+Bash provides many facilities that make it an enjoyable interactive shell, including:
+
+* a fully customizable prompt,
+* the ability to recall and modify commands from history,
+* the ability to manipulate running processes,
+* aliases that can reduce typing.
+
+This track is not about how to use bash as an interactive shell.
+It is about learning to write programs using bash.
+The emphasis will be on using _just_ bash to solve problems, although there are no restrictions on calling out to external tools.
 
 ## Bash Fundamentals: Commands and Arguments
 
@@ -19,38 +35,25 @@ Bash reads commands from its input (which is usually either a terminal or a file
 Each line of input that it reads is treated as a _command_ — an instruction to be carried out.
 (There are a few advanced cases, such as commands that span multiple lines, that will be gotten to later.)
 
-Bash divides each line into words that are demarcated by a whitespace character (spaces and tabs).
-The first word of the line is the name of the command to be executed.
+Bash divides each line into **words** that are demarcated by a whitespace character (spaces and tabs).
+The first word of the line is the name of the _command_ to be executed.
 All the remaining words become _arguments_ to that command (options, filenames, etc.).
 
-Assume we're in an empty directory... (to try these commands, create an empty directory called `test` and enter that directory by running: `mkdir test; cd test`):
+~~~~exercism/note
+In the examples below, we'll show you some interactive commands that you can run.
 
-```bash
-$ ls              # List files in the current directory (no files so no output).
-$ touch a b c     # Create files 'a', 'b', and 'c'.
-$ ls              # List files again, and this time outputs: 'a', 'b', and 'c'.
-a  b  c
-```
-
-The command `ls` lists the names of the files in the current directory.
-The first time we run the list command we get no output, because there are no files yet.
-
-The `#` character starts a _comment_.
-Any words following the comment comment are ignored by the shell; the comment is meant only for reading.
-If we run these examples in our own shell, we don't have to type the comments; if we do include the comments, Bash will ignore them.
-
-`touch` is an application that changes the Last Modified time (and last accessed time) of a file.
-If the filename given to `touch` does not exist yet, `touch` creates a new empty file with that name.
-In this example, we passed three arguments: `a`, `b` and `c`.
-`touch` creates a file for each argument.
-`ls` shows us that three files have been created.
+* The `#` character starts a _comment_.
+  Any words following the comment comment are ignored by the shell; the comment is meant only for reading.
+* The `$` character denotes a shell prompt. 
+  If you're copying the command, do not include the prompt.
+~~~~
 
 ```bash
 # Note: It is always a good idea to run `ls` before `rm`
 # to make sure you know what you are deleting.
 
 $ rm *            # Remove all files in the current directory.
-                  # Make sure you run this in a test directory or you can lose files!
+                  # Make sure you run this in a temp directory or you can lose files!
 $ ls              # List files in the current directory (no output, no files).
 $ touch a   b c   # Create files 'a', 'b' and 'c'.
 $ ls              # List files again; this time the outputs: 'a', 'b' and 'c'.
@@ -63,9 +66,7 @@ This "wildcard" pattern matches all files in the current directory.
 We will talk more about globs later.
 
 Did you notice that there are several spaces between `a` and `b`, and only one between `b` and `c`?
-Also, notice that the files that were created by touch are no different than the first time.
 The amount of whitespace between arguments does not matter!
-This is important to know.
 For example:
 
 ```bash
@@ -76,14 +77,11 @@ This is a test.
 ```
 
 `echo` is a command that prints its arguments to standard output (which in our case is the terminal).
-In this example, we provide the `echo` command with four arguments: 'This', 'is', 'a', and 'test.'.
-`echo` takes these arguments, and prints them out one by one with a space in between each argument.
-In the second case, the exact same thing happens.
-The extra spaces make no difference.
-Bash splits the command into five words: the `echo` command and the four arguments.
+Bash splits the command into five words, and invokes the `echo` command with four arguments.
+The extra spaces in the second example make no difference.
 `echo` does not know how spaces were originally between the words.
 
-If we want to print the extra whitespace, we need to pass the sentence as one single argument.
+If we want to keep the extra whitespace, we need to pass the sentence as one single argument.
 We can do this by using [quotes][Quotes]:
 
 ```bash
@@ -93,39 +91,7 @@ This    is    a    test.
 
 Quotes group everything inside them into a _single argument_.
 The argument is `This    is    a    test.` including those specific space characters.
-Note that the quotes are not part of the argument — Bash removes them before handing that single argument to `echo`.
-`echo` prints this single argument out just like it always does.
-
-Be very careful to avoid the following:
-
-```bash
-$ ls                                          # There are two files in the current directory.
-The secret voice in your head.mp3  secret
-$ rm The secret voice in your head.mp3        # Executes rm with 6 arguments; not 1!
-rm: cannot remove `The': No such file or directory
-rm: cannot remove `voice': No such file or directory
-rm: cannot remove `in': No such file or directory
-rm: cannot remove `your': No such file or directory
-rm: cannot remove `head.mp3': No such file or directory
-$ ls                                          # List files in the current directory: It is still there.
-The secret voice in your head.mp3             # But your file 'secret' is now gone!
-```
-
-We need to make sure we quote filenames properly.
-If we don't, we may delete something we wanted to keep!
-`rm` takes filenames as arguments.
-If our filenames have spaces and we do not quote them, Bash thinks each word is a separate argument.
-Bash hands each argument to `rm` separately.
-Like individually wrapped slices of processed cheese, `rm` treats each argument as a separate file.
-
-In the above example, `rm` tried to delete a file for each word in the filename of the song, rather than keeping the filename intact.
-That caused our file "secret" to be deleted, and our song to remain behind!
-
-This is what we should have done:
-
-```bash
-$ rm "The secret voice in your head.mp3"
-```
+Note that the quotes are not part of the argument — bash removes them before handing that single argument to `echo`.
 
 Arguments are separated from the command name and from each other by a whitespace.
 This is important to remember.
@@ -140,7 +106,7 @@ This is intended to test for the existence of a file named `file`.
 It's reasonable to assume that whitespace around `[` and `]` doesn't matter, but `[` is actually a command, and it requires its last argument to be `]`.
 (We will cover the `[` command in more detail later.) 
 Therefore, we must separate `[` from `-f` and `]` from `file`.
-Otherwise Bash will think we are trying to execute a command named `[-f` with a single argument `file]`.
+Otherwise bash will think we are trying to execute a command named `[-f` with a single argument `file]`.
 The correct command separates all arguments with whitespace:
 
 ```bash
@@ -154,62 +120,6 @@ If our filename contains whitespace or other special characters, it should also 
 ```bash
 $ [ -f "my file" ]
 ```
-
-## Review:
-
-_Arguments_: These are additional words specified after the command (`ls -l foo` executes `ls` with two arguments).
-
-_Quotes_: The two forms of quotes, single and double (`'` and `"`), are used to group words and can protect special characters.
-The difference between `'` and `"` will be discussed later.
-
-Tip — **Always** quote sentences or strings that belong together, even if it's not absolutely necessary.
-Developing this practice will reduce the risk of human error in the scripts. (e.g. quoting a sentence of an `echo` command).
-
-## Strings
-
-The term _string_ refers to a sequence of characters which is treated as a single unit.
-The term is used loosely throughout this guide, as well as in almost every other programming language.
-
-In Bash programming, almost _everything_ is a string.
-When we type a command, the command's name is a string and each argument is a string.
-Variable names are strings, and the contents of variables are strings as well.
-A filename is a string, and most files contain strings.
-They're everywhere!
-
-A string is made up of a bunch of smaller substrings.
-An entire command can be considered a single string, with each component of the command being a substring.
-
-Strings do not have any intrinsic meaning.
-Their meaning is defined by how and where they are used.
-
-Let's try another example.
-In your editor, write a shopping list and save it to a file named `list`, then use `cat` to print it:
-
-```bash
-$ cat list
-shampoo
-tissues
-milk (skim, not whole)
-```
-
-We typed a command: `cat list`.
-The shell reads this command as a string, and then divides it into the substrings `cat` and `list`.
-As far as Bash is concerned, `cat` and `list` (initially) have no meaning, they are just strings.
-Bash gives `cat` meaning due to it being the first word in the command.
-Bash looks for a command named `cat`, and executes it with the argument `list`.
-
-The file happens to contain some text, which we see on our terminal.
-The entire file content, taken as a whole, is a string, and that string is not meaningful to Bash.
-However, if we divide the file into _lines_ (and therefore treat each line as a separate string), then we see each individual _line_ has meaning.
-
-We can divide the final line into words, but these words are not meaningful by themselves.
-We can't buy "(skim" at the store, and we might get the wrong kind of "milk".
-Dividing the lines into words is not a useful thing to do in this example.
-But the shell doesn't know any of this — only we do!
-
-When we are dealing with commands, data, and variables — all of which are just strings to the shell — we have all the responsibility.
-We need to be sure everything that needs to be separated is separated properly, and everything that needs to stay together stays together properly.
-We'll touch on these concepts repeatedly as we continue.
 
 ## Types of commands
 
@@ -232,29 +142,30 @@ They can be thought of as functions that are already provided.
 
 ### Keywords
 
-Keywords are like builtins, with the main difference being that keywords are actually Bash syntax and may be parsed using special rules.
-For example, `[` is a Bash builtin, while `[[` is a Bash keyword; they are both used to test for a variety of conditions.
-Here we try to use them to compare the words "a" and "b" lexicographically:
+Keywords are like builtins, with the main difference being that keywords are actually bash syntax and may be parsed using special rules.
+For example, `[` is a bash builtin, while `[[` is a bash keyword; they are both used to test for a variety of conditions.
+But the `[[` keyword has some extra functionality.
+For example, it provides the `=~` operator that does regular expression testing.
 
 ```bash
-$ [ a < b ]
--bash: b: No such file or directory
-$ [[ a < b ]]
+$ [[ "hello world" =~ e.*o ]]   # returns a "success" status
+$ [ "hello world" =~ e.*o ]
+bash: [: =~: binary operator expected
 ```
 
-The first example returns an error because, using regular command parsing, Bash treats `<` as a file redirection operator and attempts to redirect the nonexistent file `b` to the command `[ a ]`.
-The second example works because Bash parses words between `[[` and `]]` using different rules that don't use `<` for redirection.
+`[[` also provides the `<` and `>` string comparison operators.
+`[` cannot provide these operators: as a plain command, `[` cannot treat the special characters `<` and `>` differently from their usual redirection purpose.
 
 ### Executables
 
-The last kind of command that can be executed by Bash is an _executable_.
+The last kind of command that can be executed by bash is an _executable_.
 These are executable files (programs) on your computer's filesystem which you can run.
 (Executables may also be called _external commands_ or _applications_.)
 Executables are commonly invoked by typing only their name; the complete path to the file is typically not needed.
-This can be done because Bash uses a pre-defined variable which helps it find the location of common executable files.
+This can be done because bash uses a pre-defined variable which helps it find the location of common executable files.
 This variable is called `PATH`.
 It is a set of directory names separated by colons (e.g. `/usr/bin:/bin`). 
-When a command is specified (e.g. `myprogram`, or `ls`) without a file path (and it isn't an alias, function, builtin or keyword), Bash searches through the directories in `PATH`.
+When a command is specified (e.g. `myprogram`, or `ls`) without a file path (and it isn't an alias, function, builtin or keyword), bash searches through the directories in `PATH`.
 The directories are searched in order, from left to right, to see whether they contain an executable with the given name.
 
 If the executable is outside a known path, the executable's file path will need to be specified.
@@ -265,6 +176,8 @@ Tip — The `type` command can be used to get detalis about the command:
 ```bash
 $ type rm
 rm is hashed (/bin/rm)
+# or it might return: `rm is /bin/rm`
+
 $ type cd
 cd is a shell builtin
 ```
@@ -286,7 +199,7 @@ Begin by making a new file, and put this on the first line:
 #!/bin/bash
 ```
 
-The header is called an _interpreter directive_ (it is also called a _hashbang_ or **_shebang_**).
+This line is called an _interpreter directive_ (it is also called a _hashbang_ or **_shebang_**).
 It specifies that `/bin/bash` is to be used as the interpreter when the file is used as the executable in a command.
 When the OS's kernel executes a _non-binary file_, it reads the first line of the file.
 If the line begins with `#!`, the kernel uses the line to determine the interpreter to relay the file to.
@@ -306,21 +219,10 @@ For a more detailed explanation of this technique and how it differs from plain 
 Please do not be fooled by scripts or examples on the Internet that use `/bin/sh` as the interpreter.
 **`sh` is not `bash`!**
 Bash itself is a "sh-compatible" shell, meaning that it can run most `sh` scripts and carries much of the same syntax.
-However, the opposite is not true; some features of Bash will break or cause unexpected behavior in `sh`.
+However, the opposite is not true; some features of bash will break or cause unexpected behavior in `sh`.
 In fact, there is no single `sh` shell.
 There are many shell implementations which support POSIX-sh syntax.
-Depending on your OS, when you run `sh` you might actually be executing Bash, ash, dash or some other shell.
-
-~~~~exercism/caution
-It is perfectly fine to use Windows to write scripts.
-Avoid, however, using Notepad.
-"Microsoft Notepad" can only make files with DOS-style line-endings.
-DOS-style line-endings end with two characters: a Carriage Return (ASCII CR; 0xD; `\r`) and a Line Feed (ASCII LF; 0xA; `\n`) character.
-Bash understands line-endings with only Line Feed characters.
-As a result, the Carriage Return character will cause an unexpected surprise if one doesn't know it's there (very weird error messages).
-If you don't know it is there, it can be very difficult to detect: it is usually invisible in the editor.
-If at all possible, use a more capable editor like Vim, Emacs, kate, GEdit, Notepad++... 
-~~~~
+Depending on your OS, when you run `sh` you might actually be executing bash, ash, dash or some other shell.
 
 Once the script file has been created, it can be executed by doing:
 
@@ -332,7 +234,7 @@ In this example, we execute the _command_ `bash` and tell it to read the script 
 When we do it like this, the `#!` line is just a _comment_.
 
 Alternatively, we can give our scripts executable permissions.
-With this method we can execute the script like any other executable instead of calling Bash manually:
+With this method we can execute the script like any other executable instead of calling bash manually:
 
 ```bash
 $ chmod +x myscript  # Mark the file as executable.
