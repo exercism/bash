@@ -2,28 +2,31 @@
 
 ## Shells
 
-A _shell_ is a program that allows you to enter commands for interacting with the operating system.
-Shells can be graphical: your desktop environment that you use with a mouse or trackpad is a shell.
-We will focus on command-line interfaces, where you type commands and the results are (usually) printed on your terminal.
+A _shell_ is a program that allows you to enter commands to interact with the operating system.
+Shells can be graphical; your desktop environment that you use with a mouse or trackpad is a shell.
+We will focus on command-line interfaces, where you type commands and the results are (usually) printed in your terminal.
 
 There are many different command-line shells.
 Windows offers **cmd** and **powershell**.
 Mac and Linux offer "Unix shells", of which there are many.
 The default shell for Mac is **zsh**.
 **csh** is a legacy shell with C-like syntax.
+**bash** is one of the most popular shells, particularly on Linux.
 
 One of the very earliest shells is the Bourne shell, **sh**.
-In time, this was the basis for the standardized POSIX shell.
-Many shells are based on the POSIX shell, some providing additional interactive or programming functionality.
+In time, this shell became [standardized][posix] to be provided on every Unix-like system.
+Many shells are based on the Bourne shell, often providing additional interactive or programming functionality.
 
-**Bash** is based on the POSIX shell.
-It is the default shell on most Linux systems.
+**Bash** is based on the Bourne shell.
+That's why it is called the "**B**ourne-**a**gain **sh**ell".
+It is the default shell on many Linux systems.
 Bash provides many facilities that make it an enjoyable interactive shell, including:
 
 * a fully customizable prompt,
 * the ability to recall and modify commands from history,
 * the ability to manipulate running processes,
-* aliases that can reduce typing.
+* aliases that can reduce typing,
+* and more.
 
 This track is not about how to use bash as an interactive shell.
 It is about learning to write programs using bash.
@@ -33,7 +36,7 @@ The emphasis will be on using _just_ bash to solve problems, although there are 
 
 Bash reads commands from its input (which is usually either a terminal or a file).
 Each line of input that it reads is treated as a _command_ — an instruction to be carried out.
-(There are a few advanced cases, such as commands that span multiple lines, that will be gotten to later.)
+(There are a few advanced cases, such as commands that span multiple lines, that will be discussed later.)
 
 Bash divides each line into **words** that are demarcated by a whitespace character (spaces and tabs).
 The first word of the line is the name of the _command_ to be executed.
@@ -61,8 +64,7 @@ a  b  c
 ```
 
 `rm` is an application that removes the files given to it.
-`*` is a [glob][glob].
-This "wildcard" pattern matches all files in the current directory.
+`*` is a [glob][glob] character, a "wildcard" pattern that matches all files in the current directory.
 We will talk more about globs later.
 
 Did you notice that there are several spaces between `a` and `b`, and only one between `b` and `c`?
@@ -113,7 +115,7 @@ The correct command separates all arguments with whitespace:
 $ [ -f file ]
 ```
 
-(We see a lot of people who are confused by this behavior; they think that they can omit the whitespace between `[` and its arguments, so we need to present this particular example early.)
+(We see a lot of people who are confused by this behavior; they think that `[...]` is "just syntax" and they can omit the spaces; `[` is a command and the whitespace is required.)
 
 If our filename contains whitespace or other special characters, it should also be quoted:
 
@@ -126,7 +128,7 @@ $ [ -f "my file" ]
 Bash understands several different types of commands: aliases, functions, builtins, keywords, and executables.
 These are all _commands_, and they all act in a very similar manner.
 
-Aliases are only enabled by default in interactive shells, not shell scripts.
+By default aliases are only enabled in interactive shells, not shell scripts.
 We won't cover them here.
 
 ### Functions
@@ -153,8 +155,30 @@ $ [ "hello world" =~ e.*o ]
 bash: [: =~: binary operator expected
 ```
 
-`[[` also provides the `<` and `>` string comparison operators.
-`[` cannot provide these operators: as a plain command, `[` cannot treat the special characters `<` and `>` differently from their usual redirection purpose.
+The string comparison operators `<` and `>` are another example of how keywords parse the code differently.
+Within `[[...]]`, these operators do not need any special care.
+
+```bash
+$ if [[ "$USER" < "n" ]]; then
+    echo "$USER is in the first half of the alphabet"
+fi
+# => glennj is in the first half of the alphabet
+```
+
+But within `[...]` you must quote or escape them to prevent the shell from parsing them as redirection operators.
+
+```bash
+$ if [ "$USER" < "n" ]; then
+    echo "$USER is in the first half of the alphabet"
+fi
+# => bash: n: No such file or directory
+
+$ if [ "$USER" \< "n" ]; then
+    echo "$USER is in the first half of the alphabet"
+fi
+# => glennj is in the first half of the alphabet
+```
+
 
 ### Executables
 
@@ -171,7 +195,7 @@ The directories are searched in order, from left to right, to see whether they c
 If the executable is outside a known path, the executable's file path will need to be specified.
 For the `myprogram` executable in the current directory, use `./myprogram`; if it's in the directory `/opt/somedirectory`, use `/opt/somedirectory/myprogram`.
 
-Tip — The `type` command can be used to get detalis about the command:
+Tip: The `type` command can be used to get detalis about the command:
 
 ```bash
 $ type rm
@@ -188,7 +212,7 @@ A _script_ is a sequence of commands stored in a file.
 Bash reads the file and processes the commands in order.
 It moves on to the next command only when the current one has ended.
 The exception being if a command has been specified to run asynchronously (in the background).
-Don't worry too much about this case yet — we'll learn about how that works later on.
+Don't worry too much about this case yet; we'll learn about how that works later on.
 
 Any command line example in this guide can also be used in a script.
 
@@ -207,14 +231,14 @@ If the line begins with `#!`, the kernel uses the line to determine the interpre
 The `#!` must be at the very start of the file, with no spaces or blank lines before it.
 Our script's commands will appear on separate lines below this.
 
-Tip — Instead of `#!/bin/bash` , you could use
+Tip: Instead of `#!/bin/bash` , you could use
 
 ```bash
 #!/usr/bin/env bash
 ```
 
 `env` searches `$PATH` for the executable named by its first argument (in this case, "bash").
-For a more detailed explanation of this technique and how it differs from plain ol' `#!/bin/bash`, see [this question in StackOverflow](https://stackoverflow.com/questions/16365130/what-is-the-difference-between-usr-bin-env-bash-and-usr-bin-bash/16365367#16365367).
+For a more detailed explanation of this technique and how it differs from plain ol' `#!/bin/bash`, see [this question in StackOverflow][env bash].
 
 Please do not be fooled by scripts or examples on the Internet that use `/bin/sh` as the interpreter.
 **`sh` is not `bash`!**
@@ -254,3 +278,5 @@ The content of this lesson is taken from [Commands and Arguments] on the [Bash G
 [Commands and Arguments]: https://mywiki.wooledge.org/BashGuide/CommandsAndArguments
 [Quotes]: https://mywiki.wooledge.org/Quotes
 [glob]: https://mywiki.wooledge.org/glob
+[posix]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap01.html
+[env bash]: https://stackoverflow.com/questions/16365130/what-is-the-difference-between-usr-bin-env-bash-and-usr-bin-bash/16365367#16365367
