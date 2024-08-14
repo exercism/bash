@@ -1223,6 +1223,11 @@
       "uuid": "07e48a7d-7dd0-477c-96e1-23d2558d507d",
       "slug": "commands-and-arguments",
       "name": "Commands and Arguments"
+    },
+    {
+      "uuid": "e29f24ae-3c3b-479a-9333-d733c1ff8fb4",
+      "slug": "variables",
+      "name": "Variables"
     }
   ],
   "key_features": [
