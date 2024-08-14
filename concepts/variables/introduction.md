@@ -14,30 +14,13 @@ varname="the value"
 ~~~~exercism/note
 **Important** -- there must be _no spaces_ around the equal sign!
 
-This is a variable assignment
-```bash
-x=10
-```
+When there are spaces, like in this example,
 
-This calls the command `x` with two arguments, `=` and `10`!
 ```bash
 x = 10
 ```
-~~~~
 
-## Variable Names
-
-A variable name consists of uppercase letters, lowercase letters, numbers and underscore.
-It cannot start with a number.
-
-~~~~exercism/caution
-It is best practice to **avoid using ALLCAPS variable names**.
-The shell uses this convention for its parameters, and you don't want to accidentally override shell parameters that have special meaning.
-For example: [1][1], [2][2], [3][3]
-
-[1]: https://stackoverflow.com/q/27555060/7552
-[2]: https://stackoverflow.com/q/28310594/7552
-[3]: https://unix.stackexchange.com/q/114596/4667
+bash is going to call the **command** `x` with the **two arguments** `=` and `10`!
 ~~~~
 
 ## Parameters
@@ -53,6 +36,21 @@ Some important parameters used by or set by bash include:
 * `PWD` -- your current working directory.
 * `RANDOM` -- a pseudo-random integer between 0 and 32767.
 * `BASH_VERSION` -- the version string of the running instance of bash.
+
+## Parameter Names
+
+A variable name consists of uppercase letters, lowercase letters, numbers and underscore.
+It cannot start with a number.
+
+~~~~exercism/caution
+It is best practice to **avoid using ALLCAPS variable names**.
+The shell uses this convention for its parameters, and you don't want to accidentally override shell parameters that have special meaning.
+For example: [1][1], [2][2], [3][3]
+
+[1]: https://stackoverflow.com/q/27555060/7552
+[2]: https://stackoverflow.com/q/28310594/7552
+[3]: https://unix.stackexchange.com/q/114596/4667
+~~~~
 
 ## Parameter Expansion
 
@@ -88,14 +86,71 @@ They can be retrieved with these special parameters:
 
 ### Special Positional Parameters
 
-$@
-$*
-IFS
+There are some "special" parameters that help you work with the positional parameters.
+
+* `$#` expands to the _number_ of positional parameters.
+* `"$@"` expands to the list of all of the positional parameters, each as a separate word.
+* `"$*"` expands to a single string of all the positional parameters joined together by a character.
+  * The join character is _the first character_ of the `$IFS` variable, which is a space by default.
+
+The `"$@"` is the safest way to pass positional parameters to another command while keeping them safely quoted.
+It is also what you will use to loop over them:
+
+```bash
+for arg in "$@"; do
+    do_something_with "$arg"
+done
+```
 
 ## Command Substitution
 
+A very frequent operation you will do in bash scripts is to capture the output of a command and store it in a variable.
+To do this, you will use the command substitution syntax, like this:
+
+```bash
+var=$(command)
+```
+
+For example, to upper-case a string, you can do this:
+
+```bash
+text="Hello world!"
+uppercase=$(echo "$text" | tr '[:lower:]' '[:upper:]')
+echo "$uppercase"
+# => HELLO WORLD!
+```
+
 ## More on Parameter Expansion
+
+Bash has many builtin facilities to manipulate variables and strings so that you don't need to call out to external commands.
+
+* Uppercasing text: in the previous section I showed how to use `tr` to upper case some text. To do it in bash:
+
+  ```bash
+  echo "${text^^}"
+  ```
+
+* Provide a default value if the variable is empty.
+
+  ```bash
+  default="nothing here"
+  result=""
+  echo "${result:-$default}"
+  # => nothing here
+  ```
+
+* Search and replace.
+
+  ```bash
+  text="Hello world!"
+  echo "${text//[aeiou]/X}"
+  # => HXllX wXrld!"
+  ```
+
+There are many other interesting parameter expansions. 
+Read about them [in the manual][param-exp].
 
 
 [google-style-guide]: https://google.github.io/styleguide/shellguide.html
 [cmds-args]: https://exercism.org/tracks/bash/concepts/commands-and-arguments
+[param-exp]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion
