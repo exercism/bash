@@ -1,10 +1,10 @@
 [
   {
-    "description": "Commands and Arguments in the Bash Guide",
+    "description": "\"Commands and Arguments\" in the BashGuide",
     "url": "https://mywiki.wooledge.org/BashGuide/CommandsAndArguments"
   },
   {
-    "description": "Shell Operation in the bash manual",
+    "description": "\"Shell Operation\" in the bash manual",
     "url": "https://www.gnu.org/software/bash/manual/bash.html#Shell-Operation"
   }
 ]
