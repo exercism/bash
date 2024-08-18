@@ -2,7 +2,7 @@
 
 ## Variables
 
-Variables are a place to hold data.
+_Variables_ are a place to hold data.
 Bash has two kinds of data: strings and arrays.
 We'll talk about arrays later.
 
@@ -23,28 +23,27 @@ x = 10
 bash is going to call the **command** `x` with the **two arguments** `=` and `10`!
 ~~~~
 
-## Parameters
-
-Variables can also be called "parameters".
-The difference is that a variable is assigned by you, the programmer.
-A parameter can be a read-only variable that is set by the shell.
+Variables can also be called _parameters_.
+The two terms will be used interchangably in this document.
 
 Some important parameters used by or set by bash include:
 
 * `PATH` -- a colon-separated list of directories used to find external commands.
-* `IFS` -- the "internal field separator". We'll see how it's used below.
+* `IFS` -- the "internal field separator".
+   We'll see how it's used below.
 * `PWD` -- your current working directory.
+   It will be the same value as the output of the `pwd` command.
 * `RANDOM` -- a pseudo-random integer between 0 and 32767.
 * `BASH_VERSION` -- the version string of the running instance of bash.
 
-## Parameter Names
+## Variable Names
 
-A variable name consists of uppercase letters, lowercase letters, numbers and underscore.
+A variable name consists of _uppercase letters, lowercase letters, numbers and underscore_.
 It cannot start with a number.
 
 ~~~~exercism/caution
 It is best practice to **avoid using ALLCAPS variable names**.
-The shell uses this convention for its parameters, and you don't want to accidentally override shell parameters that have special meaning.
+The shell uses this convention for its parameters, and you don't want to accidentally overwrite shell parameters that have special meaning.
 For example: [1][1], [2][2], [3][3]
 
 [1]: https://stackoverflow.com/q/27555060/7552
@@ -70,13 +69,13 @@ echo "${x}x$x"
 echo "${x}x${x}"
 ```
 
-Some [style guides][google-style-guide] recommend using braces in most cases for readability.
+Some [style guides][google-style-guide] recommend using braces in most cases for readability and/or consistency.
 
 ## Positional Parameters
 
 As we discussed in the [Commands and Arguments][cmds-args] lesson, commands can take arguments.
 Bash scripts are no exception.
-The arguments to the current instance of bash are called "positional parameters".
+The arguments to the current instance of bash are called _positional parameters_.
 They can be retrieved with these special parameters:
 
 * `$1` -- the first positional parameter
@@ -84,9 +83,12 @@ They can be retrieved with these special parameters:
 * `${10}` ... -- double digits require braces.
 * `$0` -- the name of the current script.
 
+Arguments to a shell function are also positional parameters, handled just like this.
+We'll see more about functions in a later lesson.
+
 ### Special Positional Parameters
 
-There are some "special" parameters that help you work with the positional parameters.
+There are some _special parameters_ that help you work with the positional parameters.
 
 * `$#` expands to the _number_ of positional parameters.
 * `"$@"` expands to the list of all of the positional parameters, each as a separate word.
@@ -94,7 +96,7 @@ There are some "special" parameters that help you work with the positional param
   * The join character is _the first character_ of the `$IFS` variable, which is a space by default.
 
 The `"$@"` is the safest way to pass positional parameters to another command while keeping them safely quoted.
-It is also what you will use to loop over them:
+It is also what you will use to loop over the positional parameters:
 
 ```bash
 for arg in "$@"; do
@@ -102,10 +104,12 @@ for arg in "$@"; do
 done
 ```
 
+In practice, `"$@"` is used more often than `"$*"`.
+
 ## Command Substitution
 
 A very frequent operation you will do in bash scripts is to capture the output of a command and store it in a variable.
-To do this, you will use the command substitution syntax, like this:
+To do this, you will use _command substitution_.
 
 ```bash
 var=$(command)
@@ -124,11 +128,15 @@ echo "$uppercase"
 
 Bash has many builtin facilities to manipulate variables and strings so that you don't need to call out to external commands.
 
-* Uppercasing text: in the previous section I showed how to use `tr` to upper case some text. To do it in bash:
+* Uppercasing text.
+  In the previous section I showed how to use `tr` to upper case some text.
+  To do it in bash:
 
   ```bash
   echo "${text^^}"
   ```
+
+  Similarly, `${text,,}` lowercases the value.
 
 * Provide a default value if the variable is empty.
 
@@ -147,7 +155,7 @@ Bash has many builtin facilities to manipulate variables and strings so that you
   # => HXllX wXrld!"
   ```
 
-There are many other interesting parameter expansions. 
+There are many other interesting parameter expansions: extract a substring, get the string length, _assign_ a default value, remove text from the start or end of the value, and more.
 Read about them [in the manual][param-exp].
 
 
