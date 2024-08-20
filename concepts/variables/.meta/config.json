@@ -2,6 +2,8 @@
   "authors": [
     "glennj"
   ],
-  "contributors": [],
+  "contributors": [
+    "IsaacG"
+  ],
   "blurb": "Variables and variable expansions."
 }

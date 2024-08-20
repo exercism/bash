@@ -8,7 +8,7 @@ We'll talk about arrays later.
 
 You assign a variable like this
 ```bash
-varname="the value"
+name="value"
 ```
 
 ~~~~exercism/note
