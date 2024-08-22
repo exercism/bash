@@ -6,5 +6,5 @@
     "IsaacG",
     "kotp"
   ],
-  "blurb": "Types of commands; argument splitting; writing scripts."
+  "blurb": "Bash scripts are written as sequences of commands. Learn about command and arguments, types of commands, and the essentials about writing scripts."
 }
