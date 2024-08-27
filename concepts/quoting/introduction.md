@@ -117,7 +117,8 @@ However, leaving variables unquoted is not recommended unless you also disable F
 ### Filename Expansion
 
 "Glob" patterns are used to express a concise pattern to match a set of files.
-For example, you might match all the TXT files in a directory with `*.txt`. [Glob patterns][glob] have existed since the invention of Unix.
+For example, you might match all the Markdown files in a directory with `*.md`.
+[Glob patterns][glob] have existed since the invention of Unix.
 
 The glob wildcard characters are:
 
@@ -127,16 +128,18 @@ The glob wildcard characters are:
 
    ~~~~exercism/advanced
    <details><summary>
-   There are lots of details about bracket expressions.
+   There are lots of details about character sets.
    Click here to show them.
    </summary>
 
     * `[abc]` matches exactly one character that is either an `a` or a `b` or a `c`.
         * to include a literal close bracket in the expression, make it the first character after the opening bracket (after an optional `^`)
-            * `[][]` is a bracket expression that will match either a close or an open bracket.
+            * `[][]` is a character set that will match either a close or an open bracket.
+            * or escape it with a backslash: `[[\]]`
     * `[x-y]` matches exactly one character that is in the _range_ from `x` to `y`
         * to include a literal hyphen character in a character set, it must be either the first character after the opening bracket (after an optional `^`) or the last character before the closing bracket.
             * `[-xy]` or `[xy-]` each match exactly one character that is an `-` or a `x` or a `y`
+            * or escape it with a backslash: `[x\-y]`
         * multiple ranges can be specified, for example `[0-9A-Fa-f]` matches a hexadecimal digit
     * `[^abc]` matches exactly one character that is **NOT** an `a` or a `b` or a `c`,
     * `[^x-y]` matches exactly one character that is **NOT** in the range from `x` to `y`
@@ -193,7 +196,7 @@ Glob patterns **are not** regular expressions.
 * match one or more characters
    * regex `.+`
    * glob `?*`
-* regex bracket expressions and glob bracket expressions act the same way.
+* regex character sets and glob character sets act the same way.
 
 ~~~~exercism/advanced
 Bash provides [extended patterns][extended-patterns] that are closer to regular expressions.
