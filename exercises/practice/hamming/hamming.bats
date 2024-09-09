@@ -82,6 +82,13 @@ load bats-extra
   assert_output "Usage: hamming.sh <string1> <string2>"
 }
 
+@test "invalid input (more than 2 arguments)" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash hamming.sh 'A' 'A' 'A' 
+  assert_failure
+  assert_output "Usage: hamming.sh <string1> <string2>"
+}
+
 # Within [[...]] the == operator is a _pattern matching_ operator.
 # To test for string equality, the right-hand side must be
 # quoted to prevent interpretation as a glob-style pattern.
