@@ -24,11 +24,12 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
         - "trimming"    `${var%.*}` `${var##*/}`
     - `$@` and `$*`
 
-3. word splitting and filename expansion
+3. quoting
 
     - to discuss the importance of quoting
+    - types of quoting
+    - word splitting and filename expansion
     - basic shell patterns: `*`, `?`, `[...]`
-    - brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
     - `set -f`
 
 4. conditionals
@@ -58,6 +59,8 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
 9. pipelines and subshells
 
 ...
+
+- brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
 
 x. I/O
    - file descriptors, stdin, stdout, stderr

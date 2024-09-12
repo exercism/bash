@@ -1228,6 +1228,11 @@
       "uuid": "e29f24ae-3c3b-479a-9333-d733c1ff8fb4",
       "slug": "variables",
       "name": "Variables"
+    },
+    {
+      "uuid": "548085e3-720b-425e-a6c7-85b96afef657",
+      "slug": "quoting",
+      "name": "The Importance of Quoting"
     }
   ],
   "key_features": [

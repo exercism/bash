@@ -1,0 +1,8 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+  ],
+  "blurb": "Quoting in bash, and how it interacts with word splitting and filename expansion."
+}
