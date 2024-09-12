@@ -113,6 +113,7 @@ outputs
 ```
 
 However, leaving variables unquoted is not recommended unless you also disable Filename Expansion.
+We'll see how to do that below.
 
 ### Filename Expansion
 
