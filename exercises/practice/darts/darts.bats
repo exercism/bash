@@ -119,7 +119,7 @@ load bats-extra
 
 @test "invalid args: second arg non-numeric" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash darts.sh 10 bar
+    run bash darts.sh 10 bar5
     assert_failure
     assert_output    # there is _some_ output
 }
