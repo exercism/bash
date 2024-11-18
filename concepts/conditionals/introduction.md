@@ -6,14 +6,14 @@ Bash does not have the concept of boolean values.
 There are strings and numbers, and arrays of strings or numbers.
 So how do conditional commands deal with true and false?
 
-## Exit Statuses
+## Exit Status
 
 Commands produce an _exit status_ when they end.
 An exit status is an integer between 0 and 255 inclusive.
 Bash considers a **zero** exit status to represent _success_.
 Any other exit status represents _failure_.
 
-This applies to bash builtin commands and keywords, as well as functions.
+This applies to all commands, including bash builtin commands, keywords, and functions.
 
 ## The "if" Command
 
@@ -146,7 +146,7 @@ When one matches, the COMMANDS are executed.
 
 ```bash
 read -p "Guess the secret word: " word
-case $word in
+case "$word" in
     secret)
         echo "Yes, you guessed it!"
         ;;
@@ -159,7 +159,7 @@ case $word in
 esac
 ```
 
-Each COMMANDS clause must end with **two** semicolons `;;`.
+Each COMMANDS clause must end with **two** semicolons, `;;`.
 
 ~~~~exercism/note
 There are alternatives that provide functionality for fall-through command execution, and for pattern matching to continue.
