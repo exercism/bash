@@ -108,7 +108,7 @@ if [ -n "$str" ]; then echo "not empty"; else echo "empty"; fi
 if [ -n $str ]; then echo "not empty"; else echo "empty"; fi
 ```
 
-[test]: https://www.gnu.org/software/bash/manual/bash.html#index-test 
+[test]: https://www.gnu.org/software/bash/manual/bash.html#index-test
 ~~~~
 
 ## "[[" Keyword
@@ -130,11 +130,12 @@ In addition, `[[` provides
 * `&&` and `||` as logical operators (special parsing rule),
 * `<` and `>` as "bare" string comparison operators (special parsing rule: because these are redirection symbols, in `[` they must be escaped).
 
-It is the author's opinion that these special features offer so much benefit that `[[` should be used exclusively.
+It is widely held that these special features offer so much benefit that `[[` should be used exclusively.
+(For example, the [Google Shell Style Guide][goog-test].)
 
 ## The "case" Command
 
-[`case`][case] is another control flow command. 
+[`case`][case] is another control flow command.
 It is like a "switch" statement in other languages.
 
 ```bash
@@ -167,7 +168,8 @@ Check the manual for details.
 ~~~~
 
 [command-list]: https://www.gnu.org/software/bash/manual/bash.html#Lists
-[if]: https://www.gnu.org/software/bash/manual/bash.html#index-if 
-[case]: https://www.gnu.org/software/bash/manual/bash.html#index-case 
+[if]: https://www.gnu.org/software/bash/manual/bash.html#index-if
+[case]: https://www.gnu.org/software/bash/manual/bash.html#index-case
 [cond-expr]: https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions
 [cond-construct]: https://www.gnu.org/software/bash/manual/bash.html#index-_005b_005b
+[goog-test]: https://google.github.io/styleguide/shellguide.html#s6.3-tests
