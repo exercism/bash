@@ -148,23 +148,22 @@ When one matches, the COMMANDS are executed.
 ```bash
 read -p "Guess the secret word: " word
 case "$word" in
-    secret)
-        echo "Yes, you guessed it!"
-        ;;
-    s*)
-        echo "You guessed the first letter."
-        ;;
-    *)
-        echo "Not even close! Try again."
-        ;;
+    secret) echo "Yes, you guessed it!" ;;
+    ??????) echo "That's the right number of letters." ;;
+    s*)     echo "You guessed the first letter." ;;
+    *)      echo "Not even close! Try again." ;;
 esac
 ```
 
 Each COMMANDS clause must end with **two** semicolons, `;;`.
 
 ~~~~exercism/note
-There are alternatives that provide functionality for fall-through command execution, and for pattern matching to continue.
-Check the manual for details.
+1. There are alternatives that provide functionality for fall-through command execution, and for pattern matching to continue.
+   Check [the manual][case] for details.
+2. Recall that we talked about patterns in the [Filename Expansion][glob] section of the Quoting concept.
+
+[case]: https://www.gnu.org/software/bash/manual/bash.html#index-case
+[glob]: https://exercism.org/tracks/bash/concepts/quoting#h-filename-expansion
 ~~~~
 
 [command-list]: https://www.gnu.org/software/bash/manual/bash.html#Lists
