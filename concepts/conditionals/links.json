@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#index-if",
+    "description": "The bash `if` command"
+  },
+  {
+    "url": "https://mywiki.wooledge.org/BashGuide/TestsAndConditionals#Conditional_Blocks_.28if.2C_test_and_.5B.5B.29",
+    "description": "Conditional Blocks in the Bash Guide"
+  }
+]
