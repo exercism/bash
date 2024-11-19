@@ -83,7 +83,7 @@ Some typical conditional expressions include:
 [ "$num1" -eq "$num2" ]        # arithmetic comparisons
 ```
 
-There are many more operations available: they are listed in the [Bash Conditional Expressions][cond-expr] section of the manual.
+There are many more operations available; they are listed in the [Bash Conditional Expressions][cond-expr] section of the manual.
 
 ~~~~exercism/note
 In the examples above, notice that all the variables are quoted.
@@ -114,7 +114,7 @@ if [ -n $str ]; then echo "not empty"; else echo "empty"; fi
 ## "[[" Keyword
 
 The [`[[...]]` conditional construct][cond-construct] is not a _command_, it is a **keyword**.
-This means that, although it is handled like any other command, it can have special parsing rules.
+This means that, although it is handled like any other command, it has special parsing rules.
 What's special about `[[` is that the variables expanded within it are **not** subject to word splitting or filename expansion.
 That means this command acts as you expect, even without quoting.
 
@@ -122,7 +122,7 @@ That means this command acts as you expect, even without quoting.
 if [[ -n $str ]]; then echo "not empty"; else echo "empty"; fi
 ```
 
-`[[` works with all the conditional expressions that `test` and `[` can handle.
+`[[` supports all the conditional expressions that `test` and `[` can handle.
 In addition, `[[` provides
 
 * the `=~` regular-expression matching operator,
