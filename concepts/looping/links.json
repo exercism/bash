@@ -1,0 +1,10 @@
+[
+  {
+    "description": "\"Loops\" in the Bash Guide",
+    "url": "https://mywiki.wooledge.org/BashGuide/TestsAndConditionals#Conditional_Loops_.28while.2C_until_and_for.29"
+  },
+  {
+    "description": "\"Looping constructs\" in the bash manual",
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#Looping-Constructs"
+  }
+]

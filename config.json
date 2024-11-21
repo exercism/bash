@@ -1238,6 +1238,11 @@
       "uuid": "fcd13bb3-3557-4f3a-82d8-5ba588a51cf4",
       "slug": "conditionals",
       "name": "Conditionals"
+    },
+    {
+      "uuid": "ae9f3e82-bcdd-4c09-9788-bc543235fd52",
+      "slug": "looping",
+      "name": "Looping"
     }
   ],
   "key_features": [
