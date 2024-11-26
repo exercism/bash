@@ -1,6 +1,6 @@
 # Pipelines and Command Lists
 
-We have seen how to write simple commands, where the command is followed by arguments.
+We have seen how to write simple commands, where a command is followed by arguments.
 Now we will see how to make more complex commands by composing simple commands.
 
 ## Pipelines
@@ -25,22 +25,22 @@ The pipe symbol (`|`) connects the output of one command to the input of another
 
 * There is a performance cost to running pipelines.
   If you find yourself with long pipelines of similar commands, consider combining them in a single command.
-  For example, pipelines using multiple instances of grep+cut+sed+awk+tr can be combined into a single awk command for efficiency.
+  For example, pipelines using multiple instances of `grep`, `cut`, `sed`, `awk`, and `tr` can generally be combined into a single `awk` command for efficiency.
 
 * The exit status of a pipeline is the exit status of the last command in the pipeline.
   However, there is a shell setting that can control this.
-  The "pipefail" setting (enabled with `set -o pipefail`) will use the _**last** non-zero exit status_ of the pipeline's commands as the pipeline's exit status, unless all commands succeeded.
+  The "pipefail" setting (enabled with `set -o pipefail`) will use the _**last** non-zero exit status_ of the commands in a pipeline as the pipeline's exit status, unless all commands succeeded.
 ~~~~
 
 ## Command Lists
 
 A command list is a sequence of pipelines separated by `;` (or newline), `&&` or `||`.
 
-* `A ; B` is a command list where `B` executes after `A` has completed.
+* `A; B` is a command list where `B` executes after `A` has completed.
 * `A && B`, where `B` executes only if `A` succeeds (exits with status zero).
 * `A || B`, where `B` executes only if `A` fails (exits with status non-zero).
 
-The exit status of a command list is the exit status of the last command that executes.
+The exit status of a command list is the exit status of the last command that was executed.
 
 The `&&` and `||` operators can be chained so that the next command conditionally executes based on the status of the preceding commands.
 For example
@@ -68,9 +68,9 @@ if A; then B; else C; fi
 A && B || C
 ```
 
-The difference is: when does C execute?
+They differ in when C is executed.
 
-* In the first snippet, the if statement, C will only execute if A fails.
+* In the first snippet (the if statement), C will only execute if A fails.
 * In the second snippet, C executes if A fails _or if A succeeds but B fails_!
 ~~~~
 
@@ -136,7 +136,7 @@ die () {
 Long command lists become hard to read quite quickly.
 Liberal use of newlines can help a lot.
 
-Here's an example: a word is added to an array if two conditions are met
+Consider this example where a word is added to an array if two conditions are met.
 
 ```bash
 [[ "$word" != "$topic" ]] && [[ "$key" == "$(sorted "$topic")" ]] && anagrams+=("$candidate")
@@ -150,7 +150,7 @@ Bash allows you to add a newline after a pipe or a logical operator.
 anagrams+=("$candidate")
 ```
 
-But the operator kind of gets lost at the end of the line.
+However, the operator can be easy to miss at the end of the line.
 Using a _line continuation_ means you can put the operator first, which makes it more obvious that the list is being continued:
 
 ```bash
@@ -160,7 +160,7 @@ Using a _line continuation_ means you can put the operator first, which makes it
 ```
 
 ~~~~exercism/note
-A _line continuation_ is the two character sequence "backslash"+"newline".
+A _line continuation_ is the two character sequence "backslash" and "newline" (`\` + `\n`).
 When bash sees that sequence, it is simply removed from the code, thereby _continuing_ the current line with the next line.
 Take care to not allow any spaces between the backslash and the newline.
 ~~~~
