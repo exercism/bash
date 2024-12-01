@@ -3,6 +3,21 @@
 We have seen how to write simple commands, where a command is followed by arguments.
 Now we will see how to make more complex commands by composing simple commands.
 
+## I/O
+
+Before we start, a quick intro to input/output.
+
+Processes have "standard I/O channels".
+
+* A process can consume _input_ on "stdin".
+* A process can emit _output_ on "stdout".
+* A process can emit _error output_ on "stderr".
+
+The `tr` command is a very pure example of this.
+All it does is read text from its stdin, perform character transliterations, and print the resulting text to stdout.
+
+We will see more about manipulating stdio channels later in the syllabus.
+
 ## Pipelines
 
 This is one of the "killer features" of shell programming.
