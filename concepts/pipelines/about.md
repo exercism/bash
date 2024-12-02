@@ -3,9 +3,9 @@
 We have seen how to write simple commands, where a command is followed by arguments.
 Now we will see how to make more complex commands by composing simple commands.
 
-## I/O
+## Input and Output
 
-Before we start, a quick intro to input/output.
+Before we start, a quick introduction to input/output.
 
 Processes have "standard I/O channels".
 
@@ -14,9 +14,9 @@ Processes have "standard I/O channels".
 * A process can emit _error output_ on "stderr".
 
 The `tr` command is a very pure example of this.
-All it does is read text from its stdin, perform character transliterations, and print the resulting text to stdout.
+All it does is read text from its input, perform character transliterations, and print the resulting text to its output.
 
-We will see more about manipulating stdio channels later in the syllabus.
+We will see more about manipulating "stdio" channels later in the syllabus.
 
 ## Pipelines
 
@@ -35,8 +35,6 @@ The pipe symbol (`|`) connects the output of one command to the input of another
 ~~~~exercism/advanced
 * By default, each command in a pipeline runs in a separate subshell.
   (A subshell is a child process that is a copy of the currently running shell.)
-
-* All the commands in a subshell execute in parallel.
 
 * There is a performance cost to running pipelines.
   If you find yourself with long pipelines of similar commands, consider combining them in a single command.
@@ -91,11 +89,12 @@ They differ in when C is executed.
 
 ### Uses of Command Lists
 
-Here are a couple of examples where command lists can simplify bash code.
+Here are a couple of examples where command lists can simplify the code.
 
 #### Reading blocks of lines from a file
 
-Suppose you have a data file that represents points of a triangle as the length of the three sides but each on a separate line.
+Suppose you have a data file containing data about triangles,
+and a triangle is represented by three separate lines holding the sides of the triangle.
 
 ```bash
 $ cat triangle.dat
@@ -131,19 +130,19 @@ Assuming `is_pythagorean` is a command that determines if the three sides satisf
 Many programming languages have a form of assertion where an exception is thrown if some condition fails
 
 ```
-assert(x == 5, "x must be 5");
+assert(user == "Administrator", "wrong user");
 ```
 
-We can use an OR operator in bash to simulate that function:
+We can use an OR operator in Bash to simulate that function:
 
 ```bash
-die () {
+die () { # a little convenience function
     echo "$*" >&2
     exit 1
 }
 
-[[ $x -eq 5 ]] || die "x must be equal to 5"
-[[ $y -gt 5 ]] || die "y must be greater than 5"
+[[ $user == "Administrator" ]] || die "wrong user"
+[[ $password == "secret!" ]]   || die "incorrect password"
 ```
 
 ## Style Considerations
@@ -176,7 +175,7 @@ Using a _line continuation_ means you can put the operator first, which makes it
 
 ~~~~exercism/note
 A _line continuation_ is the two character sequence "backslash" and "newline" (`\` + `\n`).
-When bash sees that sequence, it is simply removed from the code, thereby _continuing_ the current line with the next line.
+When Bash sees that sequence, it is simply removed from the code, thereby _continuing_ the current line with the next line.
 Take care to not allow any spaces between the backslash and the newline.
 ~~~~
 

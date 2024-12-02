@@ -3,7 +3,8 @@
     "glennj"
   ],
   "contributors": [
-    "IsaacG"
+    "IsaacG",
+    "kotp"
   ],
   "blurb": "Compose more complex bash commands with pipelines and command lists"
 }
