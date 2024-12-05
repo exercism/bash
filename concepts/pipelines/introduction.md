@@ -71,7 +71,7 @@ A && B && C && D || E
 Use these logical operators sparingly.
 They can quickly lead to unreadable code, or logic that is hard to comprehend.
 
-For example, do you think these are the same?
+For example, you may think these are the same:
 
 ```bash
 if A; then B; else C; fi
@@ -81,10 +81,10 @@ if A; then B; else C; fi
 A && B || C
 ```
 
-They differ in when C is executed.
+They difference is: when does C execute?
 
-* In the first snippet (the if statement), C will only execute if A fails.
-* In the second snippet, C executes if A fails _or if A succeeds but B fails_!
+* In the first snippet (the if statement), C will execute only if A fails.
+* In the second snippet, C will execute if A fails _or if A succeeds but B fails_!
 ~~~~
 
 ### Uses of Command Lists
