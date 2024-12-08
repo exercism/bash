@@ -1243,6 +1243,11 @@
       "uuid": "ae9f3e82-bcdd-4c09-9788-bc543235fd52",
       "slug": "looping",
       "name": "Looping"
+    },
+    {
+      "uuid": "f64a17aa-cbdb-49de-b50c-f3bf14a4e03d",
+      "slug": "pipelines",
+      "name": "Pipelines and Command Lists"
     }
   ],
   "key_features": [
