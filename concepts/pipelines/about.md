@@ -41,8 +41,12 @@ The pipe symbol (`|`) connects the output of one command to the input of another
   For example, pipelines using multiple instances of `grep`, `cut`, `sed`, `awk`, and `tr` can generally be combined into a single `awk` command for efficiency.
 
 * The exit status of a pipeline is the exit status of the last command in the pipeline.
-  However, there is a shell setting that can control this.
-  The "pipefail" setting (enabled with `set -o pipefail`) will use the _**last** non-zero exit status_ of the commands in a pipeline as the pipeline's exit status, unless all commands succeeded.
+  That means if some earlier command failed but the last command succeeded, the exit status of the whole pipline is zero.
+
+  There is a shell setting that can change this;
+  if the "pipefail" setting is enabled (with `set -o pipefail`) then the pipeline's exit status will be:
+  * zero if all commands succeed, otherwise
+  * the _**last** non-zero exit status_ of the commands in the pipeline.
 ~~~~
 
 ## Command Lists
@@ -81,7 +85,7 @@ if A; then B; else C; fi
 A && B || C
 ```
 
-They difference is: when does C execute?
+The difference is: when does C execute?
 
 * In the first snippet (the if statement), C will execute only if A fails.
 * In the second snippet, C will execute if A fails _or if A succeeds but B fails_!
@@ -118,7 +122,7 @@ while read a && read b && read c; do
 done < triangle.dat
 ```
 
-Assuming `is_pythagorean` is a command that determines if the three sides satisfy the Pythagoran equation, the output would be
+Assuming `is_pythagorean` is a command that determines if the three sides satisfy the Pythagoran equation, the output would be:
 
 ```none
 3:4:5 is pythagorean
