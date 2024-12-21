@@ -45,7 +45,7 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
     - for elem in elements ...
     - arithmetic for
 
-6. conditionals 2
+6. command lists and pipelines
     - boolean operators `&&` `||`
     - how `A && B || C` != `if A; then B; else C; fi`
       
@@ -56,7 +56,6 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
 
 8. functions
 
-9. pipelines and subshells
 
 ...
 
