@@ -45,18 +45,16 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
     - for elem in elements ...
     - arithmetic for
 
-6. conditionals 2
+6. pipelines and command lists
     - boolean operators `&&` `||`
     - how `A && B || C` != `if A; then B; else C; fi`
-      
-7. arrays
+
+7. functions
+
+8. arrays
     - numeric and associative
     - iteration
     - namerefs
-
-8. functions
-
-9. pipelines and subshells
 
 ...
 
