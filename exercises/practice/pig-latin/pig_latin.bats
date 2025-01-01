@@ -77,6 +77,13 @@ load bats-extra
     assert_output "atqay"
 }
 
+@test word_beginning_with_consonant_and_vowel_containing_qu {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash pig_latin.sh liquid
+    assert_success
+    assert_output "iquidlay"
+}
+
 # some letter clusters are treated like a single consonant
 
 @test word_beginning_with_ch {
