@@ -145,9 +145,9 @@ load bats-extra
 
 @test "multiple line question" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash bob.sh $'\nDoes this cryogenic chamber make me look fat?\nNo'
+  run bash bob.sh $'\nDoes this cryogenic chamber make\n me look fat?'
   assert_success
-  assert_output "Whatever."
+  assert_output "Sure."
 }
 
 @test "starting with whitespace" {
