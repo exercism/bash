@@ -40,7 +40,7 @@ If you declare the variables with the `local` command, the _scope_ of the variab
 Otherwise, the variable is placed in the _global scope_.
 
 Local variables can have the same name as a global variable.
-In that case, the local variable _temporarily_ overrides the global one, and the global value is restored when the function returns.
+In that case, the local variable takes precedence over the global variable.
 
 ```bash
 x=5
