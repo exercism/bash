@@ -40,7 +40,9 @@ If you declare the variables with the `local` command, the _scope_ of the variab
 Otherwise, the variable is placed in the _global scope_.
 
 Local variables can have the same name as a global variable.
-In that case, the local variable takes precedence over the global variable.
+In that case, the local variable "shadows" the global variable.
+For instance, a local variable declared in a function hides a global variable of the same name: references and assignments refer to the local variable, leaving the global variable unmodified.
+When the function returns, the global variable is once again visible.
 
 ```bash
 x=5
