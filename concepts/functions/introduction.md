@@ -102,6 +102,12 @@ Similarly, _assigning_ a value to a variable will assign it _in the scope where 
 This "action at a distance" can create hard-to-follow code, as it is not always obvious where a variable was assigned a value.
 ~~~~
 
+~~~~exercism/advanced
+The call stack can be examined using [the `FUNCNAME` array variable][funcname].
+
+[funcname]: https://www.gnu.org/software/bash/manual/bash.html#index-FUNCNAME
+~~~~
+
 ## Return Values
 
 A function, like any command, has an _exit status_.
@@ -208,6 +214,32 @@ for i in {1..10}; do fibonacci "$i"; done
 # => 55
 # => 89
 ```
+
+~~~~exercism/advanced
+The recursion depth can be controlled with [the `FUNCNEST` variable][funcnest].
+
+```bash
+bash -c '
+    recur() {
+        echo $1
+        recur $(($1 + 1))
+    }
+    FUNCNEST=5
+    recur 1
+'
+```
+
+```none
+1
+2
+3
+4
+5
+environment: line 1: recur: maximum function nesting level exceeded (5)
+```
+
+[funcnest]: https://www.gnu.org/software/bash/manual/bash.html#index-FUNCNEST
+~~~~
 
 [variables]: https://exercism.org/tracks/bash/concepts/variables
 [man-funcs]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Functions
