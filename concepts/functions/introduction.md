@@ -100,6 +100,8 @@ In func2, var = global
 
 Similarly, _assigning_ a value to a variable will assign it _in the scope where it was declared_.
 This "action at a distance" can create hard-to-follow code, as it is not always obvious where a variable was assigned a value.
+
+[man-funcs]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Functions
 ~~~~
 
 ~~~~exercism/advanced
@@ -242,4 +244,3 @@ environment: line 1: recur: maximum function nesting level exceeded (5)
 ~~~~
 
 [variables]: https://exercism.org/tracks/bash/concepts/variables
-[man-funcs]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Functions
