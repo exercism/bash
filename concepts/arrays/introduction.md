@@ -99,7 +99,7 @@ If the given index does not exist in the array, the result of the expansion is a
 
 ## Assigning to an Array
 
-To assign to a particular array entry, use this syntax
+To assign to a particular array entry, use this syntax:
 
 ```bash
 myarray[10]="hello"
