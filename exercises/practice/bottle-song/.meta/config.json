@@ -1,5 +1,7 @@
 {
-  "authors": [],
+  "authors": [
+    "IsaacG"
+  ],
   "files": {
     "solution": [
       "bottle_song.sh"
