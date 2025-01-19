@@ -258,7 +258,7 @@ mymap[$key]="$value"
 
 ### Iterating
 
-You can use a `for value in "${mymap[@]}"` loop.
+You can use a `for value in "${mymap[@]}"` loop to iterate.
 However, you typically also want the key to go along with the value.
 
 Use the `"${!mymap[@]}"` syntax we saw above.
