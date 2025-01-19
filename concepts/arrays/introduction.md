@@ -250,7 +250,7 @@ The usual parameter expansion syntax is required.
 
 ### Assigning to an Associative Array
 
-The same syntax as before:
+Assignment uses the same syntax as before:
 
 ```bash
 mymap[$key]="$value"
