@@ -1,19 +1,26 @@
 # Arrays
 
-Bash provides three types of parameters: strings, integers and arrays.
-Most of the time, string values are sufficient.
-But sometimes, you have to store a list of values.
+Bash provides two types of parameters: "scalar" values and arrays.
+A scalar value can be a string or a number; it represents a single "thing".
+
+Most of the time, scalar values are sufficient to contain your data.
+But sometimes, you need to store a list of scalar values.
 In this case you will use an _array_.
 
 There are two kinds of arrays:
 
 * Numerically-indexed arrays map an integer key to a string value.
-  (Other languages might call this a "list" or an "array".)
+  (Other languages might call this a "list" or a "sequence".)
 * Associative arrays map a string key to a string value.
   (Other languages might call this a "map" or a "dictionary".)
 
 The first few sections of this document will cover numerically-indexed arrays (hereafter simply known as "arrays").
 Details about associative arrays will show up at the end.
+
+~~~~exercism/caution
+Bash arrays can _only_ store scalar values.
+There is no ability to create a two-dimensional array (array of arrays).
+~~~~
 
 ## Declaring and Initializing an Array Variable
 
@@ -38,12 +45,12 @@ myarray=(
 )
 ```
 
-Assigning a list of strings to an array variable in this manner will store the first string in index zero, the next string in index one, the next in index two, and so on.
+Assigning a list of strings to an array variable in this manner will store the first string at index zero, the next string at index one, the next at index two, and so on.
 
 It is possible to initialize a "sparse array" by specifying the indices you need.
 
 ```bash
-raindrops=( [3]="Pling" [5]="Plang [7]="Plong" )
+raindrops=([3]="Pling" [5]="Plang [7]="Plong")
 ```
 
 ~~~~exercism/note
@@ -51,7 +58,7 @@ To reiterate: array indices are zero-based.
 This snippet outputs "true":
 
 ```bash
-myarray=( "one" "two" "three" )
+myarray=("one" "two" "three")
 [[ "${myarray[0]}" == "one" ]] && echo true || echo false
 ```
 ~~~~
@@ -66,7 +73,7 @@ It is more idiomatic to just assign a (perhaps empty) parenthesized list to init
 
 ## Accessing Elements of an Array
 
-As you saw above, the syntax to access an array element is `${myarray[$index]}`.
+As you saw in the note above, the syntax to access an array element is `${myarray[$index]}`.
 The index is given in square brackets.
 The curly braces are required.
 
@@ -101,13 +108,13 @@ myarray[10]="hello"
 To _append_ to an array, use the `+=` concatenating-assigment operator, and use parentheses:
 
 ```bash
-myarray+=( "new element 1" "new element 2" )
+myarray+=("new element 1" "new element 2")
 ```
 
 ## Iterating over an Array
 
 You will typically need to iterate over the _values_ of an array.
-Use a for loop (that you saw in the [Looping][looping] concept:
+Use a for loop (that you saw in the [Looping][looping] concept):
 
 ```bash
 myarray=("one" "two" "three")
@@ -124,9 +131,20 @@ It is somewhat equivalent to:
 for value in "${myarray[0]}" "${myarray[1]}" ... "${myarray[n]}"
 ```
 
-Except that the `"${myarray[@]}"` form works with sparse arrays as well
+The `"${myarray[@]}"` form works with sparse arrays, expanding to only defined values.
 
 This special expansion, where the index is an ampersand (`@`), is only special within double quotes.
+
+#### Other Special Parameter Exapansions
+
+Here are another couple of bits of special syntax that we need for iterating over an array.
+These are described in the manual in [Shell Parameter Expansion][man-expn].
+
+To find the _length_ of an array, use `${#myarray[@]}`, with a `#` before the name.
+The "length" of an array means the number of elements in it.
+
+To extract the list of _indices_ of an array, use `"${!myarray[@]}"`, with a `!` before the name and the expansion in double quotes.
+For numerically-indexed arrays, the indices are expanded in numerical order.
 
 ### Iterating over Array Indices
 
@@ -142,8 +160,7 @@ There are a couple of ways to do this.
    ```
 
    Note the `${#myarray[@]}` syntax, with the `#` character in front of the array name.
-   This syntax returns the _length_ of the array.
-   And since arrays use zero-based indexing, the last index is one less than the array length.
+   Since arrays use zero-based indexing, the array's last index is one less than the array length.
 
 2. When the array is sparse, you can use this form
 
@@ -154,18 +171,16 @@ There are a couple of ways to do this.
    ```
 
    Note the `${!myarray[@]}` syntax, with the `!` character in front of the array name.
-   This syntax substitutes the indices of the array as separate words.
-   For numerically-indexed arrays, the indices are expanded in numerical order.
 
 ## Inspecting an Array
 
 If you want to look at the contents of an array, use the `declare` command with the `-p` option:
 
 ```bash
-a=( "the 'first' element"
-    second
-    third
-    'the "last" element' )
+a=("the 'first' element"
+   second
+   third
+   'the "last" element')
 declare -p a
 ```
 
@@ -183,7 +198,7 @@ Generally, we use the term "key" not "index": associative arrays map keys to val
 
 ### Declaring an Associative Array
 
-Unlike arrays, associative arrays must be declared.
+Unlike arrays, associative arrays **must** be declared.
 Use the `-A` option to `declare` (or `local` in a function):
 
 ```bash
@@ -200,14 +215,14 @@ myfunc() {
 The key-value pairs are specified within the parenthesized list:
 
 ```bash
-mymap=( [first]=foo [second]=bar [third]=baz )
+mymap=([first]=foo [second]=bar [third]=baz)
 declare -p mymap
 ```
 
 This outputs:
 
 ```
-declare -A mymap=([second]="bar" [first]="foo" [third]="baz" )
+declare -A mymap=([second]="bar" [first]="foo" [third]="baz")
 ```
 
 ~~~~exercism/note
@@ -217,7 +232,7 @@ Be aware that associative arrays are **unordered**.
 The declaration and initialization can happen in one line.
 
 ```bash
-declare -A mymap=( [first]=foo [second]=bar [third]=baz )
+declare -A mymap=([first]=foo [second]=bar [third]=baz)
 ```
 
 In recent Bash versions, the initialization can use a `(key value key value ...)` list.
@@ -265,3 +280,4 @@ third -> baz
 To re-emphasize, there is no order to the keys.
 
 [looping]: https://exercism.org/tracks/bash/concepts/looping
+[man-expn]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion
