@@ -54,9 +54,44 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
 8. arrays
     - numeric and associative
     - iteration
-    - namerefs
 
-...
+9. arithmetic
+
+10. more about arrays
+
+    - concatenate to a string with `"${ary[*]}"`
+        - IFS
+    - how positional parameters are "array-like"
+    - passing an array to a function
+        - by value
+            ```bash
+            myfunc() {
+                local copy=("$@")
+                ...
+            }
+            myfunc "${ary[@]}"
+            ```
+        - indirect variable syntax
+            ```bash
+            myfunc() {
+                local varname=$1
+                local tmp="${1}[@]"
+                local copy=( "${!tmp}" )
+                ...
+            }
+            myfunc "ary"
+            ```
+        - namerefs
+            ```bash
+            myfunc() {
+                local -n ref=$1
+                ...
+            }
+            myfunc "ary"
+            ```
+    - sublist syntax `${ary[@]:offeset:length}`
+
+## More Concepts
 
 - brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
 
@@ -68,13 +103,6 @@ x. I/O
    - command substitution
         - capturing stdout and stderr
         - capturing stdout and stderr **into separate variables**
-
-x. arithmetic
-
-x. variables 2
-
-   - scope
-   - attributes: `-i` `-l` `-u`
 
 x. option parsing with getopts
 
