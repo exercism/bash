@@ -243,7 +243,7 @@ declare -A mymap=(first foo second bar third baz)
 
 ### Accessing Values
 
-The same syntax as before: `${mymap[$key]}`.
+The same syntax as before is used to access elements: `${mymap[$key]}`.
 
 Associative array keys are not evaluated in an arithmetic context.
 The usual parameter expansion syntax is required.
