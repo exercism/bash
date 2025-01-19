@@ -162,7 +162,7 @@ There are a couple of ways to do this.
    Note the `${#myarray[@]}` syntax, with the `#` character in front of the array name.
    Since arrays use zero-based indexing, the array's last index is one less than the array length.
 
-2. When the array is sparse, you can use this form
+2. When the array is sparse, you can use this form:
 
    ```bash
    for index in "${!raindrops[@]}"; do
