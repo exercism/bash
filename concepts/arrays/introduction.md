@@ -30,7 +30,7 @@ You can initialize an array by assigning a parenthesized list of elements (possi
 myarray=("one" "two" "three")
 ```
 
-As is standard with every variable assignment, there must be no spaces around the equal sign.
+As is the case with every variable assignment, there must be no spaces around the equal sign.
 
 Note that there are no comma separators between the elements; it is a whitespace-separated list of strings.
 
