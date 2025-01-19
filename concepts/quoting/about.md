@@ -1,4 +1,4 @@
-# Introduction
+# About Quoting
 
 One piece of advice new bash programmers will hear over and over:
 

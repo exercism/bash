@@ -1,4 +1,4 @@
-# Looping
+# Introduction to Looping
 
 Bash has two forms of looping:
 

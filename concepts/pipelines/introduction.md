@@ -1,4 +1,4 @@
-# Pipelines and Command Lists
+# Introduction to Pipelines and Command Lists
 
 We have seen how to write simple commands, where a command is followed by arguments.
 Now we will see how to make more complex commands by composing simple commands.

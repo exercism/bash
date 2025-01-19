@@ -1,4 +1,4 @@
-# Functions
+# Introduction to Functions
 
 Many Bash scripts are written in a strictly imperative style: execute one command, then execute another command, and so on.
 Sometimes you need to group together a sequence of commands that conceptually perform a single purpose.
