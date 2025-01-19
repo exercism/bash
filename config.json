@@ -812,6 +812,19 @@
         "topics": [
           "control_flow_loops",
           "text_formatting"
+        ],
+	"status": "deprecated"
+      },
+      {
+        "slug": "bottle-song",
+        "name": "Bottle Song",
+        "uuid": "97ab9f1e-d30f-451d-a3d1-5b926b7df26b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "control_flow_loops",
+          "text_formatting"
         ]
       },
       {
