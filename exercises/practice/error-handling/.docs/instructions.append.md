@@ -8,7 +8,7 @@ Note that you can pass empty strings as arguments:
 
 `./program ""`
 
-which is different from passing no arguments at all:
+This is different from passing no arguments at all.
 
 `./program`
 
