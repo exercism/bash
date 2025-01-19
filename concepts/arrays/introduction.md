@@ -1,4 +1,4 @@
-# Arrays
+# Introduction to Arrays
 
 Bash provides two types of parameters: "scalar" values and arrays.
 A scalar value can be a string or a number; it represents a single "thing".
