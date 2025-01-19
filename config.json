@@ -1266,6 +1266,11 @@
       "uuid": "44349c3b-8b64-456a-afa9-aa7fc0e7d618",
       "slug": "functions",
       "name": "Functions"
+    },
+    {
+      "uuid": "ab1409fa-1229-419c-aab4-4f6d634f9f9a",
+      "slug": "arrays",
+      "name": "Arrays"
     }
   ],
   "key_features": [
