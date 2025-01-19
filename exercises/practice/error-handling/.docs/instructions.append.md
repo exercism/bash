@@ -4,7 +4,7 @@
 
 The goal of this exercise is to consider the number of arguments passed to your program.
 
-Note that you can pass empty strings as arguments:
+Note that you can pass empty strings as arguments.
 
 `./program ""`
 
