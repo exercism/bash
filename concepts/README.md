@@ -120,3 +120,8 @@ x. `set` command and "strict mode"
    - `-opt` versus `+opt`
    - debugging with `-x` and `-v`
    - shellcheck
+
+   - https://mywiki.wooledge.org/BashFAQ/105
+   - http://redsymbol.net/articles/unofficial-bash-strict-mode/
+   - https://www.shellcheck.net
+      - https://www.shellcheck.net/wiki/
