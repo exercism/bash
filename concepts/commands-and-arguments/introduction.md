@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to Shell Fundamentals
 
 ## Shells
 

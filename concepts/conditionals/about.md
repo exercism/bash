@@ -1,4 +1,4 @@
-# Introduction
+# About Conditionals
 
 ## Truthiness in Bash
 
