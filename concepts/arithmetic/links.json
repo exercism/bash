@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#Shell-Arithmetic",
+    "description": "\"Shell Arithmetic\" in the bash manual"
+  },
+  {
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#Arithmetic-Expansion",
+    "description": "\"Arithmetic Expansion\" in the bash manual"
+  },
+  {
+    "url": "https://mywiki.wooledge.org/BashGuide/CompoundCommands#Arithmetic_Evaluation",
+    "description": "\"Arithmetic Evaluation\" in the Bash Guide"
+  }
+]

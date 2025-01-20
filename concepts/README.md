@@ -2,6 +2,10 @@
 
 The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
 
+The suggested concept flow:
+
+[![bash syllabus concept flowchart](https://glennj.github.io/img/bash.syllabus.flow.png)](http://forum.exercism.org/t/bash-syllabus-flow/15038)
+
 1. Basic syntax: commands and arguments
 
     - separated by whitespace
@@ -89,20 +93,21 @@ The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
             }
             myfunc "ary"
             ```
-    - sublist syntax `${ary[@]:offeset:length}`
+    - sublist syntax `${ary[@]:offset:length}`
+
+11. I/O
+   - file descriptors, stdin, stdout, stderr
+   - redirection
+   - here-docs and here-strings
+   - command substitution
+        - capturing stdout and stderr
+        - capturing stdout and stderr **into separate variables**
+   - `exec` and redirections
+   - process substitutions
 
 ## More Concepts
 
 - brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
-
-x. I/O
-   - file descriptors, stdin, stdout, stderr
-   - redirection
-   - here-docs and here-strings
-   - `exec` and redirections
-   - command substitution
-        - capturing stdout and stderr
-        - capturing stdout and stderr **into separate variables**
 
 x. option parsing with getopts
 
