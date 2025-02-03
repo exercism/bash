@@ -12,24 +12,26 @@ Additionally, Bash only performs arithmetic in certain places (known as arithmet
 Arithmetic expansion looks like [command substitution][cmd-sub], but with double parentheses.
 
 ```bash
-$((expression))
+$(( expression ))
 ```
 
 This syntax expands to the result of evaluating the expression.
 It is commonly used to capture the result in a variable:
 
 ```bash
-x=$((3 + 4))
-```
-
-~~~~exercism/note
-You can add extra whitespace inside the parentheses:
-```bash
 x=$(( 3 + 4 ))
 ```
 
-The `[[...]]` conditional construct requires spaces because `[[` is a _keyword_.
-Here, ``$((...))` is just _syntax_, so the extra spaces are optional.
+~~~~exercism/note
+The amount of whitespace inside the parentheses is up to you.
+It is a matter of style and readability.
+
+```bash
+x=$(( 3 + 4 ))
+y=$((5+6))
+```
+
+Your friendly author likes to add spaces so that the arithmetic expression is more visible within the parentheses.
 ~~~~
 
 ## Arithmetic Conditional
@@ -37,7 +39,7 @@ Here, ``$((...))` is just _syntax_, so the extra spaces are optional.
 The arithmetic conditional is performed within double parentheses _without_ the leading `$`:
 
 ```bash
-((expression))
+(( expression ))
 ```
 
 This does not expand to the result.
@@ -56,14 +58,14 @@ This syntax is typically used in two places:
 1. as the COMMAND part of an [`if` statement][conditional-if] or a [`while` loop][looping-while].
 
    ```bash
-   if ((x == y - 1)); then ...
-   while ((y > 0)); do ...
+   if (( x == y - 1 )); then ...
+   while (( y > 0 )); do ...
    ```
 
 1. as a standalone command to modify a variable's value.
 
    ```bash
-   ((x = x + 1))
+   (( x = x + 1 ))
    echo "new value for x is $x"
    ```
 
@@ -73,12 +75,12 @@ This syntax is typically used in two places:
 
    ```bash
    x=0
-   ((x++))
+   (( x++ ))
    echo "you will see this"
 
    set -e
    x=0
-   ((x++))
+   (( x++ ))
    echo "shell exits on the previous line; you won't see this"
    ```
 
@@ -95,7 +97,7 @@ There are a few other places that are arithmetic contexts:
 * The [arithmetic for-loop][looping-for].
 
   ```bash
-  for ((i = 0; i < 10; i++)); do
+  for (( i = 0; i < 10; i++ )); do
       echo "$i"
   done
   ```
@@ -107,9 +109,11 @@ There are a few other places that are arithmetic contexts:
   # ................................^^^^^
   ```
 
+  For more about arrays, read the [Arrays][arrays] concept document.
+
 * The offset and length parts of the `${var:offset:length}` expansion.
 * The [`let` builtin command][let].
-  * Note that `((expression))` is preferred over `let "expresson"`.
+  * Note that `(( expression ))` is preferred over `let "expresson"`.
     Unlike the arithmetic conditional construct, the `let` expression is subject to filename-expansion and word-splitting, and it requires quoting.
 * Variable assignment, when the variable has the "integer attribute".
 
@@ -137,7 +141,7 @@ Here is one aspect of arithmetic contexts that improves readability.
 ```bash
 height=10
 width=20
-area=$((height * width))
+area=$(( height * width ))
 ```
 
 Did you notice that the `$` dollar signs are missing from the variables in the arithmetic expression?
@@ -161,20 +165,21 @@ For example, doubling the length of a string:
 
 ```bash
 s="hello world"
-len=$((${#s} * 2))
+len=$(( ${#s} * 2 ))
 ```
 
 And positional paremeters have to as well.
 If the first two positional parameters represent width and height:
 
 ```bash
-area=$(($1 * $2))
+area=$(( $1 * $2 ))
 ```
 
 [arithmetic]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Arithmetic
 [conditional-if]: https://exercism.org/tracks/bash/concepts/conditionals#h-the-if-command
 [looping-while]: https://exercism.org/tracks/bash/concepts/looping#h-while-loops
 [looping-for]: https://exercism.org/tracks/bash/concepts/looping#h-arithmetic-for-loop
+[arrays]: https://exercism.org/tracks/bash/concepts/arrays
 [let]: https://www.gnu.org/software/bash/manual/bash.html#index-let
 [awk]: https://www.gnu.org/software/gawk/manual/html_node/index.html
 [bc]: https://www.gnu.org/software/bc/manual/html_mono/bc.html
