@@ -222,6 +222,14 @@
         ]
       },
       {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "93e9a833-d9d2-4d73-b559-2396b8f76446",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "resistor-color-duo",
         "name": "Resistor Color Duo",
         "uuid": "56e4993f-6e15-44e4-bf35-a031cd94aa49",
@@ -809,11 +817,11 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3,
+        "status": "deprecated",
         "topics": [
           "control_flow_loops",
           "text_formatting"
-        ],
-	"status": "deprecated"
+        ]
       },
       {
         "slug": "bottle-song",
