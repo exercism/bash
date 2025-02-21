@@ -1284,6 +1284,11 @@
       "uuid": "386b48d3-da82-448f-8607-8251367eb695",
       "slug": "arithmetic",
       "name": "Arithmetic"
+    },
+    {
+      "uuid": "6bfdc749-a40e-44a8-b26b-a402ba53624b",
+      "slug": "more-arrays",
+      "name": "More about Arrays"
     }
   ],
   "key_features": [
