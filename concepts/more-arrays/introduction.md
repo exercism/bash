@@ -88,11 +88,11 @@ declare -p subarray         # => subarray=([0]="three" [1]="four")
 ## Passing an Array to a Function
 
 This is not as straightforward as other languages you might be know.
-There are 3 techniques to pass an array to a function, and only one of them allows you to "mutate" the array that was passed.
+There are two main techniques to pass an array to a function.
 
 ### Pass the Elements
 
-In the first technique, you just pass the array's values and collect them into a local array in the function.
+In the first technique, you pass all of the array's values and collect them into a local array in the function.
 
 ```bash
 myfunc() {
@@ -105,59 +105,26 @@ array_original=(11 22 33 44)
 myfunc "${array_original[@]}"
 ```
 
-The function's array holds a copy of the values.
+The function's array holds a _copy_ of the values.
 Any changes made to the array in the function are not reflected in the outer scope.
 
 ### Pass the Array Name
 
-For these two techniques, you pass the array _name_ as a string.
-
-#### 1. Using Indirect Expansion
-
-Suppose you have variable `x=5` and variable `y=x`, and you want to use the `y` variable to get the value `5`.
-Some other languages let you do `$$y` but not Bash.
-Bash has a technique called **indirect expansion** (described in the manual in [Shell Parameter Expansion][parameter-expansion]).
-In bash, this uses the `!` character in a different way than we have seen before:
-
-```bash
-x=5
-y=x
-echo "the value is ${!y}"
-```
-
-We will use this technique to pass the array _name_ to the function, and indirectly access the values to make a copy them
-
-```bash
-myfunc() {
-    local array_name=$1
-    local temp="${array_name}[@]"
-    local array_copy=("${!temp}")
-    # do stuff with array_copy
-    declare -p array_copy
-}
-
-array_original=(11 22 33 44)
-myfunc "array_original"
-```
-
-This technique is quite messy.
-The `temp` variable will contain the _string_ `"array_original[@]"`.
-Then the indirect expansion expands to the global array's values.
-
-The function's array holds a copy of the values.
-Any changes made to the array in the function are not reflected in the outer scope.
-
-#### 2. Using a "nameref" Variable
-
-This technique is more like the "pass by reference" capability you might be used to.
-We will pass the array name to the function.
+This technique is more like the "pass by reference" capability you might know from other languages.
+You pass the array _name_ as a string.
 The function will create a local variable with the "nameref" attribute.
 This local array and the global array (whose name we passed in) are _the same array_.
 
 ```bash
 myfunc() {
+    # note the `-n` option
     local -n local_array=$1
+
     # do stuff with local_array
+    for i in "${!local_array[@]}"; do
+        printf '%d => %s\n' "$i" "${local_array[i]}"
+    end
+
     # we can mutate it
     local_array+=(55 66 77)
 }
