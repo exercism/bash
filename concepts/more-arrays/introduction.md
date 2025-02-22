@@ -1,11 +1,11 @@
 # More about Arrays
 
-We were introduced to arrays in the [Arrays][arrays] chapter.
+We introduced arrays in the [Arrays][arrays] chapter.
 This document will show more ways to use arrays.
 
 ## Concatenating the Elements of an Array into a Single String
 
-In the previous Arrays chapter, you saw `"${myarray[@]}"`, with the `@` index, to expand the array into the individual elements.
+In the previous Arrays chapter, you saw `"${myarray[@]}"`, with the `@` index, used to expand the array into the individual elements.
 But sometimes you want to join all the elements into a single string.
 For this, use the `*` index:
 
