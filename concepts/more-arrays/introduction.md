@@ -36,7 +36,10 @@ declare -p mystring
 ```
 
 ~~~~exercism/advanced
+<details><summary>
 We can encapsulate this into a function.
+Click for details.
+</summary>
 
 ```bash
 join() {
@@ -61,6 +64,23 @@ join() {
     echo "$*"
 }
 ```
+
+</details>
+
+<details><summary>
+Without using a function, modifying IFS in a subshell is a good way to avoid modifying it in the current shell.
+Click for details.
+</summary>
+
+```bash
+(IFS=","; echo "${myarray[*]}")
+```
+
+The parentheses create a subshell (a copy of the current shell). When the commands inside the parentheses complete, the subshell exits, and the changed IFS variable disappears.
+
+Note that this will not work: `IFS="," echo "${myarray[*]}"` -- the parameter expansion is performed first, _before_ the shell applies the modified IFS variable to the `echo` command.
+
+</details>
 ~~~~
 
 ## Array Slices
