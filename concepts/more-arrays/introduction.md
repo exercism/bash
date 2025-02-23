@@ -92,22 +92,25 @@ We can do the same thing with arrays to expand a slice of the array.
 myarray=(one two three four)
 
 subarray=("${myarray[@]:0:2}")
-declare -p subarray         # => subarray=([0]="one" [1]="two")
+declare -p subarray
+# => declare -a subarray=([0]="one" [1]="two")
 
 subarray=("${myarray[@]:1:3}")
-declare -p subarray         # => subarray=([0]="two" [1]="three" [2]="four")
+declare -p subarray
+# => declare -a subarray=([0]="two" [1]="three" [2]="four")
 ```
 
 Omitting the length part means "from the offset to the end of the array":
 
 ```bash
 subarray=("${myarray[@]:2}")
-declare -p subarray         # => subarray=([0]="three" [1]="four")
+declare -p subarray
+# => declare -a subarray=([0]="three" [1]="four")
 ```
 
 ## Passing an Array to a Function
 
-This is not as straightforward as other languages you might be know.
+This is not as straightforward as other languages you might know.
 There are two main techniques to pass an array to a function.
 
 ### Pass the Elements
