@@ -1,0 +1,11 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "IsaacG",
+    "kotp"
+  ],
+  "blurb": "Redirections manipulate the input and output of a Bash program."
+}
+
