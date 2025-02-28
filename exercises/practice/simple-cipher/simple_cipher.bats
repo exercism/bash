@@ -12,7 +12,7 @@ load bats-extra
     assert_success
     key=$output
     assert [ "${#key}" -ge 100 ]     # at least 100 chars
-    [[ $key != [^[:lower:]] ]]    # only lowercase letters
+    [[ "$key" =~ ^[[:lower:]]+$ ]]   # only lowercase letters
 }
 
 @test  "Can encode random" {
