@@ -50,7 +50,7 @@ Assigning a list of strings to an array variable in this manner will store the f
 It is possible to initialize a "sparse array" by specifying the indices you need.
 
 ```bash
-raindrops=([3]="Pling" [5]="Plang [7]="Plong")
+raindrops=([3]="Pling" [5]="Plang" [7]="Plong")
 ```
 
 ~~~~exercism/note
