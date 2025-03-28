@@ -27,6 +27,13 @@
       "path": "docs/RESOURCES.md",
       "title": "Useful Bash resources",
       "blurb": "A collection of useful resources to help you master Bash"
+    },
+    {
+      "uuid": "82deaa52-269a-4a42-b361-136e89040fdd",
+      "slug": "syllabus",
+      "path": "docs/SYLLABUS.md",
+      "title": "Bash concept documents",
+      "blurb": "Concepts of Bash programming that will appear on the learning track"
     }
   ]
 }
