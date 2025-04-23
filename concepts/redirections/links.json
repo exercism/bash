@@ -1,7 +1,7 @@
 [
   {
     "url": "https://www.gnu.org/software/bash/manual/bash.html#Redirections",
-    "description": "Redirections in the manual"
+    "description": "Redirection in the manual"
   },
   {
     "url": "https://mywiki.wooledge.org/BashGuide/InputAndOutput#File_Descriptors",

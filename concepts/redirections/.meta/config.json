@@ -6,6 +6,6 @@
     "IsaacG",
     "kotp"
   ],
-  "blurb": "Redirections manipulate the input and output of a Bash program."
+  "blurb": "Redirection manipulates the input and output of programs."
 }
 
