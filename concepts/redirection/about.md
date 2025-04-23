@@ -166,7 +166,7 @@ some_command  2>&1 # stdout and stderr send to 'log.txt'
 ```
 
 This technique looks quite convoluted, but it can be very useful in situations where your script is being run by some other software package, and standard output is automatically captured by the software.
-The `bats` command, used to run unit tests for this track, works like this: `bats` captures a test's stdout and stderr, but strings sent to FD 3 will be displayed on the terminal.
+The `bats` command that is used to run unit tests for this track works like this: `bats` captures a test's stdout and stderr, but debug messages sent to FD 3 will be displayed on the terminal.
 ~~~~
 
 ## In Summary
