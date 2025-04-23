@@ -10,8 +10,8 @@ Recall that we introduced these in the [Pipelines and Command Lists][pipelines] 
 
 ~~~~exercism/note
 Pipelines can be considered a form of redirection: the standard output from one program is sent directly to the standard input of another.
-But we've already covered pipelines.
-This document is about redirecting to and from files.
+We've already covered pipelines.
+This concept will cover redirecting to and from files.
 ~~~~
 
 Shell redirection is a powerful mechanism that allows you to change the destination of these streams.
@@ -107,6 +107,10 @@ It is useful for suppressing output or errors.
 ```bash
 some_command > /dev/null  # Discards stdout
 some_command 2> /dev/null # Discards stderr
+
+# Using /dev/null as input will prevent the command
+# from reading data from the keyboard
+some_command < /dev/null
 ```
 
 ## Combining redirections
@@ -162,7 +166,7 @@ some_command  2>&1 # stdout and stderr send to 'log.txt'
 ```
 
 This technique looks quite convoluted, but it can be very useful in situations where your script is being run by some other software package, and standard output is automatically captured by the software.
-The `bats` command works like this.
+The `bats` command, used to run unit tests for this track, works like this: `bats` captures a test's stdout and stderr, but strings sent to FD 3 will be displayed on the terminal.
 ~~~~
 
 ## In Summary
