@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#Redirections",
+    "description": "Redirection in the manual"
+  },
+  {
+    "url": "https://mywiki.wooledge.org/BashGuide/InputAndOutput#File_Descriptors",
+    "description": "File Descriptors (Bash Guide)"
+  },
+  {
+    "url": "https://mywiki.wooledge.org/BashGuide/InputAndOutput#File_Redirection",
+    "description": "File Redirection (Bash Guide)"
+  },
+  {
+    "url": "https://mywiki.wooledge.org/BashGuide/InputAndOutput#File_Descriptor_Manipulation",
+    "description": "File Descriptor Manipulation (Bash Guide)"
+  }
+]

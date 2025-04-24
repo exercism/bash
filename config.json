@@ -1289,6 +1289,11 @@
       "uuid": "6bfdc749-a40e-44a8-b26b-a402ba53624b",
       "slug": "more-arrays",
       "name": "More about Arrays"
+    },
+    {
+      "uuid": "fb7effaa-9642-4365-8766-6b2876067302",
+      "slug": "redirection",
+      "name": "Redirection"
     }
   ],
   "key_features": [
