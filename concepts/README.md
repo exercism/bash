@@ -95,17 +95,21 @@ The suggested concept flow:
             ```
     - sublist syntax `${ary[@]:offset:length}`
 
-11. I/O
+11. Redirection
    - file descriptors, stdin, stdout, stderr
    - redirection
+
+12. Here Documents
    - here-docs and here-strings
+
+## More Concepts
+
+x. I/O
    - command substitution
         - capturing stdout and stderr
         - capturing stdout and stderr **into separate variables**
    - `exec` and redirections
    - process substitutions
-
-## More Concepts
 
 - brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
 

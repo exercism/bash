@@ -1,0 +1,11 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "IsaacG",
+    "kotp"
+  ],
+  "blurb": "Here Documents provide a redirection that input from an inline document."
+}
+    

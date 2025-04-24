@@ -1294,6 +1294,11 @@
       "uuid": "fb7effaa-9642-4365-8766-6b2876067302",
       "slug": "redirection",
       "name": "Redirection"
+    },
+    {
+      "uuid": "701334b1-a9ad-4774-8c05-f681b2319b53",
+      "slug": "heredocs",
+      "name": "Here Documents"
     }
   ],
   "key_features": [
