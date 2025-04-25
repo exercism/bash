@@ -102,20 +102,19 @@ The suggested concept flow:
 12. Here Documents
    - here-docs and here-strings
 
-## More Concepts
+## More Concepts to Add
 
-x. I/O
+- I/O continued
    - command substitution
         - capturing stdout and stderr
         - capturing stdout and stderr **into separate variables**
-   - `exec` and redirections
    - process substitutions
 
 - brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
 
-x. option parsing with getopts
+- option parsing with getopts
 
-x. `set` command and "strict mode"
+- `set` command and "strict mode"
 
    - pros and cons of
         - `set -e`
