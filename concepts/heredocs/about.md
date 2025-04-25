@@ -7,6 +7,7 @@ It's a powerful tool for embedding multi-line text within your scripts without n
 
 1. Delimiter: A heredoc starts with the `<<` operator followed by a delimiter word (often called the "marker" or "terminator"). 
   This delimiter can be any word you choose, but it's common to use something like `EOF`, `EOF`, `END`, or `TEXT` for clarity.
+  For more readable code, you can add the purpose of the document to the delimiter, for example `END_INSTALLATION_INSTRUCTIONS`.
 
 1. Content: After the initial `<< DELIMITER`, you write the content you want to redirect. This can be multiple lines of text, code, or anything else.
 
@@ -91,22 +92,22 @@ done
 Call the script from an interactive bash prompt with a heredoc:
 
 ```bash
-./your_script.sh << MY_DATA
+./your_script << MY_DATA
 Item 1
 Item 2
 Item 3
 MY_DATA
 ```
 
-This example shows how you can pass data to a script.
-
 ## Variations and Advanced Features
 
-* Stripping Leading Tabs: If you use `<<-` instead of `<<`, Bash will strip leading _tab characters_ from each line of the heredoc. 
+### Stripping Leading Tabs
+
+If you use `<<-` instead of `<<`, Bash will strip leading _tab characters_ from each line of the heredoc. 
 This is useful for indenting the heredoc content within your script without affecting the output.
 
 ```bash
-# Note, the leading whitespace is tabs only!
+# Note, the leading whitespace is tab characters only, not spaces!
 cat <<- END
 	This line has a leading tab.
 	This line also has a leading tab.
@@ -120,7 +121,12 @@ This line has a leading tab.
 This line also has a leading tab.
 ```
 
-* Literal Content: Quoting the delimiter (single or double quotes) prevents parameter expansion, command substitution, and arithmetic expansion within the heredoc. 
+The author doesn't recommend this usage.
+While it does improve the readability of the script, it's too easy to accidentally replace the tab characters with spaces and it's too hard to spot the difference.
+
+### Literal Content
+
+Quoting the delimiter (single or double quotes) prevents parameter expansion, command substitution, and arithmetic expansion within the heredoc. 
 The content is taken literally.
 
 ```bash
@@ -140,7 +146,6 @@ The result of $(date) is not executed.
 If the delimiter is not quoted, variable expansion, command substitution, and arithmetic expansion will occur.
 
 ```bash
-my_var="Hello"
 cat <<EOF
 The value of HOME is $HOME
 The current date is $(date)
@@ -162,8 +167,75 @@ The current date is Thu Apr 24 13:47:32 EDT 2025
 * Scripting interactions: Simulating user input for interactive programs.
 * Avoiding external files: When you want to avoid creating temporary files.
 
+## Here Strings
+
+Like heredocs, _here strings_ provide input to a command.
+However, while heredocs are given as a block of text, here strings are given as a single string of text.
+Here strings use the `<<< "text"` syntax.
+
+```bash
+tr 'a-z' 'A-Z' <<< "upper case this string"
+```
+
+Output: `UPPER CASE THIS STRING`
+
+Unlike heredocs, no ending delimiter is required.
+
+### Why Use Here Strings?
+
+A pipeline can be used instead of a here string:
+
+```bash
+echo "upper case this string" | tr 'a-z' 'A-Z'
+```
+
+So why use a here string?
+
+Consider the case where you get the string as output from a long-running computation, and you want to feed the result to two separate commands.
+Using pipelines, you have to execute the computation twice:
+
+```bash
+some_long_running_calculation | first_command
+some_long_running_calculation | second_command
+```
+
+A more efficient approach is to capture the output of the computation (using command substutition), and use here strings to provide input to the two subsequent commands:
+
+```bash
+result=$( some_long_running_calculation )
+first_command <<< "$result"
+second_command <<< "$result"
+```
+
+Here's a real-world application of that example:
+
+* capture the JSON response to a REST API query (that is paginated),
+* provide the JSON data to a jq program to parse the results and output that to a file, and then
+* provide the JSON data to another jq program to determine the URL of the next query.
+
+  ```bash
+  # initialize the output CSV file
+  echo "ID,VALUE" > data.csv
+
+  url='https//example.com/api/query?page=1'
+  looping=true
+
+  while $looping; do
+    json=$( curl "$url" )
+    # handle non-success response here ...
+
+    jq -r '.results[] | [.id, .value] | @csv' <<< "$json"
+
+    url=$( jq -r '.next_url // ""' <<< "$json" )
+    if [[ "$url" == "" ]]; then
+      looping=false
+    fi
+  done >> data.csv
+  ```
+
 ## In Summary
 
 Here documents are a flexible and convenient way to manage multi-line input in Bash scripts. 
 They simplify the process of embedding text and data directly within your scripts, making them more self-contained and easier to read. 
-They are a very useful tool for any bash scripter.
+
+Here strings are like here documents, but offer a simpler, more dynamic syntax.
