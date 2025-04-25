@@ -233,6 +233,21 @@ Here's a real-world application of that example:
   done >> data.csv
   ```
 
+  Note the position of the output redirection.
+  All output from the while loop will be appended to the file `data.csv`.
+
+## Heredocs and Herestrings are Redirections
+
+Because they are just redirections, they can be combined with other redirections:
+
+```bash
+cat <<< END_OF_TEXT > output.txt
+This is my important text.
+END_OF_TEXT
+
+awk '...' <<< "$my_var" >> result.csv
+```
+
 ## In Summary
 
 Here documents are a flexible and convenient way to manage multi-line input in Bash scripts. 
