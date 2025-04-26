@@ -5,14 +5,14 @@ It's a powerful tool for embedding multi-line text within your scripts without n
 
 ## Key Features and Syntax
 
-1. Delimiter -- A heredoc starts with the `<<` operator followed by a delimiter word (often called the "marker" or "terminator").
+1. Delimiter: a heredoc starts with the `<<` operator followed by a delimiter word (often called the "marker" or "terminator").
    This delimiter can be any word you choose, but it's common to use something like `EOF`, `END`, or `TEXT` for clarity.
    For more readable code, you can use something descriptive as the delimiter, for example `END_INSTALLATION_INSTRUCTIONS`.
 
-1. Content -- After the initial `<< DELIMITER`, you write the content you want to redirect.
+1. Content: after the initial `<< DELIMITER`, you write the content you want to redirect.
    This can be multiple lines of text, code, or anything else.
 
-1. Termination -- The heredoc ends when the delimiter word appears again on a line by itself, with no leading or trailing whitespace.
+1. Termination: the heredoc ends when the delimiter word appears again on a line by itself, with no leading or trailing whitespace.
 
 ## Basic Syntax
 
@@ -111,13 +111,11 @@ Processing: Item 3
 
 ### Literal Content
 
-Quoting the delimiter (single or double quotes) _prevents_ parameter expansion, command substitution, and arithmetic expansion within the heredoc.
-The content is taken literally.
-
-If the delimiter is not quoted (this is the typical usage), variable expansion, command substitution, and arithmetic expansion will occur.
+Bash performs variable expansion, command substitution, and arithmetic expansion within a heredoc.
+In this sense, heredocs act like double quoted strings.
 
 ```bash
-cat <<EOF
+cat << EOF
 The value of HOME is $HOME
 The current date is $(date)
 Two plus two is $((2 + 2))
@@ -132,10 +130,12 @@ The current date is Thu Apr 24 13:47:32 EDT 2025
 Two plus two is 4
 ```
 
-When the starting delimiter is quoted (either single or double quotes), those expansions are supporessed.
+Quoting the delimiter (single or double quotes) prevents these expansions.
+The content is taken literally.
+This is like single quoted strings.
 
 ```bash
-cat <<'EOF'
+cat << 'EOF'
 The value of $HOME is not expanded here.
 The result of $(date) is not executed.
 Two plus two is calculated by $((2 + 2))
@@ -231,28 +231,28 @@ Here's a real-world application of that example:
 * provide the JSON data to a jq program to parse the results and output that to a file, and then
 * provide the JSON data to another jq program to determine the URL of the next query.
 
-  ```bash
-  # initialize the output CSV file
-  echo "ID,VALUE" > data.csv
+```bash
+# initialize the output CSV file
+echo "ID,VALUE" > data.csv
 
-  url='https//example.com/api/query?page=1'
-  looping=true
+url='https//example.com/api/query?page=1'
 
-  while $looping; do
-    json=$( curl "$url" )
-    # handle non-success response here ...
+while true; do
+  json=$( curl "$url" )
 
-    jq -r '.results[] | [.id, .value] | @csv' <<< "$json"
+  # convert the results part of the response into CSV
+  jq -r '.results[] | [.id, .value] | @csv' <<< "$json"
 
-    url=$( jq -r '.next_url // ""' <<< "$json" )
-    if [[ "$url" == "" ]]; then
-      looping=false
-    fi
-  done >> data.csv
-  ```
+  # get the URL for the next page
+  url=$( jq -r '.next_url // ""' <<< "$json" )
+  if [[ "$url" == "" ]]; then
+    break
+  fi
+done >> data.csv
+```
 
-  Note the position of the output redirection.
-  All output from the while loop will be appended to the file `data.csv`.
+Note the position of the output redirection.
+All output from the while loop will be appended to the file `data.csv`.
 
 ## Heredocs and Herestrings are Redirections
 
