@@ -28,7 +28,7 @@ DELIMITER
 ## How it Works
 
 * Bash reads all the lines between the starting `<< DELIMITER` and the ending `DELIMITER`.
-* This content is then treated as standard input (`stdin`) to the command.
+* Bash connects this content to the command's standard input.
 * The command processes this input as if it were coming from the keyboard.
 
 ### Example 1: Simple Text Output
@@ -130,7 +130,7 @@ The current date is Thu Apr 24 13:47:32 EDT 2025
 Two plus two is 4
 ```
 
-Quoting the delimiter (single or double quotes) prevents these expansions.
+When the delimiter is quoting (using single or double quotes), these expansions are prevented.
 The content is taken literally.
 This is like single quoted strings.
 
@@ -157,10 +157,11 @@ This is useful for indenting the heredoc content within your script without affe
 
 ```bash
 # Note, the leading whitespace is tab characters only, not spaces!
+# and the ending delimiter can have leading tabs as well
 cat <<- END
-	This line has a leading tab.
-	This line also has a leading tab.
-END
+		This line has a leading tab.
+		This line also has a leading tab.
+		END
 ```
 
 The output is printed without the leading tabs:
@@ -171,7 +172,7 @@ This line also has a leading tab.
 ```
 
 The author doesn't recommend this usage.
-While it does improve the readability of the script, it's too easy to accidentally replace the tab characters with spaces and it's too hard to spot the difference.
+While it can improve the readability of the script, it's too easy to accidentally replace the tab characters with spaces and it's too hard to spot the difference.
 
 ## When to Use Here Documents
 
