@@ -1,17 +1,18 @@
 # About Here Documents
 
-In Bash scripting, a "here document" (or "heredoc") is a way to redirect multiple lines of input to a command or program, as if you were typing them directly into the terminal. 
+In Bash scripting, a "here document" (or "heredoc") redirects multiple lines of input to a command or program, as if you were typing them directly into the terminal.
 It's a powerful tool for embedding multi-line text within your scripts without needing external files or complex string manipulation.
 
 ## Key Features and Syntax
 
-1. Delimiter: A heredoc starts with the `<<` operator followed by a delimiter word (often called the "marker" or "terminator"). 
-  This delimiter can be any word you choose, but it's common to use something like `EOF`, `EOF`, `END`, or `TEXT` for clarity.
-  For more readable code, you can add the purpose of the document to the delimiter, for example `END_INSTALLATION_INSTRUCTIONS`.
+1. Delimiter -- A heredoc starts with the `<<` operator followed by a delimiter word (often called the "marker" or "terminator").
+   This delimiter can be any word you choose, but it's common to use something like `EOF`, `END`, or `TEXT` for clarity.
+   For more readable code, you can use something descriptive as the delimiter, for example `END_INSTALLATION_INSTRUCTIONS`.
 
-1. Content: After the initial `<< DELIMITER`, you write the content you want to redirect. This can be multiple lines of text, code, or anything else.
+1. Content -- After the initial `<< DELIMITER`, you write the content you want to redirect.
+   This can be multiple lines of text, code, or anything else.
 
-1. Termination: The heredoc ends when the delimiter word appears again on a line by itself, with no leading or trailing spaces.
+1. Termination -- The heredoc ends when the delimiter word appears again on a line by itself, with no leading or trailing whitespace.
 
 ## Basic Syntax
 
@@ -26,11 +27,11 @@ DELIMITER
 
 ## How it Works
 
-* Bash reads everything between the `<< DELIMITER` and the `DELIMITER` on its own line.
-* This content is then treated as standard input (`stdin`) for the command.
+* Bash reads all the lines between the starting `<< DELIMITER` and the ending `DELIMITER`.
+* This content is then treated as standard input (`stdin`) to the command.
 * The command processes this input as if it were coming from the keyboard.
 
-## Example 1: Simple Text Output
+### Example 1: Simple Text Output
 
 ```bash
 cat << EOF
@@ -56,7 +57,7 @@ In this example:
 * `EOF` on its own line ends the heredoc.
 * `cat` then outputs the content it received.
 
-## Example 2: Using with wc (Word Count)
+### Example 2: Using with wc (Word Count)
 
 ```bash
 wc -l << END
@@ -72,12 +73,12 @@ Output:
 3
 ```
 
-Here, `wc -l` counts the number of lines. 
+Here, `wc -l` counts the number of lines.
 The heredoc provides the three lines as input.
 
-## Example 3: Passing to a Script
+### Example 3: Passing data to a script
 
-The script: 
+The script:
 
 ```bash
 #!/usr/bin/env bash
@@ -87,7 +88,6 @@ while IFS= read -r line; do
   echo "Processing: $line"
 done
 ```
-
 
 Call the script from an interactive bash prompt with a heredoc:
 
@@ -99,11 +99,60 @@ Item 3
 MY_DATA
 ```
 
+Output:
+
+```plaintext
+Processing: Item 1
+Processing: Item 2
+Processing: Item 3
+```
+
 ## Variations and Advanced Features
+
+### Literal Content
+
+Quoting the delimiter (single or double quotes) _prevents_ parameter expansion, command substitution, and arithmetic expansion within the heredoc.
+The content is taken literally.
+
+If the delimiter is not quoted (this is the typical usage), variable expansion, command substitution, and arithmetic expansion will occur.
+
+```bash
+cat <<EOF
+The value of HOME is $HOME
+The current date is $(date)
+Two plus two is $((2 + 2))
+EOF
+```
+
+Output:
+
+```plaintext
+The value of HOME is /home/glennj
+The current date is Thu Apr 24 13:47:32 EDT 2025
+Two plus two is 4
+```
+
+When the starting delimiter is quoted (either single or double quotes), those expansions are supporessed.
+
+```bash
+cat <<'EOF'
+The value of $HOME is not expanded here.
+The result of $(date) is not executed.
+Two plus two is calculated by $((2 + 2))
+EOF
+```
+
+Output:
+
+```plaintext
+The value of $HOME is not expanded here.
+The result of $(date) is not executed.
+Two plus two is calculated by $((2 + 2))
+```
 
 ### Stripping Leading Tabs
 
-If you use `<<-` instead of `<<`, Bash will strip leading _tab characters_ from each line of the heredoc. 
+If you use `<<-` (with a trailing hyphen) instead of `<<`, Bash will strip leading _tab characters_ from each line of the heredoc.
 This is useful for indenting the heredoc content within your script without affecting the output.
 
 ```bash
@@ -124,48 +173,13 @@ This line also has a leading tab.
 The author doesn't recommend this usage.
 While it does improve the readability of the script, it's too easy to accidentally replace the tab characters with spaces and it's too hard to spot the difference.
 
-### Literal Content
-
-Quoting the delimiter (single or double quotes) prevents parameter expansion, command substitution, and arithmetic expansion within the heredoc. 
-The content is taken literally.
-
-```bash
-cat <<'EOF'
-The value of $HOME is not expanded here.
-The result of $(date) is not executed.
-EOF
-```
-
-Output:
-
-```plaintext
-The value of $HOME is not expanded here.
-The result of $(date) is not executed.
-```
-
-If the delimiter is not quoted, variable expansion, command substitution, and arithmetic expansion will occur.
-
-```bash
-cat <<EOF
-The value of HOME is $HOME
-The current date is $(date)
-EOF
-```
-
-Output:
-
-```plaintext
-The value of HOME is /home/glennj
-The current date is Thu Apr 24 13:47:32 EDT 2025
-```
-
 ## When to Use Here Documents
 
-* Multi-line input: When you need to provide multiple lines of text to a command.
-* Configuration files: Embedding small configuration snippets within a script.
-* Generating code: Creating code on the fly within a script.
-* Scripting interactions: Simulating user input for interactive programs.
-* Avoiding external files: When you want to avoid creating temporary files.
+* Multi-line input: when you need to provide multiple lines of text to a command.
+* Configuration files: embedding small configuration snippets within a script.
+* Generating code: creating code on the fly within a script.
+* Scripting interactions: simulating user input for interactive programs.
+* Avoiding external files: when you want to avoid creating temporary files.
 
 ## Here Strings
 
@@ -177,7 +191,11 @@ Here strings use the `<<< "text"` syntax.
 tr 'a-z' 'A-Z' <<< "upper case this string"
 ```
 
-Output: `UPPER CASE THIS STRING`
+Output:
+
+```plaintext
+UPPER CASE THIS STRING
+```
 
 Unlike heredocs, no ending delimiter is required.
 
@@ -250,7 +268,7 @@ awk '...' <<< "$my_var" >> result.csv
 
 ## In Summary
 
-Here documents are a flexible and convenient way to manage multi-line input in Bash scripts. 
-They simplify the process of embedding text and data directly within your scripts, making them more self-contained and easier to read. 
+Here documents are a flexible and convenient way to manage multi-line input in Bash scripts.
+They simplify the process of embedding text and data directly within your scripts, making them more self-contained and easier to read.
 
 Here strings are like here documents, but offer a simpler, more dynamic syntax.

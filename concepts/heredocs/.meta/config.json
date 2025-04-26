@@ -6,6 +6,5 @@
     "IsaacG",
     "kotp"
   ],
-  "blurb": "Here Documents provide a redirection that input from an inline document."
+  "blurb": "Here Documents redirect an inline document to the standard input of a command."
 }
-    
