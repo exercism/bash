@@ -222,8 +222,8 @@ fi
 
 ## Here Strings
 
-Like heredocs, _here strings_ provide input to a command.
-However, while heredocs are given as a block of text, here strings are given as a single string of text.
+Like here documents, _here strings_ (or "herestrings") provide input to a command.
+However, while heredocs are given as a block of text, herestrings are given as a single string of text.
 Here strings use the `<<< "text"` syntax.
 
 ```bash
@@ -307,7 +307,7 @@ awk '...' <<< "$my_var" >> result.csv
 
 ## In Summary
 
-Here documents are a flexible and convenient way to manage multi-line input in Bash scripts.
+Here documents (or "heredocs") are a flexible and convenient way to manage multi-line input in Bash scripts.
 They simplify the process of embedding text and data directly within your scripts, making them more self-contained and easier to read.
 
-Here strings are like here documents, but offer a simpler, more dynamic syntax.
+Here strings (or "herestrings") are like here documents, but offer a simpler, more dynamic syntax.
