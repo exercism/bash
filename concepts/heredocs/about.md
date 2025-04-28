@@ -152,27 +152,34 @@ Two plus two is calculated by $((2 + 2))
 
 ### Stripping Leading Tabs
 
-If you use `<<-` (with a trailing hyphen) instead of `<<`, Bash will strip leading _tab characters_ from each line of the heredoc.
+If you use `<<-` (with a trailing hyphen) instead of `<<`, Bash will strip any leading _tab characters_ from each line of the heredoc.
 This is useful for indenting the heredoc content within your script without affecting the output.
 
 ```bash
 # Note, the leading whitespace is tab characters only, not spaces!
-# and the ending delimiter can have leading tabs as well
+# The ending delimiter can have leading tabs as well.
 cat <<- END
-		This line has a leading tab.
-		This line also has a leading tab.
-		END
+	This line has 1 leading tab.
+	  This line has a leading tab and some spaces.
+		This line 2 leading tabs.
+	END
 ```
 
-The output is printed without the leading tabs:
+The output is printed with all the leading tabs removed:
 
 ```plaintext
-This line has a leading tab.
-This line also has a leading tab.
+This line has 1 leading tab.
+    This line has a leading tab and some spaces.
+This line 2 leading tabs.
 ```
 
+~~~~exercism/caution
 The author doesn't recommend this usage.
-While it can improve the readability of the script, it's too easy to accidentally replace the tab characters with spaces and it's too hard to spot the difference.
+While it can improve the readability of the script,
+
+1. it's too easy to accidentally replace the tab characters with spaces (your editor may do this automatically), and 
+1. it's too hard to spot the difference between spaces and tabs.
+~~~~
 
 ## When to Use Here Documents
 
@@ -181,6 +188,37 @@ While it can improve the readability of the script, it's too easy to accidentall
 * Generating code: creating code on the fly within a script.
 * Scripting interactions: simulating user input for interactive programs.
 * Avoiding external files: when you want to avoid creating temporary files.
+
+A typical usage might be to provide some help text:
+
+```bash
+#!/usr/bin/env bash
+
+usage() {
+    cat << END_USAGE
+Refresh database tables.
+
+usage: $(basename "$0") [-h|--help] [-A|--no-archive]
+
+where: --no-archive flag will _skip_ the archive jobs
+END_USAGE
+}
+
+# ... parsing command line options here ...
+
+if [[ $flag_help == true" ]]; then
+  usage
+  exit 0
+fi
+```
+
+## Possible Drawbacks
+
+* Large embedded documents can make your code harder to read.
+  It can be better to deploy your script with separate documentation files.
+* Here documents can break the flow of the code.
+  You might be in a deeply nested section of code, and you want to pass some text to a program.
+  The heredoc's indentation can look jarring compared to the surrounding code.
 
 ## Here Strings
 
@@ -255,9 +293,9 @@ done >> data.csv
 Note the position of the output redirection.
 All output from the while loop will be appended to the file `data.csv`.
 
-## Heredocs and Herestrings are Redirections
+## Heredocs and Herestrings as Redirection
 
-Because they are just redirections, they can be combined with other redirections:
+Because these are just forms of redirection, they can be combined with other redirection operations:
 
 ```bash
 cat <<< END_OF_TEXT > output.txt
