@@ -177,8 +177,8 @@ This line 2 leading tabs.
 The author doesn't recommend this usage.
 While it can improve the readability of the script,
 
-1. it's too easy to accidentally replace the tab characters with spaces (your editor may do this automatically), and 
-1. it's too hard to spot the difference between spaces and tabs.
+1. it's easy to accidentally replace the tab characters with spaces (your editor may do this automatically), and 
+1. it's hard to spot the difference between spaces and tabs.
 ~~~~
 
 ## When to Use Here Documents
@@ -198,7 +198,7 @@ usage() {
     cat << END_USAGE
 Refresh database tables.
 
-usage: $(basename "$0") [-h|--help] [-A|--no-archive]
+usage: ${0##*/} [-h|--help] [-A|--no-archive]
 
 where: --no-archive flag will _skip_ the archive jobs
 END_USAGE
@@ -206,7 +206,7 @@ END_USAGE
 
 # ... parsing command line options here ...
 
-if [[ $flag_help == true" ]]; then
+if [[ $flag_help == "true" ]]; then
   usage
   exit 0
 fi
@@ -215,9 +215,9 @@ fi
 ## Possible Drawbacks
 
 * Large embedded documents can make your code harder to read.
-  It can be better to deploy your script with separate documentation files.
+  It can be better to deploy your script with documentation in separate files.
 * Here documents can break the flow of the code.
-  You might be in a deeply nested section of code, and you want to pass some text to a program.
+  You might be in a deeply nested section of code when you want to pass some text to a program.
   The heredoc's indentation can look jarring compared to the surrounding code.
 
 ## Here Strings
