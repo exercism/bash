@@ -1,0 +1,10 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+    "IsaacG",
+    "kotp"
+  ],
+  "blurb": "Here Documents redirect an inline document to the standard input of a command."
+}

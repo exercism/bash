@@ -2,9 +2,24 @@
 
 The [plan](http://forum.exercism.org/t/bash-syllabus-planning/11952)
 
-The suggested concept flow:
+## Concept Flow:
 
-[![bash syllabus concept flowchart](https://glennj.github.io/img/bash.syllabus.flow.png)](http://forum.exercism.org/t/bash-syllabus-flow/15038)
+```mermaid
+erDiagram
+"Commands and Arguments" ||--|| Variables : ""
+Variables ||--|| "The Importance of Quoting" : ""
+"The Importance of Quoting" ||--|| Conditionals : ""
+"The Importance of Quoting" ||--|| Arrays : ""
+"The Importance of Quoting" ||--|| "Pipelines and Command Lists" : ""
+Conditionals ||--|| Arithmetic : ""
+Conditionals ||--|| Looping : ""
+Arrays ||--|| "More About Arrays" : ""
+"Pipelines and Command Lists" ||--|| Functions : ""
+Functions ||--|| Redirection : ""
+Redirection ||..|| "Command Substitution" : TODO
+Redirection ||--|| "Here Documents" : ""
+"Command Substitution" ||..|| "Process Substitution" : TODO
+```
 
 1. Basic syntax: commands and arguments
 
@@ -95,23 +110,26 @@ The suggested concept flow:
             ```
     - sublist syntax `${ary[@]:offset:length}`
 
-11. I/O
+11. Redirection
    - file descriptors, stdin, stdout, stderr
    - redirection
+
+12. Here Documents
    - here-docs and here-strings
+
+## More Concepts to Add
+
+- I/O continued
    - command substitution
         - capturing stdout and stderr
         - capturing stdout and stderr **into separate variables**
-   - `exec` and redirections
    - process substitutions
-
-## More Concepts
 
 - brace expansions and how it's different from patterns `/path/to/{foo,bar,baz}.txt`
 
-x. option parsing with getopts
+- option parsing with getopts
 
-x. `set` command and "strict mode"
+- `set` command and "strict mode"
 
    - pros and cons of
         - `set -e`

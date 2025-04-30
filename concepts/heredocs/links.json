@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#Here-Documents",
+    "description": "Here Documents in the manual"
+  },
+  {
+    "url": "https://www.gnu.org/software/bash/manual/bash.html#Here-Strings",
+    "description": "Here Strings in the manual"
+  },
+  {
+    "url": "https://mywiki.wooledge.org/BashGuide/InputAndOutput#Heredocs_And_Herestrings",
+    "description": "Heredocs in the Bash Guide"
+  }
+]
