@@ -8,7 +8,7 @@ die() { echo "$*" >&2; exit 1; }
 nondig="*[^[:digit:]]*"   # contains a non-digit
 
 [[ $series == $nondig ]]  && die "input must only contain digits"       # pattern is unquoted
-(( span > ${#series} ))   && die "span must be smaller than string length"
+(( span > ${#series} ))   && die "span must not exceed string length"
 (( span < 0 ))            && die "span must not be negative"
 
 declare -i max=0

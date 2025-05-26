@@ -81,7 +81,7 @@ load bats-extra
 @test "rejects span longer than string length" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash largest_series_product.sh 123 4
-    expected="span must be smaller than string length"
+    expected="span must not exceed string length"
     assert_failure
     assert_output --partial "$expected"
 }
@@ -89,7 +89,7 @@ load bats-extra
 @test "rejects empty string and nonzero span" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash largest_series_product.sh "" 1
-    expected="span must be smaller than string length"
+    expected="span must not exceed string length"
     assert_failure
     assert_output --partial "$expected"
 }
