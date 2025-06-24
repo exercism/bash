@@ -12,5 +12,5 @@ This is different from passing no arguments at all.
 
 `./program`
 
-If the program is run with exactly one argument (even if it is an empty string), treat it as a person's name and print a greeting message.
-If it is run with zero arguments or more than one argument, print an error message and exit with a non-zero status code.
+If your program is run with exactly one argument (even if it is an empty string), treat it as a person's name and print a greeting message.
+If it is run with zero arguments or more than one argument, print an error message and exit with a non-zero status.
