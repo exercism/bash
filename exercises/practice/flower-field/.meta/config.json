@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "IsaacG"
+  ],
+  "files": {
+    "solution": [
+      "flower_field.sh"
+    ],
+    "test": [
+      "flower_field.bats"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}
