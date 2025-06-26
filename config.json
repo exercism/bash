@@ -801,6 +801,14 @@
         ]
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "0af8fefb-2d20-483d-9f4a-9a274ad46bb7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "food-chain",
         "name": "Food Chain",
         "uuid": "4b3e89e5-a1ce-4c67-b23a-b74068885318",
@@ -831,7 +839,8 @@
         "uuid": "eae564ba-b4d9-4463-ae3f-f7f05f4e52ea",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 5
+        "difficulty": 5,
+        "status": "deprecated"
       },
       {
         "slug": "rational-numbers",
