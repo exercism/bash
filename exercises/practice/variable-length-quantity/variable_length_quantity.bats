@@ -1,8 +1,6 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
-
 #
 # *** Input and Output numbers are expressed in hexadecimal.
 #
@@ -22,6 +20,13 @@ load bats-extra
     run bash variable_length_quantity.sh encode 40
     assert_success
     assert_output "40"
+}
+
+@test "asymmetric single byte" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh encode 53
+    assert_success
+    assert_output 53
 }
 
 @test "largest single byte" {
@@ -45,6 +50,13 @@ load bats-extra
     assert_output "C0 00"
 }
 
+@test "asymmetric double byte" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh encode AD
+    assert_success
+    assert_output "81 2D"
+}
+
 @test "largest double byte" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh encode 3FFF
@@ -64,6 +76,13 @@ load bats-extra
     run bash variable_length_quantity.sh encode 100000
     assert_success
     assert_output "C0 80 00"
+}
+
+@test "asymmetric triple byte" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh encode 1D59C
+    assert_success
+    assert_output "87 AB 1C"
 }
 
 @test "largest triple byte" {
@@ -87,6 +106,13 @@ load bats-extra
     assert_output "C0 80 80 00"
 }
 
+@test "asymmetric quadruple byte" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh encode 357704
+    assert_success
+    assert_output "81 D5 EE 04"
+}
+
 @test "largest quadruple byte" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh encode FFFFFFF
@@ -106,6 +132,13 @@ load bats-extra
     run bash variable_length_quantity.sh encode FF000000
     assert_success
     assert_output "8F F8 80 80 00"
+}
+
+@test "asymmetric quintuple byte" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh encode 86656105
+    assert_success
+    assert_output "88 B3 95 C2 05"
 }
 
 @test "maximum 32-bit integer input" {
