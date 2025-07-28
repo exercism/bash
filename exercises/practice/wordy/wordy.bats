@@ -1,8 +1,6 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.5.0.0
-
 @test "just a number" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 5?"
@@ -10,11 +8,39 @@ load bats-extra
     assert_output "5"
 }
 
+@test "just a zero" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash wordy.sh "What is 0?"
+    assert_success
+    assert_output "0"
+}
+
+@test "just a negative number" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash wordy.sh "What is -123?"
+    assert_success
+    assert_output "-123"
+}
+
 @test "addition" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus 1?"
     assert_success
     assert_output "2"
+}
+
+@test "addition with a left hand zero" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash wordy.sh "What is 0 plus 2?"
+    assert_success
+    assert_output "2"
+}
+
+@test "addition with a right hand zero" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash wordy.sh "What is 3 plus 0?"
+    assert_success
+    assert_output "3"
 }
 
 @test "more addition" {
