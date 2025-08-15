@@ -19,6 +19,28 @@ Help for the various `assert*` functions can be found there.
 
 [bats-assert]: https://github.com/bats-core/bats-assert
 
+## Debugging output
+
+When running tests, `bats` captures both stdout and stderr for comparison with the expected output.
+If you print debug messages to stdout (`echo`) or stderr (`>&2`), they will be included in the captured output and may cause the test to fail.
+
+To print debug information without affecting the test results, `bats` provides file descriptor **3** for this purpose.
+Anything written to `>&3` will be shown during the test run but will not be included in the captured output used for assertions.
+
+Example:
+
+```bash
+#!/usr/bin/env bash
+
+# This debug message will not interfere with test output comparison
+printf '%(%T)T -- %s\n' -1 'debugging message' >&3
+
+# Your normal program output
+echo "Hello, World!"
+```
+
+This allows you to keep helpful debug output visible while running tests without breaking assertions.
+
 ## Skipped tests
 
 Solving an exercise means making all its tests pass.
