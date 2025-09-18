@@ -53,6 +53,22 @@ load bats-extra
     assert_output "$expected"
 }
 
+@test "Measure using bucket one much bigger than bucket two" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="moves: 6, goalBucket: one, otherBucket: 1"
+    run bash two_bucket.sh 5 1 2 "one"
+    assert_success
+    assert_output "$expected"
+}
+
+@test "Measure using bucket one much smaller than bucket two" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="moves: 6, goalBucket: two, otherBucket: 0"
+    run bash two_bucket.sh 3 15 9 "one"
+    assert_success
+    assert_output "$expected"
+}
+
 @test "Not possible to reach the goal" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash two_bucket.sh 6 15 5 "one"
