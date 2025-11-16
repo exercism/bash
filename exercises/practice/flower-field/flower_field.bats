@@ -187,3 +187,9 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
+@test "multiple adjacent flowers" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash flower_field.sh " ** "
+    assert_success
+    assert_output "1**1"
+}
