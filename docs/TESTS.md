@@ -56,8 +56,8 @@ $ brew install bats-core
 🍺  /usr/local/Cellar/bats-core/1.1.0: 13 files, 55KB, built in 4 seconds
 ```
 
-* The legacy `bats` package also exists in the homebrew ecosystem.
-    **_Do not install that by mistake_**: <u>install `bats-core`</u>.
+- The legacy `bats` package also exists in the homebrew ecosystem.
+  **_Do not install that by mistake_**: <u>install `bats-core`</u>.
 
 ### For Linux
 
@@ -111,6 +111,26 @@ $ git checkout v1.1.0
 
 For help on the meaning of the various `assert*` commands in the tests, refer to the documentation for the [bats-assert][bats-assert] library.
 
+## Debugging output
+
+When running tests, `bats` captures both stdout and stderr for output assertions.
+This means debug output printed with `echo` (stdout) or redirected to `>&2` (stderr) can cause tests to fail.
+
+For debugging, print to file descriptor `3` instead.
+`bats` reserves fd 3 for diagnostic output that is shown during test runs but not included in captured output.
+
+Example:
+
+```bash
+#!/usr/bin/env bash
+
+printf '%(%T)T -- %s\n' -1 'a debugging statement' >&3
+echo "Hello, World!"
+```
+
+Use this only when testing locally.
+The Exercism online editor does not support this style of debug output.
+
 ## Skipped tests
 
 Solving an exercise means making all its tests pass.
@@ -124,7 +144,7 @@ annotations prepending other tests.
 
 ### Overriding skips
 
-To run all tests, including the ones with `skip` annotations, you can set an environment variable `BATS_RUN_SKIPPED` to the value `true`. 
+To run all tests, including the ones with `skip` annotations, you can set an environment variable `BATS_RUN_SKIPPED` to the value `true`.
 One way to set this just for the duration of running bats is:
 
 ```bash
@@ -152,7 +172,6 @@ The `sstephenson/bats` project was quite buggy and had been abandoned.
 Ownership was handed over in 2017: [sstephenson/bats#150 (comment)][bats-fork].
 
 If you have the original sstephenson/bats installed (check with `bats -v` reporting a version number less than 1.0), then you should switch to bats-core; otherwise you may find yourself [experiencing unexplained test failures][legacy-failures].
-
 
 [exercism-cli]: https://exercism.org/docs/using/solving-exercises/working-locally
 [bats]: https://github.com/bats-core/bats-core
