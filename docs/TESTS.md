@@ -39,6 +39,8 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever.bats
 ```
 
+If you want to print debug output while running the tests locally, see [Debugging Locally](DEBUGGING_LOCALLY.md).
+
 ## Installing `bats-core`
 
 You should be able to install it from your favorite package manager:
@@ -110,26 +112,6 @@ $ git checkout v1.1.0
 ## bats-assert
 
 For help on the meaning of the various `assert*` commands in the tests, refer to the documentation for the [bats-assert][bats-assert] library.
-
-## Debugging output
-
-When running tests, `bats` captures both stdout and stderr for output assertions.
-This means debug output printed with `echo` (stdout) or redirected to `>&2` (stderr) can cause tests to fail.
-
-For debugging, print to file descriptor `3` instead.
-`bats` reserves fd 3 for diagnostic output that is shown during test runs but not included in captured output.
-
-Example:
-
-```bash
-#!/usr/bin/env bash
-
-printf '%(%T)T -- %s\n' -1 'a debugging statement' >&3
-echo "Hello, World!"
-```
-
-Use this only when testing locally.
-The Exercism online editor does not support this style of debug output.
 
 ## Skipped tests
 
