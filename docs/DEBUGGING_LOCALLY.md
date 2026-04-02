@@ -6,7 +6,7 @@ When you run Bash track tests with [Bats](https://github.com/bats-core/bats-core
 This works locally with `bats`, but **not** in the Exercism online editor.
 ```
 
-If you want to print debug output without affecting the test result, write it to file descriptor 3:
+If you want to print debug output without affecting the test result, write it to file descriptor 3.
 
 ```bash
 echo 'debug message' >&3
@@ -24,4 +24,5 @@ debug message
 1 test, 0 failures
 ```
 
-This is useful when you are running the tests locally. The Exercism online editor does not support this pattern.
+This is useful when you are running the tests locally.
+The Exercism online editor does not support this pattern.

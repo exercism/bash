@@ -7,7 +7,7 @@ Run the tests using the `bats` program.
 bats hello_world.bats
 ```
 
-If you need to print debug output while running tests locally, see [Debugging Locally](https://github.com/exercism/bash/blob/master/docs/DEBUGGING_LOCALLY.md).
+If you need to print debug output while running tests locally, see [Debugging Locally](https://exercism.org/docs/tracks/bash/debugging).
 
 `bats` will need to be installed.
 See the [Testing on the Bash track][tests] page for instructions to install `bats` for your system.

@@ -39,7 +39,7 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever.bats
 ```
 
-If you want to print debug output while running the tests locally, see [Debugging Locally](DEBUGGING_LOCALLY.md).
+If you want to print debug output while running the tests locally, see [Debugging Locally](/docs/tracks/bash/debugging).
 
 ## Installing `bats-core`
 

@@ -4,7 +4,7 @@
 
 Exercism Exercises in Bash
 
-If you are solving exercises locally and need help with Bats debug output, see [docs/DEBUGGING_LOCALLY.md](docs/DEBUGGING_LOCALLY.md).
+If you are solving exercises locally and need help with Bats debug output, see [Debugging with `bats`](https://exercism.org/docs/tracks/bash/debugging).
 
 ## Contributing Guide
 
