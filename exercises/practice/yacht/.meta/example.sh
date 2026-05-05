@@ -92,7 +92,7 @@ straight() {
     (( start == 1 )) && cmp=12345 || cmp=23456
 
     # calling out to sort, might as well use paste
-    local dice=$(printf "%d\n" "$@" | sort -n | paste -sd "")
+    local dice=$(printf "%d\n" "$@" | sort -n | tr -d \\n)
 
     (( dice == cmp )) && echo 30 || echo 0
 }
