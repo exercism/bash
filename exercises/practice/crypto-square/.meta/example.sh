@@ -3,19 +3,18 @@
 # remove non-alphanumeric chars from input and store as lowercase
 declare -l input=${1//[^[:alnum:]]/}
 
-# We need to find a portable language with sqrt() and ceil()
-# functions. I think perl might be the safest choice.
-size=$(perl -MPOSIX=ceil -se 'print ceil(sqrt($n))' -- -n=${#input})
+limit="${#input}"
+for (( size = 0; size * size < limit; size++ )); do :; done
 
 # split into segments
 segments=()
-for ((i=0; i<${#input}; i+=size)); do
+for (( i = 0; i < ${#input}; i += size )); do
     segments+=( "${input:i:size}" )
 done
 
 # transpose the segments array
 declare -a transposed
-for ((i=0; i<size; i++)); do
+for (( i = 0; i < size; i++ )); do
     for ((j=0; j<${#segments[@]}; j++)); do
         transposed[i]+=${segments[j]:i:1}
     done
