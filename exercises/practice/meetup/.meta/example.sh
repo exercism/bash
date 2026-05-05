@@ -16,43 +16,32 @@ main() {
         while read -r wd d m; do
             (( month == m )) || continue
             [[ $weekday == "$wd" ]] || continue
-            ((n++))
-            case $nth in
-                first ) (( n == 1 )) && result $d ;;
-                second) (( n == 2 )) && result $d ;;
-                third ) (( n == 3 )) && result $d ;;
-                fourth) (( n == 4 )) && result $d ;;
-                teenth) (( 13 <= d && d <= 19 )) && result $d ;;
-            esac
+            (( n++ ))
             day=$d      # remember this value
+            case "$nth" in
+                first ) (( n == 1 )) && break ;;
+                second) (( n == 2 )) && break ;;
+                third ) (( n == 3 )) && break ;;
+                fourth) (( n == 4 )) && break ;;
+                teenth) (( 13 <= d && d <= 19 )) && break ;;
+            esac
         done
-        result $day     # last
+        result "$day"   # last
     }
 }
 
 result() {
     printf "%d-%02d-%02d" "$year" "$month" "$1"
-    exit
+    # Read the rest of the input from `month_days` so the pipe can be closed gracefully.
+    cat - > /dev/null
 }
 
 month_days() {
-    # Using perl to generate the days of the month.
-    # perl should be fairly portable amongst *nix-ish systems.
-    # Use the "C" locale for day names "Monday", ...
-    # One invocation of perl will be more efficient than
-    # thirty-ish invocations of date.
-
-    LC_ALL=C perl -sE '
-        use Time::Piece;
-        use Time::Seconds;
-        my $date = Time::Piece->strptime("$year-$month-01", "%Y-%m-%d");
-        for my $i (1 .. 31) {
-            # use "%_d" instead of "%d" because bash
-            # arithmetic will puke on day 08 and 09
-            say $date->strftime("%A %_d %_m");
-            $date += ONE_DAY;
-        }
-    ' -- -year="$year" -month="$month"
+    # Generate the days of the month.
+    local i
+    for i in {0..30}; do
+        date -d "$year/$month/1 + $i days" '+%A %_d %_m'
+    done
 }
 
 main "$@"
