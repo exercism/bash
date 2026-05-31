@@ -26,7 +26,7 @@ Let's use the number `9` as an example:
 That was the last digit, so the final code is:
 
 ```plaintext
-wink, jump
+wink,jump
 ```
 
 Given the number 26, which is `11010` in binary, we get the following actions:
@@ -38,7 +38,7 @@ Given the number 26, which is `11010` in binary, we get the following actions:
 The secret handshake for 26 is therefore:
 
 ```plaintext
-jump, double blink
+jump,double blink
 ```
 
 ~~~~exercism/note
