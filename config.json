@@ -387,18 +387,6 @@
         ]
       },
       {
-        "slug": "darts",
-        "name": "Darts",
-        "uuid": "0b93cd55-8f21-4198-a531-39de5502c02d",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3,
-        "topics": [
-          "control_flow_conditionals",
-          "math"
-        ]
-      },
-      {
         "slug": "dnd-character",
         "name": "D&D Character",
         "uuid": "ca5cf3e4-6298-42a2-9a81-9bd25bc0cba2",
@@ -408,6 +396,18 @@
         "topics": [
           "math",
           "randomness"
+        ]
+      },
+      {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "0b93cd55-8f21-4198-a531-39de5502c02d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "control_flow_conditionals",
+          "math"
         ]
       },
       {
