@@ -11,7 +11,7 @@ main () {
            "ASAP" ) convert_asap       "$date"               ;;
             "EOW" ) convert_eow        "$date"               ;;
         +([0-9])M ) convert_variable_m "$date" "${word::-1}" ;;
-        Q+([0-9]) ) convert_variable_q "$date" "${word:1}"   ;;
+        Q+([1-4]) ) convert_variable_q "$date" "${word:1}"   ;;
                 * ) echo "This should not happen"            ;;
     esac
 }
