@@ -31,7 +31,7 @@ convert_asap() {
 
     meeting_hour=${date:11:2}
 
-    if (( $((10#$meeting_hour)) < 13 )); then
+    if (( 10#$meeting_hour < 13 )); then
         due_date=$(date -d "$date" +%F)
         due_date=$(date -d "$due_date 17:00" +%FT%T)
     else
