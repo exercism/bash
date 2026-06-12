@@ -770,6 +770,17 @@
         ]
       },
       {
+        "slug": "swift-scheduling",
+        "name": "Swift Scheduling",
+        "uuid": "ff93ec1b-898f-4307-9645-54869b217077",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "dates"
+        ]
+      },
+      {
         "slug": "atbash-cipher",
         "name": "Atbash Cipher",
         "uuid": "5bff4fe1-6330-4730-b586-dcc5438c02ee",
