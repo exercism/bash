@@ -604,17 +604,6 @@
         ]
       },
       {
-        "slug": "swift-scheduling",
-        "name": "Swift Scheduling",
-        "uuid": "ff93ec1b-898f-4307-9645-54869b217077",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3,
-        "topics": [
-          "dates"
-        ]
-      },
-      {
         "slug": "triangle",
         "name": "Triangle",
         "uuid": "0f79f9ab-4a51-468c-88ca-84f0bf7cfc38",
@@ -778,6 +767,17 @@
           "logic",
           "loops",
           "strings"
+        ]
+      },
+      {
+        "slug": "swift-scheduling",
+        "name": "Swift Scheduling",
+        "uuid": "ff93ec1b-898f-4307-9645-54869b217077",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "dates"
         ]
       },
       {
