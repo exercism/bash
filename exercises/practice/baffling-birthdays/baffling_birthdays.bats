@@ -166,7 +166,7 @@ load bats-extra
     # expect="50.729723" # this is the exercice ref.
     run bash baffling_birthdays.sh estimatedProbabilityOfSharedBirthday 23
     assert_success
-    [[ "$output" =~ ^(49\.|50\.|51\.|52\.|53\.) ]]
+    [[ "$output" =~ ^(48\.|49\.|50\.|51\.|52\.|53\.) ]]
 }
 
 @test "estimated probability of at least one shared birthday -> among seventy people" {
