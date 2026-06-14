@@ -251,9 +251,9 @@ assert_line() {
     if (( is_mode_regexp )); then
       if ! [[ ${lines[$idx]} =~ $expected ]]; then
         batslib_print_kv_single 6 \
-        'index' "$idx" \
+        'index'  "$idx" \
         'regexp' "$expected" \
-        'line'  "${lines[$idx]}" \
+        'line'   "${lines[$idx]}" \
         | batslib_decorate 'regular expression does not match line' \
         | fail
       fi
@@ -373,7 +373,7 @@ assert_output() {
     elif ! [[ $output =~ $expected ]]; then
       batslib_print_kv_single_or_multi 6 \
       'regexp'  "$expected" \
-      'output' "$output" \
+      'output'  "$output" \
       | batslib_decorate 'regular expression does not match output' \
       | fail
     fi
@@ -468,9 +468,9 @@ refute_line() {
     if (( is_mode_regexp )); then
       if [[ ${lines[$idx]} =~ $unexpected ]]; then
         batslib_print_kv_single 6 \
-        'index' "$idx" \
+        'index'  "$idx" \
         'regexp' "$unexpected" \
-        'line'  "${lines[$idx]}" \
+        'line'   "${lines[$idx]}" \
         | batslib_decorate 'regular expression should not match line' \
         | fail
       fi
@@ -613,7 +613,7 @@ refute_output() {
   elif (( is_mode_regexp )); then
     if [[ $output =~ $unexpected ]]; then
       batslib_print_kv_single_or_multi 6 \
-      'regexp'  "$unexpected" \
+      'regexp' "$unexpected" \
       'output' "$output" \
       | batslib_decorate 'regular expression should not match output' \
       | fail
@@ -633,5 +633,21 @@ refute_output() {
       | batslib_decorate 'output equals, but it was expected to differ' \
       | fail
     fi
+  fi
+}
+
+assert_between() {
+  local -r start="${1}"
+  local -r end="${2}"
+
+  if (( start > end )); then
+    return 1
+  elif ! (( output >= "$1" && output <= "$2" )); then
+    batslib_print_kv_single_or_multi 6 \
+      'start'  "${start}" \
+      'end'    "${end}" \
+      'actual' "${output}" \
+    | batslib_decorate 'output falls outside the inclusive range defined by start and end' \
+    | fail
   fi
 }
