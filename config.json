@@ -770,6 +770,14 @@
         ]
       },
       {
+        "slug": "saddle-points",
+        "name": "Saddle Points",
+        "uuid": "a889348b-d71b-4c14-95cf-bfaa1a1e9400",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "swift-scheduling",
         "name": "Swift Scheduling",
         "uuid": "ff93ec1b-898f-4307-9645-54869b217077",
