@@ -1,4 +1,6 @@
 #!/usr/bin/env bats
+# shellcheck disable=SC2329 # "This function is never invoked."
+
 load bats-extra
 
 # local version: 2.4.0.0
@@ -15,8 +17,8 @@ setup() { source list_ops.sh; }
 
 @test "append empty lists" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list1=()
-    list2=()
+    local list1=()
+    local list2=()
     list::append list1 "${list2[@]}"
     assert_equal "${#list1[@]}" 0
     assert_equal "${list1[*]}" ""
@@ -24,8 +26,8 @@ setup() { source list_ops.sh; }
 
 @test "append list to empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list1=()
-    list2=(1 2 3 4)
+    local list1=()
+    local list2=(1 2 3 4)
     list::append list1 "${list2[@]}"
     assert_equal "${#list1[@]}" 4
     assert_equal "${list1[*]}" "1 2 3 4"
@@ -33,8 +35,8 @@ setup() { source list_ops.sh; }
 
 @test "append empty list to list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list1=(1 2 3 4)
-    list2=()
+    local list1=(1 2 3 4)
+    local list2=()
     list::append list1 "${list2[@]}"
     assert_equal "${#list1[@]}" 4
     assert_equal "${list1[*]}" "1 2 3 4"
@@ -42,8 +44,8 @@ setup() { source list_ops.sh; }
 
 @test "append non-empty lists" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    l1=(1 2)
-    l2=(2 3 4 5)
+    local l1=(1 2)
+    local l2=(2 3 4 5)
     list::append l1 "${l2[@]}"
     assert_equal "${#l1[@]}" 6
     assert_equal "${l1[*]}" "1 2 2 3 4 5"
@@ -56,8 +58,8 @@ setup() { source list_ops.sh; }
 
 @test "filter empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=()
-    result=()
+    local list=()
+    local result=()
     isOdd () { (( $1 % 2 == 1 )); }
     list::filter isOdd list result
     assert_equal "${#result[@]}" 0
@@ -66,8 +68,8 @@ setup() { source list_ops.sh; }
 
 @test "filter non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 2 3 4 5)
-    result=()
+    local list=(1 2 3 4 5)
+    local result=()
     isOdd () { (( $1 % 2 == 1 )); }
     list::filter isOdd list result
     assert_equal "${#result[@]}" 3
@@ -82,8 +84,8 @@ setup() { source list_ops.sh; }
 
 @test "map empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=()
-    result=()
+    local list=()
+    local result=()
     incr () { echo $(( $1 + 1 )); }
     list::map incr list result
     assert_equal "${#result[@]}" ${#list[@]}
@@ -92,8 +94,8 @@ setup() { source list_ops.sh; }
 
 @test "map non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 3 5 7)
-    result=()
+    local list=(1 3 5 7)
+    local result=()
     incr () { echo $(( $1 + 1 )); }
     list::map incr list result
     assert_equal "${#result[@]}" ${#list[@]}
@@ -104,7 +106,8 @@ setup() { source list_ops.sh; }
 
 @test "foldl empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=()
+    local list=()
+    local result
     mult () {
         local acc=$1 elem=$2
         echo $(( elem * acc ))
@@ -115,7 +118,8 @@ setup() { source list_ops.sh; }
 
 @test "foldl direction independent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 2 3 4)
+    local list=(1 2 3 4)
+    local result
     add () {
         local acc=$1 elem=$2
         echo $(( elem + acc ))
@@ -126,7 +130,8 @@ setup() { source list_ops.sh; }
 
 @test "foldl direction dependent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 2 3 4)
+    local list=(1 2 3 4)
+    local result answer
     # For this test, we need a div function that performs
     # floating point arithmetic to preserve fractions.
     div () {
@@ -141,7 +146,8 @@ setup() { source list_ops.sh; }
 # track-specific test
 @test "foldl not just numbers" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(H e l l o " " W o r l d "!")
+    local list=(H e l l o " " W o r l d "!")
+    local result
     concat () {
         local acc=$1 elem=$2
         echo "${acc}${elem}"
@@ -155,7 +161,8 @@ setup() { source list_ops.sh; }
 
 @test "foldr empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=()
+    local list=()
+    local result
     mult () {
         local elem=$1 acc=$2
         echo $(( elem * acc ))
@@ -166,7 +173,8 @@ setup() { source list_ops.sh; }
 
 @test "foldr direction independent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 2 3 4)
+    local list=(1 2 3 4)
+    local result
     add () {
         local elem=$1 acc=$2
         echo $(( elem + acc ))
@@ -177,7 +185,8 @@ setup() { source list_ops.sh; }
 
 @test "foldr direction dependent function applied to non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 2 3 4)
+    local list=(1 2 3 4)
+    local answer result
     div () {
         local elem=$1 acc=$2
         echo "$elem / $acc" | bc -l
@@ -190,7 +199,8 @@ setup() { source list_ops.sh; }
 # track-specific test
 @test "foldr not just numbers" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(H e l l o " " W o r l d "!")
+    local list=(H e l l o " " W o r l d "!")
+    local result
     concat () {
         local elem=$1 acc=$2
         echo "${acc}${elem}"
@@ -203,8 +213,8 @@ setup() { source list_ops.sh; }
 
 @test "reverse empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=()
-    result=()
+    local list=()
+    local result=()
     list::reverse list result
     assert_equal "${#result[@]}" ${#list[@]}
     assert_equal "${result[*]}" ""
@@ -212,8 +222,8 @@ setup() { source list_ops.sh; }
 
 @test "reverse non-empty list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=(1 3 5 7)
-    result=()
+    local list=(1 3 5 7)
+    local result=()
     list::reverse list result
     assert_equal "${#result[@]}" ${#list[@]}
     assert_equal "${result[*]}" "7 5 3 1"
@@ -221,8 +231,8 @@ setup() { source list_ops.sh; }
 
 @test "reverse with special characters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    list=("R*" "l*")
-    result=()
+    local list=("R*" "l*")
+    local result=()
     list::reverse list result
     assert_equal "${#result[@]}" ${#list[@]}
     assert_equal "${result[*]}" "l* R*"

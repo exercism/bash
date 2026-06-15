@@ -29,7 +29,7 @@ main() {
         for ((j = i; j <= max; j++)); do
             prod=$(( i * j ))
             if is_palindrome "$prod"; then
-                palindromes[$prod]+=" [$i, $j]"
+                palindromes[prod]+=" [$i, $j]"
             fi
         done
     done
