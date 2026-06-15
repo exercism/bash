@@ -369,9 +369,9 @@ assert_output() {
       | fail
     fi
   elif (( is_mode_regexp )); then
-    # glennj: I don't know what command's status `$?` is at this point
-    # shellcheck disable=SC2319 # (warning): This $? refers to a condition, not a command. Assign to a variable to avoid it being overwritten.
+    # shellcheck disable=SC2319 # (warning) `$?` in a conditional expression: https://github.com/koalaman/shellcheck/wiki/SC2319
     if [[ '' =~ $expected ]] || (( $? == 2 )); then
+      # the regex matches an empty string or it is syntactically incorrect.
       echo "Invalid extended regular expression: \`$expected'" \
       | batslib_decorate 'ERROR: assert_output' \
       | fail
