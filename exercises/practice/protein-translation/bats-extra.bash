@@ -20,7 +20,9 @@
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
+# shellcheck disable=SC2120 # (warning): fail references arguments, but none are ever passed.
 fail() {
+  # shellcheck disable=2015 # (info): Note that A && B || C is not if-then-else. C may run when A is true.
   (( $# == 0 )) && batslib_err || batslib_err "$@"
   return 1
 }
@@ -119,7 +121,7 @@ batslib_print_kv_single_or_multi() {
   else
     local -i i
     for (( i=1; i < ${#pairs[@]}; i+=2 )); do
-      pairs[$i]="$( batslib_prefix < <(printf '%s' "${pairs[$i]}") )"
+      pairs[i]="$( batslib_prefix < <(printf '%s' "${pairs[$i]}") )"
     done
     batslib_print_kv_multi "${pairs[@]}"
   fi
@@ -136,6 +138,7 @@ batslib_prefix() {
 batslib_mark() {
   local -r symbol="$1"; shift
   # Sort line numbers.
+  # shellcheck disable=SC2046 # (warning): Quote this to prevent word splitting.
   set -- $( sort -nu <<< "$( printf '%d\n' "$@" )" )
 
   local line
@@ -366,6 +369,8 @@ assert_output() {
       | fail
     fi
   elif (( is_mode_regexp )); then
+    # glennj: I don't know what command's status `$?` is at this point
+    # shellcheck disable=SC2319 # (warning): This $? refers to a condition, not a command. Assign to a variable to avoid it being overwritten.
     if [[ '' =~ $expected ]] || (( $? == 2 )); then
       echo "Invalid extended regular expression: \`$expected'" \
       | batslib_decorate 'ERROR: assert_output' \
