@@ -153,8 +153,8 @@ between() {
 # random ability is within range
 @test "validate ability range and hitpoint value" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    for i in {1..50}; do
-        while read c v; do
+    for _ in {1..50}; do
+        while read -r c v; do
             if [[ $c == "hitpoints" ]]; then
                 hits=$v
             else

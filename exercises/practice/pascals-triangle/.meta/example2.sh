@@ -21,7 +21,6 @@ declare -i maxFactCached=1
 
 main() {
     local -i n=$1 i
-    local spaces
     for (( i = 1; i <= n; i++ )); do
         # print the leading spaces for this row
         printf "%*s" $((n - i)) ""
@@ -37,7 +36,7 @@ row() {
         _n=$(( n - 1 ))
         _k=$(( k - 1 ))
         binomialCoefficient $_n $_k
-        row+=( ${bcCache[$_n,$_k]} )
+        row+=( "${bcCache[$_n,$_k]}" )
     done
     echo "${row[*]}"
 }

@@ -5,7 +5,7 @@ load bats-extra
 
 # uses external tool: mktemp
 
-setup()    { export MD_FILE=$( mktemp ); }
+setup()    { export MD_FILE; MD_FILE=$( mktemp ); }
 teardown() { rm -f "$MD_FILE"; }
 
 
