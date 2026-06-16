@@ -13,7 +13,7 @@ create_matrix() {
 
         height=${#line}
         (( row++ ))
-    done < <(printf "%s\n" "${@//, /}")
+    done < <(printf "%s\n" "$@")
 
     width=$row
 }
@@ -24,9 +24,9 @@ tick() {
 
     for (( row = 0; row < height; row++ )); do
         for (( col = 0; col < width; col++ )); do
-            countLiveCell=$(check_neighborhood $col $row)
+            countLiveCell=$(check_neighborhood "$col" "$row")
 
-            if (( countLiveCell == 3 || (matrix[${col},${row}] == 1 && countLiveCell == 2) )); then
+            if (( countLiveCell == 3 || matrix[${col},${row}] == 1 && countLiveCell == 2 )); then
                 next_matrix[${col},${row}]=1
             else
                 next_matrix[${col},${row}]=0
