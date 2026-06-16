@@ -973,6 +973,14 @@
         ]
       },
       {
+        "slug": "game-of-life",
+        "name": "Conway's Game of Life",
+        "uuid": "8a0f7cae-d5f5-4cda-9fc1-5b7ff3774be7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "meetup",
         "name": "Meetup",
         "uuid": "9e7d907d-7b74-4757-ad29-a824a79d8c36",
