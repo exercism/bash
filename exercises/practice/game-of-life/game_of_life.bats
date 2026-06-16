@@ -8,11 +8,9 @@ join() {
 
 @test "empty matrix" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=( "" )
-    expected_string="$(join "${expected_rows[@]}")"
-    run bash game_of_life.sh "${input[@]}"
+    run bash game_of_life.sh ""
     assert_success
-    assert_output "$expected_string"
+    assert_output ""
 }
 
 @test "live cells with zero live neighbors die" {
