@@ -26,7 +26,7 @@ shared_birthday () {
 }
 
 random_int() {
-    echo $(( RANDOM % $1 ))
+    echo "$(( RANDOM % $1 ))"
 }
 
 random_birthdates () {
@@ -39,7 +39,7 @@ random_birthdates () {
         random_month=$(( 1 + $(random_int 12) ))
 
         if (( random_year % 400 == 0 || (random_year % 4 == 0 && random_year % 100 != 0) )); then
-            (( random_year ++ ))
+            (( random_year++ ))
         fi
 
         case "$random_month" in
@@ -64,12 +64,12 @@ estimated_probability_of_share_birthday () {
 
     for (( i = 0; i <= runs; i++ )); do
         read -ra birthdates < <(random_birthdates "$group_size")
-        if [[ "$(shared_birthday "${birthdates[@]}")" == "true" ]]; then
+        if "$(shared_birthday "${birthdates[@]}")"; then
             (( count++ ))
         fi
     done
 
-    echo $(( count * 100 / runs ))
+    echo "$(( count * 100 / runs ))"
 }
 
 main "$@"
