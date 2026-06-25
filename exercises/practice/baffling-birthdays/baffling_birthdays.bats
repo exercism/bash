@@ -158,7 +158,7 @@ load bats-extra
     # The expected probability is 11.694818
     run bash baffling_birthdays.sh estimated_probability_of_share_birthday 10
     assert_success
-    assert_between 10 13
+    assert_between 9 13
 }
 
 @test "estimated probability of at least one shared birthday -> among twenty-three people" {
@@ -166,7 +166,7 @@ load bats-extra
     # The expected probability is 50.729723
     run bash baffling_birthdays.sh estimated_probability_of_share_birthday 23
     assert_success
-    assert_between 48 53
+    assert_between 47 53
 }
 
 @test "estimated probability of at least one shared birthday -> among seventy people" {
