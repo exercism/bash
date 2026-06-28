@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.3.0.3
-# 
-# bash-specific test: Input validation, proper quoting
+# generated on 2026-06-28T21:30:28+00:00
+# local version: 2.0.0.0
 
 @test 'empty strands' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh '' ''
   assert_success
   assert_output "0"
@@ -54,14 +53,14 @@ load bats-extra
   assert_output --partial "strands must be of equal length"
 }
 
-@test 'disallow left empty strand' {
+@test 'disallow empty first strand' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh '' 'G'
   assert_failure
   assert_output --partial "strands must be of equal length"
 }
 
-@test 'disallow right empty strand' {
+@test 'disallow empty second strand' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash hamming.sh 'G' ''
   assert_failure
