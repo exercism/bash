@@ -1,0 +1,41 @@
+{{ header }}
+{% for idx, case in cases %}
+@test '{{ case["description"] }}' {
+  {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} {{ case["input"]["year"] }}
+
+  assert_success
+  assert_output "{{ case["expected"] | lower }}"
+}
+{% endfor %}
+@test 'No input should return an error' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }}
+
+  assert_failure
+  assert_output "Usage: {{ solution }} <year>"
+}
+
+@test 'Too many arguments should return an error' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} 2016 4562 4566
+
+  assert_failure
+  assert_output "Usage: {{ solution }} <year>"
+}
+
+@test 'Float number input should return an error' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} 2016.54
+
+  assert_failure
+  assert_output "Usage: {{ solution }} <year>"
+}
+
+@test 'Alpha input should return an error' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} 'abcd'
+
+  assert_failure
+  assert_output "Usage: {{ solution }} <year>"
+}

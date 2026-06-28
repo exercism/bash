@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.6.0.1
-# bash-specific test: Input validation
+# generated on 2026-06-28T21:58:57+00:00
+# local version: 2.0.0.0
 
-@test 'year not divisible by 4: common year' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test 'year not divisible by 4 in common year' {
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash leap.sh 2015
 
   assert_success
@@ -20,7 +20,7 @@ load bats-extra
   assert_output "false"
 }
 
-@test 'year divisible by 4, not divisible by 100: leap year' {
+@test 'year divisible by 4, not divisible by 100 in leap year' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash leap.sh 1996
 
@@ -36,7 +36,7 @@ load bats-extra
   assert_output "true"
 }
 
-@test 'year divisible by 100, not divisible by 400: common year' {
+@test 'year divisible by 100, not divisible by 400 in common year' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash leap.sh 2100
 
@@ -52,7 +52,7 @@ load bats-extra
   assert_output "false"
 }
 
-@test 'year divisible by 400: leap year' {
+@test 'year divisible by 400 is leap year' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash leap.sh 2000
 
