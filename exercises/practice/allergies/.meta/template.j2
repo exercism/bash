@@ -1,0 +1,17 @@
+{{ header }}
+{% for idx, case in cases %}
+@test {{ case["descriptions"] | join(":") | quote }} {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] == "allergicTo" %}
+    run bash {{ solution }} {{ case["input"]["score"] }} allergic_to {{ case["input"]["item"] }}
+
+    assert_success
+    assert_output "{{ case["expected"] | lower }}"
+{%- else %}
+    run bash {{ solution }} {{ case["input"]["score"] }} list
+
+    assert_success
+    assert_output "{{ case["expected"] | join(" ") }}"
+{%- endif %}
+}
+{% endfor %}
