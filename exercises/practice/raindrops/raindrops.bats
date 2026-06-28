@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-28T22:50:05+00:00
+# local version: 2.0.0.0
 
 @test "the sound for 1 is 1" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 1
   assert_success
   assert_output "1"
