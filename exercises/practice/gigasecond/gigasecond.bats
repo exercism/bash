@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-28T21:24:30+00:00
 # local version: 2.0.0.0
 
-# Ensure your date calculations are done using UTC time zone
-
-@test 'date only specificaion of time' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test 'date only specification of time' {
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash gigasecond.sh '2011-04-25'
 
   assert_success
