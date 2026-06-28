@@ -7,7 +7,7 @@ die() { echo "$*" >&2; exit 1; }
 
 nondig="*[^[:digit:]]*"   # contains a non-digit
 
-[[ $series == $nondig ]]  && die "input must only contain digits"       # pattern is unquoted
+[[ $series == $nondig ]]  && die "digits input must only contain digits" # pattern is unquoted
 (( span > ${#series} ))   && die "span must not exceed string length"
 (( span < 0 ))            && die "span must not be negative"
 
