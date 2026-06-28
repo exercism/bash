@@ -45,7 +45,7 @@ validate() {
 
     for elem in "${_preorder[@]}"; do
         if [[ ${seen["$elem"]} ]]; then
-            die "Traversals must contain unique elements"
+            die "Traversals must contain unique items"
         fi
         seen["$elem"]=1
         if (( $(indexOf "$elem" "${_inorder[@]}") == -1 )); then
