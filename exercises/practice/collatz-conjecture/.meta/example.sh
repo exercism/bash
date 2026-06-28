@@ -3,7 +3,7 @@
 if [ "$1" -gt 0 ]; then
     N=$1
 else
-    echo "Error: Only positive numbers are allowed"
+    echo "Error: Only positive integers are allowed"
     exit 1
 fi
 
