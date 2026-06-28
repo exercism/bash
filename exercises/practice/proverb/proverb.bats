@@ -1,11 +1,14 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.1
+# generated on 2026-06-28T22:49:19+00:00
+# local version: 2.0.0.0
 
 @test "zero pieces" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    expected=""
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=$(cat <<END
+END
+)
     run bash proverb.sh
     assert_success
     assert_output "$expected"
@@ -46,7 +49,6 @@ END
     assert_success
     assert_output "$expected"
 }
-
 
 @test "full proverb" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
