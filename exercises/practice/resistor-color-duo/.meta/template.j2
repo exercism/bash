@@ -1,0 +1,36 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} {{ case["input"]["colors"] | join(" ") }}
+{%- if case["expect_error"] %}
+    {#- The error message from the canonical data is not used. #}
+    assert_failure
+    assert_output --partial "invalid color"
+{%- else %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+{%- endif %}
+}
+{% endfor %}
+@test "invalid color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} foo
+    assert_failure
+    assert_output --partial "invalid color"
+}
+
+@test "one valid color and one invalid color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} blue foo
+    assert_failure
+    assert_output --partial "invalid color"
+}
+
+@test "one invalid color and one valid color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} foo blue
+    assert_failure
+    assert_output --partial "invalid color"
+}
+
