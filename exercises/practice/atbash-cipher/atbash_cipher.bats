@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
-
-# encode
+# generated on 2026-06-28T20:52:33+00:00
+# local version: 2.0.0.0
 
 @test "encode yes" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash atbash_cipher.sh encode "yes"
   assert_success
   assert_output "bvh"
@@ -61,8 +60,6 @@ load bats-extra
   assert_output "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
 }
 
-# decode
-
 @test "decode exercism" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash atbash_cipher.sh decode "vcvix rhn"
@@ -104,4 +101,3 @@ load bats-extra
   assert_success
   assert_output "anobstacleisoftenasteppingstone"
 }
-
