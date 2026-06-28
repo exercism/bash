@@ -1,8 +1,8 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.0.0.1
-# bash-specific test: Input validation
+# generated on 2026-06-28T21:53:38+00:00
+# local version: 2.0.0.0
 
 # Usage: knapsack.sh max_wt [items ...]
 # where: items look like "weight:value"
@@ -12,20 +12,14 @@ load bats-extra
 #       90
 #
 
-@test "error: no arguments" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash knapsack.sh
-    assert_failure
-}
-
 @test "no items" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash knapsack.sh 100
     assert_success
     assert_output "0"
 }
 
-@test "one item: too heavy" {
+@test "one item, too heavy" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash knapsack.sh 10 100:1
     assert_success
@@ -65,4 +59,10 @@ load bats-extra
     run bash knapsack.sh 750 70:135 73:139 77:149 80:150 82:156 87:163 90:173 94:184 98:192 106:201 110:210 113:214 115:221 118:229 120:240
     assert_success
     assert_output "1458"
+}
+
+@test "error: no arguments" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash knapsack.sh
+    assert_failure
 }

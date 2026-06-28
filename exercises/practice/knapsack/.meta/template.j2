@@ -1,0 +1,23 @@
+{{ header }}
+
+# Usage: {{ solution }} max_wt [items ...]
+# where: items look like "weight:value"
+# example:
+#       {{ solution }} 10 5:10 4:40 6:30 4:50
+# should return:
+#       90
+#
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} {{ case["input"]["maximumWeight"] }} {%- for item in case["input"]["items"] %} {{ item["weight"] }}:{{ item["value"] }}{%- endfor %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
+@test "error: no arguments" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }}
+    assert_failure
+}
+
