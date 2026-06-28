@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-28T23:21:42+00:00
+# local version: 2.0.0.0
 
 @test "wink for 1" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash secret_handshake.sh 1
     assert_success
     assert_output "wink"
@@ -38,25 +39,11 @@ load bats-extra
     assert_output "wink,double blink"
 }
 
-@test "all possible actions" {
+@test "reverse two actions" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash secret_handshake.sh 15
+    run bash secret_handshake.sh 19
     assert_success
-    assert_output "wink,double blink,close your eyes,jump"
-}
-
-@test "do nothing for zero" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash secret_handshake.sh 0
-    assert_success
-    assert_output ""
-}
-
-@test "reversing no actions still gives no actions" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash secret_handshake.sh 16
-    assert_success
-    assert_output ""
+    assert_output "double blink,wink"
 }
 
 @test "reversing one action gives the same action" {
@@ -66,11 +53,18 @@ load bats-extra
     assert_output "jump"
 }
 
-@test "reverse two actions" {
+@test "reversing no actions still gives no actions" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash secret_handshake.sh 19
+    run bash secret_handshake.sh 16
     assert_success
-    assert_output "double blink,wink"
+    assert_output ""
+}
+
+@test "all possible actions" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash secret_handshake.sh 15
+    assert_success
+    assert_output "wink,double blink,close your eyes,jump"
 }
 
 @test "reverse all possible actions" {
@@ -78,4 +72,11 @@ load bats-extra
     run bash secret_handshake.sh 31
     assert_success
     assert_output "jump,close your eyes,double blink,wink"
+}
+
+@test "do nothing for zero" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash secret_handshake.sh 0
+    assert_success
+    assert_output ""
 }
