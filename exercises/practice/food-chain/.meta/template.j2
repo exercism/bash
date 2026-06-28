@@ -1,0 +1,30 @@
+{{ header }}
+{% for idx, case in cases %}
+@test '{{ case["description"] }}' {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="{{ case["expected"] | join("\n") }}"
+    run bash {{ solution }} {{ case["input"]["startVerse"] }} {{ case["input"]["endVerse"] }}
+    assert_success
+    assert_output "$expected"
+}
+{% endfor %}
+@test 'no_arguments' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }}
+    assert_failure
+    assert_output --partial "2 arguments expected"
+}
+
+@test 'too_many_arguments' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 1 2 3
+    assert_failure
+    assert_output --partial "2 arguments expected"
+}
+
+@test 'wrong_order_arguments' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 8 1
+    assert_failure
+    assert_output --partial "Start must be less than or equal to End"
+}

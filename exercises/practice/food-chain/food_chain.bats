@@ -1,17 +1,18 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.1.0.0
+# generated on 2026-06-28T21:18:24+00:00
+# local version: 2.0.0.0
 
 @test 'fly' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
     run bash food_chain.sh 1 1
     assert_success
     assert_output "$expected"
 }
- 
+
 @test 'spider' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a spider.
@@ -102,7 +103,7 @@ She's dead, of course!"
     assert_output "$expected"
 }
 
-@test 'multiple_verses' {
+@test 'multiple verses' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
@@ -122,7 +123,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'full_song' {
+@test 'full song' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
