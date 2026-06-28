@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-28T22:00:25+00:00
 # local version: 2.0.0.0
 
-
 @test "paired square brackets" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "[]"
     assert_success 
     assert_output "true"
@@ -139,7 +139,7 @@ load bats-extra
 
 @test "complex latex expression" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash matching_brackets.sh "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)"
+    run bash matching_brackets.sh "\left(\begin{array}{cc} \frac{1}{3} & x\\ \mathrm{e}^{x} &... x^2 \end{array}\right)"
     assert_success 
     assert_output "true"
 }
