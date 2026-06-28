@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.7.0.0
-
-# Check if the given string is an isogram
+# generated on 2026-06-28T21:40:54+00:00
+# local version: 2.0.0.0
 
 @test 'empty string' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isogram.sh ''
   assert_success
   assert_output "true"
@@ -47,16 +46,16 @@ load bats-extra
   assert_output "false"
 }
 
+@test 'word with duplicated character in mixed case, lowercase first' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash isogram.sh 'alphAbet'
+  assert_success
+  assert_output "false"
+}
+
 @test 'hypothetical isogrammic word with hyphen' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isogram.sh 'thumbscrew-japingly'
-  assert_success
-  assert_output "true"
-}
-
-@test 'isogram with duplicated hyphen' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash isogram.sh 'six-year-old'
   assert_success
   assert_output "true"
 }
@@ -66,6 +65,13 @@ load bats-extra
   run bash isogram.sh 'thumbscrew-jappingly'
   assert_success
   assert_output "false"
+}
+
+@test 'isogram with duplicated hyphen' {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash isogram.sh 'six-year-old'
+  assert_success
+  assert_output "true"
 }
 
 @test 'made-up name that is an isogram' {
@@ -78,13 +84,6 @@ load bats-extra
 @test 'duplicated character in the middle' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isogram.sh 'accentor'
-  assert_success
-  assert_output "false"
-}
-
-@test 'word with duplicated character in mixed case, lowercase first' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash isogram.sh 'alphAbet'
   assert_success
   assert_output "false"
 }
