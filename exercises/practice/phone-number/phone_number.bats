@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.7.0.0
+# generated on 2026-06-28T22:42:36+00:00
+# local version: 2.0.0.0
 
 @test "cleans the number" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash phone_number.sh "(223) 456-7890"
   assert_success
   assert_output "2234567890"
