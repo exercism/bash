@@ -1,13 +1,14 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.5.0.0
+# generated on 2026-06-28T20:48:01+00:00
+# local version: 2.0.0.0
 
 @test "no matches" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash anagram.sh "diaper" "hello world zombies pants"
   assert_success
-  refute_output     # no output
+  refute_output
 }
 
 @test "detects two anagrams" {
@@ -39,10 +40,10 @@ load bats-extra
 }
 
 @test "detects multiple anagrams with different case" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash anagram.sh "nose" "Eons ONES"
-    assert_success
-    assert_output "Eons ONES"
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash anagram.sh "nose" "Eons ONES"
+  assert_success
+  assert_output "Eons ONES"
 }
 
 @test "does not detect non-anagrams with identical checksum" {
@@ -73,7 +74,7 @@ load bats-extra
   assert_output "Carthorse"
 }
 
-@test "does not detect a anagram if the original word is repeated" {
+@test "does not detect an anagram if the original word is repeated" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash anagram.sh "go" "goGoGO"
   assert_success
