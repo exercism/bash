@@ -1,0 +1,22 @@
+{{ header }}
+
+join() {
+    local IFS=$'\n'
+    echo "$*"
+}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    input=({% for line in case["input"]["garden"] %}
+        "{{ line }}"
+        {%- endfor %}
+    )
+    run bash {{ solution }} "${input[@]}"
+    assert_success
+    expected=({% for line in case["expected"] %}
+        "{{ line }}"
+        {%- endfor %}
+    )
+    assert_output "$(join "${expected[@]}")"
+}
+{% endfor %}
