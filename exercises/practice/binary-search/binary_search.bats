@@ -1,13 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.3.0.0
-
-# Note: don't bother checking if the input array is
-# sorted. Just assume that it is.
+# generated on 2026-06-28T20:55:15+00:00
+# local version: 2.0.0.0
 
 @test "finds a value in an array with one element" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=0
     input=(6)
     run bash binary_search.sh 6 "${input[@]}"
@@ -59,8 +57,6 @@ load bats-extra
     assert_success
     assert_output "$expected"
 }
-
-# error cases
 
 @test "identifies that a value is not included in the array" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
