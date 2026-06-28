@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.2.0.1
+# generated on 2026-06-28T21:04:51+00:00
+# local version: 2.0.0.0
 
 @test "Missed target" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash darts.sh -9 9
     assert_success
     assert_output "0"
@@ -31,14 +32,14 @@ load bats-extra
     assert_output "10"
 }
 
-@test "Exactly on centre" {
+@test "Exactly on center" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash darts.sh 0 0
     assert_success
     assert_output "10"
 }
 
-@test "Near the centre" {
+@test "Near the center" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash darts.sh -0.1 -0.1
     assert_success
@@ -64,28 +65,28 @@ load bats-extra
     run bash darts.sh -3.5 3.5
     assert_success
     assert_output "5"
-}   
+}
 
 @test "Just outside the middle circle" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash darts.sh -3.6 -3.6
     assert_success
     assert_output "1"
-}     
+}
 
 @test "Just within the outer circle" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash darts.sh -7.0 7.0
     assert_success
     assert_output "1"
-}     
+}
 
 @test "Just outside the outer circle" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash darts.sh 7.1 -7.1
     assert_success
     assert_output "0"
-}    
+}
 
 @test "Asymmetric position between the inner and middle circles" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip

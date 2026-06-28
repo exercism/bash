@@ -1,0 +1,38 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} {{ case["input"]["x"] }} {{ case["input"]["y"] }}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
+# bash-specific test: Input validation
+
+@test "invalid args: no args" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash darts.sh
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "invalid args: only 1 arg" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 10
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "invalid args: first arg non-numeric" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} foo 10
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "invalid args: second arg non-numeric" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 10 bar5
+    assert_failure
+    assert_output    # there is _some_ output
+}
