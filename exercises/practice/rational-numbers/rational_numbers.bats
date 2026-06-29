@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
-
-# Addition
+# generated on 2026-06-29T05:38:26+00:00
+# local version: 2.0.0.0
 
 @test "Add two positive rational numbers" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "+" "1/2" "2/3"
     assert_success
     assert_output "7/6"
@@ -32,9 +31,6 @@ load bats-extra
     assert_success
     assert_output "0/1"
 }
-
-
-# Subtraction
 
 @test "Subtract two positive rational numbers" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -63,8 +59,6 @@ load bats-extra
     assert_success
     assert_output "0/1"
 }
-
-# Multiplication
 
 @test "Multiply two positive rational numbers" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -108,9 +102,6 @@ load bats-extra
     assert_output "0/1"
 }
 
-
-# Division
-
 @test "Divide two positive rational numbers" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "/" "1/2" "2/3"
@@ -139,189 +130,177 @@ load bats-extra
     assert_output "1/2"
 }
 
-
-# Absolute value"
-
 @test "Absolute value of a positive rational number" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "abs" "1/2"
     assert_success
-    assert_output  "1/2"
-}
-
-@test "Absolute value of a rational number is reduced to lowest terms" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "abs" "2/4"
-    assert_success
-    assert_output  "1/2"
+    assert_output "1/2"
 }
 
 @test "Absolute value of a positive rational number with negative numerator and denominator" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "abs" "-1/-2"
     assert_success
-    assert_output  "1/2"
+    assert_output "1/2"
 }
 
 @test "Absolute value of a negative rational number" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "abs" "-1/2"
     assert_success
-    assert_output  "1/2"
+    assert_output "1/2"
 }
 
 @test "Absolute value of a negative rational number with negative denominator" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "abs" "1/-2"
     assert_success
-    assert_output  "1/2"
+    assert_output "1/2"
 }
 
 @test "Absolute value of zero" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "abs" "0/1"
     assert_success
-    assert_output  "0/1"
+    assert_output "0/1"
 }
 
-
-# Exponentiation of a rational number
+@test "Absolute value of a rational number is reduced to lowest terms" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rational_numbers.sh "abs" "2/4"
+    assert_success
+    assert_output "1/2"
+}
 
 @test "Raise a positive rational number to a positive integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "1/2" 3
+    run bash rational_numbers.sh "pow" "1/2" "3"
     assert_success
     assert_output "1/8"
 }
 
 @test "Raise a negative rational number to a positive integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "-1/2" 3
+    run bash rational_numbers.sh "pow" "-1/2" "3"
     assert_success
     assert_output "-1/8"
 }
 
 @test "Raise a positive rational number to a negative integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "3/5" -2
+    run bash rational_numbers.sh "pow" "3/5" "-2"
     assert_success
     assert_output "25/9"
 }
 
 @test "Raise a negative rational number to an even negative integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "-3/5" -2
+    run bash rational_numbers.sh "pow" "-3/5" "-2"
     assert_success
     assert_output "25/9"
 }
 
 @test "Raise a negative rational number to an odd negative integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "-3/5" -3
+    run bash rational_numbers.sh "pow" "-3/5" "-3"
     assert_success
     assert_output "-125/27"
 }
 
 @test "Raise zero to an integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "0/1" 5
+    run bash rational_numbers.sh "pow" "0/1" "5"
     assert_success
     assert_output "0/1"
 }
 
 @test "Raise one to an integer power" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "1/1" 4
+    run bash rational_numbers.sh "pow" "1/1" "4"
     assert_success
     assert_output "1/1"
 }
 
 @test "Raise a positive rational number to the power of zero" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "1/2" 0
+    run bash rational_numbers.sh "pow" "1/2" "0"
     assert_success
     assert_output "1/1"
 }
 
 @test "Raise a negative rational number to the power of zero" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "pow" "-1/2" 0
+    run bash rational_numbers.sh "pow" "-1/2" "0"
     assert_success
     assert_output "1/1"
 }
 
-
-# Exponentiation of a real number to a rational number
-
 @test "Raise a real number to a positive rational number" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "rpow" 8 "4/3"
+    run bash rational_numbers.sh "rpow" "8" "4/3"
     assert_success
     assert_output "16.0"
 }
 
 @test "Raise a real number to a negative rational number" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "rpow" 9 "-1/2"
+    run bash rational_numbers.sh "rpow" "9" "-1/2"
     assert_success
     assert_output "0.333333"
 }
 
 @test "Raise a real number to a zero rational number" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rational_numbers.sh "rpow" 2 "0/1"
+    run bash rational_numbers.sh "rpow" "2" "0/1"
     assert_success
     assert_output "1.0"
 }
-
-
-# Reduction to lowest terms
 
 @test "Reduce a positive rational number to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "2/4"
     assert_success
-    assert_output  "1/2"
+    assert_output "1/2"
 }
 
 @test "Reduce places the minus sign on the numerator" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "3/-4"
     assert_success
-    assert_output  "-3/4"
+    assert_output "-3/4"
 }
 
 @test "Reduce a negative rational number to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "-4/6"
     assert_success
-    assert_output  "-2/3"
+    assert_output "-2/3"
 }
 
 @test "Reduce a rational number with a negative denominator to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "3/-9"
     assert_success
-    assert_output  "-1/3"
+    assert_output "-1/3"
 }
 
 @test "Reduce zero to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "0/6"
     assert_success
-    assert_output  "0/1"
+    assert_output "0/1"
 }
 
 @test "Reduce an integer to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "-14/7"
     assert_success
-    assert_output  "-2/1"
+    assert_output "-2/1"
 }
 
 @test "Reduce one to lowest terms" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rational_numbers.sh "reduce" "13/13"
     assert_success
-    assert_output  "1/1"
+    assert_output "1/1"
 }

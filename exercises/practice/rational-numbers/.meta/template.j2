@@ -1,0 +1,26 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] in ["add", "sub", "mul", "div"] %}
+    {%- set op = {"add": "+", "sub": "-", "mul": "*", "div": "/"}[case["property"]] %}
+    {%- set args = [op, case["input"]["r1"] | join("/"), case["input"]["r2"] | join("/")] %}
+{%- elif case["property"] == "abs" %}
+    {%- set args = ["abs", case["input"]["r"] | join("/")] %}
+{%- elif case["property"] == "exprational" %}
+    {%- set args = ["pow", case["input"]["r"] | join("/"), case["input"]["n"]] %}
+{%- elif case["property"] == "expreal" %}
+    {%- set args = ["rpow", case["input"]["x"], case["input"]["r"] | join("/")] %}
+{%- elif case["property"] == "reduce" %}
+    {%- set args = ["reduce", case["input"]["r"] | join("/")] %}
+{%- endif %}
+    run bash {{ solution }} "{{ args | join('" "') }}"
+    assert_success
+
+{%- if case["property"] == "expreal" %}
+    assert_output "{{ case["expected"] | string | truncate(8, True, "") }}"
+{%- else %}
+    assert_output "{{ case["expected"] | join("/") }}"
+{%- endif %}
+}
+{% endfor %}
