@@ -1,8 +1,8 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
-
+# generated on 2026-06-29T01:58:15+00:00
+# local version: 2.0.0.0
 # The canonical cases call for the implementation of
 # _methods_ `score` and `roll`. That's not feasible for a
 # shell script. We'll just pass in all the individual rolls
@@ -10,7 +10,7 @@ load bats-extra
 
 
 @test "should be able to score a game with all zeros" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash bowling.sh 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     assert_success
     assert_output "0"
@@ -116,14 +116,14 @@ load bats-extra
 
 @test "rolls cannot score negative points" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash bowling.sh  -1
+    run bash bowling.sh -1
     assert_failure
     assert_output --partial "Negative roll is invalid"
 }
 
 @test "a roll cannot score more than 10 points" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash bowling.sh  11
+    run bash bowling.sh 11
     assert_failure
     assert_output --partial "Pin count exceeds pins on the lane"
 }
