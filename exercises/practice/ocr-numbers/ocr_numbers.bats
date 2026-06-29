@@ -1,18 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
-
-
-@test "No input" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash ocr_numbers.sh
-    assert_success
-    assert_output ""
-}
+# generated on 2026-06-29T04:55:11+00:00
+# local version: 2.0.0.0
 
 @test "Recognizes 0" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash ocr_numbers.sh << INPUT
  _ 
 | |
@@ -220,4 +213,12 @@ INPUT
 INPUT
     assert_success
     assert_output "123,456,789"
+}
+
+
+@test "No input" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash ocr_numbers.sh
+    assert_success
+    assert_output ""
 }
