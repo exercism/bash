@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-29T02:14:42+00:00
+# local version: 2.0.0.0
 
 @test "Degenerate case with a single 'A' row" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   expected="$(cat << EOT
 A
 EOT
@@ -119,4 +120,3 @@ EOT
   assert_success
   assert_output "$expected"
 }
-

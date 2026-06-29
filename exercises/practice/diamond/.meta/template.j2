@@ -1,0 +1,13 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+  {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  expected="$(cat << EOT
+{{ case["expected"] | join("\n") }}
+EOT
+)"
+  run bash {{ solution }} {{ case["input"]["letter"] }}
+  assert_success
+  assert_output "$expected"
+}
+{% endfor %}
