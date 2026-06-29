@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-28T21:10:45+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 @test "square of sum 1" {
   # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

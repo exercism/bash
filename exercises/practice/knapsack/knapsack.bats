@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-28T21:53:38+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 # Usage: knapsack.sh max_wt [items ...]
 # where: items look like "weight:value"

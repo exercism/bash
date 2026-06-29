@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T02:08:46+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 # * The canonical "Compare two clocks for equality" tests
 #   have not been included: for bash they will simply be 
