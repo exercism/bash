@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.3.0.0
+# generated on 2026-06-29T02:01:30+00:00
+# local version: 2.0.0.0
 
 @test "change for 1 cent" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="1"
     coins=(1 5 10 25)
     run bash change.sh 1 "${coins[@]}"
@@ -75,20 +76,20 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "no coins make 0 change" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    expected=""
-    coins=(1 5 10 21 25)
-    run bash change.sh 0 "${coins[@]}"
-    assert_success
-    assert_output "$expected"
-}
-
 @test "a greedy approach is not optimal" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="10 10"
     coins=(1 10 11)
     run bash change.sh 20 "${coins[@]}"
+    assert_success
+    assert_output "$expected"
+}
+
+@test "no coins make 0 change" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=""
+    coins=(1 5 10 21 25)
+    run bash change.sh 0 "${coins[@]}"
     assert_success
     assert_output "$expected"
 }

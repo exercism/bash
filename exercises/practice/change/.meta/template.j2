@@ -1,0 +1,20 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["expect_error"] %}
+    expected="{{ case["expect_error_msg"] }}"
+{%- else %}
+    expected="{{ case["expected"] | join(" ") }}"
+{%- endif %}
+    coins=({{ case["input"]["coins"] | join(" ") }})
+    run bash {{ solution }} {{ case["input"]["target"] }} "${coins[@]}"
+{%- if case["expect_error"] %}
+    assert_failure
+    assert_output --partial "$expected"
+{%- else %}
+    assert_success
+    assert_output "$expected"
+{%- endif %}
+}
+{% endfor %}
