@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.0.0.2
-# additional tests for: invalid color, invalid octal number, too many colors
+# generated on 2026-06-29T06:21:03+00:00
+# local version: 2.0.0.0
 
 @test "Orange and orange and black" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_trio.sh "orange" "orange" "black"
     assert_success
     assert_output "33 ohms"
@@ -16,13 +16,6 @@ load bats-extra
     run bash resistor_color_trio.sh "blue" "grey" "brown"
     assert_success
     assert_output "680 ohms"
-}
-
-@test "Brown and red and red" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash resistor_color_trio.sh "brown" "red" "red"
-    assert_success
-    assert_output "1200 ohms"
 }
 
 @test "Red and black and red" {
@@ -46,7 +39,7 @@ load bats-extra
     assert_output "470 kiloohms"
 }
 
-@test "Blue and violet and grey" {
+@test "Blue and violet and blue" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color_trio.sh "blue" "violet" "blue"
     assert_success
@@ -65,6 +58,20 @@ load bats-extra
     run bash resistor_color_trio.sh "white" "white" "white"
     assert_success
     assert_output "99 gigaohms"
+}
+
+@test "First two colors make an invalid octal number" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash resistor_color_trio.sh "black" "grey" "black"
+    assert_success
+    assert_output "8 ohms"
+}
+
+@test "Ignore extra colors" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash resistor_color_trio.sh "blue" "green" "yellow" "orange"
+    assert_success
+    assert_output "650 kiloohms"
 }
 
 
@@ -87,18 +94,4 @@ load bats-extra
     run bash resistor_color_trio.sh "white" "white" "baz"
     assert_failure
     assert_output    # there is _some_ output
-}
-
-@test "First two colors make an invalid octal number" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash resistor_color_trio.sh "black" "grey" "black"
-    assert_success
-    assert_output "8 ohms"
-}
-
-@test "Ignore extra colors" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash resistor_color_trio.sh "blue" "green" "yellow" "orange"
-    assert_success
-    assert_output "650 kiloohms"
 }
