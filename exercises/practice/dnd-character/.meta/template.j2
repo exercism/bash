@@ -1,0 +1,58 @@
+{{ header }}
+
+# usage: {{ solution }} modifier n
+# -> output expected modifier
+
+# usage: {{ solution }} generate
+# -> output each characteristic and ability value, one per line
+
+
+# ability modifier
+{% for idx, case in cases %}
+{%- if case["property"] == "modifier" %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} {{ case["property"] }} {{ case["input"]["score"] }}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{%- endif %}
+{% endfor %}
+# generate a character, validate expected output
+{%- set attrs = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "hitpoints"] %}
+@test "generate a character" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} generate
+    assert_success
+    # these don't have to appear in any particular order
+    {%- for attr in attrs %}
+    assert_line --regexp '^{{ attr }} [[:digit:]]{1,2}$'
+    {%- endfor %}
+    # no other output: `run` populates the `lines` array
+    assert_equal ${{ "{" }}#lines[@]} {{ attrs | length }}
+}
+
+
+# Usage: between $val $low $high
+# Value is between low (inclusive) and high (inclusive).
+between() {
+    (( $2 <= $1 && $1 <= $3 ))
+}
+
+# random ability is within range
+@test "validate ability range and hitpoint value" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    for _ in {1..50}; do
+        while read -r c v; do
+            if [[ $c == "hitpoints" ]]; then
+                hits=$v
+            else
+                assert between "$v" 3 18
+                [[ $c == "constitution" ]] && const=$v
+            fi
+        done < <(bash {{ solution }} generate)
+
+        const_mod=$(bash {{ solution }} modifier "$const")
+        assert_equal $((10 + const_mod)) "$hits"
+    done
+}

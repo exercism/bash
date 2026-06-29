@@ -1,7 +1,8 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-29T18:26:21+00:00
+# local version: 2.0.0.0
 
 # usage: dnd_character.sh modifier n
 # -> output expected modifier
@@ -13,7 +14,7 @@ load bats-extra
 # ability modifier
 
 @test "ability modifier for score 3 is -4" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 3
     assert_success
     assert_output "-4"
@@ -125,8 +126,8 @@ load bats-extra
 }
 
 
-# generate a character, validate expected output
 
+# generate a character, validate expected output
 @test "generate a character" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh generate
@@ -146,7 +147,7 @@ load bats-extra
 
 # Usage: between $val $low $high
 # Value is between low (inclusive) and high (inclusive).
-between() { 
+between() {
     (( $2 <= $1 && $1 <= $3 ))
 }
 
