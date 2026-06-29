@@ -1,0 +1,55 @@
+{{ header }}
+# Your bash program should be able to accept input
+# 1. via standard input, OR
+# 2. as a filename given on the cmd line.
+
+# uses external tool: mktemp
+
+setup() {
+    export INPUT_FILE HAS_TTY
+    INPUT_FILE=$( mktemp )
+    [[ -t 0 ]] && HAS_TTY=1 || HAS_TTY=0
+}
+teardown() { rm -f "$INPUT_FILE"; }
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    input=$( cat <<INPUT
+{%- if case["input"]["rows"] %}
+{{ case["input"]["rows"] | join("\n") }}
+{%- endif %}
+INPUT
+)
+
+    expected=$( cat <<EXPECTED
+{{ case["expected"] | join("\n") }}
+EXPECTED
+)
+
+    run bash tournament.sh  <<< "$input"
+    assert_success
+    assert_output "$expected"
+}
+{%- if case["description"] in ("a win is three points, a loss is zero points", "incomplete competition (not all pairs have played)") %}
+
+@test "With a file: {{ case["description"] }}" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # ignore this test in CI
+    (( HAS_TTY )) || skip
+
+    cat << INPUT > "$INPUT_FILE"
+{{ case["input"]["rows"] | join("\n") }}
+INPUT
+
+    expected=$( cat <<EXPECTED
+{{ case["expected"] | join("\n") }}
+EXPECTED
+)
+
+    run bash tournament.sh "$INPUT_FILE"
+    assert_success
+    assert_output "$expected"
+}
+{%- endif %}
+{%endfor %}
