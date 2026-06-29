@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 3.2.0.0
-
+# generated on 2026-06-29T02:12:22+00:00
+# local version: 2.0.0.0
 
 @test "empty plaintext results in an empty ciphertext" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh ""
     assert_success
     assert_output ""
