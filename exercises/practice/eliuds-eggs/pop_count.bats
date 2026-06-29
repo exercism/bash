@@ -1,8 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-29T02:16:54+00:00
+# local version: 2.0.0.0
+
 @test "0 eggs" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pop_count.sh 0
     assert_success
     assert_output 0
