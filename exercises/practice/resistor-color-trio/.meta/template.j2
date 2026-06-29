@@ -1,0 +1,30 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "{{ case["input"]["colors"] | join('" "') }}"
+    assert_success
+    assert_output "{{ case["expected"]["value"] }} {{ case["expected"]["unit"] }}"
+}
+{% endfor %}
+
+@test "Invalid first color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "foo" "white" "white"
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "Invalid second color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "white" "bar" "white"
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "Invalid third color" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "white" "white" "baz"
+    assert_failure
+    assert_output    # there is _some_ output
+}
