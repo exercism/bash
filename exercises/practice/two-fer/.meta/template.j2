@@ -1,10 +1,7 @@
-#!/usr/bin/env bats
-load bats-extra
-
-# generated on 2026-06-29T00:20:18+00:00
-# local version: 2.0.0.0
-
-@test "no name given" {
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+{%- if idx == 0 %}
   # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
   # The above line controls whether to skip the test.
@@ -19,26 +16,18 @@ load bats-extra
   # `$BATS_RUN_SKIPPED` environment variable, like this:
   #
   #     $ BATS_RUN_SKIPPED=true bats two_fer.bats
-
-  run bash two_fer.sh
-  assert_success
-  assert_output "One for you, one for me."
-}
-
-@test "a name given" {
+{% else %}
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "Alice"
+{%- endif %}
+{%- if case["input"]["name"] %}
+  run bash {{ solution }} "{{ case["input"]["name"] }}"
+{%- else %}
+  run bash {{ solution }}
+{%- endif %}
   assert_success
-  assert_output "One for Alice, one for me."
+  assert_output "{{ case["expected"] }}"
 }
-
-@test "another name given" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "Bob"
-  assert_success
-  assert_output "One for Bob, one for me."
-}
-
+{% endfor %}
 # bash-specific test: Focus the student's attention on the effects of
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
