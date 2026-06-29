@@ -33,9 +33,9 @@ main() {
 
 verse() {
     local -i n=$1
-    printf "This is the %s\n" "${items[n]}"
+    printf "This is the %s" "${items[n]}"
     for ((; n>0; n--)); do
-        printf "that %s the %s\n" "${that[n]}" "${items[n-1]}"
+        printf " that %s the %s" "${that[n]}" "${items[n-1]}"
     done
 }
 

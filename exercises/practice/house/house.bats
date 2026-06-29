@@ -1,22 +1,23 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.2.0.1
-# bash-specific test: Input validation
+# generated on 2026-06-29T18:35:03+00:00
 
-@test "verse 1" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    expected="This is the house that Jack built."
+@test "verse one - the house that jack built" {
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=$(cat <<END
+This is the house that Jack built.
+END
+)
     run bash house.sh 1 1
     assert_success
     assert_output "$expected"
-}       
+}
 
-@test "verse 2" {
+@test "verse two - the malt that lay" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the malt
-that lay in the house that Jack built.
+This is the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 2 2
@@ -24,12 +25,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 3" {
+@test "verse three - the rat that ate" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 3 3
@@ -37,13 +36,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 4" {
+@test "verse four - the cat that killed" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 4 4
@@ -51,14 +47,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 5" {
+@test "verse five - the dog that worried" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 5 5
@@ -66,15 +58,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 6" {
+@test "verse six - the cow with the crumpled horn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 6 6
@@ -82,16 +69,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 7" {
+@test "verse seven - the maiden all forlorn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 7 7
@@ -99,17 +80,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 8" {
+@test "verse eight - the man all tattered and torn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 8 8
@@ -117,18 +91,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 9" {
+@test "verse nine - the priest all shaven and shorn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 9 9
@@ -136,19 +102,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 10" {
+@test "verse 10 - the rooster that crowed in the morn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 10 10
@@ -156,20 +113,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 11" {
+@test "verse 11 - the farmer sowing his corn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the farmer sowing his corn
-that kept the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 11 11
@@ -177,21 +124,10 @@ END
     assert_output "$expected"
 }
 
-@test "verse 12" {
+@test "verse 12 - the horse and the hound and the horn" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the horse and the hound and the horn
-that belonged to the farmer sowing his corn
-that kept the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the horse and the hound and the horn that belonged to the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 12 12
@@ -199,43 +135,14 @@ END
     assert_output "$expected"
 }
 
-@test "verses 4 to 8" {
+@test "multiple verses" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-This is the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 4 8
@@ -243,105 +150,27 @@ END
     assert_output "$expected"
 }
 
-@test "all verses" {
+@test "full rhyme" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 This is the house that Jack built.
-
-This is the malt
-that lay in the house that Jack built.
-
-This is the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the farmer sowing his corn
-that kept the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the horse and the hound and the horn
-that belonged to the farmer sowing his corn
-that kept the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
+This is the malt that lay in the house that Jack built.
+This is the rat that ate the malt that lay in the house that Jack built.
+This is the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
+This is the horse and the hound and the horn that belonged to the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.
 END
 )
     run bash house.sh 1 12
     assert_success
     assert_output "$expected"
 }
-
 
 @test "invalid verse 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip

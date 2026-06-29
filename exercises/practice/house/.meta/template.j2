@@ -1,0 +1,22 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=$(cat <<END
+{{ case["expected"] | join("\n") }}
+END
+)
+    run bash {{ solution }} {{ case["input"]["startVerse"] }} {{ case["input"]["endVerse"] }}
+    assert_success
+    assert_output "$expected"
+}
+{% endfor %}
+
+{%- for start, end in [(0, 12), (1, -1), (14, 12), (1, 13)] %}
+@test "invalid verse {{ loop.index }}" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} {{ start }} {{ end }}
+    assert_failure
+    assert_output --partial "invalid"
+}
+{% endfor %}
