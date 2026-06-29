@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.4.0.1
+# generated on 2026-06-29T06:06:46+00:00
+# local version: 2.0.0.0
 
 @test "count one word" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash word_count.sh "word"
   assert_success
   assert_line "word: 1"
@@ -45,7 +46,9 @@ load bats-extra
 
 @test "handles expanded lists" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash word_count.sh $'one,\ntwo,\nthree'
+  run bash word_count.sh "one,
+two,
+three"
   assert_success
   assert_line "one: 1"
   assert_line "two: 1"
@@ -114,13 +117,14 @@ load bats-extra
 
 @test "substrings from the beginning" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash word_count.sh "Joe can't tell between apple, app and a."
+  run bash word_count.sh "Joe can't tell between app, apple and a."
   assert_success
   assert_line "joe: 1"
   assert_line "can't: 1"
   assert_line "tell: 1"
-  assert_line "apple: 1"
+  assert_line "between: 1"
   assert_line "app: 1"
+  assert_line "apple: 1"
   assert_line "and: 1"
   assert_line "a: 1"
   assert_equal "${#lines[@]}" 8
@@ -135,9 +139,12 @@ load bats-extra
   assert_equal "${#lines[@]}" 2
 }
 
-@test "alternating word separators are not detected as a word" {
+@test "alternating word separators not detected as a word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash word_count.sh $',\n,one,\n ,two \n \'three\''
+  run bash word_count.sh ",
+,one,
+ ,two 
+ 'three'"
   assert_success
   assert_line "one: 1"
   assert_line "two: 1"
