@@ -1,12 +1,12 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.1
+# generated on 2026-06-29T05:45:38+00:00
+# local version: 2.0.0.0
 
 @test "an empty string" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh ""
-
   assert_success
   assert_output ""
 }
@@ -14,15 +14,13 @@ load bats-extra
 @test "a word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "robot"
-
   assert_success
   assert_output "tobor"
 }
 
-@test "a capitalised word" {
+@test "a capitalized word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "Ramen"
-
   assert_success
   assert_output "nemaR"
 }
@@ -30,7 +28,6 @@ load bats-extra
 @test "a sentence with punctuation" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "I'm hungry!"
-
   assert_success
   assert_output "!yrgnuh m'I"
 }
@@ -38,7 +35,6 @@ load bats-extra
 @test "a palindrome" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "racecar"
-
   assert_success
   assert_output "racecar"
 }
@@ -46,7 +42,6 @@ load bats-extra
 @test "an even-sized word" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash reverse_string.sh "drawer"
-
   assert_success
   assert_output "reward"
 }
