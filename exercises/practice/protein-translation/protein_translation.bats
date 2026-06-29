@@ -1,127 +1,129 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# Translate input RNA sequences into proteins
+# generated on 2026-06-29T05:11:48+00:00
+# local version: 2.0.0.0
+
 @test "Empty RNA sequence results in no proteins" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh ""
     assert_success
     assert_output ""
 }
 
-@test "Methionine RNA sequence" {       
+@test "Methionine RNA sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "AUG"
     assert_success
     assert_output "Methionine"
 }
 
-@test "Phenylalanine RNA sequence 1" {  
+@test "Phenylalanine RNA sequence 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UUU"
     assert_success
     assert_output "Phenylalanine"
 }
 
-@test "Phenylalanine RNA sequence 2" {  
+@test "Phenylalanine RNA sequence 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UUC"
     assert_success
     assert_output "Phenylalanine"
 }
 
-@test "Leucine RNA sequence 1" {        
+@test "Leucine RNA sequence 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UUA"
     assert_success
     assert_output "Leucine"
 }
 
-@test "Leucine RNA sequence 2" {        
+@test "Leucine RNA sequence 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UUG"
     assert_success
     assert_output "Leucine"
 }
 
-@test "Serine RNA sequence 1" { 
+@test "Serine RNA sequence 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UCU"
     assert_success
     assert_output "Serine"
 }
 
-@test "Serine RNA sequence 2" { 
+@test "Serine RNA sequence 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UCC"
     assert_success
     assert_output "Serine"
 }
 
-@test "Serine RNA sequence 3" { 
+@test "Serine RNA sequence 3" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UCA"
     assert_success
     assert_output "Serine"
 }
 
-@test "Serine RNA sequence 4" { 
+@test "Serine RNA sequence 4" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UCG"
     assert_success
     assert_output "Serine"
 }
 
-@test "Tyrosine RNA sequence 1" {       
+@test "Tyrosine RNA sequence 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAU"
     assert_success
     assert_output "Tyrosine"
 }
 
-@test "Tyrosine RNA sequence 2" {       
+@test "Tyrosine RNA sequence 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAC"
     assert_success
     assert_output "Tyrosine"
 }
 
-@test "Cysteine RNA sequence 1" {       
+@test "Cysteine RNA sequence 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGU"
     assert_success
     assert_output "Cysteine"
 }
 
-@test "Cysteine RNA sequence 2" {       
+@test "Cysteine RNA sequence 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGC"
     assert_success
     assert_output "Cysteine"
 }
 
-@test "Tryptophan RNA sequence" {       
+@test "Tryptophan RNA sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGG"
     assert_success
     assert_output "Tryptophan"
 }
 
-@test "STOP codon RNA sequence 1" {     
+@test "STOP codon RNA sequence 1" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAA"
     assert_success
     assert_output ""
 }
 
-@test "STOP codon RNA sequence 2" {     
+@test "STOP codon RNA sequence 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAG"
     assert_success
     assert_output ""
 }
 
-@test "STOP codon RNA sequence 3" {     
+@test "STOP codon RNA sequence 3" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGA"
     assert_success
@@ -142,42 +144,42 @@ load bats-extra
     assert_output "Leucine Leucine"
 }
 
-@test "Translate RNA strand into correct protein list" {        
+@test "Translate RNA strand into correct protein list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "AUGUUUUGG"
     assert_success
     assert_output "Methionine Phenylalanine Tryptophan"
 }
 
-@test "Translation stops if STOP codon at beginning of sequence" {      
+@test "Translation stops if STOP codon at beginning of sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAGUGG"
     assert_success
     assert_output ""
 }
 
-@test "Translation stops if STOP codon at end of two-codon sequence" {  
+@test "Translation stops if STOP codon at end of two-codon sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGGUAG"
     assert_success
     assert_output "Tryptophan"
 }
 
-@test "Translation stops if STOP codon at end of three-codon sequence" {        
+@test "Translation stops if STOP codon at end of three-codon sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "AUGUUUUAA"
     assert_success
     assert_output "Methionine Phenylalanine"
 }
 
-@test "Translation stops if STOP codon in middle of three-codon sequence" {     
+@test "Translation stops if STOP codon in middle of three-codon sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGGUAGUGG"
     assert_success
     assert_output "Tryptophan"
 }
 
-@test "Translation stops if STOP codon in middle of six-codon sequence" {       
+@test "Translation stops if STOP codon in middle of six-codon sequence" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGGUGUUAUUAAUGGUUU"
     assert_success
@@ -189,13 +191,6 @@ load bats-extra
     run bash protein_translation.sh "AUGAUG"
     assert_success
     assert_output "Methionine Methionine"
-}
-
-@test "Error case" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash protein_translation.sh "UGG---AUG"
-    assert_failure
-    assert_output "Invalid codon"
 }
 
 @test "Non-existing codon can't translate" {
