@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.5.0.0
+# generated on 2026-06-29T05:54:35+00:00
+# local version: 2.0.0.0
 
 @test "no multiples within limit" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sum_of_multiples.sh 1 3 5
     assert_success
     assert_output "0"
