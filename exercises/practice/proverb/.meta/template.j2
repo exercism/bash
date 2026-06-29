@@ -1,0 +1,42 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=$(cat <<END
+{%- if case["expected"] %}
+{{ case["expected"] | join("\n") }}
+{%- endif %}
+END
+)
+    run bash {{ ([solution] + case["input"]["strings"]) | join(" ") }}
+    assert_success
+    assert_output "$expected"
+}
+{% endfor %}
+# bash-specific tests: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
+@test "items with whitespace" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=$(cat <<END
+For want of a rusty nail the horse shoe was lost.
+And all for the want of a rusty nail.
+END
+)
+    run bash {{ solution }} "rusty nail" "horse shoe"
+    assert_success
+    assert_output "$expected"
+}
+
+@test "shell globbing character" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected=$(cat <<END
+For want of a quotes the * was lost.
+And all for the want of a quotes.
+END
+)
+    run bash {{ solution }} quotes "*"
+    assert_success
+    assert_output "$expected"
+}
