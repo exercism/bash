@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
-
-# The rectangles.sh script will read the input from stdin.
+# generated on 2026-06-29T05:42:13+00:00
+# local version: 2.0.0.0
 
 @test "no rows" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh
     assert_success
     assert_output "0"
@@ -21,7 +20,9 @@ load bats-extra
 
 @test "no rectangles" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rectangles.sh <<<" "
+    run bash rectangles.sh <<INPUT
+ 
+INPUT
     assert_success
     assert_output "0"
 }
@@ -94,21 +95,6 @@ INPUT
     assert_output "1"
 }
 
-@test "rectangles must have four sides" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rectangles.sh <<INPUT
-+-+ +-+
-| | | |
-+-+-+-+
-  | |  
-+-+-+-+
-| | | |
-+-+ +-+
-INPUT
-    assert_success
-    assert_output "5"
-}
-
 @test "only complete rectangles are counted" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
@@ -164,28 +150,17 @@ INPUT
     assert_output "60"
 }
 
-@test "nested rectangles" {
+@test "rectangles must have four sides" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
-+-----------+
-|           |
-|      +-+  |
-|      +-+  |
-+-----------+
++-+ +-+
+| | | |
++-+-+-+
+  | |  
++-+-+-+
+| | | |
++-+ +-+
 INPUT
     assert_success
-    assert_output "2"
-}
-
-@test "side by side rectangles" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rectangles.sh <<INPUT
-+------+ +--+
-|      | |  |
-+------+ |  |
-         |  |
-         +--+
-INPUT
-    assert_success
-    assert_output "2"
+    assert_output "5"
 }
