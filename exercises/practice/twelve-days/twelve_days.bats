@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-29T05:58:34+00:00
+# local version: 2.0.0.0
 
 @test "first day a partridge in a pear tree" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
 END
@@ -23,7 +24,7 @@ END
     run bash twelve_days.sh 2 2
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "third day three french hens" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -34,7 +35,7 @@ END
     run bash twelve_days.sh 3 3
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "fourth day four calling birds" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -45,7 +46,7 @@ END
     run bash twelve_days.sh 4 4
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "fifth day five gold rings" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -56,7 +57,7 @@ END
     run bash twelve_days.sh 5 5
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "sixth day six geese-a-laying" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -67,7 +68,7 @@ END
     run bash twelve_days.sh 6 6
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "seventh day seven swans-a-swimming" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -78,7 +79,7 @@ END
     run bash twelve_days.sh 7 7
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "eighth day eight maids-a-milking" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -89,7 +90,7 @@ END
     run bash twelve_days.sh 8 8
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "ninth day nine ladies dancing" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -100,7 +101,7 @@ END
     run bash twelve_days.sh 9 9
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "tenth day ten lords-a-leaping" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -111,7 +112,7 @@ END
     run bash twelve_days.sh 10 10
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "eleventh day eleven pipers piping" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -122,7 +123,7 @@ END
     run bash twelve_days.sh 11 11
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "twelfth day twelve drummers drumming" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -133,7 +134,7 @@ END
     run bash twelve_days.sh 12 12
     assert_success
     assert_output "$expected"
-    }
+}
 
 @test "recites first three verses of the song" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
