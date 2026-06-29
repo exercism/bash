@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.3.0.0
+# generated on 2026-06-29T01:44:18+00:00
+# local version: 2.0.0.0
 
-@test 'single bit to one decimal' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test 'single bit one to decimal' {
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1" 10
     assert_success
     assert_output "1"
@@ -52,7 +53,7 @@ load bats-extra
     assert_output "1 1 2 0"
 }
 
-@test '15 bit integer' {
+@test '15-bit integer' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 97 "3 46 60" 73
     assert_success
@@ -73,7 +74,7 @@ load bats-extra
     assert_output "0"
 }
 
-@test 'multiple zeroes' {
+@test 'multiple zeros' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "0 0 0" 2
     assert_success
