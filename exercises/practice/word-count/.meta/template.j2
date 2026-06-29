@@ -1,0 +1,24 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+  {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} "{{ case["input"]["sentence"] }}"
+  assert_success
+{%- for word, count in case["expected"].items() %}
+  assert_line "{{ word }}: {{ count }}"
+{%- endfor %}
+  assert_equal "${{ "{" }}#lines[@]}" {{ case["expected"] | length }}
+}
+{% endfor %}
+# bash-specific test: Focus the student's attention on the effects of 
+# word splitting and filename expansion:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
+
+@test "contains shell globbing character" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} "two * words"
+  assert_success
+  assert_line "two: 1"
+  assert_line "words: 1"
+  assert_equal "${{ "{" }}#lines[@]}" 2
+}
