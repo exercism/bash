@@ -1,0 +1,23 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} << INPUT
+{{ case["input"]["rows"] | join("\n") }}
+INPUT
+{%- if case["expect_error"] %}
+    assert_failure
+    assert_output "{{ case["expect_error_msg"] }}"
+{%- else %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+{%- endif %}
+}
+{% endfor %}
+
+@test "No input" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }}
+    assert_success
+    assert_output ""
+}
