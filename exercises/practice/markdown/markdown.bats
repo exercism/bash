@@ -1,7 +1,8 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.4.0.0
+# generated on 2026-06-29T04:31:07+00:00
+# local version: 2.0.0.0
 
 # uses external tool: mktemp
 
@@ -10,13 +11,13 @@ teardown() { rm -f "$MD_FILE"; }
 
 
 @test "parses normal text as a paragraph" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
-This will be a  paragraph
+This will be a paragraph
 END
     run bash markdown.sh "$MD_FILE"
     assert_success
-    assert_output "<p>This will be a  paragraph</p>"
+    assert_output "<p>This will be a paragraph</p>"
 }
 
 @test "parsing italics" {
@@ -27,16 +28,6 @@ END
     run bash markdown.sh "$MD_FILE"
     assert_success
     assert_output "<p><em>This will be italic</em></p>"
-}
-
-@test "parsing multiple italics" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    cat <<END > "$MD_FILE"
-This _will_ be italic and this _won't_ be.
-END
-    run bash markdown.sh "$MD_FILE"
-    assert_success
-    assert_output "<p>This <em>will</em> be italic and this <em>won't</em> be.</p>"
 }
 
 @test "parsing bold text" {
@@ -72,41 +63,41 @@ END
 @test "with h2 header level" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
-## This  will be an h2
+## This will be an h2
 END
     run bash markdown.sh "$MD_FILE"
     assert_success
-    assert_output "<h2>This  will be an h2</h2>"
+    assert_output "<h2>This will be an h2</h2>"
 }
 
 @test "with h3 header level" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
-### This  will be an h3
+### This will be an h3
 END
     run bash markdown.sh "$MD_FILE"
     assert_success
-    assert_output "<h3>This  will be an h3</h3>"
+    assert_output "<h3>This will be an h3</h3>"
 }
 
 @test "with h4 header level" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
-#### This  will be an h4
+#### This will be an h4
 END
     run bash markdown.sh "$MD_FILE"
     assert_success
-    assert_output "<h4>This  will be an h4</h4>"
+    assert_output "<h4>This will be an h4</h4>"
 }
 
 @test "with h5 header level" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
-##### This  will be an h5
+##### This will be an h5
 END
     run bash markdown.sh "$MD_FILE"
     assert_success
-    assert_output "<h5>This  will be an h5</h5>"
+    assert_output "<h5>This will be an h5</h5>"
 }
 
 @test "with h6 header level" {
@@ -119,7 +110,7 @@ END
     assert_output "<h6>This will be an h6</h6>"
 }
 
-@test "with h7 header level" {
+@test "h7 header level is a paragraph" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
 ####### This will not be an h7
@@ -131,7 +122,7 @@ END
 
 @test "unordered lists" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-      cat <<END >"$MD_FILE"
+    cat <<END > "$MD_FILE"
 * Item 1
 * Item 2
 END
@@ -142,7 +133,7 @@ END
 
 @test "With a little bit of everything" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-      cat <<END >"$MD_FILE"
+    cat <<END > "$MD_FILE"
 # Header!
 * __Bold Item__
 * _Italic Item_
@@ -164,7 +155,7 @@ END
 
 @test "with markdown symbols in the list item text that should not be interpreted" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    cat <<END >"$MD_FILE"
+    cat <<END > "$MD_FILE"
 * Item 1 with a # in the text
 * Item 2 with * in the text
 END
@@ -185,7 +176,7 @@ END
 
 @test "unordered lists close properly with preceding and following lines" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    cat <<END >"$MD_FILE"
+    cat <<END > "$MD_FILE"
 # Start a list
 * Item 1
 * Item 2

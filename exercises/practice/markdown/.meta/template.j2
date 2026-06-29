@@ -1,0 +1,18 @@
+{{ header }}
+
+# uses external tool: mktemp
+
+setup()    { export MD_FILE; MD_FILE=$( mktemp ); }
+teardown() { rm -f "$MD_FILE"; }
+
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    cat <<END > "$MD_FILE"
+{{ case["input"]["markdown"] }}
+END
+    run bash {{ solution }} "$MD_FILE"
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
