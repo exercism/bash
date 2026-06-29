@@ -1,14 +1,14 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-29T06:43:40+00:00
+# local version: 2.0.0.0
 
 # Lists are ordered and sequential: do not sort or reorder them.
 # Lists are given in JSON format.
 
-
 @test "empty lists" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[]" "[]"
     assert_success
     assert_output "equal"
