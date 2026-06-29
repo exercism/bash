@@ -1,8 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-29T05:55:31+00:00
+# local version: 2.0.0.0
+
 @test "NOW translates to two hours later" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash swift_scheduling.sh "NOW" "2012-02-13T09:00:00"
   assert_success
   assert_output "2012-02-13T11:00:00"
