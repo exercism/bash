@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
-
-# "Perfect numbers"
+# generated on 2026-06-29T05:05:58+00:00
+# local version: 2.0.0.0
 
 @test "Smallest perfect number is classified correctly" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash perfect_numbers.sh 6
     assert_success
     assert_output "perfect"
@@ -25,8 +24,6 @@ load bats-extra
     assert_success
     assert_output "perfect"
 }
-
-# "Abundant numbers"
 
 @test "Smallest abundant number is classified correctly" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -55,8 +52,6 @@ load bats-extra
     assert_success
     assert_output "abundant"
 }
-
-# "Deficient numbers"
 
 @test "Smallest prime deficient number is classified correctly" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -93,18 +88,16 @@ load bats-extra
     assert_output "deficient"
 }
 
-# "Invalid inputs"
-
-@test "Zero is rejected (not a natural number)" {
+@test "Zero is rejected (as it is not a positive integer)" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash perfect_numbers.sh 0
     assert_failure
-    assert_output "Classification is only possible for natural numbers."
+    assert_output "Classification is only possible for positive integers."
 }
 
-@test "Negative integer is rejected (not a natural number)" {
+@test "Negative integer is rejected (as it is not a positive integer)" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash perfect_numbers.sh -1
     assert_failure
-    assert_output "Classification is only possible for natural numbers."
+    assert_output "Classification is only possible for positive integers."
 }

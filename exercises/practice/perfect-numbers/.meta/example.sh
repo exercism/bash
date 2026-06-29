@@ -29,7 +29,7 @@ aliquot_sum() {
 declare -i num=$1
 
 if ((num <= 0)); then
-    echo "Classification is only possible for natural numbers." >&2
+    echo "Classification is only possible for positive integers." >&2
     exit 1
 fi
 
