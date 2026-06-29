@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-28T23:23:05+00:00
+# local version: 2.0.0.0
 
 @test "age on Earth" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash space_age.sh "Earth" 1000000000
     assert_success
     assert_output 31.69
@@ -59,7 +60,7 @@ load bats-extra
     assert_output 0.35
 }
 
-@test "not a planet" {
+@test "invalid planet causes error" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash space_age.sh "Sun" 680804807
     assert_failure
