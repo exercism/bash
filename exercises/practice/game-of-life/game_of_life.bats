@@ -1,16 +1,23 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-29T03:55:50+00:00
+# local version: 2.0.0.0
 join() {
     local IFS=$'\n'
     echo "$*"
 }
 
 @test "empty matrix" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash game_of_life.sh ""
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    input=(
+    )
+    expected_rows=(
+    )
+    expected_string="$(join "${expected_rows[@]}")"
+    run bash game_of_life.sh "${input[@]}"
     assert_success
-    assert_output ""
+    assert_output "$expected_string"
 }
 
 @test "live cells with zero live neighbors die" {
