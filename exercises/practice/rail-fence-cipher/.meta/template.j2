@@ -1,0 +1,63 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] == "encode" %}
+    run bash {{ solution }} -e {{ case["input"]["rails"] }} "{{ case["input"]["msg"] }}"
+{%- else %}
+    run bash {{ solution }} -d {{ case["input"]["rails"] }} "{{ case["input"]["msg"] }}"
+{%- endif %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
+# Track specific tests
+
+@test "encode with more rails than text" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rail_fence_cipher.sh -e 10 "hello"
+    assert_success
+    assert_output "hello"
+}
+
+@test "decode with more rails than text" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rail_fence_cipher.sh -d 10 "hello"
+    assert_success
+    assert_output "hello"
+}
+
+@test "decode the encoded text yields the original" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    plaintext="the quick brown fox jumped over the lazy dogs"
+    rails=5
+    run bash rail_fence_cipher.sh -e $rails "$plaintext"
+    assert_success
+    ciphertext=$output
+    run bash rail_fence_cipher.sh -d $rails "$ciphertext"
+    assert_success
+    assert_output "$plaintext"
+}
+
+# Invocation errors
+
+@test "no options" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rail_fence_cipher.sh
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "zero rails" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rail_fence_cipher.sh -e 0 abc
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "negative rails" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rail_fence_cipher.sh -d -2 abc
+    assert_failure
+    assert_output    # there is _some_ output
+}

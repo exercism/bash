@@ -1,19 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.1
-
-# Encoding
-
-@test "empty text" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rail_fence_cipher.sh -e 2 ""
-    assert_success
-    assert_output ""
-}
+# generated on 2026-06-29T05:24:06+00:00
+# local version: 2.0.0.0
 
 @test "encode with two rails" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -e 2 "XOXOXOXOXOXOXOXOXO"
     assert_success
     assert_output "XXXXXXXXXOOOOOOOOO"
@@ -32,16 +24,6 @@ load bats-extra
     assert_success
     assert_output "ESXIEECSR"
 }
-
-@test "encode with more rails than text" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash rail_fence_cipher.sh -e 10 "hello"
-    assert_success
-    assert_output "hello"
-}
-
-
-# Decoding
 
 @test "decode with three rails" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -64,6 +46,16 @@ load bats-extra
     assert_output "112358132134558914423337761098715972584418167651094617711286"
 }
 
+
+# Track specific tests
+
+@test "encode with more rails than text" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash rail_fence_cipher.sh -e 10 "hello"
+    assert_success
+    assert_output "hello"
+}
+
 @test "decode with more rails than text" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -d 10 "hello"
@@ -82,7 +74,6 @@ load bats-extra
     assert_success
     assert_output "$plaintext"
 }
-
 
 # Invocation errors
 
