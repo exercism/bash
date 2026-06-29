@@ -1,12 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.3.0.0
-
-# count all nucleotides in a strand
+# generated on 2026-06-28T22:38:32+00:00
+# local version: 2.0.0.0
 
 @test "empty strand" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash nucleotide_count.sh ""
   assert_success
   assert_output $'A: 0\nC: 0\nG: 0\nT: 0'
@@ -39,4 +38,3 @@ load bats-extra
   assert_failure
   assert_output "Invalid nucleotide in strand"
 }
-
