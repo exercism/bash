@@ -1,15 +1,14 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.1.0
+# generated on 2026-06-29T04:11:38+00:00
+# local version: 2.0.0.0
 
 # Note: using ANSI-C Quoting here
 # see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
 
-# partial garden
-
 @test "garden with single student" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash kindergarten_garden.sh $'RC\nGG' "Alice"
     assert_success
     assert_output "radishes clover grass grass"
@@ -29,21 +28,19 @@ load bats-extra
     assert_output "clover grass radishes clover"
 }
 
-@test "three students, second student's garden" {
+@test "second student's garden" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash kindergarten_garden.sh $'VVCCGG\nVVCCGG' "Bob"
     assert_success
     assert_output "clover clover clover clover"
 }
-            
-@test "three students, third student's garden" {
+
+@test "third student's garden" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash kindergarten_garden.sh $'VVCCGG\nVVCCGG' "Charlie"
     assert_success
     assert_output "grass grass grass grass"
 }
-
-# full garden
 
 @test "for Alice, first student's garden" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
