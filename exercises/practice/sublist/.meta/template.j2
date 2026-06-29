@@ -1,0 +1,12 @@
+{{ header }}
+
+# Lists are ordered and sequential: do not sort or reorder them.
+# Lists are given in JSON format.
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "{{ case["input"]["listOne"] }}" "{{ case["input"]["listTwo"] }}"
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
