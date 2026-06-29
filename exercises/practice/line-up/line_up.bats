@@ -1,8 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-29T04:13:03+00:00
+# local version: 2.0.0.0
+
 @test "format smallest non-exceptional ordinal numeral 4" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash line_up.sh "Gianna" 4
 
     assert_success
