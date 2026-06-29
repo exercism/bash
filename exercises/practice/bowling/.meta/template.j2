@@ -1,0 +1,21 @@
+{{ header }}
+# The canonical cases call for the implementation of
+# _methods_ `score` and `roll`. That's not feasible for a
+# shell script. We'll just pass in all the individual rolls
+# and expect the score (or error) as output.
+
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- set args = [solution] + case["input"]["previousRolls"] %}
+{%- if case["property"] == "roll" %}{%- set args = args + [case["input"]["roll"]] %}{%- endif %}
+    run bash {{ args | join(" ") }}
+{%- if case["expect_error"] %}
+    assert_failure
+    assert_output --partial "{{ case["expect_error_msg"] }}"
+{%- else %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+{%- endif %}
+}
+{% endfor %}
