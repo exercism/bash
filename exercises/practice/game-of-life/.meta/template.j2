@@ -1,0 +1,24 @@
+{{ header }}
+join() {
+    local IFS=$'\n'
+    echo "$*"
+}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    input=(
+{%- for row in case["input"]["matrix"] %}
+        "{{ row | join("") }}"
+{%- endfor %}
+    )
+    expected_rows=(
+{%- for row in case["expected"] %}
+        "{{ row | join("") }}"
+{%- endfor %}
+    )
+    expected_string="$(join "${expected_rows[@]}")"
+    run bash {{ solution }} "${input[@]}"
+    assert_success
+    assert_output "$expected_string"
+}
+{% endfor %}
