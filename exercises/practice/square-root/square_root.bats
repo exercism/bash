@@ -1,9 +1,12 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-28T23:23:47+00:00
+# local version: 2.0.0.0
+
 @test "root of 1" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash square_root.sh 1
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash square_root.sh "1"
     assert_success
     assert_output "1"
 }
