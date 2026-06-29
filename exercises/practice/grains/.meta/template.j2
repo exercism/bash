@@ -1,0 +1,19 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+  {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] == "total" %}
+  run bash {{ solution }} total
+{%- else %}
+  run bash {{ solution }} {{ case["input"]["square"] }}
+{%- endif %}
+{%- if case["expect_error"] %}
+  assert_failure
+  {#- The error message from the canonical data is not used. #}
+  assert_output "Error: invalid input"
+{%- else %}
+  assert_success
+  assert_output "{{ case["expected"] }}"
+{%- endif %}
+}
+{% endfor %}
