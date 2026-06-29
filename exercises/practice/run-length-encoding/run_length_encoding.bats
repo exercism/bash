@@ -1,19 +1,18 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-29T06:30:35+00:00
+# local version: 2.0.0.0
 
-# run-length encode a string
-
-@test "encode empty string" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test "run-length encode a string: empty string" {
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash run_length_encoding.sh encode ""
     assert_success
     assert_output "$expected"
 }
 
-@test "encode single characters only are encoded without count" {
+@test "run-length encode a string: single characters only are encoded without count" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="XYZ"
     run bash run_length_encoding.sh encode "XYZ"
@@ -21,7 +20,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "encode string with no single characters" {
+@test "run-length encode a string: string with no single characters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2A3B4C"
     run bash run_length_encoding.sh encode "AABBBCCCC"
@@ -29,7 +28,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "encode single characters mixed with repeated characters" {
+@test "run-length encode a string: single characters mixed with repeated characters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="12WB12W3B24WB"
     run bash run_length_encoding.sh encode "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
@@ -37,7 +36,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "encode multiple whitespace mixed in string" {
+@test "run-length encode a string: multiple whitespace mixed in string" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 hs2q q2w2 "
     run bash run_length_encoding.sh encode "  hsqq qww  "
@@ -45,7 +44,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "encode lowercase characters" {
+@test "run-length encode a string: lowercase characters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2a3b4c"
     run bash run_length_encoding.sh encode "aabbbcccc"
@@ -53,9 +52,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-# run-length decode a string
-
-@test "decode empty string" {
+@test "run-length decode a string: empty string" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash run_length_encoding.sh decode ""
@@ -63,7 +60,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "single characters only" {
+@test "run-length decode a string: single characters only" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="XYZ"
     run bash run_length_encoding.sh decode "XYZ"
@@ -71,7 +68,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "decode string with no single characters" {
+@test "run-length decode a string: string with no single characters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="AABBBCCCC"
     run bash run_length_encoding.sh decode "2A3B4C"
@@ -79,7 +76,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "decode single characters with repeated characters" {
+@test "run-length decode a string: single characters with repeated characters" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
     run bash run_length_encoding.sh decode "12WB12W3B24WB"
@@ -87,7 +84,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "decode multiple whitespace mixed in string" {
+@test "run-length decode a string: multiple whitespace mixed in string" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="  hsqq qww  "
     run bash run_length_encoding.sh decode "2 hs2q q2w2 "
@@ -95,7 +92,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "decode lower case string" {
+@test "run-length decode a string: lowercase string" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="aabbbcccc"
     run bash run_length_encoding.sh decode "2a3b4c"
@@ -103,9 +100,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-# encode and then decode
-
-@test "encode followed by decode gives original string" {
+@test "encode and then decode: encode followed by decode gives original string" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="zzz ZZ  zZ"
     run bash run_length_encoding.sh encode "zzz ZZ  zZ"

@@ -1,0 +1,17 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["descriptions"] | join(": ") }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="{{ case["expected"] }}"
+{%- if case["property"] == "consistency" %}
+    run bash run_length_encoding.sh encode "{{ case["input"]["string"] }}"
+    assert_success
+    encoded=$output
+    run bash run_length_encoding.sh decode "$encoded"
+{%- else %}
+    run bash {{ solution }} {{ case["property"] }} "{{ case["input"]["string"] }}"
+{%- endif %}
+    assert_success
+    assert_output "$expected"
+}
+{% endfor %}
