@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.7.0.0
+# generated on 2026-06-29T04:28:10+00:00
+# local version: 2.0.0.0
 
 @test "single digit strings can not be valid" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash luhn.sh "1"
   assert_success
   assert_output "false"
@@ -52,14 +53,14 @@ load bats-extra
   assert_output "false"
 }
 
-@test  "invalid long number with an even remainder" {
+@test "invalid long number with an even remainder" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash luhn.sh "1 2345 6789 1234 5678 9012"
   assert_success
   assert_output "false"
 }
 
-@test  "invalid long number with a remainder divisible by 5" {
+@test "invalid long number with a remainder divisible by 5" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash luhn.sh "1 2345 6789 1234 5678 9013"
   assert_success
@@ -80,9 +81,9 @@ load bats-extra
   assert_output "true"
 }
 
-@test "valid strings with a non-digit included become invalid" {
+@test "valid strings with a non-digit added at the end become invalid" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash luhn.sh "055a 444 285"
+  run bash luhn.sh "059a"
   assert_success
   assert_output "false"
 }
@@ -96,7 +97,7 @@ load bats-extra
 
 @test "valid strings with symbols included become invalid" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash luhn.sh "055£ 444$ 285"
+  run bash luhn.sh "055# 444$ 285"
   assert_success
   assert_output "false"
 }
