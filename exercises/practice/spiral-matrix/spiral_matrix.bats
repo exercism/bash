@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-29T05:53:00+00:00
+# local version: 2.0.0.0
 
 @test "empty spiral" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 0
     expected=""
     assert_success
@@ -22,7 +23,8 @@ load bats-extra
 @test "spiral of size 2" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 2
-    expected=$'1 2\n4 3'
+    expected="1 2
+4 3"
     assert_success
     assert_output "$expected"
 }
@@ -30,7 +32,9 @@ load bats-extra
 @test "spiral of size 3" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash spiral_matrix.sh 3
-    expected=$'1 2 3\n8 9 4\n7 6 5'
+    expected="1 2 3
+8 9 4
+7 6 5"
     assert_success
     assert_output "$expected"
 }
