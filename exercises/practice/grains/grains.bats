@@ -1,72 +1,73 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-29T03:58:17+00:00
+# local version: 2.0.0.0
 
-@test "1" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test "grains on square 1" {
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 1
   assert_success
   assert_output "1"
 }
 
-@test "2" {
+@test "grains on square 2" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 2
   assert_success
   assert_output "2"
 }
 
-@test "3" {
+@test "grains on square 3" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 3
   assert_success
   assert_output "4"
 }
 
-@test "4" {
+@test "grains on square 4" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 4
   assert_success
   assert_output "8"
 }
 
-@test "16" {
+@test "grains on square 16" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 16
   assert_success
   assert_output "32768"
 }
 
-@test "32" {
+@test "grains on square 32" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 32
   assert_success
   assert_output "2147483648"
 }
 
-@test "64" {
+@test "grains on square 64" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 64
   assert_success
   assert_output "9223372036854775808"
 }
 
-@test "square 0 raises an exception" {
+@test "square 0 is invalid" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 0
   assert_failure
   assert_output "Error: invalid input"
 }
 
-@test "negative square raises an exception" {
+@test "negative square is invalid" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh -1
   assert_failure
   assert_output "Error: invalid input"
 }
 
-@test "square greater than 64 raises an exception" {
+@test "square greater than 64 is invalid" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash grains.sh 65
   assert_failure
