@@ -1,15 +1,19 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
-
-# Note: using ANSI-C Quoting here
-# see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
+# generated on 2026-06-29T00:16:15+00:00
+# local version: 2.0.0.0
 
 @test "empty string" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=""
-    expected=""
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    input=$(cat <<END
+
+END
+)
+    expected=$(cat <<END
+
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -17,8 +21,15 @@ load bats-extra
 
 @test "two characters in a row" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input="A1"
-    expected=$'A\n1'
+    input=$(cat <<END
+A1
+END
+)
+    expected=$(cat <<END
+A
+1
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -26,8 +37,15 @@ load bats-extra
 
 @test "two characters in a column" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$'A\n1'
-    expected="A1"
+    input=$(cat <<END
+A
+1
+END
+)
+    expected=$(cat <<END
+A1
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -35,8 +53,17 @@ load bats-extra
 
 @test "simple" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$'ABC\n123'
-    expected=$'A1\nB2\nC3'
+    input=$(cat <<END
+ABC
+123
+END
+)
+    expected=$(cat <<END
+A1
+B2
+C3
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -44,8 +71,25 @@ load bats-extra
 
 @test "single line" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input="Single line."
-    expected=$'S\ni\nn\ng\nl\ne\n \nl\ni\nn\ne\n.'
+    input=$(cat <<END
+Single line.
+END
+)
+    expected=$(cat <<END
+S
+i
+n
+g
+l
+e
+ 
+l
+i
+n
+e
+.
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -53,12 +97,12 @@ load bats-extra
 
 @test "first line longer than second line" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$( cat <<END
+    input=$(cat <<END
 The fourth line.
 The fifth line.
 END
 )
-    expected=$( cat <<END
+    expected=$(cat <<END
 TT
 hh
 ee
@@ -84,12 +128,12 @@ END
 
 @test "second line longer than first line" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$( cat <<END
+    input=$(cat <<END
 The first line.
 The second line.
 END
 )
-    expected=$( cat <<END
+    expected=$(cat <<END
 TT
 hh
 ee
@@ -115,14 +159,14 @@ END
 
 @test "mixed line length" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$( cat << END
+    input=$(cat <<END
 The longest line.
 A long line.
 A longer line.
 A line.
 END
 )
-    expected=$( cat <<END
+    expected=$(cat <<END
 TAAA
 h   
 elll
@@ -149,8 +193,22 @@ END
 
 @test "square" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
-    expected=$'HEART\nEMBER\nABUSE\nRESIN\nTREND'
+    input=$(cat <<END
+HEART
+EMBER
+ABUSE
+RESIN
+TREND
+END
+)
+    expected=$(cat <<END
+HEART
+EMBER
+ABUSE
+RESIN
+TREND
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -158,8 +216,24 @@ END
 
 @test "rectangle" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$'FRACTURE\nOUTLINED\nBLOOMING\nSEPTETTE'
-    expected=$'FOBS\nRULE\nATOP\nCLOT\nTIME\nUNIT\nRENT\nEDGE'
+    input=$(cat <<END
+FRACTURE
+OUTLINED
+BLOOMING
+SEPTETTE
+END
+)
+    expected=$(cat <<END
+FOBS
+RULE
+ATOP
+CLOT
+TIME
+UNIT
+RENT
+EDGE
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -167,8 +241,24 @@ END
 
 @test "triangle" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=$'T\nEE\nAAA\nSSSS\nEEEEE\nRRRRRR'
-    expected=$'TEASER\n EASER\n  ASER\n   SER\n    ER\n     R'
+    input=$(cat <<END
+T
+EE
+AAA
+SSSS
+EEEEE
+RRRRRR
+END
+)
+    expected=$(cat <<END
+TEASER
+ EASER
+  ASER
+   SER
+    ER
+     R
+END
+)
     run bash transpose.sh <<< "$input"
     assert_success
     assert_output "$expected"
@@ -198,4 +288,3 @@ END
     assert_success
     assert_output "$expected"
 }
-
