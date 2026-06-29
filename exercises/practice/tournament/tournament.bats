@@ -1,23 +1,23 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.4.0.0
-
+# generated on 2026-06-29T00:13:19+00:00
+# local version: 2.0.0.0
 # Your bash program should be able to accept input
 # 1. via standard input, OR
 # 2. as a filename given on the cmd line.
 
 # uses external tool: mktemp
 
-setup() { 
+setup() {
     export INPUT_FILE HAS_TTY
-    INPUT_FILE=$( mktemp ) 
+    INPUT_FILE=$( mktemp )
     [[ -t 0 ]] && HAS_TTY=1 || HAS_TTY=0
 }
 teardown() { rm -f "$INPUT_FILE"; }
 
 @test "just the header if no input" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 INPUT
@@ -35,10 +35,30 @@ EXPECTED
 
 @test "a win is three points, a loss is zero points" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    input=$( cat <<INPUT
+Allegoric Alaskans;Blithering Badgers;win
+INPUT
+)
+
+    expected=$( cat <<EXPECTED
+Team                           | MP |  W |  D |  L |  P
+Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3
+Blithering Badgers             |  1 |  0 |  0 |  1 |  0
+EXPECTED
+)
+
+    run bash tournament.sh  <<< "$input"
+    assert_success
+    assert_output "$expected"
+}
+
+@test "With a file: a win is three points, a loss is zero points" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
 
-    cat <<INPUT >"$INPUT_FILE"
+    cat << INPUT > "$INPUT_FILE"
 Allegoric Alaskans;Blithering Badgers;win
 INPUT
 
@@ -208,10 +228,35 @@ EXPECTED
 
 @test "incomplete competition (not all pairs have played)" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    input=$( cat <<INPUT
+Allegoric Alaskans;Blithering Badgers;loss
+Devastating Donkeys;Allegoric Alaskans;loss
+Courageous Californians;Blithering Badgers;draw
+Allegoric Alaskans;Courageous Californians;win
+INPUT
+)
+
+    expected=$( cat <<EXPECTED
+Team                           | MP |  W |  D |  L |  P
+Allegoric Alaskans             |  3 |  2 |  0 |  1 |  6
+Blithering Badgers             |  2 |  1 |  1 |  0 |  4
+Courageous Californians        |  2 |  0 |  1 |  1 |  1
+Devastating Donkeys            |  1 |  0 |  0 |  1 |  0
+EXPECTED
+)
+
+    run bash tournament.sh  <<< "$input"
+    assert_success
+    assert_output "$expected"
+}
+
+@test "With a file: incomplete competition (not all pairs have played)" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
 
-    cat <<INPUT > "$INPUT_FILE"
+    cat << INPUT > "$INPUT_FILE"
 Allegoric Alaskans;Blithering Badgers;loss
 Devastating Donkeys;Allegoric Alaskans;loss
 Courageous Californians;Blithering Badgers;draw
@@ -260,7 +305,6 @@ EXPECTED
 }
 
 @test "ensure points sorted numerically" {
-
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -271,6 +315,7 @@ Devastating Donkeys;Blithering Badgers;win
 Blithering Badgers;Devastating Donkeys;win
 INPUT
 )
+
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 Devastating Donkeys            |  5 |  4 |  0 |  1 | 12
