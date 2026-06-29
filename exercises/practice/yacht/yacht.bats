@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-29T00:21:20+00:00
+# local version: 2.0.0.0
 
 @test "Yacht" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "yacht" 5 5 5 5 5
     assert_success
     assert_output "50"
