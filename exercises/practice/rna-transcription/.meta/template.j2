@@ -1,0 +1,29 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+  {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} "{{ case["input"]["dna"] }}"
+  assert_success
+  assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
+@test "Handles invalid character" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} ACGTXCTTA
+  assert_failure
+  assert_output "Invalid nucleotide detected."
+}
+
+@test "Handles completely invalid string" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} XXXX
+  assert_failure
+  assert_output "Invalid nucleotide detected."
+}
+
+@test "Handles partially invalid string" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} ACGTXCTTAA
+  assert_failure
+  assert_output "Invalid nucleotide detected."
+}
