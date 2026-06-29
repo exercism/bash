@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-29T05:47:02+00:00
+# local version: 2.0.0.0
 
 @test "rotate a by 0, same output as input" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="a"
     run bash rotational_cipher.sh "a" 0
     assert_success
