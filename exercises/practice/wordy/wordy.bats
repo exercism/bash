@@ -1,8 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-29T06:08:31+00:00
+# local version: 2.0.0.0
+
 @test "just a number" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 5?"
     assert_success
     assert_output "5"
@@ -134,14 +137,6 @@ load bats-extra
     assert_output "2"
 }
 
-@test "strict left to right, ignores typical order of operations" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash wordy.sh "What is 2 plus 3 multiplied by 4?"
-    assert_success
-    [[ $output != "14" ]]
-    assert_output "20"
-}
-
 @test "unknown operation" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 52 cubed?"
@@ -154,13 +149,6 @@ load bats-extra
     run bash wordy.sh "Who is the President of the United States?"
     assert_failure
     assert_output "unknown operation"
-}
-
-@test "reject problem with no operands" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash wordy.sh "What is plus?"
-    assert_failure
-    assert_output "syntax error"
 }
 
 @test "reject problem missing an operand" {
@@ -201,6 +189,24 @@ load bats-extra
 @test "reject prefix notation" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is plus 1 2?"
+    assert_failure
+    assert_output "syntax error"
+}
+
+
+# Track specific tests
+
+@test "strict left to right, ignores typical order of operations" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash wordy.sh "What is 2 plus 3 multiplied by 4?"
+    assert_success
+    [[ $output != "14" ]]
+    assert_output "20"
+}
+
+@test "reject problem with no operands" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash wordy.sh "What is plus?"
     assert_failure
     assert_output "syntax error"
 }
