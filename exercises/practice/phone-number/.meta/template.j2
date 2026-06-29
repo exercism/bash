@@ -1,0 +1,15 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+  {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash {{ solution }} "{{ case["input"]["phrase"] }}"
+{%- if case["expect_error"] %}
+  assert_failure
+  {#- The error message from the canonical data is not used. #}
+  assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
+{%- else %}
+  assert_success
+  assert_output "{{ case["expected"] }}"
+{%- endif %}
+}
+{% endfor %}
