@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.7.0.0
+# generated on 2026-06-29T04:08:33+00:00
+# local version: 2.0.0.0
 
-@test 'valid isbn number' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test 'valid isbn' {
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isbn_verifier.sh '3-598-21508-8'
   assert_success
   assert_output "true"
@@ -17,7 +18,7 @@ load bats-extra
   assert_output "false"
 }
 
-@test 'valid isbn number with a check digit of 10' {
+@test 'valid isbn with a check digit of 10' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isbn_verifier.sh '3-598-21507-X'
   assert_success
@@ -38,7 +39,7 @@ load bats-extra
   assert_output "false"
 }
 
-@test 'invalid character in isbn' {
+@test 'invalid character in isbn is not treated as zero' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isbn_verifier.sh '3-598-P1581-X'
   assert_success
@@ -129,7 +130,7 @@ load bats-extra
   assert_output "false"
 }
 
-@test 'invalid characters are not ignored' {
+@test 'invalid characters are not ignored after checking length' {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash isbn_verifier.sh '3132P34035'
   assert_success
