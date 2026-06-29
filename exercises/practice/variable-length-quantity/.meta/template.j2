@@ -1,0 +1,35 @@
+{{ header }}
+
+#
+# *** Input and Output numbers are expressed in hexadecimal.
+#
+
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {%- set hex_input = [] %}
+    {%- for num in case["input"]["integers"] %}
+        {%- set _ = hex_input.append('%02X' % num) %}
+    {%- endfor %}
+    run bash {{ solution }} {{ case["property"] }} {{ hex_input | join(" ") }}
+{%- if case["expect_error"] %}
+    assert_failure
+    {#- The error message from the canonical data is not used. #}
+    assert_output --partial "incomplete byte sequence"
+{%- else %}
+    {%- set hex_output = [] %}
+    {%- for num in case["expected"] %}
+        {%- set _ = hex_output.append('%02X' % num) %}
+    {%- endfor %}
+    assert_success
+    assert_output "{{ hex_output | join(" ") }}"
+{%- endif %}
+}
+{% endfor %}
+
+@test "invalid subcommand" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh hello 80
+    assert_failure
+    assert_output --partial "unknown subcommand"
+}
