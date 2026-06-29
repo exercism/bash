@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-28T22:45:33+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 @test "no factors" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

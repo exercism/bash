@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T01:44:18+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 @test 'single bit one to decimal' {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

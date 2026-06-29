@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T01:39:31+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 @test "paired square brackets" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T01:58:15+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 # The canonical cases call for the implementation of
 # _methods_ `score` and `roll`. That's not feasible for a
 # shell script. We'll just pass in all the individual rolls

@@ -97,8 +97,8 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         load bats-extra
 
         # generated on {timestamp}
-        # local version: 2.0.0.0"""
-    )
+        """
+    ).strip()
     data = {
         "cases": list(enumerate(cases)),
         "header": header,

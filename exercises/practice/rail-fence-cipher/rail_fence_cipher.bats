@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T05:24:06+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-29T16:53:24+00:00
 
 @test "encode with two rails" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -45,7 +44,6 @@ load bats-extra
     assert_success
     assert_output "112358132134558914423337761098715972584418167651094617711286"
 }
-
 
 # Track specific tests
 
