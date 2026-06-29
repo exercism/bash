@@ -1,0 +1,34 @@
+{{ header }}
+{% for idx, case in cases %}
+@test '{{ case["description"] }}' {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="\
+{{ case["expected"] | join("\n") }}"
+    run bash {{ solution }} {{ case["input"]["startBottles"] }} {{ case["input"]["takeDown"] }}
+    assert_success
+    assert_output "$expected"
+}
+{% endfor %}
+
+# bash-specific tests: Input validation
+@test 'no_arguments' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }}
+    assert_failure
+    assert_output --partial "2 arguments expected"
+}
+
+@test 'too_many_arguments' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 1 2 3
+    assert_failure
+    assert_output --partial "2 arguments expected"
+}
+
+@test 'too_many_verses' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 1 2
+    assert_failure
+    assert_output --partial "cannot generate more verses than bottles"
+}
+

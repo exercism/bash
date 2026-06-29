@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.1.0.1
+# generated on 2026-06-29T01:51:16+00:00
+# local version: 2.0.0.0
 
-@test 'first_generic_verse' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test 'first generic verse' {
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 Ten green bottles hanging on the wall,
 Ten green bottles hanging on the wall,
@@ -15,7 +16,7 @@ There'll be nine green bottles hanging on the wall."
     assert_output "$expected"
 }
 
-@test 'last_generic_verse' {
+@test 'last generic verse' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 Three green bottles hanging on the wall,
@@ -27,7 +28,7 @@ There'll be two green bottles hanging on the wall."
     assert_output "$expected"
 }
 
-@test 'verse_with_2_bottles' {
+@test 'verse with 2 bottles' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 Two green bottles hanging on the wall,
@@ -39,7 +40,7 @@ There'll be one green bottle hanging on the wall."
     assert_output "$expected"
 }
 
-@test 'verse_with_1_bottle' {
+@test 'verse with 1 bottle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 One green bottle hanging on the wall,
@@ -51,7 +52,7 @@ There'll be no green bottles hanging on the wall."
     assert_output "$expected"
 }
 
-@test 'first_two_verses' {
+@test 'first two verses' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 Ten green bottles hanging on the wall,
@@ -68,7 +69,7 @@ There'll be eight green bottles hanging on the wall."
     assert_output "$expected"
 }
 
-@test 'last_three_verses' {
+@test 'last three verses' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 Three green bottles hanging on the wall,
@@ -90,7 +91,7 @@ There'll be no green bottles hanging on the wall."
     assert_output "$expected"
 }
 
-@test 'all_verses' {
+@test 'all verses' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
 Ten green bottles hanging on the wall,
@@ -147,8 +148,8 @@ There'll be no green bottles hanging on the wall."
     assert_output "$expected"
 }
 
-# bash-specific tests: Input validation
 
+# bash-specific tests: Input validation
 @test 'no_arguments' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash bottle_song.sh
@@ -169,4 +170,3 @@ There'll be no green bottles hanging on the wall."
     assert_failure
     assert_output --partial "cannot generate more verses than bottles"
 }
-
