@@ -1,10 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.1.0.0
+# generated on 2026-06-29T05:51:21+00:00
+# local version: 2.0.0.0
 
 @test "no primes under two" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash sieve.sh 1
     assert_success
