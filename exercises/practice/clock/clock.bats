@@ -1,8 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 2.4.0.1
-#
+# generated on 2026-06-29T02:08:46+00:00
+# local version: 2.0.0.0
+
 # * The canonical "Compare two clocks for equality" tests
 #   have not been included: for bash they will simply be 
 #   string equality tests, so no added value.
@@ -20,10 +21,8 @@ load bats-extra
 # The clock script will output the clock value in %H:%M format
 
 
-# Create a new clock with an initial time
-
 @test "on the hour" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash clock.sh 8 0
     assert_success
     assert_output "08:00"
@@ -162,9 +161,6 @@ load bats-extra
     assert_output "22:10"
 }
 
-
-# Add minutes
-
 @test "add minutes" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash clock.sh 10 0 + 3
@@ -220,9 +216,6 @@ load bats-extra
     assert_success
     assert_output "11:21"
 }
-
-
-# Subtract minutes
 
 @test "subtract minutes" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip

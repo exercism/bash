@@ -1,0 +1,77 @@
+{{ header }}
+
+# * The canonical "Compare two clocks for equality" tests
+#   have not been included: for bash they will simply be 
+#   string equality tests, so no added value.
+#
+# * Some extra tests have been added to detect invalid arguments.
+
+
+# usage: clock.sh h m [{+|-} delta]
+# where:
+#       h = an hour value
+#       m = a minute value
+# optional:
+#       a time delta (in minutes) to apply to the initial clock value
+#
+# The clock script will output the clock value in %H:%M format
+
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] == "create" %}
+    run bash {{ solution }} {{ case["input"]["hour"] }} {{ case["input"]["minute"] }}
+{%- elif case["property"] == "add" %}
+    run bash {{ solution }} {{ case["input"]["hour"] }} {{ case["input"]["minute"] }} + {{ case["input"]["value"] }}
+{%- elif case["property"] == "subtract" %}
+    run bash {{ solution }} {{ case["input"]["hour"] }} {{ case["input"]["minute"] }} - {{ case["input"]["value"] }}
+{%- endif %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+}
+{% endfor %}
+
+# Error conditions: We expect non-zero exit status, and
+# some error message to be output (your choice for wording).
+
+@test "no args" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh
+    assert_failure
+    assert_output --partial "invalid arguments"
+}
+
+@test "too many args" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 1 2 3 4 5
+    assert_failure
+    assert_output --partial "invalid arguments"
+}
+
+@test "three args" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 1 2 +
+    assert_failure
+    assert_output --partial "invalid arguments"
+}
+
+@test "invalid delta" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 1 2 / 3
+    assert_failure
+    assert_output --partial "invalid arguments"
+}
+
+@test "non-numeric args are errors" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh foo bar
+    assert_failure
+    assert_output    # there is _some_ output
+}
+
+@test "non-numeric delta errors" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 1 2 - 3delta
+    assert_failure
+    assert_output    # there is _some_ output
+}
