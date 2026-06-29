@@ -1,30 +1,31 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.0.0
+# generated on 2026-06-29T05:47:57+00:00
+# local version: 2.0.0.0
 
-@test zero {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test "zero" {
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 0
     assert_success
     assert_output "zero"
 }
 
-@test one {
+@test "one" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 1
     assert_success
     assert_output "one"
 }
 
-@test fourteen {
+@test "fourteen" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 14
     assert_success
     assert_output "fourteen"
 }
 
-@test twenty {
+@test "twenty" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 20
     assert_success
@@ -38,12 +39,13 @@ load bats-extra
     assert_output "twenty-two"
 }
 
-@test thirty {
+@test "thirty" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 30
     assert_success
     assert_output "thirty"
 }
+
 @test "ninety-nine" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash say.sh 99
@@ -116,7 +118,7 @@ load bats-extra
 
 @test "a big number" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash say.sh  987654321123
+    run bash say.sh 987654321123
     assert_success
     assert_output "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three"
 }
