@@ -1,0 +1,19 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["descriptions"] | join(" -> ") }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] == "colorCode" %}
+    run bash {{ solution }} code {{ case["input"]["color"] }}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+{%- endif %}
+{%- if case["property"] == "colors" %}
+    run bash {{ solution }} {{ case["property"] }}
+    assert_success
+    assert_equal "${{ "{" }}#lines[@]}" {{ case["expected"] | length }}
+{%- for color in case["expected"] %}
+    assert_line --index {{ loop.index0 }} "{{ color }}"
+{%- endfor %}
+{%- endif %}
+}
+{% endfor %}

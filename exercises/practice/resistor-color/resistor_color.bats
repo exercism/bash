@@ -1,9 +1,11 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-28T23:02:12+00:00
+# local version: 2.0.0.0
 
 @test "Color codes -> Black" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color.sh code black
     assert_success
     assert_output "0"
