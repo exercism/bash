@@ -1,0 +1,21 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["input"]["n"] > 10000 %}
+
+    # This test is very time-consuming for a brute force solution.
+    # Remove the skip and run only for extra credit (or punishment).
+    [[ $RUN_HARD_TEST == "true" ]] || skip
+
+{%- endif %}
+    run bash {{ solution }} {{ case["input"]["n"] }}
+    assert_success
+    actual=$( sort -t, -n -k1,1 <<< "$output" )
+    expected=$(cat <<'END_EXPECTED'
+{{ case["expected"] | map("join", ",") | join("\n") }}
+END_EXPECTED
+)
+    assert_equal "$actual" "$expected"
+}
+{% endfor %}

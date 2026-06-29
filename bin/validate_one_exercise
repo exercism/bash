@@ -28,13 +28,12 @@ solution=$(jq -r '.files.example[0]' "$config")
 # Ensure each exercise has the expected number of commented-out skip lines
 case ${exercise} in
     hello-world)         expected=0 ;;
-    pythagorean-triplet) expected=2 ;;
     *)                   expected=1 ;;
 esac
 # a PCRE: the `\Q...\E` defines a literal segment
 skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
 num_skip_comments=$(grep -cP "${skip_re}" "${tests}") || true
-(( num_skip_comments == expected )) || die "There should be exactly $expected commented skip directive in ${tests}"
+(( num_skip_comments == expected )) || die "There should be exactly $expected commented skip directive(s) in ${tests}"
 
 echo "Processing $exercise"
 
