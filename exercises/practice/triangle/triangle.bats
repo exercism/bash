@@ -1,161 +1,150 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# local version: 1.2.1.0
+# generated on 2026-06-29T06:19:33+00:00
+# local version: 2.0.0.0
 
-# Test returns true if the triangle is equilateral
-
-@test "all sides are equal, equilateral" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test "equilateral triangle: all sides are equal" {
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh equilateral 2 2 2
   assert_success
   assert_output "true"
 }
 
-@test "any side is unequal" {
+@test "equilateral triangle: any side is unequal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh equilateral 2 3 2
   assert_success
   assert_output "false"
 }
 
-@test "no sides are equal, equilateral" {
+@test "equilateral triangle: no sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh equilateral 5 4 6
   assert_success
   assert_output "false"
 }
 
-@test "all zero sides is not a triangle" {
+@test "equilateral triangle: all zero sides is not a triangle" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh equilateral 0 0 0
   assert_success
   assert_output "false"
 }
 
-# Bonus: deal with floats
-
-@test "sides may be floats, equilateral" {
+@test "equilateral triangle: sides may be floats" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh equilateral 0.5 0.5 0.5
   assert_success
   assert_output "true"
 }
 
-# Test returns true if the triangle is isosceles
-
-@test "last two sides are equal" {
+@test "isosceles triangle: last two sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 3 4 4
   assert_success
   assert_output "true"
 }
 
-@test "first two sides are equal" {
+@test "isosceles triangle: first two sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 4 4 3
   assert_success
   assert_output "true"
 }
 
-@test "first and last sides are equal" {
+@test "isosceles triangle: first and last sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 4 3 4
   assert_success
   assert_output "true"
 }
 
-@test "equilateral triangles are also isosceles" {
+@test "isosceles triangle: equilateral triangles are also isosceles" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 4 4 4
   assert_success
   assert_output "true"
 }
 
-@test "no sides are equal, isosceles" {
+@test "isosceles triangle: no sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 2 3 4
   assert_success
   assert_output "false"
 }
 
-@test "first triangle inequality violation" {
+@test "isosceles triangle: first triangle inequality violation" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 1 1 3
   assert_success
   assert_output "false"
 }
 
-@test "second triangle inequality violation" {
+@test "isosceles triangle: second triangle inequality violation" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 1 3 1
   assert_success
   assert_output "false"
 }
 
-@test "third triangle inequality violation" {
+@test "isosceles triangle: third triangle inequality violation" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 3 1 1
   assert_success
   assert_output "false"
 }
 
-# Bonus: deal with floats
-
-@test "sides may be floats, isosceles" {
+@test "isosceles triangle: sides may be floats" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh isosceles 0.5 0.4 0.5
   assert_success
   assert_output "true"
 }
 
-# Test returns true if the triangle is scalene
-
-@test "no sides are equal, scalene" {
+@test "scalene triangle: no sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 5 4 6
   assert_success
   assert_output "true"
 }
 
-@test "all sides are equal, scalene" {
+@test "scalene triangle: all sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 4 4 4
   assert_success
   assert_output "false"
 }
 
-@test "first and second sides are equal" {
+@test "scalene triangle: first and second sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 4 4 3
   assert_success
   assert_output "false"
 }
 
-@test "first and third sides are equal" {
+@test "scalene triangle: first and third sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 3 4 3
   assert_success
   assert_output "false"
 }
 
-@test "second and third sides are equal" {
+@test "scalene triangle: second and third sides are equal" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 4 3 3
   assert_success
   assert_output "false"
 }
 
-@test "may not violate triangle inequality" {
+@test "scalene triangle: may not violate triangle inequality" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 7 3 2
   assert_success
   assert_output "false"
 }
 
-# Bonus: deal with floats
-
-@test "sides may be floats, scalene" {
+@test "scalene triangle: sides may be floats" {
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash triangle.sh scalene 0.5 0.4 0.6
   assert_success
