@@ -1,0 +1,32 @@
+{{ header }}
+{% for idx, case in cases %}
+@test "{{ case["description"] }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "{{ case["input"]["question"] }}"
+{%- if case["expect_error"] %}
+    assert_failure
+    assert_output "{{ case["expect_error_msg"] }}"
+{%- else %}
+    assert_success
+    assert_output "{{ case["expected"] }}"
+{%- endif %}
+}
+{% endfor %}
+
+# Track specific tests
+
+@test "strict left to right, ignores typical order of operations" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "What is 2 plus 3 multiplied by 4?"
+    assert_success
+    [[ $output != "14" ]]
+    assert_output "20"
+}
+
+@test "reject problem with no operands" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "What is plus?"
+    assert_failure
+    assert_output "syntax error"
+}
+
