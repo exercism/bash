@@ -1,15 +1,15 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# generated on 2026-06-29T19:27:37+00:00
+
 #
 # *** Input and Output numbers are expressed in hexadecimal.
 #
 
 
-# Encode a series of integers, producing a series of bytes.
-
 @test "zero" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh encode 00
     assert_success
     assert_output "00"
@@ -26,7 +26,7 @@ load bats-extra
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh encode 53
     assert_success
-    assert_output 53
+    assert_output "53"
 }
 
 @test "largest single byte" {
@@ -169,9 +169,6 @@ load bats-extra
     assert_output "C0 00 C8 E8 56 FF FF FF 7F 00 FF 7F 81 80 00"
 }
 
-
-# Decode a series of bytes, producing a series of integers.
-
 @test "one byte" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh decode 7F
@@ -207,16 +204,6 @@ load bats-extra
     assert_output "FFFFFFFF"
 }
 
-@test "multiple values" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash variable_length_quantity.sh decode C0 00 C8 E8 56 FF FF FF 7F 00 FF 7F 81 80 00
-    assert_success
-    assert_output "2000 123456 FFFFFFF 00 3FFF 4000"
-}
-
-
-# Some error conditions
-
 @test "incomplete sequence causes error" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh decode FF
@@ -230,6 +217,14 @@ load bats-extra
     assert_failure
     assert_output --partial "incomplete byte sequence"
 }
+
+@test "multiple values" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash variable_length_quantity.sh decode C0 00 C8 E8 56 FF FF FF 7F 00 FF 7F 81 80 00
+    assert_success
+    assert_output "2000 123456 FFFFFFF 00 3FFF 4000"
+}
+
 
 @test "invalid subcommand" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
