@@ -5,7 +5,7 @@
   run bash {{ solution }} {{ case["input"]["year"] }}
 
   assert_success
-  assert_output "{{ case["expected"] | lower }}"
+  assert_output "{{ case["expected"] }}"
 }
 {% endfor %}
 @test 'No input should return an error' {

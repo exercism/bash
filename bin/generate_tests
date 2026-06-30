@@ -77,9 +77,13 @@ def filter_tojson(data, separators=(',', ':'), indent=None) -> str:
 def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     """Return a configured Jinja env with filters added."""
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
+    # Shell quoting
     env.filters["quote"] = shlex.quote
+    # JSON formatting, default to compact form (`jq -c`).
     env.filters["tojson"] = filter_tojson
+    # String escaping, ANSI-C style.
     env.filters["repr"] = repr
+    # Return a dict with only specified keys kepts.
     env.filters["camel_to_snake"] = lambda x: re.sub(r"([a-z])([A-Z])", (lambda m: f"{m.group(1)}_{m.group(2).lower()}"), x)
     env.filters["format_list"] = lambda x: shlex.quote(
         "[" + ",".join(f'"{i}"' if isinstance(i, str) else str(i) for i in x) + "]"
@@ -87,9 +91,24 @@ def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     return env
 
 
+def bool_to_str(obj):
+    """Convert boolean values to strings."""
+    if isinstance(obj, dict):
+        return {key: bool_to_str(val) for key, val in obj.items()}
+    if isinstance(obj, list):
+        return [bool_to_str(val) for val in obj]
+    if obj is True:
+        return "true"
+    if obj is False:
+        return "false"
+    return obj
+
+
 def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     """Generate and write test file for a given spec and exercise."""
     cases = get_cases(specs, exercise)
+    for case in cases:
+        case["expected"] = bool_to_str(case["expected"])
 
     timestamp = datetime.datetime.now(tz=datetime.UTC).replace(microsecond=0).isoformat()
     header = textwrap.dedent(f"""\
@@ -106,7 +125,12 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     }
 
     # Render the template.
-    out = jinja_env(exercise).get_template("template.j2").render(data).strip()
+    try:
+        template = jinja_env(exercise).get_template("template.j2")
+        out = template.render(data)
+    except jinja2.exceptions.TemplateAssertionError as e:
+        e.add_note(f"Error rendering template for {exercise.name}")
+        raise
 
     # Check for changes or the lack thereof.
     test_file = exercise / json.loads((exercise / ".meta/config.json").read_text())["files"]["test"][0]
