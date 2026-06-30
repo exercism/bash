@@ -25,6 +25,8 @@
     run bash {{ solution }} {{ case["input"]["hour"] }} {{ case["input"]["minute"] }} + {{ case["input"]["value"] }}
 {%- elif case["property"] == "subtract" %}
     run bash {{ solution }} {{ case["input"]["hour"] }} {{ case["input"]["minute"] }} - {{ case["input"]["value"] }}
+{%- elif case["property"] == "equal" %}
+    run bash {{ solution }} {{ case["input"]["clock1"]["hour"] }} {{ case["input"]["clock1"]["minute"] }} = {{ case["input"]["clock2"]["hour"] }} {{ case["input"]["clock2"]["minute"] }}
 {%- endif %}
     assert_success
     assert_output "{{ case["expected"] }}"
