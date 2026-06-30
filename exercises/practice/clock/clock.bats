@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-06-30T03:00:58+00:00
 
 # * The canonical "Compare two clocks for equality" tests
 #   have not been included: for bash they will simply be 
@@ -270,6 +270,118 @@ load bats-extra
     run bash clock.sh 2 20 - 3000
     assert_success
     assert_output "00:20"
+}
+
+@test "clocks with same time" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 15 37 = 15 37
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks a minute apart" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 15 36 = 15 37
+    assert_success
+    assert_output "false"
+}
+
+@test "clocks an hour apart" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 14 37 = 15 37
+    assert_success
+    assert_output "false"
+}
+
+@test "clocks with hour overflow" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 10 37 = 34 37
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with hour overflow by several days" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 3 11 = 99 11
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative hour" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 22 40 = -2 40
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative hour that wraps" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 17 3 = -31 3
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative hour that wraps multiple times" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 13 49 = -83 49
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with minute overflow" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 0 1 = 0 1441
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with minute overflow by several days" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 2 2 = 2 4322
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative minute" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 2 40 = 3 -20
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative minute that wraps" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 4 10 = 5 -1490
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative minute that wraps multiple times" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 6 15 = 6 -4305
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative hours and minutes" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 7 32 = -12 -268
+    assert_success
+    assert_output "true"
+}
+
+@test "clocks with negative hours and minutes that wrap" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 18 7 = -54 -11513
+    assert_success
+    assert_output "true"
+}
+
+@test "full clock and zeroed clock" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash clock.sh 24 0 = 0 0
+    assert_success
+    assert_output "true"
 }
 
 

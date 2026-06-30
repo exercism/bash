@@ -8,9 +8,7 @@ isnumeric() {
     [[ $1 == ?([+-])+([[:digit:]]) ]]
 }
 
-main() {
-    (( $# == 2 || $# == 4 )) || die "invalid arguments"
-
+hhmm_to_minutes () {
     isnumeric "$1" || die "non-numeric argument"
     isnumeric "$2" || die "non-numeric argument"
 
@@ -21,9 +19,26 @@ main() {
     while ((h < 0)); do ((h += 24)); done
 
     local -i minutes=$(( 60 * h + m ))
+    # wrap around every 24 hours
+    minutes=$(( minutes % (24 * 60)))
+    echo "$minutes"
+}
+
+main() {
+    (( $# == 2 || $# == 4 || $# == 5 )) || die "invalid arguments"
+
+    local -i minutes minutes2
+    minutes=$( hhmm_to_minutes "$1" "$2" ) || exit
 
     case $3 in
+        =) 
+            (( $# == 5 )) || die "invalid arguments"
+            minutes2=$( hhmm_to_minutes "$4" "$5" ) || exit
+            (( minutes == minutes2 )) && echo true || echo false
+            return
+            ;;
         [+-]) 
+            (( $# == 4 )) || die "invalid arguments"
             isnumeric "$4" || die "non-numeric argument"
             minutes=$(( minutes $3 $4 ))
             ;;
