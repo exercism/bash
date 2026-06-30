@@ -101,3 +101,5 @@ description = "non-empty list"
 
 [40872990-b5b8-4cb8-9085-d91fc0d05d26]
 description = "list of lists is not flattened"
+include = false
+comment = "bash does not support nested lists"

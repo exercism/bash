@@ -1,0 +1,127 @@
+{{ header }}
+# shellcheck disable=SC2329 # "This function is never invoked."
+
+bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
+if (( bash_version < 43 )); then
+    echo "This exercise requires at least bash version 4.3" >&2
+    exit 4
+fi
+
+## append entries to a list and return the new list
+
+setup() { source list_ops.sh; }
+
+{% for idx, case in cases %}
+@test "{{ case["descriptions"] | join(": ") }}" {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+{%- if case["property"] == "append" %}
+    local list1=({{ case["input"]["list1"] | join(" ") }})
+    local list2=({{ case["input"]["list2"] | join(" ") }})
+    list::{{ case["property"] }} list1 "${list2[@]}"
+    assert_equal "${{ "{" }}#list1[@]}" {{ case["expected"] | length }}
+    assert_equal "${{ "{" }}list1[*]}" "{{ case["expected"] | join(" ") }}"
+{%- elif case["property"] == "filter" %}
+    local list=({{ case["input"]["list"] | join(" ") }})
+    local result=()
+    {%- if case["input"]["function"] == "(x) -> x modulo 2 == 1" %}
+    isOdd () { (( $1 % 2 == 1 )); }
+    list::{{ case["property"] }} isOdd list result
+    {%- else %}
+    UNKNOWN FILTER
+    {%- endif %}
+    assert_equal "${{ "{" }}#result[@]}" {{ case["expected"] | length }}
+    assert_equal "${{ "{" }}result[*]}" "{{ case["expected"] | join(" ") }}"
+{%- elif case["property"] == "length" %}
+    {#- Skipped.  bash array length syntax covers it: ${#ary[@]} #}
+{%- elif case["property"] == "map" %}
+    local list=({{ case["input"]["list"] | join(" ") }})
+    local result=()
+    {%- if case["input"]["function"] == "(x) -> x + 1" %}
+    incr () { echo $(( $1 + 1 )); }
+    list::{{ case["property"] }} incr list result
+    {%- else %}
+    UNKNOWN FILTER
+    {%- endif %}
+    assert_equal "${{ "{" }}#result[@]}" {{ case["expected"] | length }}
+    assert_equal "${{ "{" }}result[*]}" "{{ case["expected"] | join(" ") }}"
+{%- elif case["property"] in ("foldl", "foldr") %}
+    {%- if case["property"] == "foldl" %}
+        {%- set param1, param2 = "acc", "elem" %}
+    {%- else %}
+        {%- set param1, param2 = "elem", "acc" %}
+    {%- endif %}
+    local list=({{ case["input"]["list"] | join(" ") }})
+    local result=()
+    {%- if case["input"]["function"] == "(acc, el) -> el + acc" %}
+    add () {
+        local {{ param1 }}=$1 {{ param2 }}=$2
+        echo $(( {{ param1 }} + {{ param2 }} ))
+    }
+    result=$(list::{{ case["property"] }} add {{ case["input"]["initial"] }} list)
+    assert_equal "$result" "{{ case["expected"] }}"
+    {%- elif case["input"]["function"] == "(acc, el) -> el * acc" %}
+    mult () {
+        local {{ param1 }}=$1 {{ param2 }}=$2
+        echo $(( {{ param1 }} * {{ param2 }} ))
+    }
+    result=$(list::{{ case["property"] }} mult {{ case["input"]["initial"] }} list)
+    assert_equal "$result" "{{ case["expected"] }}"
+    {%- elif case["input"]["function"] == "(acc, el) -> el / acc" %}
+    # For this test, we need a div function that performs
+    # floating point arithmetic to preserve fractions.
+    div () {
+        local {{ param1 }}=$1 {{ param2 }}=$2
+        echo "$elem / $acc" | bc -l
+    }
+    answer=$(list::{{ case["property"] }} div 24 list)
+    result=$(printf '%.1f' "$answer")
+    assert_equal "$result" "{{ case["expected"] | float | round(1) }}"
+    {%- else %}
+    UNKNOWN FUNCTION {{ case["input"]["function"] }}
+    {%- endif %}
+{%- elif case["property"] == "reverse" %}
+    local list=({{ case["input"]["list"] | join(" ") }})
+    local result=()
+    list::{{ case["property"] }} list result
+    assert_equal "${{ "{" }}#result[@]}" {{ case["expected"] | length }}
+    assert_equal "${{ "{" }}result[*]}" "{{ case["expected"] | join(" ") }}"
+{%- else %}
+    UNKNOWN PROPERTY {{ case["property"] }}
+{%- endif %}
+}
+{% endfor %}
+
+# track-specific test
+
+@test "foldl not just numbers" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    local list=(H e l l o " " W o r l d "!")
+    local result
+    concat () {
+        local acc=$1 elem=$2
+        echo "${acc}${elem}"
+    }
+    result=$(list::foldl concat "" list)
+    assert_equal "$result" 'Hello World!'
+}
+
+@test "foldr not just numbers" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    local list=(H e l l o " " W o r l d "!")
+    local result
+    concat () {
+        local elem=$1 acc=$2
+        echo "${acc}${elem}"
+    }
+    result=$(list::foldr concat "" list)
+    assert_equal "$result" '!dlroW olleH'
+}
+
+@test "reverse with special characters" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    local list=("R*" "l*")
+    local result=()
+    list::reverse list result
+    assert_equal "${{ "{" }}#result[@]}" 2
+    assert_equal "${result[*]}" "l* R*"
+}
