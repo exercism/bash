@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-28T23:19:01+00:00
-# local version: 2.0.0.0
+# generated on 2026-06-30T03:19:10+00:00
 
 @test "Empty tree" {
   # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

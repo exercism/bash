@@ -6,7 +6,7 @@
     run bash {{ solution }} {{ case["input"]["score"] }} allergic_to {{ case["input"]["item"] }}
 
     assert_success
-    assert_output "{{ case["expected"] | lower }}"
+    assert_output "{{ case["expected"] }}"
 {%- else %}
     run bash {{ solution }} {{ case["input"]["score"] }} list
 
