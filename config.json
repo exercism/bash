@@ -656,6 +656,17 @@
         ]
       },
       {
+        "slug": "baffling-birthdays",
+        "name": "Baffling Birthdays",
+        "uuid": "c3fbce6a-61ce-439c-8c67-fad93561326f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "dates"
+        ]
+      },
+      {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "47ff0fd8-178a-47fd-ab53-382ae1bb4f03",
