@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-07-18T06:41:40+00:00
 
 @test "NOW translates to two hours later" {
   # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -114,3 +114,11 @@ load bats-extra
   assert_success
   assert_output "2023-09-29T08:00:00"
 }
+
+@test "Q2 starting in the last month of the second quarter translates to the last workday of the second quarter of this year" {
+  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  run bash swift_scheduling.sh "Q2" "2019-06-15T09:50:00"
+  assert_success
+  assert_output "2019-06-28T08:00:00"
+}
+
