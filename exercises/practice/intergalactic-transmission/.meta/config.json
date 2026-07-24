@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "resu-xuniL"
+  ],
+  "files": {
+    "solution": [
+      "intergalactic_transmission.sh"
+    ],
+    "test": [
+      "intergalactic_transmission.bats"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
+  },
+  "blurb": "Add parity bits to a message for transmission",
+  "source": "Kah Goh",
+  "source_url": "https://github.com/exercism/problem-specifications/pull/2543"
+}
