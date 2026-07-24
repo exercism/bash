@@ -419,14 +419,6 @@
         "difficulty": 3
       },
       {
-        "slug": "intergalactic-transmission",
-        "name": "Intergalactic Transmission",
-        "uuid": "b1874a8b-ebc7-4a1b-802f-8f0a6feaa59d",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "196a2941-0fdd-41f1-8d2b-0568930e2400",
@@ -859,6 +851,14 @@
           "parsing",
           "regular_expressions"
         ]
+      },
+      {
+        "slug": "intergalactic-transmission",
+        "name": "Intergalactic Transmission",
+        "uuid": "b1874a8b-ebc7-4a1b-802f-8f0a6feaa59d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       },
       {
         "slug": "minesweeper",
