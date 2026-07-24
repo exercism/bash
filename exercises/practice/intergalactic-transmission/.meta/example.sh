@@ -6,7 +6,7 @@ transmit_sequence() {
 
     [[ -z "$*" ]] && echo "" && exit 0
 
-    for hex in "${@}"; do
+    for hex in $1; do
         hex="$(( 16#${hex:2} ))"
 
         for (( i=7; i>=0; i-- )); do
@@ -41,7 +41,7 @@ decode_message() {
 
     [[ -z "$*" ]] && echo "" && exit 0
 
-    for hex in "${@}"; do
+    for hex in $1; do
         hex="$(( 16#${hex:2} ))"
         bits=""
 
