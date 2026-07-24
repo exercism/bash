@@ -54,7 +54,7 @@ decode_message() {
         if (( ${#parity_check} % 2 == 0 )); then
             inlined+="${bits:0:7}"
         else
-            echo 'wrong parity' && exit 0
+            echo 'Error: wrong parity' && exit 0
         fi
     done
 
