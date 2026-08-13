@@ -11,9 +11,9 @@ setup() {
     [[ -t 0 ]] && HAS_TTY=1 || HAS_TTY=0
 }
 teardown() { rm -f "$INPUT_FILE"; }
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
-    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
 {%- if case["input"]["rows"] %}

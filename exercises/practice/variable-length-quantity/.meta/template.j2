@@ -4,9 +4,9 @@
 # *** Input and Output numbers are expressed in hexadecimal.
 #
 
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
-    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     {%- set hex_input = [] %}
     {%- for num in case["input"]["integers"] %}
         {%- set _ = hex_input.append('%02X' % num) %}

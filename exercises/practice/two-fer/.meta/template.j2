@@ -1,7 +1,7 @@
 {{ header }}
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
-{%- if idx == 0 %}
+{%- if loop.first %}
   # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
   # The above line controls whether to skip the test.

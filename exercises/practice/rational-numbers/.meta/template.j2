@@ -1,7 +1,7 @@
 {{ header }}
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
-    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 {%- if case["property"] in ["add", "sub", "mul", "div"] %}
     {%- set op = {"add": "+", "sub": "-", "mul": "*", "div": "/"}[case["property"]] %}
     {%- set args = [op, case["input"]["r1"] | join("/"), case["input"]["r2"] | join("/")] %}

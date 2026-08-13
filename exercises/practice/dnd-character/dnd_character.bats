@@ -1,8 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T18:26:21+00:00
-# local version: 2.0.0.0
+# generated on 2026-08-13T17:30:08+00:00
 
 # usage: dnd_character.sh modifier n
 # -> output expected modifier

@@ -16,9 +16,9 @@
 #
 # The clock script will output the clock value in %H:%M format
 
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
-    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 {%- if case["property"] == "create" %}
     run bash {{ solution }} {{ case["input"]["hour"] }} {{ case["input"]["minute"] }}
 {%- elif case["property"] == "add" %}
