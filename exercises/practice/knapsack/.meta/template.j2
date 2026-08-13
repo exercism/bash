@@ -7,9 +7,9 @@
 # should return:
 #       90
 #
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
-    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} {{ case["input"]["maximumWeight"] }} {%- for item in case["input"]["items"] %} {{ item["weight"] }}:{{ item["value"] }}{%- endfor %}
     assert_success
     assert_output "{{ case["expected"] }}"

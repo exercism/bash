@@ -1,7 +1,7 @@
 {{ header }}
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["descriptions"] | join(": ") }}" {
-    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} {{ case["property"]  | camel_to_snake }} "{{ case["input"]["message"] | join(" ") }}"
     assert_success
 {%- if case["expect_error"] %}

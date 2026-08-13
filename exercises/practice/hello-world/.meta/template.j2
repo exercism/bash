@@ -1,5 +1,5 @@
 {{ header }}
-{% for idx, case in cases %}
+{% for case in cases %}
 @test "{{ case["description"] }}" {
   run bash {{ solution }}
 

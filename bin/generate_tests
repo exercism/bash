@@ -119,7 +119,7 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         """
     ).strip()
     data = {
-        "cases": list(enumerate(cases)),
+        "cases": cases,
         "header": header,
         "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0]
     }
