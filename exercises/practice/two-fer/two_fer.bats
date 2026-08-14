@@ -1,41 +1,41 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-08-14T05:27:25+00:00
 
 @test "no name given" {
-  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  # The above line controls whether to skip the test.
-  # Normally, we skip every test except for the first one
-  # (the first one is always commented out).  This allows for
-  # a person to focus on solving a test at a time: you can
-  # comment out or delete the
-  # `[[ $BATS_RUN_SKIPPED == "true" ]] || skip`
-  # line to run the test when you are ready.
-  #
-  # You can also run all the tests by setting the
-  # `$BATS_RUN_SKIPPED` environment variable, like this:
-  #
-  #     $ BATS_RUN_SKIPPED=true bats two_fer.bats
+    # The above line controls whether to skip the test.
+    # Normally, we skip every test except for the first one
+    # (the first one is always commented out).  This allows for
+    # a person to focus on solving a test at a time: you can
+    # comment out or delete the
+    # `[[ $BATS_RUN_SKIPPED == "true" ]] || skip`
+    # line to run the test when you are ready.
+    #
+    # You can also run all the tests by setting the
+    # `$BATS_RUN_SKIPPED` environment variable, like this:
+    #
+    #     $ BATS_RUN_SKIPPED=true bats two_fer.bats
 
-  run bash two_fer.sh
-  assert_success
-  assert_output "One for you, one for me."
+    run bash two_fer.sh
+    assert_success
+    assert_output "One for you, one for me."
 }
 
 @test "a name given" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "Alice"
-  assert_success
-  assert_output "One for Alice, one for me."
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash two_fer.sh "Alice"
+    assert_success
+    assert_output "One for Alice, one for me."
 }
 
 @test "another name given" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "Bob"
-  assert_success
-  assert_output "One for Bob, one for me."
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash two_fer.sh "Bob"
+    assert_success
+    assert_output "One for Bob, one for me."
 }
 
 # bash-specific test: Focus the student's attention on the effects of
@@ -43,15 +43,15 @@ load bats-extra
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "handle arg with spaces" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "John Smith" "Mary Ann"
-  assert_success
-  assert_output "One for John Smith, one for me."
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash two_fer.sh "John Smith" "Mary Ann"
+    assert_success
+    assert_output "One for John Smith, one for me."
 }
 
 @test "handle arg with glob char" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash two_fer.sh "* "
-  assert_success
-  assert_output "One for * , one for me."
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash two_fer.sh "* "
+    assert_success
+    assert_output "One for * , one for me."
 }

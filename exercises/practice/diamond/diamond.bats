@@ -1,35 +1,35 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-08-14T05:27:24+00:00
 
 @test "Degenerate case with a single 'A' row" {
-  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  expected="$(cat << EOT
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="$(cat << EOT
 A
 EOT
 )"
-  run bash diamond.sh A
-  assert_success
-  assert_output "$expected"
+    run bash diamond.sh A
+    assert_success
+    assert_output "$expected"
 }
 
 @test "Degenerate case with no row containing 3 distinct groups of spaces" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  expected="$(cat << EOT
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="$(cat << EOT
  A 
 B B
  A 
 EOT
 )"
-  run bash diamond.sh B
-  assert_success
-  assert_output "$expected"
+    run bash diamond.sh B
+    assert_success
+    assert_output "$expected"
 }
 
 @test "Smallest non-degenerate case with odd diamond side length" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  expected="$(cat << EOT
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="$(cat << EOT
   A  
  B B 
 C   C
@@ -37,14 +37,14 @@ C   C
   A  
 EOT
 )"
-  run bash diamond.sh C
-  assert_success
-  assert_output "$expected"
+    run bash diamond.sh C
+    assert_success
+    assert_output "$expected"
 }
 
 @test "Smallest non-degenerate case with even diamond side length" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  expected="$(cat << EOT
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="$(cat << EOT
    A   
   B B  
  C   C 
@@ -54,14 +54,14 @@ D     D
    A   
 EOT
 )"
-  run bash diamond.sh D
-  assert_success
-  assert_output "$expected"
+    run bash diamond.sh D
+    assert_success
+    assert_output "$expected"
 }
 
 @test "Largest possible diamond" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  expected="$(cat << EOT
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    expected="$(cat << EOT
                          A                         
                         B B                        
                        C   C                       
@@ -115,7 +115,8 @@ Z                                                 Z
                          A                         
 EOT
 )"
-  run bash diamond.sh Z
-  assert_success
-  assert_output "$expected"
+    run bash diamond.sh Z
+    assert_success
+    assert_output "$expected"
 }
+

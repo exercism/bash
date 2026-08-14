@@ -1,10 +1,10 @@
 {{ header }}
 {% for case in cases %}
 @test "{{ case["description"] }}" {
-  {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }} "{{ case["input"]["value"] }}"
-  assert_success
-  assert_output "{{ case["expected"] }}"
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "{{ case["input"]["value"] }}"
+    assert_success
+    assert_output "{{ case["expected"] }}"
 }
 {% endfor %}
 # bash-specific test: Focus the student's attention on the effects of 
@@ -12,9 +12,9 @@
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "avoid globbing" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash reverse_string.sh " a *  b"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash reverse_string.sh " a *  b"
 
-  assert_success
-  assert_output "b  * a "
+    assert_success
+    assert_output "b  * a "
 }

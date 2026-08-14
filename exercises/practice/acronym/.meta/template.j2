@@ -1,10 +1,10 @@
 {{ header }}
 {% for case in cases %}
 @test "{{ case["description"] }}" {
-  {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }} "{{ case["input"]["phrase"] }}"
-  assert_success
-  assert_output "{{ case["expected"] }}"
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "{{ case["input"]["phrase"] }}"
+    assert_success
+    assert_output "{{ case["expected"] }}"
 }
 {% endfor %}
 # bash-specific test: Focus the student's attention on the effects of 
@@ -12,8 +12,8 @@
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
 @test "contains shell globbing character" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash acronym.sh "Two * Words"
-  assert_success
-  assert_output "TW"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash acronym.sh "Two * Words"
+    assert_success
+    assert_output "TW"
 }

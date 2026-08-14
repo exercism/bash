@@ -1,14 +1,14 @@
 {{ header }}
 {% for case in cases %}
 @test "{{ case["description"] }}" {
-  {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }} {{ case["input"]["number"] }}
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} {{ case["input"]["number"] }}
 {%- if case["expect_error"] %}
-  assert_failure
-  assert_output "Error: {{ case["expect_error_msg"] }}"
+    assert_failure
+    assert_output "Error: {{ case["expect_error_msg"] }}"
 {%- else %}
-  assert_success
-  assert_output "{{ case["expected"] }}"
+    assert_success
+    assert_output "{{ case["expected"] }}"
 {%- endif %}
 }
 {% endfor %}
