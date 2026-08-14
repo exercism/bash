@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-08-14T05:33:41+00:00
 
 @test "format smallest non-exceptional ordinal numeral 4" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -115,12 +115,52 @@ load bats-extra
     assert_output "Washi, you are the 21st customer we serve today. Thank you!"
 }
 
+@test "format exceptional ordinal numeral 22 ending in nd even though it is a multiple of 11" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash line_up.sh "Ingrid" 22
+
+    assert_success
+    assert_output "Ingrid, you are the 22nd customer we serve today. Thank you!"
+}
+
+@test "format exceptional ordinal numeral 33 ending in rd even though it is a multiple of 11" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash line_up.sh "Mario" 33
+
+    assert_success
+    assert_output "Mario, you are the 33rd customer we serve today. Thank you!"
+}
+
+@test "format exceptional ordinal numeral 52 ending in nd even though it is a multiple of 13" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash line_up.sh "Quentin" 52
+
+    assert_success
+    assert_output "Quentin, you are the 52nd customer we serve today. Thank you!"
+}
+
 @test "format exceptional ordinal numeral 62" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash line_up.sh "Nayra" 62
 
     assert_success
     assert_output "Nayra, you are the 62nd customer we serve today. Thank you!"
+}
+
+@test "format non-exceptional ordinal numeral 72 ending in nd even though it is a multiple of 12" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash line_up.sh "Ugo" 72
+
+    assert_success
+    assert_output "Ugo, you are the 72nd customer we serve today. Thank you!"
+}
+
+@test "format exceptional ordinal numeral 91 ending in st even though it is a multiple of 13" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash line_up.sh "Boris" 91
+
+    assert_success
+    assert_output "Boris, you are the 91st customer we serve today. Thank you!"
 }
 
 @test "format exceptional ordinal numeral 100" {
@@ -154,3 +194,12 @@ load bats-extra
     assert_success
     assert_output "Yma, you are the 123rd customer we serve today. Thank you!"
 }
+
+@test "format large number 972 ending in nd even though it is a multiple of 12" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash line_up.sh "Elias" 972
+
+    assert_success
+    assert_output "Elias, you are the 972nd customer we serve today. Thank you!"
+}
+
