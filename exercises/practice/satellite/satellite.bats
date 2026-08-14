@@ -1,25 +1,25 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-30T03:19:10+00:00
+# generated on 2026-08-14T05:27:25+00:00
 
 @test "Empty tree" {
-  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "" ""
-  assert_success
-  expectedJson=$(cat << END_JSON
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "" ""
+    assert_success
+    expectedJson=$(cat << END_JSON
     {}
 END_JSON
 )
-  # compare without spaces
-  [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
+    # compare without spaces
+    [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
 @test "Tree with one item" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a" "a"
-  assert_success
-  expectedJson=$(cat << END_JSON
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a" "a"
+    assert_success
+    expectedJson=$(cat << END_JSON
     {
         "v": "a",
         "l": {},
@@ -27,15 +27,15 @@ END_JSON
     }
 END_JSON
 )
-  # compare without spaces
-  [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
+    # compare without spaces
+    [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
 @test "Tree with many items" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a i x f r" "i a f x r"
-  assert_success
-  expectedJson=$(cat << END_JSON
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a i x f r" "i a f x r"
+    assert_success
+    expectedJson=$(cat << END_JSON
     {
         "v": "a",
         "l": {
@@ -59,39 +59,39 @@ END_JSON
     }
 END_JSON
 )
-  # compare without spaces
-  [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
+    # compare without spaces
+    [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
 @test "Reject traversals of different length" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a b" "b a r"
-  assert_failure
-  shopt -s nocasematch
-  assert_output "traversals must have the same length"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a b" "b a r"
+    assert_failure
+    shopt -s nocasematch
+    assert_output "traversals must have the same length"
 }
 
 @test "Reject inconsistent traversals of same length" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "x y z" "a b c"
-  assert_failure
-  shopt -s nocasematch
-  assert_output "traversals must have the same elements"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "x y z" "a b c"
+    assert_failure
+    shopt -s nocasematch
+    assert_output "traversals must have the same elements"
 }
 
 @test "Reject traversals with repeated items" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a b a" "b a a"
-  assert_failure
-  shopt -s nocasematch
-  assert_output "traversals must contain unique items"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a b a" "b a a"
+    assert_failure
+    shopt -s nocasematch
+    assert_output "traversals must contain unique items"
 }
 
 @test "A degenerate binary tree" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a b c d" "d c b a"
-  assert_success
-  expectedJson=$(cat << END_JSON
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a b c d" "d c b a"
+    assert_success
+    expectedJson=$(cat << END_JSON
     {
         "v": "a",
         "l": {
@@ -111,15 +111,15 @@ END_JSON
     }
 END_JSON
 )
-  # compare without spaces
-  [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
+    # compare without spaces
+    [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
 @test "Another degenerate binary tree" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a b c d" "a b c d"
-  assert_success
-  expectedJson=$(cat << END_JSON
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a b c d" "a b c d"
+    assert_success
+    expectedJson=$(cat << END_JSON
     {
         "v": "a",
         "l": {},
@@ -139,15 +139,15 @@ END_JSON
     }
 END_JSON
 )
-  # compare without spaces
-  [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
+    # compare without spaces
+    [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
 @test "Tree with many more items" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash satellite.sh "a b d g h c e f i" "g d h b a e c i f"
-  assert_success
-  expectedJson=$(cat << END_JSON
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash satellite.sh "a b d g h c e f i" "g d h b a e c i f"
+    assert_success
+    expectedJson=$(cat << END_JSON
     {
         "v": "a",
         "l": {
@@ -187,6 +187,7 @@ END_JSON
     }
 END_JSON
 )
-  # compare without spaces
-  [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
+    # compare without spaces
+    [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
+

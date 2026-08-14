@@ -1,29 +1,29 @@
 {{ header }}
 {% for case in cases %}
 @test '{{ case["description"] }}' {
-  {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }} '{{ case["input"]["strand1"] }}' '{{ case["input"]["strand2"] }}'
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} '{{ case["input"]["strand1"] }}' '{{ case["input"]["strand2"] }}'
 {%- if case["expect_error"] %}
-  assert_failure
-  assert_output --partial "{{ case["expect_error_msg"] }}"
+    assert_failure
+    assert_output --partial "{{ case["expect_error_msg"] }}"
 {%- else %}
-  assert_success
-  assert_output "{{ case["expected"] }}"
+    assert_success
+    assert_output "{{ case["expected"] }}"
 {%- endif %}
 }
 {% endfor %}
 @test "no input" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }}
-  assert_failure
-  assert_output "Usage: {{ solution }} <string1> <string2>"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }}
+    assert_failure
+    assert_output "Usage: {{ solution }} <string1> <string2>"
 }
 
 @test "invalid input" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }} 'A'
-  assert_failure
-  assert_output "Usage: {{ solution }} <string1> <string2>"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 'A'
+    assert_failure
+    assert_output "Usage: {{ solution }} <string1> <string2>"
 }
 
 # Within [[...]] the == operator is a _pattern matching_ operator.
@@ -31,8 +31,8 @@
 # quoted to prevent interpretation as a glob-style pattern.
 
 @test "expose subtle '[[ \$x == \$y ]]' bug" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run bash {{ solution }} 'AAA' 'A?A'
-  assert_success
-  assert_output "1"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} 'AAA' 'A?A'
+    assert_success
+    assert_output "1"
 }
