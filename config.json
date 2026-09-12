@@ -1256,6 +1256,14 @@
           "associative_arrays",
           "control_flow_conditionals"
         ]
+      },
+      {
+        "slug": "save-the-cow",
+        "name": "Save the Cow",
+        "uuid": "21b2a344-925e-427a-a2bb-69122df2ce61",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
       }
     ],
     "foregone": [
