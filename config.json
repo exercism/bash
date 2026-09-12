@@ -557,6 +557,14 @@
         ]
       },
       {
+        "slug": "save-the-cow",
+        "name": "Save the Cow",
+        "uuid": "21b2a344-925e-427a-a2bb-69122df2ce61",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "cb5dfc8a-1e6d-4489-a140-05a000d9f4b9",
@@ -1256,14 +1264,6 @@
           "associative_arrays",
           "control_flow_conditionals"
         ]
-      },
-      {
-        "slug": "save-the-cow",
-        "name": "Save the Cow",
-        "uuid": "21b2a344-925e-427a-a2bb-69122df2ce61",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1
       }
     ],
     "foregone": [
