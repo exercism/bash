@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-09-12T19:25:52+00:00
+# generated on 2026-09-13T17:59:07+00:00
 
 @test "Initially 9 failures are allowed and no letters are guessed" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -78,14 +78,14 @@ load bats-extra
 @test "Guessing after a lose is error" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k"
-    assert_success
-    assert_output --partial "cannot guess after the game is lost"
+    assert_failure
+    assert_output "cannot guess after the game is lost"
 }
 
 @test "Guessing after a win is error" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t" "o" "l" "l"
-    assert_success
-    assert_output --partial "cannot guess after the game is won"
+    assert_failure
+    assert_output "cannot guess after the game is won"
 }
 

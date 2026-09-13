@@ -10,9 +10,11 @@ guess() {
 
     for guess in "${guesses[@]}"; do
         if [[ $state == "Win" ]]; then
-            echo "cannot guess after the game is won"
+            echo "cannot guess after the game is won" >&2
+            exit 1
         elif [[ $state == "Lose" ]]; then
-            echo "cannot guess after the game is lost"
+            echo "cannot guess after the game is lost" >&2
+            exit 1
         fi
 
         if [[ -n $guess && $word =~ $guess && ! $masked_word =~ $guess ]]; then
