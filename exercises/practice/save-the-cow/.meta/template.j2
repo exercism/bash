@@ -7,10 +7,15 @@
     assert_failure
     assert_output "{{ case["expect_error_msg"] }}"
 {%- else %}
+    expected="$(cat << EXPECTED
+State: {{ case["expected"]["state"] }}
+Masked word: {{ case["expected"]["maskedWord"] }}
+Remaining failures: {{ case["expected"]["remainingFailures"] }}
+EXPECTED
+    )"
+
     assert_success
-    assert_output --partial "{{ case["expected"]["state"] }}"
-    assert_output --partial "{{ case["expected"]["maskedWord"] }}"
-    assert_output --partial "{{ case["expected"]["remainingFailures"] }}"
+    assert_output "$expected"
 {%- endif %}
 }
 {% endfor %}

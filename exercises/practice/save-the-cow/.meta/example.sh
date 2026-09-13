@@ -35,9 +35,7 @@ guess() {
         fi
     done
 
-    echo "State: $state"
-    echo "Masked word: $masked_word"
-    echo "Remaining failures: $remaining_failures"
+    printf "State: %s\nMasked word: %s\nRemaining failures: %s" "$state" "$masked_word" "$remaining_failures"
 }
 
 guess "$@"
