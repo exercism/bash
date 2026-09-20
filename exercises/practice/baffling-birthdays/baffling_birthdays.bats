@@ -94,7 +94,7 @@ load bats-extra
     generate=500
     run bash baffling_birthdays.sh random_birthdates "$generate"
     assert_success
-    num_output_dates=$( wc -w <<< "$output" )
+    num_output_dates=$( wc -w <<< "$output" | tr -d '[:space:]' )
     assert_equal "$num_output_dates" "$generate"
 }
 
@@ -104,7 +104,7 @@ load bats-extra
     seen_leap=0
     run bash baffling_birthdays.sh random_birthdates "$generate"
     assert_success
-    read -ra output_dates <<< "$output"
+    read -d '' -ra output_dates < <(printf '%s\0' "$output")
     for date in "${output_dates[@]}"; do
         year=${date:0:4}
         if (( year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) )); then
@@ -120,7 +120,7 @@ load bats-extra
     generate=500
     run bash baffling_birthdays.sh random_birthdates "$generate"
     assert_success
-    read -ra output_dates <<< "$output"
+    read -d '' -ra output_dates < <(printf '%s\0' "$output")
     for date in "${output_dates[@]}"; do
         month=${date:5:2}
 
@@ -135,7 +135,7 @@ load bats-extra
     generate=500
     run bash baffling_birthdays.sh random_birthdates "$generate"
     assert_success
-    read -ra output_dates <<< "$output"
+    read -d '' -ra output_dates < <(printf '%s\0' "$output")
     for date in "${output_dates[@]}"; do
         day=${date:8}
 
