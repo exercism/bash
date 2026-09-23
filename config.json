@@ -782,6 +782,14 @@
         ]
       },
       {
+        "slug": "save-the-cow",
+        "name": "Save the Cow",
+        "uuid": "21b2a344-925e-427a-a2bb-69122df2ce61",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "swift-scheduling",
         "name": "Swift Scheduling",
         "uuid": "ff93ec1b-898f-4307-9645-54869b217077",

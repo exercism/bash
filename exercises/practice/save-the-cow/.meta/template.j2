@@ -1,0 +1,21 @@
+{{ header }}
+{% for case in cases %}
+@test "{{ case["descriptions"] | join(": ") }}" {
+    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run bash {{ solution }} "{{ case["input"]["word"] }}" "{{ case["input"]["guesses"] | join('" "') }}"
+{%- if case["expect_error"] %}
+    assert_failure
+    assert_output "{{ case["expect_error_msg"] }}"
+{%- else %}
+    expected="$(cat << EXPECTED
+State: {{ case["expected"]["state"] }}
+Masked word: {{ case["expected"]["maskedWord"] }}
+Remaining failures: {{ case["expected"]["remainingFailures"] }}
+EXPECTED
+    )"
+
+    assert_success
+    assert_output "$expected"
+{%- endif %}
+}
+{% endfor %}

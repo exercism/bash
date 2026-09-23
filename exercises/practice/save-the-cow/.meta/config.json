@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "resu-xuniL"
+  ],
+  "files": {
+    "solution": [
+      "save_the_cow.sh"
+    ],
+    "test": [
+      "save_the_cow.bats"
+    ],
+    "example": [
+      ".meta/example.sh"
+    ]
+  },
+  "blurb": "Implement a word-guessing game."
+}
