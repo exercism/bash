@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-30T00:18:40+00:00
+# generated on 2026-09-26T11:37:20+00:00
 # shellcheck disable=SC2329 # "This function is never invoked."
 
 bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
@@ -178,13 +178,22 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" ""
 }
 
-@test "reverse the elements of the list: non-empty list" {
+@test "reverse the elements of the list: non-empty even-length list" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 3 5 7)
     local result=()
     list::reverse list result
     assert_equal "${#result[@]}" 4
     assert_equal "${result[*]}" "7 5 3 1"
+}
+
+@test "reverse the elements of the list: non-empty odd-length list" {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    local list=(1 3 5 7 9 11 13)
+    local result=()
+    list::reverse list result
+    assert_equal "${#result[@]}" 7
+    assert_equal "${result[*]}" "13 11 9 7 5 3 1"
 }
 
 
