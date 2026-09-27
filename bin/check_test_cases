@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-die() { echo "$*" >&2; exit 1; }
-
-cd "$(dirname "$0")"/.. || die "cannot cd"
-
-bin/fetch-configlet || die "cannot fetch configlet"
-bin/configlet lint || die "resolve config.json problems first"
-bin/configlet sync --check "$@"
