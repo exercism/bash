@@ -24,7 +24,7 @@ If you have read through the references that informed an existing policy and sti
 When contributing code to this repository, it should follow the [bash style guide] to avoid having an inconsistent style.
 This is most important for the tests, since they are delivered as a product, and should be as idiomatic as possible, and this will help maintain a certain level of consistency.
 
-[bash style guide]: https://google.github.io/styleguide/shell.xml
+[bash style guide]: https://google.github.io/styleguide/shellguide.html
 
 ### Prefer standard Bash over POSIX compliance
 
