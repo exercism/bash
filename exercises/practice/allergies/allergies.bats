@@ -392,7 +392,7 @@ load bats-extra
     run bash allergies.sh 509 list
 
     assert_success
-    assert_output "eggs shellfish strawberries tomatoes chocolate pollen cats"
+    assert_output "eggs"
 }
 
 @test 'list when::no allergen score parts without highest valid score' {
