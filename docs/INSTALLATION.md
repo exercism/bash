@@ -43,7 +43,7 @@ You should install it using your distribution's package manager.
 
 ## Windows
 
-For Windows 10, you can install [WSL](https://docs.microsoft.com/en-us/windows/wsl/about). 
+For Windows 10, you can install [WSL](https://learn.microsoft.com/en-us/windows/wsl/about). 
 This installs a full (well, the non-GUI components) Linux distribution that runs natively in Windows.
 
 Alternatively, you can install:
@@ -51,7 +51,7 @@ Alternatively, you can install:
 * [Cygwin](https://cygwin.com/)
 * [git for windows](https://gitforwindows.org/)
 * [MinGW](http://mingw.org/)
-* a full Linux distribution in [a virtual machine](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/)
+* a full Linux distribution in [a virtual machine](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview?pivots=windows)
 
 ## MacOS
 
@@ -64,7 +64,7 @@ For Apple OSX:
 
 Note that the bash version installed on MacOS is very old, version 3.2. 
 This is due to (i) newer bash versions being licensed under the GPLv3 and (ii) Apple not wanting to be forced to comply with the terms of that license.
-Additionally, Apple has signaled that bash will be going away from MacOS: the default login shell was recently [changed from bash to zsh](https://support.apple.com/en-us/HT208050).
+Additionally, Apple has signaled that bash will be going away from macOS: the default login shell was [changed from bash to zsh in macOS 10.15](https://support.apple.com/en-us/102360).
 
 To obtain an up-to-date bash on your Mac:
 

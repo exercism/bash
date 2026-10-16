@@ -29,6 +29,6 @@ As a maintainer, you have write access to several repositories.  "write access" 
 
 - Issues marked with "policy" are current "team agreements": [exercism?label:policy](https://github.com/search?q=org%3Aexercism+label%3Apolicy).
   This label is described in [discussions#96](https://github.com/exercism/discussions/issues/96).
-- Exercism has a Twitter account: [@Exercism.io](https://twitter.com/exercism_io); and a mailing list: https://tinyletter.com/exercism
+- Proposed changes must first be discussed in [the Exercism forum](https://forum.exercism.org/c/programming/bash/70)
 
 **Please feel free to ask any questions.  In our thinking, asking questions is far smarter than guessing.**
