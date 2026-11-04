@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-04T19:37:08+00:00
 
 @test "word beginning with a" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -159,9 +159,9 @@ load bats-extra
 
 @test "a whole phrase" {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash pig_latin.sh quick fast run
+    run bash pig_latin.sh why do squids enjoy xrays
     assert_success
-    assert_output "ickquay astfay unray"
+    assert_output "ywhay oday idssquay enjoyay xraysay"
 }
 
 # bash-specific test: Focus the student's attention on the effects of 
