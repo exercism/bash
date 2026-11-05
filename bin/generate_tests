@@ -9,6 +9,7 @@ import os
 import pathlib
 import re
 import shlex
+import string
 import subprocess
 import sys
 import textwrap
@@ -110,6 +111,12 @@ def quote(obj):
 def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     """Generate and write test file for a given spec and exercise."""
     cases = get_cases(specs, exercise)
+    translation = str.maketrans({i: "_" for i in string.punctuation + " "})
+    for case in cases:
+        test_name = re.sub("_+", "_", " ".join(case["descriptions"]).lower().translate(translation))
+        case["test_line"] = f"function {test_name} {{ # @test"
+        if len(case.get("input", {}).values()) == 1:
+            case["given"] = list(case["input"].values())[0]
 
     timestamp = datetime.datetime.now(tz=datetime.UTC).replace(microsecond=0).isoformat()
     header = textwrap.dedent(f"""\

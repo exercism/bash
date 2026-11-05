@@ -1,149 +1,149 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-05T22:34:09+00:00
 
-@test 'single bit one to decimal' {
+function single_bit_one_to_decimal { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1" 10
     assert_success
     assert_output "1"
 }
 
-@test 'binary to single decimal' {
+function binary_to_single_decimal { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1 0 1" 10
     assert_success
     assert_output "5"
 }
 
-@test 'single decimal to binary' {
+function single_decimal_to_binary { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "5" 2
     assert_success
     assert_output "1 0 1"
 }
 
-@test 'binary to multiple decimal' {
+function binary_to_multiple_decimal { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1 0 1 0 1 0" 10
     assert_success
     assert_output "4 2"
 }
 
-@test 'decimal to binary' {
+function decimal_to_binary { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "4 2" 2
     assert_success
     assert_output "1 0 1 0 1 0"
 }
 
-@test 'trinary to hexadecimal' {
+function trinary_to_hexadecimal { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 3 "1 1 2 0" 16
     assert_success
     assert_output "2 10"
 }
 
-@test 'hexadecimal to trinary' {
+function hexadecimal_to_trinary { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 16 "2 10" 3
     assert_success
     assert_output "1 1 2 0"
 }
 
-@test '15-bit integer' {
+function 15_bit_integer { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 97 "3 46 60" 73
     assert_success
     assert_output "6 10 45"
 }
 
-@test 'empty list' {
+function empty_list { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "" 10
     assert_success
     assert_output "0"
 }
 
-@test 'single zero' {
+function single_zero { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "0" 2
     assert_success
     assert_output "0"
 }
 
-@test 'multiple zeros' {
+function multiple_zeros { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "0 0 0" 2
     assert_success
     assert_output "0"
 }
 
-@test 'leading zeros' {
+function leading_zeros { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 7 "0 6 0" 10
     assert_success
     assert_output "4 2"
 }
 
-@test 'input base is one' {
+function input_base_is_one { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 1 "0" 10
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'input base is zero' {
+function input_base_is_zero { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 0 "" 10
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'input base is negative' {
+function input_base_is_negative { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh -2 "1" 10
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'negative digit' {
+function negative_digit { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1 -1 1 0 1 0" 10
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'invalid positive digit' {
+function invalid_positive_digit { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1 2 1 0 1 0" 10
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'output base is one' {
+function output_base_is_one { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1 0 1 0 1 0" 1
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'output base is zero' {
+function output_base_is_zero { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 10 "7" 0
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'output base is negative' {
+function output_base_is_negative { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh 2 "1" -7
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test 'both bases are negative' {
+function both_bases_are_negative { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash all_your_base.sh -2 "1" -7
     assert_failure

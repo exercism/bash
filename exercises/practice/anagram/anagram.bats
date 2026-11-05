@@ -1,117 +1,116 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:24+00:00
+# generated on 2026-11-05T22:34:09+00:00
 
-@test "no matches" {
+function no_matches { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "diaper" "hello world zombies pants"
     assert_success
     refute_output
 }
 
-@test "detects two anagrams" {
+function detects_two_anagrams { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "solemn" "lemons cherry melons"
     assert_success
     assert_output "lemons melons"
 }
 
-@test "does not detect anagram subsets" {
+function does_not_detect_anagram_subsets { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "good" "dog goody"
     assert_success
     refute_output
 }
 
-@test "detects anagram" {
+function detects_anagram { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "listen" "enlists google inlets banana"
     assert_success
     assert_output "inlets"
 }
 
-@test "detects three anagrams" {
+function detects_three_anagrams { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "allergy" "gallery ballerina regally clergy largely leading"
     assert_success
     assert_output "gallery regally largely"
 }
 
-@test "detects multiple anagrams with different case" {
+function detects_multiple_anagrams_with_different_case { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "nose" "Eons ONES"
     assert_success
     assert_output "Eons ONES"
 }
 
-@test "does not detect non-anagrams with identical checksum" {
+function does_not_detect_non_anagrams_with_identical_checksum { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "mass" "last"
     assert_success
     refute_output
 }
 
-@test "detects anagrams case-insensitively" {
+function detects_anagrams_case_insensitively { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "Orchestra" "cashregister Carthorse radishes"
     assert_success
     assert_output "Carthorse"
 }
 
-@test "detects anagrams using case-insensitive subject" {
+function detects_anagrams_using_case_insensitive_subject { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "Orchestra" "cashregister carthorse radishes"
     assert_success
     assert_output "carthorse"
 }
 
-@test "detects anagrams using case-insensitive possible matches" {
+function detects_anagrams_using_case_insensitive_possible_matches { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "orchestra" "cashregister Carthorse radishes"
     assert_success
     assert_output "Carthorse"
 }
 
-@test "does not detect an anagram if the original word is repeated" {
+function does_not_detect_an_anagram_if_the_original_word_is_repeated { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "go" "goGoGO"
     assert_success
     refute_output
 }
 
-@test "anagrams must use all letters exactly once" {
+function anagrams_must_use_all_letters_exactly_once { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "tapper" "patter"
     assert_success
     refute_output
 }
 
-@test "words are not anagrams of themselves" {
+function words_are_not_anagrams_of_themselves { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "BANANA" "BANANA"
     assert_success
     refute_output
 }
 
-@test "words are not anagrams of themselves even if letter case is partially different" {
+function words_are_not_anagrams_of_themselves_even_if_letter_case_is_partially_different { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "BANANA" "Banana"
     assert_success
     refute_output
 }
 
-@test "words are not anagrams of themselves even if letter case is completely different" {
+function words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_different { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "BANANA" "banana"
     assert_success
     refute_output
 }
 
-@test "words other than themselves can be anagrams" {
+function words_other_than_themselves_can_be_anagrams { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash anagram.sh "LISTEN" "LISTEN Silent"
     assert_success
     assert_output "Silent"
 }
-
