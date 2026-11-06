@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function usage() {
+usage() {
 	echo "Usage: raindrops <number>" >&2
 	exit 1
 }

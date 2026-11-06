@@ -16,7 +16,7 @@ set -o pipefail
 #__base="$(basename ${__file} .sh)"
 
 # print argument and exit
-function say() {
+say() {
   local mesg=${1}
   echo "${mesg}"
   exit 0
