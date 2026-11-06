@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-06T04:26:49+00:00
 
-@test 'testing for eggs allergy:not allergic to anything' {
+test_testing_for_eggs_allergy_not_allergic_to_anything() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to eggs
 
@@ -11,7 +11,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for eggs allergy:allergic only to eggs' {
+test_testing_for_eggs_allergy_allergic_only_to_eggs() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 1 allergic_to eggs
 
@@ -19,7 +19,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for eggs allergy:allergic to eggs and something else' {
+test_testing_for_eggs_allergy_allergic_to_eggs_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 3 allergic_to eggs
 
@@ -27,7 +27,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for eggs allergy:allergic to something, but not eggs' {
+test_testing_for_eggs_allergy_allergic_to_something_but_not_eggs() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 2 allergic_to eggs
 
@@ -35,7 +35,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for eggs allergy:allergic to everything' {
+test_testing_for_eggs_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to eggs
 
@@ -43,7 +43,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for peanuts allergy:not allergic to anything' {
+test_testing_for_peanuts_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to peanuts
 
@@ -51,7 +51,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for peanuts allergy:allergic only to peanuts' {
+test_testing_for_peanuts_allergy_allergic_only_to_peanuts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 2 allergic_to peanuts
 
@@ -59,7 +59,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for peanuts allergy:allergic to peanuts and something else' {
+test_testing_for_peanuts_allergy_allergic_to_peanuts_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 7 allergic_to peanuts
 
@@ -67,7 +67,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for peanuts allergy:allergic to something, but not peanuts' {
+test_testing_for_peanuts_allergy_allergic_to_something_but_not_peanuts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 5 allergic_to peanuts
 
@@ -75,7 +75,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for peanuts allergy:allergic to everything' {
+test_testing_for_peanuts_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to peanuts
 
@@ -83,7 +83,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for shellfish allergy:not allergic to anything' {
+test_testing_for_shellfish_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to shellfish
 
@@ -91,7 +91,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for shellfish allergy:allergic only to shellfish' {
+test_testing_for_shellfish_allergy_allergic_only_to_shellfish() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 4 allergic_to shellfish
 
@@ -99,7 +99,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for shellfish allergy:allergic to shellfish and something else' {
+test_testing_for_shellfish_allergy_allergic_to_shellfish_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 14 allergic_to shellfish
 
@@ -107,7 +107,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for shellfish allergy:allergic to something, but not shellfish' {
+test_testing_for_shellfish_allergy_allergic_to_something_but_not_shellfish() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 10 allergic_to shellfish
 
@@ -115,7 +115,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for shellfish allergy:allergic to everything' {
+test_testing_for_shellfish_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to shellfish
 
@@ -123,7 +123,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for strawberries allergy:not allergic to anything' {
+test_testing_for_strawberries_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to strawberries
 
@@ -131,7 +131,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for strawberries allergy:allergic only to strawberries' {
+test_testing_for_strawberries_allergy_allergic_only_to_strawberries() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 8 allergic_to strawberries
 
@@ -139,7 +139,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for strawberries allergy:allergic to strawberries and something else' {
+test_testing_for_strawberries_allergy_allergic_to_strawberries_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 28 allergic_to strawberries
 
@@ -147,7 +147,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for strawberries allergy:allergic to something, but not strawberries' {
+test_testing_for_strawberries_allergy_allergic_to_something_but_not_strawberries() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 20 allergic_to strawberries
 
@@ -155,7 +155,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for strawberries allergy:allergic to everything' {
+test_testing_for_strawberries_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to strawberries
 
@@ -163,7 +163,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for tomatoes allergy:not allergic to anything' {
+test_testing_for_tomatoes_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to tomatoes
 
@@ -171,7 +171,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for tomatoes allergy:allergic only to tomatoes' {
+test_testing_for_tomatoes_allergy_allergic_only_to_tomatoes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 16 allergic_to tomatoes
 
@@ -179,7 +179,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for tomatoes allergy:allergic to tomatoes and something else' {
+test_testing_for_tomatoes_allergy_allergic_to_tomatoes_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 56 allergic_to tomatoes
 
@@ -187,7 +187,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for tomatoes allergy:allergic to something, but not tomatoes' {
+test_testing_for_tomatoes_allergy_allergic_to_something_but_not_tomatoes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 40 allergic_to tomatoes
 
@@ -195,7 +195,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for tomatoes allergy:allergic to everything' {
+test_testing_for_tomatoes_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to tomatoes
 
@@ -203,7 +203,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for chocolate allergy:not allergic to anything' {
+test_testing_for_chocolate_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to chocolate
 
@@ -211,7 +211,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for chocolate allergy:allergic only to chocolate' {
+test_testing_for_chocolate_allergy_allergic_only_to_chocolate() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 32 allergic_to chocolate
 
@@ -219,7 +219,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for chocolate allergy:allergic to chocolate and something else' {
+test_testing_for_chocolate_allergy_allergic_to_chocolate_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 112 allergic_to chocolate
 
@@ -227,7 +227,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for chocolate allergy:allergic to something, but not chocolate' {
+test_testing_for_chocolate_allergy_allergic_to_something_but_not_chocolate() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 80 allergic_to chocolate
 
@@ -235,7 +235,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for chocolate allergy:allergic to everything' {
+test_testing_for_chocolate_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to chocolate
 
@@ -243,7 +243,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for pollen allergy:not allergic to anything' {
+test_testing_for_pollen_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to pollen
 
@@ -251,7 +251,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for pollen allergy:allergic only to pollen' {
+test_testing_for_pollen_allergy_allergic_only_to_pollen() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 64 allergic_to pollen
 
@@ -259,7 +259,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for pollen allergy:allergic to pollen and something else' {
+test_testing_for_pollen_allergy_allergic_to_pollen_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 224 allergic_to pollen
 
@@ -267,7 +267,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for pollen allergy:allergic to something, but not pollen' {
+test_testing_for_pollen_allergy_allergic_to_something_but_not_pollen() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 160 allergic_to pollen
 
@@ -275,7 +275,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for pollen allergy:allergic to everything' {
+test_testing_for_pollen_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to pollen
 
@@ -283,7 +283,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for cats allergy:not allergic to anything' {
+test_testing_for_cats_allergy_not_allergic_to_anything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 allergic_to cats
 
@@ -291,7 +291,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for cats allergy:allergic only to cats' {
+test_testing_for_cats_allergy_allergic_only_to_cats() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 128 allergic_to cats
 
@@ -299,7 +299,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for cats allergy:allergic to cats and something else' {
+test_testing_for_cats_allergy_allergic_to_cats_and_something_else() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 192 allergic_to cats
 
@@ -307,7 +307,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'testing for cats allergy:allergic to something, but not cats' {
+test_testing_for_cats_allergy_allergic_to_something_but_not_cats() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 64 allergic_to cats
 
@@ -315,7 +315,7 @@ load bats-extra
     assert_output "false"
 }
 
-@test 'testing for cats allergy:allergic to everything' {
+test_testing_for_cats_allergy_allergic_to_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 allergic_to cats
 
@@ -323,7 +323,7 @@ load bats-extra
     assert_output "true"
 }
 
-@test 'list when::no allergies' {
+test_list_when_no_allergies() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 0 list
 
@@ -331,7 +331,7 @@ load bats-extra
     assert_output ""
 }
 
-@test 'list when::just eggs' {
+test_list_when_just_eggs() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 1 list
 
@@ -339,7 +339,7 @@ load bats-extra
     assert_output "eggs"
 }
 
-@test 'list when::just peanuts' {
+test_list_when_just_peanuts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 2 list
 
@@ -347,7 +347,7 @@ load bats-extra
     assert_output "peanuts"
 }
 
-@test 'list when::just strawberries' {
+test_list_when_just_strawberries() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 8 list
 
@@ -355,7 +355,7 @@ load bats-extra
     assert_output "strawberries"
 }
 
-@test 'list when::eggs and peanuts' {
+test_list_when_eggs_and_peanuts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 3 list
 
@@ -363,7 +363,7 @@ load bats-extra
     assert_output "eggs peanuts"
 }
 
-@test 'list when::more than eggs but not peanuts' {
+test_list_when_more_than_eggs_but_not_peanuts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 5 list
 
@@ -371,7 +371,7 @@ load bats-extra
     assert_output "eggs shellfish"
 }
 
-@test 'list when::lots of stuff' {
+test_list_when_lots_of_stuff() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 248 list
 
@@ -379,7 +379,7 @@ load bats-extra
     assert_output "strawberries tomatoes chocolate pollen cats"
 }
 
-@test 'list when::everything' {
+test_list_when_everything() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 255 list
 
@@ -387,7 +387,7 @@ load bats-extra
     assert_output "eggs peanuts shellfish strawberries tomatoes chocolate pollen cats"
 }
 
-@test 'list when::no allergen score parts' {
+test_list_when_no_allergen_score_parts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 509 list
 
@@ -395,7 +395,7 @@ load bats-extra
     assert_output "eggs shellfish strawberries tomatoes chocolate pollen cats"
 }
 
-@test 'list when::no allergen score parts without highest valid score' {
+test_list_when_no_allergen_score_parts_without_highest_valid_score() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash allergies.sh 257 list
 

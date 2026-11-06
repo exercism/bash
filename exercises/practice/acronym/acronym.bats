@@ -1,65 +1,65 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-06T04:26:49+00:00
 
-@test "basic" {
+test_basic() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Portable Network Graphics"
     assert_success
     assert_output "PNG"
 }
 
-@test "lowercase words" {
+test_lowercase_words() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Ruby on Rails"
     assert_success
     assert_output "ROR"
 }
 
-@test "punctuation" {
+test_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "First In, First Out"
     assert_success
     assert_output "FIFO"
 }
 
-@test "all caps word" {
+test_all_caps_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "GNU Image Manipulation Program"
     assert_success
     assert_output "GIMP"
 }
 
-@test "punctuation without whitespace" {
+test_punctuation_without_whitespace() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Complementary metal-oxide semiconductor"
     assert_success
     assert_output "CMOS"
 }
 
-@test "very long abbreviation" {
+test_very_long_abbreviation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
     assert_success
     assert_output "ROTFLSHTMDCOALM"
 }
 
-@test "consecutive delimiters" {
+test_consecutive_delimiters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Something - I made up from thin air"
     assert_success
     assert_output "SIMUFTA"
 }
 
-@test "apostrophes" {
+test_apostrophes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Halley's Comet"
     assert_success
     assert_output "HC"
 }
 
-@test "underscore emphasis" {
+test_underscore_emphasis() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "The Road _Not_ Taken"
     assert_success
@@ -70,7 +70,7 @@ load bats-extra
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "contains shell globbing character" {
+function contains_shell_globbing_character { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Two * Words"
     assert_success
