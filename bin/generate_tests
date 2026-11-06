@@ -82,10 +82,8 @@ def camel_to_snake(name: str) -> str:
 def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     """Return a configured Jinja env with filters added."""
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
-    # Shell quoting
-    env.filters["quote"] = shlex.quote
     # Python objects to native.
-    env.filters["bash"] = quote
+    env.filters["quote"] = quote
     # JSON formatting, default to compact form (`jq -c`).
     env.filters["tojson"] = tojson
     # String escaping, ANSI-C style.
@@ -100,15 +98,13 @@ def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
 
 def quote(obj):
     """Convert Python objects to native objects."""
-    if isinstance(obj, dict):
-        return {key: quote(val) for key, val in obj.items()}
-    if isinstance(obj, list):
-        return [quote(val) for val in obj]
+    if isinstance(obj, str):
+        return shlex.quote(obj)
     if obj is True:
         return "true"
     if obj is False:
         return "false"
-    return obj
+    raise ValueError(f"quote() does not support {type(obj)}")
 
 
 def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:

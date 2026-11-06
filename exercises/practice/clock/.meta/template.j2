@@ -29,7 +29,7 @@
     run bash {{ solution }} {{ case["input"]["clock1"]["hour"] }} {{ case["input"]["clock1"]["minute"] }} = {{ case["input"]["clock2"]["hour"] }} {{ case["input"]["clock2"]["minute"] }}
 {%- endif %}
     assert_success
-    assert_output "{{ case["expected"] | bash }}"
+    assert_output "{{ case["expected"] | quote }}"
 }
 {% endfor %}
 
