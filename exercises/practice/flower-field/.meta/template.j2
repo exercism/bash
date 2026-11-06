@@ -5,15 +5,15 @@ join() {
     echo "$*"
 }
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    input=({% for line in case["input"]["garden"] %}
+    input=({% for line in case.given %}
         "{{ line }}"
         {%- endfor %}
     )
     run bash {{ solution }} "${input[@]}"
     assert_success
-    expected=({% for line in case["expected"] %}
+    expected=({% for line in case.expected %}
         "{{ line }}"
         {%- endfor %}
     )

@@ -5,17 +5,17 @@
 # and expect the score (or error) as output.
 
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-{%- set args = [solution] + case["input"]["previousRolls"] %}
-{%- if case["property"] == "roll" %}{%- set args = args + [case["input"]["roll"]] %}{%- endif %}
+{%- set args = [solution] + case.input.previousRolls %}
+{%- if case.property == "roll" %}{%- set args = args + [case.input.roll] %}{%- endif %}
     run bash {{ args | join(" ") }}
-{%- if case["expect_error"] %}
+{%- if case.expect_error %}
     assert_failure
-    assert_output --partial "{{ case["expect_error_msg"] }}"
+    assert_output --partial "{{ case.expect_error_msg }}"
 {%- else %}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 {%- endif %}
 }
 {% endfor %}

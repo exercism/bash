@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-06T16:21:37+00:00
 
-@test "change for 1 cent" {
+test_change_for_1_cent() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="1"
     coins=(1 5 10 25)
@@ -12,7 +12,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "single coin change" {
+test_single_coin_change() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="25"
     coins=(1 5 10 25 100)
@@ -21,7 +21,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "multiple coin change" {
+test_multiple_coin_change() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="5 10"
     coins=(1 5 10 25 100)
@@ -30,7 +30,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "change with Lilliputian Coins" {
+test_change_with_lilliputian_coins() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="4 4 15"
     coins=(1 4 15 20 50)
@@ -39,7 +39,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "change with Lower Elbonia Coins" {
+test_change_with_lower_elbonia_coins() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="21 21 21"
     coins=(1 5 10 21 25)
@@ -48,7 +48,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "large target values" {
+test_large_target_values() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 2 5 20 20 50 100 100 100 100 100 100 100 100 100"
     coins=(1 2 5 10 20 50 100)
@@ -57,7 +57,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "possible change without unit coins available" {
+test_possible_change_without_unit_coins_available() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 2 2 5 10"
     coins=(2 5 10 20 50)
@@ -66,7 +66,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "another possible change without unit coins available" {
+test_another_possible_change_without_unit_coins_available() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="4 4 4 5 5 5"
     coins=(4 5)
@@ -75,7 +75,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "a greedy approach is not optimal" {
+test_a_greedy_approach_is_not_optimal() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="10 10"
     coins=(1 10 11)
@@ -84,7 +84,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "no coins make 0 change" {
+test_no_coins_make_0_change() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     coins=(1 5 10 21 25)
@@ -93,7 +93,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "error testing for change smaller than the smallest of coins" {
+test_error_testing_for_change_smaller_than_the_smallest_of_coins() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="can't make target with given coins"
     coins=(5 10)
@@ -102,7 +102,7 @@ load bats-extra
     assert_output --partial "$expected"
 }
 
-@test "error if no combination can add up to target" {
+test_error_if_no_combination_can_add_up_to_target() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="can't make target with given coins"
     coins=(5 10)
@@ -111,7 +111,7 @@ load bats-extra
     assert_output --partial "$expected"
 }
 
-@test "cannot find negative change values" {
+test_cannot_find_negative_change_values() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="target can't be negative"
     coins=(1 2 5)

@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-06T16:26:10+00:00
 
-@test 'fly' {
+test_fly() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die."
@@ -12,7 +12,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'spider' {
+test_spider() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a spider.
 It wriggled and jiggled and tickled inside her.
@@ -23,7 +23,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'bird' {
+test_bird() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a bird.
 How absurd to swallow a bird!
@@ -35,7 +35,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'cat' {
+test_cat() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a cat.
 Imagine that, to swallow a cat!
@@ -48,7 +48,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'dog' {
+test_dog() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a dog.
 What a hog, to swallow a dog!
@@ -62,7 +62,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'goat' {
+test_goat() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a goat.
 Just opened her throat and swallowed a goat!
@@ -77,7 +77,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'cow' {
+test_cow() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a cow.
 I don't know how she swallowed a cow!
@@ -93,7 +93,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'horse' {
+test_horse() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a horse.
 She's dead, of course!"
@@ -102,7 +102,7 @@ She's dead, of course!"
     assert_output "$expected"
 }
 
-@test 'multiple verses' {
+test_multiple_verses() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
@@ -122,7 +122,7 @@ I don't know why she swallowed the fly. Perhaps she'll die."
     assert_output "$expected"
 }
 
-@test 'full song' {
+test_full_song() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
@@ -179,21 +179,21 @@ She's dead, of course!"
     assert_output "$expected"
 }
 
-@test 'no_arguments' {
+test_no_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash food_chain.sh
     assert_failure
     assert_output --partial "2 arguments expected"
 }
 
-@test 'too_many_arguments' {
+test_too_many_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash food_chain.sh 1 2 3
     assert_failure
     assert_output --partial "2 arguments expected"
 }
 
-@test 'wrong_order_arguments' {
+test_wrong_order_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash food_chain.sh 8 1
     assert_failure

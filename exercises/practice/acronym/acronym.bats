@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-06T04:26:49+00:00
+# generated on 2026-11-06T16:20:25+00:00
 
 test_basic() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -70,7 +70,7 @@ test_underscore_emphasis() { # @test
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-function contains_shell_globbing_character { # @test
+test_contains_shell_globbing_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Two * Words"
     assert_success

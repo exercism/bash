@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-06T16:21:37+00:00
 
-@test "finds a value in an array with one element" {
+test_finds_a_value_in_an_array_with_one_element() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=0
     input=(6)
@@ -12,7 +12,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "finds a value in the middle of an array" {
+test_finds_a_value_in_the_middle_of_an_array() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=3
     input=(1 3 4 6 8 9 11)
@@ -21,7 +21,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "finds a value at the beginning of an array" {
+test_finds_a_value_at_the_beginning_of_an_array() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=0
     input=(1 3 4 6 8 9 11)
@@ -30,7 +30,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "finds a value at the end of an array" {
+test_finds_a_value_at_the_end_of_an_array() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=6
     input=(1 3 4 6 8 9 11)
@@ -39,7 +39,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "finds a value in an array of odd length" {
+test_finds_a_value_in_an_array_of_odd_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=9
     input=(1 3 5 8 13 21 34 55 89 144 233 377 634)
@@ -48,7 +48,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "finds a value in an array of even length" {
+test_finds_a_value_in_an_array_of_even_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=5
     input=(1 3 5 8 13 21 34 55 89 144 233 377)
@@ -57,7 +57,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "identifies that a value is not included in the array" {
+test_identifies_that_a_value_is_not_included_in_the_array() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="-1"
     input=(1 3 4 6 8 9 11)
@@ -66,7 +66,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "a value smaller than the array's smallest value is not found" {
+test_a_value_smaller_than_the_array_s_smallest_value_is_not_found() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="-1"
     input=(1 3 4 6 8 9 11)
@@ -75,7 +75,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "a value larger than the array's largest value is not found" {
+test_a_value_larger_than_the_array_s_largest_value_is_not_found() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="-1"
     input=(1 3 4 6 8 9 11)
@@ -84,7 +84,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "nothing is found in an empty array" {
+test_nothing_is_found_in_an_empty_array() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="-1"
     input=()
@@ -93,7 +93,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "nothing is found when the left and right bounds cross" {
+test_nothing_is_found_when_the_left_and_right_bounds_cross() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="-1"
     input=(1 2)
