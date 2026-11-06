@@ -114,7 +114,7 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     translation = str.maketrans({i: "_" for i in string.punctuation + " "})
     for case in cases:
         test_name = re.sub("_+", "_", " ".join(case["descriptions"]).lower().translate(translation))
-        case["test_line"] = f"function {test_name} {{ # @test"
+        case["test_function_start"] = f"test_{test_name}() {{ # @test"
         if len(case.get("input", {}).values()) == 1:
             case["given"] = list(case["input"].values())[0]
 

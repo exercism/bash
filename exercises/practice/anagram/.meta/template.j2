@@ -1,6 +1,6 @@
 {{ header }}
 {% for case in cases %}
-{{ case.test_line }}
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} "{{ case.input.subject }}" "{{ case.input.candidates | join(" ") }}"
     assert_success

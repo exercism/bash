@@ -1,6 +1,6 @@
 {{ header }}
 {% for case in cases %}
-{{ case.test_line }}
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} "{{ case.given }}"
     assert_success
@@ -11,7 +11,7 @@
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-function contains_shell_globbing_character { # @test
+test_contains_shell_globbing_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash acronym.sh "Two * Words"
     assert_success
