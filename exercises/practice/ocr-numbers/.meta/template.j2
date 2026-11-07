@@ -1,21 +1,21 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} << INPUT
-{{ case["input"]["rows"] | join("\n") }}
+{{ case.given | join("\n") }}
 INPUT
-{%- if case["expect_error"] %}
+{%- if case.expect_error %}
     assert_failure
-    assert_output "{{ case["expect_error_msg"] }}"
+    assert_output "{{ case.expect_error_msg }}"
 {%- else %}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 {%- endif %}
 }
 {% endfor %}
 
-@test "No input" {
+test_no_input() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }}
     assert_success
