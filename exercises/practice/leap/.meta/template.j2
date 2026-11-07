@@ -1,14 +1,14 @@
 {{ header }}
 {% for case in cases %}
-@test '{{ case["description"] }}' {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case["input"]["year"] }}
+    run bash {{ solution }} {{ case.given }}
 
     assert_success
-    assert_output "{{ case["expected"] | quote }}"
+    assert_output "{{ case.expected | quote }}"
 }
 {% endfor %}
-@test 'No input should return an error' {
+test_no_input_should_return_an_error() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }}
 
@@ -16,7 +16,7 @@
     assert_output "Usage: {{ solution }} <year>"
 }
 
-@test 'Too many arguments should return an error' {
+test_too_many_arguments_should_return_an_error() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 2016 4562 4566
 
@@ -24,7 +24,7 @@
     assert_output "Usage: {{ solution }} <year>"
 }
 
-@test 'Float number input should return an error' {
+test_float_number_input_should_return_an_error() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 2016.54
 
@@ -32,7 +32,7 @@
     assert_output "Usage: {{ solution }} <year>"
 }
 
-@test 'Alpha input should return an error' {
+test_alpha_input_should_return_an_error() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 'abcd'
 

@@ -1,103 +1,102 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-06T16:21:37+00:00
 
-@test 'empty string' {
+test_empty_string() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh ''
     assert_success
     assert_output "true"
 }
 
-@test 'isogram with only lower case characters' {
+test_isogram_with_only_lower_case_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'isogram'
     assert_success
     assert_output "true"
 }
 
-@test 'word with one duplicated character' {
+test_word_with_one_duplicated_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'eleven'
     assert_success
     assert_output "false"
 }
 
-@test 'word with one duplicated character from the end of the alphabet' {
+test_word_with_one_duplicated_character_from_the_end_of_the_alphabet() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'zzyzx'
     assert_success
     assert_output "false"
 }
 
-@test 'longest reported english isogram' {
+test_longest_reported_english_isogram() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'subdermatoglyphic'
     assert_success
     assert_output "true"
 }
 
-@test 'word with duplicated character in mixed case' {
+test_word_with_duplicated_character_in_mixed_case() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'Alphabet'
     assert_success
     assert_output "false"
 }
 
-@test 'word with duplicated character in mixed case, lowercase first' {
+test_word_with_duplicated_character_in_mixed_case_lowercase_first() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'alphAbet'
     assert_success
     assert_output "false"
 }
 
-@test 'hypothetical isogrammic word with hyphen' {
+test_hypothetical_isogrammic_word_with_hyphen() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'thumbscrew-japingly'
     assert_success
     assert_output "true"
 }
 
-@test 'hypothetical word with duplicated character following hyphen' {
+test_hypothetical_word_with_duplicated_character_following_hyphen() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'thumbscrew-jappingly'
     assert_success
     assert_output "false"
 }
 
-@test 'isogram with duplicated hyphen' {
+test_isogram_with_duplicated_hyphen() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'six-year-old'
     assert_success
     assert_output "true"
 }
 
-@test 'made-up name that is an isogram' {
+test_made_up_name_that_is_an_isogram() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'Emily Jung Schwartzkopf'
     assert_success
     assert_output "true"
 }
 
-@test 'duplicated character in the middle' {
+test_duplicated_character_in_the_middle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'accentor'
     assert_success
     assert_output "false"
 }
 
-@test 'same first and last characters' {
+test_same_first_and_last_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'angola'
     assert_success
     assert_output "false"
 }
 
-@test 'word with duplicated character and with two hyphens' {
+test_word_with_duplicated_character_and_with_two_hyphens() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash isogram.sh 'up-to-date'
     assert_success
     assert_output "false"
 }
-

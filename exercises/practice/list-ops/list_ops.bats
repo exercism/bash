@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-09-25T22:25:24+00:00
+# generated on 2026-11-07T00:51:50+00:00
 # shellcheck disable=SC2329 # "This function is never invoked."
 
 bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
@@ -15,7 +15,7 @@ fi
 setup() { source list_ops.sh; }
 
 
-@test "append entries to a list and return the new list: empty lists" {
+test_append_entries_to_a_list_and_return_the_new_list_empty_lists() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list1=()
     local list2=()
@@ -24,7 +24,7 @@ setup() { source list_ops.sh; }
     assert_equal "${list1[*]}" ""
 }
 
-@test "append entries to a list and return the new list: list to empty list" {
+test_append_entries_to_a_list_and_return_the_new_list_list_to_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list1=()
     local list2=(1 2 3 4)
@@ -33,7 +33,7 @@ setup() { source list_ops.sh; }
     assert_equal "${list1[*]}" "1 2 3 4"
 }
 
-@test "append entries to a list and return the new list: empty list to list" {
+test_append_entries_to_a_list_and_return_the_new_list_empty_list_to_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list1=(1 2 3 4)
     local list2=()
@@ -42,7 +42,7 @@ setup() { source list_ops.sh; }
     assert_equal "${list1[*]}" "1 2 3 4"
 }
 
-@test "append entries to a list and return the new list: non-empty lists" {
+test_append_entries_to_a_list_and_return_the_new_list_non_empty_lists() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list1=(1 2)
     local list2=(2 3 4 5)
@@ -51,7 +51,7 @@ setup() { source list_ops.sh; }
     assert_equal "${list1[*]}" "1 2 2 3 4 5"
 }
 
-@test "filter list returning only values that satisfy the filter function: empty list" {
+test_filter_list_returning_only_values_that_satisfy_the_filter_function_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
@@ -61,7 +61,7 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" ""
 }
 
-@test "filter list returning only values that satisfy the filter function: non-empty list" {
+test_filter_list_returning_only_values_that_satisfy_the_filter_function_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 5)
     local result=()
@@ -71,7 +71,7 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" "1 3 5"
 }
 
-@test "return a list of elements whose values equal the list value transformed by the mapping function: empty list" {
+test_return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_the_mapping_function_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
@@ -81,7 +81,7 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" ""
 }
 
-@test "return a list of elements whose values equal the list value transformed by the mapping function: non-empty list" {
+test_return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_the_mapping_function_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 3 5 7)
     local result=()
@@ -91,7 +91,7 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" "2 4 6 8"
 }
 
-@test "folds (reduces) the given list from the left with a function: empty list" {
+test_folds_reduces_the_given_list_from_the_left_with_a_function_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
@@ -103,7 +103,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" "2"
 }
 
-@test "folds (reduces) the given list from the left with a function: direction independent function applied to non-empty list" {
+test_folds_reduces_the_given_list_from_the_left_with_a_function_direction_independent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
     local result=()
@@ -115,7 +115,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" "15"
 }
 
-@test "folds (reduces) the given list from the left with a function: direction dependent function applied to non-empty list" {
+test_folds_reduces_the_given_list_from_the_left_with_a_function_direction_dependent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
     local result=()
@@ -130,7 +130,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" "64.0"
 }
 
-@test "folds (reduces) the given list from the right with a function: empty list" {
+test_folds_reduces_the_given_list_from_the_right_with_a_function_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
@@ -142,7 +142,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" "2"
 }
 
-@test "folds (reduces) the given list from the right with a function: direction independent function applied to non-empty list" {
+test_folds_reduces_the_given_list_from_the_right_with_a_function_direction_independent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
     local result=()
@@ -154,7 +154,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" "15"
 }
 
-@test "folds (reduces) the given list from the right with a function: direction dependent function applied to non-empty list" {
+test_folds_reduces_the_given_list_from_the_right_with_a_function_direction_dependent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
     local result=()
@@ -169,7 +169,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" "9.0"
 }
 
-@test "reverse the elements of the list: empty list" {
+test_reverse_the_elements_of_the_list_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
@@ -178,7 +178,7 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" ""
 }
 
-@test "reverse the elements of the list: non-empty even-length list" {
+test_reverse_the_elements_of_the_list_non_empty_even_length_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 3 5 7)
     local result=()
@@ -187,7 +187,7 @@ setup() { source list_ops.sh; }
     assert_equal "${result[*]}" "7 5 3 1"
 }
 
-@test "reverse the elements of the list: non-empty odd-length list" {
+test_reverse_the_elements_of_the_list_non_empty_odd_length_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 3 5 7 9 11 13)
     local result=()

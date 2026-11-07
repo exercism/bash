@@ -8,14 +8,14 @@
 #       90
 #
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case["input"]["maximumWeight"] }} {%- for item in case["input"]["items"] %} {{ item["weight"] }}:{{ item["value"] }}{%- endfor %}
+    run bash {{ solution }} {{ case.input.maximumWeight }} {%- for item in case.input["items"] %} {{ item.weight }}:{{ item.value }}{%- endfor %}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {% endfor %}
-@test "error: no arguments" {
+test_error_no_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }}
     assert_failure
