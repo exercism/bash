@@ -9,18 +9,18 @@
 
 # ability modifier
 {% for case in cases %}
-{%- if case["property"] == "modifier" %}
-@test "{{ case["description"] }}" {
+{%- if case.property == "modifier" %}
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case["property"] }} {{ case["input"]["score"] }}
+    run bash {{ solution }} {{ case.property }} {{ case.input.score }}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {%- endif %}
 {% endfor %}
 # generate a character, validate expected output
 {%- set attrs = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "hitpoints"] %}
-@test "generate a character" {
+test_generate_a_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} generate
     assert_success
@@ -40,7 +40,7 @@ between() {
 }
 
 # random ability is within range
-@test "validate ability range and hitpoint value" {
+test_validate_ability_range_and_hitpoint_value() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     for _ in {1..50}; do
         while read -r c v; do

@@ -1,28 +1,28 @@
 {{ header }}
 {% for case in cases %}
-@test '{{ case["description"] }}' {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    expected="{{ case["expected"] | join("\n") }}"
-    run bash {{ solution }} {{ case["input"]["startVerse"] }} {{ case["input"]["endVerse"] }}
+    expected="{{ case.expected | join("\n") }}"
+    run bash {{ solution }} {{ case.input.startVerse }} {{ case.input.endVerse }}
     assert_success
     assert_output "$expected"
 }
 {% endfor %}
-@test 'no_arguments' {
+test_no_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }}
     assert_failure
     assert_output --partial "2 arguments expected"
 }
 
-@test 'too_many_arguments' {
+test_too_many_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 1 2 3
     assert_failure
     assert_output --partial "2 arguments expected"
 }
 
-@test 'wrong_order_arguments' {
+test_wrong_order_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 8 1
     assert_failure

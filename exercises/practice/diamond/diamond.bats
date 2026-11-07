@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:24+00:00
+# generated on 2026-11-06T16:21:37+00:00
 
-@test "Degenerate case with a single 'A' row" {
+test_degenerate_case_with_a_single_a_row() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="$(cat << EOT
 A
@@ -14,7 +14,7 @@ EOT
     assert_output "$expected"
 }
 
-@test "Degenerate case with no row containing 3 distinct groups of spaces" {
+test_degenerate_case_with_no_row_containing_3_distinct_groups_of_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="$(cat << EOT
  A 
@@ -27,7 +27,7 @@ EOT
     assert_output "$expected"
 }
 
-@test "Smallest non-degenerate case with odd diamond side length" {
+test_smallest_non_degenerate_case_with_odd_diamond_side_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="$(cat << EOT
   A  
@@ -42,7 +42,7 @@ EOT
     assert_output "$expected"
 }
 
-@test "Smallest non-degenerate case with even diamond side length" {
+test_smallest_non_degenerate_case_with_even_diamond_side_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="$(cat << EOT
    A   
@@ -59,7 +59,7 @@ EOT
     assert_output "$expected"
 }
 
-@test "Largest possible diamond" {
+test_largest_possible_diamond() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="$(cat << EOT
                          A                         
@@ -119,4 +119,3 @@ EOT
     assert_success
     assert_output "$expected"
 }
-

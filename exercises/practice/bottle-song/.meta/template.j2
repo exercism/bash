@@ -1,31 +1,31 @@
 {{ header }}
 {% for case in cases %}
-@test '{{ case["description"] }}' {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="\
-{{ case["expected"] | join("\n") }}"
-    run bash {{ solution }} {{ case["input"]["startBottles"] }} {{ case["input"]["takeDown"] }}
+{{ case.expected | join("\n") }}"
+    run bash {{ solution }} {{ case.input.startBottles }} {{ case.input.takeDown }}
     assert_success
     assert_output "$expected"
 }
 {% endfor %}
 
 # bash-specific tests: Input validation
-@test 'no_arguments' {
+test_no_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }}
     assert_failure
     assert_output --partial "2 arguments expected"
 }
 
-@test 'too_many_arguments' {
+test_too_many_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 1 2 3
     assert_failure
     assert_output --partial "2 arguments expected"
 }
 
-@test 'too_many_verses' {
+test_too_many_verses() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} 1 2
     assert_failure

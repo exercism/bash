@@ -1,58 +1,58 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-06T16:21:37+00:00
 
-@test "empty plaintext results in an empty ciphertext" {
+test_empty_plaintext_results_in_an_empty_ciphertext() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh ""
     assert_success
     assert_output ""
 }
 
-@test "normalization results in empty plaintext" {
+test_normalization_results_in_empty_plaintext() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "... --- ..."
     assert_success
     assert_output ""
 }
 
-@test "Lowercase" {
+test_lowercase() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "A"
     assert_success
     assert_output "a"
 }
 
-@test "Remove spaces" {
+test_remove_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "  b "
     assert_success
     assert_output "b"
 }
 
-@test "Remove punctuation" {
+test_remove_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "@1,%!"
     assert_success
     assert_output "1"
 }
 
-@test "9 character plaintext results in 3 chunks of 3 characters" {
+test_9_character_plaintext_results_in_3_chunks_of_3_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "This is fun!"
     assert_success
     assert_output "tsf hiu isn"
 }
 
-@test "8 character plaintext results in 3 chunks, the last one with a trailing space" {
+test_8_character_plaintext_results_in_3_chunks_the_last_one_with_a_trailing_space() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "Chill out."
     assert_success
     assert_output "clu hlt io "
 }
 
-@test "54 character plaintext results in 8 chunks, the last two with trailing spaces" {
+test_54_character_plaintext_results_in_8_chunks_the_last_two_with_trailing_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "If man was meant to stay on the ground, god would have given us roots."
     assert_success

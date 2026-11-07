@@ -1,15 +1,15 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-{%- if case["expect_error"] %}
-    expected="{{ case["expect_error_msg"] }}"
+{%- if case.expect_error %}
+    expected="{{ case.expect_error_msg }}"
 {%- else %}
-    expected="{{ case["expected"] | join(" ") }}"
+    expected="{{ case.expected | join(" ") }}"
 {%- endif %}
-    coins=({{ case["input"]["coins"] | join(" ") }})
-    run bash {{ solution }} {{ case["input"]["target"] }} "${coins[@]}"
-{%- if case["expect_error"] %}
+    coins=({{ case.input.coins | join(" ") }})
+    run bash {{ solution }} {{ case.input.target }} "${coins[@]}"
+{%- if case.expect_error %}
     assert_failure
     assert_output --partial "$expected"
 {%- else %}

@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-13T17:30:08+00:00
+# generated on 2026-11-06T16:26:10+00:00
 
 # usage: dnd_character.sh modifier n
 # -> output expected modifier
@@ -12,112 +12,112 @@ load bats-extra
 
 # ability modifier
 
-@test "ability modifier for score 3 is -4" {
+test_ability_modifier_ability_modifier_for_score_3_is_4() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 3
     assert_success
     assert_output "-4"
 }
 
-@test "ability modifier for score 4 is -3" {
+test_ability_modifier_ability_modifier_for_score_4_is_3() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 4
     assert_success
     assert_output "-3"
 }
 
-@test "ability modifier for score 5 is -3" {
+test_ability_modifier_ability_modifier_for_score_5_is_3() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 5
     assert_success
     assert_output "-3"
 }
 
-@test "ability modifier for score 6 is -2" {
+test_ability_modifier_ability_modifier_for_score_6_is_2() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 6
     assert_success
     assert_output "-2"
 }
 
-@test "ability modifier for score 7 is -2" {
+test_ability_modifier_ability_modifier_for_score_7_is_2() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 7
     assert_success
     assert_output "-2"
 }
 
-@test "ability modifier for score 8 is -1" {
+test_ability_modifier_ability_modifier_for_score_8_is_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 8
     assert_success
     assert_output "-1"
 }
 
-@test "ability modifier for score 9 is -1" {
+test_ability_modifier_ability_modifier_for_score_9_is_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 9
     assert_success
     assert_output "-1"
 }
 
-@test "ability modifier for score 10 is 0" {
+test_ability_modifier_ability_modifier_for_score_10_is_0() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 10
     assert_success
     assert_output "0"
 }
 
-@test "ability modifier for score 11 is 0" {
+test_ability_modifier_ability_modifier_for_score_11_is_0() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 11
     assert_success
     assert_output "0"
 }
 
-@test "ability modifier for score 12 is +1" {
+test_ability_modifier_ability_modifier_for_score_12_is_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 12
     assert_success
     assert_output "1"
 }
 
-@test "ability modifier for score 13 is +1" {
+test_ability_modifier_ability_modifier_for_score_13_is_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 13
     assert_success
     assert_output "1"
 }
 
-@test "ability modifier for score 14 is +2" {
+test_ability_modifier_ability_modifier_for_score_14_is_2() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 14
     assert_success
     assert_output "2"
 }
 
-@test "ability modifier for score 15 is +2" {
+test_ability_modifier_ability_modifier_for_score_15_is_2() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 15
     assert_success
     assert_output "2"
 }
 
-@test "ability modifier for score 16 is +3" {
+test_ability_modifier_ability_modifier_for_score_16_is_3() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 16
     assert_success
     assert_output "3"
 }
 
-@test "ability modifier for score 17 is +3" {
+test_ability_modifier_ability_modifier_for_score_17_is_3() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 17
     assert_success
     assert_output "3"
 }
 
-@test "ability modifier for score 18 is +4" {
+test_ability_modifier_ability_modifier_for_score_18_is_4() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh modifier 18
     assert_success
@@ -127,7 +127,7 @@ load bats-extra
 
 
 # generate a character, validate expected output
-@test "generate a character" {
+test_generate_a_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash dnd_character.sh generate
     assert_success
@@ -151,7 +151,7 @@ between() {
 }
 
 # random ability is within range
-@test "validate ability range and hitpoint value" {
+test_validate_ability_range_and_hitpoint_value() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     for _ in {1..50}; do
         while read -r c v; do
