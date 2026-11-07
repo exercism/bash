@@ -1,142 +1,142 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-07T00:51:50+00:00
 
-@test "paired square brackets" {
+test_paired_square_brackets() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "[]"
     assert_success
     assert_output "true"
 }
 
-@test "empty string" {
+test_empty_string() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh ""
     assert_success
     assert_output "true"
 }
 
-@test "unpaired brackets" {
+test_unpaired_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "[["
     assert_success
     assert_output "false"
 }
 
-@test "wrong ordered brackets" {
+test_wrong_ordered_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "}{"
     assert_success
     assert_output "false"
 }
 
-@test "wrong closing bracket" {
+test_wrong_closing_bracket() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{]"
     assert_success
     assert_output "false"
 }
 
-@test "paired with whitespace" {
+test_paired_with_whitespace() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{ }"
     assert_success
     assert_output "true"
 }
 
-@test "partially paired brackets" {
+test_partially_paired_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{[])"
     assert_success
     assert_output "false"
 }
 
-@test "simple nested brackets" {
+test_simple_nested_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{[]}"
     assert_success
     assert_output "true"
 }
 
-@test "several paired brackets" {
+test_several_paired_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{}[]"
     assert_success
     assert_output "true"
 }
 
-@test "paired and nested brackets" {
+test_paired_and_nested_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "([{}({}[])])"
     assert_success
     assert_output "true"
 }
 
-@test "unopened closing brackets" {
+test_unopened_closing_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{[)][]}"
     assert_success
     assert_output "false"
 }
 
-@test "unpaired and nested brackets" {
+test_unpaired_and_nested_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "([{])"
     assert_success
     assert_output "false"
 }
 
-@test "paired and wrong nested brackets" {
+test_paired_and_wrong_nested_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "[({]})"
     assert_success
     assert_output "false"
 }
 
-@test "paired and wrong nested brackets but innermost are correct" {
+test_paired_and_wrong_nested_brackets_but_innermost_are_correct() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "[({}])"
     assert_success
     assert_output "false"
 }
 
-@test "paired and incomplete brackets" {
+test_paired_and_incomplete_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{}["
     assert_success
     assert_output "false"
 }
 
-@test "too many closing brackets" {
+test_too_many_closing_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "[]]"
     assert_success
     assert_output "false"
 }
 
-@test "early unexpected brackets" {
+test_early_unexpected_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh ")()"
     assert_success
     assert_output "false"
 }
 
-@test "early mismatched brackets" {
+test_early_mismatched_brackets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "{)()"
     assert_success
     assert_output "false"
 }
 
-@test "math expression" {
+test_math_expression() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "(((185 + 223.85) * 15) - 543)/2"
     assert_success
     assert_output "true"
 }
 
-@test "complex latex expression" {
+test_complex_latex_expression() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash matching_brackets.sh "\left(\begin{array}{cc} \frac{1}{3} & x\\ \mathrm{e}^{x} &... x^2 \end{array}\right)"
     assert_success

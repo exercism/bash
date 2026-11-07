@@ -1,9 +1,9 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case["input"]["year"] }} {{ case["input"]["month"] }} {{ case["input"]["week"] }} {{ case["input"]["dayofweek"] }}
+    run bash {{ solution }} {{ case.input.year }} {{ case.input.month }} {{ case.input.week }} {{ case.input.dayofweek }}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {% endfor %}

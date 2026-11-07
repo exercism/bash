@@ -6,13 +6,13 @@ setup()    { export MD_FILE; MD_FILE=$( mktemp ); }
 teardown() { rm -f "$MD_FILE"; }
 
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     cat <<END > "$MD_FILE"
-{{ case["input"]["markdown"] }}
+{{ case.given }}
 END
     run bash {{ solution }} "$MD_FILE"
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {% endfor %}
