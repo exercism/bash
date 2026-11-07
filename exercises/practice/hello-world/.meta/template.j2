@@ -1,12 +1,12 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     run bash {{ solution }}
 
     # the program's exit status should be success (0)
     assert_success
 
     # program's output should be the expected text
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {% endfor %}

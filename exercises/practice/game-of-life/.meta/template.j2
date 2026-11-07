@@ -4,15 +4,15 @@ join() {
     echo "$*"
 }
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
-{%- for row in case["input"]["matrix"] %}
+{%- for row in case.given %}
         "{{ row | join("") }}"
 {%- endfor %}
     )
     expected_rows=(
-{%- for row in case["expected"] %}
+{%- for row in case.expected %}
         "{{ row | join("") }}"
 {%- endfor %}
     )

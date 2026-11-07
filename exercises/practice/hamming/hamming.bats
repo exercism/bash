@@ -1,79 +1,79 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-06T16:26:10+00:00
 
-@test 'empty strands' {
+test_empty_strands() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh '' ''
     assert_success
     assert_output "0"
 }
 
-@test 'single letter identical strands' {
+test_single_letter_identical_strands() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'A' 'A'
     assert_success
     assert_output "0"
 }
 
-@test 'single letter different strands' {
+test_single_letter_different_strands() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'G' 'T'
     assert_success
     assert_output "1"
 }
 
-@test 'long identical strands' {
+test_long_identical_strands() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'GGACTGAAATCTG' 'GGACTGAAATCTG'
     assert_success
     assert_output "0"
 }
 
-@test 'long different strands' {
+test_long_different_strands() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'GGACGGATTCTG' 'AGGACGGATTCT'
     assert_success
     assert_output "9"
 }
 
-@test 'disallow first strand longer' {
+test_disallow_first_strand_longer() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'AATG' 'AAA'
     assert_failure
     assert_output --partial "strands must be of equal length"
 }
 
-@test 'disallow second strand longer' {
+test_disallow_second_strand_longer() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'ATA' 'AGTG'
     assert_failure
     assert_output --partial "strands must be of equal length"
 }
 
-@test 'disallow empty first strand' {
+test_disallow_empty_first_strand() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh '' 'G'
     assert_failure
     assert_output --partial "strands must be of equal length"
 }
 
-@test 'disallow empty second strand' {
+test_disallow_empty_second_strand() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'G' ''
     assert_failure
     assert_output --partial "strands must be of equal length"
 }
 
-@test "no input" {
+test_no_input() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh
     assert_failure
     assert_output "Usage: hamming.sh <string1> <string2>"
 }
 
-@test "invalid input" {
+test_invalid_input() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'A'
     assert_failure
@@ -84,7 +84,7 @@ load bats-extra
 # To test for string equality, the right-hand side must be
 # quoted to prevent interpretation as a glob-style pattern.
 
-@test "expose subtle '[[ \$x == \$y ]]' bug" {
+test_expose_subtle_pattern_bug() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash hamming.sh 'AAA' 'A?A'
     assert_success
