@@ -7,7 +7,7 @@ c=0
 g=0
 t=0
 
-function end() {
+end() {
         echo "A: ${a}"
         echo "C: ${c}"
         echo "G: ${g}"

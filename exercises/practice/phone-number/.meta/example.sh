@@ -2,7 +2,7 @@
 
 correct_pattern="^1?[2-9][0-9]{2}[2-9][0-9]{6}$"
 
-function usage {
+usage() {
   echo "Usage: $0 <phone-number>"
   # echo "<phone-number>: [1]NXX-NXX-XXXX : N=[2-9], X=[0-9]"
 }

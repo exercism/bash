@@ -12,7 +12,7 @@ fi
 file1="/tmp/${$}_hamming_tmp1.txt"
 file2="/tmp/${$}_hamming_tmp2.txt"
 
-function __at_exit_cleanup {
+__at_exit_cleanup() {
   rm -f $file1
   rm -f $file2
 }
