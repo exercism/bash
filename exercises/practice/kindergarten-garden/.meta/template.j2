@@ -3,10 +3,10 @@
 # Note: using ANSI-C Quoting here
 # see https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} ${{ case["input"]["diagram"] | repr }} "{{ case["input"]["student"] }}"
+    run bash {{ solution }} ${{ case.input.diagram | repr }} "{{ case.input.student }}"
     assert_success
-    assert_output "{{ case["expected"] | join(" ") }}"
+    assert_output "{{ case.expected | join(" ") }}"
 }
 {% endfor %}
