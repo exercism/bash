@@ -1,0 +1,12 @@
+most_common_word() {
+    local -A counts
+    local word best="" best_count=0
+    for word in ${1,,}; do
+        (( counts[$word]++ ))
+        if (( counts[$word] > best_count )); then
+            best=$word
+            best_count=${counts[$word]}
+        fi
+    done
+    echo "\"$best\" appears $best_count times"
+}
