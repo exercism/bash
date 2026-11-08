@@ -1,12 +1,12 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} "{{ case["input"]["hands"] | join('" "') }}"
+    run bash {{ solution }} "{{ case.given | join('" "') }}"
     assert_success
-    {%- for hand in case["expected"] %}
+    {%- for hand in case.expected %}
     assert_line "{{ hand }}"
     {%- endfor %}
-    assert_equal "${{ "{" }}#lines[@]}" "{{ case["expected"] | length }}"
+    assert_equal "${{ "{" }}#lines[@]}" "{{ case.expected | length }}"
 }
 {% endfor %}

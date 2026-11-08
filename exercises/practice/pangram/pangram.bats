@@ -1,75 +1,74 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-08T06:23:17+00:00
 
-@test "empty sentence" {
+test_empty_sentence() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh ''
     assert_success
     assert_output "false"
 }
 
-@test "perfect lower case" {
+test_perfect_lower_case() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'abcdefghijklmnopqrstuvwxyz'
     assert_success
     assert_output "true"
 }
 
-@test "only lower case" {
+test_only_lower_case() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'the quick brown fox jumps over the lazy dog'
     assert_success
     assert_output "true"
 }
 
-@test "missing the letter 'x'" {
+test_missing_the_letter_x() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'a quick movement of the enemy will jeopardize five gunboats'
     assert_success
     assert_output "false"
 }
 
-@test "missing the letter 'h'" {
+test_missing_the_letter_h() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'five boxing wizards jump quickly at it'
     assert_success
     assert_output "false"
 }
 
-@test "with underscores" {
+test_with_underscores() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'the_quick_brown_fox_jumps_over_the_lazy_dog'
     assert_success
     assert_output "true"
 }
 
-@test "with numbers" {
+test_with_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'the 1 quick brown fox jumps over the 2 lazy dogs'
     assert_success
     assert_output "true"
 }
 
-@test "missing letters replaced by numbers" {
+test_missing_letters_replaced_by_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh '7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog'
     assert_success
     assert_output "false"
 }
 
-@test "mixed case and punctuation" {
+test_mixed_case_and_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh '"Five quacking Zephyrs jolt my wax bed."'
     assert_success
     assert_output "true"
 }
 
-@test "a-m and A-M are 26 different characters but not a pangram" {
+test_a_m_and_a_m_are_26_different_characters_but_not_a_pangram() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pangram.sh 'abcdefghijklm ABCDEFGHIJKLM'
     assert_success
     assert_output "false"
 }
-

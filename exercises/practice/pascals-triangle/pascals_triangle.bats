@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T18:47:35+00:00
+# generated on 2026-11-07T00:51:50+00:00
 
-@test "zero rows" {
+test_zero_rows() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 END
@@ -13,7 +13,7 @@ END
     assert_output "$expected"
 }
 
-@test "single row" {
+test_single_row() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 1
@@ -24,7 +24,7 @@ END
     assert_output "$expected"
 }
 
-@test "two rows" {
+test_two_rows() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
  1
@@ -36,7 +36,7 @@ END
     assert_output "$expected"
 }
 
-@test "three rows" {
+test_three_rows() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
   1
@@ -49,7 +49,7 @@ END
     assert_output "$expected"
 }
 
-@test "four rows" {
+test_four_rows() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
    1
@@ -63,7 +63,7 @@ END
     assert_output "$expected"
 }
 
-@test "five rows" {
+test_five_rows() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
     1
@@ -78,7 +78,7 @@ END
     assert_output "$expected"
 }
 
-@test "six rows" {
+test_six_rows() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
      1
@@ -94,7 +94,7 @@ END
     assert_output "$expected"
 }
 
-@test "ten rows" {
+test_ten_rows() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
          1

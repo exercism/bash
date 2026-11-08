@@ -1,14 +1,14 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-{%- if case["expected"] %}
-{{ case["expected"] | join("\n") }}
+{%- if case.expected %}
+{{ case.expected | join("\n") }}
 {%- endif %}
 END
 )
-    run bash {{ ([solution] + case["input"]["strings"]) | join(" ") }}
+    run bash {{ ([solution] + case.given) | join(" ") }}
     assert_success
     assert_output "$expected"
 }
@@ -17,7 +17,7 @@ END
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "items with whitespace" {
+test_items_with_whitespace() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a rusty nail the horse shoe was lost.
@@ -29,7 +29,7 @@ END
     assert_output "$expected"
 }
 
-@test "shell globbing character" {
+test_shell_globbing_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a quotes the * was lost.
