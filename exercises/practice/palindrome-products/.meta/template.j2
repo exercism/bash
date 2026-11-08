@@ -1,26 +1,26 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case["property"] }} {{ case["input"]["min"] }} {{ case["input"]["max"] }}
-{%- if case["expect_error"] %}
+    run bash {{ solution }} {{ case.property }} {{ case.input.min }} {{ case.input.max }}
+{%- if case.expect_error %}
     assert_failure
-    assert_output --partial "{{ case["expect_error_msg"] }}"
-{%- elif case["expected"]["value"] == None %}
+    assert_output --partial "{{ case.expect_error_msg }}"
+{%- elif case.expected.value == None %}
     assert_success
     refute_output
 {%- else %}
     assert_success
     # starts with the palindrome
-    assert_output --regexp "^{{ case["expected"]["value"] }}:"
+    assert_output --regexp "^{{ case.expected.value }}:"
     # contains the factors
-    {%- for factors in case["expected"]["factors"] %}
+    {%- for factors in case.expected.factors %}
     assert_output --partial "{{ factors | tojson(separators=None) }}"
     {%- endfor %}
 {%- endif %}
 }
 {% endfor %}
-@test "error result for first param" {
+test_error_result_for_first_param() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash palindrome_products.sh foo 2 3
     assert_failure

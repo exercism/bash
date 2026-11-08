@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-07T00:51:50+00:00
 
-@test "no factors" {
+test_no_factors() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash prime_factors.sh 1
@@ -11,7 +11,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "prime number" {
+test_prime_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2"
     run bash prime_factors.sh 2
@@ -19,7 +19,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "another prime number" {
+test_another_prime_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3"
     run bash prime_factors.sh 3
@@ -27,7 +27,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "square of a prime" {
+test_square_of_a_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3 3"
     run bash prime_factors.sh 9
@@ -35,7 +35,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "product of first prime" {
+test_product_of_first_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 2"
     run bash prime_factors.sh 4
@@ -43,7 +43,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "cube of a prime" {
+test_cube_of_a_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 2 2"
     run bash prime_factors.sh 8
@@ -51,7 +51,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "product of second prime" {
+test_product_of_second_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3 3 3"
     run bash prime_factors.sh 27
@@ -59,7 +59,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "product of third prime" {
+test_product_of_third_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="5 5 5 5"
     run bash prime_factors.sh 625
@@ -67,7 +67,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "product of first and second prime" {
+test_product_of_first_and_second_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 3"
     run bash prime_factors.sh 6
@@ -75,7 +75,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "product of primes and non-primes" {
+test_product_of_primes_and_non_primes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 2 3"
     run bash prime_factors.sh 12
@@ -83,7 +83,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "product of primes" {
+test_product_of_primes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="5 17 23 461"
     run bash prime_factors.sh 901255
@@ -91,7 +91,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "factors include a large prime" {
+test_factors_include_a_large_prime() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="11 9539 894119"
     run bash prime_factors.sh 93819012551

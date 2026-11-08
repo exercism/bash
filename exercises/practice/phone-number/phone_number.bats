@@ -1,131 +1,130 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-07T00:51:50+00:00
 
-@test "cleans the number" {
+test_cleans_the_number() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "(223) 456-7890"
     assert_success
     assert_output "2234567890"
 }
 
-@test "cleans numbers with dots" {
+test_cleans_numbers_with_dots() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "223.456.7890"
     assert_success
     assert_output "2234567890"
 }
 
-@test "cleans numbers with multiple spaces" {
+test_cleans_numbers_with_multiple_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "223 456   7890   "
     assert_success
     assert_output "2234567890"
 }
 
-@test "invalid when 9 digits" {
+test_invalid_when_9_digits() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "123456789"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid when 11 digits does not start with a 1" {
+test_invalid_when_11_digits_does_not_start_with_a_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "22234567890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "valid when 11 digits and starting with 1" {
+test_valid_when_11_digits_and_starting_with_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "12234567890"
     assert_success
     assert_output "2234567890"
 }
 
-@test "valid when 11 digits and starting with 1 even with punctuation" {
+test_valid_when_11_digits_and_starting_with_1_even_with_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "+1 (223) 456-7890"
     assert_success
     assert_output "2234567890"
 }
 
-@test "invalid when more than 11 digits" {
+test_invalid_when_more_than_11_digits() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "321234567890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid with letters" {
+test_invalid_with_letters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "523-abc-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid with punctuations" {
+test_invalid_with_punctuations() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "523-@:!-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if area code starts with 0" {
+test_invalid_if_area_code_starts_with_0() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "(023) 456-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if area code starts with 1" {
+test_invalid_if_area_code_starts_with_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "(123) 456-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if exchange code starts with 0" {
+test_invalid_if_exchange_code_starts_with_0() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "(223) 056-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if exchange code starts with 1" {
+test_invalid_if_exchange_code_starts_with_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "(223) 156-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if area code starts with 0 on valid 11-digit number" {
+test_invalid_if_area_code_starts_with_0_on_valid_11_digit_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "1 (023) 456-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if area code starts with 1 on valid 11-digit number" {
+test_invalid_if_area_code_starts_with_1_on_valid_11_digit_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "1 (123) 456-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if exchange code starts with 0 on valid 11-digit number" {
+test_invalid_if_exchange_code_starts_with_0_on_valid_11_digit_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "1 (223) 056-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
 
-@test "invalid if exchange code starts with 1 on valid 11-digit number" {
+test_invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash phone_number.sh "1 (223) 156-7890"
     assert_failure
     assert_output "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9"
 }
-

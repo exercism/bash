@@ -1,163 +1,163 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-04T19:37:08+00:00
+# generated on 2026-11-07T00:51:50+00:00
 
-@test "word beginning with a" {
+test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_a() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh apple
     assert_success
     assert_output "appleay"
 }
 
-@test "word beginning with e" {
+test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_e() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh ear
     assert_success
     assert_output "earay"
 }
 
-@test "word beginning with i" {
+test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_i() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh igloo
     assert_success
     assert_output "iglooay"
 }
 
-@test "word beginning with o" {
+test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_o() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh object
     assert_success
     assert_output "objectay"
 }
 
-@test "word beginning with u" {
+test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_u() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh under
     assert_success
     assert_output "underay"
 }
 
-@test "word beginning with a vowel and followed by a qu" {
+test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_a_vowel_and_followed_by_a_qu() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh equal
     assert_success
     assert_output "equalay"
 }
 
-@test "word beginning with p" {
+test_first_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants_word_beginning_with_p() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh pig
     assert_success
     assert_output "igpay"
 }
 
-@test "word beginning with k" {
+test_first_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants_word_beginning_with_k() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh koala
     assert_success
     assert_output "oalakay"
 }
 
-@test "word beginning with x" {
+test_first_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants_word_beginning_with_x() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh xenon
     assert_success
     assert_output "enonxay"
 }
 
-@test "word beginning with q without a following u" {
+test_first_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants_word_beginning_with_q_without_a_following_u() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh qat
     assert_success
     assert_output "atqay"
 }
 
-@test "word beginning with consonant and vowel containing qu" {
+test_first_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants_word_beginning_with_consonant_and_vowel_containing_qu() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh liquid
     assert_success
     assert_output "iquidlay"
 }
 
-@test "word beginning with ch" {
+test_some_letter_clusters_are_treated_like_a_single_consonant_word_beginning_with_ch() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh chair
     assert_success
     assert_output "airchay"
 }
 
-@test "word beginning with qu" {
+test_some_letter_clusters_are_treated_like_a_single_consonant_word_beginning_with_qu() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh queen
     assert_success
     assert_output "eenquay"
 }
 
-@test "word beginning with qu and a preceding consonant" {
+test_some_letter_clusters_are_treated_like_a_single_consonant_word_beginning_with_qu_and_a_preceding_consonant() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh square
     assert_success
     assert_output "aresquay"
 }
 
-@test "word beginning with th" {
+test_some_letter_clusters_are_treated_like_a_single_consonant_word_beginning_with_th() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh therapy
     assert_success
     assert_output "erapythay"
 }
 
-@test "word beginning with thr" {
+test_some_letter_clusters_are_treated_like_a_single_consonant_word_beginning_with_thr() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh thrush
     assert_success
     assert_output "ushthray"
 }
 
-@test "word beginning with sch" {
+test_some_letter_clusters_are_treated_like_a_single_consonant_word_beginning_with_sch() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh school
     assert_success
     assert_output "oolschay"
 }
 
-@test "word beginning with yt" {
+test_some_letter_clusters_are_treated_like_a_single_vowel_word_beginning_with_yt() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh yttria
     assert_success
     assert_output "yttriaay"
 }
 
-@test "word beginning with xr" {
+test_some_letter_clusters_are_treated_like_a_single_vowel_word_beginning_with_xr() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh xray
     assert_success
     assert_output "xrayay"
 }
 
-@test "y is treated like a consonant at the beginning of a word" {
+test_position_of_y_in_a_word_determines_if_it_is_a_consonant_or_a_vowel_y_is_treated_like_a_consonant_at_the_beginning_of_a_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh yellow
     assert_success
     assert_output "ellowyay"
 }
 
-@test "y is treated like a vowel at the end of a consonant cluster" {
+test_position_of_y_in_a_word_determines_if_it_is_a_consonant_or_a_vowel_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh rhythm
     assert_success
     assert_output "ythmrhay"
 }
 
-@test "y as second letter in two letter word" {
+test_position_of_y_in_a_word_determines_if_it_is_a_consonant_or_a_vowel_y_as_second_letter_in_two_letter_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh my
     assert_success
     assert_output "ymay"
 }
 
-@test "a whole phrase" {
+test_phrases_are_translated_a_whole_phrase() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh why do squids enjoy xrays
     assert_success
@@ -168,7 +168,7 @@ load bats-extra
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "shell globbing" {
+test_shell_globbing() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pig_latin.sh "pig*"
     assert_success

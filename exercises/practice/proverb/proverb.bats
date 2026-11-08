@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-07T00:52:45+00:00
 
-@test "zero pieces" {
+test_zero_pieces() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 END
@@ -13,7 +13,7 @@ END
     assert_output "$expected"
 }
 
-@test "one piece" {
+test_one_piece() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 And all for the want of a nail.
@@ -24,7 +24,7 @@ END
     assert_output "$expected"
 }
 
-@test "two pieces" {
+test_two_pieces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a nail the shoe was lost.
@@ -36,7 +36,7 @@ END
     assert_output "$expected"
 }
 
-@test "three pieces" {
+test_three_pieces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a nail the shoe was lost.
@@ -49,7 +49,7 @@ END
     assert_output "$expected"
 }
 
-@test "full proverb" {
+test_full_proverb() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a nail the shoe was lost.
@@ -66,7 +66,7 @@ END
     assert_output "$expected"
 }
 
-@test "four pieces modernized" {
+test_four_pieces_modernized() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a pin the gun was lost.
@@ -84,7 +84,7 @@ END
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "items with whitespace" {
+test_items_with_whitespace() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a rusty nail the horse shoe was lost.
@@ -96,7 +96,7 @@ END
     assert_output "$expected"
 }
 
-@test "shell globbing character" {
+test_shell_globbing_character() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 For want of a quotes the * was lost.

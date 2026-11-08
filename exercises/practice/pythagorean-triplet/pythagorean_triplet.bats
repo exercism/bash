@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-30T03:19:10+00:00
+# generated on 2026-11-08T06:25:39+00:00
 
-@test "triplets whose sum is 12" {
+test_triplets_whose_sum_is_12() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pythagorean_triplet.sh 12
     assert_success
@@ -15,7 +15,7 @@ END_EXPECTED
     assert_equal "$actual" "$expected"
 }
 
-@test "triplets whose sum is 108" {
+test_triplets_whose_sum_is_108() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pythagorean_triplet.sh 108
     assert_success
@@ -27,7 +27,7 @@ END_EXPECTED
     assert_equal "$actual" "$expected"
 }
 
-@test "triplets whose sum is 1000" {
+test_triplets_whose_sum_is_1000() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pythagorean_triplet.sh 1000
     assert_success
@@ -39,7 +39,7 @@ END_EXPECTED
     assert_equal "$actual" "$expected"
 }
 
-@test "no matching triplets for 1001" {
+test_no_matching_triplets_for_1001() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pythagorean_triplet.sh 1001
     assert_success
@@ -51,7 +51,7 @@ END_EXPECTED
     assert_equal "$actual" "$expected"
 }
 
-@test "returns all matching triplets" {
+test_returns_all_matching_triplets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pythagorean_triplet.sh 90
     assert_success
@@ -64,7 +64,7 @@ END_EXPECTED
     assert_equal "$actual" "$expected"
 }
 
-@test "several matching triplets" {
+test_several_matching_triplets() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash pythagorean_triplet.sh 840
     assert_success
@@ -83,7 +83,7 @@ END_EXPECTED
     assert_equal "$actual" "$expected"
 }
 
-@test "triplets for large number" {
+test_triplets_for_large_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     # This test is very time-consuming for a brute force solution.

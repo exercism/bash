@@ -1,14 +1,14 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-{%- for row in case["expected"] %}
-{{ row | join(" ") | indent((case["expected"] | length) - loop.index, first=True) }}
+{%- for row in case.expected %}
+{{ row | join(" ") | indent((case.expected | length) - loop.index, first=True) }}
 {%- endfor %}
 END
 )
-    run bash {{ solution }} {{ case["input"]["count"] }}
+    run bash {{ solution }} {{ case.given }}
     assert_success
     assert_output "$expected"
 }
