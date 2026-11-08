@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-07T07:50:02+00:00
+# generated on 2026-11-08T06:23:17+00:00
 
 test_recognizes_0() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -194,7 +194,7 @@ INPUT
     assert_output "1234567890"
 }
 
-test_numbers_separated_by_empty_lines_are_recognized_lines_are_joined_by_commas_() { # @test
+test_numbers_separated_by_empty_lines_are_recognized_lines_are_joined_by_commas() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash ocr_numbers.sh << INPUT
     _  _ 

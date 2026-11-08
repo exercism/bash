@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-07T07:50:02+00:00
+# generated on 2026-11-08T06:23:17+00:00
 
 # Usage: knapsack.sh max_wt [items ...]
 # where: items look like "weight:value"
@@ -25,14 +25,14 @@ test_one_item_too_heavy() { # @test
     assert_output "0"
 }
 
-test_five_items_cannot_be_greedy_by_weight_() { # @test
+test_five_items_cannot_be_greedy_by_weight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash knapsack.sh 10 2:5 2:5 2:5 2:5 10:21
     assert_success
     assert_output "21"
 }
 
-test_five_items_cannot_be_greedy_by_value_() { # @test
+test_five_items_cannot_be_greedy_by_value() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash knapsack.sh 10 2:20 2:20 2:20 2:20 10:50
     assert_success

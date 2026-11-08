@@ -1,205 +1,205 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "Yacht" {
+test_yacht() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "yacht" 5 5 5 5 5
     assert_success
     assert_output "50"
 }
 
-@test "Not Yacht" {
+test_not_yacht() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "yacht" 1 3 3 2 5
     assert_success
     assert_output "0"
 }
 
-@test "Ones" {
+test_ones() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "ones" 1 1 1 3 5
     assert_success
     assert_output "3"
 }
 
-@test "Ones, out of order" {
+test_ones_out_of_order() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "ones" 3 1 1 5 1
     assert_success
     assert_output "3"
 }
 
-@test "No ones" {
+test_no_ones() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "ones" 4 3 6 5 5
     assert_success
     assert_output "0"
 }
 
-@test "Twos" {
+test_twos() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "twos" 2 3 4 5 6
     assert_success
     assert_output "2"
 }
 
-@test "Fours" {
+test_fours() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "fours" 1 4 1 4 1
     assert_success
     assert_output "8"
 }
 
-@test "Yacht counted as threes" {
+test_yacht_counted_as_threes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "threes" 3 3 3 3 3
     assert_success
     assert_output "15"
 }
 
-@test "Yacht of 3s counted as fives" {
+test_yacht_of_3s_counted_as_fives() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "fives" 3 3 3 3 3
     assert_success
     assert_output "0"
 }
 
-@test "Fives" {
+test_fives() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "fives" 1 5 3 5 3
     assert_success
     assert_output "10"
 }
 
-@test "Sixes" {
+test_sixes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "sixes" 2 3 4 5 6
     assert_success
     assert_output "6"
 }
 
-@test "Full house two small, three big" {
+test_full_house_two_small_three_big() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "full house" 2 2 4 4 4
     assert_success
     assert_output "16"
 }
 
-@test "Full house three small, two big" {
+test_full_house_three_small_two_big() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "full house" 5 3 3 5 3
     assert_success
     assert_output "19"
 }
 
-@test "Two pair is not a full house" {
+test_two_pair_is_not_a_full_house() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "full house" 2 2 4 4 5
     assert_success
     assert_output "0"
 }
 
-@test "Four of a kind is not a full house" {
+test_four_of_a_kind_is_not_a_full_house() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "full house" 1 4 4 4 4
     assert_success
     assert_output "0"
 }
 
-@test "Yacht is not a full house" {
+test_yacht_is_not_a_full_house() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "full house" 2 2 2 2 2
     assert_success
     assert_output "0"
 }
 
-@test "Four of a Kind" {
+test_four_of_a_kind() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "four of a kind" 6 6 4 6 6
     assert_success
     assert_output "24"
 }
 
-@test "Yacht can be scored as Four of a Kind" {
+test_yacht_can_be_scored_as_four_of_a_kind() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "four of a kind" 3 3 3 3 3
     assert_success
     assert_output "12"
 }
 
-@test "Full house is not Four of a Kind" {
+test_full_house_is_not_four_of_a_kind() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "four of a kind" 3 3 3 5 5
     assert_success
     assert_output "0"
 }
 
-@test "Little Straight" {
+test_little_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "little straight" 3 5 4 1 2
     assert_success
     assert_output "30"
 }
 
-@test "Little Straight as Big Straight" {
+test_little_straight_as_big_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "big straight" 1 2 3 4 5
     assert_success
     assert_output "0"
 }
 
-@test "Four in order but not a little straight" {
+test_four_in_order_but_not_a_little_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "little straight" 1 1 2 3 4
     assert_success
     assert_output "0"
 }
 
-@test "No pairs but not a little straight" {
+test_no_pairs_but_not_a_little_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "little straight" 1 2 3 4 6
     assert_success
     assert_output "0"
 }
 
-@test "Minimum is 1, maximum is 5, but not a little straight" {
+test_minimum_is_1_maximum_is_5_but_not_a_little_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "little straight" 1 1 3 4 5
     assert_success
     assert_output "0"
 }
 
-@test "Big Straight" {
+test_big_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "big straight" 4 6 2 5 3
     assert_success
     assert_output "30"
 }
 
-@test "Big Straight as little straight" {
+test_big_straight_as_little_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "little straight" 6 5 4 3 2
     assert_success
     assert_output "0"
 }
 
-@test "No pairs but not a big straight" {
+test_no_pairs_but_not_a_big_straight() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "big straight" 6 5 4 3 1
     assert_success
     assert_output "0"
 }
 
-@test "Choice" {
+test_choice() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "choice" 3 3 5 6 6
     assert_success
     assert_output "23"
 }
 
-@test "Yacht as choice" {
+test_yacht_as_choice() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash yacht.sh "choice" 2 2 2 2 2
     assert_success
