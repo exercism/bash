@@ -1,44 +1,44 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "encode with two rails" {
+test_encode_encode_with_two_rails() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -e 2 "XOXOXOXOXOXOXOXOXO"
     assert_success
     assert_output "XXXXXXXXXOOOOOOOOO"
 }
 
-@test "encode with three rails" {
+test_encode_encode_with_three_rails() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -e 3 "WEAREDISCOVEREDFLEEATONCE"
     assert_success
     assert_output "WECRLTEERDSOEEFEAOCAIVDEN"
 }
 
-@test "encode with ending in the middle" {
+test_encode_encode_with_ending_in_the_middle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -e 4 "EXERCISES"
     assert_success
     assert_output "ESXIEECSR"
 }
 
-@test "decode with three rails" {
+test_decode_decode_with_three_rails() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -d 3 "TEITELHDVLSNHDTISEIIEA"
     assert_success
     assert_output "THEDEVILISINTHEDETAILS"
 }
 
-@test "decode with five rails" {
+test_decode_decode_with_five_rails() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -d 5 "EIEXMSMESAORIWSCE"
     assert_success
     assert_output "EXERCISMISAWESOME"
 }
 
-@test "decode with six rails" {
+test_decode_decode_with_six_rails() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -d 6 "133714114238148966225439541018335470986172518171757571896261"
     assert_success
@@ -47,21 +47,21 @@ load bats-extra
 
 # Track specific tests
 
-@test "encode with more rails than text" {
+test_encode_with_more_rails_than_text () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -e 10 "hello"
     assert_success
     assert_output "hello"
 }
 
-@test "decode with more rails than text" {
+test_decode_with_more_rails_than_text () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -d 10 "hello"
     assert_success
     assert_output "hello"
 }
 
-@test "decode the encoded text yields the original" {
+test_decode_the_encoded_text_yields_the_original () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     plaintext="the quick brown fox jumped over the lazy dogs"
     rails=5
@@ -75,21 +75,21 @@ load bats-extra
 
 # Invocation errors
 
-@test "no options" {
+test_no_options () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test "zero rails" {
+test_zero_rails () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -e 0 abc
     assert_failure
     assert_output    # there is _some_ output
 }
 
-@test "negative rails" {
+test_negative_rails () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rail_fence_cipher.sh -d -2 abc
     assert_failure

@@ -1,23 +1,23 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "no rows" {
+test_no_rows() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh
     assert_success
     assert_output "0"
 }
 
-@test "no columns" {
+test_no_columns() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<<""
     assert_success
     assert_output "0"
 }
 
-@test "no rectangles" {
+test_no_rectangles() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
  
@@ -26,7 +26,7 @@ INPUT
     assert_output "0"
 }
 
-@test "one rectangle" {
+test_one_rectangle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 +-+
@@ -37,7 +37,7 @@ INPUT
     assert_output "1"
 }
 
-@test "two rectangles without shared parts" {
+test_two_rectangles_without_shared_parts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
   +-+
@@ -50,7 +50,7 @@ INPUT
     assert_output "2"
 }
 
-@test "five rectangles with shared parts" {
+test_five_rectangles_with_shared_parts() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
   +-+
@@ -63,7 +63,7 @@ INPUT
     assert_output "5"
 }
 
-@test "rectangle of height 1 is counted" {
+test_rectangle_of_height_1_is_counted() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 +--+
@@ -73,7 +73,7 @@ INPUT
     assert_output "1"
 }
 
-@test "rectangle of width 1 is counted" {
+test_rectangle_of_width_1_is_counted() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 ++
@@ -84,7 +84,7 @@ INPUT
     assert_output "1"
 }
 
-@test "1x1 square is counted" {
+test_1x1_square_is_counted() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 ++
@@ -94,7 +94,7 @@ INPUT
     assert_output "1"
 }
 
-@test "only complete rectangles are counted" {
+test_only_complete_rectangles_are_counted() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
   +-+
@@ -107,7 +107,7 @@ INPUT
     assert_output "1"
 }
 
-@test "rectangles can be of different sizes" {
+test_rectangles_can_be_of_different_sizes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 +------+----+
@@ -120,7 +120,7 @@ INPUT
     assert_output "3"
 }
 
-@test "corner is required for a rectangle to be complete" {
+test_corner_is_required_for_a_rectangle_to_be_complete() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 +------+----+
@@ -133,7 +133,7 @@ INPUT
     assert_output "2"
 }
 
-@test "large input with many rectangles" {
+test_large_input_with_many_rectangles() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 +---+--+----+
@@ -149,7 +149,7 @@ INPUT
     assert_output "60"
 }
 
-@test "rectangles must have four sides" {
+test_rectangles_must_have_four_sides() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rectangles.sh <<INPUT
 +-+ +-+

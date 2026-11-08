@@ -1,17 +1,17 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-{%- if case["description"] == "no rows" %}
+{%- if case.description == "no rows" %}
     run bash {{ solution }}
-{%- elif case["description"] == "no columns" %}
+{%- elif case.description == "no columns" %}
     run bash {{ solution }} <<<""
 {%- else %}
     run bash {{ solution }} <<INPUT
-{{ case["input"]["strings"] | join("\n") }}
+{{ case.given | join("\n") }}
 INPUT
 {%- endif %}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {% endfor %}

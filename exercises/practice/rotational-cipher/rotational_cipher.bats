@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "rotate a by 0, same output as input" {
+test_rotate_a_by_0_same_output_as_input() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="a"
     run bash rotational_cipher.sh "a" 0
@@ -11,7 +11,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate a by 1" {
+test_rotate_a_by_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="b"
     run bash rotational_cipher.sh "a" 1
@@ -19,7 +19,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate a by 26, same output as input" {
+test_rotate_a_by_26_same_output_as_input() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="a"
     run bash rotational_cipher.sh "a" 26
@@ -27,7 +27,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate m by 13" {
+test_rotate_m_by_13() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="z"
     run bash rotational_cipher.sh "m" 13
@@ -35,7 +35,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate n by 13 with wrap around alphabet" {
+test_rotate_n_by_13_with_wrap_around_alphabet() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="a"
     run bash rotational_cipher.sh "n" 13
@@ -43,7 +43,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate capital letters" {
+test_rotate_capital_letters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="TRL"
     run bash rotational_cipher.sh "OMG" 5
@@ -51,7 +51,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate spaces" {
+test_rotate_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="T R L"
     run bash rotational_cipher.sh "O M G" 5
@@ -59,7 +59,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate numbers" {
+test_rotate_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Xiwxmrk 1 2 3 xiwxmrk"
     run bash rotational_cipher.sh "Testing 1 2 3 testing" 4
@@ -67,7 +67,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate punctuation" {
+test_rotate_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Gzo'n zvo, Bmviyhv!"
     run bash rotational_cipher.sh "Let's eat, Grandma!" 21
@@ -75,7 +75,7 @@ load bats-extra
     assert_output "$expected"
 }
 
-@test "rotate all letters" {
+test_rotate_all_letters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Gur dhvpx oebja sbk whzcf bire gur ynml qbt."
     run bash rotational_cipher.sh "The quick brown fox jumps over the lazy dog." 13

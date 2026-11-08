@@ -1,65 +1,65 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "Empty RNA sequence" {
+test_empty_rna_sequence() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh ""
     assert_success
     assert_output ""
 }
 
-@test "RNA complement of cytosine is guanine" {
+test_rna_complement_of_cytosine_is_guanine() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh "C"
     assert_success
     assert_output "G"
 }
 
-@test "RNA complement of guanine is cytosine" {
+test_rna_complement_of_guanine_is_cytosine() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh "G"
     assert_success
     assert_output "C"
 }
 
-@test "RNA complement of thymine is adenine" {
+test_rna_complement_of_thymine_is_adenine() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh "T"
     assert_success
     assert_output "A"
 }
 
-@test "RNA complement of adenine is uracil" {
+test_rna_complement_of_adenine_is_uracil() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh "A"
     assert_success
     assert_output "U"
 }
 
-@test "RNA complement" {
+test_rna_complement() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh "ACGTGGTCTTAA"
     assert_success
     assert_output "UGCACCAGAAUU"
 }
 
-@test "Handles invalid character" {
+test_handles_invalid_character () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh ACGTXCTTA
     assert_failure
     assert_output "Invalid nucleotide detected."
 }
 
-@test "Handles completely invalid string" {
+test_handles_completely_invalid_string () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh XXXX
     assert_failure
     assert_output "Invalid nucleotide detected."
 }
 
-@test "Handles partially invalid string" {
+test_handles_partially_invalid_string () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh ACGTXCTTAA
     assert_failure

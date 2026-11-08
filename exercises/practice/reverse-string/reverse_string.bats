@@ -1,44 +1,44 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:24+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "an empty string" {
+test_an_empty_string() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh ""
     assert_success
     assert_output ""
 }
 
-@test "a word" {
+test_a_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh "robot"
     assert_success
     assert_output "tobor"
 }
 
-@test "a capitalized word" {
+test_a_capitalized_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh "Ramen"
     assert_success
     assert_output "nemaR"
 }
 
-@test "a sentence with punctuation" {
+test_a_sentence_with_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh "I'm hungry!"
     assert_success
     assert_output "!yrgnuh m'I"
 }
 
-@test "a palindrome" {
+test_a_palindrome() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh "racecar"
     assert_success
     assert_output "racecar"
 }
 
-@test "an even-sized word" {
+test_an_even_sized_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh "drawer"
     assert_success
@@ -49,7 +49,7 @@ load bats-extra
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "avoid globbing" {
+test_avoid_globbing() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash reverse_string.sh " a *  b"
 
