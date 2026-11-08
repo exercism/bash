@@ -1,19 +1,19 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-{{ case["expected"] | join("\n") }}
+{{ case.expected | join("\n") }}
 END
 )
-    run bash {{ solution }} {{ case["input"]["startVerse"] }} {{ case["input"]["endVerse"] }}
+    run bash {{ solution }} {{ case.input.startVerse }} {{ case.input.endVerse }}
     assert_success
     assert_output "$expected"
 }
 {% endfor %}
 
 {%- for start, end in [(0, 12), (1, -1), (14, 12), (1, 13)] %}
-@test "invalid verse {{ loop.index }}" {
+test_test_invalid_verse_{{ loop.index }}() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} {{ start }} {{ end }}
     assert_failure

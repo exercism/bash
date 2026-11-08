@@ -1,13 +1,13 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-06T22:03:12+00:00
 join() {
     local IFS=$'\n'
     echo "$*"
 }
 
-@test "empty matrix" {
+test_empty_matrix() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
     )
@@ -19,7 +19,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "live cells with zero live neighbors die" {
+test_live_cells_with_zero_live_neighbors_die() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "000"
@@ -37,7 +37,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "live cells with only one live neighbor die" {
+test_live_cells_with_only_one_live_neighbor_die() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "000"
@@ -55,7 +55,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "live cells with two live neighbors stay alive" {
+test_live_cells_with_two_live_neighbors_stay_alive() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "101"
@@ -73,7 +73,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "live cells with three live neighbors stay alive" {
+test_live_cells_with_three_live_neighbors_stay_alive() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "010"
@@ -91,7 +91,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "dead cells with three live neighbors become alive" {
+test_dead_cells_with_three_live_neighbors_become_alive() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "110"
@@ -109,7 +109,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "live cells with four or more neighbors die" {
+test_live_cells_with_four_or_more_neighbors_die() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "111"
@@ -127,7 +127,7 @@ join() {
     assert_output "$expected_string"
 }
 
-@test "bigger matrix" {
+test_bigger_matrix() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "11011000"
