@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-09-13T19:12:55+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "Initially 9 failures are allowed and no letters are guessed" {
+test_initially_9_failures_are_allowed_and_no_letters_are_guessed() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" ""
     expected="$(cat << EXPECTED
@@ -17,7 +17,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "After 10 failures the game is over" {
+test_after_10_failures_the_game_is_over() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
     expected="$(cat << EXPECTED
@@ -31,7 +31,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Losing with several correct guesses" {
+test_losing_with_several_correct_guesses() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t" "o" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
     expected="$(cat << EXPECTED
@@ -45,7 +45,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Feeding a correct letter removes underscores" {
+test_feeding_a_correct_letter_removes_underscores() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t"
     expected="$(cat << EXPECTED
@@ -59,7 +59,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Feeding a correct letter twice counts as a failure" {
+test_feeding_a_correct_letter_twice_counts_as_a_failure() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t" "t"
     expected="$(cat << EXPECTED
@@ -73,7 +73,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Guessing a repeated letter reveals all instances" {
+test_guessing_a_repeated_letter_reveals_all_instances() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t" "t" "o"
     expected="$(cat << EXPECTED
@@ -87,7 +87,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Getting all the letters right makes for a win" {
+test_getting_all_the_letters_right_makes_for_a_win() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t" "t" "o" "l"
     expected="$(cat << EXPECTED
@@ -101,7 +101,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Winning on the last guess is still a win" {
+test_winning_on_the_last_guess_is_still_a_win() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "a" "b" "c" "d" "e" "f" "g" "h" "i" "t" "o" "l"
     expected="$(cat << EXPECTED
@@ -115,17 +115,16 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "Guessing after a lose is error" {
+test_guessing_after_a_lose_is_error() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k"
     assert_failure
     assert_output "cannot guess after the game is lost"
 }
 
-@test "Guessing after a win is error" {
+test_guessing_after_a_win_is_error() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash save_the_cow.sh "loot" "t" "o" "l" "l"
     assert_failure
     assert_output "cannot guess after the game is won"
 }
-

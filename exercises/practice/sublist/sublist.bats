@@ -1,131 +1,131 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
 # Lists are ordered and sequential: do not sort or reorder them.
 # Lists are given in JSON format.
 
-@test "empty lists" {
+test_empty_lists() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[]" "[]"
     assert_success
     assert_output "equal"
 }
 
-@test "empty list within non empty list" {
+test_empty_list_within_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[]" "[1, 2, 3]"
     assert_success
     assert_output "sublist"
 }
 
-@test "non empty list contains empty list" {
+test_non_empty_list_contains_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 3]" "[]"
     assert_success
     assert_output "superlist"
 }
 
-@test "list equals itself" {
+test_list_equals_itself() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 3]" "[1, 2, 3]"
     assert_success
     assert_output "equal"
 }
 
-@test "different lists" {
+test_different_lists() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 3]" "[2, 3, 4]"
     assert_success
     assert_output "unequal"
 }
 
-@test "false start" {
+test_false_start() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 5]" "[0, 1, 2, 3, 1, 2, 5, 6]"
     assert_success
     assert_output "sublist"
 }
 
-@test "consecutive" {
+test_consecutive() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 1, 2]" "[0, 1, 1, 1, 2, 1, 2]"
     assert_success
     assert_output "sublist"
 }
 
-@test "sublist at start" {
+test_sublist_at_start() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[0, 1, 2]" "[0, 1, 2, 3, 4, 5]"
     assert_success
     assert_output "sublist"
 }
 
-@test "sublist in middle" {
+test_sublist_in_middle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[2, 3, 4]" "[0, 1, 2, 3, 4, 5]"
     assert_success
     assert_output "sublist"
 }
 
-@test "sublist at end" {
+test_sublist_at_end() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[3, 4, 5]" "[0, 1, 2, 3, 4, 5]"
     assert_success
     assert_output "sublist"
 }
 
-@test "at start of superlist" {
+test_at_start_of_superlist() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[0, 1, 2, 3, 4, 5]" "[0, 1, 2]"
     assert_success
     assert_output "superlist"
 }
 
-@test "in middle of superlist" {
+test_in_middle_of_superlist() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[0, 1, 2, 3, 4, 5]" "[2, 3]"
     assert_success
     assert_output "superlist"
 }
 
-@test "at end of superlist" {
+test_at_end_of_superlist() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[0, 1, 2, 3, 4, 5]" "[3, 4, 5]"
     assert_success
     assert_output "superlist"
 }
 
-@test "first list missing element from second list" {
+test_first_list_missing_element_from_second_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 3]" "[1, 2, 3]"
     assert_success
     assert_output "unequal"
 }
 
-@test "second list missing element from first list" {
+test_second_list_missing_element_from_first_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 3]" "[1, 3]"
     assert_success
     assert_output "unequal"
 }
 
-@test "first list missing additional digits from second list" {
+test_first_list_missing_additional_digits_from_second_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2]" "[1, 22]"
     assert_success
     assert_output "unequal"
 }
 
-@test "order matters to a list" {
+test_order_matters_to_a_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 2, 3]" "[3, 2, 1]"
     assert_success
     assert_output "unequal"
 }
 
-@test "same digits but different numbers" {
+test_same_digits_but_different_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash sublist.sh "[1, 0, 1]" "[10, 1]"
     assert_success

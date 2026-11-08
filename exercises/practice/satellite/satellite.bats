@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "Empty tree" {
+test_empty_tree() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "" ""
     assert_success
@@ -15,7 +15,7 @@ END_JSON
     [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
-@test "Tree with one item" {
+test_tree_with_one_item() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a" "a"
     assert_success
@@ -31,7 +31,7 @@ END_JSON
     [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
-@test "Tree with many items" {
+test_tree_with_many_items() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a i x f r" "i a f x r"
     assert_success
@@ -63,7 +63,7 @@ END_JSON
     [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
-@test "Reject traversals of different length" {
+test_reject_traversals_of_different_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a b" "b a r"
     assert_failure
@@ -71,7 +71,7 @@ END_JSON
     assert_output "traversals must have the same length"
 }
 
-@test "Reject inconsistent traversals of same length" {
+test_reject_inconsistent_traversals_of_same_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "x y z" "a b c"
     assert_failure
@@ -79,7 +79,7 @@ END_JSON
     assert_output "traversals must have the same elements"
 }
 
-@test "Reject traversals with repeated items" {
+test_reject_traversals_with_repeated_items() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a b a" "b a a"
     assert_failure
@@ -87,7 +87,7 @@ END_JSON
     assert_output "traversals must contain unique items"
 }
 
-@test "A degenerate binary tree" {
+test_a_degenerate_binary_tree() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a b c d" "d c b a"
     assert_success
@@ -115,7 +115,7 @@ END_JSON
     [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
-@test "Another degenerate binary tree" {
+test_another_degenerate_binary_tree() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a b c d" "a b c d"
     assert_success
@@ -143,7 +143,7 @@ END_JSON
     [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
 
-@test "Tree with many more items" {
+test_tree_with_many_more_items() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash satellite.sh "a b d g h c e f i" "g d h b a e c i f"
     assert_success
@@ -190,4 +190,3 @@ END_JSON
     # compare without spaces
     [[ "${output//[[:space:]]/}" == "${expectedJson//[[:space:]]/}" ]]
 }
-

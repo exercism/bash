@@ -1,9 +1,9 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} "{{ case["input"]["radicand"] }}"
+    run bash {{ solution }} "{{ case.given }}"
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 }
 {% endfor %}
