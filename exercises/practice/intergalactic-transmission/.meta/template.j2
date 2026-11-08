@@ -1,13 +1,13 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["descriptions"] | join(": ") }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case["property"]  | camel_to_snake }} "{{ case["input"]["message"] | join(" ") }}"
+    run bash {{ solution }} {{ case.property  | camel_to_snake }} "{{ case.given | join(" ") }}"
     assert_success
-{%- if case["expect_error"] %}
-    assert_output --partial "{{ case["expect_error_msg"] }}"
+{%- if case.expect_error %}
+    assert_output --partial "{{ case.expect_error_msg }}"
 {%- else %}
-    assert_output "{{ case["expected"]  | join(" ") }}"
+    assert_output "{{ case.expected  | join(" ") }}"
 {%- endif %}
 }
 {% endfor %}
