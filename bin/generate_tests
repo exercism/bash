@@ -133,7 +133,8 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     data = {
         "cases": cases,
         "header": header,
-        "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0]
+        "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0],
+        "test_name": test_name,
     }
 
     # Render the template.

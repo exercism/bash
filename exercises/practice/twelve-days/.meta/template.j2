@@ -1,12 +1,12 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
-{{ case["expected"] | join("\n") }}
+{{ case.expected | join("\n") }}
 END
 )
-    run bash {{ solution }} {{ case["input"]["startVerse"] }} {{ case["input"]["endVerse"] }}
+    run bash {{ solution }} {{ case.input.startVerse }} {{ case.input.endVerse }}
     assert_success
     assert_output "$expected"
 }

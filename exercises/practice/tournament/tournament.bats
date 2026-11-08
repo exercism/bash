@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:58:21+00:00
 # Your bash program should be able to accept input
 # 1. via standard input, OR
 # 2. as a filename given on the cmd line.
@@ -15,7 +15,7 @@ setup() {
 }
 teardown() { rm -f "$INPUT_FILE"; }
 
-@test "just the header if no input" {
+test_just_the_header_if_no_input() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -32,7 +32,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "a win is three points, a loss is zero points" {
+test_a_win_is_three_points_a_loss_is_zero_points() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -52,7 +52,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "With a file: a win is three points, a loss is zero points" {
+test_with_a_file_ensure_points_sorted_numerically () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
@@ -73,7 +73,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "a win can also be expressed as a loss" {
+test_a_win_can_also_be_expressed_as_a_loss() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -93,7 +93,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "a different team can win" {
+test_a_different_team_can_win() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -113,7 +113,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "a draw is one point each" {
+test_a_draw_is_one_point_each() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -133,7 +133,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "There can be more than one match" {
+test_there_can_be_more_than_one_match() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -154,7 +154,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "There can be more than one winner" {
+test_there_can_be_more_than_one_winner() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -175,7 +175,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "There can be more than two teams" {
+test_there_can_be_more_than_two_teams() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -198,7 +198,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "typical input" {
+test_typical_input() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -225,7 +225,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "incomplete competition (not all pairs have played)" {
+test_incomplete_competition_not_all_pairs_have_played() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -250,7 +250,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "With a file: incomplete competition (not all pairs have played)" {
+test_with_a_file_ensure_points_sorted_numerically () { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
@@ -276,7 +276,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "ties broken alphabetically" {
+test_ties_broken_alphabetically() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
@@ -303,7 +303,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-@test "ensure points sorted numerically" {
+test_ensure_points_sorted_numerically() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
