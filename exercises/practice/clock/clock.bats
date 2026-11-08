@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-06T16:26:09+00:00
+# generated on 2026-11-08T06:23:17+00:00
 
 # * The canonical "Compare two clocks for equality" tests
 #   have not been included: for bash they will simply be 
@@ -202,7 +202,7 @@ test_add_minutes_add_across_midnight() { # @test
     assert_output "00:01"
 }
 
-test_add_minutes_add_more_than_one_day_1500_min_25_hrs_() { # @test
+test_add_minutes_add_more_than_one_day_1500_min_25_hrs() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash clock.sh 5 32 + 1500
     assert_success
@@ -258,7 +258,7 @@ test_subtract_minutes_subtract_more_than_two_hours_with_borrow() { # @test
     assert_output "03:35"
 }
 
-test_subtract_minutes_subtract_more_than_one_day_1500_min_25_hrs_() { # @test
+test_subtract_minutes_subtract_more_than_one_day_1500_min_25_hrs() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash clock.sh 5 32 - 1500
     assert_success
