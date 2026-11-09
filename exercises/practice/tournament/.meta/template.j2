@@ -33,7 +33,7 @@ EXPECTED
 }
 {%- if case.description in ("a win is three points, a loss is zero points", "incomplete competition (not all pairs have played)") %}
 
-test_with_a_file_{{ test_name }} () { #@test
+test_with_a_file_{{ case.test_name }}() { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip

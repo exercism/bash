@@ -118,6 +118,7 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         test_name = test_name.lower()
         test_name = test_name.translate(translation)
         test_name = re.sub("_+", "_", test_name)
+        case["test_name"] = test_name
         case["test_function_start"] = f"test_{test_name}() {{ # @test"
         if len(case.get("input", {}).values()) == 1:
             case["given"] = list(case["input"].values())[0]
@@ -134,7 +135,6 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         "cases": cases,
         "header": header,
         "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0],
-        "test_name": test_name,
     }
 
     # Render the template.

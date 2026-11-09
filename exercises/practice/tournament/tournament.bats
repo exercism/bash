@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T06:58:21+00:00
+# generated on 2026-11-09T01:37:12+00:00
 # Your bash program should be able to accept input
 # 1. via standard input, OR
 # 2. as a filename given on the cmd line.
@@ -52,7 +52,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-test_with_a_file_ensure_points_sorted_numerically () { #@test
+test_with_a_file_a_win_is_three_points_a_loss_is_zero_points() { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
@@ -250,7 +250,7 @@ EXPECTED
     assert_output "$expected"
 }
 
-test_with_a_file_ensure_points_sorted_numerically () { #@test
+test_with_a_file_incomplete_competition_not_all_pairs_have_played() { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
