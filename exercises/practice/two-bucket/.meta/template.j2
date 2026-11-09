@@ -1,15 +1,15 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-{%- if case["expect_error"] %}
-    run bash {{ solution }} {{ case["input"]["bucketOne"] }} {{ case["input"]["bucketTwo"] }} {{ case["input"]["goal"] }} "{{ case["input"]["startBucket"] }}"
+{%- if case.expect_error %}
+    run bash {{ solution }} {{ case.input.bucketOne }} {{ case.input.bucketTwo }} {{ case.input.goal }} "{{ case.input.startBucket }}"
     assert_failure
     {#- The error message from the canonical data is not used. #}
     assert_output --partial "invalid goal"
 {%- else %}
-    expected="moves: {{ case["expected"]["moves"] }}, goalBucket: {{ case["expected"]["goalBucket"] }}, otherBucket: {{ case["expected"]["otherBucket"] }}"
-    run bash {{ solution }} {{ case["input"]["bucketOne"] }} {{ case["input"]["bucketTwo"] }} {{ case["input"]["goal"] }} "{{ case["input"]["startBucket"] }}"
+    expected="moves: {{ case.expected.moves }}, goalBucket: {{ case.expected.goalBucket }}, otherBucket: {{ case.expected.otherBucket }}"
+    run bash {{ solution }} {{ case.input.bucketOne }} {{ case.input.bucketTwo }} {{ case.input.goal }} "{{ case.input.startBucket }}"
     assert_success
     assert_output "$expected"
 {%- endif %}

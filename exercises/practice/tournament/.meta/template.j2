@@ -12,18 +12,18 @@ setup() {
 }
 teardown() { rm -f "$INPUT_FILE"; }
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     input=$( cat <<INPUT
-{%- if case["input"]["rows"] %}
-{{ case["input"]["rows"] | join("\n") }}
+{%- if case.input.rows %}
+{{ case.given | join("\n") }}
 {%- endif %}
 INPUT
 )
 
     expected=$( cat <<EXPECTED
-{{ case["expected"] | join("\n") }}
+{{ case.expected | join("\n") }}
 EXPECTED
 )
 
@@ -31,19 +31,19 @@ EXPECTED
     assert_success
     assert_output "$expected"
 }
-{%- if case["description"] in ("a win is three points, a loss is zero points", "incomplete competition (not all pairs have played)") %}
+{%- if case.description in ("a win is three points, a loss is zero points", "incomplete competition (not all pairs have played)") %}
 
-@test "With a file: {{ case["description"] }}" {
+test_with_a_file_{{ case.test_name }}() { #@test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # ignore this test in CI
     (( HAS_TTY )) || skip
 
     cat << INPUT > "$INPUT_FILE"
-{{ case["input"]["rows"] | join("\n") }}
+{{ case.given | join("\n") }}
 INPUT
 
     expected=$( cat <<EXPECTED
-{{ case["expected"] | join("\n") }}
+{{ case.expected | join("\n") }}
 EXPECTED
 )
 

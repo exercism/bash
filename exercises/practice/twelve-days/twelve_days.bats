@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "first day a partridge in a pear tree" {
+test_verse_first_day_a_partridge_in_a_pear_tree() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
@@ -14,7 +14,7 @@ END
     assert_output "$expected"
 }
 
-@test "second day two turtle doves" {
+test_verse_second_day_two_turtle_doves() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.
@@ -25,7 +25,7 @@ END
     assert_output "$expected"
 }
 
-@test "third day three french hens" {
+test_verse_third_day_three_french_hens() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the third day of Christmas my true love gave to me: three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -36,7 +36,7 @@ END
     assert_output "$expected"
 }
 
-@test "fourth day four calling birds" {
+test_verse_fourth_day_four_calling_birds() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the fourth day of Christmas my true love gave to me: four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -47,7 +47,7 @@ END
     assert_output "$expected"
 }
 
-@test "fifth day five gold rings" {
+test_verse_fifth_day_five_gold_rings() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the fifth day of Christmas my true love gave to me: five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -58,7 +58,7 @@ END
     assert_output "$expected"
 }
 
-@test "sixth day six geese-a-laying" {
+test_verse_sixth_day_six_geese_a_laying() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -69,7 +69,7 @@ END
     assert_output "$expected"
 }
 
-@test "seventh day seven swans-a-swimming" {
+test_verse_seventh_day_seven_swans_a_swimming() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the seventh day of Christmas my true love gave to me: seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -80,7 +80,7 @@ END
     assert_output "$expected"
 }
 
-@test "eighth day eight maids-a-milking" {
+test_verse_eighth_day_eight_maids_a_milking() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the eighth day of Christmas my true love gave to me: eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -91,7 +91,7 @@ END
     assert_output "$expected"
 }
 
-@test "ninth day nine ladies dancing" {
+test_verse_ninth_day_nine_ladies_dancing() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the ninth day of Christmas my true love gave to me: nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -102,7 +102,7 @@ END
     assert_output "$expected"
 }
 
-@test "tenth day ten lords-a-leaping" {
+test_verse_tenth_day_ten_lords_a_leaping() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the tenth day of Christmas my true love gave to me: ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -113,7 +113,7 @@ END
     assert_output "$expected"
 }
 
-@test "eleventh day eleven pipers piping" {
+test_verse_eleventh_day_eleven_pipers_piping() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -124,7 +124,7 @@ END
     assert_output "$expected"
 }
 
-@test "twelfth day twelve drummers drumming" {
+test_verse_twelfth_day_twelve_drummers_drumming() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the twelfth day of Christmas my true love gave to me: twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -135,7 +135,7 @@ END
     assert_output "$expected"
 }
 
-@test "recites first three verses of the song" {
+test_lyrics_recites_first_three_verses_of_the_song() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
@@ -148,7 +148,7 @@ END
     assert_output "$expected"
 }
 
-@test "recites three verses from the middle of the song" {
+test_lyrics_recites_three_verses_from_the_middle_of_the_song() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the fourth day of Christmas my true love gave to me: four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -161,7 +161,7 @@ END
     assert_output "$expected"
 }
 
-@test "recites the whole song" {
+test_lyrics_recites_the_whole_song() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=$(cat <<END
 On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.

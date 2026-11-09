@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "empty string" {
+test_empty_string() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 
@@ -18,7 +18,7 @@ END
     assert_output "$expected"
 }
 
-@test "two characters in a row" {
+test_two_characters_in_a_row() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 A1
@@ -34,7 +34,7 @@ END
     assert_output "$expected"
 }
 
-@test "two characters in a column" {
+test_two_characters_in_a_column() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 A
@@ -50,7 +50,7 @@ END
     assert_output "$expected"
 }
 
-@test "simple" {
+test_simple() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 ABC
@@ -68,7 +68,7 @@ END
     assert_output "$expected"
 }
 
-@test "single line" {
+test_single_line() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 Single line.
@@ -94,7 +94,7 @@ END
     assert_output "$expected"
 }
 
-@test "first line longer than second line" {
+test_first_line_longer_than_second_line() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 The fourth line.
@@ -125,7 +125,7 @@ END
     assert_output "$expected"
 }
 
-@test "second line longer than first line" {
+test_second_line_longer_than_first_line() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 The first line.
@@ -156,7 +156,7 @@ END
     assert_output "$expected"
 }
 
-@test "mixed line length" {
+test_mixed_line_length() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 The longest line.
@@ -190,7 +190,7 @@ END
     assert_output "$expected"
 }
 
-@test "square" {
+test_square() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 HEART
@@ -213,7 +213,7 @@ END
     assert_output "$expected"
 }
 
-@test "rectangle" {
+test_rectangle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 FRACTURE
@@ -238,7 +238,7 @@ END
     assert_output "$expected"
 }
 
-@test "triangle" {
+test_triangle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 T
@@ -263,7 +263,7 @@ END
     assert_output "$expected"
 }
 
-@test "jagged triangle" {
+test_jagged_triangle() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=$(cat <<END
 11

@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
 @test "no name given" {
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -42,14 +42,14 @@ load bats-extra
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "handle arg with spaces" {
+test_handle_arg_with_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash two_fer.sh "John Smith" "Mary Ann"
     assert_success
     assert_output "One for John Smith, one for me."
 }
 
-@test "handle arg with glob char" {
+test_handle_arg_with_glob_char() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash two_fer.sh "* "
     assert_success
