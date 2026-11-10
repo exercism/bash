@@ -1,30 +1,30 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:24+00:00
+# generated on 2026-11-08T07:20:04+00:00
 
-@test "Color codes -> Black" {
+test_color_codes_black() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color.sh code black
     assert_success
     assert_output "0"
 }
 
-@test "Color codes -> White" {
+test_color_codes_white() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color.sh code white
     assert_success
     assert_output "9"
 }
 
-@test "Color codes -> Orange" {
+test_color_codes_orange() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color.sh code orange
     assert_success
     assert_output "3"
 }
 
-@test "Colors" {
+test_colors() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash resistor_color.sh colors
     assert_success

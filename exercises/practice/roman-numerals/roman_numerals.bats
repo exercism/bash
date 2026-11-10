@@ -1,194 +1,193 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:24+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "1 is I" {
+test_1_is_i() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 1
     assert_success
     assert_output "I"
 }
 
-@test "2 is II" {
+test_2_is_ii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 2
     assert_success
     assert_output "II"
 }
 
-@test "3 is III" {
+test_3_is_iii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 3
     assert_success
     assert_output "III"
 }
 
-@test "4 is IV" {
+test_4_is_iv() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 4
     assert_success
     assert_output "IV"
 }
 
-@test "5 is V" {
+test_5_is_v() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 5
     assert_success
     assert_output "V"
 }
 
-@test "6 is VI" {
+test_6_is_vi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 6
     assert_success
     assert_output "VI"
 }
 
-@test "9 is IX" {
+test_9_is_ix() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 9
     assert_success
     assert_output "IX"
 }
 
-@test "16 is XVI" {
+test_16_is_xvi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 16
     assert_success
     assert_output "XVI"
 }
 
-@test "27 is XXVII" {
+test_27_is_xxvii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 27
     assert_success
     assert_output "XXVII"
 }
 
-@test "48 is XLVIII" {
+test_48_is_xlviii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 48
     assert_success
     assert_output "XLVIII"
 }
 
-@test "49 is XLIX" {
+test_49_is_xlix() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 49
     assert_success
     assert_output "XLIX"
 }
 
-@test "59 is LIX" {
+test_59_is_lix() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 59
     assert_success
     assert_output "LIX"
 }
 
-@test "66 is LXVI" {
+test_66_is_lxvi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 66
     assert_success
     assert_output "LXVI"
 }
 
-@test "93 is XCIII" {
+test_93_is_xciii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 93
     assert_success
     assert_output "XCIII"
 }
 
-@test "141 is CXLI" {
+test_141_is_cxli() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 141
     assert_success
     assert_output "CXLI"
 }
 
-@test "163 is CLXIII" {
+test_163_is_clxiii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 163
     assert_success
     assert_output "CLXIII"
 }
 
-@test "166 is CLXVI" {
+test_166_is_clxvi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 166
     assert_success
     assert_output "CLXVI"
 }
 
-@test "402 is CDII" {
+test_402_is_cdii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 402
     assert_success
     assert_output "CDII"
 }
 
-@test "575 is DLXXV" {
+test_575_is_dlxxv() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 575
     assert_success
     assert_output "DLXXV"
 }
 
-@test "666 is DCLXVI" {
+test_666_is_dclxvi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 666
     assert_success
     assert_output "DCLXVI"
 }
 
-@test "911 is CMXI" {
+test_911_is_cmxi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 911
     assert_success
     assert_output "CMXI"
 }
 
-@test "1024 is MXXIV" {
+test_1024_is_mxxiv() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 1024
     assert_success
     assert_output "MXXIV"
 }
 
-@test "1666 is MDCLXVI" {
+test_1666_is_mdclxvi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 1666
     assert_success
     assert_output "MDCLXVI"
 }
 
-@test "3000 is MMM" {
+test_3000_is_mmm() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 3000
     assert_success
     assert_output "MMM"
 }
 
-@test "3001 is MMMI" {
+test_3001_is_mmmi() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 3001
     assert_success
     assert_output "MMMI"
 }
 
-@test "3888 is MMMDCCCLXXXVIII" {
+test_3888_is_mmmdccclxxxviii() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 3888
     assert_success
     assert_output "MMMDCCCLXXXVIII"
 }
 
-@test "3999 is MMMCMXCIX" {
+test_3999_is_mmmcmxcix() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash roman_numerals.sh 3999
     assert_success
     assert_output "MMMCMXCIX"
 }
-
