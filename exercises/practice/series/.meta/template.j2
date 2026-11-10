@@ -1,15 +1,15 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-{%- if case["expect_error"] %}
-    expected="{{ case["expect_error_msg"] }}"
-    run bash {{ solution }} "{{ case["input"]["series"] }}" {{ case["input"]["sliceLength"] }}
+{%- if case.expect_error %}
+    expected="{{ case.expect_error_msg }}"
+    run bash {{ solution }} "{{ case.input.series }}" {{ case.input.sliceLength }}
     assert_failure
     assert_output --partial "$expected"
 {%- else %}
-    expected="{{ case["expected"] | join(" ") }}"
-    run bash {{ solution }} "{{ case["input"]["series"] }}" {{ case["input"]["sliceLength"] }}
+    expected="{{ case.expected | join(" ") }}"
+    run bash {{ solution }} "{{ case.input.series }}" {{ case.input.sliceLength }}
     assert_success
     assert_output "$expected"
 {%- endif %}
