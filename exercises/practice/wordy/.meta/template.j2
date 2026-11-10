@@ -1,21 +1,21 @@
 {{ header }}
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} "{{ case["input"]["question"] }}"
-{%- if case["expect_error"] %}
+    run bash {{ solution }} "{{ case.given }}"
+{%- if case.expect_error %}
     assert_failure
-    assert_output "{{ case["expect_error_msg"] }}"
+    assert_output "{{ case.expect_error_msg }}"
 {%- else %}
     assert_success
-    assert_output "{{ case["expected"] }}"
+    assert_output "{{ case.expected }}"
 {%- endif %}
 }
 {% endfor %}
 
 # Track specific tests
 
-@test "strict left to right, ignores typical order of operations" {
+test_strict_left_to_right_ignores_typical_order_of_operations() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} "What is 2 plus 3 multiplied by 4?"
     assert_success
@@ -23,7 +23,7 @@
     assert_output "20"
 }
 
-@test "reject problem with no operands" {
+test_reject_problem_with_no_operands() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash {{ solution }} "What is plus?"
     assert_failure

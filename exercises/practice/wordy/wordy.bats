@@ -1,191 +1,191 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-06-29T16:53:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "just a number" {
+test_just_a_number() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 5?"
     assert_success
     assert_output "5"
 }
 
-@test "just a zero" {
+test_just_a_zero() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 0?"
     assert_success
     assert_output "0"
 }
 
-@test "just a negative number" {
+test_just_a_negative_number() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is -123?"
     assert_success
     assert_output "-123"
 }
 
-@test "addition" {
+test_addition() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus 1?"
     assert_success
     assert_output "2"
 }
 
-@test "addition with a left hand zero" {
+test_addition_with_a_left_hand_zero() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 0 plus 2?"
     assert_success
     assert_output "2"
 }
 
-@test "addition with a right hand zero" {
+test_addition_with_a_right_hand_zero() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 3 plus 0?"
     assert_success
     assert_output "3"
 }
 
-@test "more addition" {
+test_more_addition() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 53 plus 2?"
     assert_success
     assert_output "55"
 }
 
-@test "addition with negative numbers" {
+test_addition_with_negative_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is -1 plus -10?"
     assert_success
     assert_output "-11"
 }
 
-@test "large addition" {
+test_large_addition() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 123 plus 45678?"
     assert_success
     assert_output "45801"
 }
 
-@test "subtraction" {
+test_subtraction() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 4 minus -12?"
     assert_success
     assert_output "16"
 }
 
-@test "multiplication" {
+test_multiplication() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is -3 multiplied by 25?"
     assert_success
     assert_output "-75"
 }
 
-@test "division" {
+test_division() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 33 divided by -3?"
     assert_success
     assert_output "-11"
 }
 
-@test "multiple additions" {
+test_multiple_additions() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus 1 plus 1?"
     assert_success
     assert_output "3"
 }
 
-@test "addition and subtraction" {
+test_addition_and_subtraction() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus 5 minus -2?"
     assert_success
     assert_output "8"
 }
 
-@test "multiple subtraction" {
+test_multiple_subtraction() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 20 minus 4 minus 13?"
     assert_success
     assert_output "3"
 }
 
-@test "subtraction then addition" {
+test_subtraction_then_addition() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 17 minus 6 plus 3?"
     assert_success
     assert_output "14"
 }
 
-@test "multiple multiplication" {
+test_multiple_multiplication() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 2 multiplied by -2 multiplied by 3?"
     assert_success
     assert_output "-12"
 }
 
-@test "addition and multiplication" {
+test_addition_and_multiplication() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is -3 plus 7 multiplied by -2?"
     assert_success
     assert_output "-8"
 }
 
-@test "multiple division" {
+test_multiple_division() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is -12 divided by 2 divided by -3?"
     assert_success
     assert_output "2"
 }
 
-@test "unknown operation" {
+test_unknown_operation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 52 cubed?"
     assert_failure
     assert_output "unknown operation"
 }
 
-@test "Non math question" {
+test_non_math_question() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "Who is the President of the United States?"
     assert_failure
     assert_output "unknown operation"
 }
 
-@test "reject problem missing an operand" {
+test_reject_problem_missing_an_operand() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus?"
     assert_failure
     assert_output "syntax error"
 }
 
-@test "reject problem with no operands or operators" {
+test_reject_problem_with_no_operands_or_operators() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is?"
     assert_failure
     assert_output "syntax error"
 }
 
-@test "reject two operations in a row" {
+test_reject_two_operations_in_a_row() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus plus 2?"
     assert_failure
     assert_output "syntax error"
 }
 
-@test "reject two numbers in a row" {
+test_reject_two_numbers_in_a_row() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 plus 2 1?"
     assert_failure
     assert_output "syntax error"
 }
 
-@test "reject postfix notation" {
+test_reject_postfix_notation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 1 2 plus?"
     assert_failure
     assert_output "syntax error"
 }
 
-@test "reject prefix notation" {
+test_reject_prefix_notation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is plus 1 2?"
     assert_failure
@@ -195,7 +195,7 @@ load bats-extra
 
 # Track specific tests
 
-@test "strict left to right, ignores typical order of operations" {
+test_strict_left_to_right_ignores_typical_order_of_operations() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is 2 plus 3 multiplied by 4?"
     assert_success
@@ -203,7 +203,7 @@ load bats-extra
     assert_output "20"
 }
 
-@test "reject problem with no operands" {
+test_reject_problem_with_no_operands() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash wordy.sh "What is plus?"
     assert_failure

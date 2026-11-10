@@ -5,20 +5,20 @@
 #
 
 {% for case in cases %}
-@test "{{ case["description"] }}" {
+{{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     {%- set hex_input = [] %}
-    {%- for num in case["input"]["integers"] %}
+    {%- for num in case.given %}
         {%- set _ = hex_input.append('%02X' % num) %}
     {%- endfor %}
-    run bash {{ solution }} {{ case["property"] }} {{ hex_input | join(" ") }}
-{%- if case["expect_error"] %}
+    run bash {{ solution }} {{ case.property }} {{ hex_input | join(" ") }}
+{%- if case.expect_error %}
     assert_failure
     {#- The error message from the canonical data is not used. #}
     assert_output --partial "incomplete byte sequence"
 {%- else %}
     {%- set hex_output = [] %}
-    {%- for num in case["expected"] %}
+    {%- for num in case.expected %}
         {%- set _ = hex_output.append('%02X' % num) %}
     {%- endfor %}
     assert_success
@@ -27,7 +27,7 @@
 }
 {% endfor %}
 
-@test "invalid subcommand" {
+test_invalid_subcommand() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash variable_length_quantity.sh hello 80
     assert_failure

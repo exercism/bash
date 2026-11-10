@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-08-14T05:27:25+00:00
+# generated on 2026-11-08T06:49:56+00:00
 
-@test "count one word" {
+test_count_one_word() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "word"
     assert_success
@@ -11,7 +11,7 @@ load bats-extra
     assert_equal "${#lines[@]}" 1
 }
 
-@test "count one of each word" {
+test_count_one_of_each_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "one of each"
     assert_success
@@ -21,7 +21,7 @@ load bats-extra
     assert_equal "${#lines[@]}" 3
 }
 
-@test "multiple occurrences of a word" {
+test_multiple_occurrences_of_a_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "one fish two fish red fish blue fish"
     assert_success
@@ -33,7 +33,7 @@ load bats-extra
     assert_equal "${#lines[@]}" 5
 }
 
-@test "handles cramped lists" {
+test_handles_cramped_lists() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "one,two,three"
     assert_success
@@ -43,7 +43,7 @@ load bats-extra
     assert_equal "${#lines[@]}" 3
 }
 
-@test "handles expanded lists" {
+test_handles_expanded_lists() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "one,
 two,
@@ -55,7 +55,7 @@ three"
     assert_equal "${#lines[@]}" 3
 }
 
-@test "ignore punctuation" {
+test_ignore_punctuation() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "car: carpet as java: javascript!!&@$%^&"
     assert_success
@@ -67,7 +67,7 @@ three"
     assert_equal "${#lines[@]}" 5
 }
 
-@test "include numbers" {
+test_include_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "testing, 1, 2 testing"
     assert_success
@@ -77,7 +77,7 @@ three"
     assert_equal "${#lines[@]}" 3
 }
 
-@test "normalize case" {
+test_normalize_case() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "go Go GO Stop stop"
     assert_success
@@ -86,7 +86,7 @@ three"
     assert_equal "${#lines[@]}" 2
 }
 
-@test "with apostrophes" {
+test_with_apostrophes() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "'First: don't laugh. Then: don't cry. You're getting it.'"
     assert_success
@@ -101,7 +101,7 @@ three"
     assert_equal "${#lines[@]}" 8
 }
 
-@test "with quotations" {
+test_with_quotations() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "Joe can't tell between 'large' and large."
     assert_success
@@ -114,7 +114,7 @@ three"
     assert_equal "${#lines[@]}" 6
 }
 
-@test "substrings from the beginning" {
+test_substrings_from_the_beginning() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "Joe can't tell between app, apple and a."
     assert_success
@@ -129,7 +129,7 @@ three"
     assert_equal "${#lines[@]}" 8
 }
 
-@test "multiple spaces not detected as a word" {
+test_multiple_spaces_not_detected_as_a_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh " multiple   whitespaces"
     assert_success
@@ -138,7 +138,7 @@ three"
     assert_equal "${#lines[@]}" 2
 }
 
-@test "alternating word separators not detected as a word" {
+test_alternating_word_separators_not_detected_as_a_word() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh ",
 ,one,
@@ -151,7 +151,7 @@ three"
     assert_equal "${#lines[@]}" 3
 }
 
-@test "quotation for word with apostrophe" {
+test_quotation_for_word_with_apostrophe() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "can, can't, 'can't'"
     assert_success
@@ -164,7 +164,7 @@ three"
 # word splitting and filename expansion:
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions
 
-@test "contains shell globbing character" {
+test_contains_shell_globbing_character() { $ @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash word_count.sh "two * words"
     assert_success
