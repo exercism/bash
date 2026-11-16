@@ -7,6 +7,7 @@ main() {
     local    from_digits=$2
     local -i to_base=$3
 
+    local digits
     read -ra digits <<< "$from_digits"
 
     local -i decimal=0
