@@ -11,7 +11,7 @@ active_exercises () {
             .key as $key |
             .value |
             map(
-                select(.status != "deprecated") |
+                select((.status // "active") | IN("deprecated", "wip") | not) |
                 "exercises/\($key)/\(.slug)"
             )
         ) |
@@ -26,7 +26,7 @@ files=()
 
 shopt -s nullglob
 for exercise in "${exercises[@]}"; do
-    for file in "${exercise}/"{,.meta/}*{.sh,.bats}; do
+    for file in "${exercise}/"{,.meta/}*{.sh,.bash,.bats}; do
         [[ $file == */markdown.sh ]] && continue
         files+=( "$file" )
     done
