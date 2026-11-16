@@ -18,21 +18,21 @@ load bats-extra
 
 # A robot is created with a position and a direction
 
-@test "Robots are created with a position and direction" {
+robots_are_created_with_a_position_and_direction() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 north
     assert_success
     assert_output "0 0 north"
 }
 
-@test "Robots are created with a default position and direction" {
+robots_are_created_with_a_default_position_and_direction() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh
     assert_success
     assert_output "0 0 north"
 }
 
-@test "Negative positions are allowed" {
+negative_positions_are_allowed() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh -1 -1 south
     assert_success
@@ -42,28 +42,28 @@ load bats-extra
 
 # rotates the robot's direction 90 degrees clockwise
 
-@test "changes the direction from north to east" {
+changes_the_direction_from_north_to_east() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 north R
     assert_success
     assert_output "0 0 east"
 }
 
-@test "changes the direction from east to south" {
+changes_the_direction_from_east_to_south() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 east R
     assert_success
     assert_output "0 0 south"
 }
 
-@test "changes the direction from south to west" {
+changes_the_direction_from_south_to_west() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 south R
     assert_success
     assert_output "0 0 west"
 }
 
-@test "changes the direction from west to north" {
+changes_the_direction_from_west_to_north() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 west R
     assert_success
@@ -73,28 +73,28 @@ load bats-extra
 
 # rotates the robot's direction 90 degrees counter-clockwise
 
-@test "changes the direction from north to west" {
+changes_the_direction_from_north_to_west() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 north L
     assert_success
     assert_output "0 0 west"
 }
 
-@test "changes the direction from west to south" {
+changes_the_direction_from_west_to_south() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 west L
     assert_success
     assert_output "0 0 south"
 }
 
-@test "changes the direction from south to east" {
+changes_the_direction_from_south_to_east() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 south L
     assert_success
     assert_output "0 0 east"
 }
 
-@test "changes the direction from east to north" {
+changes_the_direction_from_east_to_north() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 east L
     assert_success
@@ -104,28 +104,28 @@ load bats-extra
 
 # moves the robot forward 1 space in the direction it is pointing
 
-@test "increases the y coordinate one when facing north" {
+increases_the_y_coordinate_one_when_facing_north() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 north A
     assert_success
     assert_output "0 1 north"
 }
 
-@test "decreases the y coordinate by one when facing south" {
+decreases_the_y_coordinate_by_one_when_facing_south() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 south A
     assert_success
     assert_output "0 -1 south"
 }
 
-@test "increases the x coordinate by one when facing east" {
+increases_the_x_coordinate_by_one_when_facing_east() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 east A
     assert_success
     assert_output "1 0 east"
 }
 
-@test "decreases the x coordinate by one when facing west" {
+decreases_the_x_coordinate_by_one_when_facing_west() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 west A
     assert_success
@@ -137,28 +137,28 @@ load bats-extra
 # robot can follow a series of instructions and end up with
 # the correct position and direction
 
-@test "instructions to move east and north from README" {
+instructions_to_move_east_and_north_from_readme() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 7 3 north RAALAL
     assert_success
     assert_output "9 4 west"
 }
 
-@test "instructions to move west and north" {
+instructions_to_move_west_and_north() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 north LAAARALA
     assert_success
     assert_output "-4 1 west"
 }
 
-@test "instructions to move west and south" {
+instructions_to_move_west_and_south() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 2 -7 east RRAAAAALA
     assert_success
     assert_output "-3 -8 south"
 }
 
-@test "instructions to move east and north" {
+instructions_to_move_east_and_north() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 8 4 south LAAARRRALLLL
     assert_success
@@ -168,14 +168,14 @@ load bats-extra
 
 # error conditions
 
-@test "invalid direction" {
+invalid_direction() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 foo
     assert_failure
     assert_output --partial "invalid direction"
 }
 
-@test "invalid instructions" {
+invalid_instructions() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash robot_simulator.sh 0 0 north LRAX
     assert_failure
