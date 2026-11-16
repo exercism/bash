@@ -39,7 +39,7 @@ cd /path/to/your/exercise_workspace/bash/whatever
 bats whatever.bats
 ```
 
-If you want to print debug output while running the tests locally, see [Debugging Locally](/docs/tracks/bash/debugging).
+If you want to print debug output while running the tests locally, see [Debugging Locally][debugging].
 
 ## Installing `bats-core`
 
@@ -155,11 +155,12 @@ Ownership was handed over in 2017: [sstephenson/bats#150 (comment)][bats-fork].
 
 If you have the original sstephenson/bats installed (check with `bats -v` reporting a version number less than 1.0), then you should switch to bats-core; otherwise you may find yourself [experiencing unexplained test failures][legacy-failures].
 
-[exercism-cli]: https://exercism.org/docs/using/solving-exercises/working-locally
-[bats]: https://github.com/bats-core/bats-core
 [bats-assert]: https://github.com/bats-core/bats-assert
+[bats-fork]: https://github.com/sstephenson/bats/issues/150#issuecomment-323845404
+[bats]: https://github.com/bats-core/bats-core
+[debugging]: https://exercism.org/docs/tracks/bash/debugging
+[exercism-cli]: https://exercism.org/docs/using/solving-exercises/working-locally
 [homebrew]: https://brew.sh/
+[legacy-failures]: https://github.com/exercism/bash/pull/445
 [mingw-issues]: https://github.com/bats-core/bats-core/issues/256
 [sstephenson-bats]: https://github.com/sstephenson/bats
-[bats-fork]: https://github.com/sstephenson/bats/issues/150#issuecomment-323845404
-[legacy-failures]: https://github.com/exercism/bash/pull/445
