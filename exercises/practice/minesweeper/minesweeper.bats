@@ -6,7 +6,7 @@ join() {
     echo "$*"
 }
 
-@test "no columns" {
+test_no_columns() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=( "" )
     run bash minesweeper.sh "${input[@]}"
@@ -15,7 +15,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "no mines" {
+test_no_mines() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "   "
@@ -32,7 +32,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "minefield with only mines" {
+test_minefield_with_only_mines() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "***"
@@ -49,7 +49,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "mine surrounded by spaces" {
+test_mine_surrounded_by_spaces() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "   "
@@ -66,7 +66,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "space surrounded by mines" {
+test_space_surrounded_by_mines() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "***"
@@ -83,7 +83,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "horizontal line" {
+test_horizontal_line() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=( " * * " )
     run bash minesweeper.sh "${input[@]}"
@@ -92,7 +92,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "horizontal line, mines at edges" {
+test_horizontal_line_mines_at_edges() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=( "*   *" )
     run bash minesweeper.sh "${input[@]}"
@@ -101,7 +101,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "vertical line" {
+test_vertical_line() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         " "
@@ -122,7 +122,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "vertical line, mines at edges" {
+test_vertical_line_mines_at_edges() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "*"
@@ -143,7 +143,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "cross" {
+test_cross() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         "  *  "
@@ -164,7 +164,7 @@ join() {
     assert_output "$(join "${expected[@]}")"
 }
 
-@test "large minefield" {
+test_large_minefield() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     input=(
         " *  * "
