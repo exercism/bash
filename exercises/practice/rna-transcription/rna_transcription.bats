@@ -1,13 +1,13 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T06:49:56+00:00
+# generated on 2026-11-16T03:45:11+00:00
 
 test_empty_rna_sequence() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash rna_transcription.sh ""
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_rna_complement_of_cytosine_is_guanine() { # @test

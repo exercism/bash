@@ -1,13 +1,13 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-07T00:51:50+00:00
+# generated on 2026-11-16T03:45:11+00:00
 
 test_empty_rna_sequence_results_in_no_proteins() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh ""
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_methionine_rna_sequence() { # @test
@@ -112,21 +112,21 @@ test_stop_codon_rna_sequence_1() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAA"
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_stop_codon_rna_sequence_2() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAG"
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_stop_codon_rna_sequence_3() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UGA"
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_sequence_of_two_protein_codons_translates_into_proteins() { # @test
@@ -154,7 +154,7 @@ test_translation_stops_if_stop_codon_at_beginning_of_sequence() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash protein_translation.sh "UAGUGG"
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_translation_stops_if_stop_codon_at_end_of_two_codon_sequence() { # @test
