@@ -27,7 +27,7 @@ files=()
 shopt -s nullglob
 for exercise in "${exercises[@]}"; do
     for file in "${exercise}/"{,.meta/}*{.sh,.bash,.bats}; do
-        [[ $file == */markdown.sh ]] && continue
+        [[ $file == "exercises/practice/markdown/markdown.sh" ]] && continue
         files+=( "$file" )
     done
 done
