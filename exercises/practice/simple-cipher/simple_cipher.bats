@@ -6,7 +6,7 @@ load bats-extra
 
 # Random key cipher"
 
-@test  "Can generate a random key" {
+can_generate_a_random_key() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     assert_success
@@ -15,7 +15,7 @@ load bats-extra
     [[ "$key" =~ ^[[:lower:]]+$ ]]   # only lowercase letters
 }
 
-@test  "Can encode random" {
+can_encode_random() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     assert_success
@@ -27,7 +27,7 @@ load bats-extra
     assert_output "${key:0:10}"
 }
 
-@test  "Can decode random" {
+can_decode_random() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     assert_success
@@ -39,7 +39,7 @@ load bats-extra
     assert_output "$plaintext"
 }
 
-@test "Is reversible random" {
+is_reversible_random() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh key
     assert_success
@@ -57,7 +57,7 @@ load bats-extra
 
 # Substitution cipher
 
-@test  "Can encode" {
+can_encode() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=aaaaaaaaaa
@@ -66,7 +66,7 @@ load bats-extra
     assert_output "$key"
 }
 
-@test  "Can decode" {
+can_decode() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=abcdefghij
@@ -76,7 +76,7 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test  "Is reversible" {
+is_reversible() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=abcdefghij
@@ -89,7 +89,7 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test  "Can double shift encode" {
+can_double_shift_encode() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=iamapandabear
     txt=iamapandabear
@@ -99,7 +99,7 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test  "Can wrap on encode"  {
+can_wrap_on_encode() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=zzzzzzzzzz
@@ -109,7 +109,7 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test  "Can wrap on decode" {
+can_wrap_on_decode() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abcdefghij
     txt=zabcdefghi
@@ -119,7 +119,7 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test  "Can encode messages longer than the key" {
+can_encode_messages_longer_than_the_key() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abc
     txt=iamapandabear
@@ -129,7 +129,7 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test  "Can decode messages longer than the key" {
+can_decode_messages_longer_than_the_key() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     key=abc
     txt=iboaqcnecbfcr
@@ -139,14 +139,14 @@ load bats-extra
     assert_output "$exp"
 }
 
-@test "plaintext is lowercased" {
+plaintext_is_lowercased() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k b encode FOOBAR
     assert_success
     assert_output "gppcbs"
 }
 
-@test "ciphertext is lowercased" {
+ciphertext_is_lowercased() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k b decode GPPCBS
     assert_success
@@ -155,14 +155,14 @@ load bats-extra
 
 # errors
 
-@test "key must be lowercase" {
+key_must_be_lowercase() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k ABC encode foo
     assert_failure
     assert_output --partial "invalid key"
 }
 
-@test "key must be letters" {
+key_must_be_letters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash simple_cipher.sh -k 123 encode foo
     assert_failure
