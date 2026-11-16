@@ -9,7 +9,7 @@ between() {
     (( $2 <= $1 && $1 < $3 ))
 }
 
-@test "private key is in range" {
+private_key_is_in_range() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     for i in 5 7 11 13 17 19 23 29 31 27 41 43 47; do
         run bash diffie_hellman.sh privateKey $i
@@ -18,7 +18,7 @@ between() {
     done
 }
 
-@test "private key is random" {
+private_key_is_random() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # may fail due to randomness
     local -i n=10 p=32000
@@ -30,7 +30,7 @@ between() {
     assert_equal ${#a[@]} $n
 }
 
-@test "can calculate public key using private key" {
+can_calculate_public_key_using_private_key() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="8"
     local -i p=23 g=5 private=6
@@ -39,7 +39,7 @@ between() {
     assert_output "$expected"
 }
 
-@test "can calculate public key when given a different private key" {
+can_calculate_public_key_when_given_a_different_private_key() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="19"
     local -i p=23 g=5 private=15
@@ -48,7 +48,7 @@ between() {
     assert_output "$expected"
 }
 
-@test "can calculate secret key using other's public key" {
+can_calculate_secret_key_using_other_s_public_key() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2"
     local -i p=23 public=19 private=6
@@ -57,7 +57,7 @@ between() {
     assert_output "$expected"
 }
 
-@test "key exchange" {
+key_exchange() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local -i i p=23 g=5
     local -i alicePublic alicePrivate secret1
