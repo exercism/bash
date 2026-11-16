@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-shared_birthday_one_birthdate() { # @test
+test_shared_birthday_one_birthdate() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("2000-01-01")
     run bash baffling_birthdays.sh shared_birthday "${birthdates[@]}"
@@ -9,7 +9,7 @@ shared_birthday_one_birthdate() { # @test
     assert_output "false"
 }
 
-shared_birthday_two_birthdates_with_same_year_month_and_day() { # @test
+test_shared_birthday_two_birthdates_with_same_year_month_and_day() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("2000-01-01" "2000-01-01")
     run bash baffling_birthdays.sh shared_birthday "${birthdates[@]}"
@@ -17,7 +17,7 @@ shared_birthday_two_birthdates_with_same_year_month_and_day() { # @test
     assert_output "true"
 }
 
-shared_birthday_two_birthdates_with_same_year_and_month_but_different_day() { # @test
+test_shared_birthday_two_birthdates_with_same_year_and_month_but_different_day() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("2012-05-09" "2012-05-17")
     run bash baffling_birthdays.sh shared_birthday "${birthdates[@]}"
@@ -25,7 +25,7 @@ shared_birthday_two_birthdates_with_same_year_and_month_but_different_day() { # 
     assert_output "false"
 }
 
-shared_birthday_two_birthdates_with_same_month_and_day_but_different_year() { # @test
+test_shared_birthday_two_birthdates_with_same_month_and_day_but_different_year() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("1999-10-23" "1988-10-23")
     run bash baffling_birthdays.sh shared_birthday "${birthdates[@]}"
@@ -33,7 +33,7 @@ shared_birthday_two_birthdates_with_same_month_and_day_but_different_year() { # 
     assert_output "true"
 }
 
-shared_birthday_two_birthdates_with_same_year_but_different_month_and_day() { # @test
+test_shared_birthday_two_birthdates_with_same_year_but_different_month_and_day() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("2007-12-19" "2007-04-27")
     run bash baffling_birthdays.sh shared_birthday "${birthdates[@]}"
@@ -41,7 +41,7 @@ shared_birthday_two_birthdates_with_same_year_but_different_month_and_day() { # 
     assert_output "false"
 }
 
-shared_birthday_two_birthdates_with_different_year_month_and_day() { # @test
+test_shared_birthday_two_birthdates_with_different_year_month_and_day() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("1997-08-04" "1963-11-23")
     run bash baffling_birthdays.sh shared_birthday "${birthdates[@]}"
@@ -49,7 +49,7 @@ shared_birthday_two_birthdates_with_different_year_month_and_day() { # @test
     assert_output "false"
 }
 
-shared_birthday_multiple_birthdates_without_shared_birthday() { # @test
+test_shared_birthday_multiple_birthdates_without_shared_birthday() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=(
         "1966-07-29"
@@ -62,7 +62,7 @@ shared_birthday_multiple_birthdates_without_shared_birthday() { # @test
     assert_output "false"
 }
 
-shared_birthday_multiple_birthdates_with_one_shared_birthday() { # @test
+test_shared_birthday_multiple_birthdates_with_one_shared_birthday() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=(
         "1966-07-29"
@@ -75,7 +75,7 @@ shared_birthday_multiple_birthdates_with_one_shared_birthday() { # @test
     assert_output "true"
 }
 
-shared_birthday_multiple_birthdates_with_more_than_one_shared_birthday() { # @test
+test_shared_birthday_multiple_birthdates_with_more_than_one_shared_birthday() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=(
         "1966-07-29"
@@ -89,7 +89,7 @@ shared_birthday_multiple_birthdates_with_more_than_one_shared_birthday() { # @te
     assert_output "true"
 }
 
-random_birthdates_generate_requested_number_of_birthdates() { # @test
+test_random_birthdates_generate_requested_number_of_birthdates() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     generate=500
     run bash baffling_birthdays.sh random_birthdates "$generate"
@@ -98,7 +98,7 @@ random_birthdates_generate_requested_number_of_birthdates() { # @test
     assert_equal "$num_output_dates" "$generate"
 }
 
-random_birthdates_years_are_not_leap_years() { # @test
+test_random_birthdates_years_are_not_leap_years() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     generate=500
     seen_leap=0
@@ -114,7 +114,7 @@ random_birthdates_years_are_not_leap_years() { # @test
     assert_equal "${seen_leap}" 0
 }
 
-random_birthdates_months_are_random() { # @test
+test_random_birthdates_months_are_random() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     declare -A seen_month
     generate=500
@@ -129,7 +129,7 @@ random_birthdates_months_are_random() { # @test
     assert_equal "${#seen_month[@]}" 12
 }
 
-random_birthdates_days_are_random() { # @test
+test_random_birthdates_days_are_random() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     declare -A seen_day
     generate=500
@@ -145,7 +145,7 @@ random_birthdates_days_are_random() { # @test
 }
 
 # "The expected probability values should be compared using some tolerance to allow for small deviations."
-estimated_probability_of_at_least_one_shared_birthday_for_one_person() { # @test
+test_estimated_probability_of_at_least_one_shared_birthday_for_one_person() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # The expected probability is 0.0
     run bash baffling_birthdays.sh estimated_probability_of_share_birthday 1
@@ -153,7 +153,7 @@ estimated_probability_of_at_least_one_shared_birthday_for_one_person() { # @test
     assert_equal "$output" 0
 }
 
-estimated_probability_of_at_least_one_shared_birthday_among_ten_people() { # @test
+test_estimated_probability_of_at_least_one_shared_birthday_among_ten_people() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # The expected probability is 11.694818
     run bash baffling_birthdays.sh estimated_probability_of_share_birthday 10
@@ -161,7 +161,7 @@ estimated_probability_of_at_least_one_shared_birthday_among_ten_people() { # @te
     assert_between 9 13
 }
 
-estimated_probability_of_at_least_one_shared_birthday_among_twentythree_people() { # @test
+test_estimated_probability_of_at_least_one_shared_birthday_among_twentythree_people() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # The expected probability is 50.729723
     run bash baffling_birthdays.sh estimated_probability_of_share_birthday 23
@@ -169,7 +169,7 @@ estimated_probability_of_at_least_one_shared_birthday_among_twentythree_people()
     assert_between 47 53
 }
 
-estimated_probability_of_at_least_one_shared_birthday_among_seventy_people() { # @test
+test_estimated_probability_of_at_least_one_shared_birthday_among_seventy_people() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     # The expected probability is 99.915958
     run bash baffling_birthdays.sh estimated_probability_of_share_birthday 70
