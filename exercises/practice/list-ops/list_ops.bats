@@ -199,7 +199,7 @@ test_reverse_the_elements_of_the_list_non_empty_odd_length_list() { # @test
 
 # track-specific test
 
-foldl_not_just_numbers() { # @test
+test_foldl_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
@@ -211,7 +211,7 @@ foldl_not_just_numbers() { # @test
     assert_equal "$result" 'Hello World!'
 }
 
-foldr_not_just_numbers() { # @test
+test_foldr_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
@@ -223,7 +223,7 @@ foldr_not_just_numbers() { # @test
     assert_equal "$result" '!dlroW olleH'
 }
 
-reverse_with_special_characters() { # @test
+test_reverse_with_special_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=("R*" "l*")
     local result=()
