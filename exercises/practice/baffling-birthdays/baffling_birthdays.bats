@@ -1,6 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# -- bats variables -- #
+declare output
+
 test_shared_birthday_one_birthdate() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     birthdates=("2000-01-01")

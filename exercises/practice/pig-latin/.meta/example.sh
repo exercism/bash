@@ -2,7 +2,8 @@
 
 main() {
     local results=()
-    for word; do
+    read -ra words <<< "$*"
+    for word in "${words[@]}"; do
         results+=( "$(translate "$word")" )
     done
     echo "${results[*]}"

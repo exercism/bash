@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-16T05:35:55+00:00
+# generated on 2026-11-16T19:42:50+00:00
 # shellcheck disable=SC2329 # "This function is never invoked."
 
 bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
@@ -12,6 +12,7 @@ fi
 
 ## append entries to a list and return the new list
 
+# shellcheck disable=SC1091
 setup() { source list_ops.sh; }
 
 
@@ -55,8 +56,9 @@ test_filter_list_returning_only_values_that_satisfy_the_filter_function_empty_li
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
-    isOdd () { (( $1 % 2 == 1 )); }
-    list::filter isOdd list result
+    # shellcheck disable=SC2329
+    is_odd () { (( $1 % 2 == 1 )); }
+    list::filter is_odd list result
     assert_equal "${#result[@]}" 0
     assert_equal "${result[*]}" ""
 }
@@ -65,8 +67,9 @@ test_filter_list_returning_only_values_that_satisfy_the_filter_function_non_empt
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 5)
     local result=()
-    isOdd () { (( $1 % 2 == 1 )); }
-    list::filter isOdd list result
+    # shellcheck disable=SC2329
+    is_odd () { (( $1 % 2 == 1 )); }
+    list::filter is_odd list result
     assert_equal "${#result[@]}" 3
     assert_equal "${result[*]}" "1 3 5"
 }
@@ -75,6 +78,7 @@ test_return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
     local result=()
+    # shellcheck disable=SC2329
     incr () { echo $(( $1 + 1 )); }
     list::map incr list result
     assert_equal "${#result[@]}" 0
@@ -85,6 +89,7 @@ test_return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 3 5 7)
     local result=()
+    # shellcheck disable=SC2329
     incr () { echo $(( $1 + 1 )); }
     list::map incr list result
     assert_equal "${#result[@]}" 4
@@ -94,7 +99,8 @@ test_return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_
 test_folds_reduces_the_given_list_from_the_left_with_a_function_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
-    local result=()
+    local result
+    # shellcheck disable=SC2329
     mult () {
         local acc=$1 elem=$2
         echo $(( acc * elem ))
@@ -106,7 +112,8 @@ test_folds_reduces_the_given_list_from_the_left_with_a_function_empty_list() { #
 test_folds_reduces_the_given_list_from_the_left_with_a_function_direction_independent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
-    local result=()
+    local result
+    # shellcheck disable=SC2329
     add () {
         local acc=$1 elem=$2
         echo $(( acc + elem ))
@@ -118,9 +125,10 @@ test_folds_reduces_the_given_list_from_the_left_with_a_function_direction_indepe
 test_folds_reduces_the_given_list_from_the_left_with_a_function_direction_dependent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
-    local result=()
+    local result
     # For this test, we need a div function that performs
     # floating point arithmetic to preserve fractions.
+    # shellcheck disable=SC2329
     div () {
         local acc=$1 elem=$2
         echo "$elem / $acc" | bc -l
@@ -133,7 +141,8 @@ test_folds_reduces_the_given_list_from_the_left_with_a_function_direction_depend
 test_folds_reduces_the_given_list_from_the_right_with_a_function_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=()
-    local result=()
+    local result
+    # shellcheck disable=SC2329
     mult () {
         local elem=$1 acc=$2
         echo $(( elem * acc ))
@@ -145,7 +154,8 @@ test_folds_reduces_the_given_list_from_the_right_with_a_function_empty_list() { 
 test_folds_reduces_the_given_list_from_the_right_with_a_function_direction_independent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
-    local result=()
+    local result
+    # shellcheck disable=SC2329
     add () {
         local elem=$1 acc=$2
         echo $(( elem + acc ))
@@ -157,9 +167,10 @@ test_folds_reduces_the_given_list_from_the_right_with_a_function_direction_indep
 test_folds_reduces_the_given_list_from_the_right_with_a_function_direction_dependent_function_applied_to_non_empty_list() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(1 2 3 4)
-    local result=()
+    local result
     # For this test, we need a div function that performs
     # floating point arithmetic to preserve fractions.
+    # shellcheck disable=SC2329
     div () {
         local elem=$1 acc=$2
         echo "$elem / $acc" | bc -l
@@ -203,6 +214,7 @@ test_foldl_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
+    # shellcheck disable=SC2329
     concat () {
         local acc=$1 elem=$2
         echo "${acc}${elem}"
@@ -215,6 +227,7 @@ test_foldr_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
+    # shellcheck disable=SC2329
     concat () {
         local elem=$1 acc=$2
         echo "${acc}${elem}"
@@ -225,6 +238,7 @@ test_foldr_not_just_numbers() { # @test
 
 test_reverse_with_special_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # shellcheck disable=SC2034
     local list=("R*" "l*")
     local result=()
     list::reverse list result

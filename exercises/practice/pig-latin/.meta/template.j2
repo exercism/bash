@@ -2,7 +2,7 @@
 {% for case in cases %}
 {{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case.given }}
+    run bash {{ solution }} {{ case.given | quote }}
     assert_success
     assert_output "{{ case.expected }}"
 }
