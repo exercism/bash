@@ -6,14 +6,14 @@ is_armstrong() {
   power=${#number}
 
   index=1
-  while [ $index -le ${#number} ]; do
-      digit=$(echo ${number} | cut -c${index}-${index})
-      sum=$(expr $sum + $(($digit**$power)))
+  while (( index <= ${#number} )); do
+      digit=$( cut -c "${index}-${index}" <<< "$number" )
+      sum=$(( sum + (digit ** power) ))
 
-      index=$(expr $index + 1)
+      (( ++index ))
   done
 
-  if [ $sum -eq $number ]; then
+  if (( sum == number )); then
     echo "true"
   else
     echo "false"

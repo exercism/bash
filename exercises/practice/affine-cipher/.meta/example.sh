@@ -7,9 +7,11 @@ process () { #main encoding and decoding process
   case "$1" in
 
     encode)
+      # shellcheck disable=SC2018
       echo "$input" | tr 'a-z' "$cypherbet" | fold -w5 | paste -sd' '
       ;;
     decode)
+      # shellcheck disable=SC2018
       echo "$input" | tr "$cypherbet" 'a-z'
       ;;
 

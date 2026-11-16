@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$#" -ne 2 ]; then
+if (( "$#" != 2 )); then
   echo "Usage: $0 <string1> <string2>" >&2
   exit 1
 fi
@@ -10,14 +10,14 @@ possibles="$2"
 
 out=""
 
-in_counts="$(echo $input | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
+in_counts="$(echo "$input" | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
 for possible in $possibles
 do
-    p_counts="$(echo $possible | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
-    if test "$in_counts" = "$p_counts" -a "$(echo $input | tr '[:upper:]' '[:lower:]')" != "$(echo $possible | tr '[:upper:]' '[:lower:]')"
+    p_counts="$(echo "$possible" | tr '[:upper:]' '[:lower:]' | fold -w1 | sort | uniq -c)"
+    if test "$in_counts" = "$p_counts" -a "$(tr '[:upper:]' '[:lower:]' <<< "$input")" != "$(tr '[:upper:]' '[:lower:]' <<< "$possible")"
     then
         out="${out} ${possible}"
     fi
 done
 
-echo ${out# } #strip leading spaces
+echo "${out# }" #strip leading spaces
