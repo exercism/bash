@@ -3,7 +3,7 @@ load bats-extra
 
 # local version: 2.1.0.1
 
-@test 'first_generic_verse' {
+first_generic_verse() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall."
@@ -12,7 +12,7 @@ Take one down and pass it around, 98 bottles of beer on the wall."
     assert_output "$expected"
 }
 
-@test '3rd_last_generic_verse' {
+third_last_generic_verse() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3 bottles of beer on the wall, 3 bottles of beer.
 Take one down and pass it around, 2 bottles of beer on the wall."
@@ -21,7 +21,7 @@ Take one down and pass it around, 2 bottles of beer on the wall."
     assert_output "$expected"
 }
 
-@test '2nd_last_generic_verse' {
+second_last_generic_verse() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall."
@@ -30,7 +30,7 @@ Take one down and pass it around, 1 bottle of beer on the wall."
     assert_output "$expected"
 }
 
-@test 'penultimate_verse' {
+penultimate_verse() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall."
@@ -39,7 +39,7 @@ Take it down and pass it around, no more bottles of beer on the wall."
     assert_output "$expected"
 }
 
-@test 'verse_with_zero_bottles' {
+verse_with_zero_bottles() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall."
@@ -48,7 +48,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
     assert_output "$expected"
 }
 
-@test 'first_two_verses' {
+first_two_verses() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
@@ -60,7 +60,7 @@ Take one down and pass it around, 97 bottles of beer on the wall."
     assert_output "$expected"
 }
 
-@test 'last_three_verses' {
+last_three_verses() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
         expected="2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
@@ -76,7 +76,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
     assert_output "$expected"
 }
 
-@test 'all_verses' {
+all_verses() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
@@ -385,21 +385,21 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
 
 # bash-specific tests: Input validation
 
-@test 'no_arguments' {
+no_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash beer_song.sh
     assert_failure
     assert_output --partial "1 or 2 arguments expected"
 }
 
-@test 'too_many_arguments' {
+too_many_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash beer_song.sh 1 2 3
     assert_failure
     assert_output --partial "1 or 2 arguments expected"
 }
 
-@test 'wrong_order_arguments' {
+wrong_order_arguments() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash beer_song.sh 1 2
     assert_failure
