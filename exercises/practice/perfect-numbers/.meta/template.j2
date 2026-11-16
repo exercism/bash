@@ -1,14 +1,6 @@
+{%- import "generator_macros.j2" as macros -%}
+
 {{ header }}
 {% for case in cases %}
-{{ case.test_function_start }}
-    {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run bash {{ solution }} {{ case.given }}
-{%- if case.expect_error %}
-    assert_failure
-    assert_output "{{ case.expect_error_msg }}"
-{%- else %}
-    assert_success
-    assert_output "{{ case.expected }}"
-{%- endif %}
-}
+{{ macros.test_equal(case, solution, None, case.input.keys(), loop) }}
 {% endfor %}
