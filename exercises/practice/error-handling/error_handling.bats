@@ -3,7 +3,7 @@ load bats-extra
 
 # local version: 0.0.1
 
-@test "correct arguments" {
+correct_arguments() { # @test
   #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice
 
@@ -11,7 +11,7 @@ load bats-extra
   assert_output "Hello, Alice"
 }
 
-@test "one long argument" {
+one_long_argument() { # @test
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh "Alice and Bob"
 
@@ -19,7 +19,7 @@ load bats-extra
   assert_output "Hello, Alice and Bob"
 }
 
-@test "incorrect arguments" {
+incorrect_arguments() { # @test
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice Bob
 
@@ -27,7 +27,7 @@ load bats-extra
   assert_output "Usage: error_handling.sh <person>"
 }
 
-@test "print usage banner with no value given" {
+print_usage_banner_with_no_value_given() { # @test
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh
 
@@ -35,7 +35,7 @@ load bats-extra
   assert_output "Usage: error_handling.sh <person>"
 }
 
-@test "empty argument" {
+empty_argument() { # @test
   [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh ""
 
