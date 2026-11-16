@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+cd "$( dirname "${BASH_SOURCE[0]}" )/.."
+
+active_exercises () {
+    jq -r '
+        .exercises |
+        to_entries |
+        map(
+            select(.key != "foregone") |
+            .key as $key |
+            .value |
+            map(
+                select((.status // "active") | IN("deprecated", "wip") | not) |
+                "exercises/\($key)/\(.slug)"
+            )
+        ) |
+        add |
+        sort |
+        .[]
+    ' "config.json"
+}
+
+readarray -t exercises < <( active_exercises )
+files=()
+
+shopt -s nullglob
+for exercise in "${exercises[@]}"; do
+    for file in "${exercise}/"{,.meta/}*{.sh,.bash,.bats}; do
+        [[ $file == "exercises/practice/markdown/markdown.sh" ]] && continue
+        files+=( "$file" )
+    done
+done
+
+shellcheck "${files[@]}"
