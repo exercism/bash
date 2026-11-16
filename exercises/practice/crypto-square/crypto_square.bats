@@ -1,20 +1,20 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-06T16:21:37+00:00
+# generated on 2026-11-16T03:45:11+00:00
 
 test_empty_plaintext_results_in_an_empty_ciphertext() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh ""
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_normalization_results_in_empty_plaintext() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash crypto_square.sh "... --- ..."
     assert_success
-    assert_output ""
+    refute_output
 }
 
 test_lowercase() { # @test
