@@ -7,13 +7,7 @@ main() {
     local    from_digits=$2
     local -i to_base=$3
 
-    # We're going to use an unquoted variable to take
-    # advantage of word splitting. However, we don't want to
-    # be affected by pathname expansion, so we must turn off
-    # that feature.
-    set -f
-    local digits=( $from_digits )
-    set +f
+    read -ra digits <<< "$from_digits"
 
     local -i decimal=0
     for digit in "${digits[@]}"; do
