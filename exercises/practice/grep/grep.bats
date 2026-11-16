@@ -42,7 +42,7 @@ teardown() {
 
 # Test grepping a single file
 
-@test "One file, one match, no flags" {
+test_one_file_one_match_no_flags() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Of Atreus, Agamemnon, King of men."
     pattern="Agamemnon"
@@ -53,7 +53,7 @@ teardown() {
     assert_output "$expected"
 }
 
-@test "One file, one match, print line numbers flag" {
+test_one_file_one_match_print_line_numbers_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2:Of that Forbidden Tree, whose mortal tast"
     pattern="Forbidden"
@@ -64,7 +64,7 @@ teardown() {
     assert_output "$expected"
 }
 
-@test "One file, one match, case-insensitive flag" {
+test_one_file_one_match_case_insensitive_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Of that Forbidden Tree, whose mortal tast"
     pattern="FORBIDDEN"
@@ -75,7 +75,7 @@ teardown() {
     assert_output "$expected"
 }
 
-@test "One file, one match, print file names flag" {
+test_one_file_one_match_print_file_names_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="paradise-lost.txt"
     pattern="Forbidden"
@@ -86,7 +86,7 @@ teardown() {
     assert_output "$expected"
 }
 
-@test "One file, one match, match entire lines flag" {
+test_one_file_one_match_match_entire_lines_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="With loss of Eden, till one greater Man"
     pattern="With loss of Eden, till one greater Man"
@@ -97,7 +97,7 @@ teardown() {
     assert_output "$expected"
 }
 
-@test "One file, one match, multiple flags" {
+test_one_file_one_match_multiple_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="9:Of Atreus, Agamemnon, King of men."
     pattern="OF ATREUS, Agamemnon, KIng of MEN."
@@ -108,7 +108,7 @@ teardown() {
     assert_output "$expected"
 }
 
-@test "One file, several matches, no flags" {
+test_one_file_several_matches_no_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Nor how it may concern my modesty,
 But I beseech your grace that I may know
@@ -121,7 +121,7 @@ The worst that may befall me in this case,"
     assert_output "$expected"
 }
 
-@test "One file, several matches, print line numbers flag" {
+test_one_file_several_matches_print_line_numbers_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="3:Nor how it may concern my modesty,
 5:But I beseech your grace that I may know
@@ -135,7 +135,7 @@ The worst that may befall me in this case,"
 }
 
 
-@test "One file, several matches, match entire lines flag" {
+test_one_file_several_matches_match_entire_lines_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     pattern="may"
@@ -146,7 +146,7 @@ The worst that may befall me in this case,"
     assert_output "$expected"
 }
 
-@test "One file, several matches, case-insensitive flag" {
+test_one_file_several_matches_case_insensitive_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Achilles sing, O Goddess! Peleus' son;
 The noble Chief Achilles from the son"
@@ -158,7 +158,7 @@ The noble Chief Achilles from the son"
     assert_output "$expected"
 }
 
-@test "One file, several matches, inverted flag" {
+test_one_file_several_matches_inverted_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Brought Death into the World, and all our woe,
 With loss of Eden, till one greater Man
@@ -173,7 +173,7 @@ That Shepherd, who first taught the chosen Seed"
     assert_output "$expected"
 }
 
-@test "One file, no matches, various flags" {
+test_one_file_no_matches_various_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     pattern="Gandalf"
@@ -184,7 +184,7 @@ That Shepherd, who first taught the chosen Seed"
     assert_output "$expected"
 }
 
-@test "One file, one match, file flag takes precedence over line flag" {
+test_one_file_one_match_file_flag_takes_precedence_over_line_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt"
     pattern="ten"
@@ -195,7 +195,7 @@ That Shepherd, who first taught the chosen Seed"
     assert_output "$expected"
 }
 
-@test "One file, several matches, inverted and match entire lines flags" {
+test_one_file_several_matches_inverted_and_match_entire_lines_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="Achilles sing, O Goddess! Peleus' son;
 His wrath pernicious, who ten thousand woes
@@ -215,7 +215,7 @@ Of Atreus, Agamemnon, King of men."
 
 # Multiple files
             
-@test "Multiple files, one match, no flags" {
+test_multiple_files_one_match_no_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt:Of Atreus, Agamemnon, King of men."
     pattern="Agamemnon"
@@ -226,7 +226,7 @@ Of Atreus, Agamemnon, King of men."
     assert_output "$expected"
 }
 
-@test "Multiple files, several matches, no flags" {
+test_multiple_files_several_matches_no_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="midsummer-night.txt:Nor how it may concern my modesty,
 midsummer-night.txt:But I beseech your grace that I may know
@@ -239,7 +239,7 @@ midsummer-night.txt:The worst that may befall me in this case,"
     assert_output "$expected"
 }
 
-@test "Multiple files, several matches, print line numbers flag" {
+test_multiple_files_several_matches_print_line_numbers_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="midsummer-night.txt:5:But I beseech your grace that I may know
 midsummer-night.txt:6:The worst that may befall me in this case,
@@ -253,7 +253,7 @@ paradise-lost.txt:6:Sing Heav'nly Muse, that on the secret top"
     assert_output "$expected"
 }
 
-@test "Multiple files, one match, print file names flag" {
+test_multiple_files_one_match_print_file_names_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt
 paradise-lost.txt"
@@ -265,7 +265,7 @@ paradise-lost.txt"
     assert_output "$expected"
 }
 
-@test "Multiple files, several matches, case-insensitive flag" {
+test_multiple_files_several_matches_case_insensitive_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt:Caused to Achaia's host, sent many a soul
 iliad.txt:Illustrious into Ades premature,
@@ -285,7 +285,7 @@ paradise-lost.txt:Sing Heav'nly Muse, that on the secret top"
     assert_output "$expected"
 }
 
-@test "Multiple files, several matches, inverted flag" {
+test_multiple_files_several_matches_inverted_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt:Achilles sing, O Goddess! Peleus' son;
 iliad.txt:The noble Chief Achilles from the son
@@ -298,7 +298,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     assert_output "$expected"
 }
 
-@test "Multiple files, one match, match entire lines flag" {
+test_multiple_files_one_match_match_entire_lines_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="midsummer-night.txt:But I beseech your grace that I may know"
     pattern="But I beseech your grace that I may know"
@@ -309,7 +309,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     assert_output "$expected"
 }
 
-@test "Multiple files, one match, multiple flags" {
+test_multiple_files_one_match_multiple_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="paradise-lost.txt:4:With loss of Eden, till one greater Man"
     pattern="WITH LOSS OF EDEN, TILL ONE GREATER MAN"
@@ -320,7 +320,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     assert_output "$expected"
 }
 
-@test "Multiple files, no matches, various flags" {
+test_multiple_files_no_matches_various_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     pattern="Frodo"
@@ -331,7 +331,7 @@ midsummer-night.txt:If I refuse to wed Demetrius."
     assert_output "$expected"
 }
 
-@test "Multiple files, several matches, file flag takes precedence over line number flag" {
+test_multiple_files_several_matches_file_flag_takes_precedence_over_line_number_flag() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt
 paradise-lost.txt"
@@ -343,7 +343,7 @@ paradise-lost.txt"
     assert_output "$expected"
 }
 
-@test "Multiple files, several matches, inverted and match entire lines flags" {
+test_multiple_files_several_matches_inverted_and_match_entire_lines_flags() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="iliad.txt:Achilles sing, O Goddess! Peleus' son;
 iliad.txt:His wrath pernicious, who ten thousand woes
