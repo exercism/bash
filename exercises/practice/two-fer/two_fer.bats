@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T06:49:56+00:00
+# generated on 2026-11-16T05:39:06+00:00
 
-@test "no name given" {
+test_no_name_given() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     # The above line controls whether to skip the test.
@@ -24,14 +24,14 @@ load bats-extra
     assert_output "One for you, one for me."
 }
 
-@test "a name given" {
+test_a_name_given() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash two_fer.sh "Alice"
     assert_success
     assert_output "One for Alice, one for me."
 }
 
-@test "another name given" {
+test_another_name_given() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash two_fer.sh "Bob"
     assert_success
