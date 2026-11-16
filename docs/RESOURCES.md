@@ -4,7 +4,7 @@
 - [Bash Guide](https://mywiki.wooledge.org/BashGuide)
 - [Bash FAQ](https://mywiki.wooledge.org/BashFAQ)
 - [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls)
-- [GNU Bash Manual](http://glennj.github.io/gnu/bash/bashref.html)
+- [GNU Bash Manual](https://glennj.github.io/gnu/bash/bashref.html)
 - [Bash-Hackers Wiki](https://web.archive.org/web/20230323071638/https://wiki.bash-hackers.org/)
 - [Shellcheck provides shell script guidelines and help](https://www.shellcheck.net/)
 

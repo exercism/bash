@@ -8,11 +8,11 @@ does have a fairly steep learning curve.
   though, and requires reading and re-reading.
 
 * Additional guides, information, and examples can be found at 
-    * [Greg's Wiki](http://mywiki.wooledge.org/BashGuide),
+    * [Greg's Wiki](https://mywiki.wooledge.org/BashGuide),
     * the [Bash Hackers Wiki](https://web.archive.org/web/20230323071638/https://wiki.bash-hackers.org/),
     * the [bash tag info page](https://stackoverflow.com/tags/bash/info) on
       Stack Overflow,
-    * and expanding on the man page, the [GNU Bash Manual](http://glennj.github.io/gnu/bash/bashref.html)
+    * and expanding on the man page, the [GNU Bash Manual](https://glennj.github.io/gnu/bash/bashref.html)
       is _the_ source of information for bash.
 
 * [shellcheck.net](https://www.shellcheck.net/) provides a web interface
