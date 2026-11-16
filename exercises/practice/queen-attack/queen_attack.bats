@@ -5,35 +5,35 @@ load bats-extra
 
 # Test creation of Queens with invalid positions
 
-@test "queen must have positive row" {
+queen_must_have_positive_row() { # @test
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run  bash queen_attack.sh -w -2,2 -b 7,7
     assert_failure
     assert_output --partial "row not positive"
 }
 
-@test "queen must have row on board" {
+queen_must_have_row_on_board() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run  bash queen_attack.sh -w 8,4 -b 7,7
     assert_failure
     assert_output --partial "row not on board"
 }
 
-@test "queen must have positive column" {
+queen_must_have_positive_column() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run  bash queen_attack.sh -w 2,-2 -b 7,7
     assert_failure
     assert_output --partial "column not positive"
 }
 
-@test "queen must have column on board" {
+queen_must_have_column_on_board() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run  bash queen_attack.sh -w 4,8 -b 7,7
     assert_failure
     assert_output --partial "column not on board"
 }
 
-@test "same position" {
+same_position() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run  bash queen_attack.sh -w 7,7 -b 7,7
     assert_failure
@@ -43,56 +43,56 @@ load bats-extra
 
 # Test the ability of one queen to attack another
 
-@test "can not attack" {
+can_not_attack() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 2,4 -b 6,6
     assert_success 
     assert_output "false"
 }
 
-@test "can attack on same row" {
+can_attack_on_same_row() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 2,4 -b 2,6
     assert_success 
     assert_output "true"
 }
 
-@test "can attack on same column" {
+can_attack_on_same_column() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 4,5 -b 2,5
     assert_success 
     assert_output "true"
 }
 
-@test "can attack on first diagonal" {
+can_attack_on_first_diagonal() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 2,2 -b 0,4
     assert_success 
     assert_output "true"
 }
 
-@test "can attack on second diagonal" {
+can_attack_on_second_diagonal() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 2,2 -b 3,1
     assert_success 
     assert_output "true"
 }
 
-@test "can attack on third diagonal" {
+can_attack_on_third_diagonal() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 2,2 -b 1,1
     assert_success 
     assert_output "true"
 }
 
-@test "can attack on fourth diagonal" {
+can_attack_on_fourth_diagonal() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 1,7 -b 0,6
     assert_success 
     assert_output "true"
 }
 
-@test "cannot attack if falling diagonals are only the same when reflected across the longest falling diagonal" {
+cannot_attack_if_falling_diagonals_are_only_the_same_when_reflected_across_the_longest_falling_diagonal() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     run bash queen_attack.sh -w 4,1 -b 2,5
     assert_success 
