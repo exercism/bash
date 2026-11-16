@@ -113,12 +113,23 @@ def camel_to_snake(name: str) -> str:
 
 def quote(obj):
     """Convert Python objects to native objects."""
-    if isinstance(obj, str):
-        return shlex.quote(obj)
     if obj is True:
-        return "true"
+        return '"true"'
     if obj is False:
-        return "false"
+        return '"false"'
+    if isinstance(obj, str):
+        translate_string = any(i in obj for i in ["$", '"'])
+        for pattern, replacement in [("\r", r"\r"), ("\n", r"\n"), ("\t", r"\t")]:
+            if pattern in obj:
+                translate_string = True
+                obj = obj.replace(pattern, replacement)
+        if translate_string:
+            return f"$'{obj}'"
+        return f'"{obj}"'
+    if isinstance(obj, (int, float)):
+        return str(obj)
+    if isinstance(obj, list):
+        return quote(" ".join(str(i) for i in obj))
     raise ValueError(f"quote() does not support {type(obj)}")
 
 
@@ -204,7 +215,7 @@ def main():
         exercises = sorted(
             {
                 i.parent.parent
-                for i in pathlib.Path("exercises/practice").glob("*/.meta/template.*.j2")
+                for i in pathlib.Path("exercises/practice").glob("*/.meta/template.j2")
             }
         )
     else:

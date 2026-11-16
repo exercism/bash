@@ -4,14 +4,11 @@
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 {%- if case.property == "allergicTo" %}
     run bash {{ solution }} {{ case.input.score }} allergic_to {{ case.input.item }}
-
-    assert_success
-    assert_output "{{ case.expected | quote }}"
 {%- else %}
     run bash {{ solution }} {{ case.input.score }} list
+{%- endif %}
 
     assert_success
-    assert_output "{{ case.expected | join(" ") }}"
-{%- endif %}
+    assert_output {{ case.expected | quote }}
 }
 {% endfor %}

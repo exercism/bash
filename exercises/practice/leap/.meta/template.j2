@@ -5,7 +5,7 @@
     run bash {{ solution }} {{ case.given }}
 
     assert_success
-    assert_output "{{ case.expected | quote }}"
+    assert_output {{ case.expected | quote }}
 }
 {% endfor %}
 test_no_input_should_return_an_error() { # @test
