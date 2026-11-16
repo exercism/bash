@@ -93,7 +93,7 @@ setup() { source list_ops.sh; }
 
 # track-specific test
 
-@test "foldl not just numbers" {
+test_foldl_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
@@ -105,7 +105,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" 'Hello World!'
 }
 
-@test "foldr not just numbers" {
+test_foldr_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
@@ -117,7 +117,7 @@ setup() { source list_ops.sh; }
     assert_equal "$result" '!dlroW olleH'
 }
 
-@test "reverse with special characters" {
+test_reverse_with_special_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=("R*" "l*")
     local result=()

@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-07T00:51:50+00:00
+# generated on 2026-11-16T05:35:55+00:00
 # shellcheck disable=SC2329 # "This function is never invoked."
 
 bash_version=$((10 * BASH_VERSINFO[0] + BASH_VERSINFO[1]))
@@ -199,7 +199,7 @@ test_reverse_the_elements_of_the_list_non_empty_odd_length_list() { # @test
 
 # track-specific test
 
-@test "foldl not just numbers" {
+test_foldl_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
@@ -211,7 +211,7 @@ test_reverse_the_elements_of_the_list_non_empty_odd_length_list() { # @test
     assert_equal "$result" 'Hello World!'
 }
 
-@test "foldr not just numbers" {
+test_foldr_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
@@ -223,7 +223,7 @@ test_reverse_the_elements_of_the_list_non_empty_odd_length_list() { # @test
     assert_equal "$result" '!dlroW olleH'
 }
 
-@test "reverse with special characters" {
+test_reverse_with_special_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=("R*" "l*")
     local result=()
