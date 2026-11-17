@@ -1,7 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T06:49:56+00:00
+# generated on 2026-11-17T21:37:57+00:00
+
+declare output
 
 test_encode_encode_with_two_rails() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

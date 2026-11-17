@@ -2,6 +2,7 @@
 load bats-extra
 
 # local version: 1.0.0.0
+declare output
 
 # -- bats variables -- #
 declare output

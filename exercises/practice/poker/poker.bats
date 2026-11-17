@@ -1,7 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T06:23:17+00:00
+# generated on 2026-11-17T21:37:57+00:00
+
+declare -a lines
 
 test_single_hand_always_wins() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
