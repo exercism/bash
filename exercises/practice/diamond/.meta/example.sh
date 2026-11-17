@@ -5,7 +5,7 @@ error () {
 }
 
 check_args () { # validate the arguments
-  [[ -z $1 || ${#1} -ne 1 || $# -ne 1 || $1 != ${1//[![:upper:]]/} ]] && error
+  [[ -z $1 || ${#1} -ne 1 || $# -ne 1 || $1 != "${1//[![:upper:]]/}" ]] && error
 }
 
 pad () {
@@ -20,9 +20,9 @@ pad () {
 
 line_a () { # print the first or last line
   padding=$(( line_width / 2 ))
-  pad $padding
+  pad "$padding"
   printf 'A'
-  pad $padding
+  pad "$padding"
   printf "\n" # get a new line
 }
 
@@ -31,11 +31,11 @@ up_to_max () {
   int_padding=1 ext_padding=$(( line_width / 2 - 1 ))
   while [[ $level -le $max_level ]]; do
     letter="${from_idx_map[$level]}"
-    pad $ext_padding # external
+    pad "$ext_padding" # external
     printf "%s" "$letter"
-    pad $int_padding # internal
+    pad "$int_padding" # internal
     printf "%s" "$letter"
-    pad $ext_padding # external
+    pad "$ext_padding" # external
     printf "\n"
     ((level++)); ((ext_padding--))
     int_padding=$(( int_padding + 2 ))

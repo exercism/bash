@@ -11,12 +11,12 @@ main() {
         (( frame > 10 )) && die "Cannot roll after game is over"
         (( pins < 0 ))   && die "Negative roll is invalid"
         (( pins > 10 ))  && die "Pin count exceeds pins on the lane"
-        too_many $pins   && die "Pin count exceeds pins on the lane"
-        add_score $pins
-        handle_frame $pins
+        too_many "$pins" && die "Pin count exceeds pins on the lane"
+        add_score "$pins"
+        handle_frame "$pins"
     done
     (( frame <= 10 )) && die "Score cannot be taken until the end of the game"
-    echo $score
+    echo "$score"
 }
 
 die() {
@@ -32,7 +32,7 @@ too_many() {
     if (( ${#current_frame[@]} == 0 )); then
         return 1
     elif (( frame == 10 )); then
-        too_many_tenth $pins
+        too_many_tenth "$pins"
     else
         (( current_frame[0] + pins > 10 ))
     fi
@@ -41,8 +41,8 @@ too_many() {
 too_many_tenth() {
     local pins=$1
     local non_strikes=()
-    for roll in ${current_frame[@]}; do
-        (( roll < 10 )) && non_strikes+=( $roll )
+    for roll in "${current_frame[@]}"; do
+        (( roll < 10 )) && non_strikes+=( "$roll" )
     done
     local num=${#non_strikes[@]}
     if  (( num == 0 )) ||
@@ -57,7 +57,7 @@ too_many_tenth() {
 add_score() {
     local pins=$1
     (( score += pins ))
-    for idx in ${!bonuses[@]}; do
+    for idx in "${!bonuses[@]}"; do
         if (( bonuses[idx] > 0 )); then
             (( score += pins ))
             (( bonuses[idx] -= 1 ))
@@ -67,9 +67,9 @@ add_score() {
 
 handle_frame() {
     if (( frame == 10 )); then
-        handle_tenth_frame $1
+        handle_tenth_frame "$1"
     else
-        handle_nth_frame $1
+        handle_nth_frame "$1"
     fi
 }
 
@@ -84,7 +84,7 @@ handle_nth_frame() {
         (( frame += 1 ))
     elif (( ${#current_frame[@]} == 0 )); then
         # first ball of frame
-        current_frame+=( $pins )
+        current_frame+=( "$pins" )
     else
         # second ball of frame
         if (( current_frame[0] + pins == 10 )); then
@@ -97,7 +97,7 @@ handle_nth_frame() {
 
 handle_tenth_frame() {
     local pins=$1
-    current_frame+=( $pins )
+    current_frame+=( "$pins" )
     local num=${#current_frame[@]}
     if  (( num == 3 )) ||
         (( num == 2 && $(sum current_frame) < 10 ))
@@ -110,8 +110,8 @@ sum() {
     # sum the contents of an array
     local -n ary=$1
     local -i sum=0
-    for val in ${ary[@]}; do (( sum += val )); done
-    echo $sum
+    for val in "${ary[@]}"; do (( sum += val )); done
+    echo "$sum"
 }
 
 main "$@"

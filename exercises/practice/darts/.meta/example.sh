@@ -4,7 +4,9 @@ shopt -s extglob
 
 main() {
     (( $# == 2 )) || die "wrong number of arguments"
-    isnumeric "$1" && isnumeric "$2" || die "arguments must be numeric"
+    if ! isnumeric "$1" || ! isnumeric "$2"; then
+        die "arguments must be numeric"
+    fi
     score_throw "$@"
 }
 
