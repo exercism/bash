@@ -40,7 +40,7 @@ main() {
         [+-]) 
             (( $# == 4 )) || die "invalid arguments"
             isnumeric "$4" || die "non-numeric argument"
-            minutes=$(( minutes $3 $4 ))
+            [[ $3 == "+" ]] && minutes=$(( minutes + $4 )) || minutes=$(( minutes - $4 ))
             ;;
         "") : ;;
         *)  die "invalid arguments" ;;

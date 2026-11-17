@@ -9,14 +9,13 @@ fi
 
 STEP=0
 
-while [ "$N" -ne "1" ]
-do
-    if [ "$(($N % 2))" -eq "0" ]; then
-        N=$(($N / 2))
+while (( N != 1 )); do
+    if (( N % 2 == 0 )); then
+        N=$(( N / 2 ))
     else
-        N=$((($N * 3) + 1))
+        N=$(( N * 3 + 1))
     fi
-    STEP=$(($STEP + 1))
+    (( ++STEP ))
 done
 
-echo $STEP
+echo "$STEP"
