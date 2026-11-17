@@ -3,6 +3,9 @@ load bats-extra
 
 # local version: 1.0.0.0
 
+# -- bats variables -- #
+declare output
+
 # Usage: between $val $low $high
 # Value is between low (inclusive) and high (exclusive).
 between() { 

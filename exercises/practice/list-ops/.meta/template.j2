@@ -9,6 +9,7 @@ fi
 
 ## append entries to a list and return the new list
 
+# shellcheck disable=SC1091
 setup() { source list_ops.sh; }
 
 {% for case in cases %}
@@ -24,8 +25,9 @@ setup() { source list_ops.sh; }
     local list=({{ case.input.list | join(" ") }})
     local result=()
     {%- if case.input.function == "(x) -> x modulo 2 == 1" %}
-    isOdd () { (( $1 % 2 == 1 )); }
-    list::{{ case.property }} isOdd list result
+    # shellcheck disable=SC2329
+    is_odd () { (( $1 % 2 == 1 )); }
+    list::{{ case.property }} is_odd list result
     {%- else %}
     UNKNOWN FILTER
     {%- endif %}
@@ -37,6 +39,7 @@ setup() { source list_ops.sh; }
     local list=({{ case.input.list | join(" ") }})
     local result=()
     {%- if case.input.function == "(x) -> x + 1" %}
+    # shellcheck disable=SC2329
     incr () { echo $(( $1 + 1 )); }
     list::{{ case.property }} incr list result
     {%- else %}
@@ -51,8 +54,9 @@ setup() { source list_ops.sh; }
         {%- set param1, param2 = "elem", "acc" %}
     {%- endif %}
     local list=({{ case.input.list | join(" ") }})
-    local result=()
+    local result
     {%- if case.input.function == "(acc, el) -> el + acc" %}
+    # shellcheck disable=SC2329
     add () {
         local {{ param1 }}=$1 {{ param2 }}=$2
         echo $(( {{ param1 }} + {{ param2 }} ))
@@ -60,6 +64,7 @@ setup() { source list_ops.sh; }
     result=$(list::{{ case.property }} add {{ case.input.initial }} list)
     assert_equal "$result" "{{ case.expected }}"
     {%- elif case.input.function == "(acc, el) -> el * acc" %}
+    # shellcheck disable=SC2329
     mult () {
         local {{ param1 }}=$1 {{ param2 }}=$2
         echo $(( {{ param1 }} * {{ param2 }} ))
@@ -69,6 +74,7 @@ setup() { source list_ops.sh; }
     {%- elif case.input.function == "(acc, el) -> el / acc" %}
     # For this test, we need a div function that performs
     # floating point arithmetic to preserve fractions.
+    # shellcheck disable=SC2329
     div () {
         local {{ param1 }}=$1 {{ param2 }}=$2
         echo "$elem / $acc" | bc -l
@@ -97,6 +103,7 @@ test_foldl_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
+    # shellcheck disable=SC2329
     concat () {
         local acc=$1 elem=$2
         echo "${acc}${elem}"
@@ -109,6 +116,7 @@ test_foldr_not_just_numbers() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     local list=(H e l l o " " W o r l d "!")
     local result
+    # shellcheck disable=SC2329
     concat () {
         local elem=$1 acc=$2
         echo "${acc}${elem}"
@@ -119,6 +127,7 @@ test_foldr_not_just_numbers() { # @test
 
 test_reverse_with_special_characters() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # shellcheck disable=SC2034
     local list=("R*" "l*")
     local result=()
     list::reverse list result

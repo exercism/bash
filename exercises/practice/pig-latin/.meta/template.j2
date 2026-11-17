@@ -2,6 +2,9 @@
 {% for case in cases %}
 {{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    {%- if "do" in case.given %}
+    # shellcheck disable=SC1010
+    {%- endif %}
     run bash {{ solution }} {{ case.given }}
     assert_success
     assert_output "{{ case.expected }}"

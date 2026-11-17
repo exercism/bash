@@ -4,6 +4,9 @@ load bats-extra
 # local version: 2.0.0.1
 # bash-specific test: Input validation, lower-casing
 
+# -- bats variables -- #
+declare output
+
 # Random key cipher"
 
 test_can_generate_a_random_key() { # @test

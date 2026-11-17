@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-07T00:51:50+00:00
+# generated on 2026-11-17T21:21:08+00:00
 
 test_ay_is_added_to_words_that_start_with_vowels_word_beginning_with_a() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -159,6 +159,7 @@ test_position_of_y_in_a_word_determines_if_it_is_a_consonant_or_a_vowel_y_as_sec
 
 test_phrases_are_translated_a_whole_phrase() { # @test
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # shellcheck disable=SC1010
     run bash pig_latin.sh why do squids enjoy xrays
     assert_success
     assert_output "ywhay oday idssquay enjoyay xraysay"
