@@ -1,7 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T07:20:04+00:00
+# generated on 2026-11-17T21:37:57+00:00
+
+declare -a lines
 
 test_color_codes_black() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

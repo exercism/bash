@@ -1,7 +1,9 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-08T06:25:39+00:00
+# generated on 2026-11-17T21:37:57+00:00
+
+declare output
 
 test_triplets_whose_sum_is_12() { # @test
     # [[ $BATS_RUN_SKIPPED == "true" ]] || skip

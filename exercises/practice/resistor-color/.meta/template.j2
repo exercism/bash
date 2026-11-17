@@ -1,4 +1,6 @@
 {{ header }}
+
+declare -a lines
 {% for case in cases %}
 {{ case.test_function_start }}
     {% if loop.first %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip

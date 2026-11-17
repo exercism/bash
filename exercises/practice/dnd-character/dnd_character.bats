@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# generated on 2026-11-06T16:26:10+00:00
+# generated on 2026-11-17T21:31:36+00:00
 
 # usage: dnd_character.sh modifier n
 # -> output expected modifier
@@ -9,6 +9,7 @@ load bats-extra
 # usage: dnd_character.sh generate
 # -> output each characteristic and ability value, one per line
 
+declare -a lines
 
 # ability modifier
 
