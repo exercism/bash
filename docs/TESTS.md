@@ -1,5 +1,13 @@
 # Tests
 
+## The tests are the requirements
+
+Each exercise contains a test file.
+Because Exercism promotes [Test-Driven Development][tdd], the tests *are* the requirements.
+Make sure to read the tests to understand how your program will be invoked, and what output is expected.
+
+## Solving Exercises
+
 You can use the online editor on the Exercism website to solve the exercises.
 Or, download the exercises to your computer, solve them locally and then submit them to Exercism.
 The rest of this document talks about working locally.
@@ -155,6 +163,7 @@ Ownership was handed over in 2017: [sstephenson/bats#150 (comment)][bats-fork].
 
 If you have the original sstephenson/bats installed (check with `bats -v` reporting a version number less than 1.0), then you should switch to bats-core; otherwise you may find yourself [experiencing unexplained test failures][legacy-failures].
 
+[tdd]: https://exercism.org/docs/using/solving-exercises/tdd
 [bats-assert]: https://github.com/bats-core/bats-assert
 [bats-fork]: https://github.com/sstephenson/bats/issues/150#issuecomment-323845404
 [bats]: https://github.com/bats-core/bats-core

@@ -1,6 +1,9 @@
 # Tests
 
 Each exercise contains a test file.
+Because Exercism promotes [Test-Driven Development][tdd], the tests *are* the requirements.
+Make sure to read the tests to understand how your program will be invoked, and what output is expected.
+
 Run the tests using the `bats` program.
 
 ```bash
@@ -12,6 +15,7 @@ If you need to print debug output while running tests locally, see [Debugging Lo
 `bats` will need to be installed.
 See the [Testing on the Bash track][tests] page for instructions to install `bats` for your system.
 
+[tdd]: https://exercism.org/docs/using/solving-exercises/tdd
 [tests]: https://exercism.org/docs/tracks/bash/tests
 [debugging]: https://exercism.org/docs/tracks/bash/debugging
 
