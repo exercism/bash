@@ -42,7 +42,7 @@ main() {
             elif [[ -n ${macros[$word]} ]]; then
                 set -- ${macros[$word]} $*
             else
-                case "$word" in
+                case $word in
                 :)
                     record_macro $*
                     # Discard rest of line
