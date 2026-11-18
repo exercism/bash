@@ -29,11 +29,11 @@ echo "$str2" | fold -w1 > $file2
 
 paste -d' ' $file1 $file2 | {
   count=0
-  while read a b; do
-    if [ "$a" != "$b" ]; then
-      count=`expr $count + 1`
+  while read -r a b; do
+    if [[ "$a" != "$b" ]]; then
+      (( ++count ))
     fi
   done
-  echo $count
+  echo "$count"
 }
 
