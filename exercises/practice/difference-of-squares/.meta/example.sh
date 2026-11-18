@@ -6,7 +6,7 @@ sum_of_squares () {
   for ((i=1; i<=n; i++)); do
     squares_summed=$((squares_summed + i ** 2))
   done
-  echo $squares_summed
+  echo "$squares_summed"
 }
 
 square_of_sum () {

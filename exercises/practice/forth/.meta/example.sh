@@ -3,7 +3,7 @@
 set -f                  # disable path exansion
 shopt -s extglob        # enable extended patterns
 
-# I'm going to use the stack and the macros as 
+# I'm going to use the stack and the macros as
 # global variables: Not best practice.
 declare -a stack        # indexed array
 declare -A macros       # associative array
@@ -37,8 +37,8 @@ main() {
             word=$1
             shift
 
-            if is_number $word; then
-                stack::push $word
+            if is_number "$word"; then
+                stack::push "$word"
             elif [[ -n ${macros[$word]} ]]; then
                 set -- ${macros[$word]} $*
             else
@@ -50,11 +50,11 @@ main() {
                     ;;
                 [-+*/])
                     # Arithmetic operation
-                    binary_op $word
+                    binary_op "$word"
                     ;;
                 dup|drop|swap|over)
                     # Invoke this word as a command
-                    $word
+                    "$word"
                     ;;
                 *)
                     echo "undefined operation" >&2
@@ -65,12 +65,12 @@ main() {
         done
     done
 
-    echo ${stack[*]}
+    echo "${stack[*]}"
 }
 
 record_macro() {
     local macro_name=$1
-    if is_number $macro_name; then 
+    if is_number "$macro_name"; then
         die "illegal operation: cannot redefine number"
     fi
     shift
@@ -104,21 +104,21 @@ need() {
 }
 
 binary_op() {
-    local op=$1
+    local op=$1 a b
 
     need 2
-    local b=$(stack::tail)
+    b=$(stack::tail)
     stack::pop
-    local a=$(stack::tail)
+    a=$(stack::tail)
     stack::pop
-    
+
     [[ $op == "/" ]] && (( b == 0 )) && die "divide by zero"
-    stack::push $(( a $op b ))
+    stack::push $(( a "$op" b ))
 }
 
 dup() {
     need 1
-    stack::push $(stack::tail)
+    stack::push "$(stack::tail)"
 }
 
 drop() {
@@ -127,20 +127,22 @@ drop() {
 }
 
 swap() {
+    local a b
     need 2
-    local b=$(stack::tail)
+    b=$(stack::tail)
     stack::pop
-    local a=$(stack::tail)
+    a=$(stack::tail)
     stack::pop
-    stack::push $b $a
+    stack::push "$b" "$a"
 }
 
 over() {
+    local a b
     need 2
-    local b=$(stack::tail)
+    b=$(stack::tail)
     stack::pop
-    local a=$(stack::tail)
-    stack::push $b $a
+    a=$(stack::tail)
+    stack::push "$b" "$a"
 }
 
 main

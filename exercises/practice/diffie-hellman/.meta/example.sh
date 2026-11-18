@@ -2,7 +2,7 @@
 
 main() {
     case $1 in
-        privateKey) rand 2 $2 ;;
+        privateKey) rand 2 "$2" ;;
         publicKey|secret) "$@" ;;
         *) echo "unknown subcommand" >&2; exit 1 ;;
     esac

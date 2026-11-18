@@ -4,6 +4,7 @@ shopt -s extglob
 
 main() {
     (( $# == 2 )) || die "wrong number of arguments"
+    # shellcheck disable=SC2015
     isnumeric "$1" && isnumeric "$2" || die "arguments must be numeric"
     score_throw "$@"
 }

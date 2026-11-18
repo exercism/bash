@@ -19,6 +19,7 @@ create_matrix() {
 }
 
 tick() {
+    # shellcheck disable=SC2034 # passed by name
     local -A next_matrix
     local -i row col countLiveCell
 
@@ -27,9 +28,11 @@ tick() {
             countLiveCell=$(check_neighborhood "$col" "$row")
 
             if (( countLiveCell == 3 || matrix[${col},${row}] == 1 && countLiveCell == 2 )); then
-                next_matrix[${col},${row}]=1
+                # shellcheck disable=SC2034 # passed by name
+                next_matrix["${col},${row}"]=1
             else
-                next_matrix[${col},${row}]=0
+                # shellcheck disable=SC2034 # passed by name
+                next_matrix["${col},${row}"]=0
             fi
         done
     done

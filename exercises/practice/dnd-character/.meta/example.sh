@@ -33,14 +33,15 @@ generate() {
     for c in "${characteristics[@]}"; do
         a=$(ability)
         printf "%s %d\n" "$c" "$a"
-        [[ $c == constitution ]] && hp=$(( 10 + $(modifier $a) ))
+        [[ $c == constitution ]] && hp=$(( 10 + $(modifier "$a") ))
     done
     echo "hitpoints $hp"
 }
 
 ability() {
-    set -- $( { d6; d6; d6; d6; } | sort -nr )  
-    echo $(( $1 + $2 + $3 ))
+    local -a dice
+    readarray -t dice < <( { d6; d6; d6; d6; } | sort -nr )
+    echo $(( dice[0] + dice[1] + dice[2] ))
 }
 
 # roll a 6-sided die

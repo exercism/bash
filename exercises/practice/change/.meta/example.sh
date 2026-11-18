@@ -4,7 +4,9 @@
 
 main() {
     local -i amount=$1; shift
+    # shellcheck disable=SC2034 # passed by name
     local -a denonimations=( "$@" )
+    # shellcheck disable=SC2034 # passed by name
     local -a firstCoinForValue=()
 
     if (( amount < 0 )); then
@@ -41,7 +43,7 @@ change() {
     C=(0)
     S=(0)
     for ((i = 1; i <= amount; i++)); do
-        C+=( $max )
+        C+=( "$max" )
         S+=( "" )
     done
 
@@ -64,6 +66,7 @@ change() {
 make_change() {
     local -i amount=$1
     local -n coins=$2
+    # shellcheck disable=SC2178 # $3 references an array, not a string
     local -n S=$3
     local -a change=()
     local coin idx
@@ -76,7 +79,7 @@ make_change() {
     while (( amount > 0 )); do
         idx=${S[amount]}
         coin=${coins[idx]}
-        change+=( $coin )
+        change+=( "$coin" )
         (( amount -= coin ))
     done
 
