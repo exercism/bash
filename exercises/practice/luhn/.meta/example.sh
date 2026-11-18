@@ -15,15 +15,15 @@ else
         digit=${num:$t:1}
 
         if [[ $is_odd -eq 1 ]]; then
-            sum=$(( sum + $digit ))
+            sum=$(( sum + digit ))
         else
-            sum=$(( $sum + ( $digit != 9 ? ( ( 2 * $digit ) % 9 ) : 9 ) ))
+            sum=$(( sum + ( digit != 9 ? ( ( 2 * digit ) % 9 ) : 9 ) ))
         fi
 
-        is_odd=$(( ! $is_odd ))
+        is_odd=$(( ! is_odd ))
     }
 
-    if [[ 0 -eq $(( 0 != ( $sum % 10 ) )) ]] ; then
+    if (( sum % 10 == 0 )); then
         echo "true"
     else
         echo "false"

@@ -7,15 +7,15 @@
 # an approximate upper bound for the nth prime
 
 main() {
-    local -i n=$1
+    local -i n=$1 upper
+    local primes=()
     if (( n <= 0 )); then
         echo "invalid input" >&2
         exit 1
     fi
 
-    local -i upper=$(approxNth $n)
-    local primes=()
-    sieve $upper primes
+    upper=$(approxNth "$n")
+    sieve "$upper" primes
 
     # should do some validation that we acually have n
     # prime numbers, but this passes the test suite.
@@ -28,7 +28,8 @@ main() {
 # ref: https://en.wikipedia.org/wiki/Prime_number_theorem
 approxNth() {
     # bc's `l()` function is natural logarithm
-    local real=$( printf "2 + 1.2 * %d * l(%d)\n" "$1" "$1" | bc -l )
+    local real
+    real=$( printf "2 + 1.2 * %d * l(%d)\n" "$1" "$1" | bc -l )
     # truncate the fractional part
     echo "${real%.*}"
 }
@@ -50,7 +51,7 @@ sieve() {
         fi
     done
     for ((i = 2; i <= limit; i++)); do
-        ${is_prime[i]} && primes_+=( $i )
+        ${is_prime[i]} && primes_+=( "$i" )
     done
     return
 }

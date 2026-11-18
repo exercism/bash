@@ -13,7 +13,7 @@ number="${isbn_candidate:0:9}" last="${isbn_candidate: -1:1}"
 [[ $last == 'X' ]] && last=10 # set the check digit if 'X'
 
 # verify that invalid chracters were not in the input
-[[ $number != ${number//[![:digit:]]/} || $last != *[0-9]* ]] && \
+[[ $number != "${number//[![:digit:]]/}" || $last != *[0-9]* ]] && \
 printf "%s\n" "false" && exit 0
 
 declare -i n=10 sum=0
