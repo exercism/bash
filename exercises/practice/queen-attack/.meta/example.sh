@@ -16,8 +16,9 @@ main() {
     validate black $b_row $b_col
     (( w_row == b_row && w_col == b_col )) && die "cannot occupy same position"
 
-    local -i d_row=$( abs $(( w_row - b_row )) )
-    local -i d_col=$( abs $(( w_col - b_col )) )
+    local -i d_row d_col
+    d_row=$( abs $(( w_row - b_row )) )
+    d_col=$( abs $(( w_col - b_col )) )
 
     if (( d_row == 0 || d_col == 0 || d_row == d_col ))
     then echo true

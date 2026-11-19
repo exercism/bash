@@ -23,8 +23,8 @@ done
 
 primes=()
 for ((p = 2; p <= limit; p++)); do
-    if ${is_prime[p]}; then
-        primes+=( $p )
+    if "${is_prime[p]}"; then
+        primes+=( "$p" )
     fi
 done
 

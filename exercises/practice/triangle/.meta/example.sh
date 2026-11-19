@@ -18,13 +18,13 @@ assert() {
   # Takes a numerical inequality in a string.
   # Pipes it through to bc
   # Float-proof numeric comparison :
-  [[ $( echo $1 | bc -l ) -eq 1 ]]
+  (( "$( bc -l <<< "$1" )" == 1 ))
 }
 
 output() {
   exit_code=$1
 
-  if [ $exit_code -eq 0 ]; then
+  if (( exit_code == 0 )); then
     echo "true"
   else
     echo "false"
@@ -43,7 +43,7 @@ valid_triangle() {
   return 0
 }
 
-if ! valid_triangle $s1 $s2 $s3; then
+if ! valid_triangle "$s1" "$s2" "$s3"; then
   # Sides do not meet triangle inequality requirement
   # Given a <= b <= c and a, b, c != 0, a + b >= c
   output 1
@@ -52,19 +52,19 @@ fi
 equilateral() {
   assert "$1 == $2" && assert "$1 == $3"
 
-  output $?
+  output "$?"
 }
 
 isosceles() {
   assert "$1 == $2" || assert "$1 == $3" || assert "$2 == $3"
 
-  output $?
+  output "$?"
 }
 
 scalene() {
   assert "$1 != $2" && assert "$1 != $3" && assert "$2 != $3"
 
-  output $?
+  output "$?"
 }
 
 # Bash Ternary Operator:
@@ -73,4 +73,4 @@ scalene() {
 # If boolean clause is false, it doesn't evaluate the other side of &&
 # If first thing is false, it evaluates the item after ||,
 # but if first two are true, doesn't bother evaluating last part.
-$triangle_type $s1 $s2 $s3 && exit 0 || exit 1
+"$triangle_type" "$s1" "$s2" "$s3" && exit 0 || exit 1

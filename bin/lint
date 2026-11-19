@@ -32,4 +32,4 @@ for exercise in "${exercises[@]}"; do
     done
 done
 
-shellcheck "${files[@]}"
+shellcheck "$@" "${files[@]}"

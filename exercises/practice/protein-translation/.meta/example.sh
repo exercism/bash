@@ -24,7 +24,7 @@ while [[ -n $codons ]]; do
         exit 1
     fi
     [[ $protein == STOP ]] && break
-    proteins+=($protein)
+    proteins+=("$protein")
     codons=${codons#???}
 done
 
