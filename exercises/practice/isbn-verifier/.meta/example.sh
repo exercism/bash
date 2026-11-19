@@ -25,6 +25,6 @@ done <<< "$number"
 (( sum += last )) # process the check digit
 
 # true if divisible by 11
-[[ $(( sum % 11 )) -eq 0 ]] && printf "%s\n" "true" && exit 0
+(( sum % 11 == 0 )) && printf "%s\n" "true" && exit 0
 
 printf "%s\n" "false"

@@ -16,8 +16,9 @@ main() {
 }
 
 verse() {
-    local cur=$(bottles "$1")
-    local next=$(bottles "$(( $1 - 1 ))")
+    local cur next
+    cur=$(bottles "$1")
+    next=$(bottles "$(( $1 - 1 ))")
     printf "%s hanging on the wall,\n" "${cur^}"
     printf "%s hanging on the wall,\n" "${cur^}"
     printf "And if one green bottle should accidentally fall,\n"

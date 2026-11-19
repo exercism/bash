@@ -5,7 +5,7 @@ die() {
   exit 1
 }
 
-if [ "$#" -ne 2 ]; then
+if (( $# != 2 )); then
   die "Usage: hamming.sh <string1> <string2>"
 fi
 

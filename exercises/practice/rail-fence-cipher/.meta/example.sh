@@ -28,7 +28,7 @@ main() {
     [[ -z $func ]] && die "specify -e or -d"
     (( rails <= 0 )) && die "must have positive number of rails"
     shift $((OPTIND - 1))
-    $func $rails "$1"
+    "$func" "$rails" "$1"
 }
 
 encode() {

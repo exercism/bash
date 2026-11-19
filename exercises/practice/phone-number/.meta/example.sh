@@ -7,7 +7,7 @@ usage() {
   # echo "<phone-number>: [1]NXX-NXX-XXXX : N=[2-9], X=[0-9]"
 }
 
-if [ "$#" -ne 1 ]; then
+if (( "$#" != 1 )); then
   usage
   exit 1
 fi
@@ -24,4 +24,4 @@ if [[ ! $result =~ $correct_pattern ]]; then
 fi
 
 # Strip off leading 1 country code if exists
-echo ${result: -10}
+echo "${result: -10}"

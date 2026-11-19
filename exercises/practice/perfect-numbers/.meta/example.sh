@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+declare -i num sum
+
 aliquot_sum() {
     local -i num=$1 sum
 
@@ -26,14 +28,14 @@ aliquot_sum() {
     echo $sum
 }
 
-declare -i num=$1
+num=$1
 
 if ((num <= 0)); then
     echo "Classification is only possible for positive integers." >&2
     exit 1
 fi
 
-declare -i sum=$(aliquot_sum $num)
+sum=$(aliquot_sum "$num")
 
 if   ((sum < num)); then echo deficient
 elif ((sum > num)); then echo abundant
