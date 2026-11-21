@@ -6,7 +6,30 @@
 set -o errexit
 set -o nounset
 
+usage() {
+    cat << END_HELP
+usage: $0 [-D] path/to/exercise
+where: -D   run in test-runner (default: run locally)
+
+examples:
+
+    $0 ./exercises/concept/shopping
+    $0 -D exercises/practice/hello-world
+
+END_HELP
+    exit 1
+}
 die() { echo "$*" >&2; exit 1; }
+
+in_docker=false
+while getopts ':hD' opt; do
+    case $opt in
+        h) usage ;;
+        D) in_docker=true ;;
+        *) die "unknown option: -$OPTARG" ;;
+    esac
+done
+shift $((OPTIND - 1))
 
 cd "$1" || die "Cannot cd to $1"
 
@@ -22,28 +45,52 @@ stub=$(jq -r '.files.solution[0]' "$config")
 tests=$(jq -r '.files.test[0]' "$config")
 [[ -f ${tests} ]] || die "Missing tests file for $exercise"
 
-solution=$(jq -r '.files.example[0]' "$config")
+solution=$(jq -r '.files.example[0] // .files.exemplar[0]' "$config")
 [[ -f ${solution} ]] || die "Missing solution file for $exercise"
 
-# Ensure each exercise has the expected number of commented-out skip lines
-case ${exercise} in
-    hello-world)         expected=0 ;;
-    *)                   expected=1 ;;
-esac
-# a PCRE: the `\Q...\E` defines a literal segment
-skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
-num_skip_comments=$(grep -cP "${skip_re}" "${tests}") || true
-(( num_skip_comments == expected )) || die "There should be exactly $expected commented skip directive(s) in ${tests}"
+# this is usually empty but might have multiple files in it
+readarray -t editor_files < <(jq -r '.files.editor[]?' "$config")
 
-echo "Processing $exercise"
+# hello-world has no skips
+# neither do concept exercises
+if [[ ${exercise} != "hello-world" ]] && ! [[ $PWD =~ exercises/concept/ ]]; then
+    # check for GNU grep from homebrew
+    command -v ggrep >/dev/null && grep="ggrep" || grep="grep"
+    "$grep" -qP _ <<< _ 2>/dev/null || die "GNU grep is required for -P option: install it with homebrew"
+
+    # a PCRE: the `\Q...\E` defines a literal segment
+    # shellcheck disable=SC2016 # no expansion wanted inside ''
+    skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
+    num_skip_comments=$("$grep" -cP "${skip_re}" "${tests}") || :
+    (( num_skip_comments == 1 )) || die "There should be exactly one commented skip directive in ${tests}"
+fi
+
+echo "Processing ${exercise}"
 
 cleanup() {
-    git checkout "${stub}"
+    rm -rf "$dir"
 }
 trap cleanup EXIT
 
 # Create implementation file from example
-cp "${solution}" "${stub}"
+dir=$(mktemp -d)
+cp "${solution}" "${dir}/${stub}"
+cp "${tests}" "${dir}/${tests}"
+cp bats-*.bash "${editor_files[@]}" "${dir}"
 
 # Run the tests
-BATS_RUN_SKIPPED=true bats "${tests}"
+cd "${dir}"
+if $in_docker; then
+    docker pull exercism/bash-test-runner
+    docker run \
+        --rm \
+        --network none \
+        --read-only \
+        --mount type=bind,src="${dir}",dst=/solution \
+        --mount type=bind,src="${dir}",dst=/output \
+        --mount type=tmpfs,dst=/tmp \
+        exercism/bash-test-runner "${exercise}" /solution /output 
+    jq . ./results.json
+else
+    BATS_RUN_SKIPPED=true bats "${tests}"
+fi
