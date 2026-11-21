@@ -43,6 +43,18 @@
         ],
         "prerequisites": [],
         "status": "wip"
+      },
+      {
+        "slug": "lasagna",
+        "name": "Lucian's Luscious Lasagna",
+        "uuid": "0a182883-a62b-49b5-aa02-accc682b6d9a",
+        "concepts": [
+          "variables"
+        ],
+        "prerequisites": [
+          "commands-and-arguments"
+        ],
+        "status": "wip"
       }
     ],
     "practice": [
@@ -674,10 +686,10 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 4,
+        "status": "wip",
         "topics": [
           "dates"
-        ],
-        "status": "wip"
+        ]
       },
       {
         "slug": "binary-search",
