@@ -26,6 +26,12 @@ This is most important for the tests, since they are delivered as a product, and
 
 [bash style guide]: https://google.github.io/styleguide/shellguide.html
 
+### Markdown style
+
+Markdown documents in this repository should use "ventilated prose": one sentence per line.
+This keeps diffs focused on the sentences that actually changed, which makes code review easier.
+Additionally, ensure that both headers and lists have a blank line before and after them.
+
 ### Prefer standard Bash over POSIX compliance
 
 When submitting or updating exercises, POSIX compliance is not required.
