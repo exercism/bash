@@ -57,10 +57,9 @@ process_file() {
                 printf "%s\n" "$file"
                 break
             fi
-            # shellcheck disable=SC2094
             output "$num_files" "$file" "$lineno" "$line"
         fi
-    done < "$file"  # shellcheck disable=SC2094
+    done < "$1"
 }
 
 output() {
