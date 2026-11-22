@@ -68,32 +68,32 @@ evaluate() {
     local -a values
     readarray -t values < <(
         for card in $cards; do  #unquoted
-            cardvalue $card
+            cardvalue "$card"
         done | sort -nr
     )
 
     local -i tiebreaker hand_value
-    if tiebreaker=$( is_5_of_a_kind ${values[@]} ); then
+    if tiebreaker=$( is_5_of_a_kind "${values[@]}" ); then
         hand_value=9
-    elif tiebreaker=$( is_straight_flush "$cards" ${values[@]} ); then
+    elif tiebreaker=$( is_straight_flush "$cards" "${values[@]}" ); then
         hand_value=8
-    elif tiebreaker=$( is_4_of_a_kind ${values[@]} ); then
+    elif tiebreaker=$( is_4_of_a_kind "${values[@]}" ); then
         hand_value=7
-    elif tiebreaker=$( is_full_house ${values[@]} ); then
+    elif tiebreaker=$( is_full_house "${values[@]}" ); then
         hand_value=6
-    elif tiebreaker=$( is_flush "$cards" ${values[@]} ); then
+    elif tiebreaker=$( is_flush "$cards" "${values[@]}" ); then
         hand_value=5
-    elif tiebreaker=$( is_straight ${values[@]} ); then
+    elif tiebreaker=$( is_straight "${values[@]}" ); then
         hand_value=4
-    elif tiebreaker=$( is_3_of_a_kind ${values[@]} ); then
+    elif tiebreaker=$( is_3_of_a_kind "${values[@]}" ); then
         hand_value=3
-    elif tiebreaker=$( is_2_pairs ${values[@]} ); then
+    elif tiebreaker=$( is_2_pairs "${values[@]}" ); then
         hand_value=2
-    elif tiebreaker=$( is_1_pair ${values[@]} ); then
+    elif tiebreaker=$( is_1_pair "${values[@]}" ); then
         hand_value=1
     else
         hand_value=0
-        tiebreaker=$(ranking ${values[@]})
+        tiebreaker=$(ranking "${values[@]}")
     fi
 
     echo $(( hand_value * 10**11 + tiebreaker ))
@@ -106,7 +106,7 @@ cardvalue() {
         K) echo 13 ;;
         Q) echo 12 ;;
         J) echo 11 ;;
-        *) echo $face ;;
+        *) echo "$face" ;;
     esac
 }
 
@@ -116,19 +116,20 @@ ranking() {
     echo $(( 10#$value ))
 }
 
-is_5_of_a_kind() { has_grouping "5" $@; }
-is_4_of_a_kind() { has_grouping "4 1" $@; }
-is_3_of_a_kind() { has_grouping "3 1 1" $@; }
-is_full_house()  { has_grouping "3 2" $@; }
-is_2_pairs()     { has_grouping "2 2 1" $@; }
-is_1_pair()      { has_grouping "2 1 1 1" $@; }
+is_5_of_a_kind() { has_grouping "5" "$@"; }
+is_4_of_a_kind() { has_grouping "4 1" "$@"; }
+is_3_of_a_kind() { has_grouping "3 1 1" "$@"; }
+is_full_house()  { has_grouping "3 2" "$@"; }
+is_2_pairs()     { has_grouping "2 2 1" "$@"; }
+is_1_pair()      { has_grouping "2 1 1 1" "$@"; }
 
 is_flush() {
     local cards=$1; shift
     # this _could_ be done in pure bash
-    local n=$(printf "%s\n" $cards | grep -o '.$' | sort -u | wc -l)
+    local n
+    n=$(tr ' ' '\n' <<< "$cards" | grep -o '.$' | sort -u | wc -l)
     if (( n == 1 )); then
-        ranking $@
+        ranking "$@"
         return $SUCCESS
     fi
     return $FAILURE
@@ -145,23 +146,23 @@ is_straight() {
             (( v == ${!i} + 1 )) || return $FAILURE
             v=${!i}
         done
-        ranking $@
+        ranking "$@"
         return $SUCCESS
     fi
 }
 
 is_straight_flush() {
     local cards=$1; shift
-    is_flush "$cards" $@ >/dev/null && is_straight $@
+    is_flush "$cards" "$@" >/dev/null && is_straight "$@"
 }
 
 has_grouping() {
     local groupings=$1
     shift
     local -a groups values
-    while read g v; do
-        groups+=($g)
-        values+=($v)
+    while read -r g v; do
+        groups+=( "$g" )
+        values+=( "$v" )
     done < <(
         printf "%s\n" "$@" |
         sort -nr |
@@ -169,7 +170,7 @@ has_grouping() {
         sort -k1,1nr -k2,2nr
     )
     if [[ "${groups[*]}" = "$groupings" ]]; then
-        ranking ${values[@]}
+        ranking "${values[@]}"
         return $SUCCESS
     fi
     return $FAILURE
