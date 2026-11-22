@@ -18,7 +18,7 @@ main() {
     b=$(indexof "$2") || die "unknown color '$2'"
     c=$(indexof "$3") || die "unknown color '$3'"
 
-    with_units $(value $a $b $c) ohms
+    with_units "$(value "$a" "$b" "$c")" ohms
 }
 
 die() { echo "$*" >&2; exit 1; }
@@ -26,7 +26,7 @@ die() { echo "$*" >&2; exit 1; }
 indexof() {
     local color=$1 i
     for (( i=0; i<=${#COLORS[@]}; i++)); do
-        if [[ $color == ${COLORS[i]} ]]; then
+        if [[ $color == "${COLORS[i]}" ]]; then
             echo $i
             return
         fi
