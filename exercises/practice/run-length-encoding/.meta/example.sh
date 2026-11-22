@@ -40,7 +40,7 @@ decode() {
             count=${BASH_REMATCH[1]}
             [[ -z $count ]] && count=1
             char=${BASH_REMATCH[2]}
-            result+="$(str_repeat "$char" $count)"
+            result+="$(str_repeat "$char" "$count")"
             len=${#BASH_REMATCH[0]}
             phrase=${phrase:len}
         fi
@@ -50,7 +50,7 @@ decode() {
 
 str_repeat() {
     local result="" char=$1 count=$2
-    for ((i=1; i<=$count; i++)); do result+="$char"; done
+    for ((i=1; i<=count; i++)); do result+="$char"; done
     echo "$result"
 }
 
