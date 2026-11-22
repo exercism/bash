@@ -1,9 +1,13 @@
 #!/usr/bin/env bats
 load bats-extra
 
+# `run --keep-empty-lines` keeps the blank lines between tasks in $lines,
+# so that assert_line --index numbers match the visible output.
+bats_require_minimum_version 1.5.0
+
 # bats test_tags=task:1
 test_print_shopping_list_name() { # @test
-    run bash shopping.sh shopping-list.txt
+    run --keep-empty-lines bash shopping.sh shopping-list.txt
 
     assert_success
     assert_line --index 0 "Ingredients for pancakes"
@@ -14,7 +18,7 @@ test_read_shopping_list_name_from_file() { # @test
     list_file="${BATS_TEST_TMPDIR}/different-shopping-list.txt"
     printf 'A different shopping list\n' > "$list_file"
 
-    run bash shopping.sh "$list_file"
+    run --keep-empty-lines bash shopping.sh "$list_file"
 
     assert_success
     assert_line --index 0 "A different shopping list"
@@ -22,18 +26,19 @@ test_read_shopping_list_name_from_file() { # @test
 
 # bats test_tags=task:2
 test_list_required_ingredients() { # @test
-    run bash shopping.sh shopping-list.txt
+    run --keep-empty-lines bash shopping.sh shopping-list.txt
 
     assert_success
-    assert_line --index 1 "Required ingredients"
-    assert_line --index 2 "1 cup flour"
-    assert_line --index 3 "0.25 cup sugar"
-    assert_line --index 4 "1 teaspoon baking powder"
-    assert_line --index 5 "0.25 teaspoon baking soda"
-    assert_line --index 6 "1 pinch salt"
-    assert_line --index 7 "1 cup buttermilk"
-    assert_line --index 8 "1 egg"
-    assert_line --index 9 "1 tablespoon melted butter"
+    assert_line --index 1 ""
+    assert_line --index 2 "Required ingredients"
+    assert_line --index 3 "1 cup flour"
+    assert_line --index 4 "0.25 cup sugar"
+    assert_line --index 5 "1 teaspoon baking powder"
+    assert_line --index 6 "0.25 teaspoon baking soda"
+    assert_line --index 7 "1 pinch salt"
+    assert_line --index 8 "1 cup buttermilk"
+    assert_line --index 9 "1 egg"
+    assert_line --index 10 "1 tablespoon melted butter"
 }
 
 # bats test_tags=task:2
@@ -50,14 +55,16 @@ Required ingredients
 3 bananas
 EOF
 
-    run bash shopping.sh "$list_file"
+    run --keep-empty-lines bash shopping.sh "$list_file"
 
     assert_success
     assert_line --index 0 "A different shopping list"
-    assert_line --index 1 "Required ingredients"
-    assert_line --index 2 "2 cups oats"
-    assert_line --index 3 "3 bananas"
-    assert_line --index 4 "The substitution for buttermilk is    regular milk"
+    assert_line --index 1 ""
+    assert_line --index 2 "Required ingredients"
+    assert_line --index 3 "2 cups oats"
+    assert_line --index 4 "3 bananas"
+    assert_line --index 5 ""
+    assert_line --index 6 "The substitution for buttermilk is    regular milk"
 }
 
 # bats test_tags=task:3

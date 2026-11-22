@@ -46,7 +46,7 @@ All the remaining words become _arguments_ to that command (options, filenames, 
 In the examples below, we'll show you some interactive commands that you can run.
 
 * The `#` character starts a _comment_.
-  Any words following the comment comment are ignored by the shell; the comment is meant only for reading.
+  Any words following the `#` are ignored by the shell; the comment is meant only for reading.
 * The `$` character denotes a shell prompt. 
   If you're copying the command, do not include the prompt.
 ~~~~
@@ -79,6 +79,8 @@ This is a test.
 ```
 
 `echo` is a command that prints its arguments to standard output (which in our case is the terminal).
+It separates the arguments with a single space and finishes the output with a newline.
+Called without any arguments, `echo` prints a blank line.
 Bash splits the command into five words, and invokes the `echo` command with four arguments.
 The extra spaces in the second example make no difference.
 `echo` does not know how spaces were originally between the words.
@@ -195,7 +197,7 @@ The directories are searched in order, from left to right, to see whether they c
 If the executable is outside a known path, the executable's file path will need to be specified.
 For the `myprogram` executable in the current directory, use `./myprogram`; if it's in the directory `/opt/somedirectory`, use `/opt/somedirectory/myprogram`.
 
-Tip: The `type` command can be used to get detalis about the command:
+Tip: The `type` command can be used to get details about the command:
 
 ```bash
 $ type rm
@@ -220,25 +222,26 @@ Making a script is easy.
 Begin by making a new file, and put this on the first line:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 ```
 
 This line is called an _interpreter directive_ (it is also called a _hashbang_ or **_shebang_**).
-It specifies that `/bin/bash` is to be used as the interpreter when the file is used as the executable in a command.
+It specifies that `bash` is to be used as the interpreter when the file is used as the executable in a command.
 When the OS's kernel executes a _non-binary file_, it reads the first line of the file.
 If the line begins with `#!`, the kernel uses the line to determine the interpreter to relay the file to.
 (There are other valid ways to do this as well, see below.)
 The `#!` must be at the very start of the file, with no spaces or blank lines before it.
 Our script's commands will appear on separate lines below this.
 
-Tip: Instead of `#!/bin/bash` , you could use
+Tip: Instead of `#!/usr/bin/env bash`, you could use
 
 ```bash
-#!/usr/bin/env bash
+#!/bin/bash
 ```
 
-`env` searches `$PATH` for the executable named by its first argument (in this case, "bash").
-For a more detailed explanation of this technique and how it differs from plain ol' `#!/bin/bash`, see [this question in StackOverflow][env bash].
+This hard-codes the path to the `bash` executable.
+`env` instead searches `$PATH` for the executable named by its first argument (in this case, "bash"), which is more portable.
+For a more detailed explanation of the `env` technique and how it differs from plain ol' `#!/bin/bash`, see [this question in StackOverflow][env bash].
 
 Please do not be fooled by scripts or examples on the Internet that use `/bin/sh` as the interpreter.
 **`sh` is not `bash`!**

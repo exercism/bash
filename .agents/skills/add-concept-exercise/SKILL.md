@@ -131,6 +131,10 @@ The Concepts this exercise unlocks are:
 - `<prerequisite-concept-slug>`
 ```
 
+Every learning objective must be addressable in the exercise itself.
+For each objective, be able to point to where the student learns it (`.docs/introduction.md`, stub comments) and, where practical, where the student practices it (a task in `.docs/instructions.md` and its tests).
+If an objective is neither taught nor exercised, reword the objective or change the exercise.
+
 ## Step 2: Register the exercise in the track config
 
 Edit the top-level `config.json`:
@@ -163,7 +167,12 @@ Edit the top-level `config.json`:
 
 Run these in order and report the results honestly:
 
-1. **Exercise tests against the exemplar:**
+1. **Learning objectives coverage review (manual):**
+   For each learning objective in `.meta/design.md`, name the file(s) that address it (introduction, instructions task, hints, stub, or tests).
+   Confirm no task requires knowledge listed under "Out of scope".
+   Resolve any objective that is neither taught nor exercised before proceeding.
+
+2. **Exercise tests against the exemplar:**
 
    ```bash
    bin/validate_one_exercise exercises/concept/<slug>
@@ -172,7 +181,7 @@ Run these in order and report the results honestly:
    This copies the exemplar over the stub name in a temp dir and runs the bats suite.
    It must pass all tests with zero skips.
 
-2. **ShellCheck:**
+3. **ShellCheck:**
 
    ```bash
    bin/lint
@@ -186,7 +195,7 @@ Run these in order and report the results honestly:
               exercises/concept/<slug>/.meta/exemplar.sh
    ```
 
-3. **Configlet** (metadata/config consistency):
+4. **Configlet** (metadata/config consistency):
 
    ```bash
    bin/configlet lint
@@ -195,7 +204,7 @@ Run these in order and report the results honestly:
    If `bin/configlet` does not exist, run `bin/fetch-configlet` first.
    If configlet cannot be fetched or run, say so — never claim it passed.
 
-4. **Review the diff:** `git status` and `git diff` — changes should be limited to the new exercise directory and the `exercises.concept` / `status` entries in `config.json`.
+5. **Review the diff:** `git status` and `git diff` — changes should be limited to the new exercise directory and the `exercises.concept` / `status` entries in `config.json`.
 
 ## Gotchas
 
