@@ -39,10 +39,10 @@ list::filter () {
 list::map () {
     local funcname=$1
     local -n __list=$2
-    local -n __result=$3
+    local -n __map_result=$3
 
     for element in "${__list[@]}"; do
-        __result+=( "$($funcname "$element")" )
+        __map_result+=( "$($funcname "$element")" )
     done
 }
 
@@ -71,9 +71,9 @@ list::foldr () {
 # Return the list reversed
 list::reverse () {
     local -n __list=$1
-    local -n __result=$2
+    local -n __reverse_result=$2
     local -i size=${#__list[@]}
     for (( i = 0; i < size; i++ )); do
-        __result[i]=${__list[-1 - i]}
+        __reverse_result[i]=${__list[-1 - i]}
     done
 }
