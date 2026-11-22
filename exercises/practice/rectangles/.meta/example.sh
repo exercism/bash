@@ -20,24 +20,24 @@ main() {
     done
 
     find_vertices
-    
+
     local topL topR bottomL bottomR
     local -i r1 r2 c1 c2
 
     for topL in "${vertices[@]}"; do
-        for topR in $(verts_to_right $topL); do
-            for bottomL in $(verts_below $topL); do
-                parse_vertex $bottomL r1 c1
-                parse_vertex $topR    r2 c2
+        for topR in $(verts_to_right "$topL"); do
+            for bottomL in $(verts_below "$topL"); do
+                parse_vertex "$bottomL" r1 c1
+                parse_vertex "$topR"    r2 c2
                 bottomR="$r1,$c2"
-                if is_rectangle $topL $bottomR; then
+                if is_rectangle "$topL" "$bottomR"; then
                     ((count++))
                 fi
             done
         done
     done
 
-    echo $count
+    echo "$count"
 }
 
 find_vertices() {
@@ -61,33 +61,33 @@ parse_vertex() {
 verts_to_right() {
     local vertex=$1
     local -i r c rr cc
-    parse_vertex $vertex r c
+    parse_vertex "$vertex" r c
     for v in "${vertices[@]}"; do
-        parse_vertex $v rr cc
-        (( r == rr && c < cc )) && echo $v
+        parse_vertex "$v" rr cc
+        (( r == rr && c < cc )) && echo "$v"
     done
 }
 
 verts_below() {
     local vertex=$1
     local -i r c rr cc
-    parse_vertex $1 r c
+    parse_vertex "$1" r c
     for v in "${vertices[@]}"; do
-        parse_vertex $v rr cc
-        (( c == cc && r < rr )) && echo $v
+        parse_vertex "$v" rr cc
+        (( c == cc && r < rr )) && echo "$v"
     done
 }
 
 is_rectangle() {
     local topL=$1 bottomR=$2
     local -i r1 r2 c1 c2
-    parse_vertex $topL    r1 c1
-    parse_vertex $bottomR r2 c2
+    parse_vertex "$topL"    r1 c1
+    parse_vertex "$bottomR" r2 c2
 
-    horizontal_line $r1 $c1 $c2 &&
-    horizontal_line $r2 $c1 $c2 &&
-    vertical_line   $c1 $r1 $r2 &&
-    vertical_line   $c2 $r1 $r2
+    horizontal_line "$r1" "$c1" "$c2" &&
+    horizontal_line "$r2" "$c1" "$c2" &&
+    vertical_line   "$c1" "$r1" "$r2" &&
+    vertical_line   "$c2" "$r1" "$r2"
 }
 
 horizontal_line() {
