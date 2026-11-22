@@ -43,11 +43,13 @@ evaluate() {
         isInt "$b" || die "syntax error"
         isOp "$op" || die "syntax error"
 
-        if [[ -n $rest ]]; then
-            q="$(( a $op b )) $rest"
-        else
-            q=$(( a $op b ))
-        fi
+    case $op in
+        '+') q=$(( a + b ));;
+        '-') q=$(( a - b ));;
+        '*') q=$(( a * b ));;
+        '/') q=$(( a / b ));;
+    esac
+    [[ -n $rest ]] && q+=" $rest"
     done
 }
 
