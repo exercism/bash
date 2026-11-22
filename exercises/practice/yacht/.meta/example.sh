@@ -6,18 +6,18 @@ main() {
     local category=$1; shift
 
     case $category in
-        ones)   xs 1 $@ ;;
-        twos)   xs 2 $@ ;;
-        threes) xs 3 $@ ;;
-        fours)  xs 4 $@ ;;
-        fives)  xs 5 $@ ;;
-        sixes)  xs 6 $@ ;;
-        "full house")      full_house $@ ;;
-        "four of a kind")  four_of_a_kind $@ ;;
-        "little straight") straight 1 $@ ;;
-        "big straight")    straight 2 $@ ;;
-        yacht)             yacht $@ ;;
-        choice)            sum $@ ;;
+        ones)   xs 1 "$@" ;;
+        twos)   xs 2 "$@" ;;
+        threes) xs 3 "$@" ;;
+        fours)  xs 4 "$@" ;;
+        fives)  xs 5 "$@" ;;
+        sixes)  xs 6 "$@" ;;
+        "full house")      full_house "$@" ;;
+        "four of a kind")  four_of_a_kind "$@" ;;
+        "little straight") straight 1 "$@" ;;
+        "big straight")    straight 2 "$@" ;;
+        yacht)             yacht "$@" ;;
+        choice)            sum "$@" ;;
     esac
 }
 
@@ -51,21 +51,21 @@ group() {
 
 yacht() {
     local -a grp
-    group grp $@
+    group grp "$@"
     # if the size of the array is 1, then all dice the same
     (( ${#grp[@]} == 1 )) && echo 50 || echo 0
 }
 
 full_house() {
     local -a grp
-    group grp $@
+    group grp "$@"
     if (( ${#grp[@]} != 2 )); then
         echo 0
     else
         local -i die
-        for die in ${!grp[@]}; do
+        for die in "${!grp[@]}"; do
             case ${grp[die]} in
-                2|3) sum $@ ;;
+                2|3) sum "$@" ;;
                 *) echo 0 ;;
             esac
             return
@@ -76,8 +76,8 @@ full_house() {
 four_of_a_kind() {
     local -a grp
     local -i die
-    group grp $@
-    for die in ${!grp[@]}; do
+    group grp "$@"
+    for die in "${!grp[@]}"; do
         if [[ ${grp[die]} == [45] ]]; then
             echo $(( die * 4 ))
             return
@@ -89,10 +89,11 @@ four_of_a_kind() {
 straight() {
     local -i start=$1; shift
     local -i cmp
+    local dice
     (( start == 1 )) && cmp=12345 || cmp=23456
 
     # calling out to sort, might as well use paste
-    local dice=$(printf "%d\n" "$@" | sort -n | tr -d \\n)
+    dice=$(printf "%d\n" "$@" | sort -n | tr -d \\n)
 
     (( dice == cmp )) && echo 30 || echo 0
 }
