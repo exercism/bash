@@ -100,7 +100,7 @@ parse() {
     local -n ary=$2
     local n d
     IFS=/ read -r n d <<<"$1"
-    ary+=(["numerator"]="$n" ["denominator"]="$d")
+    ary=(["numerator"]="$n" ["denominator"]="$d")
 }
 
 reduced() {
