@@ -44,13 +44,15 @@ ord() {
 # letters and index into it, but this is pretty cool.
 
 chr() {
+    # shellcheck disable=SC2059
     printf "\x$(printf "%x" "$1")"
 }
 
 # 100 random lower case letters
 generate_key() {
     local key=""
-    local -i a=$(ord "a") i idx
+    local -i a i idx
+    a=$(ord "a")
     for i in {1..100}; do
         idx=$(( RANDOM % 26 ))
         key+=$(chr $((a + idx)))
@@ -73,8 +75,8 @@ decode() { _code "$1" "$2" -1; }
 
 _code() {
     local -l plaintext=$1 key=$2        # lower case
-    local -i direction=$3
-    local -i a=$(ord "a") i idx p k
+    local -i direction=$3 a i idx p k
+    a=$(ord "a")
     local encoded=""
 
     # ensure the key is long enough
