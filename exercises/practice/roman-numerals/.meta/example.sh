@@ -9,11 +9,11 @@ roman=(
 )
 output=""
 num=$1
-for value in ${values[@]}; do
+for value in "${values[@]}"; do
     while (( num >= value )); do
         output+=${roman[value]}
         ((num -= value))
     done
 done
 
-echo $output
+echo "$output"
