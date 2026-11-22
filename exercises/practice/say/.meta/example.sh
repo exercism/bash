@@ -38,14 +38,14 @@ say_small() {
     elif [[ -n ${high[$n]} ]]; then
         echo "${high[$n]}"
     else
-        printf "%s-%s\n" $(say $((n - (n%10)))) $(say $((n%10)))
+        printf "%s-%s\n" "$(say $((n - (n%10))))" "$(say $((n%10)))"
     fi
 }
 
 say_compound() {
     local -i n=$(( $1 / $2 )) rem=$(( $1 % $2 ))
-    local -a saying=( $(say $n) $3 )
-    (( rem > 0 )) && saying+=( $(say $rem) )
+    local -a saying=( "$(say $n)" "$3" )
+    (( rem > 0 )) && saying+=( "$(say $rem)" )
     echo "${saying[*]}"
 }
 
