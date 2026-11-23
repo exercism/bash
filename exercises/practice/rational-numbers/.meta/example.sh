@@ -100,6 +100,7 @@ parse() {
     local -n ary=$2
     local n d
     IFS=/ read -r n d <<<"$1"
+	# shellcheck disable=SC2034
     ary=(["numerator"]="$n" ["denominator"]="$d")
 }
 
