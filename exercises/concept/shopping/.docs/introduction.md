@@ -55,6 +55,8 @@ A command can be a Bash _builtin_, such as `echo`, or an _executable_ program, s
 echo flour sugar eggs
 ```
 
+outputs:
+
 ```text
 flour sugar eggs
 ```
@@ -70,6 +72,37 @@ flour sugar eggs
 ```
 
 Calling `echo` without any arguments prints a blank line.
+
+### Options are just arguments
+
+Many commands accept _options_ that change how they behave.
+To Bash, an option is nothing special: it is a word like any other, separated from its neighbors by whitespace.
+The command itself decides how to interpret its arguments.
+By convention, options begin with a `-`.
+
+The `head` command prints the first lines of a file.
+Given a file `list.txt`:
+
+```bash
+head -n 2 list.txt
+```
+
+Bash splits this line into four words:
+
+| Word       | Role                                        |
+| ---------- | ------------------------------------------- |
+| `head`     | the command to execute                      |
+| `-n`       | an option, telling `head` to count _lines_  |
+| `2`        | the value for the `-n` option               |
+| `list.txt` | the file to read                            |
+
+Bash passes the last three words to `head` unchanged.
+It is `head` that understands that `-n` is followed by a number, and that the remaining word is a file.
+
+Because the whitespace is what separates the words, it matters where you put it.
+`head -n 2` gives `head` two arguments (`-n` and `2`) while `head -n2` gives it one (`-n2`).
+Many commands accept both forms, but that is up to the command.
+Bash does not care; it only splits the line into words.
 
 ### Quoting arguments
 
@@ -87,7 +120,8 @@ flour       sugar        eggs
 If an argument such as a filename contains whitespace, quote it:
 
 ```bash
-head -n 1 "my shopping list.txt"
+head -n 1 my shopping list.txt     # three files: "my", "shopping", "list.txt"
+head -n 1 "my shopping list.txt"   # one file
 ```
 
 ### Running a script
@@ -99,6 +133,7 @@ bash myscript
 ```
 
 Used this way, the `#!` line is just a comment.
+You are telling the operating system how to run the file.
 
 Alternatively, mark the script file as executable and run it like any other program:
 
