@@ -34,4 +34,4 @@ for (( i=0; i < ${#instructions}; i++ )); do
     esac
 done
 
-printf "%d %d %s\n" $x $y $direction
+printf "%d %d %s\n" "$x" "$y" "$direction"
