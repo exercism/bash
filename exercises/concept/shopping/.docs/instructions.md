@@ -27,27 +27,18 @@ With the supplied file, the output should be:
 Ingredients for pancakes
 ```
 
-## 2. List the required ingredients
+## 2. Count the ingredients
 
-Your shopping app is a little too helpful and sometimes inserts coupons or notes into the shopping list.
-The required-ingredients section is therefore not guaranteed to occupy the same line numbers.
+Before you leave, you are curious just how many items are on this shopping list.
+You do not need an exact ingredient count — the total number of lines in the file is a good enough approximation.
 
-Use `awk` (or any other tool you are familiar with) to find and print the section that begins with the `Required ingredients` heading in `"$shopping_list_file"`.
-Do not rely on fixed line numbers.
-Print a blank line after the shopping list name and before this section.
+Use `wc` to count the lines in `"$shopping_list_file"`.
+Print a blank line after the shopping list name and before this count.
 
 With the supplied file, this task adds the following output after that blank line:
 
 ```text
-Required ingredients
-1 cup flour
-0.25 cup sugar
-1 teaspoon baking powder
-0.25 teaspoon baking soda
-1 pinch salt
-1 cup buttermilk
-1 egg
-1 tablespoon melted butter
+21 shopping-list.txt
 ```
 
 ## 3. Print the buttermilk substitution
@@ -55,7 +46,7 @@ Required ingredients
 You arrive at the store and discover that it is out of buttermilk.
 Fortunately, the substitutions section says that you can use regular milk.
 
-After the required-ingredients section, print a blank line.
+After the line count, print a blank line.
 Then use `echo` to print the following sentence:
 
 ```text

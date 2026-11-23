@@ -18,7 +18,7 @@ The goal of this exercise is to introduce commands and arguments in Bash scripts
 
 - Declaring variables and handling positional parameters; the filename variable is provided.
 - Reading standard input.
-- Detailed usage of `head`, `awk`, or `sed`.
+- Detailed usage of `head`, `wc`, or other text-processing tools.
 - Conditionals and loops.
 - Functions.
 - Arrays and arithmetic.

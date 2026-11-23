@@ -22,18 +22,19 @@
 - The quotes keep the filename as one argument even if it contains spaces.
 - Choose one command and use it as the first command in your script.
 
-## 2. List the required ingredients
+## 2. Count the ingredients
 
-- Invoke `echo` without arguments to print the blank line before the section.
-- This command finds and prints the paragraph that starts with `Required ingredients`:
+- Invoke `echo` without arguments to print the blank line before the count.
+- The [`wc` command][wc] counts lines, words, or characters in a file.
+- The `-l` option tells `wc` to count lines.
+- This command counts the lines in `"$shopping_list_file"`:
 
   ```bash
-  awk -v RS= '/^Required ingredients/' "$shopping_list_file"
+  wc -l "$shopping_list_file"
   ```
 
-- The `-v RS=` arguments tell `awk` to treat text separated by blank lines as records, or paragraphs.
-- The quoted expression selects the record that starts with the required heading.
-- Append the `echo` command and the `awk` command after your task 1 command.
+- `wc` prints the count followed by the filename you gave it as an argument.
+- Append the `echo` command and the `wc` command after your task 1 command.
 
 ## 3. Print the buttermilk substitution
 
@@ -47,3 +48,4 @@
 - Without quotes, Bash would split the sentence into separate arguments, and `echo` would print only one space between them.
 
 [echo]: https://www.gnu.org/software/bash/manual/bash.html#Bash-Builtins
+[wc]: https://www.gnu.org/software/coreutils/manual/html_node/wc-invocation.html

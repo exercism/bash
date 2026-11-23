@@ -7,7 +7,7 @@ head -n 1 "$shopping_list_file"
 
 # Task 2
 echo
-awk -v RS= '/^Required ingredients/' "$shopping_list_file"
+wc -l "$shopping_list_file"
 
 # Task 3
 echo
