@@ -45,6 +45,7 @@ factors() {
         1) start=min; cond="<=" ;;
         *) start=max; cond=">=" ;;
     esac
+    # shellcheck disable=SC1009,SC1072,SC1073
     for ((i=start; i*i $cond n; i+=step)); do
         j=$(( n / i ))
         if (( i * j == n && (min <= j && j <= max) )); then
