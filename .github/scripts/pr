@@ -11,7 +11,6 @@ fi
 shopt -s extglob
 
 declare -A seen=()
-declare -a dirs
 status=0
 
 for file; do
