@@ -16,7 +16,7 @@ for ((i = 1; i <= n; i++ )); do
         printf -v a "%d,%d" $((i-1)) $((j-1))
         printf -v b "%d,%d" $((i-1)) $j
         cells[$i,$j]=$((${cells[$a]:-0} + ${cells[$b]:-0}))
-        row+=( ${cells[$i,$j]} )
+        row+=( "${cells[$i,$j]}" )
     done
     echo "${row[*]}"
 done
