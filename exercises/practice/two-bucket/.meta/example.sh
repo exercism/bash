@@ -7,17 +7,17 @@ main() {
     b2[size]=$2
     local goal=$3 start=$4
 
-    validate ${b1[size]} ${b2[size]} $goal
+    validate "${b1[size]}" "${b2[size]}" "$goal"
 
     case $start in
-        one) solve b1 b2 $goal ;;
-        two) solve b2 b1 $goal ;;
+        one) solve b1 b2 "$goal" ;;
+        two) solve b2 b1 "$goal" ;;
         *) echo "invalid start bucket" >&2; exit 1 ;;
     esac
 }
 
 validate() {
-    local a=$1 b=$2 goal=$3
+    local a=$1 b=$2 goal=$3 gcd
 
     # the goal amount must fit in a single bucket
     local max; (( a > b )) && max=$a || max=$b
@@ -29,7 +29,7 @@ validate() {
     # if the buckets are not relatively prime, then
     # the goal must be divisible by the greatest
     # common divisor of the buckdets
-    local gcd=$(gcd $a $b)
+    gcd=$(gcd "$a" "$b")
     if (( gcd > 1 && (goal % gcd) != 0 )); then
         echo "invalid goal: unsatisfiable" >&2
         exit 1
@@ -59,10 +59,10 @@ solve() {
 
     while true; do
         if (( start[amount] == goal )); then
-            output $moves ${start[name]} ${other[amount]}
+            output "$moves" "${start[name]}" "${other[amount]}"
             return
         elif (( other[amount] == goal )); then
-            output $moves ${other[name]} ${start[amount]}
+            output "$moves" "${other[name]}" "${start[amount]}"
             return
         fi
 
@@ -99,6 +99,7 @@ fill() {
 }
 
 empty() {
+    # shellcheck disable=SC2178
     local -n bucket=$1
     bucket[amount]=0
 }
@@ -107,9 +108,10 @@ pour() {
     # have to be careful not to reuse a variable name from
     # anywhere up the stack.
     local -n _b1_=$2 _b2_=$4
+	local b2_cap
     local b1_amt=${_b1_[amount]}
     local b2_amt=${_b2_[amount]} 
-    local b2_cap=$(capacity _b2_)
+    b2_cap=$(capacity _b2_)
 
     # determine the amount to pour: minimum of
     # b1's current amount and b2's current capacity
