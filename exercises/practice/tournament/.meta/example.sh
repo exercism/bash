@@ -32,13 +32,11 @@ while IFS=';' read -r home away result; do
     esac
 done
 
-fmt="%-30s | %2s | %2s | %2s | %2s | %2s\n"
-printf "$fmt" Team MP W D L P
+printf '%-30s | %2s | %2s | %2s | %2s | %2s\n' Team MP W D L P
 
 for team in "${!W[@]}"; do
     mp=$(( W[$team] + D[$team] + L[$team] ))
     p=$(( 3 * W[$team] + D[$team] ))
 
-    printf "$fmt" "$team" $mp ${W[$team]} ${D[$team]} ${L[$team]} $p
-
+    printf '%-30s | %2s | %2s | %2s | %2s | %2s\n' "$team" "$mp" "${W[$team]}" "${D[$team]}" "${L[$team]}" "$p"
 done | sort -t"|" -k6,6nr -k1,1
