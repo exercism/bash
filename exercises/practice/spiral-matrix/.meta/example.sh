@@ -53,6 +53,7 @@ populate() {
     while (( i <= n*n )); do
         for (( j=1; j<=len; j++)); do
             (( idx += idx_delta ))
+            # shellcheck disable=SC2034 # ary appears unused, as it is a reference
             ary[idx]=$i
             (( i++ ))
         done
