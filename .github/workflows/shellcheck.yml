@@ -1,0 +1,17 @@
+name: shellcheck
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  shellcheck:
+    name: Run shellcheck on scripts
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Run shellcheck
+        uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38
+        with:
+          ignore_names: bats-extra.bash
+          ignore_paths: >-
+            ./exercises/practice/markdown/markdown.sh
+            ./exercises/practice/beer-song/.meta/example.sh
