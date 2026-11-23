@@ -16,7 +16,7 @@ for el in "${words[@]}"; do
   fi
 done
 
-for word in ${words[@]}; do
+for word in "${words[@]}"; do
   word="${word#\'}" word="${word%\'}"
   # this breaks in bash 5.1 :(
   #((word_count_map['$word']++))
