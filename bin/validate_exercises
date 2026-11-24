@@ -6,9 +6,28 @@
 set -o errexit
 set -o nounset
 
+usage() {
+    cat << END_HELP
+usage: $0 [-D]
+where: -D   run in test-runner (default: run locally)
+END_HELP
+    exit 1
+}
+die() { echo "$*" >&2; exit 1; }
+
+opts=()
+while getopts ':hD' opt; do
+    case $opt in
+        h) usage ;;
+        D) opts+=(-D) ;;
+        *) die "unknown option: -$OPTARG" ;;
+    esac
+done
+shift $((OPTIND - 1))
+
 cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 
 for exercise in exercises/*/*; do
-    bin/validate_one_exercise "$exercise"
+    bin/validate_one_exercise "${opts[@]}" "$exercise"
     echo
 done
