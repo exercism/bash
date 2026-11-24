@@ -77,11 +77,15 @@ dir=$(mktemp -d)
 cp "${solution}" "${dir}/${stub}"
 cp "${tests}" "${dir}/${tests}"
 cp bats-*.bash "${editor_files[@]}" "${dir}"
+mkdir "$dir/.meta"
+cp .meta/config.json "${dir}/.meta"
 
 # Run the tests
 cd "${dir}"
 if $in_docker; then
-    docker pull exercism/bash-test-runner
+    # only pull the image if it's not available locally
+    docker image inspect exercism/bash-test-runner >/dev/null 2>&1 \
+        || docker pull exercism/bash-test-runner
     docker run \
         --rm \
         --network none \
