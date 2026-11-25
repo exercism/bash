@@ -45,7 +45,7 @@
   echo "The substitution for buttermilk is    regular milk"
   ```
 
-- Without quotes, Bash would split the sentence into separate arguments, and `echo` would print only one space between them.
+- Without quotes, bash would split the sentence into separate arguments, and `echo` would print only one space between them.
 
 [echo]: https://www.gnu.org/software/bash/manual/bash.html#Bash-Builtins
 [wc]: https://www.gnu.org/software/coreutils/manual/html_node/wc-invocation.html

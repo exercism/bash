@@ -1,10 +1,10 @@
 # Introduction to Commands and Arguments
 
 This track is not about how to use bash as an interactive shell.
-It is about learning to write programs using bash.
+It is about learning to write programs using Bash, the programming language.
 
 A Bash program, or _script_, is a sequence of commands stored in a file.
-Bash reads the file and executes the commands in order.
+bash (the executable) reads the file and executes the commands in order.
 
 ## The shebang
 
@@ -29,7 +29,7 @@ Bash is "sh-compatible" and can run most `sh` scripts, but some Bash features wi
 
 ## Comments
 
-A line beginning with `#` is a _comment_, and Bash ignores it.
+A line beginning with `#` is a _comment_, and bash ignores it.
 A comment can also follow a command on the same line: everything from the `#` to the end of the line is ignored.
 Comments exist for humans reading the script.
 
@@ -74,7 +74,7 @@ Calling `echo` without any arguments prints a blank line.
 ## Options are just arguments
 
 Many commands accept _options_ that change how they behave.
-To Bash, an option is nothing special: it is a word like any other, separated from its neighbors by whitespace.
+To bash, an option is nothing special: it is a word like any other, separated from its neighbors by whitespace.
 The command itself decides how to interpret its arguments.
 By convention, options begin with a `-`.
 
