@@ -17,7 +17,7 @@ One of the very earliest shells is the Bourne shell, **sh**.
 In time, this shell became [standardized][posix] to be provided on every Unix-like system.
 Many shells are based on the Bourne shell, often providing additional interactive or programming functionality.
 
-**bash** is based on the Bourne shell.
+**Bash** is based on the Bourne shell.
 That's why it is called the "**B**ourne-**a**gain **sh**ell".
 It is the default shell on many Linux systems.
 Bash provides many facilities that make it an enjoyable interactive shell, including:
@@ -29,8 +29,8 @@ Bash provides many facilities that make it an enjoyable interactive shell, inclu
 * and more.
 
 This track is not about how to use bash as an interactive shell.
-It is about learning to write programs using Bash.
-The emphasis will be on using _just_ Bash to solve problems, although there are no restrictions on calling out to external tools.
+It is about learning to write programs using bash.
+The emphasis will be on using _just_ bash to solve problems, although there are no restrictions on calling out to external tools.
 
 ## Bash Fundamentals: Commands and Arguments
 
@@ -146,8 +146,8 @@ They can be thought of as functions that are already provided.
 
 ### Keywords
 
-Keywords are like builtins, with the main difference being that keywords are actually Bash syntax and may be parsed using special rules.
-For example, `[` is a Bash builtin, while `[[` is a Bash keyword; they are both used to test for a variety of conditions.
+Keywords are like builtins, with the main difference being that keywords are actually bash syntax and may be parsed using special rules.
+For example, `[` is a bash builtin, while `[[` is a bash keyword; they are both used to test for a variety of conditions.
 But the `[[` keyword has some extra functionality.
 For example, it provides the `=~` operator that does regular expression testing.
 

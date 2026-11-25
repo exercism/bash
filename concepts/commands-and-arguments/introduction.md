@@ -1,9 +1,9 @@
 # Introduction to Commands and Arguments
 
 This track is not about how to use bash as an interactive shell.
-It is about learning to write programs using Bash, the programming language.
+It is about learning to write programs using bash, the programming language.
 
-A Bash program, or _script_, is a sequence of commands stored in a file.
+A bash program, or _script_, is a sequence of commands stored in a file.
 bash (the executable) reads the file and executes the commands in order.
 
 ## The shebang
@@ -24,7 +24,7 @@ You may also see the simpler `#!/bin/bash`, which hard-codes the interpreter's l
 ~~~~exercism/note
 Do not be fooled by scripts or examples on the Internet that use `/bin/sh` as the interpreter.
 **`sh` is not `bash`!**
-Bash is "sh-compatible" and can run most `sh` scripts, but some Bash features will break or behave unexpectedly in `sh`.
+Bash is "sh-compatible" and can run most `sh` scripts, but some bash features will break or behave unexpectedly in `sh`.
 ~~~~
 
 ## Comments
@@ -43,7 +43,7 @@ Bash divides each command into **words** that are demarcated by whitespace chara
 The first word is the name of the _command_ to be executed.
 All the remaining words become _arguments_ to that command (options, filenames, etc.).
 
-A command can be a Bash _builtin_, such as `echo`, or an _executable_ program, such as `head`, `awk`, or `sed`.
+A command can be a bash _builtin_, such as `echo`, or an _executable_ program, such as `head`, `awk`, or `sed`.
 
 ## The `echo` command
 
