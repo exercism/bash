@@ -2,7 +2,7 @@
 
 ## Goal
 
-The goal of this exercise is to introduce variables in Bash scripts.
+The goal of this exercise is to introduce variables in bash scripts.
 
 ## Learning objectives
 

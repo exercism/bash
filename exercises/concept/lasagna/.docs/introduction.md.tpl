@@ -20,8 +20,8 @@ Remember that quoting your variable expansions keeps each value as a single argu
 total=$(expr "$a" + "$b")
 ```
 
-Some operators have a special meaning to Bash.
-For example, an unquoted `*` is a filename pattern, which Bash replaces with the names of the files in the current directory.
+Some operators have a special meaning to bash.
+For example, an unquoted `*` is a filename pattern, which bash replaces with the names of the files in the current directory.
 Quote such an operator so that `expr` receives it as an argument:
 
 ```bash

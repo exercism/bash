@@ -25,7 +25,7 @@
 
 - The second command-line argument is `$2`.
 - Remember to provide a default for a missing argument.
-- `expr` needs the multiplication operator to be quoted so that Bash does not treat it as a filename pattern: `expr "$a" '*' "$b"`.
+- `expr` needs the multiplication operator to be quoted so that bash does not treat it as a filename pattern: `expr "$a" '*' "$b"`.
 - Store the minutes per layer in a variable, so the number 2 has a name.
 
 ## 4. Calculate the total working time in minutes
