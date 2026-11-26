@@ -19,5 +19,5 @@
       "bats-extra.bash"
     ]
   },
-  "blurb": "Learn how Bash scripts execute commands with arguments while printing a pancake shopping list."
+  "blurb": "Learn how bash scripts execute commands with arguments while printing a pancake shopping list."
 }

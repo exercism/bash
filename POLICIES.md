@@ -32,7 +32,7 @@ Markdown documents in this repository should use "ventilated prose": one sentenc
 This keeps diffs focused on the sentences that actually changed, which makes code review easier.
 Additionally, ensure that both headers and lists have a blank line before and after them.
 
-### Prefer standard Bash over POSIX compliance
+### Prefer standard bash over POSIX compliance
 
 When submitting or updating exercises, POSIX compliance is not required.
 This applies when discussing sumbissions for the exercises.

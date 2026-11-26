@@ -2,7 +2,7 @@
 
 ## Goal
 
-The goal of this exercise is to introduce commands and arguments in Bash scripts.
+The goal of this exercise is to introduce commands and arguments in bash scripts.
 
 ## Learning objectives
 

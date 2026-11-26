@@ -1,7 +1,7 @@
 # Instructions
 
 You have a sudden craving for pancakes.
-As a modern technically inclined person, you decide to write a Bash script that prints your shopping list.
+As a modern technically inclined person, you decide to write a bash script that prints your shopping list.
 
 The complete shopping list is stored in a file.
 Pass the filename to the script as its first command-line argument.

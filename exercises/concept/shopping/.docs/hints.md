@@ -2,7 +2,7 @@
 
 ## General
 
-- A Bash script executes its commands in order.
+- A bash script executes its commands in order.
 - The [`echo` command][echo] can print literal output and blank lines.
 - Use one `echo` command for each line of output that you print literally.
 
