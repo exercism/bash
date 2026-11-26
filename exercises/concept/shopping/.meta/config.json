@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "shopping.sh"
+    ],
+    "test": [
+      "shopping.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.sh"
+    ],
+    "editor": [
+      "shopping-list.txt"
+    ],
+    "invalidator": [
+      "bats-extra.bash"
+    ]
+  },
+  "blurb": "Learn how bash scripts execute commands with arguments while printing a pancake shopping list."
+}

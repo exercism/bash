@@ -33,6 +33,18 @@
     ]
   },
   "exercises": {
+    "concept": [
+      {
+        "slug": "shopping",
+        "name": "Shopping",
+        "uuid": "0e728e1f-386c-4cbe-9998-5179272fb6fa",
+        "concepts": [
+          "commands-and-arguments"
+        ],
+        "prerequisites": [],
+        "status": "wip"
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
