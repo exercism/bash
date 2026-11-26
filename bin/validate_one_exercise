@@ -95,6 +95,9 @@ if $in_docker; then
         --mount type=tmpfs,dst=/tmp \
         exercism/bash-test-runner "${exercise}" /solution /output 
     jq . ./results.json
+    # the test runner exits successfully even when tests fail
+    jq -e '.status == "pass"' ./results.json > /dev/null ||
+        die "Tests did not pass for ${exercise}"
 else
     BATS_RUN_SKIPPED=true bats "${tests}"
 fi
