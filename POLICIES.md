@@ -32,6 +32,12 @@ Markdown documents in this repository should use "ventilated prose": one sentenc
 This keeps diffs focused on the sentences that actually changed, which makes code review easier.
 Additionally, ensure that both headers and lists have a blank line before and after them.
 
+### Markdown style
+
+Markdown documents in this repository should use "ventilated prose": one sentence per line.
+This keeps diffs focused on the sentences that actually changed, which makes code review easier.
+Additionally, ensure that both headers and lists have a blank line before and after them.
+
 ### Prefer standard bash over POSIX compliance
 
 When submitting or updating exercises, POSIX compliance is not required.

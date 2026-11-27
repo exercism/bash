@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "lasagna.sh"
+    ],
+    "test": [
+      "lasagna.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.sh"
+    ],
+    "invalidator": [
+      "bats-extra.bash"
+    ]
+  },
+  "blurb": "Learn about variables by keeping track of the time spent cooking a lasagna."
+}
